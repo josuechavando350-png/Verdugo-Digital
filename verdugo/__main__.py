@@ -7,7 +7,7 @@ from .adapters import SPECS
 from .catalog import catalog, graph
 from .common import VerdugoError, encode, identifier
 from .engine import Engine
-from . import workflow, jobs, reconciliation, readback, surface
+from . import workflow, jobs, reconciliation, readback, surface, recovery
 from .ingress import make_server
 from .bridge import contact_bridge
 from .diagnostics import doctor
@@ -68,6 +68,7 @@ def main(argv=None):
     sub.add_parser('reconciliation-list')
     p = sub.add_parser('reconcile'); p.add_argument('input'); p.add_argument('--execute', action='store_true')
     p = sub.add_parser('reconcile-readback'); p.add_argument('input'); p.add_argument('--execute', action='store_true')
+    p = sub.add_parser('recover-running'); p.add_argument('input'); p.add_argument('--execute', action='store_true')
     p = sub.add_parser('ingress-local'); p.add_argument('--port', type=int, default=8765)
     args = parser.parse_args(argv)
     engine = None
@@ -106,6 +107,7 @@ def main(argv=None):
         elif args.cmd == 'job-resume':
             result = jobs.resume(engine, args.job_id) if args.execute else {'state': 'planned', 'job': jobs.get(engine, args.job_id)}
         elif args.cmd == 'reconciliation-list': result = reconciliation.pending(engine)
+        elif args.cmd == 'recover-running': result = recovery.recover_running(engine, read_json(args.input), args.execute)
         elif args.cmd == 'readback': result = readback.verify(engine, read_json(args.input), args.execute)
         elif args.cmd == 'surface': result = surface.overview(engine, read_json(args.input), args.execute)
         elif args.cmd == 'reconcile-readback':
@@ -124,7 +126,7 @@ def main(argv=None):
         elif args.cmd == 'run': result = engine.execute(read_json(args.input), args.execute)
         else: result = workflow.run(engine, read_json(args.input), args.execute)
         print(encode(result))
-        return 1 if isinstance(result, dict) and result.get('state') in ('failed', 'uncertain', 'paused', 'awaiting_approval', 'incomplete', 'not_configured', 'blocked', 'dead', 'pending', 'unverified', 'mismatch') else 0
+        return 1 if isinstance(result, dict) and result.get('state') in ('failed', 'uncertain', 'paused', 'awaiting_approval', 'incomplete', 'not_configured', 'blocked', 'dead', 'pending', 'unverified', 'mismatch', 'running') else 0
     except (VerdugoError, ValueError, OSError, TypeError) as exc:
         print(encode({'error': str(exc)}), file=sys.stderr)
         return 2

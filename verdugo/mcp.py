@@ -109,7 +109,7 @@ class Session:
                 output = invoke(self.engine, params['name'], params.get('arguments', {}))
                 result = {'content': [{'type': 'text', 'text': encode(output)}],
                           'isError': isinstance(output, dict) and output.get('state') in
-                          ('failed', 'uncertain', 'paused', 'awaiting_approval', 'incomplete', 'not_configured', 'blocked', 'dead', 'pending', 'unverified', 'mismatch')}
+                          ('failed', 'uncertain', 'paused', 'awaiting_approval', 'incomplete', 'not_configured', 'blocked', 'dead', 'pending', 'unverified', 'mismatch', 'running')}
             except (VerdugoError, ValueError, TypeError, RecursionError) as exc:
                 message = str(exc) if isinstance(exc, VerdugoError) else 'Invalid tool arguments'
                 result = {'content': [{'type': 'text', 'text': message}], 'isError': True}

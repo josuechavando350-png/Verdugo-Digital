@@ -5,12 +5,14 @@ import json
 import os
 import re
 import sqlite3
+import stat
 import time
 from .adapters import SPECS, build, service_config, connection, remote_id
 from .catalog import catalog
 from .common import VerdugoError, digest, encode, fields, identifier, integer, sanitize, text
 from .transport import send
 from . import identity, jobs, reconciliation, readback
+from .guards import StateGuards, GuardBusy, SCHEMA as GUARD_SCHEMA
 
 CORE = {'lead.capture', 'lead.qualify', 'payment.record', 'metrics.summary'} | identity.ACTIONS
 SCHEMA = '''
@@ -49,18 +51,30 @@ class Engine:
         if any(not isinstance(v, dict) for v in tenant_cfg.get('services', {}).values()):
             raise VerdugoError('Each service configuration must be an object')
         self.transport = transport
-        if str(state) != ':memory:':
-            p = Path(state)
+        self.state_path = ':memory:' if str(state) == ':memory:' else str(Path(state).resolve())
+        if self.state_path != ':memory:':
+            p = Path(self.state_path)
             p.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
-            # State includes business data. Do not expose or commit it.
-            fd = os.open(str(p), os.O_CREAT | os.O_RDWR, 0o600)
-            os.close(fd)
-            os.chmod(p, 0o600)
-        self.db = sqlite3.connect(str(state), isolation_level=None, timeout=10)
+            parent = p.parent.stat()
+            if parent.st_uid != os.getuid() or parent.st_mode & 0o077:
+                raise VerdugoError('State requires an owner-only local directory (mode 0700)')
+            if p.exists():
+                info = p.stat()
+                if not stat.S_ISREG(info.st_mode) or info.st_nlink != 1:
+                    raise VerdugoError('State must be a regular single-link local file')
+        # Let SQLite manage its own file descriptors. A separate open()/close()
+        # of an already-open database can cancel POSIX locks of other connections.
+        self.db = sqlite3.connect(self.state_path, isolation_level=None, timeout=10)
+        try:
+            if self.state_path != ':memory:': os.chmod(self.state_path, 0o600)
+            self.guards = StateGuards(self.state_path)
+        except BaseException:
+            self.db.close()
+            raise
         self.db.row_factory = sqlite3.Row
         self.db.execute('PRAGMA journal_mode=WAL')
         self.db.execute('PRAGMA foreign_keys=ON')
-        self.db.executescript(SCHEMA + identity.SCHEMA + jobs.SCHEMA + reconciliation.SCHEMA + readback.SCHEMA)
+        self.db.executescript(SCHEMA + identity.SCHEMA + jobs.SCHEMA + reconciliation.SCHEMA + GUARD_SCHEMA + readback.SCHEMA)
 
     def close(self):
         self.db.close()
@@ -97,6 +111,7 @@ class Engine:
         return {'name': 'Verdugo Digital', 'phase': 'integration-foundation',
                 'tenant': self.tenant, 'registered': len(rows),
                 'api_adapters_implemented': sum(r['adapter_implemented'] for r in rows),
+                'api_actions_implemented': sum(len(v) for v in SPECS.values()),
                 'live_verified': 0, 'note': 'API success is not acceptance certification.',
                 'integrations': rows}
 
@@ -178,6 +193,14 @@ class Engine:
             raise VerdugoError('Operator role required to execute')
         plan = self.plan(command)
         if not execute: return plan
+        try:
+            with self.guards.hold(self.tenant, command['key']):
+                return self._execute_guarded(command, plan)
+        except GuardBusy:
+            return {'state': 'running', 'key': command['key'], 'external_call_made': False,
+                    'note': 'Another cooperating process owns this action; no request sent.'}
+
+    def _execute_guarded(self, command, plan):
         request, cfg, fingerprint = self.prepare(command)
         if fingerprint != plan['fingerprint']:
             raise VerdugoError('Configuration changed during preparation')
@@ -198,6 +221,7 @@ class Engine:
                 self.db.execute('UPDATE plans SET used=1 WHERE tenant=? AND key=?', (self.tenant, key))
             self.db.execute('INSERT INTO runs(tenant,key,hash,state,started) VALUES(?,?,?,?,?)',
                             (self.tenant, key, fingerprint, 'running', time.time()))
+            self.guards.record(self, key)
             self.event(key, 'action.started', {'service': command['service'],
                 'operation': command['operation'], 'actor': self.actor, 'fingerprint': fingerprint})
         try:
