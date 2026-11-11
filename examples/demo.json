@@ -1,0 +1,9 @@
+{
+  "id": "demo-commercial",
+  "steps": [
+    {"id":"capture","service":"core","operation":"lead.capture","params":{"lead_id":"synthetic-1","name":"Empresa ficticia","email":"demo@example.invalid","dataset":"demo"}},
+    {"id":"qualify","service":"core","operation":"lead.qualify","depends_on":["capture"],"params":{"lead_id":{"$ref":"capture.lead_id"},"need_confirmed":true,"budget_confirmed":true,"authority_confirmed":true,"decision_days":15}},
+    {"id":"payment","service":"core","operation":"payment.record","depends_on":["capture","qualify"],"params":{"payment_id":"synthetic-payment-1","lead_id":{"$ref":"capture.lead_id"},"amount_minor":3000000,"cost_minor":1200000,"currency":"MXN","evidence_ref":"SYNTHETIC-NOT-A-REAL-PAYMENT","dataset":"demo"}},
+    {"id":"summary","service":"core","operation":"metrics.summary","depends_on":["payment"],"params":{"dataset":"demo","currency":"MXN"}}
+  ]
+}

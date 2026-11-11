@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.state/
+*.sqlite3*
+.env
+.env.*
+!.env.example
+*.local.json
+.venv/
+.coverage
+htmlcov/

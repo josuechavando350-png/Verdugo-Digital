@@ -1,0 +1,33 @@
+name: Verdugo verification
+on:
+  push:
+    branches: [main, feat/verdugo-unified-core]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: verdugo-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Checkout pinned source action
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Compile and execute local tests
+        run: |
+          python3 --version
+          python3 -m compileall -q verdugo
+          python3 -m unittest discover -s tests -v
+      - name: Synthetic end-to-end smoke test
+        run: |
+          python3 -m verdugo demo > /tmp/verdugo-demo.json
+          python3 -c "import json; x=json.load(open('/tmp/verdugo-demo.json')); assert x['synthetic_only'] and x['external_calls']==0 and x['workflow']['state']=='succeeded'"
+      - name: Registry truth checks
+        run: |
+          python3 -m verdugo --state :memory: status > /tmp/verdugo-status.json
+          python3 -c "import json; x=json.load(open('/tmp/verdugo-status.json')); assert x['registered']==100 and x['api_adapters_implemented']==12 and x['live_verified']==0"

@@ -1,0 +1,9 @@
+{
+ "id":"commercial-overview-001",
+ "steps":[
+  {"id":"people","service":"twenty","operation":"people.list","params":{}},
+  {"id":"conversations","service":"chatwoot","operation":"conversations.list","params":{}},
+  {"id":"sites","service":"umami","operation":"websites.list","params":{}},
+  {"id":"automation","service":"activepieces","operation":"flows.list","params":{}}
+ ]
+}
