@@ -6,7 +6,7 @@ import sys
 from .common import VerdugoError, encode, fields
 from .catalog import graph
 from .adapters import SPECS
-from . import workflow, jobs, reconciliation
+from . import workflow, jobs, reconciliation, readback, surface
 from . import __version__
 from .bridge import contact_bridge
 from .diagnostics import doctor
@@ -16,6 +16,10 @@ SUPPORTED = (VERSION, '2025-06-18')
 OBJ = {'type': 'object'}
 BOOL = {'type': 'boolean', 'default': False}
 TOOLS = [
+ ('verdugo_contact_readback', 'Read a proposed contact ID for an uncertain creation. No approval, no resend, no automatic resolution.',
+  {'request': OBJ, 'execute': BOOL}, ['request'], False),
+ ('verdugo_surface_overview', 'Read selected commercial surfaces through one workflow; response counts are not revenue or customer totals.',
+  {'request': OBJ, 'execute': BOOL}, ['request'], False),
  ('verdugo_queue', 'Inspect bounded tenant queue metadata; no personal payloads or lease tokens.',
   {'limit': {'type': 'integer', 'minimum': 1, 'maximum': 200}}, [], True),
  ('verdugo_job_plan', 'Plan one persisted job for separate approval; does not execute external actions.',
@@ -53,6 +57,8 @@ def invoke(engine, name, args):
     spec = next((s for s in TOOLS if s[0] == name), None)
     if not spec: raise VerdugoError('Unknown tool')
     fields(args, spec[3], set(spec[2])-set(spec[3]))
+    if name == 'verdugo_contact_readback': return readback.verify(engine, args['request'], args.get('execute', False))
+    if name == 'verdugo_surface_overview': return surface.overview(engine, args['request'], args.get('execute', False))
     if name == 'verdugo_queue': return jobs.overview(engine, args.get('limit', 50))
     if name == 'verdugo_job_plan': return jobs.plan(engine, args['job_id'])
     if name == 'verdugo_worker': return jobs.work(engine, args.get('execute', False))
@@ -103,7 +109,7 @@ class Session:
                 output = invoke(self.engine, params['name'], params.get('arguments', {}))
                 result = {'content': [{'type': 'text', 'text': encode(output)}],
                           'isError': isinstance(output, dict) and output.get('state') in
-                          ('failed', 'uncertain', 'paused', 'awaiting_approval', 'incomplete', 'not_configured', 'blocked', 'dead', 'pending')}
+                          ('failed', 'uncertain', 'paused', 'awaiting_approval', 'incomplete', 'not_configured', 'blocked', 'dead', 'pending', 'unverified', 'mismatch')}
             except (VerdugoError, ValueError, TypeError, RecursionError) as exc:
                 message = str(exc) if isinstance(exc, VerdugoError) else 'Invalid tool arguments'
                 result = {'content': [{'type': 'text', 'text': message}], 'isError': True}

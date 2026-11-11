@@ -7,7 +7,7 @@ from .adapters import SPECS
 from .catalog import catalog, graph
 from .common import VerdugoError, encode, identifier
 from .engine import Engine
-from . import workflow, jobs, reconciliation
+from . import workflow, jobs, reconciliation, readback, surface
 from .ingress import make_server
 from .bridge import contact_bridge
 from .diagnostics import doctor
@@ -31,6 +31,8 @@ def template(tenant):
                 token_env='VERDUGO_' + tenant.upper() + '_' + sid.upper().replace('-', '_') + '_TOKEN')
     services['chatwoot'].update(account_id=1, inbox_id=1, auth_mode='bearer', result_id_path='payload.contact.id')
     services['twenty'].update(workspace_id='REPLACE_WORKSPACE_ID', result_id_path='data.createPerson.id')
+    services['twenty'].update(readback_reviewed=False, readback_record_path='data.person')
+    services['chatwoot'].update(readback_reviewed=False, readback_record_path='payload')
     services['langfuse']['username'] = 'REPLACE_LANGFUSE_PUBLIC_KEY'
     services['posthog']['project_id'] = 1
     services['listmonk']['username'] = 'verdugo-api'
@@ -50,7 +52,7 @@ def main(argv=None):
     for name in ('status', 'catalog', 'graph', 'mcp', 'demo'): sub.add_parser(name)
     p = sub.add_parser('init'); p.add_argument('--out', default='verdugo.local.json')
     p = sub.add_parser('events'); p.add_argument('--after', type=int, default=0)
-    for name in ('plan', 'run', 'workflow', 'bridge'):
+    for name in ('plan', 'run', 'workflow', 'bridge', 'readback', 'surface'):
         p = sub.add_parser(name); p.add_argument('input', help='JSON text or @path.json')
         if name != 'plan': p.add_argument('--execute', action='store_true')
     p = sub.add_parser('doctor'); p.add_argument('--probe-id', default='configuration-check')
@@ -65,6 +67,7 @@ def main(argv=None):
     p = sub.add_parser('job-resume'); p.add_argument('job_id'); p.add_argument('--execute', action='store_true')
     sub.add_parser('reconciliation-list')
     p = sub.add_parser('reconcile'); p.add_argument('input'); p.add_argument('--execute', action='store_true')
+    p = sub.add_parser('reconcile-readback'); p.add_argument('input'); p.add_argument('--execute', action='store_true')
     p = sub.add_parser('ingress-local'); p.add_argument('--port', type=int, default=8765)
     args = parser.parse_args(argv)
     engine = None
@@ -103,6 +106,10 @@ def main(argv=None):
         elif args.cmd == 'job-resume':
             result = jobs.resume(engine, args.job_id) if args.execute else {'state': 'planned', 'job': jobs.get(engine, args.job_id)}
         elif args.cmd == 'reconciliation-list': result = reconciliation.pending(engine)
+        elif args.cmd == 'readback': result = readback.verify(engine, read_json(args.input), args.execute)
+        elif args.cmd == 'surface': result = surface.overview(engine, read_json(args.input), args.execute)
+        elif args.cmd == 'reconcile-readback':
+            result = readback.confirm(engine, read_json(args.input)) if args.execute else {'state': 'planned', 'note': 'Separate approver required; no evidence applied'}
         elif args.cmd == 'reconcile':
             result = reconciliation.confirm(engine, read_json(args.input)) if args.execute else {
                 'state': 'planned', 'note': 'Human evidence not applied; --execute and approver role required'}
@@ -117,7 +124,7 @@ def main(argv=None):
         elif args.cmd == 'run': result = engine.execute(read_json(args.input), args.execute)
         else: result = workflow.run(engine, read_json(args.input), args.execute)
         print(encode(result))
-        return 1 if isinstance(result, dict) and result.get('state') in ('failed', 'uncertain', 'paused', 'awaiting_approval', 'incomplete', 'not_configured', 'blocked', 'dead', 'pending') else 0
+        return 1 if isinstance(result, dict) and result.get('state') in ('failed', 'uncertain', 'paused', 'awaiting_approval', 'incomplete', 'not_configured', 'blocked', 'dead', 'pending', 'unverified', 'mismatch') else 0
     except (VerdugoError, ValueError, OSError, TypeError) as exc:
         print(encode({'error': str(exc)}), file=sys.stderr)
         return 2

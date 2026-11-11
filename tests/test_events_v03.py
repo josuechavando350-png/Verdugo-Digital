@@ -481,9 +481,9 @@ class InterfaceTests(EventsBase):
             self.assertEqual(400, response.status); response.read()
         finally: conn.close()
 
-    def test_mcp_has_twelve_tools_without_approval_or_signer(self):
+    def test_mcp_tools_without_approval_or_signer(self):
         names = {t['name'] for t in tool_definitions()}
-        self.assertEqual(12, len(names))
+        self.assertEqual(14, len(names))
         self.assertIn('verdugo_worker', names)
         self.assertFalse(any('approve' in n or 'sign' in n for n in names))
         self.enqueue()

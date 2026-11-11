@@ -10,7 +10,7 @@ from .adapters import SPECS, build, service_config, connection, remote_id
 from .catalog import catalog
 from .common import VerdugoError, digest, encode, fields, identifier, integer, sanitize, text
 from .transport import send
-from . import identity, jobs, reconciliation
+from . import identity, jobs, reconciliation, readback
 
 CORE = {'lead.capture', 'lead.qualify', 'payment.record', 'metrics.summary'} | identity.ACTIONS
 SCHEMA = '''
@@ -60,7 +60,7 @@ class Engine:
         self.db.row_factory = sqlite3.Row
         self.db.execute('PRAGMA journal_mode=WAL')
         self.db.execute('PRAGMA foreign_keys=ON')
-        self.db.executescript(SCHEMA + identity.SCHEMA + jobs.SCHEMA + reconciliation.SCHEMA)
+        self.db.executescript(SCHEMA + identity.SCHEMA + jobs.SCHEMA + reconciliation.SCHEMA + readback.SCHEMA)
 
     def close(self):
         self.db.close()

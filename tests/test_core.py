@@ -80,7 +80,7 @@ class CatalogTests(Base):
 
     def test_no_false_live_status(self):
         s=self.engine.status()
-        self.assertEqual(18,s['api_adapters_implemented'])
+        self.assertEqual(22,s['api_adapters_implemented'])
         self.assertEqual(0,s['live_verified'])
         self.assertFalse(any(r['live_verified'] for r in s['integrations']))
 
@@ -88,19 +88,20 @@ class CatalogTests(Base):
         g=graph(SPECS)
         self.assertEqual(101,len(g['nodes']))
         self.assertEqual(100,len(g['edges']))
-        self.assertEqual(18,sum(e['kind']=='adapter' for e in g['edges']))
+        self.assertEqual(22,sum(e['kind']=='adapter' for e in g['edges']))
         self.assertFalse(any(e['live'] for e in g['edges']))
 
     def test_template_disabled(self):
         self.assertEqual(100,len(template('nexus')['tenants']['nexus']['services']))
         self.assertFalse(any(c['enabled'] for c in template('nexus')['tenants']['nexus']['services'].values()))
 
-    def test_all_18_recipes_build(self):
+    def test_all_recipes_build(self):
         for sid, ops in SPECS.items():
             for op in ops:
                 with self.subTest(service=sid,op=op):
                     params=({'first_name':'Demo','email':'demo@example.invalid'} if op.endswith('create')
-                            else {'query':'up'} if sid=='prometheus' else {})
+                            else {'query':'up'} if sid=='prometheus'
+                            else {'remote_id':'42'} if op.endswith('.get') else {})
                     req=build(sid,op,params,self.config['tenants']['nexus']['services'][sid])
                     self.assertTrue(req['public']['url'].startswith('https://example.invalid/'))
                     self.assertNotIn(SECRET,json.dumps(req['public']))

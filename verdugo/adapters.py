@@ -7,9 +7,11 @@ from .common import VerdugoError, fields, text, integer, identifier, digest, enc
 
 # API-contract implementations; live compatibility is NOT established by this list.
 SPECS = {
- 'twenty': {'people.list': ('GET', '/rest/people'), 'people.create': ('POST', '/rest/people')},
+ 'twenty': {'people.list': ('GET', '/rest/people'), 'people.create': ('POST', '/rest/people'),
+            'people.get': ('GET', '/rest/people/{remote_id}')},
  'chatwoot': {'conversations.list': ('GET', '/api/v1/accounts/{account_id}/conversations'),
-              'contacts.create': ('POST', '/api/v1/accounts/{account_id}/contacts')},
+              'contacts.create': ('POST', '/api/v1/accounts/{account_id}/contacts'),
+              'contacts.get': ('GET', '/api/v1/accounts/{account_id}/contacts/{remote_id}')},
  'listmonk': {'lists.list': ('GET', '/api/lists')},
  'umami': {'websites.list': ('GET', '/api/websites')},
  'meilisearch': {'indexes.list': ('GET', '/indexes')},
@@ -26,10 +28,14 @@ SPECS = {
  'lago': {'customers.list': ('GET', '/api/v1/customers')},
  'langfuse': {'projects.list': ('GET', '/api/public/projects')},
  'changedetection': {'watches.list': ('GET', '/api/v1/watch')},
+ 'mautic': {'contacts.list': ('GET', '/api/contacts')},
+ 'easyappointments': {'services.list': ('GET', '/index.php/api/v1/services')},
+ 'formbricks': {'surveys.list': ('GET', '/api/v1/management/surveys')},
+ 'dub': {'links.list': ('GET', '/links')},
 }
 HEADERS = {'qdrant': 'api-key', 'metabase': 'X-API-Key',
            'shlink': 'X-Api-Key', 'n8n': 'X-N8N-API-KEY',
-           'changedetection': 'x-api-key'}
+           'changedetection': 'x-api-key', 'formbricks': 'x-api-key'}
 
 
 def service_config(config, tenant, service):
@@ -105,7 +111,14 @@ def build(service, operation, params, cfg):
         raise VerdugoError('Adapter/action not implemented: %s.%s' % (service, operation))
     method, path = SPECS[service][operation]
     query, body = {}, None
-    if operation.endswith('.create'):
+    if operation.endswith('.get'):
+        fields(params, ('remote_id',))
+        rid = identifier(params['remote_id'])
+        if service == 'chatwoot' and not re.fullmatch(r'[1-9][0-9]{0,14}', rid):
+            raise VerdugoError('Chatwoot requires a positive decimal contact ID')
+        path = path.replace('{remote_id}', rid)
+    elif operation.endswith('.create'):
+
         fields(params, ('first_name', 'email'), ('last_name',))
         first = text(params['first_name'], 100)
         last = text(params.get('last_name', ' '), 100) if params.get('last_name') else ''
@@ -128,7 +141,14 @@ def build(service, operation, params, cfg):
     else:
         fields(params, (), ('page',))
         page = integer(params.get('page', 1), 1, 1000)
-        if service in ('frappe-crm', 'erpnext'):
+        if service == 'mautic':
+            query = {'limit': 50, 'start': (page-1)*50, 'orderBy': 'id', 'orderByDir': 'asc'}
+        elif service == 'easyappointments':
+            query = {'page': page, 'length': 50, 'fields': 'id,name,duration'}
+        elif service == 'dub':
+            if page != 1: raise VerdugoError('Dub cursor pagination is not implemented')
+            query = {'pageSize': 50}
+        elif service in ('frappe-crm', 'erpnext'):
             selected = ['name', 'lead_name', 'email'] if service == 'frappe-crm' else ['name', 'customer_name']
             query = {'fields': encode(selected), 'limit_page_length': 50,
                      'limit_start': (page-1)*50, 'order_by': 'name asc'}

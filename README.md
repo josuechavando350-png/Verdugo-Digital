@@ -1,24 +1,24 @@
 # Verdugo Digital
 
-Núcleo de control comercial para NexusBotStudio y empresas cliente. Una entrada CLI/MCP para planes, flujos, eventos y evidencia. **v0.3.0 de ingeniería; no son 100 servicios desplegados.**
+Núcleo de control comercial para NexusBotStudio y empresas cliente. Una entrada CLI/MCP para planes, flujos, eventos y evidencia. **v0.4.0 de ingeniería; no son 100 servicios desplegados.**
 
 ## Estado verificable
 
 | Componente | Estado |
 |---|---|
 | Selección original | 100 proyectos registrados |
-| Adaptadores HTTP | 18 implementados / 20 acciones delimitadas |
+| Adaptadores HTTP | 22 implementados / 26 acciones delimitadas |
 | Núcleo comercial | 6 acciones; pagos declarados, no verificación bancaria |
-| Herramientas MCP | 12, por stdio; sin autoaprobación |
+| Herramientas MCP | 14, por stdio; sin autoaprobación |
 | Eventos entrantes | Sobre canónico HMAC-SHA256, 2 rutas permitidas |
-| Cola | SQLite persistente, deduplicación, leases, reintentos limitados y bloqueo |
-| Conciliación | Atestación humana de creaciones inciertas de contactos |
-| Pruebas locales | 166 aprobadas; fixtures y HTTP loopback |
+| Cola | SQLite persistente, deduplicación, leases, intentos limitados y bloqueo |
+| Recuperación nueva | Lectura del contacto propuesto + comprobación + revisión humana separada |
+| Pruebas locales | 221 aprobadas; fixtures y HTTP loopback |
 | Proveedores externos validados en vivo | **0** |
-| Proyectos sin adaptador | **82** |
+| Proyectos sin adaptador | **78** |
 | Probabilidad comercial del 90% | No demostrada por este código |
 
-Registrar, implementar, configurar, desplegar y validar son etapas distintas. El grafo de 100 proyectos representa rutas lógicas, no conectividad real. La v0.3 refuerza coordinación y recuperación; no añade proveedores a la v0.2.
+Registrar, implementar, configurar, desplegar y validar son etapas distintas. El grafo de 100 proyectos representa rutas lógicas, no conectividad real. No descarga ni ejecuta los repositorios externos. No hay hosting, campañas ni operación permanente activados por este código.
 
 ## Inicio local
 
@@ -31,7 +31,7 @@ python -m verdugo --state :memory: status
 python -m verdugo init --out verdugo.local.json
 ```
 
-`demo` utiliza una base temporal y datos ficticios: cero llamadas externas e ingresos reales. `init` genera 100 entradas desactivadas y ninguna fuente de eventos habilitada. No descarga ni ejecuta los repositorios externos.
+La demo utiliza una base temporal y datos ficticios: cero llamadas externas e ingresos reales. La configuración generada mantiene los 100 proyectos deshabilitados, sin fuentes entrantes activas y sin secretos. Nunca publicar estado, perfiles ni credenciales.
 
 ## Una orden, varios sistemas
 
@@ -42,54 +42,51 @@ python -m verdugo --config verdugo.local.json bridge @examples/canonical-contact
 python -m verdugo --config verdugo.local.json doctor
 ```
 
-El puente sigue: captura local → creación en Twenty → vínculo del ID → creación en Chatwoot → vínculo del ID → resumen. Una aprobación por lote cubre las dos escrituras exactas. No envía mensajes ni inicia campañas. La ejecución se reanuda con las mismas claves y resultados; no fusiona contactos diferentes por email.
+El puente sigue: captura local → creación en Twenty → vínculo del ID → creación en Chatwoot → vínculo del ID → resumen. La aprobación por lote cubre las dos escrituras exactas. El flujo conserva resultados al reanudarse; no envía mensajes ni inicia campañas.
 
-Una integración externa exige `enabled: true`, revisión de licencia/uso, versión desplegada explícita, origen HTTPS y secreto `VERDUGO_*` fuera de Git. El administrador debe verificar workspace, cuenta y `result_id_path` contra su instancia. Las rutas de ejemplo son fixtures, no certificación de esquemas o ediciones reales.
+Una integración exige habilitación, revisión de licencia/uso, versión desplegada explícita, origen HTTPS y secreto `VERDUGO_*` fuera de Git. Las versiones, ediciones, esquemas, cuentas y permisos todavía requieren validación en instancias autorizadas. El contenido externo se trata como datos, no como instrucciones.
 
-Hay lecturas delimitadas para Twenty, Chatwoot, Listmonk, Umami, Meilisearch, Qdrant, Metabase, Grafana, Prometheus, Shlink, Activepieces, n8n, Frappe CRM, ERPNext, PostHog, Lago, Langfuse y changedetection.io. Solo Twenty/Chatwoot tienen creación de contactos. No hay gasto publicitario, borrado remoto ni ejecución arbitraria.
+## Nuevo: consulta conjunta de superficies comerciales
 
-## Eventos y cola (v0.3)
-
-Un evento firmado y válido se almacena junto con un trabajo en una transacción. **Aceptado no significa procesado**: recibir el evento no llama proveedores ni aprueba nada.
+Mautic, Easy!Appointments, Formbricks y Dub se suman al mismo motor, diagnóstico, workflows y controles. No son instalaciones de los productos ni conectores de todas sus funciones.
 
 ```bash
-python -m verdugo --config verdugo.local.json queue
-python -m verdugo --config verdugo.local.json job-plan JOB_ID > job-plan.local.json
-python -m verdugo --config verdugo.local.json --role approver approve-batch @job-plan.local.json
-python -m verdugo --config verdugo.local.json worker --execute
+python -m verdugo --config verdugo.local.json surface @examples/commercial-surfaces.json
+python -m verdugo --config verdugo.local.json surface @examples/commercial-surfaces.json --execute
 ```
 
-Cada llamada al worker procesa como máximo un trabajo. Sin `--execute` solo inspecciona. No hay un daemon desplegado ni ejecución permanente al subir código.
+La salida presenta cuántos objetos llegaron en cada respuesta, su procedencia y fecha. No suma entidades diferentes ni convierte contactos, servicios, encuestas o enlaces en clientes pagados. No es exportación completa, atribución ni sincronización bidireccional. Repetir el ID reutiliza lecturas guardadas; usar un ID nuevo para una observación fresca.
 
-Para pruebas locales existe `ingress-local`, ligado exclusivamente a `127.0.0.1`. **No exponerlo en Internet**: no es servidor de producción ni adaptador de firmas nativas de Twenty, Chatwoot u otros proveedores. El contrato, la configuración y el procedimiento completo están en [Eventos y recuperación](docs/EVENTS.md).
+## Nuevo: lectura de comprobación y recuperación
 
-Un trabajo puede quedar `blocked` por falta de aprobación, credenciales, cambio de ruta o una escritura incierta. `job-resume JOB_ID --execute` solo lo vuelve a poner en cola; no concede permisos ni reinicia acciones. Los intentos se limitan; `dead` no significa que una acción remota no ocurrió.
+Una creación incierta no se reenvía. El operador puede proponer un ID remoto y leerlo con la misma cuenta, versión, credencial y política de red del plan original. El contrato de respuesta debe revisarse y habilitarse mediante `readback_reviewed` y `readback_record_path` en la configuración local.
 
 ```bash
 python -m verdugo --config verdugo.local.json reconciliation-list
-python -m verdugo --config verdugo.local.json --role approver --actor local-human reconcile @evidence.local.json --execute
+python -m verdugo --config verdugo.local.json readback @examples/contact-readback.json
+python -m verdugo --config verdugo.local.json readback @examples/contact-readback.json --execute
+# Revisar la evidencia antes de preparar el archivo local de confirmación:
+python -m verdugo --config verdugo.local.json --role approver --actor local-human reconcile-readback @readback-review.local.json --execute
 ```
 
-La conciliación requiere verificar el objeto en el proveedor y aportar evidencia. El código valida la referencia al plan, email e ID; **no comprueba por sí mismo la verdad de esa evidencia**. Solo admite `uncertain`, no acciones `running` que podrían seguir activas. No hay reintento automático de POST inciertos ni promesa de exactly-once remoto.
+Comprobar un ID, correo, nombre y ámbito no demuestra que el POST original creara ese contacto. La lectura solo produce evidencia; no aprueba, no resuelve automáticamente y no garantiza ausencia de duplicados. La revisión separada exige una observación coincidente de hasta cinco minutos y conserva trazabilidad. Acciones `running` permanecen bloqueadas. Procedimiento, límites y fuentes: [v0.4](docs/V04.md).
 
-## Puente para asistentes
+## Eventos, cola y asistentes
+
+Los eventos canónicos firmados se almacenan atómicamente junto con trabajos. Aceptar no significa procesar. `worker --execute` entrega como máximo uno; `queue`, `job-plan`, `job-resume` y `reconciliation-list` comparten el mismo estado. El receptor `ingress-local` está restringido a loopback y **no debe exponerse en Internet**. El contrato no verifica firmas nativas de proveedores. [Procedimiento v0.3](docs/EVENTS.md).
 
 ```bash
 python -m verdugo --config verdugo.local.json --tenant nexus --actor assistant mcp
 ```
 
-Subconjunto MCP stdio que negocia revisiones legacy `2025-11-25` y `2025-06-18`. Un cliente compatible debe iniciar el proceso. **GitHub no conecta automáticamente este chat ni mantiene un asistente 24/7.**
-
-Herramientas: `verdugo_status`, `verdugo_graph`, `verdugo_events`, `verdugo_plan`, `verdugo_execute`, `verdugo_workflow`, `verdugo_bridge`, `verdugo_doctor`, `verdugo_queue`, `verdugo_job_plan`, `verdugo_worker` y `verdugo_reconciliation_list`.
-
-Tenant y rol se fijan al arrancar; el modelo no puede cambiarlos mediante argumentos. No hay herramientas MCP para aprobar, firmar eventos ni confirmar conciliaciones. El contenido externo se trata como datos, nunca como instrucciones. Una consulta de cola omite perfiles, credenciales y tokens de lease.
+MCP stdio con revisiones legacy `2025-11-25` y `2025-06-18`. Sus 14 herramientas incluyen `verdugo_contact_readback` y `verdugo_surface_overview`. No hay herramientas para aprobar, firmar eventos o confirmar conciliaciones. **Publicar en GitHub no conecta este chat al MCP ni mantiene un asistente 24/7.**
 
 ## Límites y actualización
 
-Respaldar SQLite antes de actualizar. La migración v0.2 → v0.3 añade tablas sin borrar registros, aprobaciones o claves. Conserva los contratos y headers de adaptadores anteriores para no invalidar sus fingerprints solo por la actualización. Los planes v0.1 pueden ser incompatibles con contratos incorporados en v0.2: no borrar estado para forzar escrituras.
+Respaldar SQLite antes de actualizar. v0.4 añade `contact_readbacks`; no borra ni cambia planes, aprobaciones, ejecuciones o identidades. Una prueba de compatibilidad conserva los fingerprints de creación v0.3. Cambiar secretos, versiones o destinos invalida la comprobación: no borrar estado ni cambiar claves para forzar un POST.
 
-SQLite, WAL y workers son locales a un host; esto no acredita alta disponibilidad, escalabilidad horizontal ni seguridad multiempresa. Los roles son una frontera del proceso local, **no IAM**: separar identidades del sistema operativo, permisos y secretos antes de terceros. Los datos de negocio requieren almacenamiento protegido, retención y copias probadas.
+SQLite y roles locales no constituyen IAM, aislamiento hostil entre empresas ni alta disponibilidad. Faltan ingreso productivo, supervisor, retención, firmas nativas, sincronización bidireccional y recuperación verificable de procesos `running`. Los resultados almacenados pueden contener datos personales y exigen protección del host y copias probadas.
 
-Los importes se separan por moneda y dataset. Los pagos son declaraciones con referencia de evidencia, no conciliación bancaria ni utilidad neta. Una prueba sintética no demuestra ventas, causalidad o tasa de éxito.
+Los pagos son declaraciones por moneda/dataset, no conciliación bancaria ni utilidad neta. Ninguna prueba sintética demuestra rentabilidad o éxito comercial. Las licencias externas siguen separadas; no se redistribuye aquí su código. El código original todavía no tiene licencia de redistribución elegida.
 
-Más información: [arquitectura](docs/ARCHITECTURE.md), [fuentes API](docs/API_SOURCES.md), [evidencia](docs/VALIDATION.md), [eventos](docs/EVENTS.md) y [pendientes](docs/ROADMAP.md). El código original todavía no tiene licencia de redistribución elegida. Los repositorios externos conservan las suyas; aquí no se redistribuye su código.
+Documentación: [entrega y pendientes v0.4](docs/V04.md), [fuentes nuevas](docs/API_SOURCES_V04.md), [arquitectura previa](docs/ARCHITECTURE.md), [validación histórica v0.3](docs/VALIDATION.md).
