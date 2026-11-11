@@ -1,5 +1,6 @@
 """Backups are local, private, unencrypted and independently integrity-checked."""
 import os
+import errno
 from pathlib import Path
 import sqlite3
 import subprocess
@@ -7,6 +8,7 @@ import sys
 import threading
 import time
 import unittest
+from unittest.mock import patch
 from test_core import Base
 from verdugo import backups
 from verdugo.common import VerdugoError, encode
@@ -50,7 +52,7 @@ class BackupsTests(Base):
         self.assertFalse(Path(self.target()).exists())
 
     def test_shared_directory_rejected_before_file_creation(self):
-        dest=Path(self.tmp.name)/'shared';dest.mkdir(mode=0o755)
+        dest=Path(self.tmp.name)/'shared';dest.mkdir(mode=0o755);dest.chmod(0o755)
         with self.assertRaises(VerdugoError):backups.create(self.engine,str(dest/'copy.sqlite3'))
         self.assertFalse((dest/'copy.sqlite3').exists())
 
@@ -93,6 +95,27 @@ class BackupsTests(Base):
         for t in workers:t.join(10)
         self.assertEqual(1,len(results));self.assertEqual(1,len(errors))
         self.assertEqual('verified_local_copy',backups.verify(self.target())['state'])
+
+    def test_termux_without_os_link_uses_safe_exclusive_copy(self):
+        with patch.object(os, 'link', None, create=True):
+            result = backups.create(self.engine, self.target())
+        self.assertEqual('exclusive_copy_verified', result['publish_method'])
+        self.assertFalse(result['atomic_publication'])
+        self.assertTrue(result['verify_before_use'])
+        self.assertEqual(result['sha256'], backups.verify(self.target())['sha256'])
+        with self.assertRaises(VerdugoError): backups.create(self.engine, self.target())
+
+    def test_unsupported_hardlink_syscall_uses_copy(self):
+        with patch.object(os, 'link', side_effect=OSError(errno.ENOSYS, 'unsupported'), create=True):
+            result = backups.create(self.engine, self.target())
+        self.assertEqual('exclusive_copy_verified', result['publish_method'])
+        self.assertEqual('verified_local_copy', backups.verify(self.target())['state'])
+
+    def test_fallback_copy_failure_leaves_no_misleading_backup(self):
+        with patch.object(os, 'link', None, create=True):
+            with patch('verdugo.backups.shutil.copyfileobj', side_effect=OSError('synthetic interrupted copy')):
+                with self.assertRaises(OSError): backups.create(self.engine, self.target())
+        self.assertFalse(Path(self.target()).exists())
 
     def test_old_snapshot_cannot_claim_running_recovery(self):
         # A local backup does not certify that a remote request completed.

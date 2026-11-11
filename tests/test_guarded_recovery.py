@@ -234,12 +234,18 @@ class PersistenceRegressionTests(RecoveryBase):
         finally:e.close()
 
     def test_state_in_shared_directory_is_rejected_before_creation(self):
-        parent=Path(self.tmp.name)/'shared';parent.mkdir(mode=0o755)
+        parent=Path(self.tmp.name)/'shared';parent.mkdir(mode=0o755);parent.chmod(0o755)
         with self.assertRaises(VerdugoError):Engine(parent/'db.sqlite3',self.config)
         self.assertFalse((parent/'db.sqlite3').exists())
 
     def test_hard_link_alias_is_rejected(self):
-        alias=Path(self.tmp.name)/'linked.sqlite3';os.link(self.path,alias)
+        link = getattr(os, 'link', None)
+        if not callable(link): self.skipTest('Python does not expose os.link on this platform')
+        alias=Path(self.tmp.name)/'linked.sqlite3'
+        try:
+            link(self.path, alias)
+        except (NotImplementedError, OSError) as exc:
+            self.skipTest('Hard links are unsupported by this filesystem: '+str(exc))
         try:
             with self.assertRaises(VerdugoError):Engine(alias,self.config)
         finally:alias.unlink()

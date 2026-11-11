@@ -1,6 +1,6 @@
 # Verdugo Digital
 
-Núcleo de control comercial para NexusBotStudio y empresas cliente. Una entrada CLI/MCP para planes, flujos, eventos y evidencia. **v0.6.0 de ingeniería; no son 100 servicios desplegados.**
+Núcleo de control comercial para NexusBotStudio y empresas cliente. Una entrada CLI/MCP para planes, flujos, eventos y evidencia. **v0.6.1 de ingeniería; no son 100 servicios desplegados.**
 
 ## Estado verificable
 
@@ -120,3 +120,7 @@ SQLite y roles locales no constituyen IAM, aislamiento hostil entre empresas ni 
 Los pagos son declaraciones por moneda/dataset, no conciliación bancaria ni utilidad neta. Ninguna prueba sintética demuestra rentabilidad o éxito comercial. Las licencias externas siguen separadas; no se redistribuye aquí su código. El código original todavía no tiene licencia de redistribución elegida.
 
 Documentación: [operación v0.6](docs/PILOTO_Y_RESPALDOS_V06.md), [control comercial v0.5](docs/COMERCIAL_30_DIAS.md), [recuperación v0.4.1](docs/V041.md), [entrega y pendientes v0.4](docs/V04.md), [fuentes nuevas](docs/API_SOURCES_V04.md), [arquitectura previa](docs/ARCHITECTURE.md), [validación histórica v0.3](docs/VALIDATION.md).
+
+## Compatibilidad Termux / Android (v0.6.1)
+
+Se corrigió la creación de respaldos cuando Python no expone `os.link`, sin permitir sobrescrituras; el modo de copia alternativa requiere verificar el archivo antes de usarlo porque una interrupción eléctrica puede dejarlo incompleto. También se ajustaron las pruebas de permisos con `umask=077` y se omite explícitamente la prueba de enlaces físicos si el sistema no los admite. [Instrucciones para Termux](docs/TERMUX.md).

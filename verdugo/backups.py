@@ -3,11 +3,13 @@
 The snapshots are NOT encrypted and do NOT certify safe restore of in-flight
 external actions. Restore is intentionally offline/manual.
 """
+import errno
 import hashlib
 from contextlib import closing
 import os
 from pathlib import Path
 import sqlite3
+import shutil
 import stat
 import tempfile
 from .common import VerdugoError
@@ -57,6 +59,46 @@ def verify(path):
             'restoration_tested': False, 'remote_execution_resumed': False}
 
 
+def _publish_snapshot(tmp, dst, expected_sha):
+    """Publish without overwrite; Android Python may not expose os.link().
+
+    Hard-link is an atomic publish on supported local filesystems. Fallback uses
+    O_EXCL, fsync, and read-back validation. A crash during fallback may leave
+    a partial destination; never trust a copy without verify().
+    """
+    link = getattr(os, 'link', None)
+    if callable(link):
+        try:
+            link(tmp, dst, follow_symlinks=False)
+            return 'atomic_hardlink'
+        except (NotImplementedError, TypeError):
+            pass
+        except FileExistsError:
+            raise
+        except OSError as exc:
+            allowed = {errno.ENOSYS, errno.EOPNOTSUPP, errno.EPERM,
+                       errno.EACCES, errno.EXDEV}
+            if exc.errno not in allowed:
+                raise
+    flags = os.O_CREAT | os.O_EXCL | os.O_WRONLY
+    flags |= getattr(os, 'O_CLOEXEC', 0) | getattr(os, 'O_NOFOLLOW', 0)
+    fd = os.open(dst, flags, 0o600)
+    try:
+        with os.fdopen(fd, 'wb') as target, tmp.open('rb') as source:
+            shutil.copyfileobj(source, target, length=1024 * 1024)
+            target.flush()
+            os.fsync(target.fileno())
+        report = verify(dst)
+        if report['sha256'] != expected_sha:
+            raise VerdugoError('Backup copy checksum mismatch')
+    except BaseException:
+        # In normal failures do not leave a possibly truncated copy behind.
+        # SIGKILL / power loss can still leave a partial file: verify before use.
+        dst.unlink(missing_ok=True)
+        raise
+    return 'exclusive_copy_verified'
+
+
 def create(engine, destination):
     if engine.role != 'operator': raise VerdugoError('Operator role required to create backup')
     if engine.state_path == ':memory:': raise VerdugoError('Persistent SQLite state required')
@@ -79,10 +121,11 @@ def create(engine, destination):
             engine.db.backup(target, pages=100, sleep=0.05)
         os.chmod(tmp, 0o600)
         report = verify(tmp)
-        # Exclusive hard-link fails atomically if another creator used the target.
-        os.link(tmp, dst, follow_symlinks=False)
+        method = _publish_snapshot(tmp, dst, report['sha256'])
         return report | {'state': 'created_and_verified_local_copy',
-                         'saved_filename': dst.name,
+                         'saved_filename': dst.name, 'publish_method': method,
+                         'atomic_publication': method == 'atomic_hardlink',
+                         'verify_before_use': True,
                          'contains_personal_data': True, 'encryption_required_before_remote_storage': True}
     except FileExistsError as exc:
         raise VerdugoError('Backup destination was created concurrently') from exc
