@@ -2,7 +2,7 @@
 
 `CLI / cliente MCP → Engine → validación y políticas → plan → aprobación cuando corresponde → adaptador → API autorizada → resultado → estado y eventos`
 
-El motor es el punto único de ejecución. El catálogo de 100 proyectos tiene IDs estables y dominios comerciales. Las bibliotecas, servicios, CLIs y herramientas de CI no se tratan como aplicaciones idénticas: cada una necesitará un adaptador apropiado. En esta entrega hay 12 adaptadores HTTP, no 100 procesos en ejecución.
+El motor es el punto único de ejecución. El catálogo de 100 proyectos tiene IDs estables y dominios comerciales. Las bibliotecas, servicios, CLIs y herramientas de CI no se tratan como aplicaciones idénticas: cada una necesitará un adaptador apropiado. En esta entrega hay 18 adaptadores HTTP, no 100 procesos en ejecución.
 
 ## Contrato de una acción
 
@@ -33,3 +33,11 @@ Credenciales solo desde variables `VERDUGO_*`, nunca desde parámetros del asist
 ## Economía
 
 Se almacenan importes enteros y se filtra por moneda. `real` significa datos declarados para operación real, no prueba bancaria. `reconciled_receipts_minor` y `commercial_success_probability` permanecen nulos mientras no exista conciliación/modelo validado. Costos fijos, impuestos, devoluciones, atribución e incrementalidad todavía no se calculan.
+
+## Extensión v0.2
+
+`bridge → workflow → Engine` reutiliza exactamente las aprobaciones y ejecuciones de CLI/MCP. `identities` tiene unicidad por tenant/servicio/ámbito/ID remoto y por ejecución fuente. Solo se acepta una fuente exitosa, del tenant correcto, con servicio/acción de creación correctos, email coherente con el contacto y contrato de respuesta explícito. El ámbito combina origen y workspace/cuenta; no se asume que dos IDs iguales de diferentes instancias son la misma persona.
+
+`workflow_manifests` fija el hash de la definición al planificar. Antes del primer efecto se comprueban credenciales y destinos también de los pasos con valores dependientes. Los valores dinámicos aún requieren validación cuando se resuelven; no hay transacción distribuida.
+
+`doctor` solo prepara o ejecuta acciones GET de SPECS, sin seguir URLs de paginación devueltas por proveedores y sin transformar datos externos en instrucciones. Su resumen excluye el cuerpo de las respuestas; los resultados permanecen en el almacenamiento local sujeto a la política de privacidad del host. Los errores y estados inciertos no se reintentan automáticamente.

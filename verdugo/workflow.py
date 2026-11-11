@@ -1,5 +1,5 @@
 """Bounded sequential DAG executor; deterministic references, no eval or shell."""
-from .common import VerdugoError, fields, identifier
+from .common import VerdugoError, fields, identifier, digest
 
 
 def references(value):
@@ -65,6 +65,16 @@ def order(spec, engine):
 def run(engine, spec, execute=False):
     if type(execute) is not bool: raise VerdugoError('execute must be boolean')
     steps = order(spec, engine)  # All adapters/config/license gates checked before first step.
+    fingerprint = digest(spec)
+    with engine.transaction():
+        engine.db.execute('CREATE TABLE IF NOT EXISTS workflow_manifests ('
+                          'tenant TEXT, id TEXT, hash TEXT NOT NULL, PRIMARY KEY(tenant,id))')
+        old = engine.db.execute('SELECT hash FROM workflow_manifests WHERE tenant=? AND id=?',
+                               (engine.tenant, spec['id'])).fetchone()
+        if old and old['hash'] != fingerprint:
+            raise VerdugoError('Workflow ID already bound to a different definition')
+        engine.db.execute('INSERT OR IGNORE INTO workflow_manifests VALUES(?,?,?)',
+                          (engine.tenant, spec['id'], fingerprint))
     plans = []
     for step in steps:
         if not list(references(step['params'])):

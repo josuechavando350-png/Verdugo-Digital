@@ -1,11 +1,15 @@
-# Evidencia local de esta entrega
+# Evidencia de Verdugo Digital v0.2.0
 
-Fecha: 2026-11-11. Runtime observado: Python 3.13.5. Comando: `python -m unittest discover -s tests -v`.
+Fecha: 2026-11-11. Runtime local: Python 3.13.5.
 
-**64 pruebas aprobadas; cero fallos.** También se ejecutaron compilación, demo completa y comparación exacta de los 100 repositorios contra `Nexus_100_repos_evidencias.json` del paquete original.
+`python -m unittest discover -s tests -v`: **110 pruebas aprobadas, cero fallos**. Incluye las 64 anteriores y 46 nuevas. Se ejecutaron también `python -m compileall -q verdugo`, la demo comercial sintética y los controles de catálogo.
 
-Cobertura funcional probada: inventario/estado veraz, 12 recetas API y 14 acciones, preview sin red, límites de parámetros, versiones/configuración/licencias, secretos ausentes, aprobación exacta y por lote, expiración, cambio de credencial, incertidumbre después de escritura, repetición tras reinicio, reclamación concurrente única, separación entre tenants/datasets/monedas, pagos duplicados, evidencia requerida, DAG/ciclos/referencias, pausa y reanudación, negociación MCP/stdio real, destinos prohibidos y una llamada HTTP local real con rechazo de redirecciones.
+Inventario comprobado: 100 proyectos, 18 adaptadores HTTP, 20 acciones externas acotadas, 6 acciones del núcleo, 8 herramientas MCP, 82 proyectos sin adaptador y **0 servicios externos validados en vivo**.
 
-Los tests de proveedores usan fixtures; el servidor HTTP es local y ficticio. **Ninguno de los 12 servicios se validó en vivo, y no se ejecutaron los otros 88 proyectos.** Una prueba local del transporte no es una integración end-to-end contra el producto real.
+Nuevas pruebas: contratos de las seis recetas, autenticación Frappe/Langfuse/Chatwoot, paginación, rechazo de recheck y selectores de cuenta inyectados, cambio de autenticación/red/contrato invalidando planes, extracción de ID sin evaluación de expresiones, respuestas sin ID o HTTP 202 inciertas, definición inmutable del flujo, preflight de credenciales dependientes, identidad/tenant/dataset/origen y conflictos, pausa/aprobación/reinicio y diagnóstico central con resultados honestos.
 
-Esta evidencia no es una auditoría exhaustiva de seguridad, cobertura formal, prueba de carga, revisión jurídica ni certificación de producción. La configuración de CI se incluye separadamente; su ejecución debe comprobarse en GitHub, no deducirse de este documento.
+Se ejecutó el puente de contactos sobre un servidor HTTP sintético local: creó un registro ficticio en cada ruta, guardó dos alias y la repetición no reenvió las escrituras. También se simuló un fallo del segundo proveedor y se comprobó que no duplicaba el primero ni reintentaba el resultado incierto. Esto prueba el código y el transporte bajo fixtures, no Twenty o Chatwoot reales.
+
+CLI/MCP identifican bloqueos como ejecución no completada. Se probó que una migración aditiva conserva registros y ejecuciones, aunque la compatibilidad de planes externos de v0.1 no está garantizada por los nuevos fingerprints.
+
+No es auditoría exhaustiva de seguridad, revisión jurídica, prueba de carga, despliegue ni evidencia de ingresos. GitHub Actions debe consultarse por separado para el commit publicado; no se infiere su resultado a partir de las pruebas locales.

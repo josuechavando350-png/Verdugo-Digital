@@ -16,7 +16,7 @@ from verdugo.transport import TransportError
 from verdugo import workflow
 
 ROOT = Path(__file__).resolve().parents[1]
-SECRET = 'synthetic-contract-credential-not-a-real-secret'
+SECRET = 'synthetic-key:synthetic-secret-not-real'
 
 
 class Base(unittest.TestCase):
@@ -33,7 +33,7 @@ class Base(unittest.TestCase):
         self.calls = []
         def transport(req, cfg):
             self.calls.append(req['public'])
-            return {'data': [{'id': 'fixture'}], 'token': SECRET,
+            return {'data': {'createPerson': {'id': 'fixture'}}, 'payload': {'contact': {'id': 42}}, 'token': SECRET,
                     'echo': 'Bearer '+SECRET}
         self.transport = transport
         self.engine = Engine(self.path, self.config, transport=transport)
@@ -80,7 +80,7 @@ class CatalogTests(Base):
 
     def test_no_false_live_status(self):
         s=self.engine.status()
-        self.assertEqual(12,s['api_adapters_implemented'])
+        self.assertEqual(18,s['api_adapters_implemented'])
         self.assertEqual(0,s['live_verified'])
         self.assertFalse(any(r['live_verified'] for r in s['integrations']))
 
@@ -88,14 +88,14 @@ class CatalogTests(Base):
         g=graph(SPECS)
         self.assertEqual(101,len(g['nodes']))
         self.assertEqual(100,len(g['edges']))
-        self.assertEqual(12,sum(e['kind']=='adapter' for e in g['edges']))
+        self.assertEqual(18,sum(e['kind']=='adapter' for e in g['edges']))
         self.assertFalse(any(e['live'] for e in g['edges']))
 
     def test_template_disabled(self):
         self.assertEqual(100,len(template('nexus')['tenants']['nexus']['services']))
         self.assertFalse(any(c['enabled'] for c in template('nexus')['tenants']['nexus']['services'].values()))
 
-    def test_all_12_recipes_build(self):
+    def test_all_18_recipes_build(self):
         for sid, ops in SPECS.items():
             for op in ops:
                 with self.subTest(service=sid,op=op):

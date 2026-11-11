@@ -65,6 +65,8 @@ def send(request, cfg):
         # No retries for mutations. No redirect following, including same-host redirects.
         if not 200 <= response.status < 300:
             raise TransportError('Upstream HTTP %s; response body omitted' % response.status)
+        if request['mutates'] and response.status not in (200, 201):
+            raise TransportError('Write response is not a completed synchronous operation')
         if response.getheader('Content-Encoding', 'identity') != 'identity':
             raise TransportError('Compressed responses are not accepted')
         body = response.read(MAX_RESPONSE + 1)

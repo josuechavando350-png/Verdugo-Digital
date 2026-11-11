@@ -6,12 +6,13 @@ import os
 import re
 import sqlite3
 import time
-from .adapters import SPECS, build, service_config
+from .adapters import SPECS, build, service_config, connection, remote_id
 from .catalog import catalog
 from .common import VerdugoError, digest, encode, fields, identifier, integer, sanitize, text
 from .transport import send
+from . import identity
 
-CORE = {'lead.capture', 'lead.qualify', 'payment.record', 'metrics.summary'}
+CORE = {'lead.capture', 'lead.qualify', 'payment.record', 'metrics.summary'} | identity.ACTIONS
 SCHEMA = '''
 CREATE TABLE IF NOT EXISTS plans (
  tenant TEXT, key TEXT, hash TEXT NOT NULL, document TEXT NOT NULL,
@@ -59,7 +60,7 @@ class Engine:
         self.db.row_factory = sqlite3.Row
         self.db.execute('PRAGMA journal_mode=WAL')
         self.db.execute('PRAGMA foreign_keys=ON')
-        self.db.executescript(SCHEMA)
+        self.db.executescript(SCHEMA + identity.SCHEMA)
 
     def close(self):
         self.db.close()
@@ -111,8 +112,9 @@ class Engine:
         if cfg.get('license_reviewed') is not True:
             raise VerdugoError('License/use review required: ' + service)
         version = cfg.get('version')
-        if not isinstance(version, str) or not version.strip() or version.lower() in ('latest', 'main', 'master'):
+        if not isinstance(version, str) or not version.strip() or version.strip().lower() in ('latest', 'main', 'master'):
             raise VerdugoError('Explicit deployed version/commit required: ' + service)
+        connection(service, cfg)
         return cfg
 
     def prepare(self, command):
@@ -205,6 +207,8 @@ class Engine:
                     self.finish(key, 'succeeded', result)
             else:
                 result = sanitize(self.transport(request, cfg), request['secret_values'])
+                if request['mutates']:
+                    remote_id(result, request['public']['result_id_path'])
                 with self.transaction(): self.finish(key, 'succeeded', result)
             return {'state': 'succeeded', 'key': key, 'replayed': False, 'result': result}
         except Exception as exc:
@@ -222,6 +226,8 @@ class Engine:
         self.event(key, 'action.' + state, {'result_digest': digest(result)})
 
     def validate_core(self, op, p):
+        if op in identity.ACTIONS:
+            return identity.validate(op, p)
         specs = {
             'lead.capture': (('lead_id', 'name', 'email', 'dataset'), ()),
             'lead.qualify': (('lead_id', 'need_confirmed', 'budget_confirmed',
@@ -263,6 +269,8 @@ class Engine:
         return p
 
     def core(self, op, p):
+        if op in identity.ACTIONS:
+            return identity.apply(self, op, p)
         if op == 'lead.capture':
             self.insert_record('lead', p['lead_id'], p)
             return {'lead_id': p['lead_id'], 'dataset': p['dataset']}

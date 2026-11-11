@@ -8,6 +8,8 @@ from .catalog import catalog, graph
 from .common import VerdugoError, encode, identifier
 from .engine import Engine
 from . import workflow
+from .bridge import contact_bridge
+from .diagnostics import doctor
 from .mcp import serve
 
 
@@ -26,7 +28,10 @@ def template(tenant):
         if sid in SPECS:
             services[sid].update(base_url='https://example.invalid',
                 token_env='VERDUGO_' + tenant.upper() + '_' + sid.upper().replace('-', '_') + '_TOKEN')
-    services['chatwoot'].update(account_id=1, inbox_id=1)
+    services['chatwoot'].update(account_id=1, inbox_id=1, auth_mode='bearer', result_id_path='payload.contact.id')
+    services['twenty'].update(workspace_id='REPLACE_WORKSPACE_ID', result_id_path='data.createPerson.id')
+    services['langfuse']['username'] = 'REPLACE_LANGFUSE_PUBLIC_KEY'
+    services['posthog']['project_id'] = 1
     services['listmonk']['username'] = 'verdugo-api'
     services['activepieces']['project_id'] = 'REPLACE_PROJECT_ID'
     services['prometheus']['allowed_queries'] = ['up']
@@ -44,9 +49,11 @@ def main(argv=None):
     for name in ('status', 'catalog', 'graph', 'mcp', 'demo'): sub.add_parser(name)
     p = sub.add_parser('init'); p.add_argument('--out', default='verdugo.local.json')
     p = sub.add_parser('events'); p.add_argument('--after', type=int, default=0)
-    for name in ('plan', 'run', 'workflow'):
+    for name in ('plan', 'run', 'workflow', 'bridge'):
         p = sub.add_parser(name); p.add_argument('input', help='JSON text or @path.json')
         if name != 'plan': p.add_argument('--execute', action='store_true')
+    p = sub.add_parser('doctor'); p.add_argument('--probe-id', default='configuration-check')
+    p.add_argument('--execute', action='store_true')
     p = sub.add_parser('approve'); p.add_argument('key'); p.add_argument('fingerprint')
     p.add_argument('--ttl', type=int, default=600)
     p = sub.add_parser('approve-batch'); p.add_argument('input'); p.add_argument('--ttl', type=int, default=600)
@@ -75,11 +82,13 @@ def main(argv=None):
             batch = read_json(args.input)
             if isinstance(batch, dict): batch = batch['approval_batch']
             result = engine.approve_many(batch, args.ttl)
+        elif args.cmd == 'bridge': result = contact_bridge(engine, read_json(args.input), args.execute)
+        elif args.cmd == 'doctor': result = doctor(engine, args.probe_id, args.execute)
         elif args.cmd == 'plan': result = engine.plan(read_json(args.input))
         elif args.cmd == 'run': result = engine.execute(read_json(args.input), args.execute)
         else: result = workflow.run(engine, read_json(args.input), args.execute)
         print(encode(result))
-        return 1 if isinstance(result, dict) and result.get('state') in ('failed', 'uncertain', 'paused') else 0
+        return 1 if isinstance(result, dict) and result.get('state') in ('failed', 'uncertain', 'paused', 'awaiting_approval', 'incomplete', 'not_configured') else 0
     except (VerdugoError, ValueError, OSError, TypeError) as exc:
         print(encode({'error': str(exc)}), file=sys.stderr)
         return 2

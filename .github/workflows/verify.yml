@@ -30,4 +30,4 @@ jobs:
       - name: Registry truth checks
         run: |
           python3 -m verdugo --state :memory: status > /tmp/verdugo-status.json
-          python3 -c "import json; x=json.load(open('/tmp/verdugo-status.json')); assert x['registered']==100 and x['api_adapters_implemented']==12 and x['live_verified']==0"
+          python3 -c "import json; x=json.load(open('/tmp/verdugo-status.json')); assert x['registered']==100 and x['api_adapters_implemented']==18 and x['live_verified']==0"
