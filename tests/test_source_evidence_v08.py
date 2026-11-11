@@ -95,13 +95,16 @@ class SourceEvidenceTests(unittest.TestCase):
     def test_cli_commands_do_not_create_state(self):
         root = Path(__file__).resolve().parents[1]
         with tempfile.TemporaryDirectory() as temp:
+            environment = dict(__import__("os").environ)
+            environment["PYTHONPATH"] = str(root)
             for args in (["sources"], ["source-inspect", "restic"]):
                 proc = subprocess.run(
                     [sys.executable, "-m", "verdugo", *args],
-                    cwd=root, capture_output=True, text=True, timeout=10)
+                    cwd=temp, env=environment,
+                    capture_output=True, text=True, timeout=10)
                 self.assertEqual(0, proc.returncode, proc.stderr)
                 self.assertIsInstance(json.loads(proc.stdout), dict)
-            self.assertFalse((root / ".state" / "verdugo.sqlite3").exists())
+            self.assertFalse((Path(temp) / ".state").exists())
 
     def test_mcp_tool_readonly_and_no_external_calls(self):
         tool = next(t for t in tool_definitions()
