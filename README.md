@@ -1,6 +1,6 @@
 # Verdugo Digital
 
-Núcleo de control comercial para NexusBotStudio y empresas cliente. Una entrada CLI/MCP para planes, flujos, eventos y evidencia. **v0.6.1 de ingeniería; no son 100 servicios desplegados.**
+Núcleo de control comercial para NexusBotStudio y empresas cliente. Una entrada CLI/MCP para planes, flujos, eventos y evidencia. **v0.7.0 de ingeniería; no son 100 servicios desplegados.**
 
 ## Estado verificable
 
@@ -9,16 +9,32 @@ Núcleo de control comercial para NexusBotStudio y empresas cliente. Una entrada
 | Selección original | 100 proyectos registrados |
 | Adaptadores HTTP | 22 implementados / 26 acciones delimitadas |
 | Núcleo comercial | 6 acciones existentes más registro local de hitos y seguimiento a 30 días; pagos declarados, no verificación bancaria |
-| Herramientas MCP | 18, por stdio; sin autoaprobación de efectos externos |
+| Herramientas MCP | 20, por stdio; sin autoaprobación de efectos externos |
 | Eventos entrantes | Sobre canónico HMAC-SHA256, 2 rutas permitidas |
 | Cola | SQLite persistente, deduplicación, leases, intentos limitados y bloqueo |
 | Recuperación | Guardia local v0.4.1 + lectura de contacto + revisión humana separada |
-| Pruebas locales v0.6 | **296 aprobadas**, fixtures y HTTP loopback; CI se valida por commit |
+| Pruebas locales v0.7 | **322 aprobadas** en el conjunto local completo, sin llamadas a proveedores externos; CI se valida por commit |
 | Proveedores externos validados en vivo | **0** |
 | Proyectos sin adaptador | **78** |
 | Probabilidad comercial del 90% | No demostrada por este código |
 
 Registrar, implementar, configurar, desplegar y validar son etapas distintas. El grafo de 100 proyectos representa rutas lógicas, no conectividad real. No descarga ni ejecuta los repositorios externos. No hay hosting, campañas ni operación permanente activados por este código.
+
+
+## Nexus: 100 fuentes GitHub fijadas (v0.8)
+
+Las 100 fuentes aprobadas tienen una referencia inmutable por SHA de commit en `sources/parts/`.
+Un validador estricto comprueba coincidencia con el catálogo y una herramienta MCP **solo lectura**
+expone la procedencia sin descargar ni ejecutar código de terceros:
+
+```sh
+python -m verdugo sources
+python -m verdugo source-inspect twenty
+```
+
+**100 fuentes fijadas no son 100 integraciones operativas**: continúan 22 adaptadores HTTP,
+78 proyectos sin adaptador, 100 revisiones de licencia pendientes y cero proveedores
+certificados en vivo. [Procedencia y requisitos pendientes](docs/GITHUB_SOURCES_V08.md).
 
 ## Inicio local
 
@@ -32,6 +48,21 @@ python -m verdugo init --out verdugo.local.json
 ```
 
 La demo utiliza una base temporal y datos ficticios: cero llamadas externas e ingresos reales. La configuración generada mantiene los 100 proyectos deshabilitados, sin fuentes entrantes activas y sin secretos. Nunca publicar estado, perfiles ni credenciales.
+
+## Nuevo v0.7: operación comercial desde Termux
+
+Con dos comandos locales puedes **capturar un prospecto con canal y seguimiento en una sola transacción** y revisar la jornada comercial completa, sin instalar un CRM externo:
+
+```bash
+# Datos ficticios únicamente, dentro del proyecto:
+python -m verdugo sales-intake @examples/sales-intake.synthetic.json
+python -m verdugo sales-intake @examples/sales-intake.synthetic.json --execute
+python -m verdugo sales-desk '{"dataset":"demo"}'
+# Tablero real: no mezcla ejemplos y muestra cero ventas cuando no hay datos:
+python -m verdugo sales-desk
+```
+
+`identified` **no** significa contacto efectuado ni venta. El reporte agrega progreso hacia 6/10 clientes declarados, seguimientos, cola y reconciliaciones. No muestra nombres ni correos y **no envía comunicaciones**. Los datos reales se cargan desde archivos privados, no copiándolos a GitHub. [Guía Termux](docs/VENTAS_TERMUX_V07.md).
 
 ## Una orden, varios sistemas
 
@@ -109,17 +140,17 @@ Los eventos canónicos firmados se almacenan atómicamente junto con trabajos. A
 python -m verdugo --config verdugo.local.json --tenant nexus --actor assistant mcp
 ```
 
-MCP stdio con revisiones legacy `2025-11-25` y `2025-06-18`. Sus 18 herramientas incluyen `verdugo_contact_readback` y `verdugo_surface_overview`. No hay herramientas para aprobar, firmar eventos o confirmar conciliaciones. **Publicar en GitHub no conecta este chat al MCP ni mantiene un asistente 24/7.**
+MCP stdio con revisiones legacy `2025-11-25` y `2025-06-18`. Sus 20 herramientas incluyen `verdugo_contact_readback` y `verdugo_surface_overview`. No hay herramientas para aprobar, firmar eventos o confirmar conciliaciones. **Publicar en GitHub no conecta este chat al MCP ni mantiene un asistente 24/7.**
 
 ## Límites y actualización
 
-Respaldar SQLite antes de actualizar. v0.4 añade `contact_readbacks`, v0.4.1 añade guardias de ejecución local y v0.5 añade `commercial_events` y v0.6 añade `pilot_manifests` y `pilot_observations`; no borra ni cambia planes, aprobaciones, ejecuciones o identidades. Una prueba de compatibilidad conserva los fingerprints de creación v0.3. Cambiar secretos, versiones o destinos invalida la comprobación: no borrar estado ni cambiar claves para forzar un POST.
+Respaldar SQLite antes de actualizar. v0.4 añade `contact_readbacks`, v0.4.1 añade guardias de ejecución local y v0.5 añade `commercial_events` y v0.6 añade `pilot_manifests` y `pilot_observations`, y v0.7 añade `sales_intakes`; no borra ni cambia planes, aprobaciones, ejecuciones o identidades. Una prueba de compatibilidad conserva los fingerprints de creación v0.3. Cambiar secretos, versiones o destinos invalida la comprobación: no borrar estado ni cambiar claves para forzar un POST.
 
 SQLite y roles locales no constituyen IAM, aislamiento hostil entre empresas ni alta disponibilidad. Faltan ingreso productivo, supervisor, retención, firmas nativas, sincronización bidireccional e identidad IAM. La recuperación local de `running` es cooperativa y limitada a un solo host, no recuperación distribuida. Los resultados almacenados pueden contener datos personales y exigen protección del host y copias probadas.
 
 Los pagos son declaraciones por moneda/dataset, no conciliación bancaria ni utilidad neta. Ninguna prueba sintética demuestra rentabilidad o éxito comercial. Las licencias externas siguen separadas; no se redistribuye aquí su código. El código original todavía no tiene licencia de redistribución elegida.
 
-Documentación: [operación v0.6](docs/PILOTO_Y_RESPALDOS_V06.md), [control comercial v0.5](docs/COMERCIAL_30_DIAS.md), [recuperación v0.4.1](docs/V041.md), [entrega y pendientes v0.4](docs/V04.md), [fuentes nuevas](docs/API_SOURCES_V04.md), [arquitectura previa](docs/ARCHITECTURE.md), [validación histórica v0.3](docs/VALIDATION.md).
+Documentación: [ventas v0.7](docs/VENTAS_TERMUX_V07.md), [operación v0.6](docs/PILOTO_Y_RESPALDOS_V06.md), [control comercial v0.5](docs/COMERCIAL_30_DIAS.md), [recuperación v0.4.1](docs/V041.md), [entrega y pendientes v0.4](docs/V04.md), [fuentes nuevas](docs/API_SOURCES_V04.md), [arquitectura previa](docs/ARCHITECTURE.md), [validación histórica v0.3](docs/VALIDATION.md).
 
 ## Compatibilidad Termux / Android (v0.6.1)
 

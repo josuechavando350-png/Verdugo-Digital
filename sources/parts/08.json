@@ -1,0 +1,82 @@
+[
+  {
+    "number": 71,
+    "id": "langgraph",
+    "repository": "langchain-ai/langgraph",
+    "commit_sha": "5ea88ecbcdb9fde713c3abd58850a5b7beaa24ec",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 72,
+    "id": "pydantic-ai",
+    "repository": "pydantic/pydantic-ai",
+    "commit_sha": "21b2f46740f95a260bd492385c4638094015ec06",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 73,
+    "id": "llama-index",
+    "repository": "run-llama/llama_index",
+    "commit_sha": "baeabbfe26241a6916e13e2a8c8156a02e0602cd",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 74,
+    "id": "haystack",
+    "repository": "deepset-ai/haystack",
+    "commit_sha": "bbe4efe50c716d6d05a0637980db3b641236e613",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 75,
+    "id": "langfuse",
+    "repository": "langfuse/langfuse",
+    "commit_sha": "72399b76e245443f9681ea93b77ca850e1edb55b",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 76,
+    "id": "promptfoo",
+    "repository": "promptfoo/promptfoo",
+    "commit_sha": "e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 77,
+    "id": "ragas",
+    "repository": "vibrantlabsai/ragas",
+    "commit_sha": "298b68274234c060deacab3cf5fb52aa3a20e885",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 78,
+    "id": "dspy",
+    "repository": "stanfordnlp/dspy",
+    "commit_sha": "398396012371a95471c8e7be24a70e6660e87aa4",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 79,
+    "id": "bifrost",
+    "repository": "maximhq/bifrost",
+    "commit_sha": "ff2e69f7f0143ab79c9de5258b90bd9c70cf347b",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 80,
+    "id": "presidio",
+    "repository": "data-privacy-stack/presidio",
+    "commit_sha": "1d7005932261a4b676e045d16fa2965dbc4b4ba2",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

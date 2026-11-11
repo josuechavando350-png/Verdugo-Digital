@@ -1,0 +1,9 @@
+{
+  "lead_id": "sample-lead-001",
+  "name": "Synthetic Example",
+  "email": "sample@example.invalid",
+  "dataset": "demo",
+  "channel": "referral",
+  "evidence_ref": "demo:authorized-001",
+  "followup_due": "2026-12-01"
+}
