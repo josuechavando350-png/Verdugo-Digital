@@ -68,7 +68,7 @@ class MCPTests(unittest.TestCase):
     def test_handshake_and_list(self):
         self.assertEqual('2025-11-25',self.handshake()['result']['protocolVersion'])
         res=self.s.handle({'jsonrpc':'2.0','id':2,'method':'tools/list'})
-        self.assertEqual(18,len(res['result']['tools']))
+        self.assertEqual(20,len(res['result']['tools']))
     def test_no_approval_tool_exposed(self):
         self.assertFalse(any('approve' in t['name'] for t in tool_definitions()))
     def test_session_required(self):
@@ -101,4 +101,4 @@ class MCPTests(unittest.TestCase):
                 input='\n'.join(json.dumps(m) for m in messages)+'\n',text=True,capture_output=True,timeout=10)
             self.assertEqual(0,out.returncode,out.stderr)
             lines=[json.loads(line) for line in out.stdout.splitlines()]
-            self.assertEqual(2,len(lines));self.assertEqual(18,len(lines[1]['result']['tools']))
+            self.assertEqual(2,len(lines));self.assertEqual(20,len(lines[1]['result']['tools']))

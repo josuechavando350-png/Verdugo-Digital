@@ -7,7 +7,7 @@ from .adapters import SPECS
 from .catalog import catalog, graph
 from .common import VerdugoError, encode, identifier
 from .engine import Engine
-from . import workflow, jobs, reconciliation, readback, surface, recovery, commercial, pilot, backups
+from . import workflow, jobs, reconciliation, readback, surface, recovery, commercial, pilot, backups, office
 from .ingress import make_server
 from .bridge import contact_bridge
 from .diagnostics import doctor
@@ -73,6 +73,8 @@ def main(argv=None):
         p = sub.add_parser(name)
         p.add_argument('input', nargs='?', help='JSON or @file; report and next have safe defaults')
         if name == 'commercial-record': p.add_argument('--execute', action='store_true')
+    p = sub.add_parser('sales-intake'); p.add_argument('input'); p.add_argument('--execute', action='store_true')
+    p = sub.add_parser('sales-desk'); p.add_argument('input', nargs='?')
     p = sub.add_parser('pilot'); p.add_argument('input'); p.add_argument('--execute', action='store_true')
     p = sub.add_parser('backup-local'); p.add_argument('--to', required=True)
     p = sub.add_parser('verify-backup'); p.add_argument('--file', required=True)
@@ -116,6 +118,8 @@ def main(argv=None):
             result = jobs.resume(engine, args.job_id) if args.execute else {'state': 'planned', 'job': jobs.get(engine, args.job_id)}
         elif args.cmd == 'reconciliation-list': result = reconciliation.pending(engine)
         elif args.cmd == 'recover-running': result = recovery.recover_running(engine, read_json(args.input), args.execute)
+        elif args.cmd == 'sales-intake': result = office.intake(engine, read_json(args.input), args.execute)
+        elif args.cmd == 'sales-desk': result = office.desk(engine, read_json(args.input) if args.input else None)
         elif args.cmd == 'pilot': result = pilot.check(engine, read_json(args.input), args.execute)
         elif args.cmd == 'backup-local': result = backups.create(engine, args.to)
         elif args.cmd == 'commercial-record':

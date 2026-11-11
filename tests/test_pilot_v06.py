@@ -172,7 +172,7 @@ class PilotTests(Base):
         finally:server.shutdown();server.server_close();t.join(3)
 
     def test_mcp_and_cli_share_single_pilot(self):
-        self.assertEqual(18,len(tool_definitions()))
+        self.assertEqual(20,len(tool_definitions()))
         result=pilot.check(self.engine,self.request)
         self.assertEqual(result,invoke(self.engine,'verdugo_pilot',{'request':self.request}))
         config=Path(self.tmp.name)/'config.json';config.write_text(encode(self.config))

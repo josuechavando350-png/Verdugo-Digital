@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS commercial_events (
 CREATE INDEX IF NOT EXISTS commercial_lead ON commercial_events(tenant,lead_id,created);
 CREATE INDEX IF NOT EXISTS commercial_window ON commercial_events(tenant,dataset,created);
 '''
-KINDS = frozenset(('contacted', 'meeting_booked', 'meeting_held',
+KINDS = frozenset(('identified', 'contacted', 'meeting_booked', 'meeting_held',
                    'proposal_sent', 'followup_due', 'won', 'lost'))
 CHANNELS = frozenset(('referral', 'partner', 'outbound', 'organic', 'paid', 'other'))
 EVIDENCE = re.compile(r'[A-Za-z0-9][A-Za-z0-9._:-]{2,119}\Z')
@@ -73,32 +73,37 @@ def record(engine, item, execute=False):
                 'external_call_made': False, 'bank_reconciled': False}
     if engine.role != 'operator': raise VerdugoError('Operator role required')
     with engine.transaction():
-        old = engine.db.execute('SELECT * FROM commercial_events WHERE tenant=? AND event_id=?',
-                                (engine.tenant, normalized['event_id'])).fetchone()
-        if old:
-            if any(old[k] != v for k, v in normalized.items()):
-                raise VerdugoError('Commercial event ID reused with different facts')
-            return {'state': 'recorded', 'event_id': normalized['event_id'],
-                    'replayed': True, 'dataset': normalized['dataset'],
-                    'bank_reconciled': False, 'external_call_made': False}
-        previous = engine.db.execute('SELECT kind,channel FROM commercial_events WHERE tenant=? AND lead_id=?',
-                                     (engine.tenant, normalized['lead_id'])).fetchall()
-        if previous and any(p['channel'] != normalized['channel'] for p in previous):
-            raise VerdugoError('Channel is immutable for this lead; do not relabel attribution')
-        if any(p['kind'] in ('won', 'lost') for p in previous):
-            raise VerdugoError('A closed lead cannot receive more commercial events')
-        if normalized['kind'] == 'won':
-            prior = engine.db.execute("SELECT lead_id FROM commercial_events WHERE tenant=? AND payment_id=?",
-                                      (engine.tenant, normalized['payment_id'])).fetchone()
-            if prior: raise VerdugoError('Payment declaration already attributed to another event')
-        engine.db.execute('INSERT INTO commercial_events VALUES(?,?,?,?,?,?,?,?,?,?)',
-                          (engine.tenant, *(normalized[k] for k in ('event_id', 'lead_id', 'dataset',
-                            'kind', 'channel', 'evidence_ref', 'payment_id', 'followup_due')),
-                           time.time()))
-        engine.event(normalized['event_id'], 'commercial.recorded', {
-            'lead_id': normalized['lead_id'], 'dataset': normalized['dataset'],
-            'kind': normalized['kind'], 'channel': normalized['channel'],
-            'bank_reconciled': False})
+        return persist_in_transaction(engine, normalized)
+
+
+def persist_in_transaction(engine, normalized):
+    """Internal: caller holds engine.transaction() after validate()."""
+    old = engine.db.execute('SELECT * FROM commercial_events WHERE tenant=? AND event_id=?',
+                            (engine.tenant, normalized['event_id'])).fetchone()
+    if old:
+        if any(old[k] != v for k, v in normalized.items()):
+            raise VerdugoError('Commercial event ID reused with different facts')
+        return {'state': 'recorded', 'event_id': normalized['event_id'],
+                'replayed': True, 'dataset': normalized['dataset'],
+                'bank_reconciled': False, 'external_call_made': False}
+    previous = engine.db.execute('SELECT kind,channel FROM commercial_events WHERE tenant=? AND lead_id=?',
+                                 (engine.tenant, normalized['lead_id'])).fetchall()
+    if previous and any(p['channel'] != normalized['channel'] for p in previous):
+        raise VerdugoError('Channel is immutable for this lead; do not relabel attribution')
+    if any(p['kind'] in ('won', 'lost') for p in previous):
+        raise VerdugoError('A closed lead cannot receive more commercial events')
+    if normalized['kind'] == 'won':
+        prior = engine.db.execute("SELECT lead_id FROM commercial_events WHERE tenant=? AND payment_id=?",
+                                  (engine.tenant, normalized['payment_id'])).fetchone()
+        if prior: raise VerdugoError('Payment declaration already attributed to another event')
+    engine.db.execute('INSERT INTO commercial_events VALUES(?,?,?,?,?,?,?,?,?,?)',
+                      (engine.tenant, *(normalized[k] for k in ('event_id', 'lead_id', 'dataset',
+                        'kind', 'channel', 'evidence_ref', 'payment_id', 'followup_due')),
+                       time.time()))
+    engine.event(normalized['event_id'], 'commercial.recorded', {
+        'lead_id': normalized['lead_id'], 'dataset': normalized['dataset'],
+        'kind': normalized['kind'], 'channel': normalized['channel'],
+        'bank_reconciled': False})
     return {'state': 'recorded', 'event_id': normalized['event_id'], 'replayed': False,
             'dataset': normalized['dataset'], 'bank_reconciled': False,
             'external_call_made': False}

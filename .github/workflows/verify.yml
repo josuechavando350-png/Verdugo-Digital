@@ -56,6 +56,10 @@ jobs:
         run: |
           python3 -m verdugo demo > /tmp/verdugo-demo.json
           python3 -c "import json; x=json.load(open('/tmp/verdugo-demo.json')); assert x['synthetic_only'] and x['external_calls']==0 and x['workflow']['state']=='succeeded'"
+      - name: Termux-first sales desk safety gates
+        run: |
+          python3 -m verdugo --state :memory: sales-desk > /tmp/verdugo-sales-desk.json
+          python3 -c "import json; x=json.load(open('/tmp/verdugo-sales-desk.json')); assert x['sales']['reported_paid_clients']==0 and x['sales']['commercial_success_probability'] is None and x['external_calls_made'] is False and x['adapters_implemented']==22"
       - name: Commercial truth gates
         run: |
           python3 -m verdugo --state :memory: commercial-report > /tmp/verdugo-sales-report.json

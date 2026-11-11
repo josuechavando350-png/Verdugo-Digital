@@ -11,7 +11,7 @@ from .adapters import SPECS, build, service_config, connection, remote_id
 from .catalog import catalog
 from .common import VerdugoError, digest, encode, fields, identifier, integer, sanitize, text
 from .transport import send
-from . import identity, jobs, reconciliation, readback, commercial, pilot
+from . import identity, jobs, reconciliation, readback, commercial, pilot, office
 from .guards import StateGuards, GuardBusy, SCHEMA as GUARD_SCHEMA
 
 CORE = {'lead.capture', 'lead.qualify', 'payment.record', 'metrics.summary'} | identity.ACTIONS
@@ -71,7 +71,7 @@ class Engine:
             self.db.row_factory = sqlite3.Row
             self.db.execute('PRAGMA journal_mode=WAL')
             self.db.execute('PRAGMA foreign_keys=ON')
-            self.db.executescript(SCHEMA + identity.SCHEMA + jobs.SCHEMA + reconciliation.SCHEMA + GUARD_SCHEMA + readback.SCHEMA + commercial.SCHEMA + pilot.SCHEMA)
+            self.db.executescript(SCHEMA + identity.SCHEMA + jobs.SCHEMA + reconciliation.SCHEMA + GUARD_SCHEMA + readback.SCHEMA + commercial.SCHEMA + pilot.SCHEMA + office.SCHEMA)
         except BaseException:
             # sqlite3.connect() succeeded, but schema/PRAGMA/bootstrap failed.
             # Context managers alone do not close sqlite3.Connection objects.
