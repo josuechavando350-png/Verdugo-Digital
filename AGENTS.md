@@ -17,3 +17,5 @@ No aprovisionar hosting de pago, iniciar campañas ni enviar comunicaciones a te
 Antes de activar un proveedor real: ejecutar `pilot` con contrato revisado, revisión de licencia, versión y permisos mínimos. `pilot` solo observa formas de respuesta; no certifica producción. Copias SQLite con `backup-local` contienen datos personales sin cifrar y nunca se incorporan a Git. Restaurar exige revisión offline de escrituras inciertas.
 
 La v0.7 añade operación comercial local `sales-intake` y `sales-desk`. No marcar un contacto como `contacted` al registrarlo: solo `identified`. Los datos demo no cuentan como real. Las cargas desde JSON local pueden incluir PII; no guardar esos archivos en Git ni imprimirlos en el informe.
+
+Para la trazabilidad de GitHub v0.8: sources/parts/ debe contener exactamente 10 archivos JSON, 10 fuentes por archivo, alineadas a verdugo/catalog.py y con SHA verificable. El reporte source_evidence es solo lectura, no supone licencia aceptada, código vendorizado, adaptación funcional ni proveedor validado. Cualquier cambio exige pruebas de integridad y jamás ejecuta fuentes externas automáticamente.
