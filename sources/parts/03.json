@@ -1,0 +1,82 @@
+[
+  {
+    "number": 21,
+    "id": "comfyui",
+    "repository": "Comfy-Org/ComfyUI",
+    "commit_sha": "74eb0c4b8a1a894e7210326882a8d9a016e37ccb",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 22,
+    "id": "remotion",
+    "repository": "remotion-dev/remotion",
+    "commit_sha": "eeb428f095529f52d359ecc709a174eff978642d",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 23,
+    "id": "scrapy",
+    "repository": "scrapy/scrapy",
+    "commit_sha": "f7b1fd3f2f57c9d01f45276c1c3194f58cb0c1ea",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 24,
+    "id": "crawlee",
+    "repository": "apify/crawlee",
+    "commit_sha": "393ecd732aa00420e188c85a93ec4a4d6479d9d0",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 25,
+    "id": "playwright",
+    "repository": "microsoft/playwright",
+    "commit_sha": "392ab0f0de39feb99dbe71eb5fea61e7ad07a480",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 26,
+    "id": "changedetection",
+    "repository": "dgtlmoon/changedetection.io",
+    "commit_sha": "1882705fd7f34aa74b9ee8512b242f7d402821e5",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 27,
+    "id": "trafilatura",
+    "repository": "adbar/trafilatura",
+    "commit_sha": "9c27981f4b7034a3249c77c4c06aaaed719fae66",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 28,
+    "id": "crawl4ai",
+    "repository": "unclecode/crawl4ai",
+    "commit_sha": "cae74b203a33994f7e13b9052c3b0d5c93daa0e6",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 29,
+    "id": "lighthouse",
+    "repository": "GoogleChrome/lighthouse",
+    "commit_sha": "5313024aa05786138dfd38c6740ef354e20c3f92",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 30,
+    "id": "lighthouse-ci",
+    "repository": "GoogleChrome/lighthouse-ci",
+    "commit_sha": "3ead206a96a5ba714c386affe274576ccb8c09a9",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

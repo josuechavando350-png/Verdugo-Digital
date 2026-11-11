@@ -20,6 +20,22 @@ Núcleo de control comercial para NexusBotStudio y empresas cliente. Una entrada
 
 Registrar, implementar, configurar, desplegar y validar son etapas distintas. El grafo de 100 proyectos representa rutas lógicas, no conectividad real. No descarga ni ejecuta los repositorios externos. No hay hosting, campañas ni operación permanente activados por este código.
 
+
+## Nexus: 100 fuentes GitHub fijadas (v0.8)
+
+Las 100 fuentes aprobadas tienen una referencia inmutable por SHA de commit en `sources/parts/`.
+Un validador estricto comprueba coincidencia con el catálogo y una herramienta MCP **solo lectura**
+expone la procedencia sin descargar ni ejecutar código de terceros:
+
+```sh
+python -m verdugo sources
+python -m verdugo source-inspect twenty
+```
+
+**100 fuentes fijadas no son 100 integraciones operativas**: continúan 22 adaptadores HTTP,
+78 proyectos sin adaptador, 100 revisiones de licencia pendientes y cero proveedores
+certificados en vivo. [Procedencia y requisitos pendientes](docs/GITHUB_SOURCES_V08.md).
+
 ## Inicio local
 
 Python 3.11 o superior, sin dependencias de terceros para el núcleo:

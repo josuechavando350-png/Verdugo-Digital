@@ -1,0 +1,82 @@
+[
+  {
+    "number": 91,
+    "id": "coolify",
+    "repository": "coollabsio/coolify",
+    "commit_sha": "d9ab3d1e8bea98215ed19a27f2f4ac1abd2fa40f",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 92,
+    "id": "grafana",
+    "repository": "grafana/grafana",
+    "commit_sha": "3a858269421f77d107c876f60ce14f8b7aabe5c5",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 93,
+    "id": "prometheus",
+    "repository": "prometheus/prometheus",
+    "commit_sha": "49c815a0ea46c7a6a6b723e4b634c4bf36f7022c",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 94,
+    "id": "otel-collector",
+    "repository": "open-telemetry/opentelemetry-collector",
+    "commit_sha": "e366bb7fb49a67fd117332fff93795a0050744ff",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 95,
+    "id": "sops",
+    "repository": "getsops/sops",
+    "commit_sha": "9aa10f12bcd82400b7eb73331dd7a87a93bb17f7",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 96,
+    "id": "infisical",
+    "repository": "Infisical/infisical",
+    "commit_sha": "09079738070ecc82e17a150f223226eb4f6647d8",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 97,
+    "id": "grype",
+    "repository": "anchore/grype",
+    "commit_sha": "cd1f23eb50dfb52647090158f453c7359172591f",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 98,
+    "id": "syft",
+    "repository": "anchore/syft",
+    "commit_sha": "a0c0d3890a9d79421c403e8fcadec50a2e55bf21",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 99,
+    "id": "gitleaks",
+    "repository": "gitleaks/gitleaks",
+    "commit_sha": "5f6ec56cfa6f8c67648d863582c7ae2f206d5c1c",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 100,
+    "id": "restic",
+    "repository": "restic/restic",
+    "commit_sha": "c734245fd3ae9bcac8ab3aaafb4482d4b5d0ae92",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

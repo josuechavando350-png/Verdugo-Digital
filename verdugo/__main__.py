@@ -7,7 +7,7 @@ from .adapters import SPECS
 from .catalog import catalog, graph
 from .common import VerdugoError, encode, identifier
 from .engine import Engine
-from . import workflow, jobs, reconciliation, readback, surface, recovery, commercial, pilot, backups, office
+from . import workflow, jobs, reconciliation, readback, surface, recovery, commercial, pilot, backups, office, source_evidence
 from .ingress import make_server
 from .bridge import contact_bridge
 from .diagnostics import doctor
@@ -49,8 +49,9 @@ def main(argv=None):
     parser.add_argument('--actor', default='local-operator')
     parser.add_argument('--role', choices=['operator', 'viewer', 'approver'], default='operator')
     sub = parser.add_subparsers(dest='cmd', required=True)
-    for name in ('status', 'catalog', 'graph', 'mcp', 'demo'): sub.add_parser(name)
+    for name in ('status', 'catalog', 'graph', 'mcp', 'demo', 'sources'): sub.add_parser(name)
     p = sub.add_parser('init'); p.add_argument('--out', default='verdugo.local.json')
+    p = sub.add_parser('source-inspect'); p.add_argument('project_id')
     p = sub.add_parser('events'); p.add_argument('--after', type=int, default=0)
     for name in ('plan', 'run', 'workflow', 'bridge', 'readback', 'surface'):
         p = sub.add_parser(name); p.add_argument('input', help='JSON text or @path.json')
@@ -86,6 +87,8 @@ def main(argv=None):
             with open(args.out, 'x') as f: f.write(json.dumps(template(args.tenant), indent=2)+'\n')
             print(encode({'created': args.out, 'registered': 100, 'enabled': 0})); return 0
         if args.cmd == 'catalog': print(encode(catalog())); return 0
+        if args.cmd == 'sources': print(encode(source_evidence.report())); return 0
+        if args.cmd == 'source-inspect': print(encode(source_evidence.report(args.project_id))); return 0
         if args.cmd == 'graph': print(encode(graph(SPECS))); return 0
         if args.cmd == 'verify-backup': print(encode(backups.verify(args.file))); return 0
         if args.cmd == 'demo':

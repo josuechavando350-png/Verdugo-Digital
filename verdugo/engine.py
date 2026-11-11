@@ -9,6 +9,7 @@ import stat
 import time
 from .adapters import SPECS, build, service_config, connection, remote_id
 from .catalog import catalog
+from .source_evidence import read_sources
 from .common import VerdugoError, digest, encode, fields, identifier, integer, sanitize, text
 from .transport import send
 from . import identity, jobs, reconciliation, readback, commercial, pilot, office
@@ -102,16 +103,20 @@ class Engine:
             (self.tenant, after))]
 
     def status(self):
+        pins = {r['id']: r['commit_sha'] for r in read_sources()}
         rows = []
         for item in catalog():
             cfg = service_config(self.config, self.tenant, item['id'])
-            rows.append(item | {'adapter_implemented': item['id'] in SPECS,
+            rows.append(item | {'artifact_pin': pins[item['id']],
+                'source_status': 'pinned',
+                'adapter_implemented': item['id'] in SPECS,
                 'actions': list(SPECS.get(item['id'], {})),
                 'enabled_by_operator': cfg.get('enabled') is True,
                 'configured_version': cfg.get('version'),
                 'live_verified': False})
         return {'name': 'Verdugo Digital', 'phase': 'integration-foundation',
                 'tenant': self.tenant, 'registered': len(rows),
+                'source_pinned': len(pins), 'license_review_pending': len(pins),
                 'api_adapters_implemented': sum(r['adapter_implemented'] for r in rows),
                 'api_actions_implemented': sum(len(v) for v in SPECS.values()),
                 'live_verified': 0, 'note': 'API success is not acceptance certification.',

@@ -167,7 +167,7 @@ class OfficeTests(Base):
 
     def test_mcp_shares_same_controls(self):
         names={x['name'] for x in tool_definitions()}
-        self.assertEqual(20,len(names))
+        self.assertEqual(21,len(names))
         self.assertIn('verdugo_sales_intake',names)
         self.assertIn('verdugo_sales_desk',names)
         self.assertEqual('planned',invoke(self.engine,'verdugo_sales_intake',{'request':self.sample()})['state'])
