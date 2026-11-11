@@ -1,0 +1,82 @@
+[
+  {
+    "number": 41,
+    "id": "whisper",
+    "repository": "openai/whisper",
+    "commit_sha": "86098128c0b4f24f0e2aa2994de830614b474227",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 42,
+    "id": "dlt",
+    "repository": "dlt-hub/dlt",
+    "commit_sha": "00f21fe45e10bc77fcad53809114407c2480c851",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 43,
+    "id": "airbyte",
+    "repository": "airbytehq/airbyte",
+    "commit_sha": "60fcfd2f303d1b0f472b4a337b52d7593765713b",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 44,
+    "id": "dbt",
+    "repository": "dbt-labs/dbt",
+    "commit_sha": "3a3c73e46acb63bf09dbcb53ebaea1d7efdffe2e",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 45,
+    "id": "duckdb",
+    "repository": "duckdb/duckdb",
+    "commit_sha": "5b97627c8e0e372a4b0bade9b8a757e2c91bde33",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 46,
+    "id": "clickhouse",
+    "repository": "ClickHouse/ClickHouse",
+    "commit_sha": "e8473460558a9f85074a90e89519a7fddb6bcacf",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 47,
+    "id": "postgres",
+    "repository": "postgres/postgres",
+    "commit_sha": "8d87367b39e44b0913ca585c733795cc2d30bff1",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 48,
+    "id": "pgvector",
+    "repository": "pgvector/pgvector",
+    "commit_sha": "66accb3af6705ea9975a33f6704f1cde50d99447",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 49,
+    "id": "qdrant",
+    "repository": "qdrant/qdrant",
+    "commit_sha": "222b2e44ab1c3f17e8246396ead6558e45041df7",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 50,
+    "id": "meilisearch",
+    "repository": "meilisearch/meilisearch",
+    "commit_sha": "4ef8a91f27ee6affff3f59bc46a9e07a2a761636",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]
