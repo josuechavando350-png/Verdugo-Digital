@@ -124,3 +124,7 @@ Documentación: [operación v0.6](docs/PILOTO_Y_RESPALDOS_V06.md), [control come
 ## Compatibilidad Termux / Android (v0.6.1)
 
 Se corrigió la creación de respaldos cuando Python no expone `os.link`, sin permitir sobrescrituras; el modo de copia alternativa requiere verificar el archivo antes de usarlo porque una interrupción eléctrica puede dejarlo incompleto. También se ajustaron las pruebas de permisos con `umask=077` y se omite explícitamente la prueba de enlaces físicos si el sistema no los admite. [Instrucciones para Termux](docs/TERMUX.md).
+
+## Termux: conexiones SQLite (v0.6.2)
+
+Se corrigieron advertencias de conexiones SQLite no cerradas en las pruebas de backup y se extendió el cierre por error durante la inicialización del motor. Se incluye comprobación de `ResourceWarning` y suite con Python 3.14 en GitHub Actions. [Detalles](docs/SQLITE_LIFECYCLE_V062.md). No hay servicios reales desplegados.

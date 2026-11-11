@@ -256,6 +256,24 @@ class PolicyTests(Base):
     def test_unknown_tenant(self):
         with self.assertRaises(VerdugoError):Engine(':memory:',self.config,tenant='absent')
 
+    def test_failed_sqlite_bootstrap_closes_open_connection(self):
+        from unittest.mock import patch
+        import sqlite3
+        from verdugo import engine as module
+        original = sqlite3.connect
+        connections = []
+        def tracked(*args, **kwargs):
+            db = original(*args, **kwargs)
+            connections.append(db)
+            return db
+        with patch.object(module.sqlite3, 'connect', side_effect=tracked):
+            with patch.object(module.pilot, 'SCHEMA', 'THIS IS NOT VALID SQLITE;'):
+                with self.assertRaises(sqlite3.DatabaseError):
+                    Engine(self.path, self.config)
+        self.assertEqual(1, len(connections))
+        with self.assertRaises(sqlite3.ProgrammingError):
+            connections[0].execute('SELECT 1')
+
     def test_invalid_configuration(self):
         with self.assertRaises(VerdugoError):Engine(':memory:',[])
 

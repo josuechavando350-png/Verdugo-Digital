@@ -68,13 +68,15 @@ class Engine:
         try:
             if self.state_path != ':memory:': os.chmod(self.state_path, 0o600)
             self.guards = StateGuards(self.state_path)
+            self.db.row_factory = sqlite3.Row
+            self.db.execute('PRAGMA journal_mode=WAL')
+            self.db.execute('PRAGMA foreign_keys=ON')
+            self.db.executescript(SCHEMA + identity.SCHEMA + jobs.SCHEMA + reconciliation.SCHEMA + GUARD_SCHEMA + readback.SCHEMA + commercial.SCHEMA + pilot.SCHEMA)
         except BaseException:
+            # sqlite3.connect() succeeded, but schema/PRAGMA/bootstrap failed.
+            # Context managers alone do not close sqlite3.Connection objects.
             self.db.close()
             raise
-        self.db.row_factory = sqlite3.Row
-        self.db.execute('PRAGMA journal_mode=WAL')
-        self.db.execute('PRAGMA foreign_keys=ON')
-        self.db.executescript(SCHEMA + identity.SCHEMA + jobs.SCHEMA + reconciliation.SCHEMA + GUARD_SCHEMA + readback.SCHEMA + commercial.SCHEMA + pilot.SCHEMA)
 
     def close(self):
         self.db.close()

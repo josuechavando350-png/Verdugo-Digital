@@ -1,6 +1,7 @@
 """Backups are local, private, unencrypted and independently integrity-checked."""
 import os
 import errno
+from contextlib import closing
 from pathlib import Path
 import sqlite3
 import subprocess
@@ -26,10 +27,10 @@ class BackupsTests(Base):
         self.assertTrue(r['contains_personal_data']);self.assertFalse(r['encrypted'])
         self.assertEqual(0o600,Path(self.target()).stat().st_mode & 0o777)
         self.assertEqual('verified_local_copy',backups.verify(self.target())['state'])
-        with sqlite3.connect(self.target()) as db:
+        with closing(sqlite3.connect(self.target())) as db:
             self.assertEqual(1,db.execute("SELECT COUNT(*) FROM records WHERE kind='lead'").fetchone()[0])
         self.engine.execute(self.lead(key='later',lead_id='later'),True)
-        with sqlite3.connect(self.target()) as db:
+        with closing(sqlite3.connect(self.target())) as db:
             self.assertEqual(1,db.execute("SELECT COUNT(*) FROM records WHERE kind='lead'").fetchone()[0])
 
     def test_backup_cannot_overwrite_existing_or_live_db(self):
@@ -116,6 +117,13 @@ class BackupsTests(Base):
             with patch('verdugo.backups.shutil.copyfileobj', side_effect=OSError('synthetic interrupted copy')):
                 with self.assertRaises(OSError): backups.create(self.engine, self.target())
         self.assertFalse(Path(self.target()).exists())
+
+    def test_backup_inspection_closes_connection(self):
+        backups.create(self.engine, self.target())
+        with closing(sqlite3.connect(self.target())) as db:
+            self.assertEqual('ok', db.execute('PRAGMA integrity_check').fetchone()[0])
+        with self.assertRaises(sqlite3.ProgrammingError):
+            db.execute('SELECT 1')
 
     def test_old_snapshot_cannot_claim_running_recovery(self):
         # A local backup does not certify that a remote request completed.

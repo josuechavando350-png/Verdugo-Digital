@@ -35,6 +35,23 @@ jobs:
           result = unittest.TextTestRunner(verbosity=1).run(suite)
           assert result.wasSuccessful(), 'Simulated Termux regression'
           PY
+      - name: Detect SQLite connection leaks
+        run: |
+          python3 - <<'PYCODE'
+          import gc, unittest, warnings
+          with warnings.catch_warnings(record=True) as caught:
+              warnings.simplefilter('always', ResourceWarning)
+              suite = unittest.defaultTestLoader.discover('tests')
+              result = unittest.TextTestRunner(verbosity=1).run(suite)
+              gc.collect()
+          leaks = [str(w.message) for w in caught
+                   if issubclass(w.category, ResourceWarning)
+                   and 'sqlite3.Connection' in str(w.message)]
+          if leaks:
+              raise SystemExit('Unclosed SQLite connections: ' + repr(leaks[:5]))
+          if not result.wasSuccessful():
+              raise SystemExit('Tests failed in leak check')
+          PYCODE
       - name: Synthetic end-to-end smoke test
         run: |
           python3 -m verdugo demo > /tmp/verdugo-demo.json
@@ -55,3 +72,36 @@ jobs:
         run: |
           python3 -m verdugo --state :memory: status > /tmp/verdugo-status.json
           python3 -c "import json; x=json.load(open('/tmp/verdugo-status.json')); assert x['registered']==100 and x['api_adapters_implemented']==22 and x['api_actions_implemented']==26 and x['live_verified']==0"
+
+  python314:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Install pinned Python 3.14 action
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.14'
+      - name: Run Python 3.14 with SQLite ResourceWarning audit
+        run: |
+          python - <<'PYCODE'
+          import gc, os, unittest, warnings
+          os.umask(0o077)
+          if hasattr(os, 'link'):
+              del os.link
+          with warnings.catch_warnings(record=True) as caught:
+              warnings.simplefilter('always', ResourceWarning)
+              suite = unittest.defaultTestLoader.discover('tests')
+              result = unittest.TextTestRunner(verbosity=1).run(suite)
+              gc.collect()
+          leaks = [str(w.message) for w in caught
+                   if issubclass(w.category, ResourceWarning)
+                   and 'sqlite3.Connection' in str(w.message)]
+          if leaks:
+              raise SystemExit('Unclosed SQLite connections under 3.14: ' + repr(leaks[:5]))
+          if not result.wasSuccessful():
+              raise SystemExit('Python 3.14 Termux simulation failed')
+          PYCODE
