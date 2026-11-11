@@ -1,0 +1,4 @@
+{
+  "probe_id": "sandbox-pilot-001",
+  "services": ["twenty", "chatwoot"]
+}

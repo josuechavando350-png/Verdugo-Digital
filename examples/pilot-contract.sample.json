@@ -1,0 +1,9 @@
+{
+  "acceptance": {
+    "reviewed": false,
+    "environment": "sandbox",
+    "collection_path": "REPLACE_WITH_REVIEWED_RESPONSE_PATH",
+    "collection_type": "array",
+    "contract_ref": "REPLACE_WITH_OFFICIAL_API_DOC_REFERENCE"
+  }
+}

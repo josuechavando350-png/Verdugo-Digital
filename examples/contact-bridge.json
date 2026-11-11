@@ -1,0 +1,7 @@
+{
+ "id":"contact-bridge-example-001",
+ "steps":[
+  {"id":"crm","service":"twenty","operation":"people.create","params":{"first_name":"Demo","last_name":"Example","email":"demo@example.invalid"}},
+  {"id":"inbox","service":"chatwoot","operation":"contacts.create","depends_on":["crm"],"params":{"first_name":"Demo","last_name":"Example","email":"demo@example.invalid"}}
+ ]
+}
