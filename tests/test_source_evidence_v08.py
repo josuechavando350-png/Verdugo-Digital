@@ -11,6 +11,7 @@ from unittest.mock import patch
 from verdugo.adapters import SPECS
 from verdugo.catalog import catalog
 from verdugo.common import VerdugoError
+from verdugo.engine import Engine
 from verdugo.source_evidence import PARTS, PART_NAMES, read_sources, report
 from verdugo.mcp import invoke, tool_definitions
 
@@ -34,6 +35,19 @@ class SourceEvidenceTests(unittest.TestCase):
         self.assertEqual(0, value["live_verified"])
         self.assertEqual(0, value["production_ready"])
         self.assertFalse(value["external_calls_made"])
+
+    def test_engine_status_exposes_pin_without_claiming_runtime(self):
+        engine = Engine(":memory:")
+        try:
+            status = engine.status()
+        finally:
+            engine.close()
+        self.assertEqual(100, status["source_pinned"])
+        self.assertEqual(100, status["license_review_pending"])
+        self.assertEqual(0, status["live_verified"])
+        self.assertEqual(40, len(status["integrations"][0]["artifact_pin"]))
+        self.assertEqual("pinned", status["integrations"][0]["source_status"])
+        self.assertFalse(status["integrations"][0]["live_verified"])
 
     def test_single_source_has_read_only_commit_url(self):
         value = report("twenty")
