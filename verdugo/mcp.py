@@ -6,6 +6,7 @@ import sys
 from .common import VerdugoError, encode, fields
 from .catalog import graph
 from .adapters import SPECS
+from . import source_evidence
 from . import workflow, jobs, reconciliation, readback, surface, commercial, pilot, office
 from . import __version__
 from .bridge import contact_bridge
@@ -16,6 +17,8 @@ SUPPORTED = (VERSION, '2025-06-18')
 OBJ = {'type': 'object'}
 BOOL = {'type': 'boolean', 'default': False}
 TOOLS = [
+ ('verdugo_source_evidence', 'Read-only pinned GitHub source evidence. No deployment, license approval, or external API call.',
+  {'project_id': {'type': 'string'}}, [], True),
  ('verdugo_sales_intake', 'Local atomic intake with first-party prospect identity and scheduled followup; preview by default, no messages.',
   {'request': OBJ, 'execute': BOOL}, ['request'], False),
  ('verdugo_sales_desk', 'Single read-only 30-day sales, followup, queue and reconciliation overview.',
@@ -69,6 +72,7 @@ def invoke(engine, name, args):
     spec = next((s for s in TOOLS if s[0] == name), None)
     if not spec: raise VerdugoError('Unknown tool')
     fields(args, spec[3], set(spec[2])-set(spec[3]))
+    if name == 'verdugo_source_evidence': return source_evidence.report(args.get('project_id'))
     if name == 'verdugo_sales_intake': return office.intake(engine, args['request'], args.get('execute', False))
     if name == 'verdugo_sales_desk': return office.desk(engine, args.get('params'))
     if name == 'verdugo_pilot': return pilot.check(engine, args['request'], args.get('execute', False))
