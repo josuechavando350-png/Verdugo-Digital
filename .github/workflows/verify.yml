@@ -27,7 +27,11 @@ jobs:
         run: |
           python3 -m verdugo demo > /tmp/verdugo-demo.json
           python3 -c "import json; x=json.load(open('/tmp/verdugo-demo.json')); assert x['synthetic_only'] and x['external_calls']==0 and x['workflow']['state']=='succeeded'"
+      - name: Commercial truth gates
+        run: |
+          python3 -m verdugo --state :memory: commercial-report > /tmp/verdugo-sales-report.json
+          python3 -c "import json; x=json.load(open('/tmp/verdugo-sales-report.json')); assert x['reported_paid_clients']==0 and x['gap_to_min']==6 and x['commercial_success_probability'] is None and x['bank_reconciled'] is False"
       - name: Registry truth checks
         run: |
           python3 -m verdugo --state :memory: status > /tmp/verdugo-status.json
-          python3 -c "import json; x=json.load(open('/tmp/verdugo-status.json')); assert x['registered']==100 and x['api_adapters_implemented']==22 and x['live_verified']==0"
+          python3 -c "import json; x=json.load(open('/tmp/verdugo-status.json')); assert x['registered']==100 and x['api_adapters_implemented']==22 and x['api_actions_implemented']==26 and x['live_verified']==0"

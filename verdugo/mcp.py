@@ -6,7 +6,7 @@ import sys
 from .common import VerdugoError, encode, fields
 from .catalog import graph
 from .adapters import SPECS
-from . import workflow, jobs, reconciliation, readback, surface
+from . import workflow, jobs, reconciliation, readback, surface, commercial
 from . import __version__
 from .bridge import contact_bridge
 from .diagnostics import doctor
@@ -16,6 +16,12 @@ SUPPORTED = (VERSION, '2025-06-18')
 OBJ = {'type': 'object'}
 BOOL = {'type': 'boolean', 'default': False}
 TOOLS = [
+ ('verdugo_commercial_report', 'Operator-reported 30-day sales progress; no bank verification or success probability.',
+  {'params': OBJ}, [], True),
+ ('verdugo_commercial_next', 'Review unpaid, untracked or overdue leads without sending anything.',
+  {'params': OBJ}, [], True),
+ ('verdugo_commercial_record', 'Record a local operator-asserted sales milestone; dry-run by default, no external calls.',
+  {'event': OBJ, 'execute': BOOL}, ['event'], False),
  ('verdugo_contact_readback', 'Read a proposed contact ID for an uncertain creation. No approval, no resend, no automatic resolution.',
   {'request': OBJ, 'execute': BOOL}, ['request'], False),
  ('verdugo_surface_overview', 'Read selected commercial surfaces through one workflow; response counts are not revenue or customer totals.',
@@ -57,6 +63,9 @@ def invoke(engine, name, args):
     spec = next((s for s in TOOLS if s[0] == name), None)
     if not spec: raise VerdugoError('Unknown tool')
     fields(args, spec[3], set(spec[2])-set(spec[3]))
+    if name == 'verdugo_commercial_report': return commercial.report(engine, args.get('params'))
+    if name == 'verdugo_commercial_next': return commercial.next_actions(engine, args.get('params'))
+    if name == 'verdugo_commercial_record': return commercial.record(engine, args['event'], args.get('execute', False))
     if name == 'verdugo_contact_readback': return readback.verify(engine, args['request'], args.get('execute', False))
     if name == 'verdugo_surface_overview': return surface.overview(engine, args['request'], args.get('execute', False))
     if name == 'verdugo_queue': return jobs.overview(engine, args.get('limit', 50))

@@ -11,7 +11,7 @@ from .adapters import SPECS, build, service_config, connection, remote_id
 from .catalog import catalog
 from .common import VerdugoError, digest, encode, fields, identifier, integer, sanitize, text
 from .transport import send
-from . import identity, jobs, reconciliation, readback
+from . import identity, jobs, reconciliation, readback, commercial
 from .guards import StateGuards, GuardBusy, SCHEMA as GUARD_SCHEMA
 
 CORE = {'lead.capture', 'lead.qualify', 'payment.record', 'metrics.summary'} | identity.ACTIONS
@@ -74,7 +74,7 @@ class Engine:
         self.db.row_factory = sqlite3.Row
         self.db.execute('PRAGMA journal_mode=WAL')
         self.db.execute('PRAGMA foreign_keys=ON')
-        self.db.executescript(SCHEMA + identity.SCHEMA + jobs.SCHEMA + reconciliation.SCHEMA + GUARD_SCHEMA + readback.SCHEMA)
+        self.db.executescript(SCHEMA + identity.SCHEMA + jobs.SCHEMA + reconciliation.SCHEMA + GUARD_SCHEMA + readback.SCHEMA + commercial.SCHEMA)
 
     def close(self):
         self.db.close()

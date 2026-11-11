@@ -7,7 +7,7 @@ from .adapters import SPECS
 from .catalog import catalog, graph
 from .common import VerdugoError, encode, identifier
 from .engine import Engine
-from . import workflow, jobs, reconciliation, readback, surface, recovery
+from . import workflow, jobs, reconciliation, readback, surface, recovery, commercial
 from .ingress import make_server
 from .bridge import contact_bridge
 from .diagnostics import doctor
@@ -69,6 +69,10 @@ def main(argv=None):
     p = sub.add_parser('reconcile'); p.add_argument('input'); p.add_argument('--execute', action='store_true')
     p = sub.add_parser('reconcile-readback'); p.add_argument('input'); p.add_argument('--execute', action='store_true')
     p = sub.add_parser('recover-running'); p.add_argument('input'); p.add_argument('--execute', action='store_true')
+    for name in ('commercial-record', 'commercial-report', 'commercial-next'):
+        p = sub.add_parser(name)
+        p.add_argument('input', nargs='?', help='JSON or @file; report and next have safe defaults')
+        if name == 'commercial-record': p.add_argument('--execute', action='store_true')
     p = sub.add_parser('ingress-local'); p.add_argument('--port', type=int, default=8765)
     args = parser.parse_args(argv)
     engine = None
@@ -108,6 +112,11 @@ def main(argv=None):
             result = jobs.resume(engine, args.job_id) if args.execute else {'state': 'planned', 'job': jobs.get(engine, args.job_id)}
         elif args.cmd == 'reconciliation-list': result = reconciliation.pending(engine)
         elif args.cmd == 'recover-running': result = recovery.recover_running(engine, read_json(args.input), args.execute)
+        elif args.cmd == 'commercial-record':
+            if args.input is None: raise VerdugoError('commercial-record requires an event')
+            result = commercial.record(engine, read_json(args.input), args.execute)
+        elif args.cmd == 'commercial-report': result = commercial.report(engine, read_json(args.input) if args.input else None)
+        elif args.cmd == 'commercial-next': result = commercial.next_actions(engine, read_json(args.input) if args.input else None)
         elif args.cmd == 'readback': result = readback.verify(engine, read_json(args.input), args.execute)
         elif args.cmd == 'surface': result = surface.overview(engine, read_json(args.input), args.execute)
         elif args.cmd == 'reconcile-readback':

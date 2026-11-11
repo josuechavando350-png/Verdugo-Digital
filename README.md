@@ -1,6 +1,6 @@
 # Verdugo Digital
 
-Núcleo de control comercial para NexusBotStudio y empresas cliente. Una entrada CLI/MCP para planes, flujos, eventos y evidencia. **v0.4.0 de ingeniería; no son 100 servicios desplegados.**
+Núcleo de control comercial para NexusBotStudio y empresas cliente. Una entrada CLI/MCP para planes, flujos, eventos y evidencia. **v0.5.0 de ingeniería; no son 100 servicios desplegados.**
 
 ## Estado verificable
 
@@ -8,12 +8,12 @@ Núcleo de control comercial para NexusBotStudio y empresas cliente. Una entrada
 |---|---|
 | Selección original | 100 proyectos registrados |
 | Adaptadores HTTP | 22 implementados / 26 acciones delimitadas |
-| Núcleo comercial | 6 acciones; pagos declarados, no verificación bancaria |
-| Herramientas MCP | 14, por stdio; sin autoaprobación |
+| Núcleo comercial | 6 acciones existentes más registro local de hitos y seguimiento a 30 días; pagos declarados, no verificación bancaria |
+| Herramientas MCP | 17, por stdio; sin autoaprobación de efectos externos |
 | Eventos entrantes | Sobre canónico HMAC-SHA256, 2 rutas permitidas |
 | Cola | SQLite persistente, deduplicación, leases, intentos limitados y bloqueo |
-| Recuperación nueva | Lectura del contacto propuesto + comprobación + revisión humana separada |
-| Pruebas locales | 221 aprobadas; fixtures y HTTP loopback |
+| Recuperación | Guardia local v0.4.1 + lectura de contacto + revisión humana separada |
+| Pruebas locales v0.5 | **269 aprobadas**, fixtures y HTTP loopback |
 | Proveedores externos validados en vivo | **0** |
 | Proyectos sin adaptador | **78** |
 | Probabilidad comercial del 90% | No demostrada por este código |
@@ -46,7 +46,21 @@ El puente sigue: captura local → creación en Twenty → vínculo del ID → c
 
 Una integración exige habilitación, revisión de licencia/uso, versión desplegada explícita, origen HTTPS y secreto `VERDUGO_*` fuera de Git. Las versiones, ediciones, esquemas, cuentas y permisos todavía requieren validación en instancias autorizadas. El contenido externo se trata como datos, no como instrucciones.
 
-## Nuevo: consulta conjunta de superficies comerciales
+## Nuevo v0.5: tablero comercial de 30 días
+
+Verdugo añade un **registro local e inmutable de hitos comerciales** por prospecto (contacto, reunión, propuesta, seguimiento, cierre) usando la identidad compartida de los leads y pagos del núcleo. Desde CLI o MCP puede devolver el avance respecto de 6 clientes mínimos y 10 como objetivo operativo; no infiere un 90% de probabilidad ni verifica depósitos bancarios.
+
+```bash
+python -m verdugo --state :memory: commercial-report
+python -m verdugo --state :memory: commercial-next
+# Registros del operador con evidencia privada; primero planificar:
+python -m verdugo --config verdugo.local.json commercial-record @evento.local.json
+python -m verdugo --config verdugo.local.json commercial-record @evento.local.json --execute
+```
+
+Sin prospectos capturados, el informe muestra 0; ningún dato ficticio se contará como ingreso real. Los hitos no envían mensajes, crean anuncios ni cobran. `commercial-next` destaca prospectos sin seguimiento y tareas vencidas, sin revelar nombres ni correos en la respuesta. La vinculación a `core.payment.record` es una comprobación local de datos declarados, **no conciliación bancaria**. [Guía y límites del control comercial](docs/COMERCIAL_30_DIAS.md).
+
+## Consulta conjunta de superficies comerciales
 
 Mautic, Easy!Appointments, Formbricks y Dub se suman al mismo motor, diagnóstico, workflows y controles. No son instalaciones de los productos ni conectores de todas sus funciones.
 
@@ -79,14 +93,14 @@ Los eventos canónicos firmados se almacenan atómicamente junto con trabajos. A
 python -m verdugo --config verdugo.local.json --tenant nexus --actor assistant mcp
 ```
 
-MCP stdio con revisiones legacy `2025-11-25` y `2025-06-18`. Sus 14 herramientas incluyen `verdugo_contact_readback` y `verdugo_surface_overview`. No hay herramientas para aprobar, firmar eventos o confirmar conciliaciones. **Publicar en GitHub no conecta este chat al MCP ni mantiene un asistente 24/7.**
+MCP stdio con revisiones legacy `2025-11-25` y `2025-06-18`. Sus 17 herramientas incluyen `verdugo_contact_readback` y `verdugo_surface_overview`. No hay herramientas para aprobar, firmar eventos o confirmar conciliaciones. **Publicar en GitHub no conecta este chat al MCP ni mantiene un asistente 24/7.**
 
 ## Límites y actualización
 
-Respaldar SQLite antes de actualizar. v0.4 añade `contact_readbacks`; no borra ni cambia planes, aprobaciones, ejecuciones o identidades. Una prueba de compatibilidad conserva los fingerprints de creación v0.3. Cambiar secretos, versiones o destinos invalida la comprobación: no borrar estado ni cambiar claves para forzar un POST.
+Respaldar SQLite antes de actualizar. v0.4 añade `contact_readbacks`, v0.4.1 añade guardias de ejecución local y v0.5 añade `commercial_events`; no borra ni cambia planes, aprobaciones, ejecuciones o identidades. Una prueba de compatibilidad conserva los fingerprints de creación v0.3. Cambiar secretos, versiones o destinos invalida la comprobación: no borrar estado ni cambiar claves para forzar un POST.
 
-SQLite y roles locales no constituyen IAM, aislamiento hostil entre empresas ni alta disponibilidad. Faltan ingreso productivo, supervisor, retención, firmas nativas, sincronización bidireccional y recuperación verificable de procesos `running`. Los resultados almacenados pueden contener datos personales y exigen protección del host y copias probadas.
+SQLite y roles locales no constituyen IAM, aislamiento hostil entre empresas ni alta disponibilidad. Faltan ingreso productivo, supervisor, retención, firmas nativas, sincronización bidireccional e identidad IAM. La recuperación local de `running` es cooperativa y limitada a un solo host, no recuperación distribuida. Los resultados almacenados pueden contener datos personales y exigen protección del host y copias probadas.
 
 Los pagos son declaraciones por moneda/dataset, no conciliación bancaria ni utilidad neta. Ninguna prueba sintética demuestra rentabilidad o éxito comercial. Las licencias externas siguen separadas; no se redistribuye aquí su código. El código original todavía no tiene licencia de redistribución elegida.
 
-Documentación: [entrega y pendientes v0.4](docs/V04.md), [fuentes nuevas](docs/API_SOURCES_V04.md), [arquitectura previa](docs/ARCHITECTURE.md), [validación histórica v0.3](docs/VALIDATION.md).
+Documentación: [control comercial v0.5](docs/COMERCIAL_30_DIAS.md), [recuperación v0.4.1](docs/V041.md), [entrega y pendientes v0.4](docs/V04.md), [fuentes nuevas](docs/API_SOURCES_V04.md), [arquitectura previa](docs/ARCHITECTURE.md), [validación histórica v0.3](docs/VALIDATION.md).
