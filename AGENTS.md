@@ -13,3 +13,5 @@ Para servicios nuevos: confirmar documentación oficial y versión, implementar 
 No afirmar despliegues, CI, auditorías o resultados comerciales que no se hayan observado. No estimar 90% de éxito a partir de una demo. Los datos `demo` nunca cuentan como ingresos reales. Un estado de escritura `uncertain` o `running` exige conciliación antes de decidir cualquier reintento.
 
 No aprovisionar hosting de pago, iniciar campañas ni enviar comunicaciones a terceros por el simple hecho de recibir autorización para programar el repositorio.
+
+Antes de activar un proveedor real: ejecutar `pilot` con contrato revisado, revisión de licencia, versión y permisos mínimos. `pilot` solo observa formas de respuesta; no certifica producción. Copias SQLite con `backup-local` contienen datos personales sin cifrar y nunca se incorporan a Git. Restaurar exige revisión offline de escrituras inciertas.

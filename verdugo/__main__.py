@@ -7,7 +7,7 @@ from .adapters import SPECS
 from .catalog import catalog, graph
 from .common import VerdugoError, encode, identifier
 from .engine import Engine
-from . import workflow, jobs, reconciliation, readback, surface, recovery, commercial
+from . import workflow, jobs, reconciliation, readback, surface, recovery, commercial, pilot, backups
 from .ingress import make_server
 from .bridge import contact_bridge
 from .diagnostics import doctor
@@ -73,6 +73,9 @@ def main(argv=None):
         p = sub.add_parser(name)
         p.add_argument('input', nargs='?', help='JSON or @file; report and next have safe defaults')
         if name == 'commercial-record': p.add_argument('--execute', action='store_true')
+    p = sub.add_parser('pilot'); p.add_argument('input'); p.add_argument('--execute', action='store_true')
+    p = sub.add_parser('backup-local'); p.add_argument('--to', required=True)
+    p = sub.add_parser('verify-backup'); p.add_argument('--file', required=True)
     p = sub.add_parser('ingress-local'); p.add_argument('--port', type=int, default=8765)
     args = parser.parse_args(argv)
     engine = None
@@ -82,6 +85,7 @@ def main(argv=None):
             print(encode({'created': args.out, 'registered': 100, 'enabled': 0})); return 0
         if args.cmd == 'catalog': print(encode(catalog())); return 0
         if args.cmd == 'graph': print(encode(graph(SPECS))); return 0
+        if args.cmd == 'verify-backup': print(encode(backups.verify(args.file))); return 0
         if args.cmd == 'demo':
             with tempfile.TemporaryDirectory(prefix='verdugo-demo-') as directory:
                 engine = Engine(Path(directory)/'demo.sqlite3')
@@ -112,6 +116,8 @@ def main(argv=None):
             result = jobs.resume(engine, args.job_id) if args.execute else {'state': 'planned', 'job': jobs.get(engine, args.job_id)}
         elif args.cmd == 'reconciliation-list': result = reconciliation.pending(engine)
         elif args.cmd == 'recover-running': result = recovery.recover_running(engine, read_json(args.input), args.execute)
+        elif args.cmd == 'pilot': result = pilot.check(engine, read_json(args.input), args.execute)
+        elif args.cmd == 'backup-local': result = backups.create(engine, args.to)
         elif args.cmd == 'commercial-record':
             if args.input is None: raise VerdugoError('commercial-record requires an event')
             result = commercial.record(engine, read_json(args.input), args.execute)

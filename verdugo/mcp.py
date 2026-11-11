@@ -6,7 +6,7 @@ import sys
 from .common import VerdugoError, encode, fields
 from .catalog import graph
 from .adapters import SPECS
-from . import workflow, jobs, reconciliation, readback, surface, commercial
+from . import workflow, jobs, reconciliation, readback, surface, commercial, pilot
 from . import __version__
 from .bridge import contact_bridge
 from .diagnostics import doctor
@@ -16,6 +16,8 @@ SUPPORTED = (VERSION, '2025-06-18')
 OBJ = {'type': 'object'}
 BOOL = {'type': 'boolean', 'default': False}
 TOOLS = [
+ ('verdugo_pilot', 'Read-only bounded contract checks for authorized sandbox services. Does not certify production or validate business outcomes.',
+  {'request': OBJ, 'execute': BOOL}, ['request'], False),
  ('verdugo_commercial_report', 'Operator-reported 30-day sales progress; no bank verification or success probability.',
   {'params': OBJ}, [], True),
  ('verdugo_commercial_next', 'Review unpaid, untracked or overdue leads without sending anything.',
@@ -63,6 +65,7 @@ def invoke(engine, name, args):
     spec = next((s for s in TOOLS if s[0] == name), None)
     if not spec: raise VerdugoError('Unknown tool')
     fields(args, spec[3], set(spec[2])-set(spec[3]))
+    if name == 'verdugo_pilot': return pilot.check(engine, args['request'], args.get('execute', False))
     if name == 'verdugo_commercial_report': return commercial.report(engine, args.get('params'))
     if name == 'verdugo_commercial_next': return commercial.next_actions(engine, args.get('params'))
     if name == 'verdugo_commercial_record': return commercial.record(engine, args['event'], args.get('execute', False))

@@ -1,6 +1,6 @@
 # Verdugo Digital
 
-Núcleo de control comercial para NexusBotStudio y empresas cliente. Una entrada CLI/MCP para planes, flujos, eventos y evidencia. **v0.5.0 de ingeniería; no son 100 servicios desplegados.**
+Núcleo de control comercial para NexusBotStudio y empresas cliente. Una entrada CLI/MCP para planes, flujos, eventos y evidencia. **v0.6.0 de ingeniería; no son 100 servicios desplegados.**
 
 ## Estado verificable
 
@@ -9,11 +9,11 @@ Núcleo de control comercial para NexusBotStudio y empresas cliente. Una entrada
 | Selección original | 100 proyectos registrados |
 | Adaptadores HTTP | 22 implementados / 26 acciones delimitadas |
 | Núcleo comercial | 6 acciones existentes más registro local de hitos y seguimiento a 30 días; pagos declarados, no verificación bancaria |
-| Herramientas MCP | 17, por stdio; sin autoaprobación de efectos externos |
+| Herramientas MCP | 18, por stdio; sin autoaprobación de efectos externos |
 | Eventos entrantes | Sobre canónico HMAC-SHA256, 2 rutas permitidas |
 | Cola | SQLite persistente, deduplicación, leases, intentos limitados y bloqueo |
 | Recuperación | Guardia local v0.4.1 + lectura de contacto + revisión humana separada |
-| Pruebas locales v0.5 | **269 aprobadas**, fixtures y HTTP loopback |
+| Pruebas locales v0.6 | **296 aprobadas**, fixtures y HTTP loopback; CI se valida por commit |
 | Proveedores externos validados en vivo | **0** |
 | Proyectos sin adaptador | **78** |
 | Probabilidad comercial del 90% | No demostrada por este código |
@@ -45,6 +45,22 @@ python -m verdugo --config verdugo.local.json doctor
 El puente sigue: captura local → creación en Twenty → vínculo del ID → creación en Chatwoot → vínculo del ID → resumen. La aprobación por lote cubre las dos escrituras exactas. El flujo conserva resultados al reanudarse; no envía mensajes ni inicia campañas.
 
 Una integración exige habilitación, revisión de licencia/uso, versión desplegada explícita, origen HTTPS y secreto `VERDUGO_*` fuera de Git. Las versiones, ediciones, esquemas, cuentas y permisos todavía requieren validación en instancias autorizadas. El contenido externo se trata como datos, no como instrucciones.
+
+## Nuevo v0.6: puerta de aceptación y respaldo coherente
+
+- `pilot`: una sola orden para preparar o consultar seis conectores prioritarios con **lecturas acotadas y contratos revisados**. Cada proveedor debe habilitarse explícitamente en configuración local; no hay credenciales ni servidores incluidos. Los resultados de sandbox y los fixtures **nunca cuentan como integración productiva certificada**.
+- `backup-local` y `verify-backup`: copia SQLite consistente y verificación de integridad, con permisos privados y sin reemplazar datos existentes. Los respaldos **no están cifrados** y no se publican en GitHub. No permiten restaurar operaciones de escritura dudosas automáticamente.
+
+```bash
+python -m verdugo --config verdugo.local.json pilot @examples/pilot-request.json
+# Una vez validada licencia, edición, API, token y esquema en un sandbox autorizado:
+python -m verdugo --config verdugo.local.json pilot @examples/pilot-request.json --execute
+mkdir -m 700 -p ./respaldos.local
+python -m verdugo backup-local --to ./respaldos.local/pre-cambio.sqlite3
+python -m verdugo verify-backup --file ./respaldos.local/pre-cambio.sqlite3
+```
+
+Procedimiento y restricciones: [puerta de aceptación y copias](docs/PILOTO_Y_RESPALDOS_V06.md).
 
 ## Nuevo v0.5: tablero comercial de 30 días
 
@@ -93,14 +109,14 @@ Los eventos canónicos firmados se almacenan atómicamente junto con trabajos. A
 python -m verdugo --config verdugo.local.json --tenant nexus --actor assistant mcp
 ```
 
-MCP stdio con revisiones legacy `2025-11-25` y `2025-06-18`. Sus 17 herramientas incluyen `verdugo_contact_readback` y `verdugo_surface_overview`. No hay herramientas para aprobar, firmar eventos o confirmar conciliaciones. **Publicar en GitHub no conecta este chat al MCP ni mantiene un asistente 24/7.**
+MCP stdio con revisiones legacy `2025-11-25` y `2025-06-18`. Sus 18 herramientas incluyen `verdugo_contact_readback` y `verdugo_surface_overview`. No hay herramientas para aprobar, firmar eventos o confirmar conciliaciones. **Publicar en GitHub no conecta este chat al MCP ni mantiene un asistente 24/7.**
 
 ## Límites y actualización
 
-Respaldar SQLite antes de actualizar. v0.4 añade `contact_readbacks`, v0.4.1 añade guardias de ejecución local y v0.5 añade `commercial_events`; no borra ni cambia planes, aprobaciones, ejecuciones o identidades. Una prueba de compatibilidad conserva los fingerprints de creación v0.3. Cambiar secretos, versiones o destinos invalida la comprobación: no borrar estado ni cambiar claves para forzar un POST.
+Respaldar SQLite antes de actualizar. v0.4 añade `contact_readbacks`, v0.4.1 añade guardias de ejecución local y v0.5 añade `commercial_events` y v0.6 añade `pilot_manifests` y `pilot_observations`; no borra ni cambia planes, aprobaciones, ejecuciones o identidades. Una prueba de compatibilidad conserva los fingerprints de creación v0.3. Cambiar secretos, versiones o destinos invalida la comprobación: no borrar estado ni cambiar claves para forzar un POST.
 
 SQLite y roles locales no constituyen IAM, aislamiento hostil entre empresas ni alta disponibilidad. Faltan ingreso productivo, supervisor, retención, firmas nativas, sincronización bidireccional e identidad IAM. La recuperación local de `running` es cooperativa y limitada a un solo host, no recuperación distribuida. Los resultados almacenados pueden contener datos personales y exigen protección del host y copias probadas.
 
 Los pagos son declaraciones por moneda/dataset, no conciliación bancaria ni utilidad neta. Ninguna prueba sintética demuestra rentabilidad o éxito comercial. Las licencias externas siguen separadas; no se redistribuye aquí su código. El código original todavía no tiene licencia de redistribución elegida.
 
-Documentación: [control comercial v0.5](docs/COMERCIAL_30_DIAS.md), [recuperación v0.4.1](docs/V041.md), [entrega y pendientes v0.4](docs/V04.md), [fuentes nuevas](docs/API_SOURCES_V04.md), [arquitectura previa](docs/ARCHITECTURE.md), [validación histórica v0.3](docs/VALIDATION.md).
+Documentación: [operación v0.6](docs/PILOTO_Y_RESPALDOS_V06.md), [control comercial v0.5](docs/COMERCIAL_30_DIAS.md), [recuperación v0.4.1](docs/V041.md), [entrega y pendientes v0.4](docs/V04.md), [fuentes nuevas](docs/API_SOURCES_V04.md), [arquitectura previa](docs/ARCHITECTURE.md), [validación histórica v0.3](docs/VALIDATION.md).
