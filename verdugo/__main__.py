@@ -7,7 +7,8 @@ from .adapters import SPECS
 from .catalog import catalog, graph
 from .common import VerdugoError, encode, identifier
 from .engine import Engine
-from . import workflow
+from . import workflow, jobs, reconciliation
+from .ingress import make_server
 from .bridge import contact_bridge
 from .diagnostics import doctor
 from .mcp import serve
@@ -35,7 +36,7 @@ def template(tenant):
     services['listmonk']['username'] = 'verdugo-api'
     services['activepieces']['project_id'] = 'REPLACE_PROJECT_ID'
     services['prometheus']['allowed_queries'] = ['up']
-    return {'tenants': {tenant: {'services': services}}}
+    return {'tenants': {tenant: {'services': services, 'ingress': {}}}}
 
 
 def main(argv=None):
@@ -57,6 +58,14 @@ def main(argv=None):
     p = sub.add_parser('approve'); p.add_argument('key'); p.add_argument('fingerprint')
     p.add_argument('--ttl', type=int, default=600)
     p = sub.add_parser('approve-batch'); p.add_argument('input'); p.add_argument('--ttl', type=int, default=600)
+    p = sub.add_parser('queue'); p.add_argument('--limit', type=int, default=50)
+    p = sub.add_parser('job'); p.add_argument('job_id')
+    p = sub.add_parser('job-plan'); p.add_argument('job_id')
+    p = sub.add_parser('worker'); p.add_argument('--execute', action='store_true')
+    p = sub.add_parser('job-resume'); p.add_argument('job_id'); p.add_argument('--execute', action='store_true')
+    sub.add_parser('reconciliation-list')
+    p = sub.add_parser('reconcile'); p.add_argument('input'); p.add_argument('--execute', action='store_true')
+    p = sub.add_parser('ingress-local'); p.add_argument('--port', type=int, default=8765)
     args = parser.parse_args(argv)
     engine = None
     try:
@@ -74,9 +83,29 @@ def main(argv=None):
                 return 0 if result['state'] == 'succeeded' else 1
         config = json.loads(Path(args.config).read_text()) if args.config else None
         engine = Engine(args.state, config, args.tenant, args.actor, args.role)
+        if args.cmd == 'ingress-local':
+            if args.state == ':memory:' or args.role != 'operator':
+                raise VerdugoError('Local ingress requires persistent state and operator role')
+            engine.close(); engine = None
+            factory = lambda: Engine(args.state, config, args.tenant, args.actor, args.role)
+            with make_server(factory, args.port) as server:
+                print(encode({'local_acceptance_only': True, 'bind': server.server_address,
+                              'public_deployment': False}), flush=True)
+                server.serve_forever()
+            return 0
         if args.cmd == 'mcp': serve(engine); return 0
         if args.cmd == 'status': result = engine.status()
         elif args.cmd == 'events': result = engine.events(args.after)
+        elif args.cmd == 'queue': result = jobs.overview(engine, args.limit)
+        elif args.cmd == 'job': result = jobs.get(engine, args.job_id)
+        elif args.cmd == 'job-plan': result = jobs.plan(engine, args.job_id)['plan']
+        elif args.cmd == 'worker': result = jobs.work(engine, args.execute)
+        elif args.cmd == 'job-resume':
+            result = jobs.resume(engine, args.job_id) if args.execute else {'state': 'planned', 'job': jobs.get(engine, args.job_id)}
+        elif args.cmd == 'reconciliation-list': result = reconciliation.pending(engine)
+        elif args.cmd == 'reconcile':
+            result = reconciliation.confirm(engine, read_json(args.input)) if args.execute else {
+                'state': 'planned', 'note': 'Human evidence not applied; --execute and approver role required'}
         elif args.cmd == 'approve': result = engine.approve(args.key, args.fingerprint, args.ttl)
         elif args.cmd == 'approve-batch':
             batch = read_json(args.input)
@@ -88,7 +117,7 @@ def main(argv=None):
         elif args.cmd == 'run': result = engine.execute(read_json(args.input), args.execute)
         else: result = workflow.run(engine, read_json(args.input), args.execute)
         print(encode(result))
-        return 1 if isinstance(result, dict) and result.get('state') in ('failed', 'uncertain', 'paused', 'awaiting_approval', 'incomplete', 'not_configured') else 0
+        return 1 if isinstance(result, dict) and result.get('state') in ('failed', 'uncertain', 'paused', 'awaiting_approval', 'incomplete', 'not_configured', 'blocked', 'dead', 'pending') else 0
     except (VerdugoError, ValueError, OSError, TypeError) as exc:
         print(encode({'error': str(exc)}), file=sys.stderr)
         return 2

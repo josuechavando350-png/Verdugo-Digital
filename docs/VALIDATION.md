@@ -1,15 +1,15 @@
-# Evidencia de Verdugo Digital v0.2.0
+# Evidencia de Verdugo Digital v0.3.0
 
 Fecha: 2026-11-11. Runtime local: Python 3.13.5.
 
-`python -m unittest discover -s tests -v`: **110 pruebas aprobadas, cero fallos**. Incluye las 64 anteriores y 46 nuevas. Se ejecutaron también `python -m compileall -q verdugo`, la demo comercial sintética y los controles de catálogo.
+`python -m unittest discover -s tests -v`: **166 pruebas aprobadas, cero fallos**: 110 existentes y 56 nuevas. Se ejecutan también compilación, demo sintética y controles de inventario. GitHub Actions se consulta por commit: su resultado no se deduce de las pruebas locales.
 
-Inventario comprobado: 100 proyectos, 18 adaptadores HTTP, 20 acciones externas acotadas, 6 acciones del núcleo, 8 herramientas MCP, 82 proyectos sin adaptador y **0 servicios externos validados en vivo**.
+Inventario: 100 proyectos; 18 adaptadores HTTP / 20 acciones externas acotadas; 6 acciones del núcleo; 12 herramientas MCP; 82 proyectos sin adaptador; **0 proveedores validados en vivo**.
 
-Nuevas pruebas: contratos de las seis recetas, autenticación Frappe/Langfuse/Chatwoot, paginación, rechazo de recheck y selectores de cuenta inyectados, cambio de autenticación/red/contrato invalidando planes, extracción de ID sin evaluación de expresiones, respuestas sin ID o HTTP 202 inciertas, definición inmutable del flujo, preflight de credenciales dependientes, identidad/tenant/dataset/origen y conflictos, pausa/aprobación/reinicio y diagnóstico central con resultados honestos.
+Cobertura nueva: autenticación de cuerpo/tenant/fuente/fecha, firmas inválidas, JSON duplicado, límites, campos prohibidos, deduplicación concurrente, atomicidad inbox/cola/auditoría, rotación de secreto, cupos, reinicio, dos workers disputando un trabajo, lease vencido y confirmación antigua, espera/reintentos limitados, bloqueo por aprobación y cambio de ruta, separación de empresas, confidencialidad de metadatos y roles.
 
-Se ejecutó el puente de contactos sobre un servidor HTTP sintético local: creó un registro ficticio en cada ruta, guardó dos alias y la repetición no reenvió las escrituras. También se simuló un fallo del segundo proveedor y se comprobó que no duplicaba el primero ni reintentaba el resultado incierto. Esto prueba el código y el transporte bajo fixtures, no Twenty o Chatwoot reales.
+Se comprueba recuperación tras una creación completada antes de confirmar el trabajo sin duplicar POST; una escritura interrumpida permanece `running` y no se reenvía. Una atestación humana sintética de `uncertain` permite reanudar el puente sin reenviar la primera creación. El código no verifica en vivo esa evidencia. Se prueba que una actualización fallida revierte también el registro de conciliación.
 
-CLI/MCP identifican bloqueos como ejecución no completada. Se probó que una migración aditiva conserva registros y ejecuciones, aunque la compatibilidad de planes externos de v0.1 no está garantizada por los nuevos fingerprints.
+Prueba HTTP completa: petición firmada a receptor loopback → cola persistente → aprobación → worker → dos rutas HTTP sintéticas → dos identidades. La repetición del evento no reenvía creaciones. Otro caso usa CLI como proceso real, y MCP marca bloqueos como incompletos. Se crea una base con el esquema previo v0.2 y se verifica la adición de tablas conservando registros/aprobaciones.
 
-No es auditoría exhaustiva de seguridad, revisión jurídica, prueba de carga, despliegue ni evidencia de ingresos. GitHub Actions debe consultarse por separado para el commit publicado; no se infiere su resultado a partir de las pruebas locales.
+Límites: no es auditoría exhaustiva, prueba de carga, revisión jurídica, instalación de 100 proyectos, validación de firmas nativas de proveedores, despliegue ni evidencia de ingresos. HTTP local no apto para exposición pública. No hay IAM real, supervisor 24/7, sincronización bidireccional o recuperación automática de acciones `running`.

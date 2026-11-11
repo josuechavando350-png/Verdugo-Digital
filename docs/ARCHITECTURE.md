@@ -20,7 +20,7 @@ Las recetas transforman una persona canónica (`first_name`, `last_name`, `email
 
 SQLite contiene planes, ejecuciones, eventos y registros comerciales. Todas las consultas llevan tenant. Los estados son `planned`, `awaiting_approval`, `running`, `succeeded`, `failed`, `uncertain`; un workflow puede quedar `paused`. Una reclamación de ejecución se hace bajo `BEGIN IMMEDIATE` para evitar envíos simultáneos con la misma clave. Los efectos locales y su cierre se confirman juntos.
 
-No hay transacción distribuida entre proveedores. Una caída después de un POST puede dejar un resultado desconocido. Se detiene, no se duplica el POST. No existe todavía una consola de conciliación de estados inciertos. Los eventos son persistentes pero no inmutables contra el administrador del host.
+No hay transacción distribuida entre proveedores. Una caída después de un POST puede dejar un resultado desconocido. Se detiene, no se duplica el POST. v0.3 añade confirmación humana por CLI para creaciones `uncertain` de contactos; no hay verificación automática del proveedor ni recuperación de acciones `running`. Los eventos son persistentes pero no inmutables contra el administrador del host.
 
 ## Frontera de confianza
 
@@ -41,3 +41,11 @@ Se almacenan importes enteros y se filtra por moneda. `real` significa datos dec
 `workflow_manifests` fija el hash de la definición al planificar. Antes del primer efecto se comprueban credenciales y destinos también de los pasos con valores dependientes. Los valores dinámicos aún requieren validación cuando se resuelven; no hay transacción distribuida.
 
 `doctor` solo prepara o ejecuta acciones GET de SPECS, sin seguir URLs de paginación devueltas por proveedores y sin transformar datos externos en instrucciones. Su resumen excluye el cuerpo de las respuestas; los resultados permanecen en el almacenamiento local sujeto a la política de privacidad del host. Los errores y estados inciertos no se reintentan automáticamente.
+
+## Extensión v0.3
+
+`evento canónico firmado → inbox + job + auditoría (transacción) → worker → bridge/Engine → resultados → confirmación del job`.
+
+La aceptación no ejecuta proveedores. La cola conserva perfil y ruta fijada, separa tenants, deduplica entregas, reclama trabajos con lease y rechaza confirmaciones de dueños vencidos. El worker reutiliza claves comerciales; no elimina `runs` para forzar reintentos. Estados inciertos, activos y falta de aprobación bloquean el trabajo. Los errores inesperados tienen espera e intentos acotados.
+
+El receptor HTTP se limita a loopback para aceptación, no es ingreso productivo ni verifica firmas nativas de proveedores. Las herramientas MCP permiten inspección, planificación y una entrega explícita; no firmar eventos ni confirmar conciliación. Contratos, comandos y límites: [Eventos y recuperación](EVENTS.md).
