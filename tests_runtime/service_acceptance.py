@@ -24,7 +24,6 @@ from verdugo.engine import Engine
 
 
 def request(port, path, token, service, method='GET', body=None):
-    # Destination is a literal loopback, never a configurable remote URL.
     conn = http.client.HTTPConnection('127.0.0.1', port, timeout=3)
     headers = {'api-key': token} if service == 'qdrant' else {'Authorization': 'Bearer '+token}
     if body is not None:
@@ -45,15 +44,18 @@ def server(service, binary, port, token):
     with tempfile.TemporaryDirectory(prefix='verdugo-service-') as temp:
         directory = Path(temp)
         env = {'PATH':os.defpath, 'HOME':temp, 'TMPDIR':temp, 'LANG':'C.UTF-8',
-               'RUST_LOG':'error'}
+               'RUST_LOG':'info'}
         if service == 'qdrant':
-            settings = {'log_level':'ERROR','telemetry_disabled':True,
+            settings = {'log_level':'INFO','telemetry_disabled':True,
                 'service':{'host':'127.0.0.1','http_port':port,'grpc_port':None,
                            'api_key':token,'enable_cors':False},
                 'cluster':{'enabled':False},
                 'storage':{'storage_path':str(directory/'storage')}}
             config = directory/'fixture.json'
             config.write_text(json.dumps(settings));config.chmod(0o600)
+            env.update(QDRANT__SERVICE__HOST='127.0.0.1',
+                       QDRANT__SERVICE__HTTP_PORT=str(port),
+                       QDRANT__SERVICE__API_KEY=token,QDRANT__TELEMETRY_DISABLED='true')
             args = [binary,'--config-path',str(config),'--disable-telemetry']
             ready_path = '/collections'
         else:
@@ -67,17 +69,27 @@ def server(service, binary, port, token):
                 stdout=logs, stderr=logs, start_new_session=True)
             try:
                 deadline = time.monotonic()+40
+                last_error = None
                 while time.monotonic() < deadline:
                     if process.poll() is not None:
-                        raise RuntimeError(service+' exited before readiness; private logs omitted')
+                        raise RuntimeError(service+' exited before readiness')
                     try:
                         request(port, ready_path, token, service)
                         break
-                    except (OSError, RuntimeError, ValueError):
+                    except (OSError, RuntimeError, ValueError) as error:
+                        last_error = type(error).__name__+': '+str(error)
                         time.sleep(0.2)
                 else:
-                    raise RuntimeError(service+' did not become ready within the test budget')
+                    raise RuntimeError(service+' readiness failed: '+str(last_error))
                 yield
+            except Exception:
+                # Only this fixed synthetic harness may emit server diagnostics.
+                # Remove the freshly generated test credential and bound output.
+                logs.flush();logs.seek(0)
+                diagnostic = logs.read(16384).decode('utf-8',errors='replace')
+                print('SYNTHETIC SERVER DIAGNOSTICS '+service, file=sys.stderr)
+                print(diagnostic.replace(token,'<redacted-test-key>'), file=sys.stderr)
+                raise
             finally:
                 try:
                     os.killpg(process.pid,signal.SIGTERM)
