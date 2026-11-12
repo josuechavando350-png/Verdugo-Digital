@@ -41,6 +41,15 @@ SPECS = {
  'unleash': {'projects.list': ('GET', '/api/admin/projects')},
  'medusa': {'products.list': ('GET', '/admin/products')},
  'openfga': {'stores.list': ('GET', '/stores')},
+ # Metadata-only read integrations. Response is projected by read_contracts;
+ # raw third-party payloads never enter Engine's persisted result.
+ 'airbyte': {'workspaces.list': ('GET', '/v1/workspaces')},
+ 'infisical': {'projects.list': ('GET', '/api/v1/projects')},
+ 'growthbook': {'settings.get': ('GET', '/api/v1/settings')},
+ 'openmeter': {'meters.list': ('GET', '/api/v1/meters')},
+ 'nango': {'connections.list': ('GET', '/connections')},
+ 'trigger': {'runs.list': ('GET', '/api/v1/runs')},
+ 'documenso': {'envelopes.list': ('GET', '/api/v2/envelope')},
 }
 HEADERS = {'qdrant': 'api-key', 'metabase': 'X-API-Key',
            'shlink': 'X-Api-Key', 'n8n': 'X-N8N-API-KEY',
@@ -92,6 +101,11 @@ def connection(service, cfg):
     elif service == 'novu':
         # Novu REST API uses 'Authorization: ApiKey ...'; MCP bearer differs.
         headers['Authorization'] = 'ApiKey ' + token
+    elif service == 'documenso':
+        # Documenso v2 uses the literal api_* token, no Bearer prefix.
+        if not token.startswith('api_'):
+            raise VerdugoError('Documenso v2 requires an api_ token')
+        headers['Authorization'] = token
     elif service == 'unleash':
         # Unleash Admin API expects the token value, not a Bearer prefix.
         headers['Authorization'] = token
@@ -176,6 +190,17 @@ def build(service, operation, params, cfg):
             query = {'limit': 50, 'offset': (page-1)*50}
         elif service == 'lago':
             query = {'page': page, 'per_page': 50}
+        elif service == 'airbyte':
+            query = {'limit': 20, 'offset': (page - 1) * 20}
+        elif service == 'documenso':
+            query = {'page': page, 'perPage': 20}
+        elif service == 'trigger':
+            if page != 1:
+                raise VerdugoError('Trigger cursor pagination not implemented')
+            query = {'limit': 20}
+        elif service in ('infisical', 'growthbook', 'openmeter', 'nango'):
+            if page != 1:
+                raise VerdugoError('Pagination not implemented for this provider')
         elif service == 'medusa':
             query = {'limit': 50, 'offset': (page - 1) * 50}
         elif service in ('novu', 'superset', 'supabase', 'coolify',
@@ -201,6 +226,11 @@ def build(service, operation, params, cfg):
         path = path.format(project_id=integer(cfg.get('project_id'), 1))
     if service == 'activepieces':
         query['projectId'] = identifier(cfg.get('project_id'))
+    # Cloud-v1 and OSS-v1 are deliberately not substituted for later APIs.
+    if service == 'airbyte' and cfg.get('api_surface') != 'cloud_v1':
+        raise VerdugoError('Airbyte cloud_v1 API surface must be reviewed explicitly')
+    if service == 'openmeter' and cfg.get('api_surface') != 'oss_v1':
+        raise VerdugoError('OpenMeter OSS v1 API surface must be reviewed explicitly')
     origin, token, headers = connection(service, cfg)
     if body is not None: headers['Content-Type'] = 'application/json'
     url = origin + path + ('?' + urlencode(query) if query else '')
