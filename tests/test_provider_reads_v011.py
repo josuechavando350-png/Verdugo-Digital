@@ -135,7 +135,14 @@ class ReadProviderTests(unittest.TestCase):
             def do_GET(self):
                 sid = paths.get(urlsplit(self.path).path)
                 incoming.append((sid, self.path, self.headers.get("Authorization")))
-                body = json.dumps({"items": [{"id": sid, "kind": "synthetic"}]}).encode()
+                row = {"id": sid, "kind": "synthetic"}
+                if sid == "novu": payload = {"data": [row]}
+                elif sid == "superset": payload = {"result": [row], "count": 1}
+                elif sid == "unleash": payload = {"projects": [row]}
+                elif sid == "medusa": payload = {"products": [row], "count": 1}
+                elif sid == "openfga": payload = {"stores": [row]}
+                else: payload = [row]
+                body = json.dumps(payload).encode()
                 self.send_response(200 if sid else 404)
                 self.send_header("Content-Type", "application/json")
                 self.send_header("Content-Length", str(len(body)))
@@ -158,7 +165,12 @@ class ReadProviderTests(unittest.TestCase):
                     outcome = engine.execute(cmd, True)
                     self.assertEqual("succeeded", outcome["state"], sid)
                     self.assertFalse(outcome["replayed"])
-                    self.assertEqual("synthetic", outcome["result"]["items"][0]["kind"])
+                    value = outcome["result"]
+                    path = {"novu": "data", "superset": "result",
+                            "unleash": "projects", "medusa": "products",
+                            "openfga": "stores"}.get(sid)
+                    items = value[path] if path else value
+                    self.assertEqual("synthetic", items[0]["kind"])
                     self.assertEqual("succeeded", engine.execute(cmd, True)["state"])
                     self.assertFalse(engine.status()["integrations"][0]["live_verified"])
             finally:
@@ -182,6 +194,31 @@ class ReadProviderTests(unittest.TestCase):
             server.shutdown()
             server.server_close()
             worker.join(3)
+
+    def test_malformed_collection_responses_are_failed_not_success(self):
+        from verdugo.read_contracts import check
+        bad = ({}, {"items": []}, {"projects": "not-a-list"},
+               ["unexpected"], [{"ok": False}, "not-an-object"])
+        for sid in ROUTES:
+            expected_key = {"novu": "data", "superset": "result",
+                            "unleash": "projects", "medusa": "products",
+                            "openfga": "stores"}.get(sid)
+            for bad_rows in (42, "text", [1], [{"ok": True}, None]):
+                doc = {expected_key: bad_rows} if expected_key else bad_rows
+                with self.subTest(sid=sid, doc=doc), self.assertRaises(VerdugoError):
+                    check(sid, ROUTES[sid][0], doc)
+        for sid in ROUTES:
+            if sid in ("novu", "superset", "unleash", "medusa", "openfga"):
+                with self.assertRaises(VerdugoError):
+                    check(sid, ROUTES[sid][0], {"items": []})
+        engine = Engine(":memory:", self.config,
+                        transport=lambda *_: {"unrecognized": "not-a-collection"})
+        try:
+            for sid in ROUTES:
+                state = engine.execute(self.command(sid), True)
+                self.assertEqual("failed", state["state"], sid)
+        finally:
+            engine.close()
 
     def test_no_automatic_external_effects_in_preview(self):
         engine = Engine(":memory:", self.config,
