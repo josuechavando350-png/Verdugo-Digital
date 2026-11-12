@@ -32,6 +32,15 @@ SPECS = {
  'easyappointments': {'services.list': ('GET', '/index.php/api/v1/services')},
  'formbricks': {'surveys.list': ('GET', '/api/v1/management/surveys')},
  'dub': {'links.list': ('GET', '/links')},
+ # Bounded read-only operations; no campaign sends, deploys or admin writes.
+ 'novu': {'workflows.list': ('GET', '/v2/workflows')},
+ 'superset': {'dashboards.list': ('GET', '/api/v1/dashboard/')},
+ 'supabase': {'projects.list': ('GET', '/v1/projects')},
+ 'coolify': {'servers.list': ('GET', '/api/v1/servers')},
+ 'keycloak': {'realms.list': ('GET', '/admin/realms')},
+ 'unleash': {'projects.list': ('GET', '/api/admin/projects')},
+ 'medusa': {'products.list': ('GET', '/admin/products')},
+ 'openfga': {'stores.list': ('GET', '/stores')},
 }
 HEADERS = {'qdrant': 'api-key', 'metabase': 'X-API-Key',
            'shlink': 'X-Api-Key', 'n8n': 'X-N8N-API-KEY',
@@ -80,6 +89,17 @@ def connection(service, cfg):
         if token.count(':') != 1 or not all(token.split(':')):
             raise VerdugoError('Frappe credential must contain api_key:api_secret')
         headers['Authorization'] = 'token ' + token
+    elif service == 'novu':
+        # Novu REST API uses 'Authorization: ApiKey ...'; MCP bearer differs.
+        headers['Authorization'] = 'ApiKey ' + token
+    elif service == 'unleash':
+        # Unleash Admin API expects the token value, not a Bearer prefix.
+        headers['Authorization'] = token
+    elif service == 'medusa' and cfg.get('auth_mode', 'basic') == 'basic':
+        # Secret Medusa v2 API keys use literal Basic; bearer is for JWT only.
+        headers['Authorization'] = 'Basic ' + token
+    elif service == 'medusa' and cfg.get('auth_mode') != 'jwt_bearer':
+        raise VerdugoError('Unsupported Medusa auth mode')
     elif service == 'chatwoot' and cfg.get('auth_mode') == 'api_access_token':
         headers['api_access_token'] = token
     else:
@@ -156,6 +176,13 @@ def build(service, operation, params, cfg):
             query = {'limit': 50, 'offset': (page-1)*50}
         elif service == 'lago':
             query = {'page': page, 'per_page': 50}
+        elif service == 'medusa':
+            query = {'limit': 50, 'offset': (page - 1) * 50}
+        elif service in ('novu', 'superset', 'supabase', 'coolify',
+                         'keycloak', 'unleash', 'openfga'):
+            # First response only; never fake cursor, total coverage or auto-follow.
+            if page != 1:
+                raise VerdugoError('Pagination not implemented for this provider')
         elif service == 'twenty':
             if page != 1:
                 raise VerdugoError('Twenty cursor pagination is not implemented')
