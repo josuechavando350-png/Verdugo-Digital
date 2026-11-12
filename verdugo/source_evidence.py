@@ -8,6 +8,7 @@ import re
 from pathlib import Path
 
 from .adapters import SPECS
+from .local_runtime import SPECS as LOCAL_SPECS
 from .catalog import catalog
 from .common import VerdugoError
 
@@ -75,6 +76,8 @@ def report(project_id=None):
             "source_url": "https://github.com/" + row["repository"] + "/tree/" + row["commit_sha"],
             "license_review": "pending",
             "http_api_recipe_available": row["id"] in SPECS,
+            "local_recipe_available": row["id"] in LOCAL_SPECS,
+            "implemented_local_actions": [LOCAL_SPECS[row["id"]][0]] if row["id"] in LOCAL_SPECS else [],
             "implemented_http_actions": sorted(SPECS.get(row["id"], {})),
             "live_verified": False,
             "ready_for_production": False,
@@ -89,6 +92,8 @@ def report(project_id=None):
         "http_adapters_implemented": sum(r["id"] in SPECS for r in rows),
         "http_actions_implemented": sum(len(v) for v in SPECS.values()),
         "without_http_adapter": sum(r["id"] not in SPECS for r in rows),
+        "local_adapters_implemented": len(LOCAL_SPECS),
+        "without_any_adapter": sum(r["id"] not in SPECS and r["id"] not in LOCAL_SPECS for r in rows),
         "live_verified": 0,
         "production_ready": 0,
         "external_calls_made": False,

@@ -4,6 +4,7 @@ from pathlib import Path
 import sys
 import tempfile
 from .adapters import SPECS
+from . import local_runtime
 from .catalog import catalog, graph
 from .common import VerdugoError, encode, identifier
 from .engine import Engine
@@ -26,6 +27,9 @@ def template(tenant):
     for item in catalog():
         sid = item['id']
         services[sid] = {'enabled': False, 'license_reviewed': False, 'version': None}
+        if sid in local_runtime.SPECS:
+            services[sid].update(version=local_runtime.SPECS[sid][2],
+                runtime_reviewed=False, timeout_seconds=45)
         if sid in SPECS:
             services[sid].update(base_url='https://example.invalid',
                 token_env='VERDUGO_' + tenant.upper() + '_' + sid.upper().replace('-', '_') + '_TOKEN')
@@ -49,7 +53,7 @@ def main(argv=None):
     parser.add_argument('--actor', default='local-operator')
     parser.add_argument('--role', choices=['operator', 'viewer', 'approver'], default='operator')
     sub = parser.add_subparsers(dest='cmd', required=True)
-    for name in ('status', 'catalog', 'graph', 'mcp', 'demo', 'sources'): sub.add_parser(name)
+    for name in ('status', 'catalog', 'graph', 'mcp', 'demo', 'sources', 'runtime-check'): sub.add_parser(name)
     p = sub.add_parser('init'); p.add_argument('--out', default='verdugo.local.json')
     p = sub.add_parser('source-inspect'); p.add_argument('project_id')
     p = sub.add_parser('events'); p.add_argument('--after', type=int, default=0)
@@ -88,6 +92,10 @@ def main(argv=None):
             print(encode({'created': args.out, 'registered': 100, 'enabled': 0})); return 0
         if args.cmd == 'catalog': print(encode(catalog())); return 0
         if args.cmd == 'sources': print(encode(source_evidence.report())); return 0
+        if args.cmd == 'runtime-check':
+            availability = local_runtime.inventory()
+            print(encode(availability))
+            return 0 if availability['state'] == 'available' else 1
         if args.cmd == 'source-inspect': print(encode(source_evidence.report(args.project_id))); return 0
         if args.cmd == 'graph': print(encode(graph(SPECS))); return 0
         if args.cmd == 'verify-backup': print(encode(backups.verify(args.file))); return 0
