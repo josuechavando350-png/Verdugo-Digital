@@ -2,7 +2,7 @@
 
 Núcleo comercial y de análisis para Nexus Bot Studio. Una sola entrada CLI/MCP,
 un motor de ejecución, flujos con dependencias, permisos locales, auditoría,
-idempotencia y estado SQLite. Versión de ingeniería **0.10.0**.
+idempotencia y estado SQLite. Versión de ingeniería **0.11.0**.
 
 **La integración operativa de los 100 proyectos NO está terminada.** Registrar
 fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
@@ -12,12 +12,12 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 | Componente | Alcance |
 |---|---|
 | Fuentes aprobadas y fijadas por commit | 100 |
-| Proyectos con una operación implementada | 41: 22 HTTP + 19 de bibliotecas locales |
-| Proyectos sin ningún adaptador | 59 |
-| Operaciones HTTP existentes | 26, limitadas por proveedor |
+| Proyectos con una operación implementada | 49: 30 HTTP + 19 de bibliotecas locales |
+| Proyectos sin ningún adaptador | 51 |
+| Operaciones HTTP existentes | 34, limitadas por proveedor |
 | Operaciones locales implementadas | 19; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Dos de cinco pasos; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 369 en el conjunto v0.10; resultado del commit en Actions |
+| Pruebas unitarias y de contrato | 369 base v0.10 más pruebas de contrato v0.11; verificar CI por commit |
 | Herramientas MCP | 21; las operaciones reutilizan execute/workflow existentes |
 | Servicios productivos certificados | 0 |
 
@@ -25,6 +25,18 @@ Los tres workflows de aceptación son **Verdugo verification**, **Verdugo runtim
 acceptance** y **Verdugo real service acceptance**. La aprobación debe observarse
 para el commit concreto: una prueba del núcleo no sustituye ejecución de las
 bibliotecas ni certifica un despliegue productivo. La aceptación usa datos sintéticos.
+
+## Qué añade v0.11
+
+Ocho nuevos adaptadores **HTTP de solo lectura** en el mismo Engine: Novu
+(workflows), Superset (dashboards), Supabase (projects), Coolify (servers),
+Keycloak (realms), Unleash (projects), Medusa (products) y OpenFGA (stores).
+
+Todas estas rutas permanecen deshabilitadas hasta revisión de licencia,
+versión y credencial autorizada. No hay envíos, despliegues ni escrituras.
+Los esquemas se verifican y las respuestas incompatibles fallan en lugar de
+contarse como lecturas válidas. Su aceptación en loopback no certifica
+proveedores reales ni acceso productivo. [Contratos v0.11](docs/READ_PROVIDERS_V011.md).
 
 ## Qué añade v0.10
 
@@ -126,13 +138,13 @@ Engine. SQLite y roles de proceso no constituyen IAM multiempresa hostil. Datos
 personales requieren cifrado, retención y respaldos privados. Las escrituras HTTP
 siguen requiriendo aprobación separada; no se reintentan resultados inciertos.
 
-**59 proyectos aún requieren código de integración.** Los adaptadores HTTP necesitan
+**51 proyectos aún requieren código de integración.** Los adaptadores HTTP necesitan
 aceptación de versiones/ediciones/permisos por instancia; Qdrant y Meilisearch no
-validan los otros veinte. No hay despliegue productivo, conexión automática de este
+validan los otros 28. No hay despliegue productivo, conexión automática de este
 chat al MCP, servicio 24/7, cobros reconciliados ni probabilidad comercial demostrada.
 No se activan campañas, contactos, compras ni infraestructura de pago al instalar.
 
-Documentación: [v0.9](docs/RUNTIME_V09.md), [v0.10](docs/RUNTIME_V010.md),
+Documentación: [v0.11](docs/READ_PROVIDERS_V011.md), [v0.9](docs/RUNTIME_V09.md), [v0.10](docs/RUNTIME_V010.md),
 [perfiles](docs/RUNTIME_PROFILES_V010.md), [arquitectura](docs/ARCHITECTURE.md),
 [control comercial](docs/COMERCIAL_30_DIAS.md), [eventos](docs/EVENTS.md),
 [piloto y respaldos](docs/PILOTO_Y_RESPALDOS_V06.md), [fuentes](docs/GITHUB_SOURCES_V08.md).
