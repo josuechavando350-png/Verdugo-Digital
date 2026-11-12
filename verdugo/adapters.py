@@ -4,6 +4,7 @@ import os
 import re
 from urllib.parse import urlencode, urlsplit
 from .common import VerdugoError, fields, text, integer, identifier, digest, encode
+from . import marketing_reads
 
 # API-contract implementations; live compatibility is NOT established by this list.
 SPECS = {
@@ -51,6 +52,7 @@ SPECS = {
  'trigger': {'runs.list': ('GET', '/api/v1/runs')},
  'documenso': {'envelopes.list': ('GET', '/api/v2/envelope')},
 }
+SPECS.update(marketing_reads.SPECS)
 HEADERS = {'qdrant': 'api-key', 'metabase': 'X-API-Key',
            'shlink': 'X-Api-Key', 'n8n': 'X-N8N-API-KEY',
            'changedetection': 'x-api-key', 'formbricks': 'x-api-key'}
@@ -87,7 +89,9 @@ def connection(service, cfg):
     if not token or len(token) > 8192 or any(not 33 <= ord(c) <= 126 for c in token):
         raise VerdugoError('Missing or invalid service credential: ' + env_name)
     headers = {'Accept': 'application/json', 'User-Agent': 'Verdugo-Digital/0.2'}
-    if service in HEADERS:
+    if service in marketing_reads.SPECS:
+        headers.update(marketing_reads.authorization(service, cfg, token))
+    elif service in HEADERS:
         headers[HEADERS[service]] = token
     elif service in ('listmonk', 'langfuse'):
         username = text(cfg.get('username'), 200)
@@ -141,6 +145,9 @@ def remote_id(result, path):
 
 
 def build(service, operation, params, cfg):
+    if service in marketing_reads.SPECS:
+        origin, token, headers = connection(service, cfg)
+        return marketing_reads.build(service, operation, params, cfg, origin, token, headers)
     if operation not in SPECS.get(service, {}):
         raise VerdugoError('Adapter/action not implemented: %s.%s' % (service, operation))
     method, path = SPECS[service][operation]

@@ -2,7 +2,7 @@
 from collections import Counter
 from .adapters import SPECS, service_config
 from .catalog import catalog
-from . import local_runtime
+from . import local_runtime, marketing_reads
 from .common import VerdugoError, identifier, digest
 
 
@@ -28,7 +28,7 @@ def doctor(engine, probe_id='configuration-check', execute=False):
             rows.append(row)
             continue
         operation = next((op for op, recipe in SPECS.get(sid, {}).items()
-                          if recipe[0] == 'GET'), None)
+                          if recipe[0] == 'GET' or (sid, op) in marketing_reads.READ_POSTS), None)
         if operation is None:
             rows.append(row | {'state': 'not_implemented'}); continue
         params = {}

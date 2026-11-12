@@ -2,7 +2,7 @@
 
 Núcleo comercial y de análisis para Nexus Bot Studio. Una sola entrada CLI/MCP,
 un motor de ejecución, flujos con dependencias, permisos locales, auditoría,
-idempotencia y estado SQLite. Versión de ingeniería **0.12.0**.
+idempotencia y estado SQLite. Versión de ingeniería **0.13.0**.
 
 **La integración operativa de los 100 proyectos NO está terminada.** Registrar
 fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
@@ -12,12 +12,12 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 | Componente | Alcance |
 |---|---|
 | Fuentes aprobadas y fijadas por commit | 100 |
-| Proyectos con una operación implementada | 56: 37 HTTP + 19 de bibliotecas locales |
-| Proyectos sin ningún adaptador | 44 |
-| Operaciones HTTP existentes | 41, limitadas por proveedor |
+| Proyectos con una operación implementada | 62: 43 HTTP + 19 de bibliotecas locales |
+| Proyectos sin ningún adaptador | 38 |
+| Operaciones HTTP existentes | 47, limitadas por proveedor |
 | Operaciones locales implementadas | 19; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Dos de cinco pasos; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | Pruebas de núcleo y contrato v0.12; comprobar ejecución CI por commit |
+| Pruebas unitarias y de contrato | 404 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
 | Herramientas MCP | 21; las operaciones reutilizan execute/workflow existentes |
 | Servicios productivos certificados | 0 |
 
@@ -25,6 +25,19 @@ Los tres workflows de aceptación son **Verdugo verification**, **Verdugo runtim
 acceptance** y **Verdugo real service acceptance**. La aprobación debe observarse
 para el commit concreto: una prueba del núcleo no sustituye ejecución de las
 bibliotecas ni certifica un despliegue productivo. La aceptación usa datos sintéticos.
+
+## Qué añade v0.13
+
+Seis operaciones de consulta en el mismo motor: Postiz (canales), Payload y
+Ghost (estado de contenido), Plausible y Matomo (estadísticas agregadas), y
+Saleor (catálogo limitado). No publican contenidos ni disparan campañas.
+
+Las lecturas POST se limitan a contratos fijos, no GraphQL o métodos arbitrarios.
+El token de Matomo no aparece en URLs ni planes; el JWT de Ghost se renueva sin
+romper el replay. Se retienen métricas y recuentos, no cuerpos privados completos.
+Hay 21 pruebas nuevas, incluyendo HTTP local, errores, privacidad, aislamiento,
+CLI/MCP y un workflow de seis pasos con reapertura de Engine.
+[Alcance, fuentes y pruebas](docs/MARKETING_READS_V013.md).
 
 ## Qué añade v0.12
 
@@ -151,13 +164,13 @@ Engine. SQLite y roles de proceso no constituyen IAM multiempresa hostil. Datos
 personales requieren cifrado, retención y respaldos privados. Las escrituras HTTP
 siguen requiriendo aprobación separada; no se reintentan resultados inciertos.
 
-**44 proyectos aún requieren código de integración.** Los adaptadores HTTP necesitan
+**38 proyectos aún requieren código de integración.** Los adaptadores HTTP necesitan
 aceptación de versiones/ediciones/permisos por instancia; Qdrant y Meilisearch no
-validan los otros 35. No hay despliegue productivo, conexión automática de este
+validan los otros 41. No hay despliegue productivo, conexión automática de este
 chat al MCP, servicio 24/7, cobros reconciliados ni probabilidad comercial demostrada.
 No se activan campañas, contactos, compras ni infraestructura de pago al instalar.
 
-Documentación: [v0.11](docs/READ_PROVIDERS_V011.md), [v0.9](docs/RUNTIME_V09.md), [v0.10](docs/RUNTIME_V010.md),
+Documentación: [v0.13](docs/MARKETING_READS_V013.md), [v0.12](docs/METADATA_PROVIDERS_V012.md), [v0.11](docs/READ_PROVIDERS_V011.md), [v0.9](docs/RUNTIME_V09.md), [v0.10](docs/RUNTIME_V010.md),
 [perfiles](docs/RUNTIME_PROFILES_V010.md), [arquitectura](docs/ARCHITECTURE.md),
 [control comercial](docs/COMERCIAL_30_DIAS.md), [eventos](docs/EVENTS.md),
 [piloto y respaldos](docs/PILOTO_Y_RESPALDOS_V06.md), [fuentes](docs/GITHUB_SOURCES_V08.md).
