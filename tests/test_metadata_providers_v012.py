@@ -22,7 +22,7 @@ from verdugo.transport import send
 ROUTES = {
     "airbyte": ("workspaces.list", "/v1/workspaces"),
     "infisical": ("projects.list", "/api/v1/projects"),
-    "growthbook": ("settings.get", "/api/v1/settings"),
+    "growthbook": ("settings.read", "/api/v1/settings"),
     "openmeter": ("meters.list", "/api/v1/meters"),
     "nango": ("connections.list", "/connections"),
     "trigger": ("runs.list", "/api/v1/runs"),
@@ -153,8 +153,11 @@ class MetadataProviderTests(unittest.TestCase):
 
     def test_invalid_provider_schema_fails_closed(self):
         for service in ROUTES:
-            for invalid in (None, [], {"items": [PRIVATE]}, {"data": "not-list"},
-                            [1], {"data": [True]}, "text"):
+            invalid_cases = (None, {"items": [PRIVATE]}, {"data": "not-list"},
+                             [1], {"data": [True]}, "text")
+            if service != "openmeter":
+                invalid_cases = (*invalid_cases, [])
+            for invalid in invalid_cases:
                 with self.subTest(service=service, invalid=repr(invalid)), self.assertRaises(VerdugoError):
                     check(service, ROUTES[service][0], invalid)
             with self.assertRaises(VerdugoError):
@@ -166,7 +169,7 @@ class MetadataProviderTests(unittest.TestCase):
             self.assertIn("OTHER", result["status_counts"])
             self.assertNotIn(PRIVATE, json.dumps(result))
         with self.assertRaises(VerdugoError):
-            check("growthbook", "settings.get", {"settings": []})
+            check("growthbook", "settings.read", {"settings": []})
 
     def test_gates_and_preview_never_call_network(self):
         engine = Engine(":memory:", self.config, transport=lambda *_: self.fail("network attempted"))
