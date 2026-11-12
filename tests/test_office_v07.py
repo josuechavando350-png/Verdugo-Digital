@@ -98,7 +98,7 @@ class OfficeTests(Base):
         self.assertEqual('observed_local',result['state'])
         self.assertEqual(1,result['sales']['stage_leads']['identified'])
         self.assertEqual(1,result['followups']['active_leads'])
-        self.assertEqual(37,result['adapters_implemented'])
+        self.assertEqual(43,result['adapters_implemented'])
         self.assertEqual(0,result['live_verified'])
         self.assertFalse(result['external_calls_made'])
         for hidden in ('never-real@example.invalid','Synthetic Person','private:source-001'):

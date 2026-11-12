@@ -255,7 +255,7 @@ class Engine:
                 with self.transaction(): self.finish(key, 'succeeded', result)
             else:
                 result = sanitize(self.transport(request, cfg), request['secret_values'])
-                result = read_contracts.check(command['service'], command['operation'], result)
+                result = read_contracts.check(command['service'], command['operation'], result, request['public'])
                 if request['mutates']:
                     remote_id(result, request['public']['result_id_path'])
                 with self.transaction(): self.finish(key, 'succeeded', result)

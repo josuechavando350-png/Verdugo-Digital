@@ -26,8 +26,12 @@ class Base(unittest.TestCase):
         self.config = template('nexus')
         for cfg in self.config['tenants']['nexus']['services'].values():
             cfg.update(enabled=True, license_reviewed=True, version='contract-fixture-only')
+        for sid in ('plausible','matomo'):
+            self.config['tenants']['nexus']['services'][sid].update(
+                site_id='example.invalid' if sid=='plausible' else 1,
+                report_start_date='2026-10-01', report_end_date='2026-10-07')
         self.config['tenants']['other'] = copy.deepcopy(self.config['tenants']['nexus'])
-        self.env = patch.dict(os.environ, {c['token_env']: ('api_synthetic-key-not-real' if c['token_env'].endswith('_DOCUMENSO_TOKEN') else SECRET) for c in
+        self.env = patch.dict(os.environ, {c['token_env']: ('api_synthetic-key-not-real' if c['token_env'].endswith('_DOCUMENSO_TOKEN') else 'a'*24+':'+'b'*64 if c['token_env'].endswith('_GHOST_TOKEN') else SECRET) for c in
             self.config['tenants']['nexus']['services'].values() if 'token_env' in c})
         self.env.start()
         self.calls = []
@@ -80,7 +84,7 @@ class CatalogTests(Base):
 
     def test_no_false_live_status(self):
         s=self.engine.status()
-        self.assertEqual(37,s['api_adapters_implemented'])
+        self.assertEqual(43,s['api_adapters_implemented'])
         self.assertEqual(0,s['live_verified'])
         self.assertFalse(any(r['live_verified'] for r in s['integrations']))
 
@@ -88,7 +92,7 @@ class CatalogTests(Base):
         g=graph(SPECS)
         self.assertEqual(101,len(g['nodes']))
         self.assertEqual(100,len(g['edges']))
-        self.assertEqual(37,sum(e['kind']=='adapter' for e in g['edges']))
+        self.assertEqual(43,sum(e['kind']=='adapter' for e in g['edges']))
         self.assertFalse(any(e['live'] for e in g['edges']))
 
     def test_template_disabled(self):
