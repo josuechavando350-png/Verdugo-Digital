@@ -1,6 +1,5 @@
-# Baseline resolved versions from run 43139596936, with v0.10 compatibility adjustment.
-# SciPy 1.15.3 satisfies DoWhy 0.14 on Python <3.13; full acceptance is required.
-# Ubuntu 24.04 x86_64, CPython 3.12; not a cross-platform or hash lock.
+# Baseline pins with v0.10 compatibility adjustments; acceptance required.
+# Linux x86_64 CPython 3.12, not a cross-platform or cryptographic artifact lock.
 absl-py==2.5.1
 aiodns==4.0.4
 aioftp==0.28.3
@@ -89,7 +88,7 @@ lxml_html_clean==0.4.6
 Mako==1.4.3
 markdown-it-py==4.3.0
 MarkupSafe==3.0.4
-marshmallow==4.4.0
+marshmallow==3.26.1
 matplotlib==3.11.2
 mdurl==0.1.2
 mistune==3.4.0

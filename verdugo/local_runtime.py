@@ -16,7 +16,7 @@ import sys
 import tempfile
 
 from .common import VerdugoError, fields, identifier, integer, encode
-from . import local_extended
+from . import local_extended, runtime_profile
 
 # Primary published distribution versions; upstream source pins are a separate
 # provenance inventory and must not be confused with installed Python wheels.
@@ -49,22 +49,16 @@ def supports(service, operation):
 
 def installed(service):
     operation, distribution, expected = SPECS[service]
-    try:
-        version = metadata.version(distribution)
-    except metadata.PackageNotFoundError:
-        version = None
-    extras = {}
-    for dist, wanted in EXTRA.get(service, {}).items():
-        try:
-            actual = metadata.version(dist)
-        except metadata.PackageNotFoundError:
-            actual = None
-        extras[dist] = {'installed': actual, 'expected': wanted}
+    wanted = EXTRA.get(service, {})
+    versions = runtime_profile.versions(service, [distribution, *wanted])
+    version = versions[distribution]
+    extras = {dist: {'installed': versions[dist], 'expected': expected}
+              for dist, expected in wanted.items()}
     return {'distribution': distribution, 'expected': expected, 'installed': version,
             'version_matches': version == expected and all(
                 x['installed'] == x['expected'] for x in extras.values()),
             'extra_distributions': extras, 'operation': operation,
-            'execution_verified': False}
+            'execution_verified': False, 'runtime_binding': runtime_profile.binding(service)}
 
 
 def inventory():
@@ -230,7 +224,8 @@ def preflight(service, operation, cfg):
 
 def implementation_digest():
     h = hashlib.sha256()
-    for path in (Path(__file__), WORKER, RECIPES, Path(local_extended.__file__)):
+    for path in (Path(__file__), WORKER, RECIPES, Path(local_extended.__file__),
+                 Path(runtime_profile.__file__), runtime_profile.PROBE):
         h.update(path.name.encode())
         h.update(path.read_bytes())
     return h.hexdigest()
@@ -241,7 +236,7 @@ def build(service, operation, params, cfg):
     state = preflight(service, operation, cfg)
     public = {'service': service, 'operation': operation, 'params': params,
               'transport': 'local-library', 'distribution': state['distribution'],
-              'version': state['installed'],
+              'version': state['installed'], 'runtime_binding': state['runtime_binding'],
               'extra_distributions': state['extra_distributions'],
               'implementation_sha256': implementation_digest(),
               'timeout_seconds': cfg.get('timeout_seconds', 45),
@@ -254,8 +249,6 @@ def build(service, operation, params, cfg):
 def execute(request, cfg):
     """Run only the fixed first-party worker, with no shell or inherited secrets."""
     public = request['public']
-    # Revalidate immediately before starting the worker; version/code changes
-    # must not reuse a persisted plan with different behavior.
     current = build(public['service'], public['operation'], public['params'], cfg)
     if current['public'] != public:
         raise VerdugoError('Local implementation/configuration changed after planning')
@@ -273,14 +266,13 @@ def execute(request, cfg):
                'RUNTIME__DLTHUB_TELEMETRY': 'false', 'RUNTIME__ENABLE_RUNTIME_TRACE': 'false',
                'RAGAS_DO_NOT_TRACK': 'true', 'LANGSMITH_TRACING': 'false',
                'LANGCHAIN_TRACING_V2': 'false', 'MLFLOW_ENABLE_ASYNC_LOGGING': 'false'}
-        # Browser installation path is administrator configuration, never input.
         if public['service'] == 'playwright':
             browser_dir = cfg.get('browser_path')
             if not isinstance(browser_dir, str) or not Path(browser_dir).is_absolute():
                 raise VerdugoError('An explicit administrator-owned browser_path is required')
             env['PLAYWRIGHT_BROWSERS_PATH'] = browser_dir
         with tempfile.TemporaryFile() as out, tempfile.TemporaryFile() as err:
-            proc = subprocess.Popen([sys.executable, '-I', str(WORKER)],
+            proc = subprocess.Popen([runtime_profile.interpreter(public['service']), '-I', str(WORKER)],
                 stdin=subprocess.PIPE, stdout=out, stderr=err,
                 cwd=work, env=env, start_new_session=True, close_fds=True)
             try:
@@ -290,8 +282,6 @@ def execute(request, cfg):
                 proc.communicate()
                 raise VerdugoError('Local operation exceeded its time budget') from exc
             finally:
-                # Reap descendants even when a native/browser helper outlives
-                # the direct worker. ESRCH is expected after a clean shutdown.
                 try:
                     os.killpg(proc.pid, signal.SIGKILL)
                 except ProcessLookupError:
