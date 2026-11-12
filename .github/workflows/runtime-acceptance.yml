@@ -1,0 +1,33 @@
+name: Verdugo runtime acceptance
+on:
+  push:
+    branches: [feat/verdugo-runtime-v09]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: runtime-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  baseline:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Baseline unit tests and inventory
+        run: |
+          python3 -m unittest discover -s tests -q
+          python3 -m verdugo --state :memory: status > /tmp/baseline-status.json
+          git archive --format=tar HEAD > /tmp/verdugo-source.tar
+      - name: Source snapshot for reproducible local validation
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: verdugo-source-${{ github.sha }}
+          path: |
+            /tmp/verdugo-source.tar
+            /tmp/baseline-status.json
+          retention-days: 3
+          if-no-files-found: error
