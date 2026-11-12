@@ -45,7 +45,7 @@ SPECS = {
  # raw third-party payloads never enter Engine's persisted result.
  'airbyte': {'workspaces.list': ('GET', '/v1/workspaces')},
  'infisical': {'projects.list': ('GET', '/api/v1/projects')},
- 'growthbook': {'settings.get': ('GET', '/api/v1/settings')},
+ 'growthbook': {'settings.read': ('GET', '/api/v1/settings')},
  'openmeter': {'meters.list': ('GET', '/api/v1/meters')},
  'nango': {'connections.list': ('GET', '/connections')},
  'trigger': {'runs.list': ('GET', '/api/v1/runs')},
