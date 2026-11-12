@@ -26,7 +26,7 @@ def main():
     # Chromium needs bounded profile/shared-memory files larger than 2 MiB.
     # This is a per-file limit, NOT a total disk quota or a security sandbox.
     # JSON output remains capped at 1 MiB for every adapter.
-    file_budget = (128 if request['service'] == 'playwright' else 2) * 1024 * 1024
+    file_budget = (128 if request['service'] in ('playwright', 'dlt', 'mlflow') else 16) * 1024 * 1024
     resource.setrlimit(resource.RLIMIT_FSIZE, (file_budget, file_budget))
     budget = int(request['timeout_seconds'])
     resource.setrlimit(resource.RLIMIT_CPU, (budget, budget + 1))

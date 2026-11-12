@@ -2,39 +2,49 @@
 
 Núcleo comercial y de análisis para Nexus Bot Studio. Una sola entrada CLI/MCP,
 un motor de ejecución, flujos con dependencias, permisos locales, auditoría,
-idempotencia y estado SQLite. Versión de ingeniería **0.9.0**.
+idempotencia y estado SQLite. Versión de ingeniería **0.10.0**.
 
-**La integración operativa de los 100 proyectos NO está terminada.** El inventario
-no se usa para inflar el número de funciones ejecutables.
+**La integración operativa de los 100 proyectos NO está terminada.** Registrar
+fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 
-## Estado actual
+## Estado del código
 
 | Componente | Alcance |
 |---|---|
 | Fuentes aprobadas y fijadas por commit | 100 |
-| Proyectos con una operación implementada | 34: 22 HTTP + 12 de bibliotecas locales |
-| Proyectos sin ningún adaptador | 66 |
-| Operaciones externas HTTP existentes | 26, con alcance limitado por proveedor |
-| Bibliotecas locales con aceptación real | 12; resultados e idempotencia probados con dependencias instaladas |
-| Flujo compuesto local | 5 pasos, con persistencia y reanudación después de reiniciar Engine |
-| Pruebas unitarias y de contrato del núcleo | 351 en la aceptación v0.9; resultado de cada commit en Actions |
-| Herramientas MCP | 21; las nuevas operaciones reutilizan execute/workflow existentes |
+| Proyectos con una operación implementada | 41: 22 HTTP + 19 de bibliotecas locales |
+| Proyectos sin ningún adaptador | 59 |
+| Operaciones HTTP existentes | 26, limitadas por proveedor |
+| Operaciones locales implementadas | 19; aceptación de ejecución real exigida por commit |
+| Flujos compuestos de aceptación | Dos de cinco pasos; persistencia y reanudación tras reiniciar Engine |
+| Pruebas unitarias y de contrato | 369 en el conjunto v0.10; resultado del commit en Actions |
+| Herramientas MCP | 21; las operaciones reutilizan execute/workflow existentes |
 | Servicios productivos certificados | 0 |
 
-Las 12 recetas ejecutan Trafilatura, Scrapy, DuckDB, OR-Tools, Optuna,
-scikit-learn, CatBoost, Haystack, Great Expectations, Evidently, Presidio y
-Playwright. No son importaciones vacías ni resultados simulados. La aceptación
-exige resultados específicos y repetición sin reejecutar. El flujo combina
-extracción de contenido, redacción limitada de datos personales, búsqueda local,
-resumen de campañas y selección bajo un presupuesto declarado.
+Los tres workflows de aceptación son **Verdugo verification**, **Verdugo runtime
+acceptance** y **Verdugo real service acceptance**. La aprobación debe observarse
+para el commit concreto: una prueba del núcleo no sustituye ejecución de las
+bibliotecas ni certifica un despliegue productivo. La aceptación usa datos sintéticos.
 
-La aceptación completa de bibliotecas y del flujo pasó en
-[Actions 43139596936](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43139596936).
-También hay una puerta separada de aceptación para servidores reales Qdrant y
-Meilisearch: binarios comunitarios fijados por versión y hash, procesos efímeros,
-autenticación, datos sintéticos y namespace de red limitado a loopback. Su resultado
-se consulta en el workflow **Verdugo real service acceptance** del commit, nunca
-se deduce de las pruebas unitarias ni se convierte en certificación productiva.
+## Qué añade v0.10
+
+Siete operaciones se conectan al mismo Engine:
+
+- **dlt** carga campañas suministradas en DuckDB temporal y comprueba sumas.
+- **LangGraph** clasifica prospectos mediante reglas declaradas, sin contactar personas.
+- **LlamaIndex** recupera documentos suministrados mediante búsqueda léxica BM25.
+- **Ragas** evalúa precisión contextual contra referencias, sin LLM remoto.
+- **MLflow** registra métricas y verifica su lectura en un almacén temporal.
+- **DoWhy y EconML** estiman efectos sobre datos suministrados bajo supuestos explícitos; no prueban causalidad real ni rentabilidad.
+
+El flujo nuevo combina carga, búsqueda, evaluación, clasificación y registro.
+Los tests comprueban resultados específicos y reanudación sin reejecutar pasos.
+[Contratos, límites y fuentes](docs/RUNTIME_V010.md).
+
+Se conservan las doce recetas v0.9: Trafilatura, Scrapy, DuckDB, OR-Tools, Optuna,
+scikit-learn, CatBoost, Haystack, Great Expectations, Evidently, Presidio y Playwright.
+La aceptación de servidores Qdrant y Meilisearch usa binarios comunitarios fijados,
+autenticación y procesos efímeros: no equivale a instalar servicios permanentes.
 
 ## Núcleo sin dependencias adicionales
 
@@ -46,83 +56,84 @@ python -m verdugo source-inspect duckdb
 python -m verdugo demo
 ```
 
-La demo del núcleo usa datos ficticios y no llama proveedores. Los comandos
-status/source-inspect distinguen recetas HTTP, recetas locales y fuentes sin
-adaptador. La consulta graph histórica solo describe las rutas HTTP; no es un
-inventario de todos los procesos activos.
+La demo usa datos ficticios y no llama proveedores. status/source-inspect distinguen
+recetas HTTP, locales y fuentes sin adaptador. graph conserva su alcance histórico
+HTTP; no es un inventario de procesos activos.
 
-## Instalar y comprobar las operaciones locales
+## Instalar las operaciones locales
 
-Entorno validado: **Linux x86_64, CPython 3.12**, con un entorno virtual dedicado.
-No se afirma compatibilidad de estas dependencias nativas con Android/Termux.
-El núcleo estándar mantiene sus pruebas de compatibilidad por separado.
+Plataforma de aceptación: **Linux x86_64, CPython 3.12**. No se afirma compatibilidad
+de estas bibliotecas nativas con Android/Termux. El núcleo se prueba por separado.
+Ragas requiere un segundo entorno por incompatibilidad de dependencias con Haystack;
+no se fuerza una instalación inconsistente. El operador debe revisar licencias,
+recursos y privacidad antes de utilizar las funciones con datos reales.
 
 ```sh
-python3.12 -m venv .venv-runtime
-. .venv-runtime/bin/activate
-python -m pip install -r requirements/runtime.txt
-python -m pip check
+python3.12 -m venv --copies .venv-runtime
+python3.12 -m venv --copies .venv-ragas
+.venv-runtime/bin/python -m pip install -r requirements/runtime.txt
+.venv-ragas/bin/python -m pip install -r requirements/runtime-ragas.txt
+.venv-runtime/bin/python -m pip check
+.venv-ragas/bin/python -m pip check
+export VERDUGO_RAGAS_PYTHON="$PWD/.venv-ragas/bin/python"
 export PLAYWRIGHT_BROWSERS_PATH="$HOME/.cache/verdugo-browsers"
-python -m playwright install --with-deps chromium
-python -m verdugo runtime-check
-VERDUGO_RUNTIME_REQUIRED=1 python -m unittest discover -s tests_runtime -v
+.venv-runtime/bin/python -m playwright install --with-deps chromium
+.venv-runtime/bin/python - <<'PY'
+from llama_index.core.schema import TextNode
+from llama_index.retrievers.bm25 import BM25Retriever
+BM25Retriever.from_defaults(nodes=[TextNode(text='offline tokenizer preparation')], similarity_top_k=1)
+PY
+.venv-runtime/bin/python -m verdugo runtime-check
+VERDUGO_RUNTIME_REQUIRED=1 .venv-runtime/bin/python -m unittest discover -s tests_runtime -v
 ```
 
-La instalación del navegador puede requerir permisos administrativos para
-bibliotecas del sistema. Las pruebas de aceptación son sintéticas. En CI se
-realizan además dentro de un namespace sin red externa. runtime-check solo
-inspecciona versiones instaladas: no sustituye la prueba de ejecución.
+La preparación descarga paquetes, navegador y recursos de tokenización; puede
+requerir privilegios para bibliotecas del sistema. La ejecución de aceptación en
+CI se realiza sin privilegios dentro de un namespace sin salida de red. Ese
+namespace no se activa automáticamente al operar en otro host.
 
-Las versiones directas y transitivas se fijan al entorno que pasó la aceptación.
-Esto no es un lock criptográfico universal ni una auditoría de seguridad de todas
-las dependencias. Los informes de instalación conservan los hashes observados.
+Las restricciones de versiones reproducen los dos conjuntos instalados y
+comprobados con pip. No son un lock criptográfico universal ni una auditoría de
+seguridad de todas las dependencias. Los reportes pip conservan los hashes observados.
+runtime-check solo consulta metadatos: no sustituye la ejecución real.
+[Perfiles y frontera de confianza](docs/RUNTIME_PROFILES_V010.md).
 
-## Operación mediante el mismo Engine
+## Operación desde el mismo motor
 
 ```sh
-python -m verdugo init --out verdugo.local.json
-# Revisar licencias, recursos y privacidad, y habilitar únicamente las recetas necesarias.
-python -m verdugo --config verdugo.local.json workflow @examples/local-marketing.synthetic.json
-python -m verdugo --config verdugo.local.json workflow @examples/local-marketing.synthetic.json --execute
+.venv-runtime/bin/python -m verdugo init --out verdugo.local.json
+# Revisar y habilitar únicamente las recetas necesarias en el archivo privado.
+.venv-runtime/bin/python -m verdugo --config verdugo.local.json workflow @examples/local-evidence.synthetic.json
+.venv-runtime/bin/python -m verdugo --config verdugo.local.json workflow @examples/local-evidence.synthetic.json --execute
 ```
 
-La configuración inicial mantiene todos los proveedores apagados. Para una receta
-local se requieren enabled, license_reviewed y runtime_reviewed, versión exacta y
-un timeout acotado. Playwright requiere browser_path absoluto del operador.
-Los indicadores de revisión son responsabilidad del operador, no aprobaciones
-legales deducidas del catálogo o de CI. No reutilizar los perfiles sintéticos de
-prueba para datos o empresas reales.
+Todo comienza deshabilitado. Cada receta local exige enabled, license_reviewed,
+runtime_reviewed, versión exacta y timeout acotado. Playwright exige browser_path
+absoluto. Las banderas de los fixtures no aprueban licencias comerciales ni deben
+copiarse a una configuración real sin revisión. No publicar configuraciones,
+secretos o datos de clientes. El ejemplo anterior v0.9 se mantiene en
+examples/local-marketing.synthetic.json.
 
-[Operaciones, límites y procedimiento v0.9](docs/RUNTIME_V09.md).
+## Límites y pendientes
 
-## Frontera de confianza
+Se acepta JSON acotado, no shell, SQL libre, código, rutas de entrada ni modelos
+serializados del usuario. El worker filtra variables de entorno, limita tiempo,
+salida y archivos. **No es un sandbox de código nativo hostil ni una cuota total
+de memoria o disco.** El administrador debe proteger sus entornos y el host.
 
-Los adaptadores locales aceptan JSON acotado; no shell, SQL libre, código enviado
-por el usuario, rutas de archivos de entrada ni carga de modelos serializados.
-El proceso de trabajo no hereda credenciales de proveedores y limita tiempo,
-salida y archivos. **No es un sandbox para código nativo hostil ni una cuota total
-de memoria o disco.** Para contenido adversarial se necesita aislamiento del
-sistema operativo; el namespace sin red de CI no se activa automáticamente en un
-host de producción.
+Los almacenes dlt/MLflow son temporales; los resultados verificados persisten en
+Engine. SQLite y roles de proceso no constituyen IAM multiempresa hostil. Datos
+personales requieren cifrado, retención y respaldos privados. Las escrituras HTTP
+siguen requiriendo aprobación separada; no se reintentan resultados inciertos.
 
-SQLite y los roles del proceso no son IAM multiempresa hostil. Los planes y
-resultados pueden contener datos personales: directorios privados, cifrado del
-host, retención y copias verificadas son responsabilidad operativa pendiente.
-Las escrituras HTTP siguen necesitando aprobación separada; los resultados
-inciertos no se reintentan ciegamente. No se habilitan comunicaciones, publicidad,
-cobros, compras ni servicios permanentes al instalar este código.
+**59 proyectos aún requieren código de integración.** Los adaptadores HTTP necesitan
+aceptación de versiones/ediciones/permisos por instancia; Qdrant y Meilisearch no
+validan los otros veinte. No hay despliegue productivo, conexión automática de este
+chat al MCP, servicio 24/7, cobros reconciliados ni probabilidad comercial demostrada.
+No se activan campañas, contactos, compras ni infraestructura de pago al instalar.
 
-## Lo que falta
-
-66 proyectos requieren todavía código de integración apropiado, no solo claves.
-Los adaptadores HTTP requieren además aceptación individual contra la versión,
-edición y permisos de instancias autorizadas. Una prueba de dos servidores
-locales no valida los otros 20 ni todas las funciones de los dos probados.
-No hay despliegue productivo, conexión automática de este chat al MCP, operación
-24/7, ingresos bancariamente reconciliados ni probabilidad comercial demostrada.
-
-El historial anterior se conserva en [README hasta v0.8](docs/HISTORICAL_README_V08.md).
-Guías existentes: [arquitectura](docs/ARCHITECTURE.md),
-[control comercial](docs/COMERCIAL_30_DIAS.md), [cola/eventos](docs/EVENTS.md),
-[ventas locales](docs/VENTAS_TERMUX_V07.md), [piloto y respaldos](docs/PILOTO_Y_RESPALDOS_V06.md),
-[fuentes fijadas](docs/GITHUB_SOURCES_V08.md).
+Documentación: [v0.9](docs/RUNTIME_V09.md), [v0.10](docs/RUNTIME_V010.md),
+[perfiles](docs/RUNTIME_PROFILES_V010.md), [arquitectura](docs/ARCHITECTURE.md),
+[control comercial](docs/COMERCIAL_30_DIAS.md), [eventos](docs/EVENTS.md),
+[piloto y respaldos](docs/PILOTO_Y_RESPALDOS_V06.md), [fuentes](docs/GITHUB_SOURCES_V08.md).
+El historial previo se conserva en [README v0.8](docs/HISTORICAL_README_V08.md).

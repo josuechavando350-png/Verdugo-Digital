@@ -37,3 +37,6 @@ CASES = {
         <button>Book</button><img src="https://example.invalid/test.png"></div>
         <script>document.body.appendChild(document.createElement('h1'))</script></body></html>'''},
 }
+
+from extended_fixtures import CASES as EXTENDED_CASES
+CASES.update(EXTENDED_CASES)

@@ -11,15 +11,18 @@ from fixtures import CASES
 from _local_worker import guard
 from local_recipes import run
 
-if len(sys.argv) != 2 or sys.argv[1] not in ('evidently', 'playwright'):
+if len(sys.argv) != 2 or sys.argv[1] not in tuple(CASES):
     raise SystemExit('Only fixed synthetic diagnosis cases are supported')
 service = sys.argv[1]
 resource.setrlimit(resource.RLIMIT_CORE, (0, 0))
-file_budget = (128 if service == 'playwright' else 2) * 1024 * 1024
+file_budget = (128 if service in ('playwright','dlt','mlflow') else 16) * 1024 * 1024
 resource.setrlimit(resource.RLIMIT_FSIZE, (file_budget, file_budget))
 sys.addaudithook(guard)
 os.environ['DO_NOT_TRACK'] = '1'
 os.environ['OTEL_SDK_DISABLED'] = 'true'
+os.environ['RAGAS_DO_NOT_TRACK'] = 'true'
+os.environ['RUNTIME__DLTHUB_TELEMETRY'] = 'false'
+os.environ['LANGSMITH_TRACING'] = 'false'
 try:
     result = run(service, '', CASES[service])
     print(service, 'direct recipe completed; keys:', sorted(result))
