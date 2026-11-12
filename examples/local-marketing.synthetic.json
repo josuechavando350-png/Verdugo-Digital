@@ -1,0 +1,57 @@
+{
+  "id": "synthetic-marketing-analysis-v09",
+  "steps": [
+    {
+      "id": "extract",
+      "service": "trafilatura",
+      "operation": "html.extract",
+      "params": {
+        "dataset": "demo",
+        "html": "<!doctype html><html><head><title>Synthetic Nexus article</title></head>\n<body><main><article><h1>Appointment automation</h1>\n<p>A synthetic business wants a clearer appointment booking process. Its staff manually checks schedules,\nanswers repeated questions and records inquiries. This local example describes appointment automation,\nfollow-up scheduling and conversion measurement without collecting personal data or contacting anyone.</p>\n<p>The planned workflow captures an inquiry, checks an authorized schedule and prepares a follow-up.\nObserved conversions and costs must come from real business records before any commercial conclusion.\nThe example exists to validate text extraction, not to advertise a live product or claim revenue.</p>\n<a href=\"https://example.invalid\">Synthetic reference</a></article></main></body></html>"
+      }
+    },
+    {
+      "id": "redact",
+      "service": "presidio",
+      "operation": "text.redact",
+      "depends_on": ["extract"],
+      "params": {"dataset": "demo", "text": {"$ref": "extract.result.text"}}
+    },
+    {
+      "id": "search",
+      "service": "haystack",
+      "operation": "documents.search",
+      "depends_on": ["redact"],
+      "params": {
+        "dataset": "demo", "query": "appointment automation", "top_k": 1,
+        "documents": [{"id": "synthetic-article", "content": {"$ref": "redact.result.text"}}]
+      }
+    },
+    {
+      "id": "campaign-summary",
+      "service": "duckdb",
+      "operation": "campaigns.aggregate",
+      "params": {
+        "dataset": "demo", "currency": "MXN",
+        "rows": [
+          {"channel": "organic", "spend_minor": 100, "revenue_minor": 500, "leads": 4, "conversions": 1},
+          {"channel": "organic", "spend_minor": 200, "revenue_minor": 700, "leads": 6, "conversions": 2},
+          {"channel": "referral", "spend_minor": 0, "revenue_minor": 300, "leads": 1, "conversions": 1}
+        ]
+      }
+    },
+    {
+      "id": "budget-selection",
+      "service": "or-tools",
+      "operation": "selection.solve",
+      "params": {
+        "dataset": "demo", "currency": "MXN", "budget_minor": 10,
+        "items": [
+          {"id": "alpha", "cost_minor": 4, "value": 5},
+          {"id": "beta", "cost_minor": 6, "value": 8},
+          {"id": "gamma", "cost_minor": 9, "value": 10}
+        ]
+      }
+    }
+  ]
+}
