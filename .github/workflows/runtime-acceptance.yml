@@ -50,13 +50,15 @@ jobs:
             requirements/runtime-ragas.txt
       - name: Install primary exact distributions into isolated environment
         run: |
-          python -m venv /tmp/verdugo-runtime-venv
+          python -m venv --copies /tmp/verdugo-runtime-venv
+          chmod go-w /tmp/verdugo-runtime-venv/bin/python*
           /tmp/verdugo-runtime-venv/bin/python -m pip install -r requirements/runtime.txt --report /tmp/runtime-pip-report.json
           /tmp/verdugo-runtime-venv/bin/python -m pip freeze > /tmp/runtime-resolved-versions.txt
           /tmp/verdugo-runtime-venv/bin/python -m pip check
       - name: Install separate compatible Ragas environment
         run: |
-          python -m venv /tmp/verdugo-ragas-venv
+          python -m venv --copies /tmp/verdugo-ragas-venv
+          chmod go-w /tmp/verdugo-ragas-venv/bin/python*
           /tmp/verdugo-ragas-venv/bin/python -m pip install -r requirements/runtime-ragas.txt --report /tmp/ragas-pip-report.json
           /tmp/verdugo-ragas-venv/bin/python -m pip freeze > /tmp/ragas-resolved-versions.txt
           /tmp/verdugo-ragas-venv/bin/python -m pip check
@@ -71,9 +73,10 @@ jobs:
           from llama_index.retrievers.bm25 import BM25Retriever
           BM25Retriever.from_defaults(nodes=[TextNode(text='offline tokenizer preparation')], similarity_top_k=1)
           PYDATA
-      - name: Execute actual libraries with OS network isolation
+      - name: Execute actual libraries unprivileged with OS network isolation
         run: |
-          sudo unshare --net -- env \
+          sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
+            HOME="$HOME" \
             VERDUGO_RUNTIME_REQUIRED=1 \
             VERDUGO_RUNTIME_EVIDENCE=/tmp/runtime-execution-evidence.json \
             VERDUGO_RAGAS_PYTHON=/tmp/verdugo-ragas-venv/bin/python \
@@ -83,11 +86,13 @@ jobs:
         if: failure()
         run: |
           for case in evidently playwright dlt langgraph llama-index mlflow dowhy econml; do
-            sudo unshare --net -- env PLAYWRIGHT_BROWSERS_PATH=/tmp/verdugo-browsers \
+            sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
+              HOME="$HOME" PLAYWRIGHT_BROWSERS_PATH=/tmp/verdugo-browsers \
               /tmp/verdugo-runtime-venv/bin/python tests_runtime/diagnose.py "$case" || true
           done
           if test -x /tmp/verdugo-ragas-venv/bin/python; then
-            sudo unshare --net -- /tmp/verdugo-ragas-venv/bin/python tests_runtime/diagnose.py ragas || true
+            sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- \
+              /tmp/verdugo-ragas-venv/bin/python tests_runtime/diagnose.py ragas || true
           fi
       - name: Record exact adapter availability
         run: /tmp/verdugo-runtime-venv/bin/python -m verdugo runtime-check > /tmp/runtime-availability.json
