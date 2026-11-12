@@ -9,6 +9,7 @@ from verdugo import local_runtime
 from verdugo.__main__ import template
 from verdugo.engine import Engine
 from fixtures import CASES
+from extended_fixtures import CASES as EXTENDED_CASES, assert_result
 
 REQUIRED = os.getenv('VERDUGO_RUNTIME_REQUIRED') == '1'
 SELECTED = os.getenv('VERDUGO_RUNTIME_SERVICES', '').split(',')
@@ -93,6 +94,8 @@ class RuntimeAcceptance(unittest.TestCase):
                         self.assertTrue(value['views'][0]['observations']['horizontal_overflow'])
                         self.assertFalse(value['views'][1]['observations']['horizontal_overflow'])
                         self.assertFalse(value['javascript_enabled'])
+                    if sid in EXTENDED_CASES:
+                        assert_result(self, sid, value)
                     replay=engine.execute(command,True)
                     self.assertTrue(replay['replayed'])
                     self.assertEqual(result['result'],replay['result'])

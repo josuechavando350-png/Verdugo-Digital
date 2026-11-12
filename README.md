@@ -2,7 +2,7 @@
 
 Núcleo comercial y de análisis para Nexus Bot Studio. Una sola entrada CLI/MCP,
 un motor de ejecución, flujos con dependencias, permisos locales, auditoría,
-idempotencia y estado SQLite. Versión de ingeniería **0.9.0**.
+idempotencia y estado SQLite. Versión de ingeniería **0.10.0**.
 
 **La integración operativa de los 100 proyectos NO está terminada.** El inventario
 no se usa para inflar el número de funciones ejecutables.
@@ -12,8 +12,8 @@ no se usa para inflar el número de funciones ejecutables.
 | Componente | Alcance |
 |---|---|
 | Fuentes aprobadas y fijadas por commit | 100 |
-| Proyectos con una operación implementada | 34: 22 HTTP + 12 de bibliotecas locales |
-| Proyectos sin ningún adaptador | 66 |
+| Proyectos con una operación implementada | 41: 22 HTTP + 19 de bibliotecas locales |
+| Proyectos sin ningún adaptador | 59 |
 | Operaciones externas HTTP existentes | 26, con alcance limitado por proveedor |
 | Bibliotecas locales con aceptación real | 12; resultados e idempotencia probados con dependencias instaladas |
 | Flujo compuesto local | 5 pasos, con persistencia y reanudación después de reiniciar Engine |
@@ -35,6 +35,14 @@ Meilisearch: binarios comunitarios fijados por versión y hash, procesos efímer
 autenticación, datos sintéticos y namespace de red limitado a loopback. Su resultado
 se consulta en el workflow **Verdugo real service acceptance** del commit, nunca
 se deduce de las pruebas unitarias ni se convierte en certificación productiva.
+
+## Lote v0.10: siete operaciones nuevas
+
+dlt, LangGraph, LlamaIndex, Ragas, MLflow, DoWhy y EconML reutilizan el mismo
+motor. Se añade un flujo de carga → búsqueda → evaluación → clasificación →
+registro con persistencia y reanudación. Sus pruebas de aceptación real deben
+comprobarse por commit; no se infieren de los contratos unitarios.
+[Alcance, límites y fuentes](docs/RUNTIME_V010.md).
 
 ## Núcleo sin dependencias adicionales
 

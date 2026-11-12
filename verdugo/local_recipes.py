@@ -9,6 +9,9 @@ import math
 
 
 def run(service, operation, p):
+    from local_extended import SPECS as EXTENDED, run as run_extended
+    if service in EXTENDED:
+        return run_extended(service, p)
     handlers = {
         'trafilatura': extract_html, 'scrapy': inspect_html,
         'duckdb': aggregate_campaigns, 'or-tools': select_items,

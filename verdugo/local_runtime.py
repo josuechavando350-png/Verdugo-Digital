@@ -16,6 +16,7 @@ import sys
 import tempfile
 
 from .common import VerdugoError, fields, identifier, integer, encode
+from . import local_extended
 
 # Primary published distribution versions; upstream source pins are a separate
 # provenance inventory and must not be confused with installed Python wheels.
@@ -35,6 +36,8 @@ SPECS = {
 }
 EXTRA = {'presidio': {'presidio-anonymizer': '2.2.366'},
          'catboost': {'scikit-learn': '1.8.0'}}
+SPECS.update(local_extended.SPECS)
+EXTRA.update(local_extended.EXTRA)
 MAX_OUTPUT = 1024 * 1024
 WORKER = Path(__file__).with_name('_local_worker.py')
 RECIPES = Path(__file__).with_name('local_recipes.py')
@@ -114,6 +117,8 @@ def labels(values, count, minimum_per_class=1):
 def validate(service, operation, params):
     if not supports(service, operation):
         raise VerdugoError('Local adapter/action not implemented')
+    if service in local_extended.SPECS:
+        return local_extended.validate(service, operation, params)
     required = {
         'html.extract': ('dataset', 'html'),
         'html.inspect': ('dataset', 'html'),
@@ -225,7 +230,7 @@ def preflight(service, operation, cfg):
 
 def implementation_digest():
     h = hashlib.sha256()
-    for path in (Path(__file__), WORKER, RECIPES):
+    for path in (Path(__file__), WORKER, RECIPES, Path(local_extended.__file__)):
         h.update(path.name.encode())
         h.update(path.read_bytes())
     return h.hexdigest()
@@ -264,7 +269,10 @@ def execute(request, cfg):
                'MALLOC_ARENA_MAX': '2', 'DO_NOT_TRACK': '1',
                'HAYSTACK_TELEMETRY_ENABLED': 'False', 'OTEL_SDK_DISABLED': 'true',
                'GX_ANALYTICS_ENABLED': 'False', 'GE_USAGE_STATS': 'False',
-               'ANONYMIZED_TELEMETRY': 'False'}
+               'ANONYMIZED_TELEMETRY': 'False',
+               'RUNTIME__DLTHUB_TELEMETRY': 'false', 'RUNTIME__ENABLE_RUNTIME_TRACE': 'false',
+               'RAGAS_DO_NOT_TRACK': 'true', 'LANGSMITH_TRACING': 'false',
+               'LANGCHAIN_TRACING_V2': 'false', 'MLFLOW_ENABLE_ASYNC_LOGGING': 'false'}
         # Browser installation path is administrator configuration, never input.
         if public['service'] == 'playwright':
             browser_dir = cfg.get('browser_path')

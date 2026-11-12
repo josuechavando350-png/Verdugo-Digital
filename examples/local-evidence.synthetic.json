@@ -1,0 +1,129 @@
+{
+  "id": "synthetic-marketing-evidence-v010",
+  "steps": [
+    {
+      "id": "load",
+      "service": "dlt",
+      "operation": "campaigns.load",
+      "params": {
+        "dataset": "demo",
+        "currency": "MXN",
+        "rows": [
+          {
+            "channel": "organic",
+            "spend_minor": 100,
+            "revenue_minor": 500,
+            "leads": 4,
+            "conversions": 1
+          },
+          {
+            "channel": "organic",
+            "spend_minor": 200,
+            "revenue_minor": 700,
+            "leads": 6,
+            "conversions": 2
+          },
+          {
+            "channel": "referral",
+            "spend_minor": 0,
+            "revenue_minor": 300,
+            "leads": 1,
+            "conversions": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "rank",
+      "service": "llama-index",
+      "operation": "documents.rank",
+      "params": {
+        "dataset": "demo",
+        "query": "appointment booking",
+        "top_k": 1,
+        "documents": [
+          {
+            "id": "appointments",
+            "content": "Appointment booking and calendar scheduling for a dental clinic."
+          },
+          {
+            "id": "garden",
+            "content": "Garden furniture with tables and chairs."
+          }
+        ]
+      }
+    },
+    {
+      "id": "evaluate",
+      "service": "ragas",
+      "operation": "retrieval.evaluate",
+      "depends_on": [
+        "rank"
+      ],
+      "params": {
+        "dataset": "demo",
+        "retrieved_contexts": {
+          "$ref": "rank.result.contexts"
+        },
+        "reference_contexts": [
+          "Appointment booking and calendar scheduling for a dental clinic."
+        ]
+      }
+    },
+    {
+      "id": "route",
+      "service": "langgraph",
+      "operation": "leads.route",
+      "params": {
+        "dataset": "demo",
+        "leads": [
+          {
+            "id": "ready",
+            "need_confirmed": true,
+            "budget_confirmed": true,
+            "authority_confirmed": true,
+            "decision_days": 7
+          },
+          {
+            "id": "later",
+            "need_confirmed": true,
+            "budget_confirmed": false,
+            "authority_confirmed": true,
+            "decision_days": 60
+          },
+          {
+            "id": "not-fit",
+            "need_confirmed": false,
+            "budget_confirmed": true,
+            "authority_confirmed": true,
+            "decision_days": 7
+          }
+        ]
+      }
+    },
+    {
+      "id": "record",
+      "service": "mlflow",
+      "operation": "experiment.record",
+      "depends_on": [
+        "load",
+        "evaluate",
+        "route"
+      ],
+      "params": {
+        "dataset": "demo",
+        "metrics": {
+          "loaded_rows": {
+            "$ref": "load.result.loaded_rows"
+          },
+          "context_precision": {
+            "$ref": "evaluate.result.context_precision"
+          },
+          "qualified": {
+            "$ref": "route.result.counts.qualified"
+          }
+        }
+      }
+    }
+  ]
+}
