@@ -1,161 +1,128 @@
-# Verdugo Digital
+# Verdugo Digital — Nexus
 
-Núcleo de control comercial para NexusBotStudio y empresas cliente. Una entrada CLI/MCP para planes, flujos, eventos y evidencia. **v0.7.0 de ingeniería; no son 100 servicios desplegados.**
+Núcleo comercial y de análisis para Nexus Bot Studio. Una sola entrada CLI/MCP,
+un motor de ejecución, flujos con dependencias, permisos locales, auditoría,
+idempotencia y estado SQLite. Versión de ingeniería **0.9.0**.
 
-## Estado verificable
+**La integración operativa de los 100 proyectos NO está terminada.** El inventario
+no se usa para inflar el número de funciones ejecutables.
 
-| Componente | Estado |
+## Estado actual
+
+| Componente | Alcance |
 |---|---|
-| Selección original | 100 proyectos registrados |
-| Adaptadores HTTP | 22 implementados / 26 acciones delimitadas |
-| Núcleo comercial | 6 acciones existentes más registro local de hitos y seguimiento a 30 días; pagos declarados, no verificación bancaria |
-| Herramientas MCP | 20, por stdio; sin autoaprobación de efectos externos |
-| Eventos entrantes | Sobre canónico HMAC-SHA256, 2 rutas permitidas |
-| Cola | SQLite persistente, deduplicación, leases, intentos limitados y bloqueo |
-| Recuperación | Guardia local v0.4.1 + lectura de contacto + revisión humana separada |
-| Pruebas locales v0.7 | **322 aprobadas** en el conjunto local completo, sin llamadas a proveedores externos; CI se valida por commit |
-| Proveedores externos validados en vivo | **0** |
-| Proyectos sin adaptador | **78** |
-| Probabilidad comercial del 90% | No demostrada por este código |
+| Fuentes aprobadas y fijadas por commit | 100 |
+| Proyectos con una operación implementada | 34: 22 HTTP + 12 de bibliotecas locales |
+| Proyectos sin ningún adaptador | 66 |
+| Operaciones externas HTTP existentes | 26, con alcance limitado por proveedor |
+| Bibliotecas locales con aceptación real | 12; resultados e idempotencia probados con dependencias instaladas |
+| Flujo compuesto local | 5 pasos, con persistencia y reanudación después de reiniciar Engine |
+| Pruebas unitarias y de contrato del núcleo | 351 en la aceptación v0.9; resultado de cada commit en Actions |
+| Herramientas MCP | 21; las nuevas operaciones reutilizan execute/workflow existentes |
+| Servicios productivos certificados | 0 |
 
-Registrar, implementar, configurar, desplegar y validar son etapas distintas. El grafo de 100 proyectos representa rutas lógicas, no conectividad real. No descarga ni ejecuta los repositorios externos. No hay hosting, campañas ni operación permanente activados por este código.
+Las 12 recetas ejecutan Trafilatura, Scrapy, DuckDB, OR-Tools, Optuna,
+scikit-learn, CatBoost, Haystack, Great Expectations, Evidently, Presidio y
+Playwright. No son importaciones vacías ni resultados simulados. La aceptación
+exige resultados específicos y repetición sin reejecutar. El flujo combina
+extracción de contenido, redacción limitada de datos personales, búsqueda local,
+resumen de campañas y selección bajo un presupuesto declarado.
 
+La aceptación completa de bibliotecas y del flujo pasó en
+[Actions 43139596936](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43139596936).
+También hay una puerta separada de aceptación para servidores reales Qdrant y
+Meilisearch: binarios comunitarios fijados por versión y hash, procesos efímeros,
+autenticación, datos sintéticos y namespace de red limitado a loopback. Su resultado
+se consulta en el workflow **Verdugo real service acceptance** del commit, nunca
+se deduce de las pruebas unitarias ni se convierte en certificación productiva.
 
-## Nexus: 100 fuentes GitHub fijadas (v0.8)
-
-Las 100 fuentes aprobadas tienen una referencia inmutable por SHA de commit en `sources/parts/`.
-Un validador estricto comprueba coincidencia con el catálogo y una herramienta MCP **solo lectura**
-expone la procedencia sin descargar ni ejecutar código de terceros:
+## Núcleo sin dependencias adicionales
 
 ```sh
-python -m verdugo sources
-python -m verdugo source-inspect twenty
-```
-
-**100 fuentes fijadas no son 100 integraciones operativas**: continúan 22 adaptadores HTTP,
-78 proyectos sin adaptador, 100 revisiones de licencia pendientes y cero proveedores
-certificados en vivo. [Procedencia y requisitos pendientes](docs/GITHUB_SOURCES_V08.md).
-
-## Inicio local
-
-Python 3.11 o superior, sin dependencias de terceros para el núcleo:
-
-```bash
 python -m unittest discover -s tests -v
-python -m verdugo demo
 python -m verdugo --state :memory: status
+python -m verdugo sources
+python -m verdugo source-inspect duckdb
+python -m verdugo demo
+```
+
+La demo del núcleo usa datos ficticios y no llama proveedores. Los comandos
+status/source-inspect distinguen recetas HTTP, recetas locales y fuentes sin
+adaptador. La consulta graph histórica solo describe las rutas HTTP; no es un
+inventario de todos los procesos activos.
+
+## Instalar y comprobar las operaciones locales
+
+Entorno validado: **Linux x86_64, CPython 3.12**, con un entorno virtual dedicado.
+No se afirma compatibilidad de estas dependencias nativas con Android/Termux.
+El núcleo estándar mantiene sus pruebas de compatibilidad por separado.
+
+```sh
+python3.12 -m venv .venv-runtime
+. .venv-runtime/bin/activate
+python -m pip install -r requirements/runtime.txt
+python -m pip check
+export PLAYWRIGHT_BROWSERS_PATH="$HOME/.cache/verdugo-browsers"
+python -m playwright install --with-deps chromium
+python -m verdugo runtime-check
+VERDUGO_RUNTIME_REQUIRED=1 python -m unittest discover -s tests_runtime -v
+```
+
+La instalación del navegador puede requerir permisos administrativos para
+bibliotecas del sistema. Las pruebas de aceptación son sintéticas. En CI se
+realizan además dentro de un namespace sin red externa. runtime-check solo
+inspecciona versiones instaladas: no sustituye la prueba de ejecución.
+
+Las versiones directas y transitivas se fijan al entorno que pasó la aceptación.
+Esto no es un lock criptográfico universal ni una auditoría de seguridad de todas
+las dependencias. Los informes de instalación conservan los hashes observados.
+
+## Operación mediante el mismo Engine
+
+```sh
 python -m verdugo init --out verdugo.local.json
+# Revisar licencias, recursos y privacidad, y habilitar únicamente las recetas necesarias.
+python -m verdugo --config verdugo.local.json workflow @examples/local-marketing.synthetic.json
+python -m verdugo --config verdugo.local.json workflow @examples/local-marketing.synthetic.json --execute
 ```
 
-La demo utiliza una base temporal y datos ficticios: cero llamadas externas e ingresos reales. La configuración generada mantiene los 100 proyectos deshabilitados, sin fuentes entrantes activas y sin secretos. Nunca publicar estado, perfiles ni credenciales.
+La configuración inicial mantiene todos los proveedores apagados. Para una receta
+local se requieren enabled, license_reviewed y runtime_reviewed, versión exacta y
+un timeout acotado. Playwright requiere browser_path absoluto del operador.
+Los indicadores de revisión son responsabilidad del operador, no aprobaciones
+legales deducidas del catálogo o de CI. No reutilizar los perfiles sintéticos de
+prueba para datos o empresas reales.
 
-## Nuevo v0.7: operación comercial desde Termux
+[Operaciones, límites y procedimiento v0.9](docs/RUNTIME_V09.md).
 
-Con dos comandos locales puedes **capturar un prospecto con canal y seguimiento en una sola transacción** y revisar la jornada comercial completa, sin instalar un CRM externo:
+## Frontera de confianza
 
-```bash
-# Datos ficticios únicamente, dentro del proyecto:
-python -m verdugo sales-intake @examples/sales-intake.synthetic.json
-python -m verdugo sales-intake @examples/sales-intake.synthetic.json --execute
-python -m verdugo sales-desk '{"dataset":"demo"}'
-# Tablero real: no mezcla ejemplos y muestra cero ventas cuando no hay datos:
-python -m verdugo sales-desk
-```
+Los adaptadores locales aceptan JSON acotado; no shell, SQL libre, código enviado
+por el usuario, rutas de archivos de entrada ni carga de modelos serializados.
+El proceso de trabajo no hereda credenciales de proveedores y limita tiempo,
+salida y archivos. **No es un sandbox para código nativo hostil ni una cuota total
+de memoria o disco.** Para contenido adversarial se necesita aislamiento del
+sistema operativo; el namespace sin red de CI no se activa automáticamente en un
+host de producción.
 
-`identified` **no** significa contacto efectuado ni venta. El reporte agrega progreso hacia 6/10 clientes declarados, seguimientos, cola y reconciliaciones. No muestra nombres ni correos y **no envía comunicaciones**. Los datos reales se cargan desde archivos privados, no copiándolos a GitHub. [Guía Termux](docs/VENTAS_TERMUX_V07.md).
+SQLite y los roles del proceso no son IAM multiempresa hostil. Los planes y
+resultados pueden contener datos personales: directorios privados, cifrado del
+host, retención y copias verificadas son responsabilidad operativa pendiente.
+Las escrituras HTTP siguen necesitando aprobación separada; los resultados
+inciertos no se reintentan ciegamente. No se habilitan comunicaciones, publicidad,
+cobros, compras ni servicios permanentes al instalar este código.
 
-## Una orden, varios sistemas
+## Lo que falta
 
-```bash
-python -m verdugo --config verdugo.local.json bridge @examples/canonical-contact.json > contact-plan.local.json
-python -m verdugo --config verdugo.local.json --role approver --actor local-human approve-batch @contact-plan.local.json
-python -m verdugo --config verdugo.local.json bridge @examples/canonical-contact.json --execute
-python -m verdugo --config verdugo.local.json doctor
-```
+66 proyectos requieren todavía código de integración apropiado, no solo claves.
+Los adaptadores HTTP requieren además aceptación individual contra la versión,
+edición y permisos de instancias autorizadas. Una prueba de dos servidores
+locales no valida los otros 20 ni todas las funciones de los dos probados.
+No hay despliegue productivo, conexión automática de este chat al MCP, operación
+24/7, ingresos bancariamente reconciliados ni probabilidad comercial demostrada.
 
-El puente sigue: captura local → creación en Twenty → vínculo del ID → creación en Chatwoot → vínculo del ID → resumen. La aprobación por lote cubre las dos escrituras exactas. El flujo conserva resultados al reanudarse; no envía mensajes ni inicia campañas.
-
-Una integración exige habilitación, revisión de licencia/uso, versión desplegada explícita, origen HTTPS y secreto `VERDUGO_*` fuera de Git. Las versiones, ediciones, esquemas, cuentas y permisos todavía requieren validación en instancias autorizadas. El contenido externo se trata como datos, no como instrucciones.
-
-## Nuevo v0.6: puerta de aceptación y respaldo coherente
-
-- `pilot`: una sola orden para preparar o consultar seis conectores prioritarios con **lecturas acotadas y contratos revisados**. Cada proveedor debe habilitarse explícitamente en configuración local; no hay credenciales ni servidores incluidos. Los resultados de sandbox y los fixtures **nunca cuentan como integración productiva certificada**.
-- `backup-local` y `verify-backup`: copia SQLite consistente y verificación de integridad, con permisos privados y sin reemplazar datos existentes. Los respaldos **no están cifrados** y no se publican en GitHub. No permiten restaurar operaciones de escritura dudosas automáticamente.
-
-```bash
-python -m verdugo --config verdugo.local.json pilot @examples/pilot-request.json
-# Una vez validada licencia, edición, API, token y esquema en un sandbox autorizado:
-python -m verdugo --config verdugo.local.json pilot @examples/pilot-request.json --execute
-mkdir -m 700 -p ./respaldos.local
-python -m verdugo backup-local --to ./respaldos.local/pre-cambio.sqlite3
-python -m verdugo verify-backup --file ./respaldos.local/pre-cambio.sqlite3
-```
-
-Procedimiento y restricciones: [puerta de aceptación y copias](docs/PILOTO_Y_RESPALDOS_V06.md).
-
-## Nuevo v0.5: tablero comercial de 30 días
-
-Verdugo añade un **registro local e inmutable de hitos comerciales** por prospecto (contacto, reunión, propuesta, seguimiento, cierre) usando la identidad compartida de los leads y pagos del núcleo. Desde CLI o MCP puede devolver el avance respecto de 6 clientes mínimos y 10 como objetivo operativo; no infiere un 90% de probabilidad ni verifica depósitos bancarios.
-
-```bash
-python -m verdugo --state :memory: commercial-report
-python -m verdugo --state :memory: commercial-next
-# Registros del operador con evidencia privada; primero planificar:
-python -m verdugo --config verdugo.local.json commercial-record @evento.local.json
-python -m verdugo --config verdugo.local.json commercial-record @evento.local.json --execute
-```
-
-Sin prospectos capturados, el informe muestra 0; ningún dato ficticio se contará como ingreso real. Los hitos no envían mensajes, crean anuncios ni cobran. `commercial-next` destaca prospectos sin seguimiento y tareas vencidas, sin revelar nombres ni correos en la respuesta. La vinculación a `core.payment.record` es una comprobación local de datos declarados, **no conciliación bancaria**. [Guía y límites del control comercial](docs/COMERCIAL_30_DIAS.md).
-
-## Consulta conjunta de superficies comerciales
-
-Mautic, Easy!Appointments, Formbricks y Dub se suman al mismo motor, diagnóstico, workflows y controles. No son instalaciones de los productos ni conectores de todas sus funciones.
-
-```bash
-python -m verdugo --config verdugo.local.json surface @examples/commercial-surfaces.json
-python -m verdugo --config verdugo.local.json surface @examples/commercial-surfaces.json --execute
-```
-
-La salida presenta cuántos objetos llegaron en cada respuesta, su procedencia y fecha. No suma entidades diferentes ni convierte contactos, servicios, encuestas o enlaces en clientes pagados. No es exportación completa, atribución ni sincronización bidireccional. Repetir el ID reutiliza lecturas guardadas; usar un ID nuevo para una observación fresca.
-
-## Nuevo: lectura de comprobación y recuperación
-
-Una creación incierta no se reenvía. El operador puede proponer un ID remoto y leerlo con la misma cuenta, versión, credencial y política de red del plan original. El contrato de respuesta debe revisarse y habilitarse mediante `readback_reviewed` y `readback_record_path` en la configuración local.
-
-```bash
-python -m verdugo --config verdugo.local.json reconciliation-list
-python -m verdugo --config verdugo.local.json readback @examples/contact-readback.json
-python -m verdugo --config verdugo.local.json readback @examples/contact-readback.json --execute
-# Revisar la evidencia antes de preparar el archivo local de confirmación:
-python -m verdugo --config verdugo.local.json --role approver --actor local-human reconcile-readback @readback-review.local.json --execute
-```
-
-Comprobar un ID, correo, nombre y ámbito no demuestra que el POST original creara ese contacto. La lectura solo produce evidencia; no aprueba, no resuelve automáticamente y no garantiza ausencia de duplicados. La revisión separada exige una observación coincidente de hasta cinco minutos y conserva trazabilidad. Acciones `running` permanecen bloqueadas. Procedimiento, límites y fuentes: [v0.4](docs/V04.md).
-
-## Eventos, cola y asistentes
-
-Los eventos canónicos firmados se almacenan atómicamente junto con trabajos. Aceptar no significa procesar. `worker --execute` entrega como máximo uno; `queue`, `job-plan`, `job-resume` y `reconciliation-list` comparten el mismo estado. El receptor `ingress-local` está restringido a loopback y **no debe exponerse en Internet**. El contrato no verifica firmas nativas de proveedores. [Procedimiento v0.3](docs/EVENTS.md).
-
-```bash
-python -m verdugo --config verdugo.local.json --tenant nexus --actor assistant mcp
-```
-
-MCP stdio con revisiones legacy `2025-11-25` y `2025-06-18`. Sus 20 herramientas incluyen `verdugo_contact_readback` y `verdugo_surface_overview`. No hay herramientas para aprobar, firmar eventos o confirmar conciliaciones. **Publicar en GitHub no conecta este chat al MCP ni mantiene un asistente 24/7.**
-
-## Límites y actualización
-
-Respaldar SQLite antes de actualizar. v0.4 añade `contact_readbacks`, v0.4.1 añade guardias de ejecución local y v0.5 añade `commercial_events` y v0.6 añade `pilot_manifests` y `pilot_observations`, y v0.7 añade `sales_intakes`; no borra ni cambia planes, aprobaciones, ejecuciones o identidades. Una prueba de compatibilidad conserva los fingerprints de creación v0.3. Cambiar secretos, versiones o destinos invalida la comprobación: no borrar estado ni cambiar claves para forzar un POST.
-
-SQLite y roles locales no constituyen IAM, aislamiento hostil entre empresas ni alta disponibilidad. Faltan ingreso productivo, supervisor, retención, firmas nativas, sincronización bidireccional e identidad IAM. La recuperación local de `running` es cooperativa y limitada a un solo host, no recuperación distribuida. Los resultados almacenados pueden contener datos personales y exigen protección del host y copias probadas.
-
-Los pagos son declaraciones por moneda/dataset, no conciliación bancaria ni utilidad neta. Ninguna prueba sintética demuestra rentabilidad o éxito comercial. Las licencias externas siguen separadas; no se redistribuye aquí su código. El código original todavía no tiene licencia de redistribución elegida.
-
-Documentación: [ventas v0.7](docs/VENTAS_TERMUX_V07.md), [operación v0.6](docs/PILOTO_Y_RESPALDOS_V06.md), [control comercial v0.5](docs/COMERCIAL_30_DIAS.md), [recuperación v0.4.1](docs/V041.md), [entrega y pendientes v0.4](docs/V04.md), [fuentes nuevas](docs/API_SOURCES_V04.md), [arquitectura previa](docs/ARCHITECTURE.md), [validación histórica v0.3](docs/VALIDATION.md).
-
-## Compatibilidad Termux / Android (v0.6.1)
-
-Se corrigió la creación de respaldos cuando Python no expone `os.link`, sin permitir sobrescrituras; el modo de copia alternativa requiere verificar el archivo antes de usarlo porque una interrupción eléctrica puede dejarlo incompleto. También se ajustaron las pruebas de permisos con `umask=077` y se omite explícitamente la prueba de enlaces físicos si el sistema no los admite. [Instrucciones para Termux](docs/TERMUX.md).
-
-## Termux: conexiones SQLite (v0.6.2)
-
-Se corrigieron advertencias de conexiones SQLite no cerradas en las pruebas de backup y se extendió el cierre por error durante la inicialización del motor. Se incluye comprobación de `ResourceWarning` y suite con Python 3.14 en GitHub Actions. [Detalles](docs/SQLITE_LIFECYCLE_V062.md). No hay servicios reales desplegados.
+El historial anterior se conserva en [README hasta v0.8](docs/HISTORICAL_README_V08.md).
+Guías existentes: [arquitectura](docs/ARCHITECTURE.md),
+[control comercial](docs/COMERCIAL_30_DIAS.md), [cola/eventos](docs/EVENTS.md),
+[ventas locales](docs/VENTAS_TERMUX_V07.md), [piloto y respaldos](docs/PILOTO_Y_RESPALDOS_V06.md),
+[fuentes fijadas](docs/GITHUB_SOURCES_V08.md).

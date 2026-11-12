@@ -2,6 +2,7 @@
 from collections import Counter
 from .adapters import SPECS, service_config
 from .catalog import catalog
+from . import local_runtime
 from .common import VerdugoError, identifier, digest
 
 
@@ -18,6 +19,14 @@ def doctor(engine, probe_id='configuration-check', execute=False):
         row = {'service': sid, 'live_verified': False}
         if cfg.get('enabled') is not True:
             rows.append(row | {'state': 'disabled'}); continue
+        if sid in local_runtime.SPECS:
+            try:
+                engine.preflight(sid, local_runtime.SPECS[sid][0])
+                row.update(state='local_configured', execution_verified=False, external_call_made=False)
+            except VerdugoError as exc:
+                row.update(state='not_configured', error=str(exc))
+            rows.append(row)
+            continue
         operation = next((op for op, recipe in SPECS.get(sid, {}).items()
                           if recipe[0] == 'GET'), None)
         if operation is None:
@@ -41,7 +50,7 @@ def doctor(engine, probe_id='configuration-check', execute=False):
         rows.append(row)
     counts = dict(Counter(row['state'] for row in rows))
     active = len(rows) - counts.get('disabled', 0)
-    problems = any(counts.get(s, 0) for s in ('blocked', 'failed', 'not_implemented', 'uncertain', 'running'))
+    problems = any(counts.get(s, 0) for s in ('blocked', 'failed', 'not_implemented', 'not_configured', 'uncertain', 'running'))
     state = 'not_configured' if not active else 'incomplete' if problems else 'checked'
     return {'state': state, 'counts': counts, 'tenant': engine.tenant, 'probe_id': probe_id,
             'mode': 'bounded-read' if execute else 'configuration-only',

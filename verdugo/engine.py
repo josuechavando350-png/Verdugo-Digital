@@ -10,6 +10,7 @@ import time
 from .adapters import SPECS, build, service_config, connection, remote_id
 from .catalog import catalog
 from .source_evidence import read_sources
+from . import local_runtime
 from .common import VerdugoError, digest, encode, fields, identifier, integer, sanitize, text
 from .transport import send
 from . import identity, jobs, reconciliation, readback, commercial, pilot, office
@@ -110,6 +111,9 @@ class Engine:
             rows.append(item | {'artifact_pin': pins[item['id']],
                 'source_status': 'pinned',
                 'adapter_implemented': item['id'] in SPECS,
+                'local_adapter_implemented': item['id'] in local_runtime.SPECS,
+                'any_adapter_implemented': item['id'] in SPECS or item['id'] in local_runtime.SPECS,
+                'local_actions': [local_runtime.SPECS[item['id']][0]] if item['id'] in local_runtime.SPECS else [],
                 'actions': list(SPECS.get(item['id'], {})),
                 'enabled_by_operator': cfg.get('enabled') is True,
                 'configured_version': cfg.get('version'),
@@ -119,6 +123,9 @@ class Engine:
                 'source_pinned': len(pins), 'license_review_pending': len(pins),
                 'api_adapters_implemented': sum(r['adapter_implemented'] for r in rows),
                 'api_actions_implemented': sum(len(v) for v in SPECS.values()),
+                'local_adapters_implemented': len(local_runtime.SPECS),
+                'total_adapters_implemented': len(set(SPECS) | set(local_runtime.SPECS)),
+                'projects_without_any_adapter': sum(not r['any_adapter_implemented'] for r in rows),
                 'live_verified': 0, 'note': 'API success is not acceptance certification.',
                 'integrations': rows}
 
@@ -126,7 +133,8 @@ class Engine:
         if service == 'core':
             if operation not in CORE: raise VerdugoError('Unknown core action')
             return {}
-        if operation not in SPECS.get(service, {}):
+        is_local = local_runtime.supports(service, operation)
+        if operation not in SPECS.get(service, {}) and not is_local:
             raise VerdugoError('Adapter/action not implemented: %s.%s' % (service, operation))
         cfg = service_config(self.config, self.tenant, service)
         if cfg.get('enabled') is not True:
@@ -136,7 +144,10 @@ class Engine:
         version = cfg.get('version')
         if not isinstance(version, str) or not version.strip() or version.strip().lower() in ('latest', 'main', 'master'):
             raise VerdugoError('Explicit deployed version/commit required: ' + service)
-        connection(service, cfg)
+        if is_local:
+            local_runtime.preflight(service, operation, cfg)
+        else:
+            connection(service, cfg)
         return cfg
 
     def prepare(self, command):
@@ -148,6 +159,8 @@ class Engine:
         if service == 'core':
             self.validate_core(op, command['params'])
             request = {'public': command, 'mutates': False, 'secret_values': []}
+        elif local_runtime.supports(service, op):
+            request = local_runtime.build(service, op, command['params'], cfg)
         else:
             request = build(service, op, command['params'], cfg)
         fingerprint = digest({'tenant': self.tenant, 'key': key, 'request': request['public']})
@@ -236,6 +249,9 @@ class Engine:
                 with self.transaction():
                     result = self.core(command['operation'], command['params'])
                     self.finish(key, 'succeeded', result)
+            elif local_runtime.supports(command['service'], command['operation']):
+                result = sanitize(local_runtime.execute(request, cfg), request['secret_values'])
+                with self.transaction(): self.finish(key, 'succeeded', result)
             else:
                 result = sanitize(self.transport(request, cfg), request['secret_values'])
                 if request['mutates']:

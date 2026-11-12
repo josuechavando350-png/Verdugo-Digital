@@ -1,0 +1,46 @@
+name: Verdugo real service acceptance
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: real-services-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  actual-servers:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Download fixed community releases and verify upstream digests
+        run: |
+          mkdir -p /tmp/verdugo-server-binaries
+          cd /tmp/verdugo-server-binaries
+          curl --fail --location --proto '=https' --tlsv1.2 --max-time 120 -o qdrant.tar.gz https://github.com/qdrant/qdrant/releases/download/v1.20.0/qdrant-x86_64-unknown-linux-gnu.tar.gz
+          echo '2361f3df0dedfef31f5444f9f15bd15d6b4a6cba6ad952daecc5fbe3867c5ee6  qdrant.tar.gz' | sha256sum --check --strict
+          tar -xzf qdrant.tar.gz
+          curl --fail --location --proto '=https' --tlsv1.2 --max-time 120 -o meilisearch https://github.com/meilisearch/meilisearch/releases/download/v1.56.2/meilisearch-linux-amd64
+          echo 'fa2e1043139998df2056ce136d10bc35e0c252051052667ca3146bac2eb0288b  meilisearch' | sha256sum --check --strict
+          chmod 700 qdrant meilisearch
+      - name: Actual authenticated APIs through Engine in isolated loopback namespace
+        run: |
+          sudo unshare --net -- sh -c '
+            ip link set lo up
+            exec env \
+              VERDUGO_QDRANT_TEST_BINARY=/tmp/verdugo-server-binaries/qdrant \
+              VERDUGO_MEILI_TEST_BINARY=/tmp/verdugo-server-binaries/meilisearch \
+              VERDUGO_SERVICE_EVIDENCE=/tmp/real-service-evidence.json \
+              python3 tests_runtime/service_acceptance.py
+          '
+      - name: Preserve test-only evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: verdugo-real-services-${{ github.sha }}
+          path: /tmp/real-service-evidence.json
+          retention-days: 3
+          if-no-files-found: error

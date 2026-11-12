@@ -1,0 +1,84 @@
+name: Verdugo runtime acceptance
+on:
+  push:
+    branches: [main, feat/verdugo-runtime-v09]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: runtime-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  baseline:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Baseline unit tests and inventory
+        run: |
+          python3 -m unittest discover -s tests -q
+          python3 -m verdugo --state :memory: status > /tmp/baseline-status.json
+          git archive --format=tar HEAD > /tmp/verdugo-source.tar
+      - name: Source snapshot for reproducible local validation
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: verdugo-source-${{ github.sha }}
+          path: |
+            /tmp/verdugo-source.tar
+            /tmp/baseline-status.json
+          retention-days: 3
+          if-no-files-found: error
+  local-libraries:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements/runtime.txt
+      - name: Install exact direct distribution versions into isolated environment
+        run: |
+          python -m venv /tmp/verdugo-runtime-venv
+          /tmp/verdugo-runtime-venv/bin/python -m pip install -r requirements/runtime.txt --report /tmp/runtime-pip-report.json
+          /tmp/verdugo-runtime-venv/bin/python -m pip freeze > /tmp/runtime-resolved-versions.txt
+          /tmp/verdugo-runtime-venv/bin/python -m pip check
+      - name: Install browser for bounded static HTML tests
+        env:
+          PLAYWRIGHT_BROWSERS_PATH: /tmp/verdugo-browsers
+        run: /tmp/verdugo-runtime-venv/bin/python -m playwright install --with-deps chromium
+      - name: Execute actual libraries with OS network isolation
+        run: |
+          sudo unshare --net -- env \
+            VERDUGO_RUNTIME_REQUIRED=1 \
+            VERDUGO_RUNTIME_EVIDENCE=/tmp/runtime-execution-evidence.json \
+            PLAYWRIGHT_BROWSERS_PATH=/tmp/verdugo-browsers \
+            /tmp/verdugo-runtime-venv/bin/python -m unittest discover -s tests_runtime -v
+      - name: Fixed synthetic diagnostics after failure
+        if: failure()
+        run: |
+          for case in evidently playwright; do
+            sudo unshare --net -- env PLAYWRIGHT_BROWSERS_PATH=/tmp/verdugo-browsers \
+              /tmp/verdugo-runtime-venv/bin/python tests_runtime/diagnose.py "$case" || true
+          done
+      - name: Record exact adapter availability
+        run: /tmp/verdugo-runtime-venv/bin/python -m verdugo runtime-check > /tmp/runtime-availability.json
+      - name: Runtime evidence and resolved versions
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: verdugo-runtime-evidence-${{ github.sha }}
+          path: |
+            /tmp/runtime-execution-evidence.json
+            /tmp/runtime-workflow-evidence.json
+            /tmp/runtime-pip-report.json
+            /tmp/runtime-resolved-versions.txt
+            /tmp/runtime-availability.json
+          retention-days: 3
+          if-no-files-found: warn

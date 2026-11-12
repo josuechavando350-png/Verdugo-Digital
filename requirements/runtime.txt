@@ -1,0 +1,20 @@
+# Optional bounded local recipes; core Verdugo has no third-party requirement.
+# Versions include transitive constraints observed in actual acceptance.
+# This is NOT a cryptographic artifact/hash lock or a cross-platform lock.
+# Test platform: Linux x86_64 CPython 3.12. Install only in a dedicated venv.
+-c runtime.constraints.txt
+trafilatura==2.3.1
+Scrapy==2.20.0
+duckdb==1.5.6
+ortools==9.14.6206
+optuna==4.8.0
+scikit-learn==1.8.0
+catboost==1.2.8
+haystack-ai==3.5.0
+great-expectations==1.24.1
+evidently==0.7.23
+# Evidently 0.7.23 imports a pandas internal removed in pandas 3.1.
+pandas==2.3.3
+presidio-analyzer==2.2.366
+presidio-anonymizer==2.2.366
+playwright==1.57.0
