@@ -59,7 +59,7 @@ jobs:
       - name: Termux-first sales desk safety gates
         run: |
           python3 -m verdugo --state :memory: sales-desk > /tmp/verdugo-sales-desk.json
-          python3 -c "import json; x=json.load(open('/tmp/verdugo-sales-desk.json')); assert x['sales']['reported_paid_clients']==0 and x['sales']['commercial_success_probability'] is None and x['external_calls_made'] is False and x['adapters_implemented']==30"
+          python3 -c "import json; x=json.load(open('/tmp/verdugo-sales-desk.json')); assert x['sales']['reported_paid_clients']==0 and x['sales']['commercial_success_probability'] is None and x['external_calls_made'] is False and x['adapters_implemented']==37"
       - name: Commercial truth gates
         run: |
           python3 -m verdugo --state :memory: commercial-report > /tmp/verdugo-sales-report.json
@@ -67,7 +67,7 @@ jobs:
       - name: Pilot and backup safety gates
         run: |
           python3 -m verdugo --state :memory: status > /tmp/verdugo-v06-status.json
-          python3 -c "import json; x=json.load(open('/tmp/verdugo-v06-status.json')); assert x['live_verified']==0 and x['api_adapters_implemented']==30"
+          python3 -c "import json; x=json.load(open('/tmp/verdugo-v06-status.json')); assert x['live_verified']==0 and x['api_adapters_implemented']==37"
           if python3 -m verdugo --state :memory: pilot @examples/pilot-request.json --execute; then
             echo "ERROR: unconfigured pilot must fail closed" >&2
             exit 1
@@ -75,13 +75,13 @@ jobs:
       - name: Nexus 100 immutable source evidence gates
         run: |
           python3 -m verdugo sources > /tmp/verdugo-source-evidence.json
-          python3 -c "import json; x=json.load(open('/tmp/verdugo-source-evidence.json')); assert x['registered']==100 and x['source_pinned']==100 and x['license_review_pending']==100 and x['http_adapters_implemented']==30 and x['without_http_adapter']==70 and x['live_verified']==0 and x['external_calls_made'] is False"
+          python3 -c "import json; x=json.load(open('/tmp/verdugo-source-evidence.json')); assert x['registered']==100 and x['source_pinned']==100 and x['license_review_pending']==100 and x['http_adapters_implemented']==37 and x['without_http_adapter']==63 and x['live_verified']==0 and x['external_calls_made'] is False"
           python3 -m verdugo source-inspect twenty > /tmp/verdugo-source-single.json
           python3 -c "import json; x=json.load(open('/tmp/verdugo-source-single.json')); assert len(x['source_commit_sha'])==40 and x['ready_for_production'] is False"
       - name: Registry truth checks
         run: |
           python3 -m verdugo --state :memory: status > /tmp/verdugo-status.json
-          python3 -c "import json; x=json.load(open('/tmp/verdugo-status.json')); assert x['registered']==100 and x['api_adapters_implemented']==30 and x['api_actions_implemented']==34 and x['live_verified']==0"
+          python3 -c "import json; x=json.load(open('/tmp/verdugo-status.json')); assert x['registered']==100 and x['api_adapters_implemented']==37 and x['api_actions_implemented']==41 and x['live_verified']==0"
 
   python314:
     runs-on: ubuntu-24.04

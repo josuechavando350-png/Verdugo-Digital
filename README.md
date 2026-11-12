@@ -2,7 +2,7 @@
 
 Núcleo comercial y de análisis para Nexus Bot Studio. Una sola entrada CLI/MCP,
 un motor de ejecución, flujos con dependencias, permisos locales, auditoría,
-idempotencia y estado SQLite. Versión de ingeniería **0.11.0**.
+idempotencia y estado SQLite. Versión de ingeniería **0.12.0**.
 
 **La integración operativa de los 100 proyectos NO está terminada.** Registrar
 fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
@@ -12,12 +12,12 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 | Componente | Alcance |
 |---|---|
 | Fuentes aprobadas y fijadas por commit | 100 |
-| Proyectos con una operación implementada | 49: 30 HTTP + 19 de bibliotecas locales |
-| Proyectos sin ningún adaptador | 51 |
-| Operaciones HTTP existentes | 34, limitadas por proveedor |
+| Proyectos con una operación implementada | 56: 37 HTTP + 19 de bibliotecas locales |
+| Proyectos sin ningún adaptador | 44 |
+| Operaciones HTTP existentes | 41, limitadas por proveedor |
 | Operaciones locales implementadas | 19; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Dos de cinco pasos; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 369 base v0.10 más pruebas de contrato v0.11; verificar CI por commit |
+| Pruebas unitarias y de contrato | Pruebas de núcleo y contrato v0.12; comprobar ejecución CI por commit |
 | Herramientas MCP | 21; las operaciones reutilizan execute/workflow existentes |
 | Servicios productivos certificados | 0 |
 
@@ -25,6 +25,19 @@ Los tres workflows de aceptación son **Verdugo verification**, **Verdugo runtim
 acceptance** y **Verdugo real service acceptance**. La aprobación debe observarse
 para el commit concreto: una prueba del núcleo no sustituye ejecución de las
 bibliotecas ni certifica un despliegue productivo. La aceptación usa datos sintéticos.
+
+## Qué añade v0.12
+
+Siete nuevos conectores de consulta delimitada: Airbyte Cloud (workspaces),
+Infisical (projects), GrowthBook (settings), OpenMeter OSS v1 (meters),
+Nango (connections), Trigger.dev (runs) y Documenso v2 (envelopes).
+
+En los siete, un filtro valida la respuesta y descarta el cuerpo original
+antes de que Engine persista los resultados. Solo almacena recuentos y,
+en Trigger y Documenso, estados reconocidos. Así no conserva etiquetas
+personales, payloads de ejecuciones, datos de firmantes o secretos que
+puedan venir del proveedor. Son llamadas GET autorizadas, no servicios
+instalados ni certificados. [Contratos y evidencia](docs/METADATA_PROVIDERS_V012.md).
 
 ## Qué añade v0.11
 
@@ -138,9 +151,9 @@ Engine. SQLite y roles de proceso no constituyen IAM multiempresa hostil. Datos
 personales requieren cifrado, retención y respaldos privados. Las escrituras HTTP
 siguen requiriendo aprobación separada; no se reintentan resultados inciertos.
 
-**51 proyectos aún requieren código de integración.** Los adaptadores HTTP necesitan
+**44 proyectos aún requieren código de integración.** Los adaptadores HTTP necesitan
 aceptación de versiones/ediciones/permisos por instancia; Qdrant y Meilisearch no
-validan los otros 28. No hay despliegue productivo, conexión automática de este
+validan los otros 35. No hay despliegue productivo, conexión automática de este
 chat al MCP, servicio 24/7, cobros reconciliados ni probabilidad comercial demostrada.
 No se activan campañas, contactos, compras ni infraestructura de pago al instalar.
 
