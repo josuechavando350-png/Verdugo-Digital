@@ -89,6 +89,9 @@ def connection(service, cfg):
         if token.count(':') != 1 or not all(token.split(':')):
             raise VerdugoError('Frappe credential must contain api_key:api_secret')
         headers['Authorization'] = 'token ' + token
+    elif service == 'novu':
+        # Novu REST API uses 'Authorization: ApiKey ...'; MCP bearer differs.
+        headers['Authorization'] = 'ApiKey ' + token
     elif service == 'unleash':
         # Unleash Admin API expects the token value, not a Bearer prefix.
         headers['Authorization'] = token
