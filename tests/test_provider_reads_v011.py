@@ -63,7 +63,10 @@ class ReadProviderTests(unittest.TestCase):
                 req = build(sid, op, {}, self.config["tenants"]["nexus"]["services"][sid])
                 self.assertEqual("GET", req["public"]["method"])
                 self.assertEqual(path, urlsplit(req["public"]["url"]).path)
-                self.assertEqual({}, parse_qs(urlsplit(req["public"]["url"]).query))
+                expected_query = ({"limit": ["50"], "offset": ["0"]}
+                                  if sid == "medusa" else {})
+                self.assertEqual(expected_query,
+                                 parse_qs(urlsplit(req["public"]["url"]).query))
                 self.assertFalse(req["mutates"])
                 self.assertIsNone(req["public"]["body"])
                 self.assertNotIn(TOKEN, json.dumps(req["public"]))
