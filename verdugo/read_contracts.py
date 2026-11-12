@@ -39,7 +39,7 @@ TRIGGER_STATUSES = frozenset(("QUEUED", "EXECUTING", "COMPLETED",
 
 def _metadata_summary(service, operation, response):
     if service == "growthbook":
-        if operation != "settings.get" or not isinstance(response, dict) or not isinstance(response.get("settings"), dict):
+        if operation != "settings.read" or not isinstance(response, dict) or not isinstance(response.get("settings"), dict):
             raise VerdugoError("GrowthBook settings schema mismatch")
         return {
             "service": service, "operation": operation,
