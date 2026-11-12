@@ -19,11 +19,15 @@ def guard(event, args):
 
 def main():
     resource.setrlimit(resource.RLIMIT_CORE, (0, 0))
-    resource.setrlimit(resource.RLIMIT_FSIZE, (2 * 1024 * 1024, 2 * 1024 * 1024))
     raw = sys.stdin.buffer.read(65537)
     if len(raw) > 65536:
         raise ValueError('Input budget exceeded')
     request = json.loads(raw)
+    # Chromium needs bounded profile/shared-memory files larger than 2 MiB.
+    # This is a per-file limit, NOT a total disk quota or a security sandbox.
+    # JSON output remains capped at 1 MiB for every adapter.
+    file_budget = (128 if request['service'] == 'playwright' else 2) * 1024 * 1024
+    resource.setrlimit(resource.RLIMIT_FSIZE, (file_budget, file_budget))
     budget = int(request['timeout_seconds'])
     resource.setrlimit(resource.RLIMIT_CPU, (budget, budget + 1))
     sys.addaudithook(guard)
@@ -35,6 +39,8 @@ def main():
     version = importlib.metadata.version(dist)
     if version != request['version']:
         raise ValueError('Distribution changed')
+    if request['service'] == 'evidently' and importlib.metadata.version('pandas') != '2.3.3':
+        raise ValueError('Evidently requires the tested pandas compatibility version')
     with open(os.devnull, 'w') as quiet, contextlib.redirect_stdout(quiet), contextlib.redirect_stderr(quiet):
         result = run(request['service'], request['operation'], request['params'])
     envelope = {'ok': True, 'service': request['service'], 'operation': request['operation'],
