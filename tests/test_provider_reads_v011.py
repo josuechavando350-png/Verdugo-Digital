@@ -72,6 +72,7 @@ class ReadProviderTests(unittest.TestCase):
         for sid, (op, _) in ROUTES.items():
             req = build(sid, op, {}, self.config["tenants"]["nexus"]["services"][sid])
             expected = (TOKEN if sid == "unleash" else
+                        "ApiKey " + TOKEN if sid == "novu" else
                         "Basic " + TOKEN if sid == "medusa" else
                         "Bearer " + TOKEN)
             self.assertEqual(expected, req["headers"]["Authorization"])
@@ -188,6 +189,7 @@ class ReadProviderTests(unittest.TestCase):
                                  "/admin/products?limit=50&offset=0")
                 self.assertEqual(
                     TOKEN if sid == "unleash" else
+                        "ApiKey " + TOKEN if sid == "novu" else
                     "Basic " + TOKEN if sid == "medusa" else "Bearer " + TOKEN,
                     received)
         finally:
