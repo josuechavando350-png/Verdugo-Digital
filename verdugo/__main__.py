@@ -34,6 +34,7 @@ def template(tenant):
             services[sid].update(base_url='https://example.invalid',
                 token_env='VERDUGO_' + tenant.upper() + '_' + sid.upper().replace('-', '_') + '_TOKEN')
     services['chatwoot'].update(account_id=1, inbox_id=1, auth_mode='bearer', result_id_path='payload.contact.id')
+    services['medusa'].update(auth_mode='basic')
     services['twenty'].update(workspace_id='REPLACE_WORKSPACE_ID', result_id_path='data.createPerson.id')
     services['twenty'].update(readback_reviewed=False, readback_record_path='data.person')
     services['chatwoot'].update(readback_reviewed=False, readback_record_path='payload')
