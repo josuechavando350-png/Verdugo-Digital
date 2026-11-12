@@ -53,6 +53,13 @@ jobs:
         env:
           PLAYWRIGHT_BROWSERS_PATH: /tmp/verdugo-browsers
         run: /tmp/verdugo-runtime-venv/bin/python -m playwright install --with-deps chromium
+      - name: Prepare offline lexical tokenizer resources
+        run: |
+          /tmp/verdugo-runtime-venv/bin/python - <<'PYDATA'
+          from llama_index.core.schema import TextNode
+          from llama_index.retrievers.bm25 import BM25Retriever
+          BM25Retriever.from_defaults(nodes=[TextNode(text='offline tokenizer preparation')], similarity_top_k=1)
+          PYDATA
       - name: Execute actual libraries with OS network isolation
         run: |
           sudo unshare --net -- env \
@@ -63,7 +70,7 @@ jobs:
       - name: Fixed synthetic diagnostics after failure
         if: failure()
         run: |
-          for case in evidently playwright; do
+          for case in evidently playwright dlt langgraph llama-index ragas mlflow dowhy econml; do
             sudo unshare --net -- env PLAYWRIGHT_BROWSERS_PATH=/tmp/verdugo-browsers \
               /tmp/verdugo-runtime-venv/bin/python tests_runtime/diagnose.py "$case" || true
           done
@@ -77,6 +84,7 @@ jobs:
           path: |
             /tmp/runtime-execution-evidence.json
             /tmp/runtime-workflow-evidence.json
+            /tmp/runtime-extended-workflow-evidence.json
             /tmp/runtime-pip-report.json
             /tmp/runtime-resolved-versions.txt
             /tmp/runtime-availability.json
