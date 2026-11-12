@@ -8,6 +8,7 @@ import sqlite3
 import stat
 import time
 from .adapters import SPECS, build, service_config, connection, remote_id
+from . import read_contracts
 from .catalog import catalog
 from .source_evidence import read_sources
 from . import local_runtime
@@ -254,6 +255,7 @@ class Engine:
                 with self.transaction(): self.finish(key, 'succeeded', result)
             else:
                 result = sanitize(self.transport(request, cfg), request['secret_values'])
+                result = read_contracts.check(command['service'], command['operation'], result)
                 if request['mutates']:
                     remote_id(result, request['public']['result_id_path'])
                 with self.transaction(): self.finish(key, 'succeeded', result)
