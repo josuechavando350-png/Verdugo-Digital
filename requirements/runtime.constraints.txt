@@ -1,6 +1,6 @@
-# Exact resolved versions observed in passing run 43139596936.
-# Ubuntu 24.04 x86_64, CPython 3.12.16; not a cross-platform or hash lock.
-# Pip install report with wheel hashes is retained in that run's evidence.
+# Baseline resolved versions from run 43139596936, with v0.10 compatibility adjustment.
+# SciPy 1.15.3 satisfies DoWhy 0.14 on Python <3.13; full acceptance is required.
+# Ubuntu 24.04 x86_64, CPython 3.12; not a cross-platform or hash lock.
 absl-py==2.5.1
 aiodns==4.0.4
 aioftp==0.28.3
@@ -148,7 +148,7 @@ rich-click==1.9.9
 rpds-py==2026.9.1
 ruamel.yaml==0.19.1
 scikit-learn==1.8.0
-scipy==1.18.1
+scipy==1.15.3
 Scrapy==2.20.0
 service-identity==26.1.0
 setuptools==84.2.1
