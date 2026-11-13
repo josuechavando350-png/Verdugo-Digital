@@ -35,9 +35,21 @@ class CRMGuards(unittest.TestCase):
         for field in correct:
             app.http.call.return_value={'data':{'customerDetail':{**correct,field:'wrong'}}};self.assertFalse(app.read())
     def test_crm_images_are_original_publishers_not_mock_images(self):
-        self.assertEqual(Twenty.images['twenty'],'twentycrm/twenty:latest')
-        self.assertEqual(Erxes.images['erxes_core'],'erxes/erxes-next-core-api:3.4.21')
-        self.assertEqual(Erxes.images['erxes_gateway'],'erxes/erxes-next-gateway:3.4.21')
+        self.assertRegex(Twenty.images['twenty'],r'^twentycrm/twenty@sha256:[0-9a-f]{64}$')
+        self.assertRegex(Erxes.images['erxes_core'],r'^erxes/erxes-next-core-api@sha256:[0-9a-f]{64}$')
+        self.assertRegex(Erxes.images['erxes_gateway'],r'^erxes/erxes-next-gateway@sha256:[0-9a-f]{64}$')
+    def test_native_configuration_matches_upstream_constraints(self):
+        import inspect
+        source=inspect.getsource(Twenty.install)
+        self.assertIn('secrets.token_hex(20)',source)
+        self.assertLessEqual(len('Vd!')+20*2,50)
+        erxes=inspect.getsource(Erxes.install)
+        self.assertIn("alias='plugin-core-api'",erxes)
+        self.assertIn("alias='logs-service'",erxes)
+        self.assertNotIn("'ENABLED_PLUGINS':''",erxes)
+        for provider in (Twenty,Erxes):
+            for ref in provider.images.values():self.assertRegex(ref,r'@sha256:[0-9a-f]{64}$')
+
     def test_erxes_authentication_result_is_verified(self):
         app=Erxes(native);app.base='http://127.0.0.1:4000';app.http=Mock();app.password='synthetic'
         app.http.call.return_value={'data':{'login':'not-logged-in'}}

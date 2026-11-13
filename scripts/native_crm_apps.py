@@ -1,5 +1,6 @@
 """Native Twenty and erxes adapters. Contacts traverse original authenticated APIs."""
 import json
+import secrets
 from native_extra_apps import Application, NativeSession
 
 
@@ -19,11 +20,11 @@ def graphql(app, query, variables=None, *, token=None, client=None, path='/graph
 
 class Twenty(Application):
     id='twenty'
-    images={'twenty_postgres':'postgres:16-alpine','extra_redis':'redis:7-alpine','twenty':'twentycrm/twenty:latest'}
+    images={'twenty_postgres':'postgres@sha256:f377d590e5474681d4d7838635031a2b50647923b7abfa803ce9b5ff35d5c663','extra_redis':'redis@sha256:7f7d30b7fdd09467bac58198a1f166dd69789d348d4fe859cccb20e0cf287fbe','twenty':'twentycrm/twenty@sha256:3f1b5140a2d0ce590462c7636c109ec30fd4008d6f31dd5e7f3149b4f8a0dbb4'}
 
     def install(self,**ctx):
         self.bind(**ctx);password=self.secret();redispass=self.secret()
-        self.password='Vd!'+self.secret();self.n.mask_secret(self.password)
+        self.password='Vd!'+secrets.token_hex(20);self.n.mask_secret(self.password)
         self.launch('twenty-postgres','twenty_postgres',alias='twenty-postgres',env={
             'POSTGRES_USER':'postgres','POSTGRES_PASSWORD':password,'POSTGRES_DB':'twenty'})
         pg=self.find('twenty-postgres')
@@ -82,12 +83,12 @@ class Twenty(Application):
 
 class Erxes(Application):
     id='erxes';port=4000
-    images={'erxes_mongo':'mongo:7','extra_redis':'redis:7-alpine',
-        'erxes_core':'erxes/erxes-next-core-api:3.4.21','erxes_gateway':'erxes/erxes-next-gateway:3.4.21',
-        'erxes_logs':'erxes/erxes-next-logs:3.4.21','erxes_automations':'erxes/erxes-next-automations:3.4.21'}
+    images={'erxes_mongo':'mongo@sha256:9896df581dfd0718b7abe112f4c37598d0986c54060e4ec1384997e6503c8c71','extra_redis':'redis@sha256:7f7d30b7fdd09467bac58198a1f166dd69789d348d4fe859cccb20e0cf287fbe',
+        'erxes_core':'erxes/erxes-next-core-api@sha256:6a5d5f5bb160ed5db2c29f2b90299b0a8fb750f283b02441c4edec2781f22f58','erxes_gateway':'erxes/erxes-next-gateway@sha256:aff61ce3c18b2d04eb934a1aab9066f7f73ebd1a25c4fe9ca6cf456a609ec928',
+        'erxes_logs':'erxes/erxes-next-logs@sha256:c50bfc408bbf4d96fc67398e6c96b9db10c29ec262dfc82697690e151bbd4643','erxes_automations':'erxes/erxes-next-automations@sha256:130259eb424b6e91718d102c04b6aaa9c28c0f6c02bb90d273b647726e80b354'}
 
     def install(self,**ctx):
-        self.bind(**ctx);password=self.secret();self.password='Vd!'+self.secret();self.n.mask_secret(self.password)
+        self.bind(**ctx);password=self.secret();self.password='Vd!'+secrets.token_hex(20);self.n.mask_secret(self.password)
         self.launch('erxes-mongo','erxes_mongo',alias='erxes-mongo',args=('mongod','--replSet','rs0','--bind_ip_all'))
         mongo=self.find('erxes-mongo')
         init="try{rs.status()}catch(e){rs.initiate({_id:'rs0',members:[{_id:0,host:'erxes-mongo:27017'}]})};if(!db.hello().isWritablePrimary)quit(1);print('ready')"
@@ -98,12 +99,12 @@ class Erxes(Application):
         self.env={'NODE_ENV':'production','VERSION':'os','RELEASE_VERSION':'3.4.21',
             'MONGO_URL':'mongodb://erxes-mongo:27017/erxes?replicaSet=rs0',
             'REDIS_HOST':'erxes-redis','REDIS_PORT':'6379','REDIS_PASSWORD':password,
-            'JWT_TOKEN_SECRET':self.secret(),'DOMAIN':'http://localhost:4000','ENABLED_PLUGINS':'',
+            'JWT_TOKEN_SECRET':self.secret(),'DOMAIN':'http://localhost:4000',
             'ALLOWED_DOMAINS':'http://localhost:4000','NODE_OPTIONS':'--max-old-space-size=1100'}
-        core=self.launch('erxes-core','erxes_core',port=3300,env=self.env)
+        core=self.launch('erxes-core','erxes_core',alias='plugin-core-api',port=3300,env=self.env)
         self.wait(lambda:self.http.call(core+'/health',raw=True)=='ok',seconds=360)
-        self.launch('erxes-logs','erxes_logs',env=self.env)
-        self.launch('erxes-automations','erxes_automations',env=self.env)
+        self.launch('erxes-logs','erxes_logs',alias='logs-service',env=self.env)
+        self.launch('erxes-automations','erxes_automations',alias='automations-service',env=self.env)
         self.base=self.launch('erxes','erxes_gateway',port=4000,env=self.env)
         self.wait(lambda:self.http.call(self.base+'/health',raw=True)=='ok',seconds=360)
         self.wait(lambda:graphql(self,'query{__typename}').get('__typename')=='Query',seconds=300)
