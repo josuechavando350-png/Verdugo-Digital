@@ -23,4 +23,4 @@ jobs:
       - name: Validate pinned ten-project Git tree and catalog
         run: python -m unittest discover -s tests -p 'test_*.py' -v
       - name: Test unified control plane against ten local HTTP fixtures
-        run: node --test tests/control-plane.test.mjs
+        run: node --test tests/*.test.mjs
