@@ -86,10 +86,10 @@ class Application:
 
 class Dittofeed(Application):
     id='dittofeed'
-    images={'extra_postgres':'postgres:15-alpine',
-            'ditto_clickhouse':'clickhouse/clickhouse-server:24.12.6.70-alpine',
-            'ditto_temporal':'temporalio/auto-setup:1.22.4',
-            'dittofeed':'dittofeed/dittofeed-lite:v0.23.0'}
+    images={'extra_postgres':'postgres@sha256:fc41cfa8a90c09e84dd723ee764be4b2f59ba6c98b1e5b3fca540adddf68a5ba',
+            'ditto_clickhouse':'clickhouse/clickhouse-server@sha256:cd450891db46cc6ffe313ca2b0fb7dbfb897a6873ca74a724cbe050a2cf62621',
+            'ditto_temporal':'temporalio/auto-setup@sha256:b8bdd2208877ba6178bd9e46e162590965b170577659f4b1add95d9f1a69a5c2',
+            'dittofeed':'dittofeed/dittofeed-lite@sha256:f8e55e9469892434b8e9afe2953d023da70772df67dd98ae742f4f07f9ea6617'}
 
     def install(self,**ctx):
         self.bind(**ctx)
@@ -106,7 +106,8 @@ class Dittofeed(Application):
             'DB':'postgresql','DB_PORT':'5432','POSTGRES_USER':'postgres','POSTGRES_PWD':password,
             'POSTGRES_SEEDS':'ditto-postgres','SKIP_DEFAULT_NAMESPACE_CREATION':'false'})
         temporal=self.find('ditto-temporal')
-        self.wait(lambda:self.docker('exec',temporal,'tctl','--address','localhost:7233','cluster','health',timeout=15))
+        self.wait(lambda:self.docker('exec',temporal,'tctl','--address','ditto-temporal:7233','cluster','health',timeout=15))
+        self.wait(lambda:self.docker('exec',temporal,'tctl','--address','ditto-temporal:7233','--namespace','default','namespace','describe',timeout=15))
         self.base=self.launch('dittofeed','dittofeed',port=3000,env={
             'NODE_ENV':'production','WORKSPACE_NAME':'Native','AUTH_MODE':'single-tenant',
             'SECRET_KEY':session,'PASSWORD':self.password,'SESSION_COOKIE_SECURE':'false',

@@ -46,7 +46,10 @@ class ExtraGuards(unittest.TestCase):
         app.http.call.return_value={'events':[row,row]};self.assertFalse(app.read())
         app.http.call.return_value={'events':[{**row,'traits':json.dumps({'route':'wrong'})}]};self.assertFalse(app.read())
     def test_dittofeed_has_own_original_image_and_dependencies(self):
-        self.assertEqual(Dittofeed.images['dittofeed'],'dittofeed/dittofeed-lite:v0.23.0')
+        self.assertRegex(Dittofeed.images['dittofeed'],r'^dittofeed/dittofeed-lite@sha256:[0-9a-f]{64}$')
         self.assertIn('ditto_temporal',Dittofeed.images);self.assertIn('ditto_clickhouse',Dittofeed.images)
+
+    def test_dittofeed_native_images_have_fixed_observed_digests(self):
+        for image in Dittofeed.images.values():self.assertRegex(image,r'^[a-z0-9_/-]+@sha256:[0-9a-f]{64}$')
 
 if __name__=='__main__':unittest.main()
