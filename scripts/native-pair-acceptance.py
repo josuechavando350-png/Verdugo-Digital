@@ -258,7 +258,7 @@ def run_acceptance(report):
 
         log("start_original_applications")
         mautic_url = start("mautic", refs["mautic"], port=80, env={
-            "MAUTIC_DB_HOST": "mysql", "MAUTIC_DB_USER": "mautic",
+            "MAUTIC_DB_HOST": "mysql", "MAUTIC_DB_PORT": "3306", "MAUTIC_DB_USER": "mautic",
             "MAUTIC_DB_PASSWORD": db_password, "MAUTIC_DB_DATABASE": "mautic",
             "DOCKER_MAUTIC_ROLE": "mautic_web", "DOCKER_MAUTIC_LOAD_TEST_DATA": "false"})
         countly_env = {"COUNTLY_CONFIG_HOSTNAME": "countly.example.invalid",
