@@ -1,45 +1,83 @@
-# Verdugo Digital — núcleo comercial local
+# Verdugo Digital — integración de aplicaciones originales
 
-Desarrollo en GitHub; ejecución prevista en Termux. No requiere contratar Railway,
-Render ni otro alojamiento para usar el núcleo local. Esta rama sigue siendo una
-reconstrucción en curso, **no la integración completa de los diez servidores**.
+**El conjunto de diez aplicaciones todavía no está terminado ni instalado de forma permanente.**
+Esta rama conserva el núcleo comercial local y añade laboratorios que instalan y
+prueban software original, no simuladores de sus APIs. GitHub Actions ejecuta los
+laboratorios temporalmente y elimina sus contenedores al terminar. No se ha
+contratado alojamiento ni se ha verificado el teléfono con Termux.
 
-## Implementado en esta revisión
+## Resultado nativo comprobado: CUATRO originales juntos
 
-- Un panel y una API local para capturar prospectos, calificarlos o descartarlos,
-  registrar ventas declaradas y actualizar consentimiento.
-- SQLite transaccional: historial de eventos, persistencia tras reinicio,
-  separación por espacio de trabajo y deduplicación por identificador de evento.
-- Ventas en unidades menores enteras, pedidos únicos y totales por moneda
-  (MXN, USD, EUR). Son declaraciones del operador, **no cobros conciliados**.
-- Cola persistente para dos adaptadores HTTP: PostHog y RudderStack. Están
-  desactivados por defecto. Retirar consentimiento cancela trabajos pendientes.
-- Los envíos inciertos no se repiten automáticamente. La cola queda ligada al
-  destino y credencial originales para no redirigir datos por un cambio de configuración.
-- Autenticación local, límite de cuerpo JSON, control de origen/Host y archivos
-  privados. Sin campañas, correos, SMS, inversión publicitaria ni cargos externos.
+El circuito **GrowthBook → Mautic → RudderStack → Countly**, conectado al núcleo
+de Verdugo, aprobó la ejecución
+[43390945919](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43390945919)
+en el commit `5f45b1a5f5672bb30ec282428fc6a506a81005b4`.
 
-## Estado de los diez proyectos
+Una configuración realmente creada y leída en GrowthBook pasó a una etiqueta de
+un contacto de Mautic derivado de un prospecto leído de Verdugo. La etiqueta leída
+de Mautic viajó por el servidor y transformador originales de RudderStack hasta
+la API real de Countly. Se comprobó el recuento exacto y la segmentación persistida.
+No hubo fallback de envío directo a Countly en este perfil.
 
-| Evidencia | Estado |
+Tras reiniciar las aplicaciones y el núcleo se comprobaron los mismos datos.
+RudderStack y su base PostgreSQL se reiniciaron en orden de dependencias y después
+entregaron **un evento nuevo** a Countly, con lectura posterior del recuento y la
+misma segmentación. Las catorce comprobaciones del circuito pasaron. Es una
+prueba de reinicio ordenado, no de tolerancia a todas las caídas inesperadas.
+
+Los datos fueron sintéticos; los programas, APIs y bases de datos fueron reales.
+Se usaron nueve imágenes oficiales fijadas por digest: representan cuatro de los
+diez proyectos y sus dependencias, no nueve proyectos integrados.
+
+[Evidencia extraída del artefacto](evidence/accepted/native-four-43390945919.json).
+SHA256 del ZIP original descargado y verificado:
+`2a78dc70bf35663ecd343e0c211baa2df5c8fac017eb0cc3018331c67c0992fc`.
+La evidencia histórica del circuito de tres está conservada en
+[evidence/accepted/native-trio-43386318494.json](evidence/accepted/native-trio-43386318494.json).
+
+| Alcance | Estado |
 |---|---|
-| Repositorios upstream fijados mediante submódulos | 10/10 |
-| Adaptadores de eventos implementados y probados con HTTP local sintético | 2/10: PostHog y RudderStack |
-| Aplicaciones upstream instaladas y verificadas | 0/10 |
-| Integraciones aceptadas contra proveedores auténticos | 0/10 |
-| Flujo E2E de los diez originales | No ejecutado |
-| Ejecución del núcleo en el Android del usuario | Pendiente |
+| Fuentes originales fijadas por submódulo | 10/10 |
+| Originales probados juntos en el circuito nativo indicado | 4/10: GrowthBook, Mautic, RudderStack, Countly |
+| PostHog, erxes, Dittofeed, OpenReplay, Twenty, Formbricks | Sin aceptación nativa en esta revisión |
+| Instalación permanente de los diez | No realizada |
+| Ejecución real en el Android del usuario | No verificada |
+| Captación de clientes o ingresos reales demostrados | No demostrados |
 
-El núcleo es código propio; **no sustituye ni reproduce todas las capacidades** de
-PostHog, GrowthBook, erxes, Mautic, Dittofeed, RudderStack, OpenReplay, Twenty,
-Countly o Formbricks. Los otros ocho adaptadores operativos siguen pendientes.
-`stack/catalog.json` conserva el estado no certificado de los diez proveedores.
+Una aceptación parcial no equivale a 40 % de avance global ni a 100 % del producto.
+Las pruebas unitarias tampoco se cuentan como instalaciones auténticas.
 
-## Ejecutar
+## Reproducir los laboratorios en Linux x86 con Docker
 
-Requiere Node.js >=22.16 con `node:sqlite` disponible; no hay dependencias NPM.
-El instalador comprueba esa capacidad antes de continuar. SQLite sigue siendo
-experimental en Node 22; su disponibilidad real se comprueba, no se presupone.
+```sh
+# Dos aplicaciones originales, datos sintéticos:
+python scripts/native-pair-acceptance.py --output native-pair.json
+# Circuito de tres:
+python scripts/native-pair-acceptance.py --include-growthbook --output native-trio.json
+# Circuito de cuatro, incluyendo entrega real por RudderStack:
+python scripts/native-pair-acceptance.py --include-rudderstack --output native-four.json
+```
+
+Los laboratorios crean recursos temporales propios, usan una red Docker interna
+sin salida a Internet y credenciales efímeras, fijan imágenes por digest y exigen
+lectura posterior a la escritura. No son un instalador permanente de Termux.
+Al terminar, los recursos se destruyen deliberadamente. No se envían campañas ni
+mensajes a clientes reales. Los requisitos de Docker/Linux no desaparecen por
+haber publicado el código en GitHub.
+
+[Nativo de dos](docs/NATIVE_ACCEPTANCE.md) · [Nativo de tres](docs/NATIVE_TRIO.md) ·
+[Circuito de cuatro y evidencia](docs/NATIVE_FOUR.md)
+
+## Núcleo comercial local conservado
+
+Un panel/API registra prospectos, etapas, consentimiento y ventas declaradas en
+SQLite. Hay separación por espacio de trabajo, transacciones, eventos idempotentes,
+pedidos únicos y una cola que no reintenta automáticamente escrituras inciertas.
+Las ventas son declaraciones del operador, no cobros bancarios conciliados ni
+utilidad. Los adaptadores opcionales permanecen desactivados por defecto. El
+núcleo propio no reproduce todas las funciones de los diez originales.
+
+Requiere Node.js >=22.16 con `node:sqlite` realmente disponible:
 
 ```sh
 bash scripts/termux-install.sh
@@ -47,27 +85,26 @@ node scripts/growth-demo.mjs
 bash scripts/termux-run.sh
 ```
 
-Abrir `http://127.0.0.1:8177` en el mismo equipo. El token se genera localmente en
-`~/.config/verdugo/environment`. La base predeterminada está en
-`~/.local/share/verdugo/growth.sqlite`, fuera del repositorio. No subir estos datos
-ni secretos a GitHub. La demo usa datos sintéticos, borra su base temporal y no
-realiza solicitudes externas.
+Panel local: `http://127.0.0.1:8177`. Token en
+`~/.config/verdugo/environment`; base en `~/.local/share/verdugo/growth.sqlite`,
+fuera del repositorio. No publicar esos archivos. El instalador comprueba SQLite;
+las pruebas Linux no demuestran por sí solas compatibilidad con Android.
 
-[Instalación y límites en Termux](docs/TERMUX.md) ·
-[API y contratos de los adaptadores](docs/GROWTH_CORE.md)
+[Termux](docs/TERMUX.md) · [API y límites del núcleo](docs/GROWTH_CORE.md)
 
-## Verificación
+## Pruebas y estado del repositorio
 
 ```sh
 node --test tests/*.test.mjs
 python -m unittest discover -s tests -p 'test_*.py' -v
-node scripts/growth-demo.mjs
 ```
 
-El workflow comprueba Node 22.16 y Node 24 en Linux, el catálogo de diez fuentes,
-las transacciones, la API, el aislamiento, el consentimiento y los contratos HTTP
-con servidores de prueba locales. **No equivale a probar Android ni a instalar
-los diez proveedores**. Consultar la ejecución del commit concreto en Actions.
+La ejecución nativa debe aprobar por separado. `all_ten_integrated`,
+`persistent_installation` y `android_verified` permanecen false mientras no
+exista evidencia de cada alcance. Los archivos en `evidence/accepted/` conservan
+resultados históricos del commit indicado, no garantizan commits posteriores.
 
-`main` y `backup/pre-growth-ten-20261112` se conservan. El PR #14 permanece en
-borrador hasta la aceptación del alcance completo; no se ha contratado alojamiento.
+`main` y `backup/pre-growth-ten-20261112` se conservan. El PR #14 sigue en borrador.
+Faltan integración conjunta de los diez, instalación permanente en un entorno
+compatible autorizado y aceptación operativa: privacidad, licencias, seguridad,
+retención/borrado, respaldos, recuperación y operación comercial.

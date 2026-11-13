@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "scope": "ephemeral_growthbook_mautic_rudderstack_countly_native_api_acceptance",
+  "rudderstack_requested": true,
+  "growthbook_requested": true,
+  "commit": "5f45b1a5f5672bb30ec282428fc6a506a81005b4",
+  "run_id": "43390945919",
+  "runtime": "official_upstream_docker_images",
+  "synthetic_data": true,
+  "mock_providers": false,
+  "checks": {
+    "rudderstack_rejects_missing_auth": true,
+    "growthbook_feature_created_and_read_back": true,
+    "verdugo_persisted_lead": true,
+    "mautic_created_and_read_back": true,
+    "growthbook_to_mautic_route": true,
+    "rudderstack_gateway_accepted": true,
+    "countly_recorded_and_read_back": true,
+    "countly_route_read_back": true,
+    "mautic_after_restart": true,
+    "countly_after_restart": true,
+    "growthbook_after_restart": true,
+    "countly_route_after_restart": true,
+    "verdugo_after_restart": true,
+    "rudderstack_delivery_after_restart": true
+  },
+  "images": {
+    "mysql": {
+      "requested_ref": "mysql@sha256:7dcddc01f13bab2f15cde676d44d01f61fc9f99fe7785e86196dfc07d358ae2b",
+      "image_id": "sha256:6cd09145362dfe6831b14545de3d5fd6cc75c37cfd6ef8561429c1fc73518b39",
+      "repo_digests": [
+        "mysql@sha256:7dcddc01f13bab2f15cde676d44d01f61fc9f99fe7785e86196dfc07d358ae2b"
+      ]
+    },
+    "mongo": {
+      "requested_ref": "mongo@sha256:9896df581dfd0718b7abe112f4c37598d0986c54060e4ec1384997e6503c8c71",
+      "image_id": "sha256:26b17a5869d6b08291248ebc6bc3b8f07c769cfd855a3c28295650c9c93fdbfe",
+      "repo_digests": [
+        "mongo@sha256:9896df581dfd0718b7abe112f4c37598d0986c54060e4ec1384997e6503c8c71"
+      ]
+    },
+    "mautic": {
+      "requested_ref": "mautic/mautic@sha256:cfab53971c036a1a1cf176b4c2663b2313d0f5d372edc99c23397ee6179f81d7",
+      "image_id": "sha256:5cd88ff01e244126a002bdaac6101207838a433977b66bcf12631ca5cf717517",
+      "repo_digests": [
+        "mautic/mautic@sha256:cfab53971c036a1a1cf176b4c2663b2313d0f5d372edc99c23397ee6179f81d7"
+      ]
+    },
+    "countly_api": {
+      "requested_ref": "countly/api@sha256:e2c643ee7818d043981403aa5b8ef52ddbda2c0f57a3f7e16c18d9bd6df4e3d8",
+      "image_id": "sha256:a52f31cb21a8ba7d065941f14ce7ec995383e98521c728a75e7f1bd593f9cd54",
+      "repo_digests": [
+        "countly/api@sha256:e2c643ee7818d043981403aa5b8ef52ddbda2c0f57a3f7e16c18d9bd6df4e3d8"
+      ]
+    },
+    "countly_frontend": {
+      "requested_ref": "countly/frontend@sha256:5fadf37d6f0a33d4d2e2e4c7b656fea8f5c5766ff86acf144d31f03447ac33a0",
+      "image_id": "sha256:78fc929a449c0d253f117e78db5a7691b023a56d35282c3aca6470779eb82036",
+      "repo_digests": [
+        "countly/frontend@sha256:5fadf37d6f0a33d4d2e2e4c7b656fea8f5c5766ff86acf144d31f03447ac33a0"
+      ]
+    },
+    "growthbook": {
+      "requested_ref": "growthbook/growthbook@sha256:74844e961f4fb65785ddb351bb2417a33a9cbcf0b1aa73774709aee986324afb",
+      "image_id": "sha256:2feb1d9151d34978e8c170d3eb0b6f8497df28a5ea873ba217a0f182e96916f7",
+      "repo_digests": [
+        "growthbook/growthbook@sha256:74844e961f4fb65785ddb351bb2417a33a9cbcf0b1aa73774709aee986324afb"
+      ]
+    },
+    "rudder_postgres": {
+      "requested_ref": "postgres@sha256:fc41cfa8a90c09e84dd723ee764be4b2f59ba6c98b1e5b3fca540adddf68a5ba",
+      "image_id": "sha256:24084862c6bcb8a9b348892f7135c1099cb581dbca4d046aec95734717714b18",
+      "repo_digests": [
+        "postgres@sha256:fc41cfa8a90c09e84dd723ee764be4b2f59ba6c98b1e5b3fca540adddf68a5ba"
+      ]
+    },
+    "rudder_server": {
+      "requested_ref": "rudderlabs/rudder-server@sha256:35425ca909205c828254d51743e4e67c648ebbe05aea876c73ea24b118105c4a",
+      "image_id": "sha256:94d354c9fcdd75ecc8b6d4a854e33f967b7cac4f658e197980c1154c0bb277b3",
+      "repo_digests": [
+        "rudderlabs/rudder-server@sha256:35425ca909205c828254d51743e4e67c648ebbe05aea876c73ea24b118105c4a"
+      ]
+    },
+    "rudder_transformer": {
+      "requested_ref": "rudderstack/rudder-transformer@sha256:5bd708aa47aed0d39e7505f5bf2e466cbf2689ebd32d88f74312ef3c5d404112",
+      "image_id": "sha256:9266f6139fd79e583d844177c9e50ac9f427b185a9e0e851a7f4d941de088045",
+      "repo_digests": [
+        "rudderstack/rudder-transformer@sha256:5bd708aa47aed0d39e7505f5bf2e466cbf2689ebd32d88f74312ef3c5d404112"
+      ]
+    }
+  },
+  "verified_originals": [
+    "growthbook",
+    "mautic",
+    "rudderstack",
+    "countly"
+  ],
+  "all_ten_integrated": false,
+  "persistent_installation": false,
+  "android_verified": false,
+  "status": "passed",
+  "proof": {
+    "canonical_event_sha256": "e6004424ae64e68b000e31178b72074c2dc894f5b0193e5ae0ab0c707477847d",
+    "mautic_contact_id": 1,
+    "countly_event_count": 1,
+    "growthbook_feature_id": "verdugo-unified-native-routing",
+    "route_read_back_in_all_three": "native-route-9fa29bf1e3364f14"
+  },
+  "resources_removed": true
+}
