@@ -8,6 +8,15 @@ def graphql(app, query, variables=None, *, token=None, client=None, path='/graph
     headers={'Authorization':'Bearer '+token} if token else {}
     value=(client or app.http).call(app.base+path,data={'query':query,'variables':variables or {}},headers=headers)
     if not isinstance(value,dict) or value.get('errors') or not isinstance(value.get('data'),dict):
+        # Older native erxes builds use an untyped GraphQL error for the same
+        # checkLogin contract. Classify ONLY its exact denial with no returned data.
+        if app.id == 'erxes' and isinstance(value,dict):
+            errors=value.get('errors')
+            data=value.get('data')
+            no_data=data is None or (isinstance(data,dict) and all(v is None for v in data.values()))
+            if no_data and isinstance(errors,list) and errors and all(
+                    isinstance(e,dict) and e.get('message') == 'Login required' for e in errors):
+                raise app.n.AcceptanceError('erxes_graphql_UNAUTHORIZED')
         # Preserve only error codes, never credentials or application error bodies.
         codes=[]
         if isinstance(value,dict):
@@ -49,9 +58,20 @@ class Twenty(Application):
                         {'i':{'displayName':'Native Acceptance'}},token=agnostic,path='/metadata')['signUpInNewWorkspace']
         self.workspace=created['workspace']['id'];login=created['loginToken']['token'];self.n.mask_secret(login)
         origin=created['workspace'].get('workspaceUrls',{}).get('customUrl') or created['workspace'].get('workspaceUrls',{}).get('subdomainUrl') or self.env['SERVER_URL']
-        auth=graphql(self,'mutation($t:String!,$o:String!){getAuthTokensFromLoginToken(loginToken:$t,origin:$o){tokens{accessOrWorkspaceAgnosticToken{token}}}}',
+        auth=graphql(self,'mutation($t:String!,$o:String!){getAuthTokensFromLoginToken(loginToken:$t,origin:$o){tokens{accessOrWorkspaceAgnosticToken{token}refreshToken{token}}}}',
                      {'t':login,'o':origin},path='/metadata')['getAuthTokensFromLoginToken']
         self.token=auth['tokens']['accessOrWorkspaceAgnosticToken']['token'];self.n.mask_secret(self.token)
+        # The original UI activates the workspace, then renews the token after
+        # metadata and membership initialization. Sign-up alone is not activation.
+        refresh=auth['tokens']['refreshToken']['token'];self.n.mask_secret(refresh)
+        activated=graphql(self,'mutation($i:ActivateWorkspaceInput!){activateWorkspace(data:$i){id activationStatus}}',
+                          {'i':{}},token=self.token,path='/metadata')['activateWorkspace']
+        if activated.get('id') != self.workspace or activated.get('activationStatus') not in ('ACTIVE','CREATED'):
+            raise self.n.AcceptanceError('twenty_workspace_not_activated')
+        renewed=graphql(self,'mutation($t:String!){renewToken(appToken:$t){tokens{accessOrWorkspaceAgnosticToken{token}refreshToken{token}}}}',
+                        {'t':refresh},path='/metadata')['renewToken']
+        self.token=renewed['tokens']['accessOrWorkspaceAgnosticToken']['token'];self.n.mask_secret(self.token)
+        self.n.mask_secret(renewed['tokens']['refreshToken']['token'])
         self.headers={'Authorization':'Bearer '+self.token}
         self.wait(lambda:self.http.call(self.base+'/rest/people?limit=1',headers=self.headers) is not None,seconds=300)
         self.http.denied(self.base+'/rest/people?limit=1');self.check('rejects_missing_auth')

@@ -21,6 +21,26 @@ class CRMGuards(unittest.TestCase):
         with self.assertRaisesRegex(native.AcceptanceError,'^twenty_graphql_UNAUTHORIZED$'):graphql(app,'query{__typename}',token='synthetic')
         app.http.call.return_value={'data':{'__typename':'Query'}}
         self.assertEqual(graphql(app,'query{__typename}'),{'__typename':'Query'})
+    def test_erxes_legacy_auth_denial_is_exact_not_any_server_error(self):
+        app=Erxes(native);app.base='http://127.0.0.1:4000';app.http=Mock()
+        denial={'data':{'customerDetail':None},'errors':[{'message':'Login required','extensions':{'code':'INTERNAL_SERVER_ERROR'}}]}
+        app.http.call.return_value=denial
+        with self.assertRaisesRegex(native.AcceptanceError,'^erxes_graphql_UNAUTHORIZED$'):graphql(app,'query{x}')
+        for changed in [
+            {**denial,'errors':[{'message':'Database broken','extensions':{'code':'INTERNAL_SERVER_ERROR'}}]},
+            {**denial,'data':{'customerDetail':{'_id':'leaked'}}},
+            {**denial,'errors':denial['errors']+[{'message':'Other error'}]},
+        ]:
+            app.http.call.return_value=changed
+            with self.assertRaises(native.AcceptanceError) as caught:graphql(app,'query{x}')
+            self.assertNotEqual(str(caught.exception),'erxes_graphql_UNAUTHORIZED')
+    def test_twenty_activation_precedes_rest_access_and_renews_native_token(self):
+        import inspect
+        source=inspect.getsource(Twenty.install)
+        self.assertLess(source.index('activateWorkspace(data:'),source.index('/rest/people'))
+        self.assertLess(source.index('renewToken(appToken:'),source.index('/rest/people'))
+        self.assertIn('twenty_workspace_not_activated',source)
+
     def test_twenty_readback_requires_uuid_and_route(self):
         app=Twenty(native);app.base='http://127.0.0.1:3000';app.http=Mock();app.headers={}
         app.identity={'event_id':'event1','route':'route1'}
