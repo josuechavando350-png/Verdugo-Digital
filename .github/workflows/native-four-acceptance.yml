@@ -1,0 +1,42 @@
+name: Native originals — Four-app RudderStack delivery
+on:
+  push:
+    branches: [feat/growth-engine-ten-clean-20261112]
+    paths:
+      - 'scripts/native-pair-acceptance.py'
+      - 'scripts/native_rudderstack.py'
+      - 'tests/test_native_rudderstack.py'
+      - '.github/workflows/native-four-acceptance.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: native-four-originals-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  native-four-originals:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate native transport gates (unit tests only)
+        run: python -m unittest discover -s tests -p 'test_native*.py' -v
+      - name: Route original GrowthBook and Mautic data through RudderStack into Countly
+        run: python scripts/native-pair-acceptance.py --include-rudderstack --output evidence/native-four.json
+      - name: Retain bounded evidence without credentials
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-four-${{ github.run_id }}
+          path: evidence/native-four.json
+          if-no-files-found: warn
+          retention-days: 7

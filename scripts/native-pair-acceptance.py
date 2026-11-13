@@ -50,7 +50,7 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
         raise AcceptanceError("redirect_refused")
 
 
-def request(url: str, *, data=None, headers=None, form=False):
+def request(url: str, *, data=None, headers=None, form=False, expect_json=True):
     parsed = urllib.parse.urlsplit(url)
     if (parsed.scheme != "http" or (parsed.hostname != "127.0.0.1" and
             parsed.scheme + "://" + parsed.netloc not in NATIVE_ORIGINS)
@@ -71,6 +71,8 @@ def request(url: str, *, data=None, headers=None, form=False):
             body = response.read(1_048_577)
             if len(body) > 1_048_576:
                 raise AcceptanceError("response_too_large")
+            if not expect_json:
+                return {"http_status": response.status, "body": body.decode("utf-8")}
             return json.loads(body)
     except urllib.error.HTTPError as exc:
         raise AcceptanceError(f"http_status_{exc.code}") from None
@@ -111,11 +113,13 @@ def wait_until(fn, seconds=180):
     raise AcceptanceError("readiness_timeout_" + last[:100])
 
 
-def evidence_base(include_growthbook=False):
+def evidence_base(include_growthbook=False, include_rudderstack=False):
     return {
         "schema_version": 1,
-        "scope": ("ephemeral_growthbook_mautic_countly_native_api_acceptance" if include_growthbook
+        "scope": ("ephemeral_growthbook_mautic_rudderstack_countly_native_api_acceptance" if include_rudderstack
+                  else "ephemeral_growthbook_mautic_countly_native_api_acceptance" if include_growthbook
                   else "ephemeral_mautic_countly_native_api_acceptance"),
+        "rudderstack_requested": bool(include_rudderstack),
         "growthbook_requested": bool(include_growthbook),
         "commit": os.environ.get("GITHUB_SHA"),
         "run_id": os.environ.get("GITHUB_RUN_ID"),
@@ -138,10 +142,17 @@ def require_all_checks(report):
     if report.get("growthbook_requested") is True:
         needed += ("growthbook_feature_created_and_read_back", "growthbook_to_mautic_route",
                    "countly_route_read_back", "growthbook_after_restart", "countly_route_after_restart")
+    if report.get("rudderstack_requested") is True:
+        if report.get("growthbook_requested") is not True:
+            raise AcceptanceError("rudderstack_profile_requires_growthbook")
+        needed += ("rudderstack_gateway_accepted", "rudderstack_rejects_missing_auth",
+                   "rudderstack_delivery_after_restart")
     if any(report["checks"].get(key) is not True for key in needed):
         raise AcceptanceError("incomplete_native_acceptance")
     report["verified_originals"] = (["growthbook", "mautic", "countly"]
                                     if report.get("growthbook_requested") is True else ["mautic", "countly"])
+    if report.get("rudderstack_requested") is True:
+        report["verified_originals"].insert(2, "rudderstack")
     report["status"] = "passed"
 
 
@@ -224,9 +235,13 @@ def contact_route(contact, expected):
     return next(value for value in values if value == expected)
 
 
-def run_acceptance(report, *, include_growthbook=False):
+def run_acceptance(report, *, include_growthbook=False, transport=None):
     if type(include_growthbook) is not bool or report.get("growthbook_requested", False) is not include_growthbook:
         raise AcceptanceError("native_profile_mismatch")
+    if bool(report.get("rudderstack_requested", False)) is not (transport is not None):
+        raise AcceptanceError("native_transport_profile_mismatch")
+    if transport is not None and not include_growthbook:
+        raise AcceptanceError("rudderstack_profile_requires_growthbook")
     if not shutil.which("docker"):
         raise AcceptanceError("docker_engine_unavailable")
     if platform.machine().lower() not in ("x86_64", "amd64"):
@@ -257,7 +272,7 @@ def run_acceptance(report, *, include_growthbook=False):
     def docker(*args, **kwargs):
         return command(["docker", *args], **kwargs)
 
-    def start(name, image_id, *, env=None, alias=None, port=None, args=()):
+    def start(name, image_id, *, env=None, alias=None, port=None, args=(), mounts=()):
         cname = prefix + "-" + name
         cmd = ["run", "-d", "--name", cname, "--network", network,
                "--label", "verdugo.acceptance=" + prefix, "--memory", "1536m"]
@@ -265,6 +280,11 @@ def run_acceptance(report, *, include_growthbook=False):
             cmd += ["--network-alias", alias]
         for key, value in (env or {}).items():
             cmd += ["-e", f"{key}={value}"]
+        for source, destination in mounts:
+            resolved = Path(source).resolve()
+            if not resolved.is_relative_to(temp.resolve()) or not resolved.is_file():
+                raise AcceptanceError("native_mount_must_be_private_lab_file")
+            cmd += ["--mount", f"type=bind,src={resolved},dst={destination},readonly"]
         # Register names before starting so even partially-created containers are removed.
         started.append(cname)
         log("start_" + name)
@@ -302,6 +322,8 @@ def run_acceptance(report, *, include_growthbook=False):
         images = dict(IMAGES)
         if include_growthbook:
             images["growthbook"] = GROWTHBOOK_IMAGE
+        if transport is not None:
+            images.update(transport.images)
         for name, ref in images.items():
             log("pull_" + name)
             docker("pull", ref, timeout=300)
@@ -349,7 +371,7 @@ def run_acceptance(report, *, include_growthbook=False):
                        "COUNTLY_CONFIG_API_API_WORKERS": "1",
                        "COUNTLY_PLUGINS": "web,plugins,logger,systemlogs",
                        "NODE_OPTIONS": "--max-old-space-size=768 --no-node-snapshot"}
-        countly_url = start("countly-api", refs["countly_api"], port=3001, env=countly_env)
+        countly_url = start("countly-api", refs["countly_api"], alias="countly.native.invalid", port=3001, env=countly_env)
         start("countly-frontend", refs["countly_frontend"], port=6001, env=countly_env)
         growthbook_url = None
         growthbook_state = None
@@ -393,6 +415,12 @@ def run_acceptance(report, *, include_growthbook=False):
         REDACT.add(app["key"])
         if os.environ.get("GITHUB_ACTIONS") == "true":
             print("::add-mask::" + app["key"], flush=True)
+
+        if transport is not None:
+            log("initialize_authentic_rudderstack_transport")
+            transport.install(start=start, docker=docker, refs=refs, temp=temp, network=network, report=report,
+                              countly_origin="http://countly.native.invalid:3001",
+                              countly_app={**app, "admin_key": countly_key})
 
         if include_growthbook:
             log("initialize_growthbook_native_route")
@@ -449,7 +477,9 @@ def run_acceptance(report, *, include_growthbook=False):
             segmentation["route"] = route_from_mautic
         params = {"app_key": app["key"], "device_id": hashlib.sha256(lead_id.encode()).hexdigest(),
                   "events": json.dumps([{"key": event_key, "count": 1, "segmentation": segmentation}])}
-        ingested = request(countly_url + "/i", data=params, form=True)
+        # The four-original profile has NO direct Countly ingestion fallback.
+        ingested = (transport.deliver(params, event_id) if transport is not None
+                    else request(countly_url + "/i", data=params, form=True))
         if ingested.get("result") != "Success":
             raise AcceptanceError("countly_ingestion_not_accepted")
         read_query = urllib.parse.urlencode({"api_key": countly_key, "app_id": app["_id"]})
@@ -478,7 +508,9 @@ def run_acceptance(report, *, include_growthbook=False):
         restart_names = [names["mautic"], names["countly-api"]]
         if include_growthbook:
             restart_names.append(names["growthbook"])
-        docker("restart", *restart_names, timeout=120)
+        if transport is not None:
+            restart_names.extend(transport.names)
+        docker("restart", *restart_names, timeout=180)
         # Bridge addresses can change: never authenticate against a stale origin.
         NATIVE_ORIGINS.clear()
         mautic_url = native_origin(json.loads(docker("inspect", names["mautic"]))[0], network, 80)
@@ -502,6 +534,9 @@ def run_acceptance(report, *, include_growthbook=False):
         if replay.get("replayed") is not True or len([x for x in persisted if x["id"] == lead_id]) != 1:
             raise AcceptanceError("verdugo_restart_replay_failed")
         report["checks"]["verdugo_after_restart"] = True
+        if transport is not None:
+            log("verify_rudderstack_delivery_after_restart")
+            transport.verify_after_restart(countly_origin=countly_url, route=route_from_mautic)
         require_all_checks(report)
         report["proof"] = {"canonical_event_sha256": hashlib.sha256(event_id.encode()).hexdigest(),
                            "mautic_contact_id": contact_id, "countly_event_count": 1}
@@ -552,10 +587,18 @@ def main():
     parser.add_argument("--output", default="native-acceptance.json")
     parser.add_argument("--include-growthbook", action="store_true",
                         help="Require the real GrowthBook -> Mautic -> Countly route flow")
+    parser.add_argument("--include-rudderstack", action="store_true",
+                        help="Require authentic RudderStack delivery into Countly; implies GrowthBook")
     args = parser.parse_args()
-    report = evidence_base(args.include_growthbook)
+    args.include_growthbook = args.include_growthbook or args.include_rudderstack
+    report = evidence_base(args.include_growthbook, args.include_rudderstack)
+    transport = None
+    if args.include_rudderstack:
+        import sys
+        from native_rudderstack import RudderStackTransport
+        transport = RudderStackTransport(sys.modules[__name__])
     try:
-        run_acceptance(report, include_growthbook=args.include_growthbook)
+        run_acceptance(report, include_growthbook=args.include_growthbook, transport=transport)
         code = 0
     except AcceptanceError as exc:
         report.update(status="blocked_or_failed", error=str(exc))
