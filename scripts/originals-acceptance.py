@@ -46,6 +46,12 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
 OPEN = urllib.request.build_opener(urllib.request.ProxyHandler({}), NoRedirect())
 
 
+def register_secret(value):
+    SECRETS.append(value)
+    if os.environ.get('GITHUB_ACTIONS') == 'true':
+        print('::add-mask::' + value, flush=True)
+
+
 def redact(message):
     for value in SECRETS:
         if value:
@@ -64,7 +70,6 @@ def request(base, path, body=None, headers=None):
         with OPEN.open(req, timeout=30) as response:
             return response.status, json.load(response)
     except urllib.error.HTTPError as error:
-        # Only the short error message is retained, never a complete response.
         message = ''
         try:
             parsed = json.loads(error.read(8192))
@@ -85,12 +90,26 @@ def check(name, condition):
 def negative_auth():
     for base, path in [(BASE_MAUTIC, '/api/contacts'), (BASE_GB, '/api/v1/features')]:
         req = urllib.request.Request(base + path)
+        body = None
         try:
             with OPEN.open(req, timeout=15) as response:
                 status = response.status
         except urllib.error.HTTPError as error:
             status = error.code
-        check(('mautic' if base == BASE_MAUTIC else 'growthbook') + '_rejects_missing_auth', status in (401, 403))
+            if base == BASE_GB:
+                try:
+                    body = json.loads(error.read(8192))
+                except (ValueError, OSError):
+                    body = None
+        if base == BASE_GB:
+            # v5.2.0 authenticateApiRequestMiddleware returns this exact 400
+            # for missing auth. Do not accept arbitrary 400s or resource payloads.
+            rejected = status == 400 and body == {'message': 'Missing Authorization header'}
+        else:
+            rejected = status in (401, 403)
+        name = 'mautic' if base == BASE_MAUTIC else 'growthbook'
+        EVIDENCE.setdefault('missing_auth_http_status', {})[name] = status
+        check(name + '_rejects_missing_auth', rejected)
 
 
 def bootstrap():
@@ -103,14 +122,14 @@ def bootstrap():
     check('growthbook_original_account_created', isinstance(registered.get('token'), str))
     _, login = request(BASE_GB, '/auth/login', {'email': 'operator@example.invalid', 'password': PASSWORD})
     token = login['token']
-    SECRETS.append(token)
+    register_secret(token)
     auth = {'Authorization': 'Bearer ' + token}
     _, user = request(BASE_GB, '/user', headers=auth)
     check('growthbook_original_account_readback', len(user['organizations']) == 1)
     auth['X-Organization'] = user['organizations'][0]['id']
     _, created = request(BASE_GB, '/keys', {'type': 'admin', 'description': 'Ephemeral synthetic acceptance only'}, auth)
     key = created['key']['key']
-    SECRETS.append(key)
+    register_secret(key)
     check('growthbook_original_api_key_created', isinstance(key, str) and len(key) > 20)
     rest_auth = {'Authorization': 'Bearer ' + key}
     feature_id = 'verdugo-acceptance-routing'
@@ -126,7 +145,7 @@ def bootstrap():
     route_from_upstream = feature['feature']['defaultValue']
     check('growthbook_original_feature_readback', route_from_upstream == route)
     basic = base64.b64encode(('verdugo_lab:' + PASSWORD).encode()).decode()
-    SECRETS.append(basic)
+    register_secret(basic)
     mautic_auth = {'Authorization': 'Basic ' + basic}
     unique = 'synthetic-' + os.environ.get('GITHUB_RUN_ID', 'local') + '@example.invalid'
     status, contact = request(BASE_MAUTIC, '/api/contacts/new', {
@@ -146,12 +165,12 @@ def bootstrap():
 
 def verify_state(state, stage):
     key = state['growthbook_key']
-    SECRETS.append(key)
+    register_secret(key)
     _, feature = request(BASE_GB, '/api/v1/features/' + state['feature_id'], headers={'Authorization': 'Bearer ' + key})
     route = feature['feature']['defaultValue']
     check('growthbook_' + stage + '_readback', route == state['route'])
     basic = base64.b64encode(('verdugo_lab:' + PASSWORD).encode()).decode()
-    SECRETS.append(basic)
+    register_secret(basic)
     _, result = request(BASE_MAUTIC, '/api/contacts/' + str(state['mautic_contact_id']), headers={'Authorization': 'Basic ' + basic})
     contact = result['contact']
     check('mautic_' + stage + '_contact_readback', contact['fields']['all']['email'] == state['email'])
