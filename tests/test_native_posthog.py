@@ -31,5 +31,5 @@ class PostHogGuards(TestCase):
             a.http.call.return_value={**correct,key:'wrong'};self.assertFalse(a.read())
     def test_scope_does_not_claim_analytics_ingestion(self):
         self.assertIn("'event_capture_verified':False",inspect.getsource(PostHog.exchange))
-        self.assertEqual(PostHog.images['posthog'],'posthog/posthog:latest')
+        self.assertRegex(PostHog.images['posthog'],r'^posthog/posthog@sha256:[0-9a-f]{64}$')
 if __name__=='__main__':main()

@@ -6,6 +6,7 @@ ClickHouse event capture pipeline. No flags or events are seeded in databases.
 import base64
 import json
 import secrets
+import time
 from native_extra_apps import Application
 
 ADMIN_BOOTSTRAP = r'''
@@ -31,7 +32,7 @@ class PostHog(Application):
     images={'posthog_postgres':'postgres@sha256:f377d590e5474681d4d7838635031a2b50647923b7abfa803ce9b5ff35d5c663',
             'posthog_redis':'redis@sha256:7f7d30b7fdd09467bac58198a1f166dd69789d348d4fe859cccb20e0cf287fbe',
             'posthog_clickhouse':'clickhouse/clickhouse-server@sha256:0152dd511befe6a2c2ef53e930726179669b08116da78500b37c51c96ff5ee77',
-            'posthog':'posthog/posthog:latest'}
+            'posthog':'posthog/posthog@sha256:14be81799e2cb5ba15f258a8e7e2b96c2cc656d61244f21e4543cc91147bc648'}
 
     def install(self,**ctx):
         self.bind(**ctx);dbpass=self.secret();redispass=self.secret();chpass=self.secret();password=self.secret()
@@ -59,9 +60,20 @@ class PostHog(Application):
         self.n.mask_secret(env['ENCRYPTION_SALT_KEYS'])
         # Run the original Django migration and original production WSGI app. No
         # TEST/E2E flag and no patched authentication or replacement feature store.
-        command=('sh','-ec','python manage.py migrate --noinput && touch /tmp/native-pg-migrated && exec granian --interface wsgi --host 0.0.0.0 --port 8000 --workers 1 posthog.wsgi:application')
+        command=('sh','-ec','exec 2>&1; python manage.py migrate --noinput && touch /tmp/native-pg-migrated && exec granian --interface wsgi --host 0.0.0.0 --port 8000 --workers 1 posthog.wsgi:application')
         self.base=self.launch('posthog','posthog',port=8000,env=env,args=command)
-        self.wait(lambda:self.docker('exec',self.find('posthog'),'test','-f','/tmp/native-pg-migrated',timeout=10) or True,seconds=900)
+        deadline=time.monotonic()+600
+        while True:
+            container=self.find('posthog')
+            state=json.loads(self.docker('inspect',container))[0]['State']
+            if state['Status']!='running':
+                raise self.n.AcceptanceError('posthog_startup_exited_'+str(state.get('ExitCode')))
+            try:
+                self.docker('exec',container,'test','-f','/tmp/native-pg-migrated',timeout=10)
+                break
+            except self.n.AcceptanceError:
+                if time.monotonic()>deadline:raise self.n.AcceptanceError('posthog_migration_timeout')
+                time.sleep(2)
         output=self.docker('exec',self.find('posthog'),'python','-c',ADMIN_BOOTSTRAP,timeout=180)
         rows=[line.split('NATIVE_BOOTSTRAP=',1)[1] for line in output.splitlines() if line.startswith('NATIVE_BOOTSTRAP=')]
         if len(rows)!=1:raise self.n.AcceptanceError('posthog_admin_bootstrap_invalid')
