@@ -10,7 +10,6 @@ from __future__ import annotations
 
 import argparse
 import base64
-import contextlib
 import hashlib
 import ipaddress
 import json
@@ -35,6 +34,8 @@ IMAGES = {
     "countly_api": "countly/api@sha256:e2c643ee7818d043981403aa5b8ef52ddbda2c0f57a3f7e16c18d9bd6df4e3d8",
     "countly_frontend": "countly/frontend@sha256:5fadf37d6f0a33d4d2e2e4c7b656fea8f5c5766ff86acf144d31f03447ac33a0",
 }
+
+GROWTHBOOK_IMAGE = "growthbook/growthbook@sha256:74844e961f4fb65785ddb351bb2417a33a9cbcf0b1aa73774709aee986324afb"
 # Only addresses discovered from this run's private Docker network are authorized.
 NATIVE_ORIGINS: set[str] = set()
 REDACT: set[str] = set()
@@ -110,10 +111,12 @@ def wait_until(fn, seconds=180):
     raise AcceptanceError("readiness_timeout_" + last[:100])
 
 
-def evidence_base():
+def evidence_base(include_growthbook=False):
     return {
         "schema_version": 1,
-        "scope": "ephemeral_mautic_countly_native_api_acceptance",
+        "scope": ("ephemeral_growthbook_mautic_countly_native_api_acceptance" if include_growthbook
+                  else "ephemeral_mautic_countly_native_api_acceptance"),
+        "growthbook_requested": bool(include_growthbook),
         "commit": os.environ.get("GITHUB_SHA"),
         "run_id": os.environ.get("GITHUB_RUN_ID"),
         "runtime": "official_upstream_docker_images",
@@ -132,13 +135,98 @@ def evidence_base():
 def require_all_checks(report):
     needed = ("verdugo_persisted_lead", "mautic_created_and_read_back", "countly_recorded_and_read_back",
               "mautic_after_restart", "countly_after_restart", "verdugo_after_restart")
+    if report.get("growthbook_requested") is True:
+        needed += ("growthbook_feature_created_and_read_back", "growthbook_to_mautic_route",
+                   "countly_route_read_back", "growthbook_after_restart", "countly_route_after_restart")
     if any(report["checks"].get(key) is not True for key in needed):
         raise AcceptanceError("incomplete_native_acceptance")
-    report["verified_originals"] = ["mautic", "countly"]
+    report["verified_originals"] = (["growthbook", "mautic", "countly"]
+                                    if report.get("growthbook_requested") is True else ["mautic", "countly"])
     report["status"] = "passed"
 
 
-def run_acceptance(report):
+def mask_secret(value):
+    if not isinstance(value, str) or not value:
+        raise AcceptanceError("invalid_temporary_secret")
+    REDACT.add(value)
+    if os.environ.get("GITHUB_ACTIONS") == "true":
+        print("::add-mask::" + value, flush=True)
+
+
+def native_origin(info, network, port):
+    """Resolve only an exact private network membership, including after a restart."""
+    networks = info["NetworkSettings"]["Networks"]
+    if set(networks) != {network}:
+        raise AcceptanceError("unexpected_container_network")
+    address = networks[network]["IPAddress"]
+    ip = ipaddress.ip_address(address)
+    if ip.version != 4 or not ip.is_private or ip.is_unspecified or ip.is_loopback:
+        raise AcceptanceError("container_address_not_private")
+    if type(port) is not int or not 0 < port < 65536:
+        raise AcceptanceError("invalid_native_port")
+    origin = f"http://{address}:{port}"
+    NATIVE_ORIGINS.add(origin)
+    return origin
+
+
+def initialize_growthbook(base, password):
+    """Use original account, authentication, API-key and feature REST endpoints."""
+    wait_until(lambda: request(base + "/healthcheck") is not None)
+    registered = request(base + "/auth/firsttime", data={
+        "email": "operator@example.invalid", "name": "Verdugo Synthetic Laboratory",
+        "password": password, "companyname": "Verdugo Native Acceptance"})
+    if not isinstance(registered.get("token"), str):
+        raise AcceptanceError("growthbook_registration_failed")
+    mask_secret(registered["token"])
+    login = request(base + "/auth/login", data={"email": "operator@example.invalid", "password": password})
+    token = login.get("token")
+    mask_secret(token)
+    auth = {"Authorization": "Bearer " + token}
+    user = request(base + "/user", headers=auth)
+    organizations = user.get("organizations")
+    if not isinstance(organizations, list) or len(organizations) != 1:
+        raise AcceptanceError("growthbook_organization_readback_failed")
+    auth["X-Organization"] = organizations[0]["id"]
+    created = request(base + "/keys", data={"type": "admin", "description": "Synthetic acceptance only"}, headers=auth)
+    key = created.get("key", {}).get("key")
+    mask_secret(key)
+    feature_id = "verdugo-unified-native-routing"
+    route = "native-route-" + secrets.token_hex(8)
+    rest_auth = {"Authorization": "Bearer " + key}
+    value = request(base + "/api/v1/features", data={
+        "id": feature_id, "valueType": "string", "defaultValue": route,
+        "description": "Route shared with original Mautic and Countly",
+        "owner": "operator@example.invalid", "project": registered.get("projectId", "")}, headers=rest_auth)
+    if value.get("feature", {}).get("id") != feature_id:
+        raise AcceptanceError("growthbook_feature_creation_failed")
+    state = {"key": key, "feature_id": feature_id, "route": route}
+    if read_growthbook_route(base, state) != route:
+        raise AcceptanceError("growthbook_feature_readback_failed")
+    return state
+
+
+def read_growthbook_route(base, state):
+    feature = request(base + "/api/v1/features/" + state["feature_id"],
+                      headers={"Authorization": "Bearer " + state["key"]})
+    route = feature.get("feature", {}).get("defaultValue")
+    if route != state["route"]:
+        raise AcceptanceError("growthbook_route_mismatch")
+    return route
+
+
+def contact_route(contact, expected):
+    tags = contact.get("tags", [])
+    if isinstance(tags, dict):
+        tags = list(tags.values())
+    values = [tag.get("tag") if isinstance(tag, dict) else tag for tag in tags]
+    if expected not in values:
+        raise AcceptanceError("mautic_growthbook_route_mismatch")
+    return next(value for value in values if value == expected)
+
+
+def run_acceptance(report, *, include_growthbook=False):
+    if type(include_growthbook) is not bool or report.get("growthbook_requested", False) is not include_growthbook:
+        raise AcceptanceError("native_profile_mismatch")
     if not shutil.which("docker"):
         raise AcceptanceError("docker_engine_unavailable")
     if platform.machine().lower() not in ("x86_64", "amd64"):
@@ -186,15 +274,7 @@ def run_acceptance(report):
             # Internal-only Docker networks intentionally have no published host ports.
             # On a native Linux runner the host reaches the isolated bridge IP directly.
             info = json.loads(docker("inspect", cname))[0]
-            networks = info["NetworkSettings"]["Networks"]
-            if set(networks) != {network}:
-                raise AcceptanceError("unexpected_container_network")
-            address = networks[network]["IPAddress"]
-            if not ipaddress.ip_address(address).is_private:
-                raise AcceptanceError("container_address_not_private")
-            origin = f"http://{address}:{port}"
-            NATIVE_ORIGINS.add(origin)
-            return origin
+            return native_origin(info, network, port)
         return None
 
     def start_core(port, token):
@@ -219,7 +299,10 @@ def run_acceptance(report):
 
     try:
         refs = {}
-        for name, ref in IMAGES.items():
+        images = dict(IMAGES)
+        if include_growthbook:
+            images["growthbook"] = GROWTHBOOK_IMAGE
+        for name, ref in images.items():
             log("pull_" + name)
             docker("pull", ref, timeout=300)
             image = json.loads(docker("image", "inspect", ref))[0]
@@ -268,6 +351,18 @@ def run_acceptance(report):
                        "NODE_OPTIONS": "--max-old-space-size=768 --no-node-snapshot"}
         countly_url = start("countly-api", refs["countly_api"], port=3001, env=countly_env)
         start("countly-frontend", refs["countly_frontend"], port=6001, env=countly_env)
+        growthbook_url = None
+        growthbook_state = None
+        route_from_growthbook = None
+        if include_growthbook:
+            jwt_secret, encryption_key = secrets.token_hex(32), secrets.token_hex(32)
+            mask_secret(jwt_secret)
+            mask_secret(encryption_key)
+            growthbook_url = start("growthbook", refs["growthbook"], port=3100, env={
+                "MONGODB_URI": "mongodb://mongodb:27017/growthbook",
+                "JWT_SECRET": jwt_secret, "ENCRYPTION_KEY": encryption_key,
+                "APP_ORIGIN": "http://localhost:13000", "API_HOST": "http://localhost:13100",
+                "DISABLE_TELEMETRY": "true", "EMAIL_ENABLED": "false"})
 
         log("initialize_mautic")
         wait_until(lambda: docker("exec", names["mautic"], "test", "-f", "/var/www/html/config/local.php", timeout=10) or True)
@@ -299,6 +394,12 @@ def run_acceptance(report):
         if os.environ.get("GITHUB_ACTIONS") == "true":
             print("::add-mask::" + app["key"], flush=True)
 
+        if include_growthbook:
+            log("initialize_growthbook_native_route")
+            growthbook_state = initialize_growthbook(growthbook_url, admin_password)
+            route_from_growthbook = read_growthbook_route(growthbook_url, growthbook_state)
+            report["checks"]["growthbook_feature_created_and_read_back"] = True
+
         log("verdugo_to_mautic_to_countly")
         import socket
         with socket.socket() as sock:
@@ -320,22 +421,34 @@ def run_acceptance(report):
             raise AcceptanceError("verdugo_lead_readback_mismatch")
         report["checks"]["verdugo_persisted_lead"] = True
         # The outgoing data comes from the real Verdugo API readback, not a second fixture.
-        contact = request(mautic_url + "/api/contacts/new", headers=auth,
-                          data={"firstname": lead["name"], "email": lead["email"]})["contact"]
+        contact_data = {"firstname": lead["name"], "email": lead["email"]}
+        if include_growthbook:
+            contact_data["tags"] = [route_from_growthbook]
+        contact = request(mautic_url + "/api/contacts/new", headers=auth, data=contact_data)["contact"]
         contact_id = contact.get("id")
         if not isinstance(contact_id, int) or contact_id < 1:
             raise AcceptanceError("mautic_invalid_contact_id")
 
         def read_contact():
             value = request(mautic_url + f"/api/contacts/{contact_id}", headers=auth)["contact"]
-            return value.get("id") == contact_id and value.get("fields", {}).get("all", {}).get("email") == email
+            if value.get("id") != contact_id or value.get("fields", {}).get("all", {}).get("email") != email:
+                return False
+            if include_growthbook:
+                contact_route(value, route_from_growthbook)
+            return value
 
-        wait_until(read_contact, seconds=30)
+        persisted_contact = wait_until(read_contact, seconds=30)
         report["checks"]["mautic_created_and_read_back"] = True
+        route_from_mautic = None
+        if include_growthbook:
+            route_from_mautic = contact_route(persisted_contact, route_from_growthbook)
+            report["checks"]["growthbook_to_mautic_route"] = True
         event_key = "vd_native_" + hashlib.sha256(event_id.encode()).hexdigest()[:24]
+        segmentation = {"source": "mautic", "contact": str(contact_id)}
+        if include_growthbook:
+            segmentation["route"] = route_from_mautic
         params = {"app_key": app["key"], "device_id": hashlib.sha256(lead_id.encode()).hexdigest(),
-                  "events": json.dumps([{"key": event_key, "count": 1,
-                      "segmentation": {"source": "mautic", "contact": str(contact_id)}}])}
+                  "events": json.dumps([{"key": event_key, "count": 1, "segmentation": segmentation}])}
         ingested = request(countly_url + "/i", data=params, form=True)
         if ingested.get("result") != "Success":
             raise AcceptanceError("countly_ingestion_not_accepted")
@@ -349,16 +462,40 @@ def run_acceptance(report):
             row = next((x for x in rows if x.get("_id") == event_key), None)
             return row is not None and row.get("c") == 1
 
+        def read_countly_route():
+            query = urllib.parse.urlencode({"api_key": countly_key, "app_id": app["_id"],
+                "method": "events", "event": event_key, "segmentation": "route"})
+            value = request(countly_url + "/o?" + query)
+            routes = value.get("meta", {}).get("route", [])
+            return isinstance(routes, list) and route_from_mautic in routes
+
         wait_until(read_countly, seconds=120)
         report["checks"]["countly_recorded_and_read_back"] = True
+        if include_growthbook:
+            wait_until(read_countly_route, seconds=120)
+            report["checks"]["countly_route_read_back"] = True
         log("restart_and_verify_persistence")
-        docker("restart", names["mautic"], names["countly-api"], timeout=90)
+        restart_names = [names["mautic"], names["countly-api"]]
+        if include_growthbook:
+            restart_names.append(names["growthbook"])
+        docker("restart", *restart_names, timeout=120)
+        # Bridge addresses can change: never authenticate against a stale origin.
+        NATIVE_ORIGINS.clear()
+        mautic_url = native_origin(json.loads(docker("inspect", names["mautic"]))[0], network, 80)
+        countly_url = native_origin(json.loads(docker("inspect", names["countly-api"]))[0], network, 3001)
+        if include_growthbook:
+            growthbook_url = native_origin(json.loads(docker("inspect", names["growthbook"]))[0], network, 3100)
         stop_core()
         core = start_core(core_port, control_token)
         wait_until(read_contact)
         report["checks"]["mautic_after_restart"] = True
         wait_until(read_countly)
         report["checks"]["countly_after_restart"] = True
+        if include_growthbook:
+            wait_until(lambda: read_growthbook_route(growthbook_url, growthbook_state) == route_from_growthbook)
+            report["checks"]["growthbook_after_restart"] = True
+            wait_until(read_countly_route)
+            report["checks"]["countly_route_after_restart"] = True
         wait_until(lambda: request(core_url + "/healthz"), seconds=30)
         replay = request(core_url + "/v1/events", data=event, headers=core_auth)
         persisted = request(core_url + "/v1/leads", headers=core_auth)["leads"]
@@ -368,6 +505,9 @@ def run_acceptance(report):
         require_all_checks(report)
         report["proof"] = {"canonical_event_sha256": hashlib.sha256(event_id.encode()).hexdigest(),
                            "mautic_contact_id": contact_id, "countly_event_count": 1}
+        if include_growthbook:
+            report["proof"].update(growthbook_feature_id=growthbook_state["feature_id"],
+                                   route_read_back_in_all_three=route_from_mautic)
     except Exception:
         report["failed_stage"] = stage
         report["containers_at_failure"] = {}
@@ -410,10 +550,12 @@ def run_acceptance(report):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", default="native-acceptance.json")
+    parser.add_argument("--include-growthbook", action="store_true",
+                        help="Require the real GrowthBook -> Mautic -> Countly route flow")
     args = parser.parse_args()
-    report = evidence_base()
+    report = evidence_base(args.include_growthbook)
     try:
-        run_acceptance(report)
+        run_acceptance(report, include_growthbook=args.include_growthbook)
         code = 0
     except AcceptanceError as exc:
         report.update(status="blocked_or_failed", error=str(exc))
