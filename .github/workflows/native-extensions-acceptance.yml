@@ -1,0 +1,45 @@
+name: Native originals — additional applications
+on:
+  push:
+    branches: [feat/growth-engine-ten-clean-20261112]
+    paths:
+      - 'scripts/native_extra_apps.py'
+      - 'scripts/native-extensions-acceptance.py'
+      - 'tests/test_native_extensions.py'
+      - '.github/workflows/native-extensions-acceptance.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: native-extensions-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  native-extra:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        provider: [dittofeed]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Guard tests, not installation evidence
+        run: python -m unittest discover -s tests -p 'test_native*.py' -v
+      - name: Extend original four-app circuit with another authentic application
+        run: python scripts/native-extensions-acceptance.py --providers ${{ matrix.provider }} --output evidence/extra-${{ matrix.provider }}.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-extra-${{ matrix.provider }}-${{ github.run_id }}
+          path: evidence/extra-${{ matrix.provider }}.json
+          if-no-files-found: warn
+          retention-days: 7
