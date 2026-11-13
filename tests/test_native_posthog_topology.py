@@ -54,6 +54,8 @@ class PostHogTopologyGuards(unittest.TestCase):
         self.assertIn("posthog_clickhouse_native_cluster_contract_missing",native)
         self.assertIn("ph-zookeeper",native)
         self.assertIn("posthog-native.xml",native)
+        self.assertIn("FROM system.clusters WHERE cluster='posthog_migrations'",native)
+        self.assertIn("FROM cluster('posthog_migrations', system.one)",native)
         self.assertIn("event_capture_verified':False",native)
 
 if __name__ == "__main__":
