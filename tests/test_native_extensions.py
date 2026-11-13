@@ -28,6 +28,15 @@ class ExtraGuards(unittest.TestCase):
         report={'checks':{f'dittofeed_{k}':True for k in ('rejects_missing_auth','native_readback','after_restart')},'verified_originals':list(module.BASE)}
         module.enforce_extended(report,['dittofeed'],lambda r:None)
         self.assertEqual(len(report['verified_originals']),5);self.assertFalse(report['all_ten_integrated'])
+    def test_all_ten_metadata_contracts_are_not_full_capture_acceptance(self):
+        selected=sorted(module.SIX)
+        report={'checks':{f'{p}_{phase}':True for p in selected for phase in
+            ('rejects_missing_auth','native_readback','after_restart')},'verified_originals':list(module.BASE),
+            'extra_proof':{'posthog':{'event_capture_verified':False},'openreplay':{'session_capture_verified':False}}}
+        module.enforce_extended(report,selected,lambda r:None)
+        self.assertTrue(report['all_ten_native_api_contracts_verified'])
+        self.assertFalse(report['all_ten_integrated'])
+        self.assertFalse(report['production_ready'])
     def test_session_rejects_remote_and_userinfo_before_request(self):
         session=NativeSession(module.native)
         for url in ('https://example.com','http://10.0.0.3','http://name:secret@127.0.0.1','file:///etc/passwd'):

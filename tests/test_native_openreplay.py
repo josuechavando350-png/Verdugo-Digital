@@ -24,7 +24,12 @@ class OpenReplayGuards(TestCase):
     def test_scope_does_not_claim_session_capture(self):
         source=inspect.getsource(OpenReplay.exchange)
         self.assertIn("'session_capture_verified':False",source)
-        self.assertEqual(OpenReplay.images['openreplay'],'public.ecr.aws/p1t3u8a3/chalice:v1.28.0')
+        self.assertRegex(OpenReplay.images['openreplay'],r'^public.ecr.aws/p1t3u8a3/chalice@sha256:[0-9a-f]{64}$')
+    def test_synthetic_email_passes_native_email_syntax_without_delivery(self):
+        source=inspect.getsource(OpenReplay.install)+inspect.getsource(OpenReplay.login)
+        self.assertNotIn('operator@example.invalid',source)
+        self.assertIn('operator@example.com',source)
+        for ref in OpenReplay.images.values():self.assertRegex(ref,r'@sha256:[0-9a-f]{64}$')
     def test_schema_revision_mismatch_is_fatal(self):
         facade=Mock();facade.AcceptanceError=n.AcceptanceError;facade.command.return_value='wrong'
         with self.assertRaisesRegex(n.AcceptanceError,'source_revision_mismatch'):source_schema(facade,'init_pg_schema.sql')

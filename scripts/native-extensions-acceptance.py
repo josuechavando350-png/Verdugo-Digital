@@ -60,7 +60,15 @@ def enforce_extended(report,selected,base_check):
                 raise native.AcceptanceError('incomplete_extra_acceptance_'+provider+'_'+phase)
     base_check(report)
     report['verified_originals']+=list(selected)
-    report['all_ten_integrated']=set(report['verified_originals'])==BASE|SIX and len(report['verified_originals'])==10
+    all_api_contracts=set(report['verified_originals'])==BASE|SIX and len(report['verified_originals'])==10
+    report['all_ten_native_api_contracts_verified']=all_api_contracts
+    # A project/flag configuration API does not prove the primary event/session
+    # capture pipelines. Do not turn limited metadata tests into full acceptance.
+    proof=report.get('extra_proof',{})
+    report['all_ten_integrated']=bool(all_api_contracts
+        and proof.get('posthog',{}).get('event_capture_verified') is True
+        and proof.get('openreplay',{}).get('session_capture_verified') is True)
+    report['production_ready']=False
 
 
 def main():

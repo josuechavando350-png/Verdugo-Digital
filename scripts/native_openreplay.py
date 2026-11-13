@@ -26,9 +26,9 @@ def source_schema(native, name):
 
 class OpenReplay(Application):
     id='openreplay';port=8000
-    images={'openreplay_postgres':'postgres:17-alpine',
-            'openreplay_clickhouse':'clickhouse/clickhouse-server:25.8',
-            'openreplay':'public.ecr.aws/p1t3u8a3/chalice:v1.28.0'}
+    images={'openreplay_postgres':'postgres@sha256:d3244e8ce3f165ee3c93d9c4a4b1d0fe48b3a89e2287b717fdcbbde92d405065',
+            'openreplay_clickhouse':'clickhouse/clickhouse-server@sha256:0152dd511befe6a2c2ef53e930726179669b08116da78500b37c51c96ff5ee77',
+            'openreplay':'public.ecr.aws/p1t3u8a3/chalice@sha256:bfd06b3e47b9d0ffc95b637903c45bfe50eef0933c91758a5c17158013369668'}
 
     def install(self,**ctx):
         self.bind(**ctx);dbpass=self.secret();chpass=self.secret();self.password=self.secret()
@@ -53,7 +53,7 @@ class OpenReplay(Application):
 DO $$ BEGIN IF EXISTS(SELECT 1 FROM public.users) THEN RAISE EXCEPTION 'bootstrap_requires_empty_users'; END IF; END $$;
 INSERT INTO public.tenants(name,opt_out) VALUES ('Native Acceptance',true);
 WITH owner AS (INSERT INTO public.users(email,role,name,weekly_report)
- VALUES ('operator@example.invalid','owner','Native Operator',false) RETURNING user_id)
+ VALUES ('operator@example.com','owner','Native Operator',false) RETURNING user_id)
 INSERT INTO public.basic_authentication(user_id,password)
  SELECT user_id,crypt('%s',gen_salt('bf',12)) FROM owner;
 COMMIT;""" % self.password
@@ -66,7 +66,7 @@ COMMIT;""" % self.password
             'JWT_EXPIRATION':'3600','JWT_REFRESH_EXPIRATION':'7200','JWT_SPOT_EXPIRATION':'3600',
             'JWT_SPOT_REFRESH_EXPIRATION':'7200','ASSIST_JWT_EXPIRATION':'3600',
             'ASSIST_URL':'http://localhost:9001?key=%s','SITE_URL':'http://localhost:8000',
-            'EMAIL_HOST':'','EMAIL_FROM':'operator@example.invalid','S3_HOST':'http://localhost:9000',
+            'EMAIL_HOST':'','EMAIL_FROM':'operator@example.com','S3_HOST':'http://localhost:9000',
             'S3_KEY':self.secret(),'S3_SECRET':self.secret(),'sessions_region':'us-east-1',
             'sessions_bucket':'sessions','sourcemaps_bucket':'sourcemaps','js_cache_bucket':'assets',
             'ASSIST_RECORDS_BUCKET':'assist','IOS_VIDEO_BUCKET':'sessions','root_path':'',
@@ -78,7 +78,7 @@ COMMIT;""" % self.password
         self.http.denied(self.base+'/projects');self.check('rejects_missing_auth')
 
     def login(self):
-        value=self.http.call(self.base+'/login',data={'email':'operator@example.invalid','password':self.password})
+        value=self.http.call(self.base+'/login',data={'email':'operator@example.com','password':self.password})
         token=value.get('jwt')
         if not isinstance(token,str) or not token:raise self.n.AcceptanceError('openreplay_native_login_failed')
         self.n.mask_secret(token);self.headers={'Authorization':'Bearer '+token}

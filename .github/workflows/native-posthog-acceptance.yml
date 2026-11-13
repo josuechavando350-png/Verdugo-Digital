@@ -1,0 +1,36 @@
+name: Native originals — PostHog authenticated API
+on:
+  push:
+    branches: [feat/growth-engine-ten-clean-20261112]
+    paths:
+      - 'scripts/native_posthog.py'
+      - 'tests/test_native_posthog.py'
+      - '.github/workflows/native-posthog-acceptance.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: native-posthog-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  native-posthog:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with: {submodules: false, persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22.16.0'}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Unit guards are not authentic service acceptance
+        run: python -m unittest discover -s tests -p 'test_native*.py' -v
+      - name: Original feature-flag APIs with authentication and persistence
+        run: python scripts/native-extensions-acceptance.py --providers posthog --output evidence/extra-posthog.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-posthog-${{ github.run_id }}
+          path: evidence/extra-posthog.json
+          if-no-files-found: warn
+          retention-days: 7
