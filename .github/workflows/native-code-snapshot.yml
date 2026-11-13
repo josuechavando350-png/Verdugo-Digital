@@ -1,0 +1,28 @@
+name: Native integration — source snapshot
+on:
+  push:
+    branches: [feat/growth-engine-ten-clean-20261112]
+    paths: ['.github/workflows/native-code-snapshot.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+          persist-credentials: false
+      - name: Archive only tracked source, never local credentials or runtime data
+        run: |
+          mkdir -p snapshot
+          git archive --format=tar.gz HEAD -o snapshot/verdugo.tar.gz
+          git rev-parse HEAD > snapshot/commit.txt
+          git ls-tree -r HEAD > snapshot/tree.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: native-code-${{ github.run_id }}
+          path: snapshot/
+          retention-days: 1
