@@ -35,6 +35,7 @@ jobs:
         run: git submodule update --init --depth 1 upstream/openreplay
       - name: Validate native provider safety contracts
         run: python -m unittest discover -s tests -p 'test_native*.py' -v
+      # Registry HTTP 429 is retried only for docker image pulls; authentic HTTP writes are never replayed.
       - name: Install ten originals together and require real cross-API capture and restart
         run: |
           python scripts/native-extensions-acceptance.py --providers dittofeed twenty erxes formbricks openreplay posthog --output evidence/native-ten.json
