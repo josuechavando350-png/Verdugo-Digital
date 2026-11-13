@@ -1,0 +1,76 @@
+# Authentic upstream services. This is an isolated acceptance laboratory, not Android deployment.
+services:
+  mysql:
+    image: ${MYSQL_IMAGE:?Resolve image digest first}
+    environment:
+      MYSQL_ROOT_PASSWORD: ${LAB_DB_ROOT_PASSWORD:?}
+      MYSQL_DATABASE: mautic
+      MYSQL_USER: mautic
+      MYSQL_PASSWORD: ${LAB_DB_PASSWORD:?}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: [CMD-SHELL, 'mysqladmin ping -h 127.0.0.1 --silent']
+      interval: 5s
+      timeout: 5s
+      retries: 60
+    networks: [lab]
+  mautic:
+    image: ${MAUTIC_IMAGE:?Resolve image digest first}
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      DOCKER_MAUTIC_ROLE: mautic_web
+      DOCKER_MAUTIC_LOAD_TEST_DATA: 'false'
+      MAUTIC_DB_HOST: mysql
+      MAUTIC_DB_PORT: '3306'
+      MAUTIC_DB_DATABASE: mautic
+      MAUTIC_DB_USER: mautic
+      MAUTIC_DB_PASSWORD: ${LAB_DB_PASSWORD:?}
+      MAUTIC_API_ENABLED: 'true'
+      MAUTIC_API_ENABLE_BASIC_AUTH: 'true'
+      MAUTIC_MAILER_DSN: 'null://null'
+      LAB_ADMIN_PASSWORD: ${LAB_ADMIN_PASSWORD:?}
+    ports: ['127.0.0.1:18080:80']
+    volumes:
+      - mautic_config:/var/www/html/config
+    networks: [lab]
+  mongo:
+    image: ${MONGO_IMAGE:?Resolve image digest first}
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: lab
+      MONGO_INITDB_ROOT_PASSWORD: ${LAB_MONGO_PASSWORD:?}
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: [CMD, mongosh, --quiet, --eval, 'quit(db.adminCommand({ping:1}).ok ? 0 : 1)']
+      interval: 5s
+      timeout: 10s
+      retries: 30
+    networks: [lab]
+  growthbook:
+    image: ${GROWTHBOOK_IMAGE:?Resolve image digest first}
+    depends_on:
+      mongo:
+        condition: service_healthy
+    environment:
+      MONGODB_URI: mongodb://lab:${LAB_MONGO_PASSWORD:?}@mongo:27017/growthbook?authSource=admin
+      JWT_SECRET: ${LAB_JWT_SECRET:?}
+      ENCRYPTION_KEY: ${LAB_ENCRYPTION_KEY:?}
+      APP_ORIGIN: http://localhost:13000
+      API_HOST: http://localhost:13100
+      DISABLE_TELEMETRY: 'true'
+      EMAIL_ENABLED: 'false'
+    ports: ['127.0.0.1:13000:3000', '127.0.0.1:13100:3100']
+    volumes:
+      - growthbook_uploads:/usr/local/src/app/packages/back-end/uploads
+    networks: [lab]
+volumes:
+  mysql_data:
+  mautic_config:
+  mongo_data:
+  growthbook_uploads:
+networks:
+  lab:
+    internal: true
