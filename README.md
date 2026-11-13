@@ -13,8 +13,8 @@ el producto anterior antes de la aceptación real.
 | Ocho originales funcionando simultáneamente | **Aprobado**: GrowthBook, Mautic, RudderStack, Countly, Dittofeed, Twenty, erxes, Formbricks — [run 43480330686](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43480330686) |
 | OpenReplay original, con captura y reproducción | **Aprobado independientemente** con los cuatro originales base — [run 43478387447](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43478387447) |
 | PostHog original, API administrativa y persistencia | **Aprobado** con los cuatro originales base — [run 43484231638](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43484231638); su informe marca `event_capture_verified=false` |
-| Nueve originales juntos, incluidos los ocho y OpenReplay | Prueba estricta añadida y ejecutándose; requiere captura real de sesión/DOM y persistencia en un único circuito |
-| Diez originales juntos, incluida captura auténtica PostHog | Prueba estricta añadida y ejecutándose; **sin aceptación todavía** |
+| Nueve originales juntos, incluidos los ocho y OpenReplay | **Aprobado**: [run 43488279323](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43488279323), con captura real de sesión/DOM y reinicio |
+| Diez originales juntos, incluida captura auténtica PostHog | **Sin aceptación todavía**; [prueba nativa conjunta](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43497144094) |
 | Instalación permanente en Railway/Termux | **No realizada** |
 | Campañas, clientes o ventas reales demostrados | **No demostrados** |
 
@@ -32,6 +32,9 @@ a ejecutarlo junto con los ocho en el mismo laboratorio.
 **PostHog**: `scripts/native_posthog.py` verifica una API administrativa real.
 `scripts/native_posthog_capture.py` incorpora la arquitectura original de
 **Rust Capture → Redpanda/Kafka → procesador de ingesta Node → ClickHouse**.
+La topología de ClickHouse incluye los clústeres de migración originales y
+ZooKeeper; la autenticación de réplicas usa un secreto del entorno. Las imágenes
+adicionales de PostHog se fijaron por digest observado.
 La aceptación requiere escribir y **leer de vuelta** el evento sintético mediante
 la API nativa, comprobar el UUID y la ruta, y repetir la captura después de
 reiniciar. Ni un acuse HTTP 200 ni crear una feature flag bastan.
