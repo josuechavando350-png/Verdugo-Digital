@@ -1,83 +1,80 @@
-# Verdugo Digital — integración de aplicaciones originales
+# Verdugo Digital — diez aplicaciones originales de Growth Engineering
 
-**El conjunto de diez aplicaciones todavía no está terminado ni instalado de forma permanente.**
-Esta rama conserva el núcleo comercial local y añade laboratorios que instalan y
-prueban software original, no simuladores de sus APIs. GitHub Actions ejecuta los
-laboratorios temporalmente y elimina sus contenedores al terminar. No se ha
-contratado alojamiento ni se ha verificado el teléfono con Termux.
+**Estado: integración en desarrollo; NO existe un despliegue permanente de los diez.**
+El PR [#14](https://github.com/josuechavando350-png/Verdugo-Digital/pull/14)
+conserva `main` y `backup/pre-growth-ten-20261112` para evitar sustituir
+el producto anterior antes de la aceptación real.
 
-## Resultado nativo comprobado: CUATRO originales juntos
+## Evidencia: separar laboratorio, integración y producción
 
-El circuito **GrowthBook → Mautic → RudderStack → Countly**, conectado al núcleo
-de Verdugo, aprobó la ejecución
-[43390945919](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43390945919)
-en el commit `5f45b1a5f5672bb30ec282428fc6a506a81005b4`.
+| Resultado | Estado y prueba |
+| --- | --- |
+| Diez fuentes originales asociadas al repositorio por SHA | 10/10 referencias Git, no instalaciones |
+| Ocho originales funcionando simultáneamente | **Aprobado**: GrowthBook, Mautic, RudderStack, Countly, Dittofeed, Twenty, erxes, Formbricks — [run 43480330686](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43480330686) |
+| OpenReplay original, con captura y reproducción | **Aprobado independientemente** con los cuatro originales base — [run 43478387447](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43478387447) |
+| PostHog original, API administrativa y persistencia | **Aprobado** con los cuatro originales base — [run 43484231638](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43484231638); su informe marca `event_capture_verified=false` |
+| Nueve originales juntos, incluidos los ocho y OpenReplay | Prueba estricta añadida y ejecutándose; requiere captura real de sesión/DOM y persistencia en un único circuito |
+| Diez originales juntos, incluida captura auténtica PostHog | Prueba estricta añadida y ejecutándose; **sin aceptación todavía** |
+| Instalación permanente en Railway/Termux | **No realizada** |
+| Campañas, clientes o ventas reales demostrados | **No demostrados** |
 
-Una configuración realmente creada y leída en GrowthBook pasó a una etiqueta de
-un contacto de Mautic derivado de un prospecto leído de Verdugo. La etiqueta leída
-de Mautic viajó por el servidor y transformador originales de RudderStack hasta
-la API real de Countly. Se comprobó el recuento exacto y la segmentación persistida.
-No hubo fallback de envío directo a Countly en este perfil.
+Una aceptación en laboratorios distintos no se suma para inventar un circuito
+conjunto mayor. GitHub Actions crea y luego elimina recursos temporales;
+el número de servicios que pasaron sus pruebas NO es un porcentaje de producto terminado.
 
-Tras reiniciar las aplicaciones y el núcleo se comprobaron los mismos datos.
-RudderStack y su base PostgreSQL se reiniciaron en orden de dependencias y después
-entregaron **un evento nuevo** a Countly, con lectura posterior del recuento y la
-misma segmentación. Las catorce comprobaciones del circuito pasaron. Es una
-prueba de reinicio ordenado, no de tolerancia a todas las caídas inesperadas.
+### Últimas dos aplicaciones
 
-Los datos fueron sintéticos; los programas, APIs y bases de datos fueron reales.
-Se usaron nueve imágenes oficiales fijadas por digest: representan cuatro de los
-diez proyectos y sus dependencias, no nueve proyectos integrados.
+**OpenReplay**: `scripts/native_openreplay_capture.py` utiliza componentes
+originales de captura, persistencia y lectura de sesiones, eventos y bytes DOM.
+El flujo de nueve en `.github/workflows/native-nine-acceptance.yml` obliga
+a ejecutarlo junto con los ocho en el mismo laboratorio.
 
-[Evidencia extraída del artefacto](evidence/accepted/native-four-43390945919.json).
-SHA256 del ZIP original descargado y verificado:
-`2a78dc70bf35663ecd343e0c211baa2df5c8fac017eb0cc3018331c67c0992fc`.
-La evidencia histórica del circuito de tres está conservada en
-[evidence/accepted/native-trio-43386318494.json](evidence/accepted/native-trio-43386318494.json).
+**PostHog**: `scripts/native_posthog.py` verifica una API administrativa real.
+`scripts/native_posthog_capture.py` incorpora la arquitectura original de
+**Rust Capture → Redpanda/Kafka → procesador de ingesta Node → ClickHouse**.
+La aceptación requiere escribir y **leer de vuelta** el evento sintético mediante
+la API nativa, comprobar el UUID y la ruta, y repetir la captura después de
+reiniciar. Ni un acuse HTTP 200 ni crear una feature flag bastan.
 
-| Alcance | Estado |
-|---|---|
-| Fuentes originales fijadas por submódulo | 10/10 |
-| Originales probados juntos en el circuito nativo indicado | 4/10: GrowthBook, Mautic, RudderStack, Countly |
-| PostHog, erxes, Dittofeed, OpenReplay, Twenty, Formbricks | Sin aceptación nativa en esta revisión |
-| Instalación permanente de los diez | No realizada |
-| Ejecución real en el Android del usuario | No verificada |
-| Captación de clientes o ingresos reales demostrados | No demostrados |
+La prueba de diez en `.github/workflows/native-ten-acceptance.yml`
+falla si cualquier original no pasa o si falta la captura real de PostHog
+o OpenReplay. Los límites 429 del registro se reintentan **solo al descargar
+imágenes**, nunca al enviar datos de negocio.
 
-Una aceptación parcial no equivale a 40 % de avance global ni a 100 % del producto.
-Las pruebas unitarias tampoco se cuentan como instalaciones auténticas.
-
-## Reproducir los laboratorios en Linux x86 con Docker
+### Reproducir en Linux x86_64 con Docker y recursos suficientes
 
 ```sh
-# Dos aplicaciones originales, datos sintéticos:
-python scripts/native-pair-acceptance.py --output native-pair.json
-# Circuito de tres:
-python scripts/native-pair-acceptance.py --include-growthbook --output native-trio.json
-# Circuito de cuatro, incluyendo entrega real por RudderStack:
-python scripts/native-pair-acceptance.py --include-rudderstack --output native-four.json
+python -m unittest discover -s tests -p 'test_*.py' -v
+node --test tests/*.test.mjs
+
+# La prueba de OpenReplay necesita el esquema original exacto:
+git submodule update --init --depth 1 upstream/openreplay
+
+# Intento real de nueve originales simultáneos:
+python scripts/native-extensions-acceptance.py \
+  --providers dittofeed twenty erxes formbricks openreplay \
+  --output evidence/native-nine.json
+
+# Intento real de los diez, con verificaciones exhaustivas:
+python scripts/native-extensions-acceptance.py \
+  --providers dittofeed twenty erxes formbricks openreplay posthog \
+  --output evidence/native-ten.json
 ```
 
-Los laboratorios crean recursos temporales propios, usan una red Docker interna
-sin salida a Internet y credenciales efímeras, fijan imágenes por digest y exigen
-lectura posterior a la escritura. No son un instalador permanente de Termux.
-Al terminar, los recursos se destruyen deliberadamente. No se envían campañas ni
-mensajes a clientes reales. Los requisitos de Docker/Linux no desaparecen por
-haber publicado el código en GitHub.
+Estos ensayos son **efímeros**, usan credenciales y datos sintéticos,
+imágenes originales y redes internas. Los informes se asocian al commit y
+ejecución exactos. Un trabajo `success` de CI no equivale a una instalación 24/7.
 
-[Nativo de dos](docs/NATIVE_ACCEPTANCE.md) · [Nativo de tres](docs/NATIVE_TRIO.md) ·
-[Circuito de cuatro y evidencia](docs/NATIVE_FOUR.md)
+## Núcleo local de Verdugo
 
-## Núcleo comercial local conservado
+Existe un panel/API propio para registrar prospectos, etapas,
+consentimiento y ventas declaradas en SQLite; incorpora idempotencia,
+separación por espacio de trabajo y una cola controlada. Los importes no
+representan cobros bancarios conciliados ni ingresos reales. El núcleo
+no sustituye los diez productos originales.
 
-Un panel/API registra prospectos, etapas, consentimiento y ventas declaradas en
-SQLite. Hay separación por espacio de trabajo, transacciones, eventos idempotentes,
-pedidos únicos y una cola que no reintenta automáticamente escrituras inciertas.
-Las ventas son declaraciones del operador, no cobros bancarios conciliados ni
-utilidad. Los adaptadores opcionales permanecen desactivados por defecto. El
-núcleo propio no reproduce todas las funciones de los diez originales.
-
-Requiere Node.js >=22.16 con `node:sqlite` realmente disponible:
+Para iniciar **solo el núcleo** en Termux, con Node.js >=22.16 y
+`node:sqlite` disponible:
 
 ```sh
 bash scripts/termux-install.sh
@@ -85,26 +82,18 @@ node scripts/growth-demo.mjs
 bash scripts/termux-run.sh
 ```
 
-Panel local: `http://127.0.0.1:8177`. Token en
-`~/.config/verdugo/environment`; base en `~/.local/share/verdugo/growth.sqlite`,
-fuera del repositorio. No publicar esos archivos. El instalador comprueba SQLite;
-las pruebas Linux no demuestran por sí solas compatibilidad con Android.
+Panel local: `http://127.0.0.1:8177`.
+El token está en `~/.config/verdugo/environment`, la base de datos
+en `~/.local/share/verdugo/growth.sqlite`. No publicar secretos ni datos
+de clientes en el repositorio. Esta instalación **no** levanta los diez upstream.
 
-[Termux](docs/TERMUX.md) · [API y límites del núcleo](docs/GROWTH_CORE.md)
+## Documentación de aceptación
 
-## Pruebas y estado del repositorio
+- [Aceptación real de diez y sus bloqueadores](docs/NATIVE_10_ACCEPTANCE.md)
+- [Integración de cuatro originales ya aprobada](docs/NATIVE_FOUR.md)
+- [Núcleo y límites de su API](docs/GROWTH_CORE.md)
+- [Instalación del núcleo en Termux](docs/TERMUX.md)
 
-```sh
-node --test tests/*.test.mjs
-python -m unittest discover -s tests -p 'test_*.py' -v
-```
-
-La ejecución nativa debe aprobar por separado. `all_ten_integrated`,
-`persistent_installation` y `android_verified` permanecen false mientras no
-exista evidencia de cada alcance. Los archivos en `evidence/accepted/` conservan
-resultados históricos del commit indicado, no garantizan commits posteriores.
-
-`main` y `backup/pre-growth-ten-20261112` se conservan. El PR #14 sigue en borrador.
-Faltan integración conjunta de los diez, instalación permanente en un entorno
-compatible autorizado y aceptación operativa: privacidad, licencias, seguridad,
-retención/borrado, respaldos, recuperación y operación comercial.
+No fusionar en `main` como solución final hasta comprobar un circuito único
+de diez, desplegarlo en infraestructura autorizada y validar seguridad,
+licencias, consentimiento, supresión, backups, recuperación y operaciones reales.
