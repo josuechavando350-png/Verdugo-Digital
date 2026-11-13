@@ -2,7 +2,13 @@ name: Native originals — TEN together, fail-closed
 on:
   push:
     branches: [feat/growth-engine-ten-clean-20261112]
-    paths: ['.github/workflows/native-ten-acceptance.yml']
+    paths:
+      - '.github/workflows/native-ten-acceptance.yml'
+      - 'scripts/native_posthog.py'
+      - 'scripts/native_posthog_capture.py'
+      - 'scripts/native_openreplay_capture.py'
+      - 'scripts/native-extensions-acceptance.py'
+      - 'deploy/native/posthog-clickhouse-single.xml'
   workflow_dispatch:
 permissions:
   contents: read
