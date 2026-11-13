@@ -62,7 +62,7 @@ class PostHog(Application):
         # TEST/E2E flag and no patched authentication or replacement feature store.
         command=('sh','-ec','exec 2>&1; python manage.py migrate --noinput && touch /tmp/native-pg-migrated && exec granian --interface wsgi --host 0.0.0.0 --port 8000 --workers 1 posthog.wsgi:application')
         self.base=self.launch('posthog','posthog',port=8000,env=env,args=command)
-        deadline=time.monotonic()+600
+        deadline=time.monotonic()+1800
         while True:
             container=self.find('posthog')
             state=json.loads(self.docker('inspect',container))[0]['State']
