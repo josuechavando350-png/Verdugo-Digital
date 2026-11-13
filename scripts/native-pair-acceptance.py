@@ -508,9 +508,11 @@ def run_acceptance(report, *, include_growthbook=False, transport=None):
         restart_names = [names["mautic"], names["countly-api"]]
         if include_growthbook:
             restart_names.append(names["growthbook"])
-        if transport is not None:
-            restart_names.extend(transport.names)
         docker("restart", *restart_names, timeout=180)
+        if transport is not None:
+            # Stop the consuming application before its database and restart dependencies first.
+            # This retains all data and still requires a fresh end-to-end delivery afterwards.
+            transport.restart()
         # Bridge addresses can change: never authenticate against a stale origin.
         NATIVE_ORIGINS.clear()
         mautic_url = native_origin(json.loads(docker("inspect", names["mautic"]))[0], network, 80)

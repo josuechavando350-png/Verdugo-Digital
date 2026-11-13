@@ -148,6 +148,24 @@ class RudderStackTransport:
         # event AND route before classifying the native transport as integrated.
         return {'result': 'Success'}
 
+    def restart(self):
+        """Orderly full transport restart; never start the gateway while its DB stops."""
+        if len(self.names) != 3:
+            raise self.native.AcceptanceError('native_transport_not_installed')
+        gateway, transformer, postgres = self.names
+        self.docker('stop', gateway, transformer, timeout=90)
+        self.docker('restart', postgres, timeout=60)
+        self.native.wait_until(lambda: self.docker(
+            'exec', postgres, 'pg_isready', '-U', 'rudder', '-d', 'jobsdb', timeout=10))
+        self.docker('start', transformer)
+        info = json.loads(self.docker('inspect', transformer))[0]
+        transform_base = self.native.native_origin(info, self.network, 9090)
+        self.native.wait_until(lambda: self.native.request(transform_base + '/features') is not None)
+        self.docker('start', gateway)
+        info = json.loads(self.docker('inspect', gateway))[0]
+        self.base = self.native.native_origin(info, self.network, 8080)
+        self.native.wait_until(lambda: self.native.request(self.base + '/health') is not None)
+
     def verify_after_restart(self, *, countly_origin, route):
         n = self.native
         info = json.loads(self.docker('inspect', self.names[0]))[0]

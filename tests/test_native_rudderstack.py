@@ -80,6 +80,29 @@ class RudderNativeGuards(unittest.TestCase):
         for ref in rudder.IMAGES.values():
             self.assertRegex(ref, r'^[a-z0-9/_-]+@sha256:[0-9a-f]{64}$')
 
+    def test_restart_stops_consumer_then_waits_for_database_and_transformer(self):
+        import json
+        facade=Mock();facade.AcceptanceError=native.AcceptanceError
+        facade.wait_until.side_effect=lambda fn: fn()
+        facade.native_origin.side_effect=lambda info, network, port: 'http://172.20.0.8:'+str(port)
+        facade.request.return_value={'ready':True}
+        adapter=rudder.RudderStackTransport(facade)
+        adapter.names=['gateway','transformer','postgres'];adapter.network='own-net'
+        calls=[]
+        def docker(*args, **kwargs):
+            calls.append(args)
+            if args[0]=='inspect': return json.dumps([{'NetworkSettings':{}}])
+            return 'ready'
+        adapter.docker=docker
+        adapter.restart()
+        self.assertEqual(calls[0],('stop','gateway','transformer'))
+        self.assertEqual(calls[1],('restart','postgres'))
+        self.assertEqual(calls[2],('exec','postgres','pg_isready','-U','rudder','-d','jobsdb'))
+        self.assertEqual(calls[3],('start','transformer'))
+        self.assertEqual(calls[5],('start','gateway'))
+        self.assertEqual(facade.request.call_args_list[0].args[0],'http://172.20.0.8:9090/features')
+        self.assertEqual(facade.request.call_args_list[1].args[0],'http://172.20.0.8:8080/health')
+
     def test_gateway_wrong_response_does_not_claim_acceptance(self):
         facade=Mock();facade.AcceptanceError=native.AcceptanceError
         facade.request.return_value={'http_status':200,'body':'OK'}
