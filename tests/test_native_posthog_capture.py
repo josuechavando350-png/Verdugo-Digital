@@ -101,26 +101,18 @@ class PostHogCaptureGuards(TestCase):
             cap.capture_and_readback(EVENT,project_token='p'*32)
 
     def test_images_are_original_not_test_servers(self):
-        import re
-        self.assertRegex(IMAGES['posthog_capture'],r'^ghcr[.]io/posthog/posthog/capture@sha256:[a-f0-9]{64}
-        for key in IMAGES:self.assertIn(key,PostHog.images)
-
-if __name__=='__main__':
-    main()
-)
-        self.assertRegex(IMAGES['posthog_ingestion'],r'^ghcr[.]io/posthog/posthog-node@sha256:[a-f0-9]{64}
-        for key in IMAGES:self.assertIn(key,PostHog.images)
-
-if __name__=='__main__':
-    main()
-)
-        self.assertRegex(IMAGES['posthog_kafka'],r'^docker[.]io/redpandadata/redpanda@sha256:[a-f0-9]{64}
-        for key in IMAGES:self.assertIn(key,PostHog.images)
-
-if __name__=='__main__':
-    main()
-)
-        for key in IMAGES:self.assertIn(key,PostHog.images)
+        expected = (
+            ('posthog_capture', 'ghcr.io/posthog/posthog/capture'),
+            ('posthog_ingestion', 'ghcr.io/posthog/posthog-node'),
+            ('posthog_kafka', 'docker.io/redpandadata/redpanda'),
+        )
+        for key, prefix in expected:
+            image = IMAGES[key]
+            self.assertTrue(image.startswith(prefix + '@sha256:'), image)
+            digest = image.split('@sha256:', 1)[1]
+            self.assertEqual(len(digest), 64)
+            self.assertTrue(all(ch in '0123456789abcdef' for ch in digest))
+            self.assertIn(key, PostHog.images)
 
 if __name__=='__main__':
     main()
