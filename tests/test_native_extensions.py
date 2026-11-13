@@ -33,10 +33,42 @@ class ExtraGuards(unittest.TestCase):
         report={'checks':{f'{p}_{phase}':True for p in selected for phase in
             ('rejects_missing_auth','native_readback','after_restart')},'verified_originals':list(module.BASE),
             'extra_proof':{'posthog':{'event_capture_verified':False},'openreplay':{'session_capture_verified':False}}}
-        module.enforce_extended(report,selected,lambda r:None)
-        self.assertTrue(report['all_ten_native_api_contracts_verified'])
-        self.assertFalse(report['all_ten_integrated'])
-        self.assertFalse(report['production_ready'])
+        # Passing ten metadata/write-readback gates is NOT enough without
+        # the authentic PostHog event and OpenReplay session pipelines.
+        with self.assertRaisesRegex(module.native.AcceptanceError,'posthog_original_event_capture_unverified'):
+            module.enforce_extended(report,selected,lambda r:None)
+        self.assertNotIn('all_ten_integrated',report)
+        self.assertNotIn('production_ready',report)
+    def test_posthog_metadata_only_never_counts_as_original_accepted(self):
+        selected=['posthog']
+        checks={f'posthog_{k}':True for k in
+                ('rejects_missing_auth','native_readback','after_restart')}
+        report={'checks':checks,'verified_originals':list(module.BASE),
+                'extra_proof':{'posthog':{'event_capture_verified':False}}}
+        with self.assertRaisesRegex(module.native.AcceptanceError,'posthog_original_event_capture_unverified'):
+            module.enforce_extended(report,selected,lambda r:None)
+        self.assertEqual(report['verified_originals'],list(module.BASE))
+
+    def test_posthog_requires_new_event_capture_after_restart(self):
+        selected=['posthog']
+        checks={f'posthog_{k}':True for k in
+                ('rejects_missing_auth','native_readback','after_restart','event_capture_readback',
+                 'event_capture_after_restart')}
+        report={'checks':checks,'verified_originals':list(module.BASE),
+                'extra_proof':{'posthog':{
+                    'event_capture_verified':True,'event_capture_after_restart_verified':False}}}
+        with self.assertRaisesRegex(module.native.AcceptanceError,'posthog_original_event_capture_unverified'):
+            module.enforce_extended(report,selected,lambda r:None)
+
+    def test_openreplay_project_only_never_counts_as_session_capture(self):
+        selected=['openreplay']
+        checks={f'openreplay_{k}':True for k in
+                ('rejects_missing_auth','native_readback','after_restart')}
+        report={'checks':checks,'verified_originals':list(module.BASE),
+                'extra_proof':{'openreplay':{'session_capture_verified':False}}}
+        with self.assertRaisesRegex(module.native.AcceptanceError,'openreplay_original_session_capture_unverified'):
+            module.enforce_extended(report,selected,lambda r:None)
+
     def test_session_rejects_remote_and_userinfo_before_request(self):
         session=NativeSession(module.native)
         for url in ('https://example.com','http://10.0.0.3','http://name:secret@127.0.0.1','file:///etc/passwd'):
