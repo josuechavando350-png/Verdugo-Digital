@@ -1,102 +1,116 @@
-# Verdugo Digital — diez aplicaciones originales de Growth Engineering
+# Verdugo Digital — 50 fuentes seleccionadas, integración parcial verificable
 
-**Estado: integración en desarrollo; NO existe un despliegue permanente de los diez.**
-El PR [#14](https://github.com/josuechavando350-png/Verdugo-Digital/pull/14)
-conserva `main` y `backup/pre-growth-ten-20261112` para evitar sustituir
-el producto anterior antes de la aceptación real.
+**No están los 50 programas instalados ni funcionando juntos. No existe un
+despliegue permanente de los 50.** Esta rama añade un portfolio de fuentes
+originales y operaciones concretas dentro del mismo núcleo de Verdugo. El
+[PR #14](https://github.com/josuechavando350-png/Verdugo-Digital/pull/14) permanece
+en borrador; `main`, el respaldo y los diez submódulos originales se conservan.
 
-## Evidencia: separar laboratorio, integración y producción
+## Qué se incorporó realmente
 
-| Resultado | Estado y prueba |
-| --- | --- |
-| Diez fuentes originales asociadas al repositorio por SHA | 10/10 referencias Git, no instalaciones |
-| Ocho originales funcionando simultáneamente | **Aprobado**: GrowthBook, Mautic, RudderStack, Countly, Dittofeed, Twenty, erxes, Formbricks — [run 43480330686](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43480330686) |
-| OpenReplay original, con captura y reproducción | **Aprobado independientemente** con los cuatro originales base — [run 43478387447](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43478387447) |
-| PostHog original, API administrativa y persistencia | **Aprobado** con los cuatro originales base — [run 43484231638](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43484231638); su informe marca `event_capture_verified=false` |
-| Nueve originales juntos, incluidos los ocho y OpenReplay | **Aprobado**: [run 43488279323](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43488279323), con captura real de sesión/DOM y reinicio |
-| Diez originales juntos, incluida captura auténtica PostHog | **Sin aceptación todavía**; [prueba nativa conjunta](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43497144094) |
-| Instalación permanente en Railway/Termux | **No realizada** |
-| Campañas, clientes o ventas reales demostrados | **No demostrados** |
+La lista final de 31 + 19 contiene **50 repositorios distintos**. Seis ya estaban
+entre los diez originales; por eso se incorporaron **44 nuevas referencias de
+código** en `components/`. Countly, Dittofeed, erxes y OpenReplay se mantienen
+como compatibilidad en `upstream/`, sin contarlos dentro de los 50 seleccionados.
 
-Una aceptación en laboratorios distintos no se suma para inventar un circuito
-conjunto mayor. GitHub Actions crea y luego elimina recursos temporales;
-el número de servicios que pasaron sus pruebas NO es un porcentaje de producto terminado.
+Hay 54 gitlinks conservados: 50 seleccionados y cuatro anteriores. Un gitlink
+fija el repositorio y commit original; **no instala dependencias ni ejecuta la
+aplicación**. `stack/portfolio-pins.json` fija los 50 commits. Se preservaron los
+SHAs de los seis originales retenidos, sin actualizarlos silenciosamente.
 
-### Últimas dos aplicaciones
+[Catálogo y funciones](stack/portfolio50.json) ·
+[Fuentes y versiones](docs/PORTFOLIO_SOURCES.md)
 
-**OpenReplay**: `scripts/native_openreplay_capture.py` utiliza componentes
-originales de captura, persistencia y lectura de sesiones, eventos y bytes DOM.
-El flujo de nueve en `.github/workflows/native-nine-acceptance.yml` obliga
-a ejecutarlo junto con los ocho en el mismo laboratorio.
+## Un flujo nuevo conectado al núcleo existente: APROBADO
 
-**PostHog**: `scripts/native_posthog.py` verifica una API administrativa real.
-`scripts/native_posthog_capture.py` incorpora la arquitectura original de
-**Rust Capture → Redpanda/Kafka → procesador de ingesta Node → ClickHouse**.
-La topología de ClickHouse incluye los clústeres de migración originales y
-ZooKeeper; la autenticación de réplicas usa un secreto del entorno. Las imágenes
-adicionales de PostHog se fijaron por digest observado.
-La aceptación requiere escribir y **leer de vuelta** el evento sintético mediante
-la API nativa, comprobar el UUID y la ruta, y repetir la captura después de
-reiniciar. Ni un acuse HTTP 200 ni crear una feature flag bastan.
+En el commit `54d1fc35f0f99e76dd7d396badf55c9b366239e9`, la
+[ejecución 43526734384](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43526734384)
+aprobó ambos trabajos: resolución de las 50 fuentes e instalación/prueba de
+librerías originales. También aprobó la
+[regresión del núcleo 43526734408](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43526734408).
 
-La prueba de diez en `.github/workflows/native-ten-acceptance.yml`
-falla si cualquier original no pasa o si falta la captura real de PostHog
-o OpenReplay. Los límites 429 del registro se reintentan **solo al descargar
-imágenes**, nunca al enviar datos de negocio.
+El circuito probado fue:
 
-### Reproducir en Linux x86_64 con Docker y recursos suficientes
+**Correo proporcionado → email-validator → MarkItDown → spaCy → API de Verdugo →
+registro persistente de prospectos de GrowthStore.**
+
+Usa el mismo servidor, token, espacio de trabajo y base SQLite del producto
+anterior. La prueba envió HTML y contactos sintéticos a la API, exigió conversión
+con las librerías originales, verificó un único prospecto y sus comprobantes,
+repitió el evento sin duplicarlo, cerró/reabrió el servidor y la base y volvió a
+leer los datos. Las seis comprobaciones de aceptación pasaron.
+
+Se instalaron cinco distribuciones originales: email-validator 2.3.0,
+MarkItDown 0.1.9, spaCy 3.8.18, Stripe 17.0.0 y Twilio 9.13.0. email-validator es
+una dependencia auxiliar, no un candidato adicional. Los SDK de Stripe y Twilio
+pasaron pruebas de firmas válidas e inválidas con datos sintéticos; **no se
+realizaron cobros, llamadas ni conexiones a cuentas comerciales**. Una firma
+válida no se considera conciliación bancaria.
+
+La primera corrida falló por tratar un Event de Stripe 17 como diccionario.
+Se corrigió usando su `to_dict()` original, sin eliminar controles de firmas,
+antigüedad de timestamps, secretos o conciliación.
+
+[Informe original de aceptación](evidence/accepted/portfolio-runtime-43526734384.json).
+El ZIP del artefacto 14085716053 fue descargado y comprobado con SHA256
+`6c5ecca6021033d50c7366cb1da92055a670830a2a13a1b520689db395e78417`.
+`all_fifty_integrated=false` permanece explícito en el informe.
+
+## Usar la ampliación local
+
+Requiere el núcleo previo, Node.js con `node:sqlite` y Python compatible con las
+distribuciones. La prueba de aceptación fue Linux/Node 22.16/Python 3.12, **no
+Android**. El instalador no afirma compatibilidad no comprobada con Termux.
+
+```sh
+bash scripts/install-portfolio.sh
+VERDUGO_PYTHON="$HOME/.local/share/verdugo/python/bin/python" bash scripts/termux-run.sh
+```
+
+Abrir `http://127.0.0.1:8177/portfolio` en el mismo equipo y usar el token local
+existente. La vista comercial anterior sigue en `/`. La configuración y la base
+siguen fuera de Git; no publicar secretos ni datos de clientes.
+
+El panel muestra los 50 módulos y sus responsabilidades, pero mantiene los no
+implementados como `adapter_pending`. No convierte disponibilidad de paquetes,
+planes o enlaces a fuentes en pruebas de operación. No envía automáticamente
+los datos de un prospecto a los 50 sistemas.
+
+[Contrato y límites del portfolio](docs/PORTFOLIO_50.md) ·
+[API del núcleo](docs/GROWTH_CORE.md) · [Termux](docs/TERMUX.md)
+
+## Lo que todavía falta
+
+Construir y aceptar las operaciones restantes de los módulos, revisar licencias,
+configurar cuentas autorizadas, desplegar servicios originales en infraestructura
+compatible y probar el circuito comercial completo de 50. También quedan
+consentimiento y supresión transversal, segregación de clientes, secretos,
+retención, respaldos, restauración y controles de costos. No se han demostrado
+clientes nuevos, pagos reales ni rentabilidad con esta ampliación.
+
+Las versiones Git de fuente y las versiones de paquetes ejecutadas se registran
+por separado: no se afirma que sean equivalentes. El lock transitivo completo
+con hashes de todas las dependencias de runtime aún está pendiente.
+
+## Laboratorios originales preservados
+
+Los laboratorios históricos de nueve originales y el intento de diez permanecen
+sin sustituirlos por esta capa local. Su evidencia corresponde a sus propios
+commits y no se suma al nuevo flujo para inventar un resultado de 50 aplicaciones
+conjuntas. Esta revisión no termina ni certifica por sí sola la captura de PostHog.
+
+[Alcance original de diez](docs/NATIVE_10_ACCEPTANCE.md) ·
+[Circuito de cuatro aceptado históricamente](docs/NATIVE_FOUR.md)
+
+## Verificación
 
 ```sh
 python -m unittest discover -s tests -p 'test_*.py' -v
 node --test tests/*.test.mjs
-
-# La prueba de OpenReplay necesita el esquema original exacto:
-git submodule update --init --depth 1 upstream/openreplay
-
-# Intento real de nueve originales simultáneos:
-python scripts/native-extensions-acceptance.py \
-  --providers dittofeed twenty erxes formbricks openreplay \
-  --output evidence/native-nine.json
-
-# Intento real de los diez, con verificaciones exhaustivas:
-python scripts/native-extensions-acceptance.py \
-  --providers dittofeed twenty erxes formbricks openreplay posthog \
-  --output evidence/native-ten.json
+node scripts/portfolio-acceptance.mjs
 ```
 
-Estos ensayos son **efímeros**, usan credenciales y datos sintéticos,
-imágenes originales y redes internas. Los informes se asocian al commit y
-ejecución exactos. Un trabajo `success` de CI no equivale a una instalación 24/7.
-
-## Núcleo local de Verdugo
-
-Existe un panel/API propio para registrar prospectos, etapas,
-consentimiento y ventas declaradas en SQLite; incorpora idempotencia,
-separación por espacio de trabajo y una cola controlada. Los importes no
-representan cobros bancarios conciliados ni ingresos reales. El núcleo
-no sustituye los diez productos originales.
-
-Para iniciar **solo el núcleo** en Termux, con Node.js >=22.16 y
-`node:sqlite` disponible:
-
-```sh
-bash scripts/termux-install.sh
-node scripts/growth-demo.mjs
-bash scripts/termux-run.sh
-```
-
-Panel local: `http://127.0.0.1:8177`.
-El token está en `~/.config/verdugo/environment`, la base de datos
-en `~/.local/share/verdugo/growth.sqlite`. No publicar secretos ni datos
-de clientes en el repositorio. Esta instalación **no** levanta los diez upstream.
-
-## Documentación de aceptación
-
-- [Aceptación real de diez y sus bloqueadores](docs/NATIVE_10_ACCEPTANCE.md)
-- [Integración de cuatro originales ya aprobada](docs/NATIVE_FOUR.md)
-- [Núcleo y límites de su API](docs/GROWTH_CORE.md)
-- [Instalación del núcleo en Termux](docs/TERMUX.md)
-
-No fusionar en `main` como solución final hasta comprobar un circuito único
-de diez, desplegarlo en infraestructura autorizada y validar seguridad,
-licencias, consentimiento, supresión, backups, recuperación y operaciones reales.
+El último comando exige las librerías originales instaladas y genera evidencia
+sintética, no datos comerciales. Las pruebas unitarias con fixtures están
+etiquetadas y no se cuentan como instalaciones reales. No fusionar este PR como
+producto terminado hasta aceptar el alcance completo y su despliegue real.
