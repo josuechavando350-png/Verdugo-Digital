@@ -4,6 +4,8 @@ on:
     branches: [feat/growth-engine-ten-clean-20261112]
     paths:
       - 'scripts/native_extra_apps.py'
+      - 'scripts/native_crm_apps.py'
+      - 'scripts/native_provider_registry.py'
       - 'scripts/native-extensions-acceptance.py'
       - 'tests/test_native_extensions.py'
       - '.github/workflows/native-extensions-acceptance.yml'
@@ -20,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        provider: [dittofeed]
+        provider: [dittofeed, twenty, erxes]
     steps:
       - uses: actions/checkout@v4
         with:

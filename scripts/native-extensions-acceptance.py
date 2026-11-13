@@ -10,7 +10,7 @@ HERE=Path(__file__).resolve().parent
 spec=importlib.util.spec_from_file_location('native_base',HERE/'native-pair-acceptance.py')
 native=importlib.util.module_from_spec(spec);spec.loader.exec_module(native)
 from native_rudderstack import RudderStackTransport
-from native_extra_apps import REGISTRY
+from native_provider_registry import REGISTRY
 
 BASE={'growthbook','mautic','rudderstack','countly'}
 SIX={'posthog','erxes','dittofeed','openreplay','twenty','formbricks'}
