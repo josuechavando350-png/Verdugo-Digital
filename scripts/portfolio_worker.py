@@ -115,7 +115,7 @@ def operation(name, data):
             stamps = [int(v[2:]) for v in signature.split(',') if v.startswith('t=')]
             if len(stamps) != 1 or abs(time.time() - stamps[0]) > 300:
                 raise ValueError('timestamp')
-            event = stripe.Webhook.construct_event(raw.encode('utf-8'), signature, secret, tolerance=300)
+            event = stripe.Webhook.construct_event(raw.encode('utf-8'), signature, secret, tolerance=300).to_dict()
         except Exception:
             raise WorkerError('invalid_stripe_signature') from None
         # Only authentication evidence, never counts as a bank reconciliation.
