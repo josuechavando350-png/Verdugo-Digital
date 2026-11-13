@@ -58,3 +58,16 @@ La prueba de catálogo verifica diez proyectos, el manifiesto de submódulos y d
 ```sh
 node --test tests/control-plane.test.mjs
 ```
+
+
+## Termux — núcleo Android sin servicios remotos
+
+Se añadieron instalador, diagnóstico, panel único y comprobaciones reproducibles en `scripts/termux-*.sh`, `scripts/termux-status.mjs` y `public/index.html`. La aplicación local se ejecuta únicamente en `127.0.0.1:8177`; las rutas privadas de API exigen token. Consultar [la guía de Termux](docs/TERMUX.md).
+
+```sh
+bash scripts/termux-install.sh
+bash scripts/termux-doctor.sh
+bash scripts/termux-run.sh
+```
+
+**No implica la instalación ni la integración real de los diez servidores upstream.** La comprobación de servicios externos es de conectividad; un estado `reachable` no equivale a un adaptador API probado ni a un flujo comercial E2E. No utilizar `main` para este nuevo alcance hasta su aceptación real.
