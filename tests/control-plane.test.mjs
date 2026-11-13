@@ -43,3 +43,12 @@ test('protects against URL userinfo and arbitrary plaintext hosts', async () => 
     assert.equal((await checkProvider(url)).state, 'unreachable');
   }
 });
+
+test('serves dashboard on loopback without exposing token', async () => {
+  const response=await fetch('http://127.0.0.1:'+appPort+'/');
+  assert.equal(response.status,200);
+  assert.match(response.headers.get('content-security-policy'),/frame-ancestors/);
+  const content=await response.text();
+  assert.match(content,/Verdugo Digital/);
+  assert.doesNotMatch(content,/an-example-very-long-control-plane-secret/);
+});
