@@ -2,7 +2,7 @@
 import importlib.util
 from pathlib import Path
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 
 SOURCE = Path(__file__).resolve().parents[1] / "scripts/native-pair-acceptance.py"
 spec = importlib.util.spec_from_file_location("native_acceptance", SOURCE)
@@ -63,6 +63,35 @@ class NativeAcceptanceGuardTests(unittest.TestCase):
         report = json.dumps(native.evidence_base())
         for name in ["password", "api_key", "Authorization", "control_token"]:
             self.assertNotIn(name, report)
+
+    def test_image_refs_are_immutable_digests(self):
+        for image in native.IMAGES.values():
+            self.assertRegex(image, r"^[a-z0-9/_-]+@sha256:[a-f0-9]{64}$")
+
+    def test_approved_native_origin_is_exact_not_a_network_wildcard(self):
+        native.NATIVE_ORIGINS.add("http://172.28.0.3:3001")
+        try:
+            for url in ["http://172.28.0.4:3001", "http://172.28.0.3:80", "http://172.28.0.3:3001@evil.invalid"]:
+                with self.assertRaises(native.AcceptanceError):
+                    native.request(url)
+        finally:
+            native.NATIVE_ORIGINS.clear()
+
+    def test_command_failure_redacts_temporary_credentials(self):
+        import contextlib
+        import io
+        native.REDACT.add("secret-for-unit-test-only")
+        try:
+            result = Mock(returncode=1, stderr="db failed: secret-for-unit-test-only", stdout="")
+            output = io.StringIO()
+            with patch.object(native.subprocess, "run", return_value=result):
+                with contextlib.redirect_stdout(output):
+                    with self.assertRaises(native.AcceptanceError):
+                        native.command(["docker", "exec", "x"])
+            self.assertNotIn("secret-for-unit-test-only", output.getvalue())
+            self.assertIn("[REDACTED]", output.getvalue())
+        finally:
+            native.REDACT.clear()
 
     def test_only_two_upstream_products_in_profile(self):
         self.assertEqual(set(native.IMAGES), {"mysql", "mongo", "mautic", "countly_api", "countly_frontend"})

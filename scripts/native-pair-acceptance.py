@@ -261,7 +261,8 @@ def run_acceptance(report):
             "MAUTIC_DB_HOST": "mysql", "MAUTIC_DB_USER": "mautic",
             "MAUTIC_DB_PASSWORD": db_password, "MAUTIC_DB_DATABASE": "mautic",
             "DOCKER_MAUTIC_ROLE": "mautic_web", "DOCKER_MAUTIC_LOAD_TEST_DATA": "false"})
-        countly_env = {"COUNTLY_CONFIG__MONGODB_HOST": "mongodb",
+        countly_env = {"COUNTLY_CONFIG_HOSTNAME": "countly.example.invalid",
+                       "COUNTLY_CONFIG__MONGODB_HOST": "mongodb",
                        "COUNTLY_CONFIG_API_API_WORKERS": "1",
                        "COUNTLY_PLUGINS": "web,plugins,logger,systemlogs",
                        "NODE_OPTIONS": "--max-old-space-size=768 --no-node-snapshot"}
@@ -270,7 +271,7 @@ def run_acceptance(report):
 
         log("initialize_mautic")
         wait_until(lambda: docker("exec", names["mautic"], "test", "-f", "/var/www/html/config/local.php", timeout=10) or True)
-        docker("exec", "-u", "www-data", names["mautic"], "php", "bin/console", "mautic:install",
+        docker("exec", "-u", "www-data", names["mautic"], "php", "/var/www/html/bin/console", "mautic:install",
                mautic_url, "--db_driver=pdo_mysql", "--db_host=mysql", "--db_port=3306",
                "--db_name=mautic", "--db_user=mautic", "--db_password=" + db_password,
                "--admin_username=vdadmin", "--admin_email=ci@example.invalid",
@@ -281,7 +282,7 @@ def run_acceptance(report):
                  "$parameters['mailer_dsn']='null://null';"
                  "file_put_contents($f,'<?php'.PHP_EOL.'$parameters = '.var_export($parameters,true).';'.PHP_EOL);")
         docker("exec", "-u", "www-data", names["mautic"], "php", "-r", patch)
-        docker("exec", "-u", "www-data", names["mautic"], "php", "bin/console", "cache:clear", "--env=prod", timeout=180)
+        docker("exec", "-u", "www-data", names["mautic"], "php", "/var/www/html/bin/console", "cache:clear", "--env=prod", timeout=180)
         auth = {"Authorization": basic}
         wait_until(lambda: request(mautic_url + "/api/contacts?limit=1", headers=auth))
 

@@ -9,15 +9,19 @@ previsto del usuario ni contrata alojamiento.
 El workflow `Native originals — Mautic and Countly acceptance` utiliza una máquina
 Linux x86 de GitHub Actions durante un trabajo acotado. Descarga las imágenes
 oficiales de Mautic, Countly API y Countly frontend, además de MySQL y MongoDB.
-Cada imagen se resuelve a su ID inmutable antes de ejecutarse; el informe conserva
-el digest observado. Los tags de Countly son `latest`: no se afirma que equivalgan
-a los commits de los submódulos. Las versiones exactas son las del informe de cada
-corrida; no constituye todavía un lock de producción entre distintas corridas.
+Las cinco imágenes están fijadas a los digests observados en la primera ejecución
+real. El informe conserva además el ID local de cada imagen ejecutada. Esto evita
+que `latest` cambie silenciosamente entre intentos, pero no equipara una imagen
+publicada con el commit de un submódulo: son identidades de versión diferentes.
 
 Crea bases de datos vacías y credenciales efímeras. Los servicios están en una red
 Docker interna, sin salida externa. No hay cron/worker de marketing habilitado.
-Los puertos expuestos se vinculan solo a 127.0.0.1. No se usan cuentas de clientes,
-credenciales del usuario, dominios nuevos, pagos ni correos reales.
+Las aplicaciones no publican puertos del host. El script descubre sus direcciones
+privadas exclusivamente en la red creada por esta ejecución y usa una lista exacta
+de orígenes autorizados. Verdugo escucha únicamente en 127.0.0.1. No se sigue
+ninguna redirección ni se habilita salida a Internet para resolver la conectividad.
+No se usan cuentas de clientes, credenciales del usuario, dominios nuevos, pagos ni
+correos reales.
 
 El flujo exigido para aprobar es:
 
@@ -85,3 +89,20 @@ Fuentes: https://posthog.com/docs/self-host ;
 https://docs.openreplay.com/en/deployment/deploy-docker/ ;
 https://github.com/termux/proot-distro ;
 https://docs.github.com/en/actions/reference/runners/github-hosted-runners .
+
+## Correcciones tras las primeras ejecuciones
+
+La ejecución 43380354359 descargó las cinco imágenes y arrancó las bases de datos,
+pero falló antes de las comprobaciones de API: ningún original quedó aceptado.
+Docker no publica puertos de contenedores conectados únicamente a redes internas,
+porque no existe una red con gateway predeterminado. La corrección conserva el
+aislamiento y usa direcciones privadas verificadas por `docker inspect`.
+
+La ejecución 43381081903 arrancó los cinco contenedores; falló al invocar Mautic
+con una ruta relativa incorrecta. La consola usa ahora la ruta absoluta documentada
+`/var/www/html/bin/console`. Countly recibe también un hostname de prueba explícito.
+Ninguno de esos intentos se cuenta como integración aceptada.
+
+Fuentes primarias de red:
+https://github.com/moby/moby/discussions/53256 ;
+https://docs.docker.com/engine/network/drivers/bridge/ .
