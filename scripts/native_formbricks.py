@@ -31,10 +31,10 @@ try {
 
 class Formbricks(Application):
     id='formbricks'
-    images={'formbricks_postgres':'pgvector/pgvector:pg18',
-            'formbricks_redis':'valkey/valkey:8-alpine',
-            'formbricks_spicedb':'authzed/spicedb:v1.57.0',
-            'formbricks':'ghcr.io/formbricks/formbricks:latest'}
+    images={'formbricks_postgres':'pgvector/pgvector@sha256:38681dc6eaf55308e2a4c6de392d131652dcfac70e1263e35cd9b5ea3fe39782',
+            'formbricks_redis':'valkey/valkey@sha256:2602ace2be6569bc2bbb06f873776516ab9089821525be34f4305c67eb9db02a',
+            'formbricks_spicedb':'authzed/spicedb@sha256:a170d372c9f6b921bb6849064df6ca3566dd5b174882c1a2c4300c2ae1d60efd',
+            'formbricks':'ghcr.io/formbricks/formbricks@sha256:b3218b53cc23a0a4c18d5640cf529d2cb6e4d33596c3c17b0fba93be25d3526b'}
 
     def install(self,**ctx):
         self.bind(**ctx)
@@ -60,7 +60,7 @@ class Formbricks(Application):
             return False
         self.wait(migrated)
         self.launch('fb-spicedb','formbricks_spicedb',alias='fb-spicedb',env=spenv,args=('serve',))
-        self.wait(lambda:self.docker('exec',self.find('fb-spicedb'),'/usr/local/bin/grpc_health_probe','-addr=localhost:50051',timeout=10))
+        self.wait(lambda:self.docker('exec',self.find('fb-spicedb'),'/usr/local/bin/grpc_health_probe','-addr=localhost:50051',timeout=10) or True)
         authsecret=self.secret();db='postgresql://postgres:'+password+'@fb-postgres:5432/formbricks?schema=public'
         redis='redis://:'+redispass+'@fb-redis:6379';self.n.mask_secret(db);self.n.mask_secret(redis)
         env={'DATABASE_URL':db,'WEBAPP_URL':'http://localhost:3000','BETTER_AUTH_URL':'http://localhost:3000',

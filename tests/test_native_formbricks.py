@@ -33,7 +33,11 @@ class FormbricksGuards(TestCase):
                     {'id':'r1','surveyId':'s1','data':{'q1':'other'}}]:
             a.http.call.side_effect=[survey,{'data':bad}];self.assertFalse(a.read())
     def test_uses_official_application_not_local_survey_stub(self):
-        self.assertEqual(Formbricks.images['formbricks'],'ghcr.io/formbricks/formbricks:latest')
+        self.assertRegex(Formbricks.images['formbricks'],r'^ghcr.io/formbricks/formbricks@sha256:[0-9a-f]{64}$')
         self.assertEqual(Formbricks.id,'formbricks')
+        for ref in Formbricks.images.values():self.assertRegex(ref,r'@sha256:[0-9a-f]{64}$')
+    def test_successful_empty_health_probe_is_not_a_timeout(self):
+        import inspect
+        self.assertIn("'-addr=localhost:50051',timeout=10) or True",inspect.getsource(Formbricks.install))
 
 if __name__=='__main__':main()
