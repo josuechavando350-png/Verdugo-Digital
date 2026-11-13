@@ -1,0 +1,70 @@
+name: Native originals — TEN together, fail-closed
+on:
+  push:
+    branches: [feat/growth-engine-ten-clean-20261112]
+    paths: ['.github/workflows/native-ten-acceptance.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: native-ten-originals-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  native-ten:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Free unused ephemeral runner disk without changing app sources
+        run: |
+          df -h /
+          free -h
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/hostedtoolcache/CodeQL
+          docker system prune -af --volumes || true
+          df -h /
+      - name: Retrieve original OpenReplay schema pinned by gitlink
+        run: git submodule update --init --depth 1 upstream/openreplay
+      - name: Validate native provider safety contracts
+        run: python -m unittest discover -s tests -p 'test_native*.py' -v
+      - name: Install ten originals together and require real cross-API capture and restart
+        run: |
+          python scripts/native-extensions-acceptance.py --providers dittofeed twenty erxes formbricks openreplay posthog --output evidence/native-ten.json
+      - name: Reject any success that does not prove all ten together
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data=json.loads(Path('evidence/native-ten.json').read_text())
+          originals={'posthog','growthbook','erxes','mautic','dittofeed','rudderstack','openreplay','twenty','countly','formbricks'}
+          checks=data.get('checks',{})
+          proof=data.get('extra_proof',{})
+          assert data['status']=='passed'
+          assert set(data.get('verified_originals',[]))==originals
+          assert data.get('all_ten_native_api_contracts_verified') is True
+          assert data.get('all_ten_integrated') is True
+          assert proof.get('posthog',{}).get('event_capture_verified') is True
+          assert proof.get('openreplay',{}).get('session_capture_verified') is True
+          assert checks and all(v is True for v in checks.values())
+          assert data.get('mock_providers') is False
+          assert data.get('synthetic_data') is True
+          assert data.get('persistent_installation') is False
+          print('TEN_ORIGINALS_JOINT_NATIVE_ACCEPTANCE=PASSED')
+          print('PERMANENT_INSTALLATION=NOT_VERIFIED')
+          PY
+      - name: Upload redacted machine-readable evidence even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-ten-${{ github.run_id }}
+          path: evidence/native-ten.json
+          if-no-files-found: warn
+          retention-days: 7
