@@ -1,4 +1,8 @@
+import configparser
 import json
+import re
+import shutil
+import subprocess
 import unittest
 from pathlib import Path
 
@@ -26,3 +30,28 @@ class CatalogContractTest(unittest.TestCase):
                 self.assertEqual(item["status"], "catalogued")
                 for key in ("installed", "connected", "live_test_passed", "production_certified"):
                     self.assertIs(item[key], False)
+
+    def test_submodule_manifest_matches_catalog(self):
+        parser = configparser.ConfigParser()
+        self.assertTrue(parser.read(ROOT / ".gitmodules", encoding="utf-8"))
+        self.assertEqual(len(parser.sections()), 10)
+        for item in self.items:
+            section = 'submodule "upstream/' + item["id"] + '"'
+            self.assertIn(section, parser.sections())
+            self.assertEqual(parser[section]["path"], "upstream/" + item["id"])
+            self.assertEqual(parser[section]["url"], item["upstream_url"] + ".git")
+
+    @unittest.skipUnless(shutil.which("git") and (ROOT / ".git").exists(), "Git checkout required")
+    def test_ten_pinned_gitlinks_exist_in_commit(self):
+        result = subprocess.run(
+            ["git", "ls-tree", "HEAD:upstream"],
+            cwd=ROOT, text=True, capture_output=True, check=True,
+        )
+        entries = {}
+        for line in result.stdout.splitlines():
+            metadata, name = line.split("\t", 1)
+            mode, kind, sha = metadata.split()
+            self.assertEqual((mode, kind), ("160000", "commit"))
+            self.assertRegex(sha, r"^[0-9a-f]{40}$")
+            entries[name] = sha
+        self.assertEqual(set(entries), EXPECTED)
