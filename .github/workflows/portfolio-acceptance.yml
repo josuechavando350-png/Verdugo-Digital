@@ -1,0 +1,73 @@
+name: Verdugo portfolio — real libraries and one commercial core
+on:
+  push:
+    branches: [feat/growth-engine-ten-clean-20261112]
+    paths:
+      - 'stack/portfolio50.json'
+      - 'lib/portfolio.mjs'
+      - 'lib/control-plane.mjs'
+      - 'public/portfolio*'
+      - 'scripts/portfolio*'
+      - 'scripts/install-portfolio.sh'
+      - 'tests/portfolio.test.mjs'
+      - 'tests/test_portfolio*'
+      - 'requirements-portfolio.txt'
+      - '.github/workflows/portfolio-acceptance.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: portfolio-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  source-identity:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {submodules: false, persist-credentials: false}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Resolve 50 original repositories, commit identities and license evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/portfolio_sources.py --output evidence/portfolio-sources.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: portfolio-source-lock-${{ github.run_id }}
+          path: evidence/portfolio-sources.json
+          retention-days: 7
+          if-no-files-found: error
+  actual-libraries:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: {submodules: false, persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22.16.0'}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Install exact original packages, not API fixture servers
+        run: |
+          mkdir -p evidence
+          python -m pip install -r requirements-portfolio.txt --report evidence/portfolio-install.json
+      - name: Actual libraries, signature rejection and core regression tests
+        env:
+          REQUIRE_PORTFOLIO_NATIVE: '1'
+        run: |
+          python -m unittest discover -s tests -p 'test_portfolio*.py' -v
+          node --test tests/*.test.mjs
+          bash -n scripts/install-portfolio.sh
+      - name: Original libraries through the same Verdugo API and persistent lead ledger
+        run: node scripts/portfolio-acceptance.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: portfolio-native-${{ github.run_id }}
+          path: |
+            evidence/portfolio-runtime.json
+            evidence/portfolio-install.json
+          retention-days: 7
+          if-no-files-found: warn
