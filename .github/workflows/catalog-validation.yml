@@ -1,4 +1,4 @@
-name: Growth Engine — Catalog Contract
+name: Growth Engine — Control Plane Contract
 on:
   push:
     branches:
@@ -8,12 +8,19 @@ on:
 permissions:
   contents: read
 jobs:
-  validate-catalog:
+  validate-contract:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          submodules: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Validate catalog schema and status claims
-        run: python -m unittest discover -s tests -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate pinned ten-project Git tree and catalog
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Test unified control plane against ten local HTTP fixtures
+        run: node --test tests/control-plane.test.mjs
