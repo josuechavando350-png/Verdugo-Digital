@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Ephemeral single-node native acceptance topology.
+     Based on PostHog docker/clickhouse/config.d/default.xml at
+     2e39d0fcde5361b16a1c1223b412f3b062fbb804.
+     Cluster *names* are the original upstream migration contracts.
+     Only internal service host names are changed for network isolation.
+     Do not deploy this topology in production. -->
+<clickhouse>
+  <remote_servers>
+    <posthog>
+      <shard>
+        <replica>
+          <host>ph-clickhouse</host><port>9000</port>
+        </replica>
+      </shard>
+    </posthog>
+    <posthog_single_shard>
+      <shard>
+        <replica>
+          <host>ph-clickhouse</host><port>9000</port>
+        </replica>
+      </shard>
+    </posthog_single_shard>
+    <posthog_migrations>
+      <shard>
+        <replica>
+          <host>ph-clickhouse</host><port>9000</port>
+        </replica>
+      </shard>
+    </posthog_migrations>
+    <posthog_writable>
+      <shard>
+        <replica>
+          <host>ph-clickhouse</host><port>9000</port>
+        </replica>
+      </shard>
+    </posthog_writable>
+    <posthog_primary_replica>
+      <shard>
+        <replica>
+          <host>ph-clickhouse</host><port>9000</port>
+        </replica>
+      </shard>
+    </posthog_primary_replica>
+    <ai_events>
+      <shard>
+        <replica>
+          <host>ph-clickhouse</host><port>9000</port>
+        </replica>
+      </shard>
+    </ai_events>
+    <aux>
+      <shard>
+        <replica>
+          <host>ph-clickhouse</host><port>9000</port>
+        </replica>
+      </shard>
+    </aux>
+    <ops>
+      <shard>
+        <replica>
+          <host>ph-clickhouse</host><port>9000</port>
+        </replica>
+      </shard>
+    </ops>
+    <sessions>
+      <shard>
+        <replica>
+          <host>ph-clickhouse</host><port>9000</port>
+        </replica>
+      </shard>
+    </sessions>
+  </remote_servers>
+  <named_collections>
+    <msk_cluster><kafka_broker_list from_env="KAFKA_HOSTS"/></msk_cluster>
+    <warpstream_ingestion><kafka_broker_list from_env="KAFKA_HOSTS"/></warpstream_ingestion>
+    <warpstream_calculated_events><kafka_broker_list from_env="KAFKA_HOSTS"/></warpstream_calculated_events>
+    <warpstream_replay><kafka_broker_list from_env="KAFKA_HOSTS"/></warpstream_replay>
+    <warpstream_shared><kafka_broker_list from_env="KAFKA_HOSTS"/></warpstream_shared>
+    <warpstream_cyclotron><kafka_broker_list from_env="KAFKA_HOSTS"/></warpstream_cyclotron>
+    <warpstream_logs><kafka_broker_list from_env="KAFKA_HOSTS"/></warpstream_logs>
+    <warpstream_traces><kafka_broker_list from_env="KAFKA_HOSTS"/></warpstream_traces>
+    <warpstream_metrics><kafka_broker_list from_env="KAFKA_HOSTS"/></warpstream_metrics>
+  </named_collections>
+  <macros>
+    <shard>01</shard>
+    <replica>ch1</replica>
+    <hostClusterType>online</hostClusterType>
+    <hostClusterRole>data</hostClusterRole>
+  </macros>
+  <zookeeper>
+    <node><host>ph-zookeeper</host><port>2181</port></node>
+  </zookeeper>
+</clickhouse>
