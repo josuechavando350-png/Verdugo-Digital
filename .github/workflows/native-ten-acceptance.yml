@@ -36,6 +36,9 @@ jobs:
       - name: Validate native provider safety contracts
         run: python -m unittest discover -s tests -p 'test_native*.py' -v
       # Registry HTTP 429 is retried only for docker image pulls; authentic HTTP writes are never replayed.
+      # PostHog must run its Rust capture, Kafka, ingestion worker and ClickHouse
+      # with authenticated event readback, not merely the Django feature-flag API.
+      # OpenReplay must store real session/events/DOM and pass readback in THIS run.
       - name: Install ten originals together and require real cross-API capture and restart
         run: |
           python scripts/native-extensions-acceptance.py --providers dittofeed twenty erxes formbricks openreplay posthog --output evidence/native-ten.json
