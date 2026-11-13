@@ -271,12 +271,14 @@ def run_acceptance(report):
 
         log("initialize_mautic")
         wait_until(lambda: docker("exec", names["mautic"], "test", "-f", "/var/www/html/config/local.php", timeout=10) or True)
-        docker("exec", "-u", "www-data", names["mautic"], "php", "/var/www/html/bin/console", "mautic:install",
+        install_output = docker("exec", "-u", "www-data", names["mautic"], "php", "/var/www/html/bin/console", "mautic:install",
                mautic_url, "--db_driver=pdo_mysql", "--db_host=mysql", "--db_port=3306",
                "--db_name=mautic", "--db_user=mautic", "--db_password=" + db_password,
                "--admin_username=vdadmin", "--admin_email=ci@example.invalid",
                "--admin_firstname=Native", "--admin_lastname=Acceptance",
-               "--admin_password=" + admin_password, "--no-interaction", timeout=300)
+               "--admin_password=" + admin_password, "--no-interaction", "--force", timeout=300)
+        if "Install complete" not in install_output:
+            raise AcceptanceError("mautic_installation_not_completed")
         patch = ("$f='/var/www/html/config/local.php';require $f;"
                  "$parameters['api_enabled']=true;$parameters['api_enable_basic_auth']=true;"
                  "$parameters['mailer_dsn']='null://null';"
@@ -288,7 +290,7 @@ def run_acceptance(report):
 
         log("initialize_countly_app")
         countly_admin_query = urllib.parse.urlencode({"api_key": countly_key})
-        wait_until(lambda: request(countly_url + "/o/apps/all?" + countly_admin_query))
+        wait_until(lambda: request(countly_url + "/o/apps/all?" + countly_admin_query) is not None)
         app = request(countly_url + "/i/apps/create", data={"api_key": countly_key,
             "args": json.dumps({"name": "Verdugo Native Acceptance", "timezone": "Africa/Abidjan", "type": "web"})}, form=True)
         if not isinstance(app.get("key"), str) or not isinstance(app.get("_id"), str):
