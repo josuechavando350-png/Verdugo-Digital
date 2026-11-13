@@ -118,6 +118,7 @@ def bootstrap():
     _, created_feature = request(BASE_GB, '/api/v1/features', {
         'id': feature_id, 'valueType': 'string', 'defaultValue': route,
         'description': 'Synthetic route shared with authentic Mautic',
+        'owner': 'operator@example.invalid',
         'project': registered.get('projectId', ''),
     }, rest_auth)
     check('growthbook_original_feature_write', created_feature['feature']['id'] == feature_id)
