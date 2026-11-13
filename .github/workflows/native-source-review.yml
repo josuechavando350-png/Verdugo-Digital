@@ -1,0 +1,56 @@
+name: Native six — pinned source review
+on:
+  push:
+    branches: [feat/growth-engine-ten-clean-20261112]
+    paths: ['.github/workflows/native-source-review.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+          persist-credentials: false
+      - name: Export tracked source and pinned original contracts without executing upstream code
+        shell: bash
+        run: |
+          mkdir -p source-review
+          git archive --format=tar.gz HEAD -o source-review/verdugo.tar.gz
+          git rev-parse HEAD > source-review/verdugo-head.txt
+          git ls-tree -r HEAD > source-review/verdugo-tree.txt
+          python3 - <<'PY'
+          import concurrent.futures, hashlib, io, json, pathlib, subprocess, tarfile, urllib.request
+          sources={'posthog':'PostHog/posthog','erxes':'erxes/erxes','dittofeed':'dittofeed/dittofeed','openreplay':'openreplay/openreplay','twenty':'twentyhq/twenty','formbricks':'formbricks/formbricks'}
+          out=pathlib.Path('source-review')
+          def export(item):
+              name,repo=item
+              line=subprocess.check_output(['git','ls-tree','HEAD','upstream/'+name],text=True).strip()
+              sha=line.split()[2]
+              url='https://codeload.github.com/'+repo+'/tar.gz/'+sha
+              data=urllib.request.urlopen(url,timeout=180).read()
+              kept=0
+              with tarfile.open(fileobj=io.BytesIO(data),mode='r:gz') as source, tarfile.open(out/(name+'.tar.gz'),'w:gz') as dest:
+                  for member in source:
+                      if not member.isfile() or member.size>2_000_000: continue
+                      parts=pathlib.PurePosixPath(member.name).parts[1:]
+                      if not parts or '..' in parts or any(p in ('node_modules','.git','__pycache__','__snapshots__') for p in parts): continue
+                      path=pathlib.PurePosixPath(*parts)
+                      if path.suffix not in ('.py','.ts','.tsx','.js','.mjs','.json','.yaml','.yml','.toml','.sql','.prisma','.sh','.md','.mdx','.go','.rs','.conf','.example','.txt') and not path.name.startswith(('Dockerfile','LICENSE','Makefile','.env')): continue
+                      if any(x in path.name for x in ('lock.json','lock.yaml','lock.toml')): continue
+                      member.name=str(path);member.uid=member.gid=0;member.uname=member.gname='';member.mode=0o644
+                      dest.addfile(member,source.extractfile(member));kept+=1
+              return {'id':name,'repo':repo,'sha':sha,'upstream_archive_sha256':hashlib.sha256(data).hexdigest(),'source_files':kept}
+          with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:
+              manifest=list(pool.map(export,sources.items()))
+          (out/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+          print(json.dumps(manifest,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: native-source-review-${{ github.run_id }}
+          path: source-review/
+          retention-days: 1
