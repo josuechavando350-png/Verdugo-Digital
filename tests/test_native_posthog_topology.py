@@ -26,6 +26,8 @@ class PostHogTopologyGuards(unittest.TestCase):
             self.assertEqual(len(replicas),1)
             self.assertEqual(replicas[0].findtext("host"),"ph-clickhouse")
             self.assertEqual(replicas[0].findtext("port"),"9000")
+            self.assertEqual(replicas[0].findtext("user"),"default")
+            self.assertEqual(replicas[0].find("password").attrib,{"from_env":"CLICKHOUSE_PASSWORD"})
 
     def test_kafka_collections_and_zookeeper_are_internal(self):
         collections = self.root.find("named_collections")
