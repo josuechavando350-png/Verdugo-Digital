@@ -1,0 +1,35 @@
+name: Native integration — PostHog image contract
+on:
+  push:
+    branches: [feat/growth-engine-ten-clean-20261112]
+    paths: ['.github/workflows/posthog-image-contract.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect-original-image:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with: {submodules: false, persist-credentials: false}
+      - name: Inspect original packaged source and entrypoint, never runtime secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+          IMAGE=posthog/posthog@sha256:cf9c1e9db55ff215edebd8be261e7c44b2e2af06c592539cb0ca484186b63f7f
+          docker pull "$IMAGE"
+          mkdir -p contract
+          docker image inspect "$IMAGE" > contract/image.json
+          CID=$(docker create --network none "$IMAGE")
+          trap 'docker rm -fv "$CID" >/dev/null' EXIT
+          for path in /code/manage.py /code/posthog/settings /code/posthog/models/user.py /code/posthog/models/team /code/posthog/models/personal_api_key.py /code/posthog/personal_api_key_minting.py /code/posthog/accessible_teams.py /code/posthog/version.py /code/pyproject.toml /code/bin/docker /code/bin/docker-server /code/bin/migrate; do
+            mkdir -p "contract$(dirname "$path")"
+            docker cp "$CID:$path" "contract$path" || true
+          done
+          tar -czf posthog-contract.tar.gz contract
+      - uses: actions/upload-artifact@v4
+        with:
+          name: posthog-image-contract-${{ github.run_id }}
+          path: posthog-contract.tar.gz
+          retention-days: 1
