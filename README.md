@@ -50,3 +50,11 @@ python3 -m unittest discover -s tests -v
 ```
 
 La prueba de catálogo verifica diez proyectos, el manifiesto de submódulos y diez referencias Git fijadas. No simula pruebas de servicios reales ni certifica operaciones comerciales. CI está definido en `.github/workflows/catalog-validation.yml`.
+
+## Capa unificada en desarrollo
+
+`lib/control-plane.mjs` ofrece un endpoint Nexus único para consultar el catálogo y el estado de conectividad de los 10 sistemas; se ejecuta localmente con Node 22+, sin dependencias NPM. Sus cinco pruebas automatizadas emplean **servidores HTTP locales simulados** y no equivalen a comunicación E2E real entre proveedores. Consultar [`docs/CONTROL_PLANE.md`](docs/CONTROL_PLANE.md).
+
+```sh
+node --test tests/control-plane.test.mjs
+```
