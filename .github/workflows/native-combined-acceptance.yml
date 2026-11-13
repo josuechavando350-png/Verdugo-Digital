@@ -1,0 +1,33 @@
+name: Native originals — combined integration
+on:
+  push:
+    branches: [feat/growth-engine-ten-clean-20261112]
+    paths: ['.github/workflows/native-combined-acceptance.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: native-combined-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  combined-originals:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with: {submodules: false, persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22.16.0'}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Unit guards are not native acceptance
+        run: python -m unittest discover -s tests -p 'test_native*.py' -v
+      - name: Seven originals in one network with common identity, readback and restart
+        run: python scripts/native-extensions-acceptance.py --providers dittofeed,twenty,erxes --output evidence/native-combined.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-combined-${{ github.run_id }}
+          path: evidence/native-combined.json
+          if-no-files-found: warn
+          retention-days: 7
