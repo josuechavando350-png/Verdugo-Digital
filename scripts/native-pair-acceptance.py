@@ -90,6 +90,12 @@ def command(args: list[str], *, timeout=180, input_text=None) -> str:
     except (subprocess.TimeoutExpired, FileNotFoundError):
         raise AcceptanceError("command_timeout_or_missing") from None
     if p.returncode:
+        # Registry throttling is a transient download failure, not a provider failure.
+        # Only retries of docker pull are permitted; never replay HTTP writes.
+        if args[:2] == ["docker", "pull"] and any(
+                message in p.stderr.lower() for message in
+                ("toomanyrequests", "rate exceeded", "too many requests", "429 too many requests")):
+            raise AcceptanceError("registry_rate_limited")
         detail = p.stderr[-1800:]
         for secret in sorted(REDACT, key=len, reverse=True):
             detail = detail.replace(secret, "[REDACTED]")
@@ -97,6 +103,22 @@ def command(args: list[str], *, timeout=180, input_text=None) -> str:
         print("NATIVE_COMMAND_ERROR=" + detail, flush=True)
         raise AcceptanceError("command_failed_" + args[0] + "_" + (args[1] if len(args)>1 else "") + "_" + str(p.returncode))
     return p.stdout.strip()
+
+
+def pull_image(docker, ref, *, max_attempts=6, sleeper=time.sleep):
+    """Retry only verified registry throttling; never return a fake image success."""
+    if not isinstance(max_attempts, int) or not 1 <= max_attempts <= 6:
+        raise AcceptanceError("invalid_pull_attempt_limit")
+    for index in range(max_attempts):
+        try:
+            return docker("pull", ref, timeout=300)
+        except AcceptanceError as exc:
+            if str(exc) != "registry_rate_limited" or index + 1 == max_attempts:
+                raise
+            delay = min(15 * (2 ** index), 180)
+            print("NATIVE_REGISTRY_RETRY_DELAY_SECONDS=" + str(delay), flush=True)
+            sleeper(delay)
+    raise AcceptanceError("unreachable_pull_state")
 
 
 def wait_until(fn, seconds=180):
@@ -338,7 +360,7 @@ def run_acceptance(report, *, include_growthbook=False, transport=None):
             images.update(transport.images)
         for name, ref in images.items():
             log("pull_" + name)
-            docker("pull", ref, timeout=300)
+            pull_image(docker, ref)
             image = json.loads(docker("image", "inspect", ref))[0]
             refs[name] = image["Id"]
             report["images"][name] = {"requested_ref": ref, "image_id": image["Id"],
