@@ -32,7 +32,7 @@ class PostHog(Application):
     images={'posthog_postgres':'postgres@sha256:f377d590e5474681d4d7838635031a2b50647923b7abfa803ce9b5ff35d5c663',
             'posthog_redis':'redis@sha256:7f7d30b7fdd09467bac58198a1f166dd69789d348d4fe859cccb20e0cf287fbe',
             'posthog_clickhouse':'clickhouse/clickhouse-server@sha256:0152dd511befe6a2c2ef53e930726179669b08116da78500b37c51c96ff5ee77',
-            'posthog':'posthog/posthog@sha256:14be81799e2cb5ba15f258a8e7e2b96c2cc656d61244f21e4543cc91147bc648'}
+            'posthog':'posthog/posthog@sha256:cf9c1e9db55ff215edebd8be261e7c44b2e2af06c592539cb0ca484186b63f7f'}
 
     def install(self,**ctx):
         self.bind(**ctx);dbpass=self.secret();redispass=self.secret();chpass=self.secret();password=self.secret()
