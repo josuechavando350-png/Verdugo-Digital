@@ -1,0 +1,41 @@
+name: Native originals — Unified GrowthBook Mautic Countly flow
+on:
+  push:
+    branches: [feat/growth-engine-ten-clean-20261112]
+    paths:
+      - 'scripts/native-pair-acceptance.py'
+      - 'tests/test_native_trio.py'
+      - '.github/workflows/native-trio-acceptance.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: native-unified-trio-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  native-unified-trio:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test native profile gates and route contracts (unit tests only)
+        run: python -m unittest discover -s tests -p 'test_native*.py' -v
+      - name: Install three authentic originals and verify one shared route after restart
+        run: python scripts/native-pair-acceptance.py --include-growthbook --output evidence/native-trio.json
+      - name: Retain bounded evidence without credentials
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-trio-${{ github.run_id }}
+          path: evidence/native-trio.json
+          if-no-files-found: warn
+          retention-days: 7

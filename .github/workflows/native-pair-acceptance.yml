@@ -1,0 +1,42 @@
+name: Native originals — Mautic and Countly acceptance
+on:
+  pull_request:
+    paths:
+      - 'scripts/native-pair-acceptance.py'
+      - 'tests/test_native_acceptance.py'
+      - 'lib/**'
+      - '.github/workflows/native-pair-acceptance.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: native-original-pair-${{ github.head_ref || github.ref }}
+  cancel-in-progress: false
+jobs:
+  real-original-pair:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.16.0'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate acceptance safeguards (not native-service proof)
+        run: python -m unittest discover -s tests -p 'test_native_acceptance.py' -v
+      - name: Install actual originals, transfer synthetic contact, read back after restart
+        run: python scripts/native-pair-acceptance.py --output evidence/native-pair.json
+      - name: Retain non-sensitive acceptance evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-pair-${{ github.run_id }}
+          path: evidence/native-pair.json
+          if-no-files-found: warn
+          retention-days: 1

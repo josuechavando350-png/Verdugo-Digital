@@ -1,0 +1,58 @@
+name: Native originals — NINE with OpenReplay capture
+on:
+  push:
+    branches: [feat/growth-engine-ten-clean-20261112]
+    paths: ['.github/workflows/native-nine-acceptance.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: native-nine-originals-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  native-nine:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with: {submodules: false, persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22.16.0'}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Prepare isolated runner and original OpenReplay schema
+        run: |
+          df -h /
+          free -h
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/hostedtoolcache/CodeQL
+          docker system prune -af --volumes || true
+          git submodule update --init --depth 1 upstream/openreplay
+      - name: Verify contract safety before starting originals
+        run: python -m unittest discover -s tests -p 'test_native*.py' -v
+      - name: Run NINE real upstream services in one bounded lab
+        run: |
+          python scripts/native-extensions-acceptance.py --providers dittofeed twenty erxes formbricks openreplay --output evidence/native-nine.json
+      - name: Prove exact nine and captured DOM; never infer ten or 24/7
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('evidence/native-nine.json').read_text())
+          expected={'growthbook','mautic','rudderstack','countly','dittofeed','twenty','erxes','formbricks','openreplay'}
+          assert d['status']=='passed'
+          assert set(d['verified_originals'])==expected
+          assert d['extra_proof']['openreplay']['session_capture_verified'] is True
+          assert d['extra_proof']['openreplay']['recorded_dom_readback_verified'] is True
+          assert d['all_ten_integrated'] is False
+          assert d['persistent_installation'] is False
+          assert d['mock_providers'] is False
+          assert all(v is True for v in d['checks'].values())
+          print('NINE_ORIGINALS_JOINT_ACCEPTED=true; TEN=false; PERMANENT=false')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-nine-${{ github.run_id }}
+          path: evidence/native-nine.json
+          if-no-files-found: warn
+          retention-days: 7

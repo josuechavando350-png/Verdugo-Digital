@@ -1,0 +1,55 @@
+{
+  "scope": "original_library_to_existing_core",
+  "synthetic": true,
+  "mock_libraries": false,
+  "commit": "54d1fc35f0f99e76dd7d396badf55c9b366239e9",
+  "run_id": "43526734384",
+  "checks": {
+    "native_pipeline_to_authoritative_lead": true,
+    "original_library_receipts": true,
+    "idempotent_capture": true,
+    "authentication_required": true,
+    "restart_persistence": true,
+    "no_revenue_fabricated": true
+  },
+  "all_fifty_integrated": false,
+  "external_customer_or_payment_activity": false,
+  "status": "passed",
+  "packages": [
+    {
+      "operation": "email.validate",
+      "distribution": "email-validator",
+      "version": "2.3.0",
+      "package_present": true,
+      "live_provider_verified": false
+    },
+    {
+      "operation": "document.convert_html",
+      "distribution": "markitdown",
+      "version": "0.1.9",
+      "package_present": true,
+      "live_provider_verified": false
+    },
+    {
+      "operation": "text.segment_es",
+      "distribution": "spacy",
+      "version": "3.8.18",
+      "package_present": true,
+      "live_provider_verified": false
+    },
+    {
+      "operation": "stripe.verify_signature",
+      "distribution": "stripe",
+      "version": "17.0.0",
+      "package_present": true,
+      "live_provider_verified": false
+    },
+    {
+      "operation": "twilio.verify_signature",
+      "distribution": "twilio",
+      "version": "9.13.0",
+      "package_present": true,
+      "live_provider_verified": false
+    }
+  ]
+}

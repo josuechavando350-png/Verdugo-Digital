@@ -1,0 +1,36 @@
+name: Growth Engine — Local Commercial Core
+on:
+  push:
+    branches:
+      - feat/growth-engine-ten-clean-20261112
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: growth-core-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  validate-contract:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: ['22.16.0', '24']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Validate pinned ten-project Git tree and catalog
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - name: Test local store, API, privacy, outbox and HTTP fixtures
+        run: node --test tests/*.test.mjs
+      - name: Synthetic persistence and declared-sale demonstration
+        run: node scripts/growth-demo.mjs
+      - name: Shell syntax
+        run: bash -n scripts/termux-install.sh scripts/termux-run.sh scripts/termux-doctor.sh

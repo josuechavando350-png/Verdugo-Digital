@@ -1,9 +1,0 @@
-# Isolated Ragas profile, Linux CPython 3.12. Our recipe does not use a remote LLM.
--c runtime-ragas.constraints.txt
-ragas==0.4.3
-rapidfuzz==3.14.3
-langchain-community==0.3.27
-langchain-openai==0.3.35
-instructor==1.12.0
-openai==1.109.1
-numpy==2.5.4

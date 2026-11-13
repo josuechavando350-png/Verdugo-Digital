@@ -1,0 +1,215 @@
+[submodule "upstream/posthog"]
+	path = upstream/posthog
+	url = https://github.com/PostHog/posthog.git
+
+[submodule "upstream/growthbook"]
+	path = upstream/growthbook
+	url = https://github.com/growthbook/growthbook.git
+
+[submodule "upstream/erxes"]
+	path = upstream/erxes
+	url = https://github.com/erxes/erxes.git
+
+[submodule "upstream/mautic"]
+	path = upstream/mautic
+	url = https://github.com/mautic/mautic.git
+
+[submodule "upstream/dittofeed"]
+	path = upstream/dittofeed
+	url = https://github.com/dittofeed/dittofeed.git
+
+[submodule "upstream/rudderstack"]
+	path = upstream/rudderstack
+	url = https://github.com/rudderlabs/rudder-server.git
+
+[submodule "upstream/openreplay"]
+	path = upstream/openreplay
+	url = https://github.com/openreplay/openreplay.git
+
+[submodule "upstream/twenty"]
+	path = upstream/twenty
+	url = https://github.com/twentyhq/twenty.git
+
+[submodule "upstream/countly"]
+	path = upstream/countly
+	url = https://github.com/Countly/countly-server.git
+
+[submodule "upstream/formbricks"]
+	path = upstream/formbricks
+	url = https://github.com/formbricks/formbricks.git
+
+[submodule "components/crawl4ai"]
+	path = components/crawl4ai
+	url = https://github.com/unclecode/crawl4ai.git
+
+[submodule "components/searxng"]
+	path = components/searxng
+	url = https://github.com/searxng/searxng.git
+
+[submodule "components/changedetection"]
+	path = components/changedetection
+	url = https://github.com/dgtlmoon/changedetection.io.git
+
+[submodule "components/openprospector"]
+	path = components/openprospector
+	url = https://github.com/clawnify/OpenProspector.git
+
+[submodule "components/langflow"]
+	path = components/langflow
+	url = https://github.com/langflow-ai/langflow.git
+
+[submodule "components/openrefine"]
+	path = components/openrefine
+	url = https://github.com/OpenRefine/OpenRefine.git
+
+[submodule "components/openseo"]
+	path = components/openseo
+	url = https://github.com/every-app/open-seo.git
+
+[submodule "components/mcp-gsc"]
+	path = components/mcp-gsc
+	url = https://github.com/AminForou/mcp-gsc.git
+
+[submodule "components/siteone"]
+	path = components/siteone
+	url = https://github.com/janreges/siteone-crawler.git
+
+[submodule "components/lighthouse"]
+	path = components/lighthouse
+	url = https://github.com/GoogleChrome/lighthouse.git
+
+[submodule "components/advertools"]
+	path = components/advertools
+	url = https://github.com/eliasdabbas/advertools.git
+
+[submodule "components/postiz"]
+	path = components/postiz
+	url = https://github.com/gitroomhq/postiz-app.git
+
+[submodule "components/payload"]
+	path = components/payload
+	url = https://github.com/payloadcms/payload.git
+
+[submodule "components/chatwoot"]
+	path = components/chatwoot
+	url = https://github.com/chatwoot/chatwoot.git
+
+[submodule "components/cal-diy"]
+	path = components/cal-diy
+	url = https://github.com/calcom/cal.diy.git
+
+[submodule "components/activepieces"]
+	path = components/activepieces
+	url = https://github.com/activepieces/activepieces.git
+
+[submodule "components/dlt"]
+	path = components/dlt
+	url = https://github.com/dlt-hub/dlt.git
+
+[submodule "components/dbt"]
+	path = components/dbt
+	url = https://github.com/dbt-labs/dbt.git
+
+[submodule "components/metabase"]
+	path = components/metabase
+	url = https://github.com/metabase/metabase.git
+
+[submodule "components/qdrant"]
+	path = components/qdrant
+	url = https://github.com/qdrant/qdrant.git
+
+[submodule "components/meilisearch"]
+	path = components/meilisearch
+	url = https://github.com/meilisearch/meilisearch.git
+
+[submodule "components/uptime-kuma"]
+	path = components/uptime-kuma
+	url = https://github.com/louislam/uptime-kuma.git
+
+[submodule "components/sentry"]
+	path = components/sentry
+	url = https://github.com/getsentry/sentry.git
+
+[submodule "components/prometheus"]
+	path = components/prometheus
+	url = https://github.com/prometheus/prometheus.git
+
+[submodule "components/grafana"]
+	path = components/grafana
+	url = https://github.com/grafana/grafana.git
+
+[submodule "components/opengmb"]
+	path = components/opengmb
+	url = https://github.com/synectus/OpenGMB.git
+
+[submodule "components/google-ads"]
+	path = components/google-ads
+	url = https://github.com/googleads/google-ads-python.git
+
+[submodule "components/kingfisher"]
+	path = components/kingfisher
+	url = https://github.com/open-contracting/kingfisher-collect.git
+
+[submodule "components/markitdown"]
+	path = components/markitdown
+	url = https://github.com/microsoft/markitdown.git
+
+[submodule "components/spacy"]
+	path = components/spacy
+	url = https://github.com/explosion/spaCy.git
+
+[submodule "components/schema-dts"]
+	path = components/schema-dts
+	url = https://github.com/google/schema-dts.git
+
+[submodule "components/languagetool"]
+	path = components/languagetool
+	url = https://github.com/languagetool-org/languagetool.git
+
+[submodule "components/remotion"]
+	path = components/remotion
+	url = https://github.com/remotion-dev/remotion.git
+
+[submodule "components/web-vitals"]
+	path = components/web-vitals
+	url = https://github.com/GoogleChrome/web-vitals.git
+
+[submodule "components/altcha"]
+	path = components/altcha
+	url = https://github.com/altcha-org/altcha.git
+
+[submodule "components/cookieconsent"]
+	path = components/cookieconsent
+	url = https://github.com/orestbida/cookieconsent.git
+
+[submodule "components/libphonenumber"]
+	path = components/libphonenumber
+	url = https://github.com/google/libphonenumber.git
+
+[submodule "components/twilio"]
+	path = components/twilio
+	url = https://github.com/twilio/twilio-python.git
+
+[submodule "components/whisper"]
+	path = components/whisper
+	url = https://github.com/openai/whisper.git
+
+[submodule "components/documenso"]
+	path = components/documenso
+	url = https://github.com/documenso/documenso.git
+
+[submodule "components/stripe"]
+	path = components/stripe
+	url = https://github.com/stripe/stripe-python.git
+
+[submodule "components/presidio"]
+	path = components/presidio
+	url = https://github.com/data-privacy-stack/presidio.git
+
+[submodule "components/parsedmarc"]
+	path = components/parsedmarc
+	url = https://github.com/domainaware/parsedmarc.git
+
+[submodule "components/dub"]
+	path = components/dub
+	url = https://github.com/dubinc/dub.link.git

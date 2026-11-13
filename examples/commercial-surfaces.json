@@ -1,4 +1,0 @@
-{
-  "id": "synthetic-surface-check-001",
-  "services": ["mautic", "easyappointments", "formbricks", "dub"]
-}

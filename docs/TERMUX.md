@@ -1,22 +1,64 @@
-# Termux / Android — compatibilidad de respaldos
+# Ejecutar el núcleo en Termux
 
-La v0.6 inicial suponía que Python exponía `os.link` (hard links); Termux puede omitir esa función. También había dos pruebas que asumían que `mkdir(mode=0o755)` no estaría modificado por `umask=077`. Las dos suposiciones fueron corregidas.
+El desarrollo queda en GitHub. No se instala ni contrata alojamiento remoto.
+Esto instala el núcleo comercial local, **no los diez servidores originales**.
+La compatibilidad final con el teléfono todavía requiere ejecutar esta prueba.
 
-El respaldo conserva la publicación atómica mediante hard link en Linux cuando existe. Si no está disponible, reserva el destino con `O_CREAT | O_EXCL`, copia desde un snapshot SQLite consistente, sincroniza (`fsync`) y vuelve a verificar la copia y SHA-256. **En ese modo, un cierre abrupto durante la copia puede dejar un archivo incompleto visible; es obligatorio ejecutar `verify-backup` antes de utilizarlo**. Una excepción normal intenta borrar el archivo incompleto. No es un mecanismo automático de recuperación.
-
-La prueba de rechazo de hard links se salta con explicación cuando Python/el filesystem no permiten crear uno; las demás comprobaciones de seguridad siguen activas. Los directorios inseguros usados como fixtures se cambian explícitamente a 0755 para que `umask` no invalide la prueba.
-
-## Actualizar desde Termux
-
-No hay que borrar el repositorio ni la base de datos. Desde la carpeta existente del proyecto:
+## Instalación nueva, sin tocar una copia anterior
 
 ```sh
-cd ~/Verdugo-Digital
-git pull --ff-only origin feat/verdugo-unified-core
-python -m unittest discover -s tests -q
-python -m verdugo demo
+pkg update -y
+pkg install -y git
+cd "$HOME"
+git clone --single-branch --branch feat/growth-engine-ten-clean-20261112 https://github.com/josuechavando350-png/Verdugo-Digital.git Verdugo-Digital-growth
+cd Verdugo-Digital-growth
+bash scripts/termux-install.sh
+bash scripts/termux-doctor.sh
+node scripts/growth-demo.mjs
+bash scripts/termux-run.sh
 ```
 
-Si ejecutas workers u otros procesos de Verdugo, detenlos y respalda su estado antes de actualizar la versión. No borres ni reinicies claves de operaciones inciertas. Para un proyecto sin datos reales ni workers, las pruebas locales son seguras.
+No se descargan los diez submódulos al instalar. Clonarlos no inicia sus servicios.
+El instalador exige Node >=22.16 y comprueba `node:sqlite`, sin paquetes NPM.
+Si esa capacidad no está disponible, la instalación se detiene; no se informa
+éxito ni se inventa compatibilidad de Android.
 
-Este parche no instala los 100 productos externos ni conecta APIs reales. No usar respaldos sin cifrar en almacenamiento compartido o en GitHub.
+Abrir `http://127.0.0.1:8177` desde el mismo teléfono. El servidor corre en primer
+plano y se detiene con Ctrl+C; no es un servicio 24/7 certificado. Android puede
+interrumpir procesos. La base SQLite persiste fuera del repositorio, pero esto
+no garantiza disponibilidad continua ni sustituye un respaldo.
+
+Para leer el token en otra sesión local de Termux:
+
+```sh
+sed -n 's/^VERDUGO_CONTROL_TOKEN=//p' "$HOME/.config/verdugo/environment"
+```
+
+Introducirlo en el panel. No publicarlo ni compartirlo en el chat. No se almacena
+en localStorage del navegador. Cerrar o recargar la página obliga a introducirlo
+otra vez. El panel permite captar prospectos, modificar etapas, registrar ventas
+declaradas y actualizar consentimiento.
+
+## Rutas privadas
+
+- Configuración: `~/.config/verdugo/`, permisos 0700; archivos 0600.
+- Base: `~/.local/share/verdugo/growth.sqlite`, fuera de Git.
+- `VERDUGO_STATE_DB`, `VERDUGO_WORKSPACE` y `PORT` permiten una configuración local
+  distinta. El token se aplica al espacio configurado, no al elegido por una petición.
+
+No hay proveedores habilitados por defecto ni envíos al iniciar. No añada secretos
+a archivos del repositorio. Los contratos y límites están en [GROWTH_CORE.md](GROWTH_CORE.md).
+
+## Pruebas
+
+```sh
+node --test tests/*.test.mjs
+python -m unittest discover -s tests -p 'test_*.py' -v
+node scripts/growth-demo.mjs
+```
+
+La demo es sintética, usa una base temporal, la reabre para comprobar persistencia
+y la elimina al terminar. No representa clientes reales, ingresos o capturas.
+Las pruebas de adaptadores usan servidores HTTP locales de prueba, no proveedores
+auténticos. `node scripts/termux-status.mjs --require-ten-live` seguirá fallando
+correctamente mientras no exista aceptación E2E real de los diez.

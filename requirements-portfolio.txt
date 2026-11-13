@@ -1,0 +1,7 @@
+# Exact top-level original distributions; CI records the full resolved install report.
+# This is not yet a fully hashed transitive dependency lock.
+email-validator==2.3.0
+markitdown==0.1.9
+spacy==3.8.18
+stripe==17.0.0
+twilio==9.13.0
