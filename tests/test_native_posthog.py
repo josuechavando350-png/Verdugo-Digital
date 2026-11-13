@@ -29,6 +29,10 @@ class PostHogGuards(TestCase):
         a.http.call.return_value=correct;self.assertTrue(a.read())
         for key in correct:
             a.http.call.return_value={**correct,key:'wrong'};self.assertFalse(a.read())
+    def test_encryption_salt_matches_native_system_check(self):
+        import secrets
+        self.assertEqual(len(secrets.token_hex(16).encode()),32)
+        self.assertIn("'ENCRYPTION_SALT_KEYS':secrets.token_hex(16)",inspect.getsource(PostHog.install))
     def test_scope_does_not_claim_analytics_ingestion(self):
         self.assertIn("'event_capture_verified':False",inspect.getsource(PostHog.exchange))
         self.assertRegex(PostHog.images['posthog'],r'^posthog/posthog@sha256:[0-9a-f]{64}$')

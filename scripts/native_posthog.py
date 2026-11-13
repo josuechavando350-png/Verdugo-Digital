@@ -50,7 +50,7 @@ class PostHog(Application):
         db='postgres://postgres:'+dbpass+'@ph-postgres:5432/posthog'
         redis='redis://:'+redispass+'@ph-redis:6379';self.n.mask_secret(db);self.n.mask_secret(redis)
         env={'DATABASE_URL':db,'REDIS_URL':redis,'SECRET_KEY':self.secret(),
-            'ENCRYPTION_SALT_KEYS':base64.urlsafe_b64encode(secrets.token_bytes(32)).decode(),
+            'ENCRYPTION_SALT_KEYS':secrets.token_hex(16),
             'CLICKHOUSE_HOST':'ph-clickhouse','CLICKHOUSE_DATABASE':'default',
             'CLICKHOUSE_USER':'default','CLICKHOUSE_PASSWORD':chpass,
             'CLICKHOUSE_SECURE':'false','CLICKHOUSE_VERIFY':'false',
