@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verdugo Digital — Centro de Control</title>
+<style>
+:root{color-scheme:dark;font:15px/1.5 system-ui,sans-serif;background:#0b0d11;color:#f4f5f8}*{box-sizing:border-box}
+body{margin:0;padding:clamp(20px,5vw,65px)}main{max-width:1000px;margin:auto}h1{font-size:clamp(36px,6vw,64px);letter-spacing:-.05em;margin:12px 0}
+p,small{color:#a8adba}.eyebrow{letter-spacing:.23em;color:#adb7d0;font-size:12px}
+.warning{border:1px solid #3c404d;border-radius:12px;padding:16px;margin:24px 0;background:#171a21}
+form{display:flex;gap:10px;flex-wrap:wrap;margin:24px 0}input{flex:1;min-width:220px;padding:13px;color:white;background:#171a21;border:1px solid #4a4d59;border-radius:9px}
+button{border:0;background:white;color:#0b0d11;border-radius:9px;padding:12px 17px;font-weight:700;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.card{background:#171a21;border:1px solid #30343d;border-radius:13px;padding:18px}.card h3{margin:0 0 9px}
+.state{color:#b9c0cf;font-size:12px}.state[data-state=reachable]{color:#70d6a8}
+footer{border-top:1px solid #30343d;margin-top:32px;padding-top:18px;color:#a2a8b4}
+</style></head><body><main><div class="eyebrow">NEXUS BOT STUDIO / GROWTH ENGINEERING</div>
+<h1>Verdugo Digital</h1><p>Un centro de control local para consultar diez sistemas, sin afirmar que estén instalados o interconectados.</p>
+<div class="warning"><b>Estado:</b> integración comercial de extremo a extremo no verificada. Este panel no ejecuta campañas ni modifica prospectos.</div>
+<form id="access"><input type="password" id="token" placeholder="Token local del controlador" autocomplete="off" required><button>Comprobar conectividad</button></form>
+<p id="message" role="status">Introduce el token de Termux para consultar los proveedores.</p><div class="grid" id="systems"></div>
+<footer>Termux · API local 127.0.0.1:8177 · No hay servicios externos certificados.</footer>
+</main>
+<script>
+const ids=['posthog','growthbook','erxes','mautic','dittofeed','rudderstack','openreplay','twenty','countly','formbricks'];
+const grid=document.getElementById('systems'),message=document.getElementById('message');
+function render(items){grid.replaceChildren();for(const item of items){const card=document.createElement('article');card.className='card';const name=document.createElement('h3');name.textContent=item.id;const state=document.createElement('div');state.className='state';state.dataset.state=item.state;state.textContent=item.state;const detail=document.createElement('small');detail.textContent='Integración certificada: NO';card.append(name,state,detail);grid.append(card);}}
+render(ids.map(id=>({id,state:'not_configured'})));
+document.getElementById('access').addEventListener('submit',async e=>{e.preventDefault();message.textContent='Consultando…';try{const r=await fetch('/v1/systems',{headers:{Authorization:'Bearer '+document.getElementById('token').value},cache:'no-store'});if(!r.ok)throw Error(r.status===401?'Token incorrecto':'HTTP '+r.status);const data=await r.json();render(data.systems);message.textContent='Endpoints alcanzables: '+data.systems.filter(x=>x.state==='reachable').length+'/10. Integración E2E: NO verificada.';}catch(error){message.textContent=error.message;}});
+</script></body></html>
