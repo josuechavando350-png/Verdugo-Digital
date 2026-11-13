@@ -2,6 +2,6 @@
 from native_extra_apps import Dittofeed
 from native_crm_apps import Twenty, Erxes
 from native_formbricks import Formbricks
-from native_openreplay import OpenReplay
+from native_openreplay_capture import OpenReplayCapture
 from native_posthog import PostHog
-REGISTRY={'dittofeed':Dittofeed,'twenty':Twenty,'erxes':Erxes,'formbricks':Formbricks,'openreplay':OpenReplay,'posthog':PostHog}
+REGISTRY={'dittofeed':Dittofeed,'twenty':Twenty,'erxes':Erxes,'formbricks':Formbricks,'openreplay':OpenReplayCapture,'posthog':PostHog}
