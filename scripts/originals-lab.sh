@@ -75,22 +75,32 @@ grep -q 'Install complete' .lab-private/mautic-install.log || { echo 'Mautic did
 # Explicit original Mautic config; its Docker template only supplies DB fields.
 "${DC[@]}" exec -T --user www-data mautic php -r '$f="/var/www/html/config/local.php"; include $f; $parameters["api_enabled"]=true; $parameters["api_enable_basic_auth"]=true; $parameters["mailer_dsn"]="null://null"; file_put_contents($f,"<?php\n\$parameters = ".var_export($parameters,true).";\n");'
 "${DC[@]}" exec -T --user www-data mautic sh -c 'cd /var/www/html && php bin/console cache:clear --env=prod --no-interaction'
-# Internal-only networks do not publish host ports. Discover only this run's IPs.
+# Internal-only networks do not publish host ports. Addresses may change on restart.
+refresh_origins() {
 python3 - <<'PYCODE'
 import ipaddress, json, os, subprocess
 from pathlib import Path
 project=os.environ['COMPOSE_PROJECT_NAME']
 network=project+'_lab'
+lines=[]
 for service,var,port in [('mautic','LAB_MAUTIC_BASE',80),('growthbook','LAB_GROWTHBOOK_BASE',3100)]:
     cid=subprocess.check_output(['docker','compose','-f','deploy/originals/compose.yml','ps','-q',service],text=True).strip()
+    if not cid or '\n' in cid:raise RuntimeError('Expected exactly one running container')
     info=json.loads(subprocess.check_output(['docker','inspect',cid]))[0]
     nets=info['NetworkSettings']['Networks']
     if set(nets)!={network}:raise RuntimeError('Unexpected laboratory network')
     address=nets[network]['IPAddress']
-    if not ipaddress.ip_address(address).is_private:raise RuntimeError('Non-private container')
-    with Path('.lab-private/origins').open('a') as f:f.write(f'export {var}=http://{address}:{port}\n')
+    ip=ipaddress.ip_address(address)
+    if ip.version!=4 or not ip.is_private or ip.is_unspecified or ip.is_loopback:raise RuntimeError('Invalid private container address')
+    lines.append(f'export {var}=http://{address}:{port}\n')
+path=Path('.lab-private/origins.new')
+path.write_text(''.join(lines))
+path.chmod(0o600)
+path.replace('.lab-private/origins')
 PYCODE
 source .lab-private/origins
+}
+refresh_origins
 wait_originals() {
 python3 - <<'PYCODE'
 import base64,os,time,urllib.request,urllib.error
@@ -116,5 +126,6 @@ python3 scripts/originals-acceptance.py
 # Stop/restart every application and DB, keeping named volumes. No state reseeding.
 "${DC[@]}" stop
 "${DC[@]}" up -d
+refresh_origins
 wait_originals
 python3 scripts/originals-acceptance.py --after-restart
