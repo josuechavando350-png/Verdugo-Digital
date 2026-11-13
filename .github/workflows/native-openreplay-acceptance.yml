@@ -1,0 +1,38 @@
+name: Native originals — OpenReplay project API integration
+on:
+  push:
+    branches: [feat/growth-engine-ten-clean-20261112]
+    paths:
+      - 'scripts/native_openreplay.py'
+      - 'tests/test_native_openreplay.py'
+      - '.github/workflows/native-openreplay-acceptance.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: native-openreplay-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  native-openreplay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with: {submodules: false, persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22.16.0'}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Retrieve the pinned original database schema, never rewrite it
+        run: git submodule update --init --depth 1 upstream/openreplay
+      - name: Unit guards are not installation evidence
+        run: python -m unittest discover -s tests -p 'test_native*.py' -v
+      - name: Original project API with native authentication and readback after restart
+        run: python scripts/native-extensions-acceptance.py --providers openreplay --output evidence/extra-openreplay.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-openreplay-${{ github.run_id }}
+          path: evidence/extra-openreplay.json
+          if-no-files-found: warn
+          retention-days: 7
