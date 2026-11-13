@@ -12,6 +12,7 @@ import argparse
 import base64
 import contextlib
 import hashlib
+import ipaddress
 import json
 import os
 from pathlib import Path
@@ -28,12 +29,15 @@ import uuid
 
 ROOT = Path(__file__).resolve().parents[1]
 IMAGES = {
-    "mysql": "mysql:8.0",
-    "mongo": "mongo:7",
-    "mautic": "mautic/mautic:6.0.6-apache",
-    "countly_api": "countly/api:latest",
-    "countly_frontend": "countly/frontend:latest",
+    "mysql": "mysql@sha256:7dcddc01f13bab2f15cde676d44d01f61fc9f99fe7785e86196dfc07d358ae2b",
+    "mongo": "mongo@sha256:9896df581dfd0718b7abe112f4c37598d0986c54060e4ec1384997e6503c8c71",
+    "mautic": "mautic/mautic@sha256:cfab53971c036a1a1cf176b4c2663b2313d0f5d372edc99c23397ee6179f81d7",
+    "countly_api": "countly/api@sha256:e2c643ee7818d043981403aa5b8ef52ddbda2c0f57a3f7e16c18d9bd6df4e3d8",
+    "countly_frontend": "countly/frontend@sha256:5fadf37d6f0a33d4d2e2e4c7b656fea8f5c5766ff86acf144d31f03447ac33a0",
 }
+# Only addresses discovered from this run's private Docker network are authorized.
+NATIVE_ORIGINS: set[str] = set()
+REDACT: set[str] = set()
 
 
 class AcceptanceError(RuntimeError):
@@ -47,7 +51,8 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
 
 def request(url: str, *, data=None, headers=None, form=False):
     parsed = urllib.parse.urlsplit(url)
-    if (parsed.scheme != "http" or parsed.hostname != "127.0.0.1"
+    if (parsed.scheme != "http" or (parsed.hostname != "127.0.0.1" and
+            parsed.scheme + "://" + parsed.netloc not in NATIVE_ORIGINS)
             or parsed.username or parsed.password or parsed.fragment):
         raise AcceptanceError("acceptance_is_loopback_only")
     encoded = None
@@ -82,7 +87,12 @@ def command(args: list[str], *, timeout=180, input_text=None) -> str:
     except (subprocess.TimeoutExpired, FileNotFoundError):
         raise AcceptanceError("command_timeout_or_missing") from None
     if p.returncode:
-        raise AcceptanceError("command_failed_" + args[0] + "_" + str(p.returncode))
+        detail = p.stderr[-1800:]
+        for secret in sorted(REDACT, key=len, reverse=True):
+            detail = detail.replace(secret, "[REDACTED]")
+        # This is a disposable synthetic-only laboratory. Do not print full commands.
+        print("NATIVE_COMMAND_ERROR=" + detail, flush=True)
+        raise AcceptanceError("command_failed_" + args[0] + "_" + (args[1] if len(args)>1 else "") + "_" + str(p.returncode))
     return p.stdout.strip()
 
 
@@ -165,17 +175,26 @@ def run_acceptance(report):
                "--label", "verdugo.acceptance=" + prefix, "--memory", "1536m"]
         if alias:
             cmd += ["--network-alias", alias]
-        if port:
-            cmd += ["-p", f"127.0.0.1::{port}"]
         for key, value in (env or {}).items():
             cmd += ["-e", f"{key}={value}"]
         # Register names before starting so even partially-created containers are removed.
         started.append(cname)
+        log("start_" + name)
         docker(*cmd, image_id, *args)
         names[name] = cname
         if port:
-            mapped = docker("port", cname, f"{port}/tcp").splitlines()[0]
-            return "http://" + mapped
+            # Internal-only Docker networks intentionally have no published host ports.
+            # On a native Linux runner the host reaches the isolated bridge IP directly.
+            info = json.loads(docker("inspect", cname))[0]
+            networks = info["NetworkSettings"]["Networks"]
+            if set(networks) != {network}:
+                raise AcceptanceError("unexpected_container_network")
+            address = networks[network]["IPAddress"]
+            if not ipaddress.ip_address(address).is_private:
+                raise AcceptanceError("container_address_not_private")
+            origin = f"http://{address}:{port}"
+            NATIVE_ORIGINS.add(origin)
+            return origin
         return None
 
     def start_core(port, token):
@@ -215,7 +234,8 @@ def run_acceptance(report):
         countly_key = secrets.token_hex(32)
         control_token = secrets.token_hex(32)
         basic = "Basic " + base64.b64encode(("vdadmin:" + admin_password).encode()).decode()
-        for secret in (db_password, admin_password, countly_key, control_token, basic):
+        REDACT.update((db_password, admin_password, countly_key, control_token, basic))
+        for secret in REDACT:
             if os.environ.get("GITHUB_ACTIONS") == "true":
                 print("::add-mask::" + secret, flush=True)
 
@@ -272,6 +292,7 @@ def run_acceptance(report):
             "args": json.dumps({"name": "Verdugo Native Acceptance", "timezone": "Africa/Abidjan", "type": "web"})}, form=True)
         if not isinstance(app.get("key"), str) or not isinstance(app.get("_id"), str):
             raise AcceptanceError("countly_app_creation_invalid")
+        REDACT.add(app["key"])
         if os.environ.get("GITHUB_ACTIONS") == "true":
             print("::add-mask::" + app["key"], flush=True)
 
@@ -346,6 +367,20 @@ def run_acceptance(report):
                            "mautic_contact_id": contact_id, "countly_event_count": 1}
     except Exception:
         report["failed_stage"] = stage
+        report["containers_at_failure"] = {}
+        for name in started:
+            try:
+                info = json.loads(docker("inspect", name))[0]["State"]
+                report["containers_at_failure"][name.split(prefix + "-")[-1]] = {
+                    "status": info.get("Status"), "exit_code": info.get("ExitCode"),
+                    "oom_killed": info.get("OOMKilled"),
+                }
+                logs = command(["docker", "logs", "--tail", "40", name], timeout=10)
+                for secret in sorted(REDACT, key=len, reverse=True):
+                    logs = logs.replace(secret, "[REDACTED]")
+                print("NATIVE_CONTAINER_LOG=" + name + "\n" + logs[-4000:], flush=True)
+            except Exception:
+                pass
         raise
     finally:
         stop_core()
@@ -361,6 +396,8 @@ def run_acceptance(report):
             except AcceptanceError:
                 cleanup_ok = False
         private.cleanup()
+        NATIVE_ORIGINS.clear()
+        REDACT.clear()
         report["resources_removed"] = cleanup_ok
         if report["status"] == "passed" and not cleanup_ok:
             report["status"] = "cleanup_failed"
