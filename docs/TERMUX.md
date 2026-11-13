@@ -1,48 +1,64 @@
-# Verdugo Digital — Termux (Android sin root)
+# Ejecutar el núcleo en Termux
 
-Este procedimiento instala **solo el núcleo local** de Verdugo Digital y un panel de estado para diez proyectos. No instala PostHog, GrowthBook, erxes, Mautic, Dittofeed, RudderStack, OpenReplay, Twenty, Countly ni Formbricks. La referencia a esos diez repositorios sigue fija en `upstream/` como Git submodules: **referencia al código no significa servicio operativo**.
+El desarrollo queda en GitHub. No se instala ni contrata alojamiento remoto.
+Esto instala el núcleo comercial local, **no los diez servidores originales**.
+La compatibilidad final con el teléfono todavía requiere ejecutar esta prueba.
 
-## Instalar en el móvil
-
-Abrir Termux y ejecutar:
+## Instalación nueva, sin tocar una copia anterior
 
 ```sh
 pkg update -y
 pkg install -y git
 cd "$HOME"
-git clone --single-branch --branch feat/growth-engine-ten-clean-20261112 https://github.com/josuechavando350-png/Verdugo-Digital.git
-cd Verdugo-Digital
+git clone --single-branch --branch feat/growth-engine-ten-clean-20261112 https://github.com/josuechavando350-png/Verdugo-Digital.git Verdugo-Digital-growth
+cd Verdugo-Digital-growth
 bash scripts/termux-install.sh
 bash scripts/termux-doctor.sh
+node scripts/growth-demo.mjs
 bash scripts/termux-run.sh
 ```
 
-El panel estará en **http://127.0.0.1:8177**, solo desde el propio teléfono. Requiere el token creado localmente en `~/.config/verdugo/environment` (permiso 600). No publicar ese archivo ni los endpoints privados.
+No se descargan los diez submódulos al instalar. Clonarlos no inicia sus servicios.
+El instalador exige Node >=22.16 y comprueba `node:sqlite`, sin paquetes NPM.
+Si esa capacidad no está disponible, la instalación se detiene; no se informa
+éxito ni se inventa compatibilidad de Android.
 
-Los submódulos upstream **no se descargan** durante la instalación, ya que hacerlo consume muchos recursos y no instala sus servidores ni sus bases de datos.
+Abrir `http://127.0.0.1:8177` desde el mismo teléfono. El servidor corre en primer
+plano y se detiene con Ctrl+C; no es un servicio 24/7 certificado. Android puede
+interrumpir procesos. La base SQLite persiste fuera del repositorio, pero esto
+no garantiza disponibilidad continua ni sustituye un respaldo.
 
-## Verificar
+Para leer el token en otra sesión local de Termux:
+
+```sh
+sed -n 's/^VERDUGO_CONTROL_TOKEN=//p' "$HOME/.config/verdugo/environment"
+```
+
+Introducirlo en el panel. No publicarlo ni compartirlo en el chat. No se almacena
+en localStorage del navegador. Cerrar o recargar la página obliga a introducirlo
+otra vez. El panel permite captar prospectos, modificar etapas, registrar ventas
+declaradas y actualizar consentimiento.
+
+## Rutas privadas
+
+- Configuración: `~/.config/verdugo/`, permisos 0700; archivos 0600.
+- Base: `~/.local/share/verdugo/growth.sqlite`, fuera de Git.
+- `VERDUGO_STATE_DB`, `VERDUGO_WORKSPACE` y `PORT` permiten una configuración local
+  distinta. El token se aplica al espacio configurado, no al elegido por una petición.
+
+No hay proveedores habilitados por defecto ni envíos al iniciar. No añada secretos
+a archivos del repositorio. Los contratos y límites están en [GROWTH_CORE.md](GROWTH_CORE.md).
+
+## Pruebas
 
 ```sh
 node --test tests/*.test.mjs
 python -m unittest discover -s tests -p 'test_*.py' -v
-node scripts/termux-status.mjs
+node scripts/growth-demo.mjs
 ```
 
-Para obtener JSON: `node scripts/termux-status.mjs --json`. El modo `--require-ten-live` falla correctamente con código 2 mientras falte cualquier endpoint **o** una verificación E2E auténtica. Un endpoint HTTP 200 solo indica conectividad básica.
-
-## Conexiones configurables
-
-El archivo privado `~/.config/verdugo/endpoints.json` admite URLs **de salud** de sistemas que realmente estén en ejecución y bajo tu control. Ejemplo estructural (el dominio no es real):
-
-```json
-{"posthog":"https://tu-servidor.example/health"}
-```
-
-Solo se admite HTTPS, salvo HTTP al propio bucle local 127.0.0.1. Un token o contraseña **nunca** debe colocarse en la URL. Esta versión no implementa autenticación de cada API ni sincronización de datos; solo informa sobre disponibilidad.
-
-## Limitaciones no negociables
-
-Instalar diez servicios upstream íntegros en un teléfono con Termux convencional no es un objetivo compatible garantizable: varios están diseñados para Docker/Kubernetes, x86_64, múltiples bases de datos y cantidades altas de RAM y almacenamiento. PRoot no aporta cgroups ni namespaces reales. No se instalarán infraestructuras remotas sin autorización.
-
-La rama `main` y el respaldo `backup/pre-growth-ten-20261112` se conservan hasta que exista aceptación real de un producto único, con protección de datos, sincronización de identidad y pruebas E2E.
+La demo es sintética, usa una base temporal, la reabre para comprobar persistencia
+y la elimina al terminar. No representa clientes reales, ingresos o capturas.
+Las pruebas de adaptadores usan servidores HTTP locales de prueba, no proveedores
+auténticos. `node scripts/termux-status.mjs --require-ten-live` seguirá fallando
+correctamente mientras no exista aceptación E2E real de los diez.

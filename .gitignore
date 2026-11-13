@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+environment
+connections.json
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+node_modules/
+__pycache__/
+*.pyc
+playwright-report/
+test-results/

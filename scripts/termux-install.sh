@@ -7,16 +7,21 @@ if ! command -v pkg >/dev/null 2>&1; then
   exit 2
 fi
 pkg install -y nodejs git openssl curl python
-node -e "if(Number(process.versions.node.split('.')[0])<22)process.exit(1)"
+node --input-type=module -e 'import {DatabaseSync} from "node:sqlite"; const [major,minor]=process.versions.node.split(".").map(Number); if(major<22 || (major===22 && minor<16))process.exit(1); const db=new DatabaseSync(":memory:"); db.close();'
 CONFIG="$HOME/.config/verdugo"
 mkdir -p "$CONFIG"
 chmod 700 "$CONFIG"
+if [ -L "$CONFIG/environment" ] || [ -L "$CONFIG/endpoints.json" ]; then
+  echo 'No se aceptan archivos de configuración que sean enlaces simbólicos.' >&2
+  exit 2
+fi
 if [ ! -f "$CONFIG/environment" ]; then
   printf 'VERDUGO_CONTROL_TOKEN=%s\n' "$(openssl rand -hex 32)" > "$CONFIG/environment"
 fi
 chmod 600 "$CONFIG/environment"
 if [ ! -f "$CONFIG/endpoints.json" ]; then printf '{}\n' > "$CONFIG/endpoints.json"; fi
 chmod 600 "$CONFIG/endpoints.json"
-echo 'Instalado el núcleo de Verdugo para Termux, NO los 10 servidores externos.'
-echo "Diagnóstico: bash $ROOT/scripts/termux-doctor.sh"
+echo 'Núcleo local preparado: prospectos, eventos y ventas declaradas en SQLite.'
+echo 'No se instalaron los diez servidores upstream. No hay envíos externos habilitados.'
+echo "Prueba sintética: node $ROOT/scripts/growth-demo.mjs"
 echo "Inicio: bash $ROOT/scripts/termux-run.sh"

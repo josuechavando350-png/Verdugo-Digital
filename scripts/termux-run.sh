@@ -11,5 +11,5 @@ set -a
 source "$CONFIG/environment"
 set +a
 export VERDUGO_ENDPOINTS_JSON="$CONFIG/endpoints.json"
-export PORT=8177 BIND_ADDRESS=127.0.0.1
+export PORT="${PORT:-8177}" BIND_ADDRESS=127.0.0.1
 exec node "$ROOT/lib/control-plane.mjs"

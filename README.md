@@ -1,73 +1,73 @@
-# Verdugo Digital — Growth Engineering (reconstrucción)
+# Verdugo Digital — núcleo comercial local
 
-Rama de trabajo dedicada exclusivamente a 10 proyectos upstream de Growth Engineering. La rama `main` conserva el producto anterior y `backup/pre-growth-ten-20261112` conserva un respaldo idéntico de su estado inicial.
+Desarrollo en GitHub; ejecución prevista en Termux. No requiere contratar Railway,
+Render ni otro alojamiento para usar el núcleo local. Esta rama sigue siendo una
+reconstrucción en curso, **no la integración completa de los diez servidores**.
 
-## Estado comprobable
+## Implementado en esta revisión
 
-| Evidencia | Resultado |
+- Un panel y una API local para capturar prospectos, calificarlos o descartarlos,
+  registrar ventas declaradas y actualizar consentimiento.
+- SQLite transaccional: historial de eventos, persistencia tras reinicio,
+  separación por espacio de trabajo y deduplicación por identificador de evento.
+- Ventas en unidades menores enteras, pedidos únicos y totales por moneda
+  (MXN, USD, EUR). Son declaraciones del operador, **no cobros conciliados**.
+- Cola persistente para dos adaptadores HTTP: PostHog y RudderStack. Están
+  desactivados por defecto. Retirar consentimiento cancela trabajos pendientes.
+- Los envíos inciertos no se repiten automáticamente. La cola queda ligada al
+  destino y credencial originales para no redirigir datos por un cambio de configuración.
+- Autenticación local, límite de cuerpo JSON, control de origen/Host y archivos
+  privados. Sin campañas, correos, SMS, inversión publicitaria ni cargos externos.
+
+## Estado de los diez proyectos
+
+| Evidencia | Estado |
 |---|---|
-| Repositorios upstream identificados | 10/10 |
-| Referencias Git submodule registradas y fijadas por SHA | 10/10 |
-| Submódulos descargados y dependencias instaladas | **0/10 verificados** |
-| Servicios levantados y conectados por API | **0/10 verificados** |
-| Pruebas reales E2E entre proveedores | **0/10 verificadas** |
-| Despliegues productivos certificados | **0/10** |
+| Repositorios upstream fijados mediante submódulos | 10/10 |
+| Adaptadores de eventos implementados y probados con HTTP local sintético | 2/10: PostHog y RudderStack |
+| Aplicaciones upstream instaladas y verificadas | 0/10 |
+| Integraciones aceptadas contra proveedores auténticos | 0/10 |
+| Flujo E2E de los diez originales | No ejecutado |
+| Ejecución del núcleo en el Android del usuario | Pendiente |
 
-**Nota:** un submódulo Git incorpora una referencia al código original y un commit exacto; **no** instala ni ejecuta el servicio y no demuestra compatibilidad. El archivo `stack/catalog.json` refleja el estado operativo, no el número de repositorios enlazados.
+El núcleo es código propio; **no sustituye ni reproduce todas las capacidades** de
+PostHog, GrowthBook, erxes, Mautic, Dittofeed, RudderStack, OpenReplay, Twenty,
+Countly o Formbricks. Los otros ocho adaptadores operativos siguen pendientes.
+`stack/catalog.json` conserva el estado no certificado de los diez proveedores.
 
-## Código upstream
+## Ejecutar
 
-Los diez proyectos están vinculados en `upstream/` como Git submodules. Son PostHog, GrowthBook, erxes, Mautic, Dittofeed, RudderStack (rudder-server), OpenReplay, Twenty, Countly (countly-server) y Formbricks. Las versiones quedan fijadas por gitlinks del commit de esta rama, evitando actualizaciones involuntarias.
-
-En un equipo con Git y conexión a Internet:
-
-```sh
-git clone --filter=blob:none https://github.com/josuechavando350-png/Verdugo-Digital.git
-cd Verdugo-Digital
-git switch feat/growth-engine-ten-clean-20261112
-git submodule update --init --recursive --depth 1
-git submodule status
-python3 -m unittest discover -s tests -v
-```
-
-**Advertencia:** la descarga puede requerir bastante espacio, memoria y ancho de banda; algunos proyectos poseen submódulos internos o dependencias grandes. Clonar submódulos tampoco equivale a instalar sus requisitos de servicio.
-
-## Qué significa convertirlo en un solo producto
-
-1. Especificar versiones, licencias y requisitos operativos de los diez sistemas.
-2. Desplegarlos en infraestructura autorizada con configuraciones y secretos independientes.
-3. Construir un control plane Nexus, identidad canónica, esquemas de eventos y contratos por API.
-4. Definir **una autoridad** para CRM (Twenty vs. erxes), analítica (PostHog vs. Countly) y envíos (Mautic vs. Dittofeed).
-5. Probar transacciones consentidas de extremo a extremo con servicios **reales**, incluyendo deduplicación, cancelación de consentimientos, reintentos, recuperación y seguridad.
-6. Habilitar la interfaz única y el despliegue productivo solo si la prueba de aceptación demuestra comunicación entre los diez.
-
-El plan de componentes y responsabilidades está en `docs/ARCHITECTURE.md`.
-
-## Verificación local y CI
-
-```sh
-python3 -m unittest discover -s tests -v
-```
-
-La prueba de catálogo verifica diez proyectos, el manifiesto de submódulos y diez referencias Git fijadas. No simula pruebas de servicios reales ni certifica operaciones comerciales. CI está definido en `.github/workflows/catalog-validation.yml`.
-
-## Capa unificada en desarrollo
-
-`lib/control-plane.mjs` ofrece un endpoint Nexus único para consultar el catálogo y el estado de conectividad de los 10 sistemas; se ejecuta localmente con Node 22+, sin dependencias NPM. Sus cinco pruebas automatizadas emplean **servidores HTTP locales simulados** y no equivalen a comunicación E2E real entre proveedores. Consultar [`docs/CONTROL_PLANE.md`](docs/CONTROL_PLANE.md).
-
-```sh
-node --test tests/control-plane.test.mjs
-```
-
-
-## Termux — núcleo Android sin servicios remotos
-
-Se añadieron instalador, diagnóstico, panel único y comprobaciones reproducibles en `scripts/termux-*.sh`, `scripts/termux-status.mjs` y `public/index.html`. La aplicación local se ejecuta únicamente en `127.0.0.1:8177`; las rutas privadas de API exigen token. Consultar [la guía de Termux](docs/TERMUX.md).
+Requiere Node.js >=22.16 con `node:sqlite` disponible; no hay dependencias NPM.
+El instalador comprueba esa capacidad antes de continuar. SQLite sigue siendo
+experimental en Node 22; su disponibilidad real se comprueba, no se presupone.
 
 ```sh
 bash scripts/termux-install.sh
-bash scripts/termux-doctor.sh
+node scripts/growth-demo.mjs
 bash scripts/termux-run.sh
 ```
 
-**No implica la instalación ni la integración real de los diez servidores upstream.** La comprobación de servicios externos es de conectividad; un estado `reachable` no equivale a un adaptador API probado ni a un flujo comercial E2E. No utilizar `main` para este nuevo alcance hasta su aceptación real.
+Abrir `http://127.0.0.1:8177` en el mismo equipo. El token se genera localmente en
+`~/.config/verdugo/environment`. La base predeterminada está en
+`~/.local/share/verdugo/growth.sqlite`, fuera del repositorio. No subir estos datos
+ni secretos a GitHub. La demo usa datos sintéticos, borra su base temporal y no
+realiza solicitudes externas.
+
+[Instalación y límites en Termux](docs/TERMUX.md) ·
+[API y contratos de los adaptadores](docs/GROWTH_CORE.md)
+
+## Verificación
+
+```sh
+node --test tests/*.test.mjs
+python -m unittest discover -s tests -p 'test_*.py' -v
+node scripts/growth-demo.mjs
+```
+
+El workflow comprueba Node 22.16 y Node 24 en Linux, el catálogo de diez fuentes,
+las transacciones, la API, el aislamiento, el consentimiento y los contratos HTTP
+con servidores de prueba locales. **No equivale a probar Android ni a instalar
+los diez proveedores**. Consultar la ejecución del commit concreto en Actions.
+
+`main` y `backup/pre-growth-ten-20261112` se conservan. El PR #14 permanece en
+borrador hasta la aceptación del alcance completo; no se ha contratado alojamiento.
