@@ -53,7 +53,9 @@ jobs:
           assert data.get('all_ten_native_api_contracts_verified') is True
           assert data.get('all_ten_integrated') is True
           assert proof.get('posthog',{}).get('event_capture_verified') is True
+          assert proof.get('posthog',{}).get('event_capture_after_restart_verified') is True
           assert proof.get('openreplay',{}).get('session_capture_verified') is True
+          assert proof.get('openreplay',{}).get('recorded_dom_readback_verified') is True
           assert checks and all(v is True for v in checks.values())
           assert data.get('mock_providers') is False
           assert data.get('synthetic_data') is True
@@ -61,6 +63,12 @@ jobs:
           print('TEN_ORIGINALS_JOINT_NATIVE_ACCEPTANCE=PASSED')
           print('PERMANENT_INSTALLATION=NOT_VERIFIED')
           PY
+      - name: Inspect runner capacity after the native attempt
+        if: always()
+        run: |
+          free -h
+          df -h /
+          docker system df || true
       - name: Upload redacted machine-readable evidence even on failure
         if: always()
         uses: actions/upload-artifact@v4
