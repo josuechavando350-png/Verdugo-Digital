@@ -1,0 +1,39 @@
+[submodule "upstream/posthog"]
+	path = upstream/posthog
+	url = https://github.com/PostHog/posthog.git
+
+[submodule "upstream/growthbook"]
+	path = upstream/growthbook
+	url = https://github.com/growthbook/growthbook.git
+
+[submodule "upstream/erxes"]
+	path = upstream/erxes
+	url = https://github.com/erxes/erxes.git
+
+[submodule "upstream/mautic"]
+	path = upstream/mautic
+	url = https://github.com/mautic/mautic.git
+
+[submodule "upstream/dittofeed"]
+	path = upstream/dittofeed
+	url = https://github.com/dittofeed/dittofeed.git
+
+[submodule "upstream/rudderstack"]
+	path = upstream/rudderstack
+	url = https://github.com/rudderlabs/rudder-server.git
+
+[submodule "upstream/openreplay"]
+	path = upstream/openreplay
+	url = https://github.com/openreplay/openreplay.git
+
+[submodule "upstream/twenty"]
+	path = upstream/twenty
+	url = https://github.com/twentyhq/twenty.git
+
+[submodule "upstream/countly"]
+	path = upstream/countly
+	url = https://github.com/Countly/countly-server.git
+
+[submodule "upstream/formbricks"]
+	path = upstream/formbricks
+	url = https://github.com/formbricks/formbricks.git
