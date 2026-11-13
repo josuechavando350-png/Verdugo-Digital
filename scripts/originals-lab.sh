@@ -69,7 +69,9 @@ for i in $(seq 1 60); do
   [[ "$i" != 60 ]] || { echo 'Mautic entrypoint never initialized.' >&2; exit 1; }
   sleep 2
 done
-"${DC[@]}" exec -T --user www-data mautic sh -c 'cd /var/www/html && php bin/console mautic:install http://localhost:18080 --admin_email=operator@example.invalid --admin_username=verdugo_lab --admin_password="$LAB_ADMIN_PASSWORD" --admin_firstname=Verdugo --admin_lastname=Laboratory --no-interaction'
+"${DC[@]}" exec -T --user www-data mautic sh -c 'cd /var/www/html && php bin/console mautic:install http://localhost:18080 --admin_email=operator@example.invalid --admin_username=verdugo_lab --admin_password="$LAB_ADMIN_PASSWORD" --admin_firstname=Verdugo --admin_lastname=Laboratory --no-interaction --force' | tee .lab-private/mautic-install.log
+# Mautic can return zero after declining optional setup; require its completion marker.
+grep -q 'Install complete' .lab-private/mautic-install.log || { echo 'Mautic did not complete its installer.' >&2; exit 1; }
 # Explicit original Mautic config; its Docker template only supplies DB fields.
 "${DC[@]}" exec -T --user www-data mautic php -r '$f="/var/www/html/config/local.php"; include $f; $parameters["api_enabled"]=true; $parameters["api_enable_basic_auth"]=true; $parameters["mailer_dsn"]="null://null"; file_put_contents($f,"<?php\n\$parameters = ".var_export($parameters,true).";\n");'
 "${DC[@]}" exec -T --user www-data mautic sh -c 'cd /var/www/html && php bin/console cache:clear --env=prod --no-interaction'
