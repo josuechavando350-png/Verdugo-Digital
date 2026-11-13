@@ -11,7 +11,7 @@ permissions:
   contents: read
 concurrency:
   group: native-original-pair-${{ github.head_ref || github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 jobs:
   real-original-pair:
     if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
