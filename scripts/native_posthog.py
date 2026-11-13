@@ -75,6 +75,16 @@ class PostHog(Application):
             mounts=[(str(config),'/etc/clickhouse-server/config.d/posthog-native.xml')])
         self.wait(lambda:self.docker('exec',self.find('ph-clickhouse'),'clickhouse-client',
             '--password',chpass,'--query','SELECT 1',timeout=10))
+        # An available ClickHouse host is not sufficient: the original
+        # migration cluster and authenticated distributed query must both work.
+        self.wait(lambda:self.docker('exec',self.find('ph-clickhouse'),'clickhouse-client',
+            '--password',chpass,'--query',
+            "SELECT count() FROM system.clusters WHERE cluster='posthog_migrations'",
+            timeout=10).strip()=='1',seconds=120)
+        self.wait(lambda:self.docker('exec',self.find('ph-clickhouse'),'clickhouse-client',
+            '--password',chpass,'--query',
+            "SELECT count() FROM cluster('posthog_migrations', system.one)",
+            timeout=10).strip()=='1',seconds=120)
         db='postgres://postgres:'+dbpass+'@ph-postgres:5432/posthog'
         redis='redis://:'+redispass+'@ph-redis:6379';self.n.mask_secret(db);self.n.mask_secret(redis)
         env={'DATABASE_URL':db,'REDIS_URL':redis,'SECRET_KEY':self.secret(),
