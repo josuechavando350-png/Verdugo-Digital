@@ -63,7 +63,7 @@ class RudderNativeGuards(unittest.TestCase):
     def test_gateway_success_is_not_downstream_success(self):
         report=native.evidence_base(True,True)
         facade=Mock();facade.AcceptanceError=native.AcceptanceError
-        facade.request.return_value={'http_status':200,'body':'OK'}
+        facade.request.return_value={'http_status':200,'body':'ok'}
         adapter=rudder.RudderStackTransport(facade)
         adapter.base='http://172.20.0.8:8080';adapter.write_key='w'*32;adapter.report=report
         params={'app_key':'k'*32,'device_id':'synthetic-id','events':'[{"key":"sample","count":1}]'}
@@ -76,9 +76,13 @@ class RudderNativeGuards(unittest.TestCase):
         self.assertEqual(report['verified_originals'],[])
         with self.assertRaises(native.AcceptanceError):native.require_all_checks(report)
 
+    def test_image_versions_are_locked_to_observed_native_digests(self):
+        for ref in rudder.IMAGES.values():
+            self.assertRegex(ref, r'^[a-z0-9/_-]+@sha256:[0-9a-f]{64}$')
+
     def test_gateway_wrong_response_does_not_claim_acceptance(self):
         facade=Mock();facade.AcceptanceError=native.AcceptanceError
-        facade.request.return_value={'http_status':200,'body':'unexpected'}
+        facade.request.return_value={'http_status':200,'body':'OK'}
         adapter=rudder.RudderStackTransport(facade);adapter.write_key='w'*32
         adapter.base='http://172.20.0.8:8080';adapter.report=native.evidence_base(True,True)
         with self.assertRaises(native.AcceptanceError):

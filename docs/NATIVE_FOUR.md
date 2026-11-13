@@ -13,7 +13,7 @@ una write key temporal. Una configuración local soportada conecta esa fuente a
 la integración HTTP original del transformador: mapea la solicitud al formato
 FORM requerido por la API real de Countly.
 
-En este perfil **no existe fallback de envío directo a Countly**. Un `OK` del
+En este perfil **no existe fallback de envío directo a Countly**. Un `ok` del
 gateway RudderStack no prueba entrega. Para aprobar se exige leer en Countly el
 recuento exacto y la misma segmentación, conservarlos después del reinicio y
 entregar un evento nuevo por RudderStack después de reiniciarlo con su base.
@@ -28,15 +28,18 @@ se conservan. La ejecución usa solamente una red Docker interna y el núcleo de
 Verdugo en loopback; no se habilitan campañas ni comunicaciones con personas.
 Countly tiene un alias DNS privado estable para evitar IPs de destino obsoletas.
 
-## Versiones
+## Versiones y corrección observada
 
-Las seis imágenes del circuito anterior ya están fijadas por digest. Para los
-tres componentes nuevos se usan inicialmente las referencias oficiales de sus
-repositorios, se resuelven a IDs inmutables antes de ejecutar y se conservan los
-digests observados. Esto **no es aún un lock entre ejecuciones** para RudderStack;
-se deben fijar los digests de una ejecución válida antes de usar el perfil como
-instalación reproducible entre equipos. Ninguna imagen se equipara por su nombre
-al SHA Git de un submódulo.
+Las nueve imágenes están fijadas por digest. Los tres digests de RudderStack,
+su transformador y PostgreSQL se observaron en la ejecución 43388266789. Esa
+corrida inició todos los contenedores, pero falló porque la prueba esperaba
+incorrectamente `OK`: el contrato original del gateway devuelve `ok` en minúsculas.
+La corrección conserva la exigencia de HTTP 200 y del cuerpo exacto, más todas las
+lecturas posteriores de Countly; no convierte un simple acuse en aceptación E2E.
+El transformador debe responder a `/features` antes de iniciar el gateway.
+
+Fijar las identidades de las imágenes no significa que la integración esté aprobada,
+ni equipara las imágenes con los commits Git de los submódulos.
 
 ## Estado de aceptación
 
@@ -47,7 +50,7 @@ ZIP descargado coincide con SHA256
 La evidencia extraída está en `evidence/accepted/native-trio-43386318494.json`.
 
 El perfil nuevo de CUATRO queda **pendiente de su propia ejecución nativa** al
-publicar esta revisión. Sus pruebas unitarias no cuentan como aplicaciones
+publicar esta corrección. Sus pruebas unitarias no cuentan como aplicaciones
 instaladas. Tampoco se mezclan éxitos de dos perfiles para afirmar uno mayor.
 
 Incluso si el perfil de cuatro aprueba, `all_ten_integrated`,
@@ -58,6 +61,7 @@ son efímeros y se eliminan al terminar; no hay instalación permanente en Termu
 
 - https://github.com/rudderlabs/rudder-server/blob/46504088bef2f70bf0d650e8202c0f7c54f33f11/rudder-docker.yml
 - https://github.com/rudderlabs/rudder-server/blob/46504088bef2f70bf0d650e8202c0f7c54f33f11/backend-config/types.go
+- https://github.com/rudderlabs/rudder-server/blob/46504088bef2f70bf0d650e8202c0f7c54f33f11/gateway/response/response.go
 - https://github.com/rudderlabs/rudder-transformer/blob/55bc61f15179931c740c6b0fa547ee012cfcd930/test/integrations/destinations/http/common.ts
 - https://www.rudderstack.com/docs/get-started/rudderstack-open-source/control-plane-lite/
 - https://www.rudderstack.com/docs/rudder-cli/destination-types/http-webhook/

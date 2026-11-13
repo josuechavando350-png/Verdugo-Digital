@@ -13,12 +13,12 @@ import urllib.parse
 import uuid
 from pathlib import Path
 
-# Official references are resolved to immutable IDs and recorded before execution.
-# First successful execution must publish its observed digest lock before production use.
+# Digests observed in native run 43388266789; identity is not proof of acceptance.
+# Keep the same upstream builds across corrections and record executed image IDs.
 IMAGES = {
-    'rudder_postgres': 'postgres:15-alpine',
-    'rudder_server': 'rudderlabs/rudder-server:latest',
-    'rudder_transformer': 'rudderstack/rudder-transformer:latest',
+    'rudder_postgres': 'postgres@sha256:fc41cfa8a90c09e84dd723ee764be4b2f59ba6c98b1e5b3fca540adddf68a5ba',
+    'rudder_server': 'rudderlabs/rudder-server@sha256:35425ca909205c828254d51743e4e67c648ebbe05aea876c73ea24b118105c4a',
+    'rudder_transformer': 'rudderstack/rudder-transformer@sha256:5bd708aa47aed0d39e7505f5bf2e466cbf2689ebd32d88f74312ef3c5d404112',
 }
 
 
@@ -90,10 +90,11 @@ class RudderStackTransport:
             'POSTGRES_USER': 'rudder', 'POSTGRES_DB': 'jobsdb', 'POSTGRES_PASSWORD': db_password})
         pg = self._find('rudder-postgres')
         n.wait_until(lambda: docker('exec', pg, 'pg_isready', '-U', 'rudder', '-d', 'jobsdb', timeout=10))
-        start('rudder-transformer', refs['rudder_transformer'], alias='rudder-transformer', port=9090, env={
+        transformer_base = start('rudder-transformer', refs['rudder_transformer'], alias='rudder-transformer', port=9090, env={
             'NODE_OPTIONS': '--max-old-space-size=768', 'LOG_LEVEL': 'warn',
             'DISABLE_INTEGRATION_CACHE': 'true',
         })
+        n.wait_until(lambda: n.request(transformer_base + '/features') is not None)
         self.base = start('rudder-server', refs['rudder_server'], port=8080, env={
             'JOBS_DB_HOST': 'rudder-postgres', 'JOBS_DB_USER': 'rudder',
             'JOBS_DB_PORT': '5432', 'JOBS_DB_DB_NAME': 'jobsdb',
@@ -139,7 +140,8 @@ class RudderStackTransport:
         }
         ack = self.native.request(self.base + '/v1/track', data=payload,
                                   headers={'Authorization': auth}, expect_json=False)
-        if ack.get('http_status') != 200 or ack.get('body', '').strip() != 'OK':
+        # Native gateway/response/response.go defines Ok as the lowercase literal 'ok'.
+        if ack.get('http_status') != 200 or ack.get('body', '').strip() != 'ok':
             raise self.native.AcceptanceError('rudderstack_gateway_not_accepted')
         self.report['checks']['rudderstack_gateway_accepted'] = True
         # This means only gateway acceptance. The caller must verify the real Countly
