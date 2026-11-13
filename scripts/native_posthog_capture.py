@@ -16,9 +16,9 @@ import urllib.parse
 # Resolved to image IDs and observed digests by native-pair-acceptance.py on every run.
 # They are not asserted equivalent to the pinned Git submodule commit.
 IMAGES = {
-    'posthog_kafka': 'docker.io/redpandadata/redpanda:v25.1.9',
-    'posthog_capture': 'ghcr.io/posthog/posthog/capture:master',
-    'posthog_ingestion': 'ghcr.io/posthog/posthog-node:master',
+    'posthog_kafka': 'docker.io/redpandadata/redpanda@sha256:8f7e9e4c1422baaa1a5e2a6c6c668cfe05442cb3cb476542c7dff61725e6fe31',
+    'posthog_capture': 'ghcr.io/posthog/posthog/capture@sha256:938d2521f972fec147cb7fc8e522d70b29304473f096eb39b7f06708465bfe15',
+    'posthog_ingestion': 'ghcr.io/posthog/posthog-node@sha256:a8263787d761e32a253b4b5c4518c42f36ede105ef6afb5ef8194def01ca5384',
 }
 
 
