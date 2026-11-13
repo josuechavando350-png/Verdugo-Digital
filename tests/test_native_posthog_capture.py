@@ -101,9 +101,25 @@ class PostHogCaptureGuards(TestCase):
             cap.capture_and_readback(EVENT,project_token='p'*32)
 
     def test_images_are_original_not_test_servers(self):
-        self.assertIn('ghcr.io/posthog/posthog/capture:',IMAGES['posthog_capture'])
-        self.assertIn('ghcr.io/posthog/posthog-node:',IMAGES['posthog_ingestion'])
-        self.assertIn('redpandadata/redpanda:',IMAGES['posthog_kafka'])
+        import re
+        self.assertRegex(IMAGES['posthog_capture'],r'^ghcr[.]io/posthog/posthog/capture@sha256:[a-f0-9]{64}
+        for key in IMAGES:self.assertIn(key,PostHog.images)
+
+if __name__=='__main__':
+    main()
+)
+        self.assertRegex(IMAGES['posthog_ingestion'],r'^ghcr[.]io/posthog/posthog-node@sha256:[a-f0-9]{64}
+        for key in IMAGES:self.assertIn(key,PostHog.images)
+
+if __name__=='__main__':
+    main()
+)
+        self.assertRegex(IMAGES['posthog_kafka'],r'^docker[.]io/redpandadata/redpanda@sha256:[a-f0-9]{64}
+        for key in IMAGES:self.assertIn(key,PostHog.images)
+
+if __name__=='__main__':
+    main()
+)
         for key in IMAGES:self.assertIn(key,PostHog.images)
 
 if __name__=='__main__':
