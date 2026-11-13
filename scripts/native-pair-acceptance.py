@@ -107,7 +107,7 @@ def command(args: list[str], *, timeout=180, input_text=None) -> str:
 
 def pull_image(docker, ref, *, max_attempts=6, sleeper=time.sleep):
     """Retry only verified registry throttling; never return a fake image success."""
-    if not isinstance(max_attempts, int) or not 1 <= max_attempts <= 6:
+    if type(max_attempts) is not int or not 1 <= max_attempts <= 6:
         raise AcceptanceError("invalid_pull_attempt_limit")
     for index in range(max_attempts):
         try:
