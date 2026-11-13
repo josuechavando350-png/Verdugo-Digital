@@ -34,10 +34,12 @@ class CatalogContractTest(unittest.TestCase):
     def test_submodule_manifest_matches_catalog(self):
         parser = configparser.ConfigParser()
         self.assertTrue(parser.read(ROOT / ".gitmodules", encoding="utf-8"))
-        self.assertEqual(len(parser.sections()), 10)
+        # Preserve the exact original ten; portfolio sources are tested separately.
+        original_sections=[s for s in parser.sections() if parser[s].get('path','').startswith('upstream/')]
+        self.assertEqual(len(original_sections), 10)
         for item in self.items:
             section = 'submodule "upstream/' + item["id"] + '"'
-            self.assertIn(section, parser.sections())
+            self.assertIn(section, original_sections)
             self.assertEqual(parser[section]["path"], "upstream/" + item["id"])
             self.assertEqual(parser[section]["url"], item["upstream_url"] + ".git")
 
