@@ -235,6 +235,16 @@ def contact_route(contact, expected):
     return next(value for value in values if value == expected)
 
 
+def private_writable_mount(source, root, destination):
+    """Only disposable child directories; never mount arbitrary host state writable."""
+    path, base = Path(source), Path(root).resolve()
+    resolved = path.resolve()
+    if (destination not in ('/mnt/efs', '/data') or path.is_symlink()
+            or not path.is_dir() or resolved == base or not resolved.is_relative_to(base)):
+        raise AcceptanceError('native_writable_mount_not_owned')
+    return f'type=bind,src={resolved},dst={destination}'
+
+
 def run_acceptance(report, *, include_growthbook=False, transport=None):
     if type(include_growthbook) is not bool or report.get("growthbook_requested", False) is not include_growthbook:
         raise AcceptanceError("native_profile_mismatch")
@@ -272,7 +282,7 @@ def run_acceptance(report, *, include_growthbook=False, transport=None):
     def docker(*args, **kwargs):
         return command(["docker", *args], **kwargs)
 
-    def start(name, image_id, *, env=None, alias=None, port=None, args=(), mounts=()):
+    def start(name, image_id, *, env=None, alias=None, port=None, args=(), mounts=(), writable_dirs=()):
         cname = prefix + "-" + name
         cmd = ["run", "-d", "--name", cname, "--network", network,
                "--label", "verdugo.acceptance=" + prefix, "--memory", "1536m"]
@@ -285,6 +295,8 @@ def run_acceptance(report, *, include_growthbook=False, transport=None):
             if not resolved.is_relative_to(temp.resolve()) or not resolved.is_file():
                 raise AcceptanceError("native_mount_must_be_private_lab_file")
             cmd += ["--mount", f"type=bind,src={resolved},dst={destination},readonly"]
+        for source, destination in writable_dirs:
+            cmd += ['--mount', private_writable_mount(source, temp, destination)]
         # Register names before starting so even partially-created containers are removed.
         started.append(cname)
         log("start_" + name)

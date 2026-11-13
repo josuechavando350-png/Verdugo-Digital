@@ -72,6 +72,7 @@ COMMIT;""" % self.password
             'ASSIST_RECORDS_BUCKET':'assist','IOS_VIDEO_BUCKET':'sessions','root_path':'',
             'PG_MINCONN':'1','PG_MAXCONN':'3','PG_AIO_MINCONN':'1','PG_AIO_MAXCONN':'3',
             'CH_MINCONN':'1','CH_MAXCONN':'2','LOGLEVEL':'WARNING','LISTEN_PORT':'8000','LOCAL_DEV':'false'})
+        self.native_env=dict(env)
         self.base=self.launch('openreplay','openreplay',port=8000,env=env)
         self.wait(lambda:self.http.call(self.base+'/signup').get('data',{}).get('tenants') is True,seconds=360)
         self.login();self.http.call(self.base+'/projects',headers=self.headers)

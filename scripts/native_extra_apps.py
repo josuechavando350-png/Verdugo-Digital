@@ -22,20 +22,25 @@ class NativeSession:
         self.opener = urllib.request.build_opener(urllib.request.ProxyHandler({}),
             native.NoRedirect(), urllib.request.HTTPCookieProcessor(self.cookies))
 
-    def call(self, url, *, data=None, method=None, headers=None, statuses=(200,), raw=False):
+    def call(self, url, *, data=None, method=None, headers=None, statuses=(200,), raw=False, body_bytes=None, response_bytes=False):
         u=urllib.parse.urlsplit(url)
         if u.scheme!='http' or u.username or u.password or u.fragment or (
                 u.hostname!='127.0.0.1' and u.scheme+'://'+u.netloc not in self.n.NATIVE_ORIGINS):
             raise self.n.AcceptanceError('extra_origin_not_authorized')
         body=None; h=dict(headers or {})
+        if body_bytes is not None:
+            if data is not None or not isinstance(body_bytes,bytes) or len(body_bytes)>1_048_576:
+                raise self.n.AcceptanceError('extra_invalid_binary_body')
+            body=body_bytes;h.setdefault('Content-Type','application/octet-stream')
         if data is not None:
             body=json.dumps(data).encode();h.setdefault('Content-Type','application/json')
-        req=urllib.request.Request(url,data=body,headers=h,method=method or ('POST' if data is not None else 'GET'))
+        req=urllib.request.Request(url,data=body,headers=h,method=method or ('POST' if body is not None else 'GET'))
         try:
             with self.opener.open(req,timeout=20) as r:
                 if r.status not in statuses:raise self.n.AcceptanceError('extra_http_status_'+str(r.status))
                 value=r.read(1_048_577)
                 if len(value)>1_048_576:raise self.n.AcceptanceError('extra_response_too_large')
+                if response_bytes:return value
                 if raw:return value.decode('utf8')
                 return json.loads(value) if value.strip() else {'http_status':r.status}
         except urllib.error.HTTPError as e:
