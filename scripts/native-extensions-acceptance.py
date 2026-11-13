@@ -58,6 +58,23 @@ def enforce_extended(report,selected,base_check):
         for phase in ('rejects_missing_auth','native_readback','after_restart'):
             if report['checks'].get(provider+'_'+phase) is not True:
                 raise native.AcceptanceError('incomplete_extra_acceptance_'+provider+'_'+phase)
+    # A configuration API cannot substitute for the primary ingestion/capture
+    # API. Require actual downstream readback even for isolated one-provider runs.
+    proof=report.get('extra_proof',{})
+    if 'posthog' in selected:
+        p=proof.get('posthog',{})
+        if (p.get('event_capture_verified') is not True
+                or p.get('event_capture_after_restart_verified') is not True
+                or report['checks'].get('posthog_event_capture_readback') is not True
+                or report['checks'].get('posthog_event_capture_after_restart') is not True):
+            raise native.AcceptanceError('posthog_original_event_capture_unverified')
+    if 'openreplay' in selected:
+        p=proof.get('openreplay',{})
+        if (p.get('session_capture_verified') is not True
+                or p.get('recorded_dom_readback_verified') is not True
+                or report['checks'].get('openreplay_collector_session_and_event_readback') is not True
+                or report['checks'].get('openreplay_native_dom_file_readback') is not True):
+            raise native.AcceptanceError('openreplay_original_session_capture_unverified')
     base_check(report)
     report['verified_originals']+=list(selected)
     all_api_contracts=set(report['verified_originals'])==BASE|SIX and len(report['verified_originals'])==10
