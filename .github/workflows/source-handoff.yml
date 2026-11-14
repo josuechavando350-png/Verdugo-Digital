@@ -1,0 +1,32 @@
+name: Verdugo source handoff
+on:
+  push:
+    branches: [feat/v0.17-tanda1-read-connectors]
+    paths: ['.github/workflows/source-handoff.yml']
+permissions:
+  contents: read
+jobs:
+  baseline:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: 35516f830cba1e0dbb06b91f44357128440fc832
+          persist-credentials: false
+      - name: Verify baseline and export only tracked public source
+        run: |
+          test "$(git rev-parse HEAD)" = 35516f830cba1e0dbb06b91f44357128440fc832
+          python3 -m unittest discover -s tests -v
+          python3 -m verdugo --state :memory: status
+          mkdir -p /tmp/verdugo-handoff
+          git archive HEAD > /tmp/verdugo-handoff/source.tar
+          git ls-tree -r HEAD > /tmp/verdugo-handoff/tree.txt
+          git rev-parse HEAD HEAD^{tree} > /tmp/verdugo-handoff/revision.txt
+          cd /tmp/verdugo-handoff && sha256sum source.tar tree.txt revision.txt > SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verdugo-claude-baseline-35516f8
+          path: /tmp/verdugo-handoff/
+          retention-days: 1
+          if-no-files-found: error
