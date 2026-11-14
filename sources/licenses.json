@@ -1538,29 +1538,29 @@
   },
   {
    "number": 119,
-   "id": "twilio-python",
-   "repository": "twilio/twilio-python",
-   "scanned_commit": "7e3ca781178dcaa542b403591a58e5bc58b874a8",
+   "id": "android-sms-gateway",
+   "repository": "capcom6/android-sms-gateway",
+   "scanned_commit": "e2c6bb56a4d60bd39195e9415589a3ec14bd00a7",
    "origin": "lista-josue-50",
-   "spdx": "MIT",
+   "spdx": "Apache-2.0",
    "policy": "libre",
    "license_files": [
     "LICENSE"
    ],
-   "note": null
+   "note": "Reemplaza a Twilio (de pago): convierte un Android en pasarela SMS propia."
   },
   {
    "number": 120,
-   "id": "stripe-python",
-   "repository": "stripe/stripe-python",
-   "scanned_commit": "7254286570dcacb689f933db913e7cdf303818db",
+   "id": "krayin-crm",
+   "repository": "krayin/laravel-crm",
+   "scanned_commit": "ed6deebfcb8c616eaf352c893a10a6d8e666fc6e",
    "origin": "lista-josue-50",
    "spdx": "MIT",
    "policy": "libre",
    "license_files": [
     "LICENSE"
    ],
-   "note": null
+   "note": "Reemplaza a Stripe (de pago): CRM propio. Su paquete REST (krayin/rest-api) no tiene licencia, así que no se usa."
   },
   {
    "number": 121,
@@ -2859,16 +2859,16 @@
   },
   {
    "number": 221,
-   "id": "e2b",
-   "repository": "e2b-dev/E2B",
-   "scanned_commit": "6dc8d5a10aa5db8dc8cf9c4d95fc769d886197fd",
+   "id": "microsandbox",
+   "repository": "microsandbox/microsandbox",
+   "scanned_commit": "28bdced502513f46b2372dade590ba7e91466242",
    "origin": "agentes-autonomos",
    "spdx": "Apache-2.0",
    "policy": "libre",
    "license_files": [
     "LICENSE"
    ],
-   "note": null
+   "note": "Reemplaza a E2B (nube de pago): sandboxes autoalojados."
   },
   {
    "number": 222,
@@ -3015,16 +3015,16 @@
   },
   {
    "number": 233,
-   "id": "composio",
-   "repository": "ComposioHQ/composio",
-   "scanned_commit": "fdee7595166f8b5dcff026dc609760d1ce82b2e2",
+   "id": "huginn",
+   "repository": "huginn/huginn",
+   "scanned_commit": "639c050b2bf4e14ef9983012af99dfc1dc68b334",
    "origin": "agentes-autonomos",
    "spdx": "MIT",
    "policy": "libre",
    "license_files": [
     "LICENSE"
    ],
-   "note": null
+   "note": "Reemplaza a Composio (plataforma de pago): agentes autoalojados que vigilan y actúan."
   },
   {
    "number": 234,
@@ -3613,16 +3613,16 @@
   },
   {
    "number": 279,
-   "id": "mercadopago",
-   "repository": "mercadopago/sdk-nodejs",
-   "scanned_commit": "cdfecc30344d6e567c6b1b3b77d766339882b863",
+   "id": "sendportal",
+   "repository": "mettle/sendportal",
+   "scanned_commit": "f759dc848ec986d82f294082ff14009e8c4e90a6",
    "origin": "plataforma-producto",
    "spdx": "MIT",
    "policy": "libre",
    "license_files": [
     "LICENSE"
    ],
-   "note": null
+   "note": "Reemplaza a Mercado Pago (de pago): email marketing propio (núcleo mettle/sendportal-core, MIT)."
   },
   {
    "number": 280,

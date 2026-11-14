@@ -54,7 +54,7 @@ def template(tenant):
     from .service_reads import FIXED_ORIGINS
     for sid, origin in FIXED_ORIGINS.items():
         services[sid]['base_url'] = origin
-    services['twilio-python']['account_sid'] = None
+    services['android-sms-gateway'].update(username=None)
     services['clickhouse'].update(username=None)
     services['dittofeed'].update(workspace_id=None)
     return {'tenants': {tenant: {'services': services, 'ingress': {}}}}

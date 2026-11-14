@@ -127,8 +127,8 @@ web-vitals|GoogleChrome/web-vitals|marketing
 altcha|altcha-org/altcha|marketing
 cookieconsent|orestbida/cookieconsent|marketing
 libphonenumber|google/libphonenumber|marketing
-twilio-python|twilio/twilio-python|marketing
-stripe-python|stripe/stripe-python|marketing
+android-sms-gateway|capcom6/android-sms-gateway|marketing
+krayin-crm|krayin/laravel-crm|marketing
 parsedmarc|domainaware/parsedmarc|marketing
 geo-optimizer|Auriti-Labs/geo-optimizer-skill|authority
 geo-lint|IJONIS/geo-lint|authority
@@ -229,7 +229,7 @@ mcp-python-sdk|modelcontextprotocol/python-sdk|agents
 mcp-typescript-sdk|modelcontextprotocol/typescript-sdk|agents
 fastmcp|PrefectHQ/fastmcp|agents
 mcp-agent|lastmile-ai/mcp-agent|agents
-e2b|e2b-dev/E2B|agents
+microsandbox|microsandbox/microsandbox|agents
 guardrails|guardrails-ai/guardrails|agents
 nemo-guardrails|NVIDIA/NeMo-Guardrails|agents
 instructor|567-labs/instructor|agents
@@ -241,7 +241,7 @@ storm|stanford-oval/storm|agents
 magentic-ui|microsoft/magentic-ui|agents
 humanlayer|humanlayer/humanlayer|agents
 cua|trycua/cua|agents
-composio|ComposioHQ/composio|agents
+huginn|huginn/huginn|agents
 ag-ui|ag-ui-protocol/ag-ui|agents
 copilotkit|CopilotKit/CopilotKit|agents
 vercel-ai-sdk|vercel/ai|agents
@@ -287,7 +287,7 @@ crowdsec|crowdsecurity/crowdsec|platform
 vite-pwa|vite-pwa/vite-plugin-pwa|platform
 driverjs|kamranahmedse/driver.js|platform
 socketio|socketio/socket.io|platform
-mercadopago|mercadopago/sdk-nodejs|platform
+sendportal|mettle/sendportal|platform
 pdfme|pdfme/pdfme|platform
 splink|moj-analytical-services/splink|dataengine
 iceberg|apache/iceberg|dataengine

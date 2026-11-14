@@ -1,4 +1,4 @@
-"""v0.15: fifteen bounded read-only service contracts for the 300 portfolio.
+"""v0.15: thirteen bounded read-only service contracts for the 300 portfolio.
 
 Every route below was taken from the upstream source or OpenAPI file at the
 pinned commit in sources/parts (see docs/CONECTORES_V015.md). Only GET is used,
@@ -6,8 +6,9 @@ parameters are fixed in code, pagination is a single first page and the
 response is reduced to counts before Engine persists anything. No prompt,
 inference, message, payment, sandbox creation or other write is possible.
 
-Cloud providers are bound to their official origin so a configured credential
-can never be sent to another host. A successful read proves a response shape,
+Only free, self-hostable services are connected (paid providers were removed by
+the operator). FIXED_ORIGINS stays available to bind any future cloud provider
+to its official origin. A successful read proves a response shape,
 never a production deployment or a business result.
 """
 import base64
@@ -23,11 +24,11 @@ SPECS = {
     'datasette': {'databases.list': ('GET', '/-/databases.json')},
     'svix': {'applications.list': ('GET', '/api/v1/app')},
     'cube': {'cubes.list': ('GET', '/cubejs-api/v1/meta')},
-    'e2b': {'sandboxes.list': ('GET', '/v2/sandboxes')},
     'langflow': {'flows.list': ('GET', '/api/v1/flows/')},
-    'mercadopago': {'payments.summary': ('GET', '/v1/payments/search')},
-    'stripe-python': {'balance.read': ('GET', '/v1/balance')},
-    'twilio-python': {'account.read': ('GET', '/2010-04-01/Accounts/{account_sid}.json')},
+    # Android SMS Gateway local server (the phone itself); counts devices/SIMs only.
+    'android-sms-gateway': {'devices.list': ('GET', '/devices')},
+    # SendPortal API (sendportal-core): campaign counts by status, no content.
+    'sendportal': {'campaigns.summary': ('GET', '/api/v1/campaigns')},
     # CrowdSec LAPI bouncer read. Note: upstream updates the bouncer's last_pull time.
     'crowdsec': {'decisions.summary': ('GET', '/v1/decisions')},
     # ClickHouse HTTP GET runs readonly; the only query is the fixed one below.
@@ -38,64 +39,45 @@ CLICKHOUSE_QUERY = 'SELECT count() AS databases FROM system.databases FORMAT JSO
 UUID = re.compile(r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
 
 # Official API origins; configuration cannot redirect these credentials.
-FIXED_ORIGINS = {
-    'e2b': 'https://api.e2b.app',
-    'mercadopago': 'https://api.mercadopago.com',
-    'stripe-python': 'https://api.stripe.com',
-    'twilio-python': 'https://api.twilio.com',
-}
+FIXED_ORIGINS = {}
 
 QUERIES = {
     'label-studio': {'page': 1, 'page_size': 30},
     'svix': {'limit': 50},
-    'e2b': {'limit': 50},
     'langflow': {'get_all': 'false', 'header_flows': 'true', 'remove_example_flows': 'true',
                  'page': 1, 'size': 50},
-    'mercadopago': {'sort': 'date_created', 'criteria': 'desc', 'limit': 30, 'offset': 0},
 }
 
 # Where the bounded list lives in each response (None: the body is the list).
 LIST_PATHS = {
     'vllm': ('data',), 'ollama': ('models',), 'label-studio': ('results',),
     'grist': None, 'datasette': None, 'svix': ('data',), 'cube': ('cubes',),
-    'e2b': None, 'langflow': ('items',), 'mercadopago': ('results',),
-    'crowdsec': None, 'dittofeed': ('segments',),
+    'langflow': ('items',), 'crowdsec': None, 'dittofeed': ('segments',),
+    'android-sms-gateway': None, 'sendportal': ('data',),
 }
 STATUS_FIELDS = {
-    'e2b': ('state', frozenset(('running', 'paused'))),
     'crowdsec': ('type', frozenset(('ban', 'captcha', 'throttle'))),
-    'mercadopago': ('status', frozenset(('pending', 'approved', 'authorized', 'in_process',
-                                         'in_mediation', 'rejected', 'cancelled',
-                                         'refunded', 'charged_back'))),
 }
-TWILIO_STATUS = frozenset(('active', 'suspended', 'closed'))
-TWILIO_TYPES = frozenset(('Trial', 'Full'))
-ACCOUNT_SID = re.compile(r'^AC[0-9a-f]{32}$')
-CURRENCY = re.compile(r'^[a-z]{3}$')
+SENDPORTAL_STATUS = {1: 'draft', 2: 'queued', 3: 'sending', 4: 'sent', 5: 'cancelled'}
 
 
 def authorization(service, cfg, token):
     if service == 'label-studio':
         # Label Studio legacy access token: "Authorization: Token <key>".
         return {'Authorization': 'Token ' + token}
-    if service in ('e2b', 'langflow', 'crowdsec'):
-        return {'x-api-key' if service == 'langflow' else 'X-Api-Key' if service == 'crowdsec' else 'X-API-Key': token}
+    if service in ('langflow', 'crowdsec'):
+        return {'x-api-key' if service == 'langflow' else 'X-Api-Key': token}
     if service == 'clickhouse':
         user = cfg.get('username')
         if not isinstance(user, str) or not re.fullmatch(r'[A-Za-z0-9_.-]{1,64}', user):
             raise VerdugoError('ClickHouse requires a reviewed read-only username')
         return {'X-ClickHouse-User': user, 'X-ClickHouse-Key': token}
-    if service == 'twilio-python':
-        sid = account_sid(cfg)
-        return {'Authorization': 'Basic ' + base64.b64encode((sid + ':' + token).encode()).decode()}
+    if service == 'android-sms-gateway':
+        user = cfg.get('username')
+        if not isinstance(user, str) or not re.fullmatch(r'[A-Za-z0-9_.-]{1,64}', user):
+            raise VerdugoError('Android SMS Gateway requires the reviewed local-server username')
+        return {'Authorization': 'Basic ' + base64.b64encode((user + ':' + token).encode()).decode()}
     return {'Authorization': 'Bearer ' + token}
-
-
-def account_sid(cfg):
-    sid = cfg.get('account_sid')
-    if not isinstance(sid, str) or not ACCOUNT_SID.fullmatch(sid):
-        raise VerdugoError('Twilio requires a reviewed account_sid (AC + 32 hex)')
-    return sid
 
 
 def check_origin(service, origin):
@@ -112,8 +94,6 @@ def build(service, operation, params, cfg, origin, token, headers):
         raise VerdugoError('Only the first page is implemented for this provider')
     check_origin(service, origin)
     method, path = SPECS[service][operation]
-    if service == 'twilio-python':
-        path = path.format(account_sid=account_sid(cfg))
     query = dict(QUERIES.get(service, {}))
     if service == 'clickhouse':
         query = {'query': CLICKHOUSE_QUERY}
@@ -155,27 +135,6 @@ def check(service, operation, response, request=None):
             'raw_provider_payload_retained': False,
             'scope': 'one_provider_response_not_a_complete_export',
             'live_verified': False}
-    if service == 'stripe-python':
-        if not isinstance(response, dict) or response.get('object') != 'balance' or \
-                not isinstance(response.get('available'), list) or not isinstance(response.get('pending'), list):
-            raise VerdugoError('Stripe balance schema mismatch')
-        totals = {}
-        for bucket in ('available', 'pending'):
-            for entry in response[bucket][:50]:
-                if not isinstance(entry, dict) or type(entry.get('amount')) is not int or \
-                        not isinstance(entry.get('currency'), str) or not CURRENCY.fullmatch(entry['currency']):
-                    raise VerdugoError('Stripe balance entry schema mismatch')
-                totals.setdefault(entry['currency'], {'available_minor': 0, 'pending_minor': 0})
-                totals[entry['currency']][bucket + '_minor'] += entry['amount']
-        return base | {'provider_reported_balance': totals,
-                       'livemode': response.get('livemode') is True,
-                       'note': 'Saldo reportado por Stripe; no es ingreso conciliado ni utilidad.'}
-    if service == 'twilio-python':
-        if not isinstance(response, dict) or not isinstance(response.get('sid'), str):
-            raise VerdugoError('Twilio account schema mismatch')
-        status, kind = response.get('status'), response.get('type')
-        return base | {'account_status': status if status in TWILIO_STATUS else 'OTHER',
-                       'account_type': kind if kind in TWILIO_TYPES else 'OTHER'}
     if service == 'clickhouse':
         data = response.get('data') if isinstance(response, dict) else None
         if not isinstance(data, list) or len(data) != 1 or not isinstance(data[0], dict):
@@ -200,6 +159,15 @@ def check(service, operation, response, request=None):
             label = value if isinstance(value, str) and value in allowed else 'OTHER'
             counts[label] = counts.get(label, 0) + 1
         result['status_counts'] = counts
+    if service == 'sendportal':
+        counts = {}
+        for row in rows:
+            label = SENDPORTAL_STATUS.get(row.get('status_id'), 'OTHER') if type(row.get('status_id')) is int else 'OTHER'
+            counts[label] = counts.get(label, 0) + 1
+        result['status_counts'] = counts
+    if service == 'android-sms-gateway':
+        sims = sum(len(r['simCards']) for r in rows if isinstance(r.get('simCards'), list))
+        result['sim_cards'] = sims
     if service == 'svix' and isinstance(response, dict):
         result['more_pages'] = response.get('done') is False
     return result

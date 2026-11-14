@@ -602,12 +602,12 @@
   },
   {
    "number": 119,
-   "id": "twilio-python",
+   "id": "android-sms-gateway",
    "kind": "servicio"
   },
   {
    "number": 120,
-   "id": "stripe-python",
+   "id": "krayin-crm",
    "kind": "servicio"
   },
   {
@@ -1112,7 +1112,7 @@
   },
   {
    "number": 221,
-   "id": "e2b",
+   "id": "microsandbox",
    "kind": "servicio"
   },
   {
@@ -1172,7 +1172,7 @@
   },
   {
    "number": 233,
-   "id": "composio",
+   "id": "huginn",
    "kind": "servicio"
   },
   {
@@ -1402,7 +1402,7 @@
   },
   {
    "number": 279,
-   "id": "mercadopago",
+   "id": "sendportal",
    "kind": "servicio"
   },
   {

@@ -14,14 +14,15 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 | Fuentes registradas y fijadas por commit | 322 (100 núcleo + 222 de v0.14) |
 | Portafolio con licencia libre (política v0.14) | 300 |
 | Excluidos por licencia (registrados, sin operar) | 22 |
-| Proyectos con una operación implementada | 77: 58 HTTP + 19 de bibliotecas locales |
-| Conectados bajo la política de licencias | 58 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
+| Proyectos con una operación implementada | 75: 56 HTTP + 19 de bibliotecas locales |
+| Conectados bajo la política de licencias | 56 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
 | Piezas de construcción (se usan al programar, no vía motor) | 56 |
-| Pendientes de conector | 186 |
-| Operaciones HTTP existentes | 62, limitadas por proveedor |
+| Pendientes de conector | 188 |
+| Servicios de pago | 0 (Stripe, Twilio, Mercado Pago, E2B y Composio retirados) |
+| Operaciones HTTP existentes | 60, limitadas por proveedor |
 | Operaciones locales implementadas | 19; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Dos de cinco pasos; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 433 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
+| Pruebas unitarias y de contrato | 432 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
 | Herramientas MCP | 23; las operaciones reutilizan execute/workflow existentes |
 | Servicios productivos certificados | 0 |
 
@@ -32,19 +33,20 @@ bibliotecas ni certifica un despliegue productivo. La aceptación usa datos sint
 
 ## Qué añade v0.15
 
-**Mapa de conexión de las 322 piezas y 15 conectores nuevos de solo lectura.**
+**Mapa de conexión de las 322 piezas y 13 conectores nuevos de solo lectura, todos gratuitos.**
 
 - `sources/connections.json` clasifica cada pieza: servicio (75), biblioteca (139),
   componente (56), cli (21), mcp (6), protocolo (1), datos (2) y excluido (22). El estado
   no se escribe a mano: `conectado` solo si hay adaptador implementado y licencia libre.
 - Conectores nuevos, cada uno con ruta y autenticación tomadas del código fuente en su
-  commit fijado: vLLM, Ollama, Label Studio, Grist, Datasette, Svix, Cube, E2B, Langflow,
-  Mercado Pago, Stripe, Twilio, CrowdSec, ClickHouse y Dittofeed. Todos `GET`, una página,
-  y guardan solo recuentos o estados (nunca correos, nombres, IPs ni payloads).
-- E2B, Mercado Pago, Stripe y Twilio quedan amarrados a su origen oficial: la credencial no
-  puede mandarse a otro dominio.
+  commit fijado: vLLM, Ollama, Label Studio, Grist, Datasette, Svix, Cube, Langflow,
+  Android SMS Gateway, SendPortal, CrowdSec, ClickHouse y Dittofeed. Todos `GET`, una página,
+  y guardan solo recuentos o estados (nunca correos, nombres, IPs, números ni payloads).
+- Sin servicios de pago: Stripe, Twilio, Mercado Pago, E2B y Composio salieron del catálogo y se
+  reemplazaron por Android SMS Gateway, Krayin CRM, SendPortal, microsandbox y Huginn (gratuitos
+  y autoalojados). El catálogo sigue en 300 libres.
 - Nuevo comando `python -m verdugo connections [ID]` y herramienta MCP `verdugo_connections`.
-- Resultado: 58 conectadas, 56 piezas de construcción, 186 pendientes, 22 excluidas.
+- Resultado: 56 conectadas, 56 piezas de construcción, 188 pendientes, 22 excluidas.
   Ningún proveedor real fue probado. [Evidencia y condiciones](docs/CONECTORES_V015.md).
 
 ## Qué añade v0.14

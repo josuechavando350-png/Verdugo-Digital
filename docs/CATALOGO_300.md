@@ -145,8 +145,8 @@ adaptador en el motor. Estado: conectado (adaptador implementado y permitido), p
 | 116 | `altcha` | [altcha-org/altcha](https://github.com/altcha-org/altcha/tree/5691046ab911524f7c8e0e6a01609c15fd5a2299) | MIT | Libre | componente | pieza_de_construccion |  |
 | 117 | `cookieconsent` | [orestbida/cookieconsent](https://github.com/orestbida/cookieconsent/tree/e0a3fe118d90c1c430ca9dfcd03aca531bce3dc5) | MIT | Libre | componente | pieza_de_construccion |  |
 | 118 | `libphonenumber` | [google/libphonenumber](https://github.com/google/libphonenumber/tree/981600cc587fb87483ad294a61daa187afc64b2c) | Apache-2.0 | Libre | componente | pieza_de_construccion |  |
-| 119 | `twilio-python` | [twilio/twilio-python](https://github.com/twilio/twilio-python/tree/7e3ca781178dcaa542b403591a58e5bc58b874a8) | MIT | Libre | servicio | conectado |  |
-| 120 | `stripe-python` | [stripe/stripe-python](https://github.com/stripe/stripe-python/tree/7254286570dcacb689f933db913e7cdf303818db) | MIT | Libre | servicio | conectado |  |
+| 119 | `android-sms-gateway` | [capcom6/android-sms-gateway](https://github.com/capcom6/android-sms-gateway/tree/e2c6bb56a4d60bd39195e9415589a3ec14bd00a7) | Apache-2.0 | Libre | servicio | conectado | Reemplaza a Twilio (de pago): convierte un Android en pasarela SMS propia. |
+| 120 | `krayin-crm` | [krayin/laravel-crm](https://github.com/krayin/laravel-crm/tree/ed6deebfcb8c616eaf352c893a10a6d8e666fc6e) | MIT | Libre | servicio | pendiente | Reemplaza a Stripe (de pago): CRM propio. Su paquete REST (krayin/rest-api) no tiene licencia, así que no se usa. |
 | 121 | `parsedmarc` | [domainaware/parsedmarc](https://github.com/domainaware/parsedmarc/tree/70a0ea0470d04649e33e6b09ce20da991d424f72) | Apache-2.0 | Libre | biblioteca | pendiente |  |
 
 ## Marketing de autoridad (43)
@@ -262,7 +262,7 @@ adaptador en el motor. Estado: conectado (adaptador implementado y permitido), p
 | 218 | `mcp-typescript-sdk` | [modelcontextprotocol/typescript-sdk](https://github.com/modelcontextprotocol/typescript-sdk/tree/919bb8ea88b6e10e72c2f8b6218fad4cfdc40b2c) | Apache-2.0 | Libre | componente | pieza_de_construccion | En transición de MIT a Apache-2.0. |
 | 219 | `fastmcp` | [PrefectHQ/fastmcp](https://github.com/PrefectHQ/fastmcp/tree/a8745d61e650467756bb28b4157822dbfbdfa34f) | Apache-2.0 | Libre | biblioteca | pendiente |  |
 | 220 | `mcp-agent` | [lastmile-ai/mcp-agent](https://github.com/lastmile-ai/mcp-agent/tree/f62d849350816588b1c6294e7914bbe4d8b84072) | Apache-2.0 | Libre | biblioteca | pendiente |  |
-| 221 | `e2b` | [e2b-dev/E2B](https://github.com/e2b-dev/E2B/tree/6dc8d5a10aa5db8dc8cf9c4d95fc769d886197fd) | Apache-2.0 | Libre | servicio | conectado |  |
+| 221 | `microsandbox` | [microsandbox/microsandbox](https://github.com/microsandbox/microsandbox/tree/28bdced502513f46b2372dade590ba7e91466242) | Apache-2.0 | Libre | servicio | pendiente | Reemplaza a E2B (nube de pago): sandboxes autoalojados. |
 | 222 | `guardrails` | [guardrails-ai/guardrails](https://github.com/guardrails-ai/guardrails/tree/06d0ff2c5f9bcb493d976b76f885e37e41ce845d) | Apache-2.0 | Libre | biblioteca | pendiente |  |
 | 223 | `nemo-guardrails` | [NVIDIA/NeMo-Guardrails](https://github.com/NVIDIA/NeMo-Guardrails/tree/5d7f4c1ca62fb6155066e6c581379d1a5ec11338) | Apache-2.0 | Libre | biblioteca | pendiente |  |
 | 224 | `instructor` | [567-labs/instructor](https://github.com/567-labs/instructor/tree/2549049be07ec3be1d617f8904ea8ffe18253c48) | MIT | Libre | biblioteca | pendiente |  |
@@ -274,7 +274,7 @@ adaptador en el motor. Estado: conectado (adaptador implementado y permitido), p
 | 230 | `magentic-ui` | [microsoft/magentic-ui](https://github.com/microsoft/magentic-ui/tree/d3c9d13c39288257286a66daabf7c5b5fb72ee69) | MIT | Libre | servicio | pendiente |  |
 | 231 | `humanlayer` | [humanlayer/humanlayer](https://github.com/humanlayer/humanlayer/tree/b7ad8e1d383ff0f5fbec7bdc30425e4a59d5f789) | Apache-2.0 | Libre | biblioteca | pendiente |  |
 | 232 | `cua` | [trycua/cua](https://github.com/trycua/cua/tree/c372e5fb2bae944974e903fbf117c61f4ced696e) | MIT | Libre | biblioteca | pendiente |  |
-| 233 | `composio` | [ComposioHQ/composio](https://github.com/ComposioHQ/composio/tree/fdee7595166f8b5dcff026dc609760d1ce82b2e2) | MIT | Libre | servicio | pendiente |  |
+| 233 | `huginn` | [huginn/huginn](https://github.com/huginn/huginn/tree/639c050b2bf4e14ef9983012af99dfc1dc68b334) | MIT | Libre | servicio | pendiente | Reemplaza a Composio (plataforma de pago): agentes autoalojados que vigilan y actúan. |
 | 234 | `ag-ui` | [ag-ui-protocol/ag-ui](https://github.com/ag-ui-protocol/ag-ui/tree/0fc064bb2647fc0bce4fc795af33b5551ac03f88) | MIT | Libre | componente | pieza_de_construccion |  |
 | 235 | `copilotkit` | [CopilotKit/CopilotKit](https://github.com/CopilotKit/CopilotKit/tree/7b88608455528bd2dd62752a01cc25b8c917d35c) | MIT | Libre | componente | pieza_de_construccion |  |
 | 236 | `vercel-ai-sdk` | [vercel/ai](https://github.com/vercel/ai/tree/0e8e0543aeda7d4dd4ce6eade0d5b7d5a43644c1) | Apache-2.0 | Libre | componente | pieza_de_construccion |  |
@@ -325,7 +325,7 @@ adaptador en el motor. Estado: conectado (adaptador implementado y permitido), p
 | 276 | `vite-pwa` | [vite-pwa/vite-plugin-pwa](https://github.com/vite-pwa/vite-plugin-pwa/tree/355cf3dd283ca50da3ac4759501e9c3312a3da91) | MIT | Libre | componente | pieza_de_construccion |  |
 | 277 | `driverjs` | [kamranahmedse/driver.js](https://github.com/kamranahmedse/driver.js/tree/47e3c8761720c119aa08c3feb29b36e5b944938a) | MIT | Libre | componente | pieza_de_construccion |  |
 | 278 | `socketio` | [socketio/socket.io](https://github.com/socketio/socket.io/tree/f97d51a810d4f266122eb99bb6c083cd383638f0) | MIT | Libre | componente | pieza_de_construccion |  |
-| 279 | `mercadopago` | [mercadopago/sdk-nodejs](https://github.com/mercadopago/sdk-nodejs/tree/cdfecc30344d6e567c6b1b3b77d766339882b863) | MIT | Libre | servicio | conectado |  |
+| 279 | `sendportal` | [mettle/sendportal](https://github.com/mettle/sendportal/tree/f759dc848ec986d82f294082ff14009e8c4e90a6) | MIT | Libre | servicio | conectado | Reemplaza a Mercado Pago (de pago): email marketing propio (núcleo mettle/sendportal-core, MIT). |
 | 280 | `pdfme` | [pdfme/pdfme](https://github.com/pdfme/pdfme/tree/60d73ae0a0b707c241c14e3c70bcec9670c56113) | MIT | Libre | componente | pieza_de_construccion |  |
 
 ## Bloque 6 — Motor de datos propios (la joya de la corona) (42)

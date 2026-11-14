@@ -17,9 +17,9 @@
  },
  {
   "number": 233,
-  "id": "composio",
-  "repository": "ComposioHQ/composio",
-  "commit_sha": "fdee7595166f8b5dcff026dc609760d1ce82b2e2",
+  "id": "huginn",
+  "repository": "huginn/huginn",
+  "commit_sha": "639c050b2bf4e14ef9983012af99dfc1dc68b334",
   "source_status": "pinned",
   "license_review": "pending"
  },

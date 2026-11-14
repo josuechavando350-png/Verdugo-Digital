@@ -65,17 +65,17 @@
  },
  {
   "number": 119,
-  "id": "twilio-python",
-  "repository": "twilio/twilio-python",
-  "commit_sha": "7e3ca781178dcaa542b403591a58e5bc58b874a8",
+  "id": "android-sms-gateway",
+  "repository": "capcom6/android-sms-gateway",
+  "commit_sha": "e2c6bb56a4d60bd39195e9415589a3ec14bd00a7",
   "source_status": "pinned",
   "license_review": "pending"
  },
  {
   "number": 120,
-  "id": "stripe-python",
-  "repository": "stripe/stripe-python",
-  "commit_sha": "7254286570dcacb689f933db913e7cdf303818db",
+  "id": "krayin-crm",
+  "repository": "krayin/laravel-crm",
+  "commit_sha": "ed6deebfcb8c616eaf352c893a10a6d8e666fc6e",
   "source_status": "pinned",
   "license_review": "pending"
  }
