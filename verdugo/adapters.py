@@ -4,7 +4,7 @@ import os
 import re
 from urllib.parse import urlencode, urlsplit
 from .common import VerdugoError, fields, text, integer, identifier, digest, encode
-from . import marketing_reads, service_reads, tanda1_reads, readiness_reads
+from . import marketing_reads, service_reads, tanda1_reads, readiness_reads, operations_reads
 
 # API-contract implementations; live compatibility is NOT established by this list.
 SPECS = {
@@ -56,6 +56,7 @@ SPECS.update(marketing_reads.SPECS)
 SPECS.update(service_reads.SPECS)
 SPECS.update(tanda1_reads.SPECS)
 SPECS.update(readiness_reads.SPECS)
+SPECS.update(operations_reads.SPECS)
 HEADERS = {'qdrant': 'api-key', 'metabase': 'X-API-Key',
            'shlink': 'X-Api-Key', 'n8n': 'X-N8N-API-KEY',
            'changedetection': 'x-api-key', 'formbricks': 'x-api-key'}
@@ -100,6 +101,8 @@ def connection(service, cfg):
         headers.update(tanda1_reads.authorization(service, cfg, token))
     elif service in readiness_reads.SPECS:
         headers.update(readiness_reads.authorization(service, cfg, token))
+    elif service in operations_reads.SPECS:
+        headers.update(operations_reads.authorization(service, cfg, token))
     elif service in HEADERS:
         headers[HEADERS[service]] = token
     elif service in ('listmonk', 'langfuse'):
@@ -154,6 +157,9 @@ def remote_id(result, path):
 
 
 def build(service, operation, params, cfg):
+    if service in operations_reads.SPECS:
+        origin, token, headers = connection(service, cfg)
+        return operations_reads.build(service, operation, params, cfg, origin, token, headers)
     if service in readiness_reads.SPECS:
         if operation not in readiness_reads.SPECS[service]:
             raise VerdugoError("Adapter/action not implemented: %s.%s" % (service, operation))

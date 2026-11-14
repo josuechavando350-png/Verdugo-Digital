@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-14",
- "pending": 179,
+ "pending": 175,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -25,18 +25,6 @@
    "domain": "authority",
    "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
    "nota": "Proxy anti-bots; revisar si tiene endpoint de métricas o estado con autenticación."
-  },
-  {
-   "tanda": "Tanda 1",
-   "id": "apache-answer",
-   "repository": "apache/answer",
-   "commit": "6744295fa888e0621fc9f9a8ace04f1a4daf8554",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "servicio",
-   "domain": "authority",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
-   "nota": null
   },
   {
    "tanda": "Tanda 1",
@@ -172,30 +160,6 @@
   },
   {
    "tanda": "Tanda 1",
-   "id": "seaweedfs",
-   "repository": "seaweedfs/seaweedfs",
-   "commit": "e0890391acff2e8cac6dea79c28e931ab1dfb70e",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "servicio",
-   "domain": "platform",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
-   "nota": "Sin autenticación por defecto (JWT opcional). Verificar el modo JWT en el commit fijado."
-  },
-  {
-   "tanda": "Tanda 1",
-   "id": "caddy",
-   "repository": "caddyserver/caddy",
-   "commit": "7591cff1fb03202ce022982af020197f3f387220",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "servicio",
-   "domain": "platform",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
-   "nota": "La API de administración no tiene autenticación y no debe exponerse. Solo detrás de un proxy con token; si no, no_aplica."
-  },
-  {
-   "tanda": "Tanda 1",
    "id": "valkey",
    "repository": "valkey-io/valkey",
    "commit": "c98c0e2e6c271a24c829d17b2ed94d64c576c33f",
@@ -313,18 +277,6 @@
    "domain": "orchestration",
    "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
    "nota": "Verificar la API HTTP (grpc-gateway) /api/v1/namespaces en el commit fijado."
-  },
-  {
-   "tanda": "Tanda 1",
-   "id": "dagster",
-   "repository": "dagster-io/dagster",
-   "commit": "93e5f51da49420d3e06d9399471070acedb554ca",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "servicio",
-   "domain": "orchestration",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
-   "nota": "Solo GraphQL. Una consulta estática fija en código, como Saleor; nunca GraphQL desde params."
   },
   {
    "tanda": "Tanda 1",
@@ -2231,7 +2183,7 @@
    "proxy_authentication_required": true
   }
  ],
- "version": "0.18.0",
+ "version": "0.19.0",
  "implemented_v018": [
   {
    "tanda": "Tanda 1",
@@ -2271,6 +2223,88 @@
    "implementation_version": "0.18.0",
    "acceptance": "synthetic_contract_and_loopback",
    "live_verified": false,
+   "proxy_authentication_required": true
+  }
+ ],
+ "implemented_v019": [
+  {
+   "tanda": "Tanda 1",
+   "id": "apache-answer",
+   "repository": "apache/answer",
+   "commit": "6744295fa888e0621fc9f9a8ace04f1a4daf8554",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "authority",
+   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "nota": "Operación acotada de lectura implementada; contrato sintético verificado, servidor original pendiente. Ver docs/PRODUCTO_V019.md.",
+   "nota_previa": null,
+   "live_verified": false,
+   "implemented_actions": [
+    "notifications.summary"
+   ],
+   "implementation_version": "0.19.0",
+   "acceptance": "synthetic_contract_and_loopback",
+   "proxy_authentication_required": false
+  },
+  {
+   "tanda": "Tanda 1",
+   "id": "seaweedfs",
+   "repository": "seaweedfs/seaweedfs",
+   "commit": "e0890391acff2e8cac6dea79c28e931ab1dfb70e",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "platform",
+   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "nota": "Operación acotada de lectura implementada; contrato sintético verificado, servidor original pendiente. Ver docs/PRODUCTO_V019.md.",
+   "nota_previa": "Sin autenticación por defecto (JWT opcional). Verificar el modo JWT en el commit fijado.",
+   "live_verified": false,
+   "implemented_actions": [
+    "topology.summary"
+   ],
+   "implementation_version": "0.19.0",
+   "acceptance": "synthetic_contract_and_loopback",
+   "proxy_authentication_required": true
+  },
+  {
+   "tanda": "Tanda 1",
+   "id": "caddy",
+   "repository": "caddyserver/caddy",
+   "commit": "7591cff1fb03202ce022982af020197f3f387220",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "platform",
+   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "nota": "Operación acotada de lectura implementada; contrato sintético verificado, servidor original pendiente. Ver docs/PRODUCTO_V019.md.",
+   "nota_previa": "La API de administración no tiene autenticación y no debe exponerse. Solo detrás de un proxy con token; si no, no_aplica.",
+   "live_verified": false,
+   "implemented_actions": [
+    "http_servers.summary"
+   ],
+   "implementation_version": "0.19.0",
+   "acceptance": "synthetic_contract_and_loopback",
+   "proxy_authentication_required": true
+  },
+  {
+   "tanda": "Tanda 1",
+   "id": "dagster",
+   "repository": "dagster-io/dagster",
+   "commit": "93e5f51da49420d3e06d9399471070acedb554ca",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "orchestration",
+   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "nota": "Operación acotada de lectura implementada; contrato sintético verificado, servidor original pendiente. Ver docs/PRODUCTO_V019.md.",
+   "nota_previa": "Solo GraphQL. Una consulta estática fija en código, como Saleor; nunca GraphQL desde params.",
+   "live_verified": false,
+   "implemented_actions": [
+    "repositories.summary"
+   ],
+   "implementation_version": "0.19.0",
+   "acceptance": "synthetic_contract_and_loopback",
    "proxy_authentication_required": true
   }
  ]

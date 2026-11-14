@@ -1,0 +1,6 @@
+{
+  "id": "product-observe-001",
+  "services": ["apache-answer", "caddy", "seaweedfs", "dagster", "uptime-kuma", "gotenberg"],
+  "dataset": "real",
+  "currency": "MXN"
+}

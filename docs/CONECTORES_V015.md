@@ -61,9 +61,12 @@ Los conectores nuevos son de consulta de metadatos, no despliegues productivos.
 
 ## Continuación v0.18 (sin modificar contratos anteriores)
 
-El mapa vigente es **65 conectadas, 179 pendientes, 56 piezas y 22 excluidas**,
+El mapa vigente es **69 conectadas, 175 pendientes, 56 piezas y 22 excluidas**,
 con 322 entradas invariables. Se añaden dos consultas implementadas en
 `verdugo/readiness_reads.py`, usando los mismos despachadores y Engine:
 `uptime-kuma.monitors.summary` y `gotenberg.health.summary`.
 Autenticación, fuentes, límites y configuración en [TANDA1_V018.md](TANDA1_V018.md).
 No se afirma ninguna instalación upstream nueva ni actividad comercial real.
+
+La continuación v0.19 agrega cuatro contratos y la operación conjunta del producto;
+ver [PRODUCTO_V019.md](PRODUCTO_V019.md).

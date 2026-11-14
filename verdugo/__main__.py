@@ -4,7 +4,7 @@ from pathlib import Path
 import sys
 import tempfile
 from .adapters import SPECS
-from . import local_runtime
+from . import local_runtime, product
 from .catalog import catalog, graph
 from .common import VerdugoError, encode, identifier
 from .engine import Engine
@@ -64,6 +64,10 @@ def template(tenant):
     services['fides'].update(auth_mode='native_oauth_bearer')
     services['uptime-kuma'].update(auth_mode='native_api_key_bearer', api_access_reviewed=False)
     services['gotenberg'].update(auth_mode='reviewed_proxy_bearer', proxy_auth_reviewed=False)
+    from .operations_reads import PROXY_ONLY as OPERATIONS_PROXY_ONLY
+    for sid in OPERATIONS_PROXY_ONLY:
+        services[sid].update(auth_mode='reviewed_proxy_bearer', proxy_auth_reviewed=False)
+    services['apache-answer'].update(auth_mode='native_user_bearer')
     return {'tenants': {tenant: {'services': services, 'ingress': {}}}}
 
 
@@ -78,10 +82,11 @@ def main(argv=None):
     for name in ('status', 'catalog', 'graph', 'mcp', 'demo', 'sources', 'runtime-check'): sub.add_parser(name)
     p = sub.add_parser('licenses'); p.add_argument('project_id', nargs='?')
     p = sub.add_parser('connections'); p.add_argument('project_id', nargs='?')
+    p = sub.add_parser('product-status'); p.add_argument('--dataset', choices=['real', 'demo'], default='real')
     p = sub.add_parser('init'); p.add_argument('--out', default='verdugo.local.json')
     p = sub.add_parser('source-inspect'); p.add_argument('project_id')
     p = sub.add_parser('events'); p.add_argument('--after', type=int, default=0)
-    for name in ('plan', 'run', 'workflow', 'bridge', 'readback', 'surface'):
+    for name in ('plan', 'run', 'workflow', 'bridge', 'readback', 'surface', 'product-run'):
         p = sub.add_parser(name); p.add_argument('input', help='JSON text or @path.json')
         if name != 'plan': p.add_argument('--execute', action='store_true')
     p = sub.add_parser('doctor'); p.add_argument('--probe-id', default='configuration-check')
@@ -146,6 +151,8 @@ def main(argv=None):
             return 0
         if args.cmd == 'mcp': serve(engine); return 0
         if args.cmd == 'status': result = engine.status()
+        elif args.cmd == 'product-status': result = product.overview(engine, args.dataset)
+        elif args.cmd == 'product-run': result = product.observe(engine, read_json(args.input), args.execute)
         elif args.cmd == 'events': result = engine.events(args.after)
         elif args.cmd == 'queue': result = jobs.overview(engine, args.limit)
         elif args.cmd == 'job': result = jobs.get(engine, args.job_id)

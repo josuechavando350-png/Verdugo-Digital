@@ -39,7 +39,9 @@ class Base(unittest.TestCase):
             self.config['tenants']['nexus']['services'][sid].update(
                 site_id='example.invalid' if sid=='plausible' else 1,
                 report_start_date='2026-10-01', report_end_date='2026-10-07')
-        from verdugo.tanda1_reads import PROXY_ONLY
+        from verdugo.tanda1_reads import PROXY_ONLY as PREVIOUS_PROXY_ONLY
+        from verdugo.operations_reads import PROXY_ONLY as OPERATIONS_PROXY_ONLY
+        PROXY_ONLY = PREVIOUS_PROXY_ONLY | OPERATIONS_PROXY_ONLY
         for sid in PROXY_ONLY:
             self.config['tenants']['nexus']['services'][sid]['proxy_auth_reviewed'] = True  # synthetic fixtures only
         self.config['tenants']['nexus']['services']['uptime-kuma']['api_access_reviewed'] = True  # synthetic only
@@ -98,7 +100,7 @@ class CatalogTests(Base):
 
     def test_no_false_live_status(self):
         s=self.engine.status()
-        self.assertEqual(65,s['api_adapters_implemented'])
+        self.assertEqual(69,s['api_adapters_implemented'])
         self.assertEqual(0,s['live_verified'])
         self.assertFalse(any(r['live_verified'] for r in s['integrations']))
 
@@ -106,7 +108,7 @@ class CatalogTests(Base):
         g=graph(SPECS)
         self.assertEqual(323,len(g['nodes']))
         self.assertEqual(322,len(g['edges']))
-        self.assertEqual(65,sum(e['kind']=='adapter' for e in g['edges']))
+        self.assertEqual(69,sum(e['kind']=='adapter' for e in g['edges']))
         self.assertFalse(any(e['live'] for e in g['edges']))
 
     def test_template_disabled(self):

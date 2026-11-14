@@ -92,9 +92,9 @@ class ExtendedContracts(unittest.TestCase):
         engine = Engine(':memory:')
         try: status = engine.status()
         finally: engine.close()
-        self.assertEqual(84, status['total_adapters_implemented'])
-        self.assertEqual(238, status['projects_without_any_adapter'])
-        self.assertEqual(65, status['adapters_usable_under_policy'])
+        self.assertEqual(88, status['total_adapters_implemented'])
+        self.assertEqual(234, status['projects_without_any_adapter'])
+        self.assertEqual(69, status['adapters_usable_under_policy'])
         self.assertEqual(0, status['live_verified'])
 
 

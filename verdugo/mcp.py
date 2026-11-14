@@ -6,7 +6,7 @@ import sys
 from .common import VerdugoError, encode, fields
 from .catalog import graph
 from .adapters import SPECS
-from . import source_evidence, license_policy, connections
+from . import source_evidence, license_policy, connections, product
 from . import workflow, jobs, reconciliation, readback, surface, commercial, pilot, office
 from . import __version__
 from .bridge import contact_bridge
@@ -17,6 +17,10 @@ SUPPORTED = (VERSION, '2025-06-18')
 OBJ = {'type': 'object'}
 BOOL = {'type': 'boolean', 'default': False}
 TOOLS = [
+ ('verdugo_product_status', 'One local product overview: all connections, bounded observation routes and declared business state. No provider calls.',
+  {'dataset': {'type': 'string', 'enum': ['real', 'demo'], 'default': 'real'}}, [], True),
+ ('verdugo_product_run', 'One bounded observation workflow across selected services and local business records; preview by default. Reports saved versus new observations, not production certification.',
+  {'request': OBJ, 'execute': BOOL}, ['request'], False),
  ('verdugo_source_evidence', 'Read-only pinned GitHub source evidence. No deployment, license approval, or external API call.',
   {'project_id': {'type': 'string'}}, [], True),
  ('verdugo_license_policy', 'Read-only license policy: detected license and libre/excluido state per project. Not a legal review.',
@@ -76,6 +80,8 @@ def invoke(engine, name, args):
     spec = next((s for s in TOOLS if s[0] == name), None)
     if not spec: raise VerdugoError('Unknown tool')
     fields(args, spec[3], set(spec[2])-set(spec[3]))
+    if name == 'verdugo_product_status': return product.overview(engine, args.get('dataset', 'real'))
+    if name == 'verdugo_product_run': return product.observe(engine, args['request'], args.get('execute', False))
     if name == 'verdugo_source_evidence': return source_evidence.report(args.get('project_id'))
     if name == 'verdugo_license_policy': return license_policy.summary(args.get('project_id'))
     if name == 'verdugo_connections': return connections.summary(args.get('project_id'))

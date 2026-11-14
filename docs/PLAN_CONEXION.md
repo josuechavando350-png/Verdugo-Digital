@@ -1,16 +1,16 @@
 # Verdugo Digital — Plan para conectar lo que falta
 
-Fecha: 14 de noviembre de 2026. Versión del motor: 0.18.0.
+Fecha: 14 de noviembre de 2026. Versión del motor: 0.19.0.
 
 | Estado | Cuántas |
 |---|---|
-| conectado | 65 |
+| conectado | 69 |
 | pieza_de_construccion | 56 |
-| pendiente | 179 |
+| pendiente | 175 |
 | excluido | 22 |
 | **Total** | 322 |
 
-**Pendientes: 179**, en 4 tandas de hasta 50. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
+**Pendientes: 175**, en 4 tandas de hasta 50. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
 no se conectan al motor: se usan al construir la plataforma (fase aparte). Las 22 excluidas por licencia no se tocan.
 
 El estado de cada pieza lo calcula el código: `python -m verdugo connections`. Este plan en formato
@@ -53,6 +53,27 @@ como `implemented_v018`/`nota_previa` en el JSON. No se renumera el trabajo rest
 Las pruebas locales de contratos no certifican servidores instalados, captación,
 monitores saludables ni conversión documental. [Alcance](TANDA1_V018.md).
 
+## Continuación v0.19: operación conjunta y cuatro contratos
+
+Base exacta: `088c759033fd52e2ece9f6cb0d23590bd378a160` (PR #17).
+`product-status` reúne las 322 piezas y el estado comercial local.
+`product-run` usa el mismo workflow/Engine para 33 consultas con proyección segura,
+más una instantánea de métricas locales. No suma entidades distintas ni convierte
+monitores, repositorios o servidores en ingresos. Distingue observación nueva de
+replay, conserva la hora original y muestra pasos detenidos y no iniciados.
+
+Cuatro operaciones más de la tanda 1: Apache Answer (notificaciones), Caddy
+(servidores HTTP configurados), SeaweedFS (topología) y Dagster (repositorios por
+GraphQL fijo de lectura). Los tres últimos exigen proxy Bearer revisado. La lista
+retirada y las notas originales están en `implemented_v019`; quedan **40, 50, 50 y 35**
+pendientes. Los 300 permitidos, 22 excluidos y 56 componentes se conservan.
+
+36 pruebas nuevas: contratos, transporte local, flujo de 33 respuestas sintéticas,
+reinicio, fallo parcial, concurrencia, aislamiento y CLI/MCP. La aceptación de
+Caddy original se ejecuta aparte en `real-services.yml`, compilando el commit del
+contrato; no atribuir ese resultado a Answer, SeaweedFS, Dagster, Kuma o Gotenberg.
+[Uso, contratos y límites](PRODUCTO_V019.md).
+
 ## Reglas para cada conector (obligatorias)
 
 1. Leer `AGENTS.md` y `README.md`. Correr `python -m unittest discover -s tests -v` antes y después.
@@ -71,15 +92,14 @@ monitores saludables ni conversión documental. [Alcance](TANDA1_V018.md).
 
 - Cada pieza de la tanda queda **conectada** (adaptador o receta implementada y probada) o **pendiente con motivo**.
 - `python -m verdugo connections` refleja el nuevo número de conectadas.
-- Las 5 revisiones del CI en verde. Ninguna se marca como probada contra un servidor real si no se probó.
+- Los tres workflows de CI y todos sus trabajos en verde. Ninguna se marca como probada contra un servidor real si no se probó.
 
-## Tanda 1 — servicios que traen clientes, MCP, protocolo y datos (44)
+## Tanda 1 — servicios que traen clientes, MCP, protocolo y datos (40)
 
 | # | Pieza | Repositorio @ commit | Licencia | Tipo | Qué hacer / nota |
 |---|---|---|---|---|---|
 | 3 | `krayin-crm` | [krayin/laravel-crm@ed6deebfcb](https://github.com/krayin/laravel-crm/tree/ed6deebfcb8c616eaf352c893a10a6d8e666fc6e) | MIT | servicio | Adaptador HTTP. Su paquete REST (krayin/rest-api) no tiene licencia: no usarlo. Bloqueado salvo que publiquen licencia. |
 | 4 | `anubis` | [TecharoHQ/anubis@f197f9a623](https://github.com/TecharoHQ/anubis/tree/f197f9a6235d255000c7b654ac478354a6e4bd02) | MIT | servicio | Adaptador HTTP. Proxy anti-bots; revisar si tiene endpoint de métricas o estado con autenticación. |
-| 5 | `apache-answer` | [apache/answer@6744295fa8](https://github.com/apache/answer/tree/6744295fa888e0621fc9f9a8ace04f1a4daf8554) | Apache-2.0 | servicio | Adaptador HTTP.  |
 | 6 | `webmention-io` | [aaronpk/webmention.io@9183deed82](https://github.com/aaronpk/webmention.io/tree/9183deed829c2399e6cd7f594ab8f1d84492e86b) | BSD (declarada en README) | servicio | Adaptador HTTP. El token va en la URL: prohibido. Bloqueado salvo soporte por encabezado. |
 | 7 | `letta` | [letta-ai/letta@8816d3a851](https://github.com/letta-ai/letta/tree/8816d3a8516893bfdc0fa14bfb1235226012e295) | Apache-2.0 | servicio | Adaptador HTTP. En el commit fijado el repo ya no trae el código del servidor. Ubicar el repo oficial del servidor y volver a fijarlo, o marcar no_aplica. |
 | 8 | `microsandbox` | [microsandbox/microsandbox@28bdced502](https://github.com/microsandbox/microsandbox/tree/28bdced502513f46b2372dade590ba7e91466242) | Apache-2.0 | servicio | Adaptador HTTP. Su API es JSON-RPC por POST. Requiere un contrato POST de solo lectura fijo en código (mismo patrón que Plausible en marketing_reads). |
@@ -91,8 +111,6 @@ monitores saludables ni conversión documental. [Alcance](TANDA1_V018.md).
 | 16 | `debezium` | [debezium/debezium@a4c282ea70](https://github.com/debezium/debezium/tree/a4c282ea70d3f913df699464f3e42f9ddb7eb03e) | Apache-2.0 | servicio | Adaptador HTTP.  |
 | 17 | `operately` | [operately/operately@9fa8692fb6](https://github.com/operately/operately/tree/9fa8692fb61cec13730fb4523daf57c29261be45) | Apache-2.0 | servicio | Adaptador HTTP. Núcleo libre; no usar carpetas o archivos enterprise/comerciales. |
 | 18 | `taguette` | [remram44/taguette@52fcdce957](https://github.com/remram44/taguette/tree/52fcdce95709375a4085cb10852bf7dd251ccb3d) | BSD-3-Clause | servicio | Adaptador HTTP.  |
-| 19 | `seaweedfs` | [seaweedfs/seaweedfs@e0890391ac](https://github.com/seaweedfs/seaweedfs/tree/e0890391acff2e8cac6dea79c28e931ab1dfb70e) | Apache-2.0 | servicio | Adaptador HTTP. Sin autenticación por defecto (JWT opcional). Verificar el modo JWT en el commit fijado. |
-| 20 | `caddy` | [caddyserver/caddy@7591cff1fb](https://github.com/caddyserver/caddy/tree/7591cff1fb03202ce022982af020197f3f387220) | Apache-2.0 | servicio | Adaptador HTTP. La API de administración no tiene autenticación y no debe exponerse. Solo detrás de un proxy con token; si no, no_aplica. |
 | 21 | `valkey` | [valkey-io/valkey@c98c0e2e6c](https://github.com/valkey-io/valkey/tree/c98c0e2e6c271a24c829d17b2ed94d64c576c33f) | BSD-3-Clause | servicio | Adaptador HTTP. Protocolo RESP, no HTTP. Receta local con cliente oficial y comando fijo (INFO). |
 | 22 | `tusd` | [tus/tusd@cec3998089](https://github.com/tus/tusd/tree/cec39980890809a9e7202872ec32f736f3b4a3f5) | MIT | servicio | Adaptador HTTP. Servidor de subidas sin API de lectura útil. Probable no_aplica. |
 | 24 | `signoz` | [SigNoz/signoz@ca7daf8ea9](https://github.com/SigNoz/signoz/tree/ca7daf8ea974b879379101c7f7d8cb420da6acc7) | MIT | servicio | Adaptador HTTP. Núcleo libre; no usar carpetas o archivos enterprise/comerciales. |
@@ -103,7 +121,6 @@ monitores saludables ni conversión documental. [Alcance](TANDA1_V018.md).
 | 30 | `postgres` | [postgres/postgres@8d87367b39](https://github.com/postgres/postgres/tree/8d87367b39e44b0913ca585c733795cc2d30bff1) | PostgreSQL | servicio | Adaptador HTTP. No es HTTP. Leer vía PostgREST (componente) o con un driver de solo lectura en receta local. |
 | 31 | `livekit` | [livekit/agents@59753ba7d7](https://github.com/livekit/agents/tree/59753ba7d759621ffb256b8023ebf2ddf70ffa9a) | Apache-2.0 | servicio | Adaptador HTTP. API Twirp por POST con JWT firmado con api_key/secret. Requiere firma local revisada. |
 | 32 | `temporal` | [temporalio/temporal@03ecd1d228](https://github.com/temporalio/temporal/tree/03ecd1d228d2b8d9d433da55785afc9aeeead918) | MIT | servicio | Adaptador HTTP. Verificar la API HTTP (grpc-gateway) /api/v1/namespaces en el commit fijado. |
-| 33 | `dagster` | [dagster-io/dagster@93e5f51da4](https://github.com/dagster-io/dagster/tree/93e5f51da49420d3e06d9399471070acedb554ca) | Apache-2.0 | servicio | Adaptador HTTP. Solo GraphQL. Una consulta estática fija en código, como Saleor; nunca GraphQL desde params. |
 | 34 | `killbill` | [killbill/killbill@52e2f55f10](https://github.com/killbill/killbill/tree/52e2f55f103baf0703ddee71e10a7036595fc851) | Apache-2.0 | servicio | Adaptador HTTP. Usa dos secretos (X-Killbill-ApiKey/ApiSecret) más Basic. Diseñar el manejo de dos variables VERDUGO_*. |
 | 35 | `otel-collector` | [open-telemetry/opentelemetry-collector@e366bb7fb4](https://github.com/open-telemetry/opentelemetry-collector/tree/e366bb7fb49a67fd117332fff93795a0050744ff) | Apache-2.0 | servicio | Adaptador HTTP.  |
 | 36 | `mcp-gsc` | [AminForou/mcp-gsc@45291df024](https://github.com/AminForou/mcp-gsc/tree/45291df024c7873b2042c83d7add70ced7bb621f) | MIT | mcp | Registro MCP.  |

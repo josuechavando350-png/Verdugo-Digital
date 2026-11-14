@@ -10,6 +10,50 @@ concurrency:
   group: real-services-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  original-caddy:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Checkout original Caddy at the contract commit
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: caddyserver/caddy
+          ref: 7591cff1fb03202ce022982af020197f3f387220
+          path: upstream-caddy
+          persist-credentials: false
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16
+        with:
+          go-version: '1.26.0'
+          cache-dependency-path: upstream-caddy/go.sum
+      - name: Build original server and preserve VCS provenance
+        working-directory: upstream-caddy
+        run: |
+          test "$(git rev-parse HEAD)" = 7591cff1fb03202ce022982af020197f3f387220
+          go build -trimpath -buildvcs=true -o /tmp/verdugo-caddy ./cmd/caddy
+          go version -m /tmp/verdugo-caddy > /tmp/caddy-build-info.txt
+      - name: Original API through test proxy and Engine, without network egress
+        run: |
+          sudo unshare --net -- sh -c '
+            ip link set lo up
+            exec env \
+              VERDUGO_CADDY_TEST_BINARY=/tmp/verdugo-caddy \
+              VERDUGO_CADDY_BUILD_INFO=/tmp/caddy-build-info.txt \
+              VERDUGO_CADDY_EVIDENCE=/tmp/caddy-v019-evidence.json \
+              GITHUB_SHA="${{ github.sha }}" \
+              python3 tests_runtime/caddy_acceptance_v019.py
+          '
+      - name: Preserve original Caddy acceptance evidence
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: verdugo-caddy-v019-${{ github.sha }}
+          path: |
+            /tmp/caddy-v019-evidence.json
+            /tmp/caddy-build-info.txt
+          retention-days: 7
+          if-no-files-found: error
   actual-servers:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
