@@ -62,6 +62,8 @@ def template(tenant):
     for sid in PROXY_ONLY:
         services[sid].update(auth_mode='reviewed_proxy_bearer', proxy_auth_reviewed=False)
     services['fides'].update(auth_mode='native_oauth_bearer')
+    services['uptime-kuma'].update(auth_mode='native_api_key_bearer', api_access_reviewed=False)
+    services['gotenberg'].update(auth_mode='reviewed_proxy_bearer', proxy_auth_reviewed=False)
     return {'tenants': {tenant: {'services': services, 'ingress': {}}}}
 
 

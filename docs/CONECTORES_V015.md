@@ -55,6 +55,15 @@ componente, cli, mcp, protocolo, datos o excluido) y su estado calculado desde e
 Cuatro lecturas nuevas se describen en [TANDA1_V017.md](TANDA1_V017.md).
 Se implementan en `verdugo/tanda1_reads.py`, conectado a los mismos despachadores
 `adapters` y `read_contracts`. No se cambia el inventario histórico de los 16
-contratos de este documento. El mapa vigente pasa a 63 conectadas, 181 pendientes,
+contratos de este documento. En la revisión v0.17 el mapa pasó a 63 conectadas, 181 pendientes,
 56 piezas de construcción y 22 excluidas; 322 entradas en total.
 Los conectores nuevos son de consulta de metadatos, no despliegues productivos.
+
+## Continuación v0.18 (sin modificar contratos anteriores)
+
+El mapa vigente es **65 conectadas, 179 pendientes, 56 piezas y 22 excluidas**,
+con 322 entradas invariables. Se añaden dos consultas implementadas en
+`verdugo/readiness_reads.py`, usando los mismos despachadores y Engine:
+`uptime-kuma.monitors.summary` y `gotenberg.health.summary`.
+Autenticación, fuentes, límites y configuración en [TANDA1_V018.md](TANDA1_V018.md).
+No se afirma ninguna instalación upstream nueva ni actividad comercial real.

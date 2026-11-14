@@ -351,7 +351,7 @@ class CatalogueTruthTests(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         plan = json.loads((root / 'docs/plan_conexion.json').read_text())
         expected = {p['id'] for p in catalog() if connections.state(p['id']) == 'pendiente'}
-        self.assertEqual(181, plan['pending'])
+        self.assertEqual(179, plan['pending'])
         self.assertEqual(expected, {p['id'] for p in plan['items']})
         self.assertEqual(len(expected), len(plan['items']))
         self.assertEqual(set(batch.SPECS), {p['id'] for p in plan['implemented_v017']})
@@ -382,14 +382,14 @@ class CatalogueTruthTests(unittest.TestCase):
 
     def test_connection_changes_are_code_derived_and_do_not_certify_production(self):
         report = connections.summary()
-        self.assertEqual({'conectado': 63, 'pendiente': 181, 'pieza_de_construccion': 56, 'excluido': 22}, report['states'])
+        self.assertEqual({'conectado': 65, 'pendiente': 179, 'pieza_de_construccion': 56, 'excluido': 22}, report['states'])
         self.assertEqual(0, report['live_verified'])
         with closing(Engine(':memory:')) as engine:
             status = engine.status()
-        self.assertEqual(63, status['api_adapters_implemented'])
-        self.assertEqual(67, status['api_actions_implemented'])
-        self.assertEqual(82, status['total_adapters_implemented'])
-        self.assertEqual(240, status['projects_without_any_adapter'])
+        self.assertEqual(65, status['api_adapters_implemented'])
+        self.assertEqual(69, status['api_actions_implemented'])
+        self.assertEqual(84, status['total_adapters_implemented'])
+        self.assertEqual(238, status['projects_without_any_adapter'])
 
 
 if __name__ == '__main__':

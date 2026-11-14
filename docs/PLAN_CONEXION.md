@@ -1,16 +1,16 @@
 # Verdugo Digital — Plan para conectar lo que falta
 
-Fecha: 14 de noviembre de 2026. Versión del motor: 0.17.0.
+Fecha: 14 de noviembre de 2026. Versión del motor: 0.18.0.
 
 | Estado | Cuántas |
 |---|---|
-| conectado | 63 |
+| conectado | 65 |
 | pieza_de_construccion | 56 |
-| pendiente | 181 |
+| pendiente | 179 |
 | excluido | 22 |
 | **Total** | 322 |
 
-**Pendientes: 181**, en 4 tandas de hasta 50. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
+**Pendientes: 179**, en 4 tandas de hasta 50. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
 no se conectan al motor: se usan al construir la plataforma (fase aparte). Las 22 excluidas por licencia no se tocan.
 
 El estado de cada pieza lo calcula el código: `python -m verdugo connections`. Este plan en formato
@@ -34,6 +34,25 @@ hasta que el operador revise versión, licencia y credenciales. Los proxies no s
 crearon y su existencia no se presume. La tanda completa no está terminada.
 [Contratos, fuentes y límites](TANDA1_V017.md).
 
+## Continuación v0.18: inventario y disponibilidad acotados
+
+Se parte de `da34f47b6bc6116e553f08801e281f1e695dcc8c` (PR #16), sin
+alterar la política de licencias ni los 322 registros. Se completan dos contratos
+más; la tanda 1 conserva **44 pendientes** y las demás mantienen 50, 50 y 35.
+
+- `uptime-kuma` (`monitors.summary`): se corrige explícitamente la nota anterior
+  «solo expone /metrics». El **mismo commit fijado** sí contiene `GET /api/monitors`,
+  con `requireApiKey`, Bearer y la opción `API and MCP` habilitada. Es una API Alpha;
+  no se presume disponible en versiones anteriores. Se guardan solo recuentos.
+- `gotenberg` (`health.summary`): `GET /health` omite la autenticación nativa incluso
+  si se habilita Basic/OIDC. Se exige un proxy Bearer autenticador revisado; no se
+  creó ese proxy y una marca de configuración no demuestra que exista.
+
+Los números y notas originales retirados de la lista de pendientes se conservan
+como `implemented_v018`/`nota_previa` en el JSON. No se renumera el trabajo restante.
+Las pruebas locales de contratos no certifican servidores instalados, captación,
+monitores saludables ni conversión documental. [Alcance](TANDA1_V018.md).
+
 ## Reglas para cada conector (obligatorias)
 
 1. Leer `AGENTS.md` y `README.md`. Correr `python -m unittest discover -s tests -v` antes y después.
@@ -54,11 +73,10 @@ crearon y su existencia no se presume. La tanda completa no está terminada.
 - `python -m verdugo connections` refleja el nuevo número de conectadas.
 - Las 5 revisiones del CI en verde. Ninguna se marca como probada contra un servidor real si no se probó.
 
-## Tanda 1 — servicios que traen clientes, MCP, protocolo y datos (46)
+## Tanda 1 — servicios que traen clientes, MCP, protocolo y datos (44)
 
 | # | Pieza | Repositorio @ commit | Licencia | Tipo | Qué hacer / nota |
 |---|---|---|---|---|---|
-| 2 | `uptime-kuma` | [louislam/uptime-kuma@4f6661cfa8](https://github.com/louislam/uptime-kuma/tree/4f6661cfa83a06be0353d5536ef3d9ee0064f534) | MIT | servicio | Adaptador HTTP. Solo expone /metrics en texto Prometheus. Leerlo a través de Prometheus (ya conectado) o con un parser de texto acotado. |
 | 3 | `krayin-crm` | [krayin/laravel-crm@ed6deebfcb](https://github.com/krayin/laravel-crm/tree/ed6deebfcb8c616eaf352c893a10a6d8e666fc6e) | MIT | servicio | Adaptador HTTP. Su paquete REST (krayin/rest-api) no tiene licencia: no usarlo. Bloqueado salvo que publiquen licencia. |
 | 4 | `anubis` | [TecharoHQ/anubis@f197f9a623](https://github.com/TecharoHQ/anubis/tree/f197f9a6235d255000c7b654ac478354a6e4bd02) | MIT | servicio | Adaptador HTTP. Proxy anti-bots; revisar si tiene endpoint de métricas o estado con autenticación. |
 | 5 | `apache-answer` | [apache/answer@6744295fa8](https://github.com/apache/answer/tree/6744295fa888e0621fc9f9a8ace04f1a4daf8554) | Apache-2.0 | servicio | Adaptador HTTP.  |
@@ -77,7 +95,6 @@ crearon y su existencia no se presume. La tanda completa no está terminada.
 | 20 | `caddy` | [caddyserver/caddy@7591cff1fb](https://github.com/caddyserver/caddy/tree/7591cff1fb03202ce022982af020197f3f387220) | Apache-2.0 | servicio | Adaptador HTTP. La API de administración no tiene autenticación y no debe exponerse. Solo detrás de un proxy con token; si no, no_aplica. |
 | 21 | `valkey` | [valkey-io/valkey@c98c0e2e6c](https://github.com/valkey-io/valkey/tree/c98c0e2e6c271a24c829d17b2ed94d64c576c33f) | BSD-3-Clause | servicio | Adaptador HTTP. Protocolo RESP, no HTTP. Receta local con cliente oficial y comando fijo (INFO). |
 | 22 | `tusd` | [tus/tusd@cec3998089](https://github.com/tus/tusd/tree/cec39980890809a9e7202872ec32f736f3b4a3f5) | MIT | servicio | Adaptador HTTP. Servidor de subidas sin API de lectura útil. Probable no_aplica. |
-| 23 | `gotenberg` | [gotenberg/gotenberg@4d577e1467](https://github.com/gotenberg/gotenberg/tree/4d577e1467aaffa080b1e89d64ecb86c2fba4e98) | MIT | servicio | Adaptador HTTP. /health no pide credencial. Solo conectar con un modo "sin credencial" revisado; si no, marcar no_aplica. |
 | 24 | `signoz` | [SigNoz/signoz@ca7daf8ea9](https://github.com/SigNoz/signoz/tree/ca7daf8ea974b879379101c7f7d8cb420da6acc7) | MIT | servicio | Adaptador HTTP. Núcleo libre; no usar carpetas o archivos enterprise/comerciales. |
 | 25 | `postal` | [postalserver/postal@d96eddbade](https://github.com/postalserver/postal/tree/d96eddbadeda600595d6247486f9ceb8e99cbc15) | MIT | servicio | Adaptador HTTP. Su API es de envíos (POST). Sin lectura: bloqueado. |
 | 27 | `google-ads` | [googleads/google-ads-python@f253b400dc](https://github.com/googleads/google-ads-python/tree/f253b400dc5924b731fcb42dbcd99e485200581e) | Apache-2.0 | servicio | Adaptador HTTP. La librería oficial solo trae gRPC. Tomar la ruta REST GET customers:listAccessibleCustomers de la documentación oficial (versión v26 fijada). Necesita OAuth y developer-token (segundo secreto por variable VERDUGO_*). |

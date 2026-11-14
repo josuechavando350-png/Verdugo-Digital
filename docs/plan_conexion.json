@@ -1,19 +1,7 @@
 {
  "generated": "2026-11-14",
- "pending": 181,
+ "pending": 179,
  "items": [
-  {
-   "tanda": "Tanda 1",
-   "id": "uptime-kuma",
-   "repository": "louislam/uptime-kuma",
-   "commit": "4f6661cfa83a06be0353d5536ef3d9ee0064f534",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "servicio",
-   "domain": "marketing",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
-   "nota": "Solo expone /metrics en texto Prometheus. Leerlo a través de Prometheus (ya conectado) o con un parser de texto acotado."
-  },
   {
    "tanda": "Tanda 1",
    "id": "krayin-crm",
@@ -229,18 +217,6 @@
    "domain": "platform",
    "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
    "nota": "Servidor de subidas sin API de lectura útil. Probable no_aplica."
-  },
-  {
-   "tanda": "Tanda 1",
-   "id": "gotenberg",
-   "repository": "gotenberg/gotenberg",
-   "commit": "4d577e1467aaffa080b1e89d64ecb86c2fba4e98",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "servicio",
-   "domain": "platform",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
-   "nota": "/health no pide credencial. Solo conectar con un modo \"sin credencial\" revisado; si no, marcar no_aplica."
   },
   {
    "tanda": "Tanda 1",
@@ -2255,5 +2231,47 @@
    "proxy_authentication_required": true
   }
  ],
- "version": "0.17.0"
+ "version": "0.18.0",
+ "implemented_v018": [
+  {
+   "tanda": "Tanda 1",
+   "id": "uptime-kuma",
+   "repository": "louislam/uptime-kuma",
+   "commit": "4f6661cfa83a06be0353d5536ef3d9ee0064f534",
+   "license": "MIT",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "marketing",
+   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "nota": "API nativa Alpha GET /api/monitors verificada en el commit: exige API habilitada y clave Bearer; active no prueba disponibilidad.",
+   "nota_previa": "Solo expone /metrics en texto Prometheus. Leerlo a través de Prometheus (ya conectado) o con un parser de texto acotado.",
+   "implemented_actions": [
+    "monitors.summary"
+   ],
+   "implementation_version": "0.18.0",
+   "acceptance": "synthetic_contract_and_loopback",
+   "live_verified": false,
+   "proxy_authentication_required": false
+  },
+  {
+   "tanda": "Tanda 1",
+   "id": "gotenberg",
+   "repository": "gotenberg/gotenberg",
+   "commit": "4d577e1467aaffa080b1e89d64ecb86c2fba4e98",
+   "license": "MIT",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "platform",
+   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "nota": "GET /health exige proxy autenticador revisado; Gotenberg omite su autenticación nativa en esta ruta. No prueba conversiones PDF.",
+   "nota_previa": "/health no pide credencial. Solo conectar con un modo \"sin credencial\" revisado; si no, marcar no_aplica.",
+   "implemented_actions": [
+    "health.summary"
+   ],
+   "implementation_version": "0.18.0",
+   "acceptance": "synthetic_contract_and_loopback",
+   "live_verified": false,
+   "proxy_authentication_required": true
+  }
+ ]
 }

@@ -2,7 +2,7 @@
 
 Núcleo comercial y de análisis para Nexus Bot Studio. Una sola entrada CLI/MCP,
 un motor de ejecución, flujos con dependencias, permisos locales, auditoría,
-idempotencia y estado SQLite. Versión de ingeniería **0.17.0**.
+idempotencia y estado SQLite. Versión de ingeniería **0.18.0**.
 
 **La integración operativa de los 300 proyectos NO está terminada.** Registrar
 fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
@@ -14,15 +14,15 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 | Fuentes registradas y fijadas por commit | 322 (100 núcleo + 222 de v0.14) |
 | Portafolio con licencia libre (política v0.14) | 300 |
 | Excluidos por licencia (registrados, sin operar) | 22 |
-| Proyectos con una operación implementada | 82: 63 HTTP + 19 de bibliotecas locales |
-| Conectados bajo la política de licencias | 63 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
+| Proyectos con una operación implementada | 84: 65 HTTP + 19 de bibliotecas locales |
+| Conectados bajo la política de licencias | 65 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
 | Piezas de construcción (se usan al programar, no vía motor) | 56 |
-| Pendientes de conector | 181 |
+| Pendientes de conector | 179 |
 | Servicios de pago | 0 (Stripe, Twilio, Mercado Pago, E2B y Composio retirados) |
-| Operaciones HTTP existentes | 67, limitadas por proveedor |
+| Operaciones HTTP existentes | 69, limitadas por proveedor |
 | Operaciones locales implementadas | 19; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Dos de cinco pasos; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 456 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
+| Pruebas unitarias y de contrato | 482 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
 | Herramientas MCP | 23; las operaciones reutilizan execute/workflow existentes |
 | Servicios productivos certificados | 0 |
 
@@ -33,8 +33,24 @@ bibliotecas ni certifica un despliegue productivo. La aceptación usa datos sint
 
 ## Plan de lo que falta
 
-Las 181 piezas pendientes, en 4 tandas de 46, 50, 50 y 35, con las reglas para conectar cada una:
+Las 179 piezas pendientes, en 4 tandas de 44, 50, 50 y 35, con las reglas para conectar cada una:
 [docs/PLAN_CONEXION.md](docs/PLAN_CONEXION.md) (y `docs/plan_conexion.json` para agentes).
+
+## Continuación v0.18: dos lecturas del mismo motor
+
+Se conserva la continuación v0.17 del plan de Claude y se implementan dos
+operaciones más de la primera tanda. **No son dos despliegues nuevos**:
+
+- `uptime-kuma / monitors.summary`: cuenta monitores habilitados y pausados con
+  su API nativa autenticada. Habilitado **no** significa que el sitio esté disponible.
+- `gotenberg / health.summary`: resume las comprobaciones de salud de la API,
+  solo detrás de un proxy autenticador revisado. No convierte documentos ni prueba PDFs.
+
+Comparten Engine, CLI/MCP, autenticación por empresa, flujo con dependencias,
+idempotencia y SQLite. Sus 26 pruebas de contrato y sockets locales usan respuestas
+sintéticas; ningún servidor upstream de estos dos fue instalado o certificado.
+Se mantienen deshabilitados, sin revisión de licencia ni permisos aprobados por defecto.
+[Fuentes fijadas, configuración y límites](docs/TANDA1_V018.md).
 
 ## Qué añade v0.17
 

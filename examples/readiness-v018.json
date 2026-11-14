@@ -1,0 +1,7 @@
+{
+  "id": "readiness-v018-example-1",
+  "steps": [
+    {"id":"monitors","service":"uptime-kuma","operation":"monitors.summary","params":{}},
+    {"id":"documents","service":"gotenberg","operation":"health.summary","params":{},"depends_on":["monitors"]}
+  ]
+}
