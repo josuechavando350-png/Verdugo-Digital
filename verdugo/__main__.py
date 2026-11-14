@@ -58,6 +58,10 @@ def template(tenant):
     services['lighthouse-ci'].update(username=None)
     services['clickhouse'].update(username=None)
     services['dittofeed'].update(workspace_id=None)
+    from .tanda1_reads import PROXY_ONLY
+    for sid in PROXY_ONLY:
+        services[sid].update(auth_mode='reviewed_proxy_bearer', proxy_auth_reviewed=False)
+    services['fides'].update(auth_mode='native_oauth_bearer')
     return {'tenants': {tenant: {'services': services, 'ingress': {}}}}
 
 
@@ -107,7 +111,7 @@ def main(argv=None):
     try:
         if args.cmd == 'init':
             with open(args.out, 'x') as f: f.write(json.dumps(template(args.tenant), indent=2)+'\n')
-            print(encode({'created': args.out, 'registered': 100, 'enabled': 0})); return 0
+            print(encode({'created': args.out, 'registered': len(catalog()), 'enabled': 0})); return 0
         if args.cmd == 'catalog': print(encode(catalog())); return 0
         if args.cmd == 'sources': print(encode(source_evidence.report())); return 0
         if args.cmd == 'licenses': print(encode(license_policy.summary(args.project_id))); return 0

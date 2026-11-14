@@ -2,7 +2,7 @@
 
 Núcleo comercial y de análisis para Nexus Bot Studio. Una sola entrada CLI/MCP,
 un motor de ejecución, flujos con dependencias, permisos locales, auditoría,
-idempotencia y estado SQLite. Versión de ingeniería **0.16.0**.
+idempotencia y estado SQLite. Versión de ingeniería **0.17.0**.
 
 **La integración operativa de los 300 proyectos NO está terminada.** Registrar
 fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
@@ -14,15 +14,15 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 | Fuentes registradas y fijadas por commit | 322 (100 núcleo + 222 de v0.14) |
 | Portafolio con licencia libre (política v0.14) | 300 |
 | Excluidos por licencia (registrados, sin operar) | 22 |
-| Proyectos con una operación implementada | 78: 59 HTTP + 19 de bibliotecas locales |
-| Conectados bajo la política de licencias | 59 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
+| Proyectos con una operación implementada | 82: 63 HTTP + 19 de bibliotecas locales |
+| Conectados bajo la política de licencias | 63 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
 | Piezas de construcción (se usan al programar, no vía motor) | 56 |
-| Pendientes de conector | 185 |
+| Pendientes de conector | 181 |
 | Servicios de pago | 0 (Stripe, Twilio, Mercado Pago, E2B y Composio retirados) |
-| Operaciones HTTP existentes | 63, limitadas por proveedor |
+| Operaciones HTTP existentes | 67, limitadas por proveedor |
 | Operaciones locales implementadas | 19; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Dos de cinco pasos; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 432 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
+| Pruebas unitarias y de contrato | 456 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
 | Herramientas MCP | 23; las operaciones reutilizan execute/workflow existentes |
 | Servicios productivos certificados | 0 |
 
@@ -33,8 +33,31 @@ bibliotecas ni certifica un despliegue productivo. La aceptación usa datos sint
 
 ## Plan de lo que falta
 
-Las 185 piezas pendientes, en 4 tandas de hasta 50, con las reglas para conectar cada una:
+Las 181 piezas pendientes, en 4 tandas de 46, 50, 50 y 35, con las reglas para conectar cada una:
 [docs/PLAN_CONEXION.md](docs/PLAN_CONEXION.md) (y `docs/plan_conexion.json` para agentes).
+
+## Qué añade v0.17
+
+Continuación del plan de Claude en la primera tanda, sin sustituir su motor:
+**OpenRefine**, **Steel Browser**, **Crawl4AI** y **Fides** tienen ahora una consulta
+acotada cada uno. Las rutas, formas de respuesta y autenticación se verificaron en
+sus commits fijados; se guardan solo recuentos y estados, nunca el cuerpo privado.
+
+OpenRefine, Steel y la ruta elegida de Crawl4AI no autentican nativamente: el motor
+exige `auth_mode=reviewed_proxy_bearer` y `proxy_auth_reviewed=true`, que el operador
+solo debe habilitar tras revisar su proxy. No se crea ni se presume dicho proxy.
+Fides utiliza su OAuth nativo. Los cuatro permanecen deshabilitados por defecto.
+
+Hay 24 pruebas nuevas: rutas, privacidad, credenciales, parámetros prohibidos,
+esquemas incompatibles, aislamiento, CLI/MCP y un flujo de cuatro lecturas con
+reapertura de Engine y reanudación sin repetir llamadas. Son pruebas sintéticas
+con HTTP local, **no instalación ni aceptación de proveedores auténticos**.
+También se corrigió `init`: ahora informa las 322 entradas, no las 100 históricas.
+
+Se mantienen 300 permitidas por política, 22 excluidas, 56 piezas de construcción
+y 0 proveedores productivos certificados. Pasamos de 59 a 63 conectadas según la
+definición del mapa; quedan 181 pendientes. La tanda 1 completa no está terminada.
+[Contratos y evidencia v0.17](docs/TANDA1_V017.md).
 
 ## Qué añade v0.16
 

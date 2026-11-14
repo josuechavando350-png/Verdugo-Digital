@@ -1,20 +1,38 @@
 # Verdugo Digital — Plan para conectar lo que falta
 
-Fecha: 14 de noviembre de 2026. Versión del motor: 0.16.0.
+Fecha: 14 de noviembre de 2026. Versión del motor: 0.17.0.
 
 | Estado | Cuántas |
 |---|---|
-| conectado | 59 |
+| conectado | 63 |
 | pieza_de_construccion | 56 |
-| pendiente | 185 |
+| pendiente | 181 |
 | excluido | 22 |
 | **Total** | 322 |
 
-**Pendientes: 185**, en 4 tandas de hasta 50. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
+**Pendientes: 181**, en 4 tandas de hasta 50. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
 no se conectan al motor: se usan al construir la plataforma (fase aparte). Las 22 excluidas por licencia no se tocan.
 
 El estado de cada pieza lo calcula el código: `python -m verdugo connections`. Este plan en formato
 de máquina está en `docs/plan_conexion.json`.
+
+## Continuación v0.17: cuatro contratos implementados, no cuatro instalaciones
+
+Se continúa el plan de Claude del commit `35516f830cba1e0dbb06b91f44357128440fc832`.
+Se conservan sus reglas, orden y numeración originales: la tanda 1 tiene ahora
+46 pendientes y las otras tandas mantienen 50, 50 y 35. No se renumeran las piezas
+para no perder su referencia histórica.
+
+- `openrefine`: recuento de proyectos, exclusivamente detrás de un proxy autenticador revisado.
+- `steel-browser`: recuento de sesiones por estado, con el mismo requisito de proxy.
+- `crawl4ai`: inventario de acciones declarativas disponibles; no ejecuta rastreo ni hooks. Requiere proxy.
+- `fides`: recuento de políticas DSR, primera página y token OAuth nativo de lectura.
+
+Pasaron pruebas de contrato y HTTP local con respuestas sintéticas; **no se han
+instalado ni verificado esos proveedores reales**. Los cuatro siguen deshabilitados
+hasta que el operador revise versión, licencia y credenciales. Los proxies no se
+crearon y su existencia no se presume. La tanda completa no está terminada.
+[Contratos, fuentes y límites](TANDA1_V017.md).
 
 ## Reglas para cada conector (obligatorias)
 
@@ -36,11 +54,10 @@ de máquina está en `docs/plan_conexion.json`.
 - `python -m verdugo connections` refleja el nuevo número de conectadas.
 - Las 5 revisiones del CI en verde. Ninguna se marca como probada contra un servidor real si no se probó.
 
-## Tanda 1 — servicios que traen clientes, MCP, protocolo y datos (50)
+## Tanda 1 — servicios que traen clientes, MCP, protocolo y datos (46)
 
 | # | Pieza | Repositorio @ commit | Licencia | Tipo | Qué hacer / nota |
 |---|---|---|---|---|---|
-| 1 | `openrefine` | [OpenRefine/OpenRefine@d97abdabd4](https://github.com/OpenRefine/OpenRefine/tree/d97abdabd4c172ddba3581a9259307c7f2b86b44) | BSD-3-Clause | servicio | Adaptador HTTP. API sin autenticación (solo CSRF en POST). Solo tras proxy con token. |
 | 2 | `uptime-kuma` | [louislam/uptime-kuma@4f6661cfa8](https://github.com/louislam/uptime-kuma/tree/4f6661cfa83a06be0353d5536ef3d9ee0064f534) | MIT | servicio | Adaptador HTTP. Solo expone /metrics en texto Prometheus. Leerlo a través de Prometheus (ya conectado) o con un parser de texto acotado. |
 | 3 | `krayin-crm` | [krayin/laravel-crm@ed6deebfcb](https://github.com/krayin/laravel-crm/tree/ed6deebfcb8c616eaf352c893a10a6d8e666fc6e) | MIT | servicio | Adaptador HTTP. Su paquete REST (krayin/rest-api) no tiene licencia: no usarlo. Bloqueado salvo que publiquen licencia. |
 | 4 | `anubis` | [TecharoHQ/anubis@f197f9a623](https://github.com/TecharoHQ/anubis/tree/f197f9a6235d255000c7b654ac478354a6e4bd02) | MIT | servicio | Adaptador HTTP. Proxy anti-bots; revisar si tiene endpoint de métricas o estado con autenticación. |
@@ -51,10 +68,8 @@ de máquina está en `docs/plan_conexion.json`.
 | 9 | `openhands` | [All-Hands-AI/OpenHands@685eb42ded](https://github.com/All-Hands-AI/OpenHands/tree/685eb42ded117ba0321aa8c3019e6677e5474317) | MIT | servicio | Adaptador HTTP.  |
 | 10 | `magentic-ui` | [microsoft/magentic-ui@d3c9d13c39](https://github.com/microsoft/magentic-ui/tree/d3c9d13c39288257286a66daabf7c5b5fb72ee69) | MIT | servicio | Adaptador HTTP.  |
 | 11 | `huginn` | [huginn/huginn@639c050b2b](https://github.com/huginn/huginn/tree/639c050b2bf4e14ef9983012af99dfc1dc68b334) | MIT | servicio | Adaptador HTTP. No tiene API JSON de lectura. Bloqueado. |
-| 12 | `steel-browser` | [steel-dev/steel-browser@552550af79](https://github.com/steel-dev/steel-browser/tree/552550af79742a75fef24c24b1134e43e99e3d5e) | Apache-2.0 | servicio | Adaptador HTTP. Autoalojado sin autenticación propia. Solo tras proxy con token. |
 | 13 | `datahub` | [datahub-project/datahub@164ce58a86](https://github.com/datahub-project/datahub/tree/164ce58a867afb6ee6ceac64c1c7aa9b526c1841) | Apache-2.0 | servicio | Adaptador HTTP.  |
 | 14 | `jitsu` | [jitsucom/jitsu@6c0d189a55](https://github.com/jitsucom/jitsu/tree/6c0d189a55c9e6c7b47d024d046e091ff1636565) | MIT | servicio | Adaptador HTTP.  |
-| 15 | `fides` | [ethyca/fides@e87f3ff835](https://github.com/ethyca/fides/tree/e87f3ff835af368defc1ec42dc29ec545a288585) | Apache-2.0 | servicio | Adaptador HTTP.  |
 | 16 | `debezium` | [debezium/debezium@a4c282ea70](https://github.com/debezium/debezium/tree/a4c282ea70d3f913df699464f3e42f9ddb7eb03e) | Apache-2.0 | servicio | Adaptador HTTP.  |
 | 17 | `operately` | [operately/operately@9fa8692fb6](https://github.com/operately/operately/tree/9fa8692fb61cec13730fb4523daf57c29261be45) | Apache-2.0 | servicio | Adaptador HTTP. Núcleo libre; no usar carpetas o archivos enterprise/comerciales. |
 | 18 | `taguette` | [remram44/taguette@52fcdce957](https://github.com/remram44/taguette/tree/52fcdce95709375a4085cb10852bf7dd251ccb3d) | BSD-3-Clause | servicio | Adaptador HTTP.  |
@@ -65,7 +80,6 @@ de máquina está en `docs/plan_conexion.json`.
 | 23 | `gotenberg` | [gotenberg/gotenberg@4d577e1467](https://github.com/gotenberg/gotenberg/tree/4d577e1467aaffa080b1e89d64ecb86c2fba4e98) | MIT | servicio | Adaptador HTTP. /health no pide credencial. Solo conectar con un modo "sin credencial" revisado; si no, marcar no_aplica. |
 | 24 | `signoz` | [SigNoz/signoz@ca7daf8ea9](https://github.com/SigNoz/signoz/tree/ca7daf8ea974b879379101c7f7d8cb420da6acc7) | MIT | servicio | Adaptador HTTP. Núcleo libre; no usar carpetas o archivos enterprise/comerciales. |
 | 25 | `postal` | [postalserver/postal@d96eddbade](https://github.com/postalserver/postal/tree/d96eddbadeda600595d6247486f9ceb8e99cbc15) | MIT | servicio | Adaptador HTTP. Su API es de envíos (POST). Sin lectura: bloqueado. |
-| 26 | `crawl4ai` | [unclecode/crawl4ai@cae74b203a](https://github.com/unclecode/crawl4ai/tree/cae74b203a33994f7e13b9052c3b0d5c93daa0e6) | Apache-2.0 | servicio | Adaptador HTTP.  |
 | 27 | `google-ads` | [googleads/google-ads-python@f253b400dc](https://github.com/googleads/google-ads-python/tree/f253b400dc5924b731fcb42dbcd99e485200581e) | Apache-2.0 | servicio | Adaptador HTTP. La librería oficial solo trae gRPC. Tomar la ruta REST GET customers:listAccessibleCustomers de la documentación oficial (versión v26 fijada). Necesita OAuth y developer-token (segundo secreto por variable VERDUGO_*). |
 | 28 | `meta-ads` | [meta/facebook-python-business-sdk@b08e5c1d36](https://github.com/meta/facebook-python-business-sdk/tree/b08e5c1d36a2adad3c4ede6578654c8eaca5f225) | LicenseRef-Meta-Platform | servicio | Adaptador HTTP. El SDK manda access_token en la URL: prohibido. Solo conectar si la documentación oficial de Graph API confirma el encabezado Authorization: Bearer. |
 | 29 | `bifrost` | [maximhq/bifrost@ff2e69f7f0](https://github.com/maximhq/bifrost/tree/ff2e69f7f0143ab79c9de5258b90bd9c70cf347b) | Apache-2.0 | servicio | Adaptador HTTP. Su API de administración usa sesiones o credenciales de administración; verificar en transports/bifrost-http/handlers/middlewares.go antes de elegir la autenticación. |

@@ -49,3 +49,12 @@ componente, cli, mcp, protocolo, datos o excluido) y su estado calculado desde e
 **conectado** solo si existe un adaptador implementado y la licencia lo permite. Los componentes
 (Next.js, Tailwind, shadcn…) se conectan al construir la plataforma, no a través del motor.
 
+
+## Continuación v0.17 (mantiene los 16 contratos anteriores)
+
+Cuatro lecturas nuevas se describen en [TANDA1_V017.md](TANDA1_V017.md).
+Se implementan en `verdugo/tanda1_reads.py`, conectado a los mismos despachadores
+`adapters` y `read_contracts`. No se cambia el inventario histórico de los 16
+contratos de este documento. El mapa vigente pasa a 63 conectadas, 181 pendientes,
+56 piezas de construcción y 22 excluidas; 322 entradas en total.
+Los conectores nuevos son de consulta de metadatos, no despliegues productivos.

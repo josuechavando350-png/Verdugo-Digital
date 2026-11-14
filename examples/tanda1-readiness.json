@@ -1,0 +1,39 @@
+{
+  "id": "tanda1-readiness",
+  "steps": [
+    {
+      "id": "openrefine",
+      "service": "openrefine",
+      "operation": "projects.count",
+      "params": {},
+      "depends_on": []
+    },
+    {
+      "id": "steel-browser",
+      "service": "steel-browser",
+      "operation": "sessions.summary",
+      "params": {},
+      "depends_on": [
+        "openrefine"
+      ]
+    },
+    {
+      "id": "crawl4ai",
+      "service": "crawl4ai",
+      "operation": "hooks.summary",
+      "params": {},
+      "depends_on": [
+        "steel-browser"
+      ]
+    },
+    {
+      "id": "fides",
+      "service": "fides",
+      "operation": "policies.count",
+      "params": {},
+      "depends_on": [
+        "crawl4ai"
+      ]
+    }
+  ]
+}

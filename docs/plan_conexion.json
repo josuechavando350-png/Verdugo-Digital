@@ -1,19 +1,7 @@
 {
  "generated": "2026-11-14",
- "pending": 185,
+ "pending": 181,
  "items": [
-  {
-   "tanda": "Tanda 1",
-   "id": "openrefine",
-   "repository": "OpenRefine/OpenRefine",
-   "commit": "d97abdabd4c172ddba3581a9259307c7f2b86b44",
-   "license": "BSD-3-Clause",
-   "policy": "libre",
-   "kind": "servicio",
-   "domain": "marketing",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
-   "nota": "API sin autenticación (solo CSRF en POST). Solo tras proxy con token."
-  },
   {
    "tanda": "Tanda 1",
    "id": "uptime-kuma",
@@ -136,18 +124,6 @@
   },
   {
    "tanda": "Tanda 1",
-   "id": "steel-browser",
-   "repository": "steel-dev/steel-browser",
-   "commit": "552550af79742a75fef24c24b1134e43e99e3d5e",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "servicio",
-   "domain": "agents",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
-   "nota": "Autoalojado sin autenticación propia. Solo tras proxy con token."
-  },
-  {
-   "tanda": "Tanda 1",
    "id": "datahub",
    "repository": "datahub-project/datahub",
    "commit": "164ce58a867afb6ee6ceac64c1c7aa9b526c1841",
@@ -164,18 +140,6 @@
    "repository": "jitsucom/jitsu",
    "commit": "6c0d189a55c9e6c7b47d024d046e091ff1636565",
    "license": "MIT",
-   "policy": "libre",
-   "kind": "servicio",
-   "domain": "dataengine",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
-   "nota": null
-  },
-  {
-   "tanda": "Tanda 1",
-   "id": "fides",
-   "repository": "ethyca/fides",
-   "commit": "e87f3ff835af368defc1ec42dc29ec545a288585",
-   "license": "Apache-2.0",
    "policy": "libre",
    "kind": "servicio",
    "domain": "dataengine",
@@ -301,18 +265,6 @@
    "domain": "platform",
    "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
    "nota": "Su API es de envíos (POST). Sin lectura: bloqueado."
-  },
-  {
-   "tanda": "Tanda 1",
-   "id": "crawl4ai",
-   "repository": "unclecode/crawl4ai",
-   "commit": "cae74b203a33994f7e13b9052c3b0d5c93daa0e6",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "servicio",
-   "domain": "research",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
-   "nota": null
   },
   {
    "tanda": "Tanda 1",
@@ -2222,5 +2174,86 @@
    "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
    "nota": null
   }
- ]
+ ],
+ "baseline_commit": "35516f830cba1e0dbb06b91f44357128440fc832",
+ "baseline_pending": 185,
+ "implemented_v017": [
+  {
+   "tanda": "Tanda 1",
+   "id": "openrefine",
+   "repository": "OpenRefine/OpenRefine",
+   "commit": "d97abdabd4c172ddba3581a9259307c7f2b86b44",
+   "license": "BSD-3-Clause",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "marketing",
+   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "nota": "API sin autenticación (solo CSRF en POST). Solo tras proxy con token.",
+   "implemented_actions": [
+    "projects.count"
+   ],
+   "implementation_version": "0.17.0",
+   "acceptance": "synthetic_contract_and_loopback",
+   "live_verified": false,
+   "proxy_authentication_required": true
+  },
+  {
+   "tanda": "Tanda 1",
+   "id": "steel-browser",
+   "repository": "steel-dev/steel-browser",
+   "commit": "552550af79742a75fef24c24b1134e43e99e3d5e",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "agents",
+   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "nota": "Autoalojado sin autenticación propia. Solo tras proxy con token.",
+   "implemented_actions": [
+    "sessions.summary"
+   ],
+   "implementation_version": "0.17.0",
+   "acceptance": "synthetic_contract_and_loopback",
+   "live_verified": false,
+   "proxy_authentication_required": true
+  },
+  {
+   "tanda": "Tanda 1",
+   "id": "fides",
+   "repository": "ethyca/fides",
+   "commit": "e87f3ff835af368defc1ec42dc29ec545a288585",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "dataengine",
+   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "nota": null,
+   "implemented_actions": [
+    "policies.count"
+   ],
+   "implementation_version": "0.17.0",
+   "acceptance": "synthetic_contract_and_loopback",
+   "live_verified": false,
+   "proxy_authentication_required": false
+  },
+  {
+   "tanda": "Tanda 1",
+   "id": "crawl4ai",
+   "repository": "unclecode/crawl4ai",
+   "commit": "cae74b203a33994f7e13b9052c3b0d5c93daa0e6",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "research",
+   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "nota": null,
+   "implemented_actions": [
+    "hooks.summary"
+   ],
+   "implementation_version": "0.17.0",
+   "acceptance": "synthetic_contract_and_loopback",
+   "live_verified": false,
+   "proxy_authentication_required": true
+  }
+ ],
+ "version": "0.17.0"
 }
