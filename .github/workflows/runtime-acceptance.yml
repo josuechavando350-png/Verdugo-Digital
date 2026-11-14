@@ -96,8 +96,18 @@ jobs:
             sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- \
               /tmp/verdugo-ragas-venv/bin/python tests_runtime/diagnose.py ragas || true
           fi
-      - name: Record exact adapter availability
-        run: /tmp/verdugo-runtime-venv/bin/python -m verdugo runtime-check > /tmp/runtime-availability.json
+      - name: Record inventory and require the selected baseline profile
+        run: |
+          /tmp/verdugo-runtime-venv/bin/python - <<'PYCODE'
+          import json, os
+          from pathlib import Path
+          from verdugo import local_runtime
+          inventory = local_runtime.inventory()
+          Path('/tmp/runtime-availability.json').write_text(json.dumps(inventory, indent=2)+'\n')
+          selected = os.environ['VERDUGO_RUNTIME_SERVICES'].split(',')
+          missing = [sid for sid in selected if not local_runtime.installed(sid)['version_matches']]
+          assert len(selected) == 19 and not missing, missing
+          PYCODE
       - name: Runtime evidence and resolved versions
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
