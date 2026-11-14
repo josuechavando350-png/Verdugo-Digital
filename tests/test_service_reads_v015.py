@@ -41,6 +41,10 @@ EXPECTED = {
     'crowdsec': ('decisions.summary', '/v1/decisions', {}, None),
     'clickhouse': ('databases.count', '/', {'query': ['SELECT count() AS databases FROM system.databases FORMAT JSON']}, None),
     'dittofeed': ('segments.list', '/api/admin/segments', {'workspaceId': ['00000000-0000-4000-8000-000000000001']}, 'Bearer ' + TOKEN),
+    'owncast': ('chat_clients.count', '/api/integrations/clients', {}, 'Bearer ' + TOKEN),
+    'lighthouse-ci': ('projects.list', '/v1/projects', {},
+                      'Basic ' + base64.b64encode(('lhci' + ':' + TOKEN).encode()).decode()),
+    'cal-diy': ('bookings.summary', '/v2/bookings', {}, 'Bearer ' + TOKEN),
 }
 PAID_REMOVED = ('stripe-python', 'twilio-python', 'mercadopago', 'e2b', 'composio')
 PRIVATE = 'private-person@example.invalid'
@@ -59,6 +63,11 @@ REPLIES = {
     'crowdsec': [{'id': 1, 'type': 'ban', 'scope': 'Ip', 'value': PRIVATE}, {'id': 2, 'type': 'captcha', 'value': '10.0.0.1'}],
     'clickhouse': {'meta': [{'name': 'databases', 'type': 'UInt64'}], 'data': [{'databases': '4'}], 'rows': 1},
     'dittofeed': {'segments': [{'id': 's', 'name': PRIVATE, 'definition': {}}]},
+    'owncast': [{'id': 1, 'user': {'displayName': PRIVATE}, 'ipAddress': '10.0.0.2'}],
+    'lighthouse-ci': [{'id': 'p1', 'name': PRIVATE, 'token': '', 'adminToken': ''}],
+    'cal-diy': {'status': 'success', 'data': [{'id': 1, 'status': 'accepted', 'attendees': [{'email': PRIVATE}]},
+                                              {'id': 2, 'status': 'cancelled'}, {'id': 3, 'status': 'odd'}],
+                'pagination': {'totalItems': 3}},
 }
 
 
@@ -72,6 +81,7 @@ def make_config():
             s['base_url'] = 'https://example.invalid'
         env[s['token_env']] = TOKEN
     cfg['tenants']['nexus']['services']['android-sms-gateway']['username'] = 'sms'
+    cfg['tenants']['nexus']['services']['lighthouse-ci']['username'] = 'lhci'
     cfg['tenants']['nexus']['services']['clickhouse']['username'] = 'verdugo_readonly'
     cfg['tenants']['nexus']['services']['dittofeed']['workspace_id'] = '00000000-0000-4000-8000-000000000001'
     return cfg, env
@@ -135,6 +145,7 @@ class ContractTests(unittest.TestCase):
     def test_scoped_providers_require_reviewed_identifiers(self):
         for sid, key, bad in (('clickhouse', 'username', ['', 'a b', None, 'x' * 65]),
                               ('android-sms-gateway', 'username', ['', 'a:b', None]),
+                              ('lighthouse-ci', 'username', ['', 'a b', None]),
                               ('dittofeed', 'workspace_id', ['', 'ws1', None, '../x'])):
             for value in bad:
                 cfg = dict(self.services[sid], **{key: value})
@@ -150,6 +161,11 @@ class ContractTests(unittest.TestCase):
                 dumped = json.dumps(value)
                 self.assertNotIn(PRIVATE, dumped)
                 self.assertNotIn(TOKEN, dumped)
+        self.assertEqual({'accepted': 1, 'cancelled': 1, 'OTHER': 1}, check('cal-diy', 'bookings.summary', REPLIES['cal-diy'])['status_counts'])
+        self.assertEqual(0, check('owncast', 'chat_clients.count', None)['records_in_response'])
+        cal = build('cal-diy', 'bookings.summary', {}, self.services['cal-diy'])
+        self.assertEqual('2024-08-13', cal['headers']['cal-api-version'])
+        self.assertNotIn('2024-08-13', cal['secret_values'])
         self.assertEqual({'sent': 1, 'draft': 1, 'OTHER': 1}, check('sendportal', 'campaigns.summary', REPLIES['sendportal'])['status_counts'])
         sms = check('android-sms-gateway', 'devices.list', REPLIES['android-sms-gateway'])
         self.assertEqual((1, 2), (sms['records_in_response'], sms['sim_cards']))
@@ -234,7 +250,7 @@ class ConnectionMapTests(unittest.TestCase):
     def test_states_are_computed_from_code(self):
         value = summary()
         self.assertEqual(322, value['registered'])
-        self.assertEqual({'conectado': 56, 'pieza_de_construccion': 56, 'pendiente': 188, 'excluido': 22},
+        self.assertEqual({'conectado': 59, 'pieza_de_construccion': 56, 'pendiente': 185, 'excluido': 22},
                          value['states'])
         self.assertEqual(0, value['live_verified'])
         for sid in service_reads.SPECS:
@@ -269,7 +285,7 @@ class ConnectionMapTests(unittest.TestCase):
             status = engine.status()
         finally:
             engine.close()
-        self.assertEqual(56, status['connection_states']['conectado'])
+        self.assertEqual(59, status['connection_states']['conectado'])
         row = next(r for r in status['integrations'] if r['id'] == 'vllm')
         self.assertEqual(('servicio', 'conectado'), (row['connection_kind'], row['connection_state']))
 

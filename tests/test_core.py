@@ -32,6 +32,7 @@ class Base(unittest.TestCase):
         for sid in EXCLUDED:
             self.config['tenants']['nexus']['services'][sid]['license_policy_exception'] = dict(POLICY_EXCEPTION)
         self.config['tenants']['nexus']['services']['android-sms-gateway']['username'] = 'sms'
+        self.config['tenants']['nexus']['services']['lighthouse-ci']['username'] = 'lhci'
         self.config['tenants']['nexus']['services']['clickhouse']['username'] = 'verdugo_readonly'
         self.config['tenants']['nexus']['services']['dittofeed']['workspace_id'] = '00000000-0000-4000-8000-000000000001'
         for sid in ('plausible','matomo'):
@@ -92,7 +93,7 @@ class CatalogTests(Base):
 
     def test_no_false_live_status(self):
         s=self.engine.status()
-        self.assertEqual(56,s['api_adapters_implemented'])
+        self.assertEqual(59,s['api_adapters_implemented'])
         self.assertEqual(0,s['live_verified'])
         self.assertFalse(any(r['live_verified'] for r in s['integrations']))
 
@@ -100,7 +101,7 @@ class CatalogTests(Base):
         g=graph(SPECS)
         self.assertEqual(323,len(g['nodes']))
         self.assertEqual(322,len(g['edges']))
-        self.assertEqual(56,sum(e['kind']=='adapter' for e in g['edges']))
+        self.assertEqual(59,sum(e['kind']=='adapter' for e in g['edges']))
         self.assertFalse(any(e['live'] for e in g['edges']))
 
     def test_template_disabled(self):

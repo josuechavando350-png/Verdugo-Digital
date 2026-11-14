@@ -2,7 +2,7 @@
 
 Núcleo comercial y de análisis para Nexus Bot Studio. Una sola entrada CLI/MCP,
 un motor de ejecución, flujos con dependencias, permisos locales, auditoría,
-idempotencia y estado SQLite. Versión de ingeniería **0.15.0**.
+idempotencia y estado SQLite. Versión de ingeniería **0.16.0**.
 
 **La integración operativa de los 300 proyectos NO está terminada.** Registrar
 fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
@@ -14,12 +14,12 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 | Fuentes registradas y fijadas por commit | 322 (100 núcleo + 222 de v0.14) |
 | Portafolio con licencia libre (política v0.14) | 300 |
 | Excluidos por licencia (registrados, sin operar) | 22 |
-| Proyectos con una operación implementada | 75: 56 HTTP + 19 de bibliotecas locales |
-| Conectados bajo la política de licencias | 56 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
+| Proyectos con una operación implementada | 78: 59 HTTP + 19 de bibliotecas locales |
+| Conectados bajo la política de licencias | 59 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
 | Piezas de construcción (se usan al programar, no vía motor) | 56 |
-| Pendientes de conector | 188 |
+| Pendientes de conector | 185 |
 | Servicios de pago | 0 (Stripe, Twilio, Mercado Pago, E2B y Composio retirados) |
-| Operaciones HTTP existentes | 60, limitadas por proveedor |
+| Operaciones HTTP existentes | 63, limitadas por proveedor |
 | Operaciones locales implementadas | 19; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Dos de cinco pasos; persistencia y reanudación tras reiniciar Engine |
 | Pruebas unitarias y de contrato | 432 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
@@ -30,6 +30,12 @@ Los tres workflows de aceptación son **Verdugo verification**, **Verdugo runtim
 acceptance** y **Verdugo real service acceptance**. La aprobación debe observarse
 para el commit concreto: una prueba del núcleo no sustituye ejecución de las
 bibliotecas ni certifica un despliegue productivo. La aceptación usa datos sintéticos.
+
+## Qué añade v0.16
+
+Tres conectores gratuitos más, con ruta y autenticación tomadas del código fuente en el commit
+fijado: **Cal** (citas por estado), **Owncast** (personas conectadas al chat del en vivo) y
+**Lighthouse CI** (proyectos auditados). Quedan 59 conectadas y 185 pendientes.
 
 ## Qué añade v0.15
 

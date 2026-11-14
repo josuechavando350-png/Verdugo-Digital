@@ -1,4 +1,4 @@
-"""v0.15: thirteen bounded read-only service contracts for the 300 portfolio.
+"""v0.15/v0.16: sixteen bounded read-only service contracts for the 300 portfolio.
 
 Every route below was taken from the upstream source or OpenAPI file at the
 pinned commit in sources/parts (see docs/CONECTORES_V015.md). Only GET is used,
@@ -34,7 +34,13 @@ SPECS = {
     # ClickHouse HTTP GET runs readonly; the only query is the fixed one below.
     'clickhouse': {'databases.count': ('GET', '/')},
     'dittofeed': {'segments.list': ('GET', '/api/admin/segments')},
+    # v0.16
+    'owncast': {'chat_clients.count': ('GET', '/api/integrations/clients')},
+    'lighthouse-ci': {'projects.list': ('GET', '/v1/projects')},
+    'cal-diy': {'bookings.summary': ('GET', '/v2/bookings')},
 }
+CAL_API_VERSION = '2024-08-13'
+CAL_STATUSES = frozenset(('accepted', 'cancelled', 'rejected', 'pending'))
 CLICKHOUSE_QUERY = 'SELECT count() AS databases FROM system.databases FORMAT JSON'
 UUID = re.compile(r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$')
 
@@ -54,9 +60,11 @@ LIST_PATHS = {
     'grist': None, 'datasette': None, 'svix': ('data',), 'cube': ('cubes',),
     'langflow': ('items',), 'crowdsec': None, 'dittofeed': ('segments',),
     'android-sms-gateway': None, 'sendportal': ('data',),
+    'owncast': None, 'lighthouse-ci': None, 'cal-diy': ('data',),
 }
 STATUS_FIELDS = {
     'crowdsec': ('type', frozenset(('ban', 'captcha', 'throttle'))),
+    'cal-diy': ('status', CAL_STATUSES),
 }
 SENDPORTAL_STATUS = {1: 'draft', 2: 'queued', 3: 'sending', 4: 'sent', 5: 'cancelled'}
 
@@ -72,11 +80,13 @@ def authorization(service, cfg, token):
         if not isinstance(user, str) or not re.fullmatch(r'[A-Za-z0-9_.-]{1,64}', user):
             raise VerdugoError('ClickHouse requires a reviewed read-only username')
         return {'X-ClickHouse-User': user, 'X-ClickHouse-Key': token}
-    if service == 'android-sms-gateway':
+    if service in ('android-sms-gateway', 'lighthouse-ci'):
         user = cfg.get('username')
         if not isinstance(user, str) or not re.fullmatch(r'[A-Za-z0-9_.-]{1,64}', user):
-            raise VerdugoError('Android SMS Gateway requires the reviewed local-server username')
+            raise VerdugoError('%s requires the reviewed basic-auth username' % service)
         return {'Authorization': 'Basic ' + base64.b64encode((user + ':' + token).encode()).decode()}
+    if service == 'cal-diy':
+        return {'Authorization': 'Bearer ' + token, 'cal-api-version': CAL_API_VERSION}
     return {'Authorization': 'Bearer ' + token}
 
 
@@ -112,7 +122,7 @@ def build(service, operation, params, cfg, origin, token, headers):
                                  'loopback': cfg.get('allow_local_http') is True}}
     return {'public': public, 'headers': headers, 'mutates': False,
             'secret_values': [token] + [v for k, v in headers.items()
-                                        if k not in ('Accept', 'User-Agent', 'Content-Type')]}
+                                        if k not in ('Accept', 'User-Agent', 'Content-Type', 'cal-api-version')]}
 
 
 def _rows(service, response):
@@ -147,7 +157,7 @@ def check(service, operation, response, request=None):
         if count is None or not 0 <= count <= 100000:
             raise VerdugoError('ClickHouse count schema mismatch')
         return base | {'databases': count}
-    if service == 'crowdsec' and response is None:
+    if service in ('crowdsec', 'owncast') and response is None:
         response = []  # Go encodes an empty decision slice as JSON null.
     rows = _rows(service, response)
     result = base | {'records_in_response': len(rows)}

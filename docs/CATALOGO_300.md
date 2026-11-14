@@ -51,7 +51,7 @@ adaptador en el motor. Estado: conectado (adaptador implementado y permitido), p
 | 27 | `trafilatura` | [adbar/trafilatura](https://github.com/adbar/trafilatura/tree/9c27981f4b7034a3249c77c4c06aaaed719fae66) | Apache-2.0 | Libre | biblioteca | conectado |  |
 | 28 | `crawl4ai` | [unclecode/crawl4ai](https://github.com/unclecode/crawl4ai/tree/cae74b203a33994f7e13b9052c3b0d5c93daa0e6) | Apache-2.0 | Libre | servicio | pendiente |  |
 | 29 | `lighthouse` | [GoogleChrome/lighthouse](https://github.com/GoogleChrome/lighthouse/tree/5313024aa05786138dfd38c6740ef354e20c3f92) | Apache-2.0 | Libre | cli | pendiente |  |
-| 30 | `lighthouse-ci` | [GoogleChrome/lighthouse-ci](https://github.com/GoogleChrome/lighthouse-ci/tree/3ead206a96a5ba714c386affe274576ccb8c09a9) | Apache-2.0 | Libre | servicio | pendiente |  |
+| 30 | `lighthouse-ci` | [GoogleChrome/lighthouse-ci](https://github.com/GoogleChrome/lighthouse-ci/tree/3ead206a96a5ba714c386affe274576ccb8c09a9) | Apache-2.0 | Libre | servicio | conectado |  |
 | 31 | `google-ads` | [googleads/google-ads-python](https://github.com/googleads/google-ads-python/tree/f253b400dc5924b731fcb42dbcd99e485200581e) | Apache-2.0 | Libre | servicio | pendiente |  |
 | 32 | `meta-ads` | [meta/facebook-python-business-sdk](https://github.com/meta/facebook-python-business-sdk/tree/b08e5c1d36a2adad3c4ede6578654c8eaca5f225) | LicenseRef-Meta-Platform | Libre con condición | servicio | pendiente | Solo para usar con las APIs de Meta. |
 | 33 | `activepieces` | [activepieces/activepieces](https://github.com/activepieces/activepieces/tree/03c15c9ce4e9cf626c9c47d7f55425556847cb19) | MIT | Libre (sin carpeta enterprise) | servicio | conectado | Núcleo libre; no usar carpetas o archivos enterprise/comerciales. |
@@ -134,7 +134,7 @@ adaptador en el motor. Estado: conectado (adaptador implementado y permitido), p
 | 105 | `mcp-gsc` | [AminForou/mcp-gsc](https://github.com/AminForou/mcp-gsc/tree/45291df024c7873b2042c83d7add70ced7bb621f) | MIT | Libre | mcp | pendiente |  |
 | 106 | `siteone-crawler` | [janreges/siteone-crawler](https://github.com/janreges/siteone-crawler/tree/f3d967b190a77ff5f816b7ddab74c1a778d9dbaf) | MIT | Libre | cli | pendiente |  |
 | 107 | `advertools` | [eliasdabbas/advertools](https://github.com/eliasdabbas/advertools/tree/59dc2be7a98ab3bab2a711efacd5023f8ecffa14) | MIT | Libre | biblioteca | pendiente |  |
-| 108 | `cal-diy` | [calcom/cal.diy](https://github.com/calcom/cal.diy/tree/ae027bb70e694e2d2c44569f398d6cbcee0389b1) | MIT | Libre | servicio | pendiente |  |
+| 108 | `cal-diy` | [calcom/cal.diy](https://github.com/calcom/cal.diy/tree/ae027bb70e694e2d2c44569f398d6cbcee0389b1) | MIT | Libre | servicio | conectado |  |
 | 109 | `uptime-kuma` | [louislam/uptime-kuma](https://github.com/louislam/uptime-kuma/tree/4f6661cfa83a06be0353d5536ef3d9ee0064f534) | MIT | Libre | servicio | pendiente |  |
 | 110 | `opengmb` | [synectus/OpenGMB](https://github.com/synectus/OpenGMB/tree/8f399472e9d484cfcad77eef33b0da341e469577) | MIT | Libre | mcp | pendiente |  |
 | 111 | `kingfisher-collect` | [open-contracting/kingfisher-collect](https://github.com/open-contracting/kingfisher-collect/tree/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6) | BSD-3-Clause | Libre | biblioteca | pendiente |  |
@@ -187,7 +187,7 @@ adaptador en el motor. Estado: conectado (adaptador implementado y permitido), p
 | 153 | `datasette` | [simonw/datasette](https://github.com/simonw/datasette/tree/32590d8f32244d922ee1f444e432fb48b11ce05b) | Apache-2.0 | Libre | servicio | conectado |  |
 | 154 | `ckanapi` | [ckan/ckanapi](https://github.com/ckan/ckanapi/tree/94b8c24a21a185c270a01bcbcfa72ff4e1b78b1c) | MIT | Libre | biblioteca | pendiente |  |
 | 155 | `quarto` | [quarto-dev/quarto-cli](https://github.com/quarto-dev/quarto-cli/tree/1782b5b3099e8e4dd62cf7bac590d3bad2072c56) | MIT | Libre | cli | pendiente |  |
-| 156 | `owncast` | [owncast/owncast](https://github.com/owncast/owncast/tree/c3a9ac1c46c043358fe7382a6d62d5227e4b2efe) | MIT | Libre | servicio | pendiente |  |
+| 156 | `owncast` | [owncast/owncast](https://github.com/owncast/owncast/tree/c3a9ac1c46c043358fe7382a6d62d5227e4b2efe) | MIT | Libre | servicio | conectado |  |
 | 157 | `auto-editor` | [WyattBlue/auto-editor](https://github.com/WyattBlue/auto-editor/tree/2bbdcd95bc221254e4e6e00eb4c827b06ae93f71) | Unlicense | Libre | cli | pendiente |  |
 | 158 | `slidev` | [slidevjs/slidev](https://github.com/slidevjs/slidev/tree/437f139ccd4c8482a193b217922e7800a5b3baec) | MIT | Libre | cli | pendiente |  |
 | 159 | `carousel-generator` | [FranciscoMoretti/carousel-generator](https://github.com/FranciscoMoretti/carousel-generator/tree/4bc98958a038717775c1b1d57124b8a6b0095f9a) | MIT | Libre | componente | pieza_de_construccion |  |

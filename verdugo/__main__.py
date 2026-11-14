@@ -55,6 +55,7 @@ def template(tenant):
     for sid, origin in FIXED_ORIGINS.items():
         services[sid]['base_url'] = origin
     services['android-sms-gateway'].update(username=None)
+    services['lighthouse-ci'].update(username=None)
     services['clickhouse'].update(username=None)
     services['dittofeed'].update(workspace_id=None)
     return {'tenants': {tenant: {'services': services, 'ingress': {}}}}

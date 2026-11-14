@@ -1,4 +1,4 @@
-# Verdugo Digital v0.15 — 13 conectores nuevos de solo lectura (solo servicios gratuitos)
+# Verdugo Digital v0.15–v0.16 — 16 conectores nuevos de solo lectura (solo servicios gratuitos)
 
 Cada ruta, encabezado de autenticación y forma de respuesta se tomó del **código fuente o
 archivo OpenAPI en el commit fijado** de `sources/parts`, no de memoria. Todos son `GET`, con
@@ -23,12 +23,15 @@ real fue probado**: antes de usar uno, corre `pilot` con un sandbox autorizado.
 | `dittofeed` | `segments.list` | `GET /api/admin/segments?workspaceId=<uuid>` | Authorization: Bearer (clave admin) | [dittofeed/dittofeed@91277939a9](https://github.com/dittofeed/dittofeed/tree/91277939a9afcee797ab2562025f6b02d823b00c): packages/api/src/buildApp/router.ts; adminAuth.ts; controllers/segmentsController.ts | Recuento de segmentos del workspace. | Requiere workspace_id revisado. |
 | `android-sms-gateway` | `devices.list` | `GET /devices` | Basic (usuario y contraseña del servidor local) | [capcom6/android-sms-gateway@e2c6bb56a4](https://github.com/capcom6/android-sms-gateway/tree/e2c6bb56a4d60bd39195e9415589a3ec14bd00a7): app/src/main/java/me/capcom/smsgateway/modules/localserver/WebService.kt; routes/DeviceRoutes.kt | Número de dispositivos y de SIMs. Sin números de teléfono. | Gratis: el teléfono Android es la pasarela y usa tu plan de mensajes. Requiere HTTPS (p. ej. detrás de Caddy) porque el motor no manda credenciales por HTTP en red local. |
 | `sendportal` | `campaigns.summary` | `GET /api/v1/campaigns` | Authorization: Bearer (token de API del workspace) | [mettle/sendportal-core](https://github.com/mettle/sendportal-core) (MIT): src/Routes/ApiRoutes.php; Controllers/Api/CampaignsController.php; Models/CampaignStatus.php; app [mettle/sendportal@f759dc848e](https://github.com/mettle/sendportal/tree/f759dc848ec986d82f294082ff14009e8c4e90a6): routes/api.php, AppServiceProvider (bearerToken) | Campañas por estado (draft/queued/sending/sent/cancelled). Sin contenido ni destinatarios. | Gratis y autoalojado; el envío de correo usa tu propio servidor (p. ej. Postal). |
+| `owncast` | `chat_clients.count` | `GET /api/integrations/clients` | Authorization: Bearer (token de integración con acceso admin) | [owncast/owncast@c3a9ac1c46](https://github.com/owncast/owncast/tree/c3a9ac1c46c043358fe7382a6d62d5227e4b2efe): webserver/router/router.go (/api), handlers/integrations.go, handlers/admin/connectedClients.go, router/middleware/auth.go | Número de personas conectadas al chat del en vivo. Sin nombres ni IPs. | Gratis y autoalojado. |
+| `lighthouse-ci` | `projects.list` | `GET /v1/projects` | Basic (usuario y contraseña del servidor LHCI) | [GoogleChrome/lighthouse-ci@3ead206a96](https://github.com/GoogleChrome/lighthouse-ci/tree/3ead206a96a5ba714c386affe274576ccb8c09a9): packages/server/src/server.js, api/routes/projects.js | Número de proyectos auditados. | Gratis y autoalojado; activa la autenticación básica del servidor. |
+| `cal-diy` | `bookings.summary` | `GET /v2/bookings` + `cal-api-version: 2024-08-13` | Authorization: Bearer (API key de Cal) | [calcom/cal.diy@ae027bb70e](https://github.com/calcom/cal.diy/tree/ae027bb70e694e2d2c44569f398d6cbcee0389b1): apps/api/v2/src/platform/bookings/2024-08-13/controllers/bookings.controller.ts, bootstrap.ts, packages/platform/constants/api.ts | Citas por estado (accepted/cancelled/rejected/pending). Sin datos de asistentes. | Gratis y autoalojado. |
 
 ## Configuración privada mínima
 
 Cada conector arranca apagado en `verdugo init`. Para activarlo: `enabled`, `license_reviewed`,
 `version` exacta, `base_url` y `token_env` con el secreto en una variable de entorno `VERDUGO_*`.
-Campos extra: Android SMS Gateway `username`, ClickHouse `username` (de solo lectura) y
+Campos extra: Android SMS Gateway y Lighthouse CI `username`, ClickHouse `username` (de solo lectura) y
 Dittofeed `workspace_id`.
 
 ## Servicios de pago retirados
