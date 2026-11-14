@@ -293,7 +293,7 @@ class WorkflowManifestTests(Base):
 class DoctorTests(Base):
     def test_configuration_checks_never_call_network(self):
         result = doctor(self.engine)
-        self.assertEqual(100, len(result['checks']))
+        self.assertEqual(322, len(result['checks']))
         self.assertEqual(43, sum(r['state'] == 'planned' for r in result['checks']))
         self.assertFalse(self.calls)
 
@@ -349,7 +349,7 @@ class OperationalTruthTests(Base):
         for cfg in self.config['tenants']['nexus']['services'].values(): cfg['enabled'] = False
         result = doctor(self.engine, 'empty', True)
         self.assertEqual('not_configured', result['state'])
-        self.assertEqual({'disabled': 100}, result['counts'])
+        self.assertEqual({'disabled': 322}, result['counts'])
         self.assertFalse(self.calls)
 
     def test_nonzero_cli_exit_for_unconfigured_live_diagnostics(self):

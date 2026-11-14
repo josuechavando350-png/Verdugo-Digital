@@ -1,0 +1,82 @@
+[
+ {
+  "number": 151,
+  "id": "c2pa",
+  "repository": "contentauth/c2pa-rs",
+  "commit_sha": "0e92435c6d621c02c9bde2a8d82346295ed1f509",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 152,
+  "id": "vale",
+  "repository": "errata-ai/vale",
+  "commit_sha": "4ce91ef208b37f9ac2894766e8cd7b33ffe3baed",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 153,
+  "id": "datasette",
+  "repository": "simonw/datasette",
+  "commit_sha": "32590d8f32244d922ee1f444e432fb48b11ce05b",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 154,
+  "id": "ckanapi",
+  "repository": "ckan/ckanapi",
+  "commit_sha": "94b8c24a21a185c270a01bcbcfa72ff4e1b78b1c",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 155,
+  "id": "quarto",
+  "repository": "quarto-dev/quarto-cli",
+  "commit_sha": "1782b5b3099e8e4dd62cf7bac590d3bad2072c56",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 156,
+  "id": "owncast",
+  "repository": "owncast/owncast",
+  "commit_sha": "c3a9ac1c46c043358fe7382a6d62d5227e4b2efe",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 157,
+  "id": "auto-editor",
+  "repository": "WyattBlue/auto-editor",
+  "commit_sha": "2bbdcd95bc221254e4e6e00eb4c827b06ae93f71",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 158,
+  "id": "slidev",
+  "repository": "slidevjs/slidev",
+  "commit_sha": "437f139ccd4c8482a193b217922e7800a5b3baec",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 159,
+  "id": "carousel-generator",
+  "repository": "FranciscoMoretti/carousel-generator",
+  "commit_sha": "4bc98958a038717775c1b1d57124b8a6b0095f9a",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 160,
+  "id": "excalidraw",
+  "repository": "excalidraw/excalidraw",
+  "commit_sha": "82d5847e57dcb6fb5982833ea9ec2137fe0b2bd5",
+  "source_status": "pinned",
+  "license_review": "pending"
+ }
+]

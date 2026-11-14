@@ -13,6 +13,8 @@ import threading
 import unittest
 from unittest.mock import patch
 
+from verdugo.license_policy import EXCLUDED
+POLICY_EXCEPTION = {'approved_by': 'contract-fixture', 'reason': 'Synthetic contract test of an adapter excluded by license policy.'}
 from verdugo.__main__ import template
 from verdugo.adapters import SPECS, build
 from verdugo.common import VerdugoError
@@ -43,6 +45,8 @@ class ReadProviderTests(unittest.TestCase):
             cfg.update(enabled=True, license_reviewed=True,
                        version="contract-fixture-only",
                        base_url="https://example.invalid")
+            if sid in EXCLUDED:
+                cfg["license_policy_exception"] = dict(POLICY_EXCEPTION)
             self.env[cfg["token_env"]] = TOKEN
         self.keys = patch.dict(os.environ, self.env)
         self.keys.start()

@@ -483,7 +483,7 @@ class InterfaceTests(EventsBase):
 
     def test_mcp_tools_without_approval_or_signer(self):
         names = {t['name'] for t in tool_definitions()}
-        self.assertEqual(21, len(names))
+        self.assertEqual(22, len(names))
         self.assertIn('verdugo_worker', names)
         self.assertFalse(any('approve' in n or 'sign' in n for n in names))
         self.enqueue()

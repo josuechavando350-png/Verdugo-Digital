@@ -1,4 +1,4 @@
-"""Pinned, read-only upstream GitHub source evidence for the approved 100 projects.
+"""Pinned, read-only upstream GitHub source evidence for the 322 catalogue entries.
 
 A source commit is not a deployed service, a compatible API, a license grant,
 or a working integration. No remote source code is imported or executed here.
@@ -11,10 +11,12 @@ from .adapters import SPECS
 from .local_runtime import SPECS as LOCAL_SPECS
 from .catalog import catalog
 from .common import VerdugoError
+from . import license_policy
 
 PARTS = Path(__file__).resolve().parents[1] / "sources" / "parts"
 SHA = re.compile(r"^[0-9a-f]{40}$")
-PART_NAMES = [f"{n:02d}.json" for n in range(1, 11)]
+REGISTERED = 322
+PART_NAMES = [f"{n:02d}.json" for n in range(1, (REGISTERED + 9) // 10 + 1)]
 
 
 def read_sources(directory=None):
@@ -25,10 +27,10 @@ def read_sources(directory=None):
     except OSError as exc:
         raise VerdugoError("Source evidence directory is unreadable") from exc
     if names != PART_NAMES:
-        raise VerdugoError("Source evidence requires exactly 10 numbered JSON parts")
+        raise VerdugoError("Source evidence requires exactly 33 numbered JSON parts")
     approved = catalog()
-    if len(approved) != 100:
-        raise VerdugoError("Approved catalogue does not contain exactly 100 projects")
+    if len(approved) != REGISTERED:
+        raise VerdugoError("Approved catalogue does not contain exactly 322 projects")
     records = []
     for part_number, name in enumerate(PART_NAMES):
         path = directory / name
@@ -38,8 +40,9 @@ def read_sources(directory=None):
             block = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, UnicodeError, ValueError) as exc:
             raise VerdugoError("Source evidence part is unreadable or invalid JSON") from exc
-        if not isinstance(block, list) or len(block) != 10:
-            raise VerdugoError("Source evidence part must contain exactly 10 records")
+        size = min(10, REGISTERED - part_number * 10)
+        if not isinstance(block, list) or len(block) != size:
+            raise VerdugoError("Source evidence part must contain exactly 10 records (the last part holds the rest)")
         for index, row in enumerate(block):
             expected = approved[part_number * 10 + index]
             if not isinstance(row, dict):
@@ -54,7 +57,7 @@ def read_sources(directory=None):
             if row.get("license_review") != "pending":
                 raise VerdugoError("License review cannot be asserted by source pinning")
             records.append(row)
-    if len({r["id"] for r in records}) != 100 or len({r["repository"].casefold() for r in records}) != 100:
+    if len({r["id"] for r in records}) != REGISTERED or len({r["repository"].casefold() for r in records}) != REGISTERED:
         raise VerdugoError("Source evidence contains duplicate projects")
     return records
 
@@ -75,6 +78,8 @@ def report(project_id=None):
             "source_status": "pinned",
             "source_url": "https://github.com/" + row["repository"] + "/tree/" + row["commit_sha"],
             "license_review": "pending",
+            "license_detected": license_policy.record(row["id"])["spdx"],
+            "license_policy": license_policy.record(row["id"])["policy"],
             "http_api_recipe_available": row["id"] in SPECS,
             "local_recipe_available": row["id"] in LOCAL_SPECS,
             "implemented_local_actions": [LOCAL_SPECS[row["id"]][0]] if row["id"] in LOCAL_SPECS else [],
@@ -89,6 +94,8 @@ def report(project_id=None):
         "source_pinned": sum(r["source_status"] == "pinned" for r in rows),
         "source_not_pinned": 0,
         "license_review_pending": sum(r["license_review"] == "pending" for r in rows),
+        "license_policy_allowed": license_policy.summary()["allowed"],
+        "license_policy_excluded": len(license_policy.EXCLUDED),
         "http_adapters_implemented": sum(r["id"] in SPECS for r in rows),
         "http_actions_implemented": sum(len(v) for v in SPECS.values()),
         "without_http_adapter": sum(r["id"] not in SPECS for r in rows),

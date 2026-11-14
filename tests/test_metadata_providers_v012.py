@@ -12,6 +12,8 @@ import unittest
 from unittest.mock import patch
 from urllib.parse import parse_qs, urlsplit
 
+from verdugo.license_policy import EXCLUDED
+POLICY_EXCEPTION = {'approved_by': 'contract-fixture', 'reason': 'Synthetic contract test of an adapter excluded by license policy.'}
 from verdugo.__main__ import template
 from verdugo.adapters import SPECS, build
 from verdugo.common import VerdugoError
@@ -62,6 +64,8 @@ class MetadataProviderTests(unittest.TestCase):
         for service in ROUTES:
             cfg = self.config["tenants"]["nexus"]["services"][service]
             cfg.update(enabled=True, license_reviewed=True, version="contract-fixture-only")
+            if service in EXCLUDED:
+                cfg["license_policy_exception"] = dict(POLICY_EXCEPTION)
             env[cfg["token_env"]] = SIGNING_TOKEN if service == "documenso" else CREDENTIAL
         self.patch = patch.dict(os.environ, env)
         self.patch.start()

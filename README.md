@@ -2,29 +2,59 @@
 
 Núcleo comercial y de análisis para Nexus Bot Studio. Una sola entrada CLI/MCP,
 un motor de ejecución, flujos con dependencias, permisos locales, auditoría,
-idempotencia y estado SQLite. Versión de ingeniería **0.13.0**.
+idempotencia y estado SQLite. Versión de ingeniería **0.14.0**.
 
-**La integración operativa de los 100 proyectos NO está terminada.** Registrar
+**La integración operativa de los 300 proyectos NO está terminada.** Registrar
 fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 
 ## Estado del código
 
 | Componente | Alcance |
 |---|---|
-| Fuentes aprobadas y fijadas por commit | 100 |
+| Fuentes registradas y fijadas por commit | 322 (100 núcleo + 222 de v0.14) |
+| Portafolio con licencia libre (política v0.14) | 300 |
+| Excluidos por licencia (registrados, sin operar) | 22 |
 | Proyectos con una operación implementada | 62: 43 HTTP + 19 de bibliotecas locales |
-| Proyectos sin ningún adaptador | 38 |
+| Adaptadores utilizables bajo la política de licencias | 43 (19 adaptadores HTTP quedaron bloqueados por licencia) |
+| Proyectos sin ningún adaptador | 260 |
 | Operaciones HTTP existentes | 47, limitadas por proveedor |
 | Operaciones locales implementadas | 19; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Dos de cinco pasos; persistencia y reanudación tras reiniciar Engine |
 | Pruebas unitarias y de contrato | 404 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
-| Herramientas MCP | 21; las operaciones reutilizan execute/workflow existentes |
+| Herramientas MCP | 22; las operaciones reutilizan execute/workflow existentes |
 | Servicios productivos certificados | 0 |
 
 Los tres workflows de aceptación son **Verdugo verification**, **Verdugo runtime
 acceptance** y **Verdugo real service acceptance**. La aprobación debe observarse
 para el commit concreto: una prueba del núcleo no sustituye ejecución de las
 bibliotecas ni certifica un despliegue productivo. La aceptación usa datos sintéticos.
+
+## Qué añade v0.14
+
+**Un solo catálogo de 322 entradas y una política de licencias que falla cerrada.**
+
+- Se unieron, sin repetir, el núcleo de 100, los 121 libres de la lista de Josue
+  (21 ya estaban en el núcleo) y tres bloques nuevos: agentes autónomos (40),
+  plataforma de producto (40) y motor de datos propios (42). Total libre: **300**.
+- La licencia de cada entrada se leyó del archivo en la raíz del commit fijado y quedó
+  en `sources/licenses.json`. Solo cuentan como libres MIT, Apache-2.0, BSD, ISC, CC0,
+  Unlicense y PostgreSQL. 12 son libres solo en su núcleo (no usar carpetas enterprise)
+  y 3 son libres con una condición escrita.
+- 22 entradas del núcleo original (AGPL/GPL/LGPL, Elastic, Sustainable Use y la licencia
+  propia de Remotion) quedan **registradas pero excluidas**: el Engine rechaza cualquier
+  plan, lectura o escritura sobre ellas (`Excluded by license policy`) antes de llamar a
+  nada. Sus adaptadores siguen en el código y en el historial; solo se pueden operar si
+  el operador escribe en su configuración privada una excepción con nombre y motivo
+  (`license_policy_exception: {approved_by, reason}`). La plantilla nunca la incluye.
+- Consecuencia práctica: los ejemplos que usan Twenty, Postiz, Plausible o Matomo
+  (`commercial-overview`, `contact-bridge`, `marketing-reads`) quedan bloqueados por
+  política. El CRM con escritura necesita un reemplazo con licencia libre.
+- Nuevo comando `python -m verdugo licenses [ID]` y herramienta MCP de solo lectura
+  `verdugo_license_policy`. `status` y `sources` muestran licencia y política por proyecto.
+- Registrar no es integrar: los 222 proyectos nuevos no tienen adaptador todavía.
+  [Catálogo completo con licencias](docs/CATALOGO_300_V014.md).
+
+Esto no es asesoría legal: `license_review` sigue `pending` en las 322 entradas.
 
 ## Qué añade v0.13
 

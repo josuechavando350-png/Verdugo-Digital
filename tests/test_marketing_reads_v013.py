@@ -15,6 +15,8 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from unittest.mock import patch
 from urllib.parse import parse_qs, urlsplit
 
+from verdugo.license_policy import EXCLUDED
+POLICY_EXCEPTION = {'approved_by': 'contract-fixture', 'reason': 'Synthetic contract test of an adapter excluded by license policy.'}
 from verdugo.__main__ import template
 from verdugo.adapters import build
 from verdugo.common import VerdugoError
@@ -33,6 +35,8 @@ def config():
     for sid in mr.SPECS:
         cfg['tenants']['nexus']['services'][sid].update(
             enabled=True, license_reviewed=True, version='contract-fixture-only')
+        if sid in EXCLUDED:
+            cfg['tenants']['nexus']['services'][sid]['license_policy_exception'] = dict(POLICY_EXCEPTION)
     for sid in ('plausible', 'matomo'):
         cfg['tenants']['nexus']['services'][sid].update(
             site_id='example.invalid' if sid == 'plausible' else 1,

@@ -72,16 +72,22 @@ jobs:
             echo "ERROR: unconfigured pilot must fail closed" >&2
             exit 1
           fi
-      - name: Nexus 100 immutable source evidence gates
+      - name: Verdugo 322 immutable source evidence gates
         run: |
           python3 -m verdugo sources > /tmp/verdugo-source-evidence.json
-          python3 -c "import json; x=json.load(open('/tmp/verdugo-source-evidence.json')); assert x['registered']==100 and x['source_pinned']==100 and x['license_review_pending']==100 and x['http_adapters_implemented']==43 and x['without_http_adapter']==57 and x['live_verified']==0 and x['external_calls_made'] is False"
+          python3 -c "import json; x=json.load(open('/tmp/verdugo-source-evidence.json')); assert x['registered']==322 and x['source_pinned']==322 and x['license_review_pending']==322 and x['license_policy_allowed']==300 and x['license_policy_excluded']==22 and x['http_adapters_implemented']==43 and x['without_http_adapter']==279 and x['live_verified']==0 and x['external_calls_made'] is False"
           python3 -m verdugo source-inspect twenty > /tmp/verdugo-source-single.json
           python3 -c "import json; x=json.load(open('/tmp/verdugo-source-single.json')); assert len(x['source_commit_sha'])==40 and x['ready_for_production'] is False"
       - name: Registry truth checks
         run: |
           python3 -m verdugo --state :memory: status > /tmp/verdugo-status.json
-          python3 -c "import json; x=json.load(open('/tmp/verdugo-status.json')); assert x['registered']==100 and x['api_adapters_implemented']==43 and x['api_actions_implemented']==47 and x['total_adapters_implemented']==62 and x['projects_without_any_adapter']==38 and x['live_verified']==0"
+          python3 -c "import json; x=json.load(open('/tmp/verdugo-status.json')); assert x['registered']==322 and x['api_adapters_implemented']==43 and x['api_actions_implemented']==47 and x['total_adapters_implemented']==62 and x['projects_without_any_adapter']==260 and x['adapters_usable_under_policy']==43 and x['live_verified']==0"
+      - name: License policy gates (v0.14)
+        run: |
+          python3 -m verdugo licenses > /tmp/verdugo-licenses.json
+          python3 -c "import json; x=json.load(open('/tmp/verdugo-licenses.json')); assert x['registered']==322 and x['allowed']==300 and len(x['excluded'])==22 and x['legal_advice'] is False and x['license_review_pending']==322"
+          python3 -m verdugo licenses twenty > /tmp/verdugo-license-twenty.json
+          python3 -c "import json; x=json.load(open('/tmp/verdugo-license-twenty.json')); assert x['policy']=='excluido' and x['license_review']=='pending'"
 
   python314:
     runs-on: ubuntu-24.04

@@ -1,0 +1,82 @@
+[
+ {
+  "number": 161,
+  "id": "apache-answer",
+  "repository": "apache/answer",
+  "commit_sha": "6744295fa888e0621fc9f9a8ace04f1a4daf8554",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 162,
+  "id": "local-seo-skills",
+  "repository": "garrettjsmith/localseoskills",
+  "commit_sha": "c3b7a25b7d5cc370752d74cfea240ccf992a24db",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 163,
+  "id": "a2a",
+  "repository": "a2aproject/A2A",
+  "commit_sha": "4d7cda4b1754ed410e41bf3be7ad9ebc62afe3d3",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 164,
+  "id": "webmention-io",
+  "repository": "aaronpk/webmention.io",
+  "commit_sha": "9183deed829c2399e6cd7f594ab8f1d84492e86b",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 165,
+  "id": "claude-skills-c-level",
+  "repository": "alirezarezvani/claude-skills",
+  "commit_sha": "08cd8a9fc86cc370e2c0d448e8171fbcfdbc5a30",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 166,
+  "id": "tinytroupe",
+  "repository": "microsoft/TinyTroupe",
+  "commit_sha": "7ce8be378a37ee73f9745d6781452712318afa04",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 167,
+  "id": "gpt-researcher",
+  "repository": "assafelovic/gpt-researcher",
+  "commit_sha": "ddd4db36208d9c8e49f3b2436efda97baecb5433",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 168,
+  "id": "forecasting-tools",
+  "repository": "Metaculus/forecasting-tools",
+  "commit_sha": "bd7e6a65e7f01141af8cab411ff8f51f908f8061",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 169,
+  "id": "onlinewardleymaps",
+  "repository": "damonsk/onlinewardleymaps",
+  "commit_sha": "71f2aad88ae83862fdce27c55c6733b8ba1009aa",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 170,
+  "id": "operately",
+  "repository": "operately/operately",
+  "commit_sha": "9fa8692fb61cec13730fb4523daf57c29261be45",
+  "source_status": "pinned",
+  "license_review": "pending"
+ }
+]

@@ -1,0 +1,4187 @@
+{
+ "observed": "2026-11-13",
+ "method": "Lectura local del archivo de licencia en la raíz del commit fijado (clon git sin blobs). No es una revisión legal.",
+ "policy_rule": "Solo entran MIT, Apache-2.0, BSD, ISC, CC0, Unlicense o PostgreSQL. AGPL/GPL/LGPL, Elastic, SUL, BUSL, FSL, licencias propias y repos sin licencia quedan excluidos.",
+ "records": [
+  {
+   "number": 1,
+   "id": "twenty",
+   "repository": "twentyhq/twenty",
+   "scanned_commit": "e7f3c8579a49e02b9ee0cd655c1c8e3ba57100e9",
+   "origin": "core-100",
+   "spdx": "AGPL-3.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": "Archivos @license Enterprise bajo licencia comercial."
+  },
+  {
+   "number": 2,
+   "id": "frappe-crm",
+   "repository": "frappe/crm",
+   "scanned_commit": "d68ef63d1eb239fbe60b56bfd9f74a44ad364a94",
+   "origin": "core-100",
+   "spdx": "AGPL-3.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 3,
+   "id": "erpnext",
+   "repository": "frappe/erpnext",
+   "scanned_commit": "2470b9dd004284e0c7ee00ed225da7d38a80a75d",
+   "origin": "core-100",
+   "spdx": "GPL-3.0",
+   "policy": "excluido",
+   "license_files": [
+    "license.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 4,
+   "id": "odoo",
+   "repository": "odoo/odoo",
+   "scanned_commit": "688cb908f74df65d1e71822338b1b60a124b17f8",
+   "origin": "core-100",
+   "spdx": "LGPL-3.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 5,
+   "id": "mautic",
+   "repository": "mautic/mautic",
+   "scanned_commit": "229e8f7b0fcc0c1fd0013d51450a27afebd6f3b7",
+   "origin": "core-100",
+   "spdx": "GPL-3.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 6,
+   "id": "chatwoot",
+   "repository": "chatwoot/chatwoot",
+   "scanned_commit": "309c63f359a1206caf9a36a271407f3bb4cc9419",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre_nucleo",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": "Núcleo libre; no usar carpetas o archivos enterprise/comerciales."
+  },
+  {
+   "number": 7,
+   "id": "listmonk",
+   "repository": "knadh/listmonk",
+   "scanned_commit": "32078ede6d87c83f4948cc592c76bee91d629f0b",
+   "origin": "core-100",
+   "spdx": "AGPL-3.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 8,
+   "id": "dittofeed",
+   "repository": "dittofeed/dittofeed",
+   "scanned_commit": "91277939a9afcee797ab2562025f6b02d823b00c",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 9,
+   "id": "novu",
+   "repository": "novuhq/novu",
+   "scanned_commit": "a58cd5e532238f2a0e09631fc9d0967d1158aa0f",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre_nucleo",
+   "license_files": [
+    "LICENSE-MIT"
+   ],
+   "note": "Núcleo libre; no usar carpetas o archivos enterprise/comerciales."
+  },
+  {
+   "number": 10,
+   "id": "easyappointments",
+   "repository": "alextselegidis/easyappointments",
+   "scanned_commit": "f6c8a4c2f364bf8c64b1f913a531a7134dcfd3c6",
+   "origin": "core-100",
+   "spdx": "GPL-3.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 11,
+   "id": "astro",
+   "repository": "withastro/astro",
+   "scanned_commit": "d68e4f6340409a201df7c5f77d5d322abfe6c377",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 12,
+   "id": "payload",
+   "repository": "payloadcms/payload",
+   "scanned_commit": "7a80820ce48dc71420d92e32ca076dc7d004375e",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.md"
+   ],
+   "note": null
+  },
+  {
+   "number": 13,
+   "id": "ghost",
+   "repository": "TryGhost/Ghost",
+   "scanned_commit": "45de48a161017375d40e874c8bc2a9f13e2b6f17",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 14,
+   "id": "grapesjs",
+   "repository": "GrapesJS/grapesjs",
+   "scanned_commit": "e023d69b9fa97fbbc693052c9818f0c477b105a5",
+   "origin": "core-100",
+   "spdx": "BSD-3-Clause",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": "Licencia en packages/core/LICENSE."
+  },
+  {
+   "number": 15,
+   "id": "formbricks",
+   "repository": "formbricks/formbricks",
+   "scanned_commit": "31264bb7c6d747b31cd94cce8064b706d420a58a",
+   "origin": "core-100",
+   "spdx": "AGPL-3.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 16,
+   "id": "documenso",
+   "repository": "documenso/documenso",
+   "scanned_commit": "f32ab10dc7189d3c375fc112469cbb156c9adb6f",
+   "origin": "core-100",
+   "spdx": "AGPL-3.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 17,
+   "id": "postiz",
+   "repository": "gitroomhq/postiz-app",
+   "scanned_commit": "b31d29fa4132a08aa82f728227df2938ccab7972",
+   "origin": "core-100",
+   "spdx": "AGPL-3.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 18,
+   "id": "dub",
+   "repository": "dubinc/dub.link",
+   "scanned_commit": "6b463b4bdd9ed2fd9aa416f67b5b77d317b1471e",
+   "origin": "core-100",
+   "spdx": "AGPL-3.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE.md"
+   ],
+   "note": null
+  },
+  {
+   "number": 19,
+   "id": "shlink",
+   "repository": "shlinkio/shlink",
+   "scanned_commit": "1f014cbc9f47a348e714890f0581d150a4ab102c",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 20,
+   "id": "react-email",
+   "repository": "resend/react-email",
+   "scanned_commit": "e769155fc8a9aa878ec7d2e42efbc74cd7ab11bc",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.md"
+   ],
+   "note": null
+  },
+  {
+   "number": 21,
+   "id": "comfyui",
+   "repository": "Comfy-Org/ComfyUI",
+   "scanned_commit": "74eb0c4b8a1a894e7210326882a8d9a016e37ccb",
+   "origin": "core-100",
+   "spdx": "GPL-3.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 22,
+   "id": "remotion",
+   "repository": "remotion-dev/remotion",
+   "scanned_commit": "eeb428f095529f52d359ecc709a174eff978642d",
+   "origin": "core-100",
+   "spdx": "LicenseRef-Remotion",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE.md"
+   ],
+   "note": "Licencia propia: gratis solo hasta 3 empleados."
+  },
+  {
+   "number": 23,
+   "id": "scrapy",
+   "repository": "scrapy/scrapy",
+   "scanned_commit": "f7b1fd3f2f57c9d01f45276c1c3194f58cb0c1ea",
+   "origin": "core-100",
+   "spdx": "BSD-3-Clause",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 24,
+   "id": "crawlee",
+   "repository": "apify/crawlee",
+   "scanned_commit": "393ecd732aa00420e188c85a93ec4a4d6479d9d0",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.md"
+   ],
+   "note": null
+  },
+  {
+   "number": 25,
+   "id": "playwright",
+   "repository": "microsoft/playwright",
+   "scanned_commit": "392ab0f0de39feb99dbe71eb5fea61e7ad07a480",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 26,
+   "id": "changedetection",
+   "repository": "dgtlmoon/changedetection.io",
+   "scanned_commit": "1882705fd7f34aa74b9ee8512b242f7d402821e5",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 27,
+   "id": "trafilatura",
+   "repository": "adbar/trafilatura",
+   "scanned_commit": "9c27981f4b7034a3249c77c4c06aaaed719fae66",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 28,
+   "id": "crawl4ai",
+   "repository": "unclecode/crawl4ai",
+   "scanned_commit": "cae74b203a33994f7e13b9052c3b0d5c93daa0e6",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 29,
+   "id": "lighthouse",
+   "repository": "GoogleChrome/lighthouse",
+   "scanned_commit": "5313024aa05786138dfd38c6740ef354e20c3f92",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 30,
+   "id": "lighthouse-ci",
+   "repository": "GoogleChrome/lighthouse-ci",
+   "scanned_commit": "3ead206a96a5ba714c386affe274576ccb8c09a9",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 31,
+   "id": "google-ads",
+   "repository": "googleads/google-ads-python",
+   "scanned_commit": "f253b400dc5924b731fcb42dbcd99e485200581e",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 32,
+   "id": "meta-ads",
+   "repository": "meta/facebook-python-business-sdk",
+   "scanned_commit": "b08e5c1d36a2adad3c4ede6578654c8eaca5f225",
+   "origin": "core-100",
+   "spdx": "LicenseRef-Meta-Platform",
+   "policy": "libre_condicionado",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": "Solo para usar con las APIs de Meta."
+  },
+  {
+   "number": 33,
+   "id": "activepieces",
+   "repository": "activepieces/activepieces",
+   "scanned_commit": "03c15c9ce4e9cf626c9c47d7f55425556847cb19",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre_nucleo",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": "Núcleo libre; no usar carpetas o archivos enterprise/comerciales."
+  },
+  {
+   "number": 34,
+   "id": "n8n",
+   "repository": "n8n-io/n8n",
+   "scanned_commit": "f2bbc06279d43c0d61cd474055124cb535236ba7",
+   "origin": "core-100",
+   "spdx": "SUL-1.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE.md"
+   ],
+   "note": "Sustainable Use License: no es open source."
+  },
+  {
+   "number": 35,
+   "id": "temporal",
+   "repository": "temporalio/temporal",
+   "scanned_commit": "03ecd1d228d2b8d9d433da55785afc9aeeead918",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 36,
+   "id": "trigger",
+   "repository": "triggerdotdev/trigger.dev",
+   "scanned_commit": "89c68810db17fefc4fe035c43fa4fcd2542db90a",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 37,
+   "id": "nango",
+   "repository": "NangoHQ/nango",
+   "scanned_commit": "9ffe93625c309b0582108a680cd442d5aa827a97",
+   "origin": "core-100",
+   "spdx": "Elastic-2.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 38,
+   "id": "dagster",
+   "repository": "dagster-io/dagster",
+   "scanned_commit": "93e5f51da49420d3e06d9399471070acedb554ca",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 39,
+   "id": "livekit",
+   "repository": "livekit/agents",
+   "scanned_commit": "59753ba7d759621ffb256b8023ebf2ddf70ffa9a",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 40,
+   "id": "pipecat",
+   "repository": "pipecat-ai/pipecat",
+   "scanned_commit": "d5dd211c15055a78431a391188e0748edd4b2661",
+   "origin": "core-100",
+   "spdx": "BSD-2-Clause",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 41,
+   "id": "whisper",
+   "repository": "openai/whisper",
+   "scanned_commit": "86098128c0b4f24f0e2aa2994de830614b474227",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 42,
+   "id": "dlt",
+   "repository": "dlt-hub/dlt",
+   "scanned_commit": "00f21fe45e10bc77fcad53809114407c2480c851",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 43,
+   "id": "airbyte",
+   "repository": "airbytehq/airbyte",
+   "scanned_commit": "60fcfd2f303d1b0f472b4a337b52d7593765713b",
+   "origin": "core-100",
+   "spdx": "Elastic-2.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 44,
+   "id": "dbt",
+   "repository": "dbt-labs/dbt",
+   "scanned_commit": "3a3c73e46acb63bf09dbcb53ebaea1d7efdffe2e",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 45,
+   "id": "duckdb",
+   "repository": "duckdb/duckdb",
+   "scanned_commit": "5b97627c8e0e372a4b0bade9b8a757e2c91bde33",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 46,
+   "id": "clickhouse",
+   "repository": "ClickHouse/ClickHouse",
+   "scanned_commit": "e8473460558a9f85074a90e89519a7fddb6bcacf",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 47,
+   "id": "postgres",
+   "repository": "postgres/postgres",
+   "scanned_commit": "8d87367b39e44b0913ca585c733795cc2d30bff1",
+   "origin": "core-100",
+   "spdx": "PostgreSQL",
+   "policy": "libre",
+   "license_files": [],
+   "note": "Licencia PostgreSQL en el archivo COPYRIGHT."
+  },
+  {
+   "number": 48,
+   "id": "pgvector",
+   "repository": "pgvector/pgvector",
+   "scanned_commit": "66accb3af6705ea9975a33f6704f1cde50d99447",
+   "origin": "core-100",
+   "spdx": "PostgreSQL",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 49,
+   "id": "qdrant",
+   "repository": "qdrant/qdrant",
+   "scanned_commit": "222b2e44ab1c3f17e8246396ead6558e45041df7",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 50,
+   "id": "meilisearch",
+   "repository": "meilisearch/meilisearch",
+   "scanned_commit": "4ef8a91f27ee6affff3f59bc46a9e07a2a761636",
+   "origin": "core-100",
+   "spdx": "MIT AND BUSL-1.1",
+   "policy": "libre_nucleo",
+   "license_files": [
+    "LICENSE",
+    "LICENSE-MIT"
+   ],
+   "note": "Núcleo MIT; módulos Enterprise Edition bajo BUSL-1.1."
+  },
+  {
+   "number": 51,
+   "id": "docling",
+   "repository": "docling-project/docling",
+   "scanned_commit": "a7760abf0ca53321a3fb5ae9b1a65b584bb743b9",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 52,
+   "id": "posthog",
+   "repository": "PostHog/posthog",
+   "scanned_commit": "d7ba35efef321e1c134307a67081c913aaecd219",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre_nucleo",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": "Núcleo libre; no usar carpetas o archivos enterprise/comerciales."
+  },
+  {
+   "number": 53,
+   "id": "umami",
+   "repository": "umami-software/umami",
+   "scanned_commit": "559e3c607c23d2c72d9bd4f6481bda428255323c",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 54,
+   "id": "plausible",
+   "repository": "plausible/analytics",
+   "scanned_commit": "f7b763dd41dd62362d102393180baaf155b7b294",
+   "origin": "core-100",
+   "spdx": "AGPL-3.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE.md"
+   ],
+   "note": null
+  },
+  {
+   "number": 55,
+   "id": "matomo",
+   "repository": "matomo-org/matomo",
+   "scanned_commit": "9451e9ca91ecde0fc1a86dd3c0c69391473e86a8",
+   "origin": "core-100",
+   "spdx": "GPL-3.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 56,
+   "id": "metabase",
+   "repository": "metabase/metabase",
+   "scanned_commit": "0e568f5840595dcb1def7e9a08e3aa764cf4da5b",
+   "origin": "core-100",
+   "spdx": "AGPL-3.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": "Carpeta enterprise bajo licencia comercial."
+  },
+  {
+   "number": 57,
+   "id": "superset",
+   "repository": "apache/superset",
+   "scanned_commit": "4e7fa63b01ef11bd9439239bccaf670bb46a9581",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 58,
+   "id": "growthbook",
+   "repository": "growthbook/growthbook",
+   "scanned_commit": "db1968d435056b87a9485cc78a4af3d069539405",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre_nucleo",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": "Núcleo libre; no usar carpetas o archivos enterprise/comerciales."
+  },
+  {
+   "number": 59,
+   "id": "robyn",
+   "repository": "facebookexperimental/Robyn",
+   "scanned_commit": "aab4226ed5e40196cdbd82ff7fbbff55e91e1f58",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 60,
+   "id": "meridian",
+   "repository": "google/meridian",
+   "scanned_commit": "f4ca39d406e1a86bd13d65fdf14166268044fd2d",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 61,
+   "id": "econml",
+   "repository": "py-why/EconML",
+   "scanned_commit": "0b45f8343e08ebcdb93ae859643a0efe20c21e7d",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 62,
+   "id": "dowhy",
+   "repository": "py-why/dowhy",
+   "scanned_commit": "b5ffe4d64a6af09437a56db77797c786dff44160",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 63,
+   "id": "pymc-marketing",
+   "repository": "pymc-labs/pymc-marketing",
+   "scanned_commit": "4b4fead2b899dbf1982d12aab3b0cb1dfbe635fb",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 64,
+   "id": "or-tools",
+   "repository": "google/or-tools",
+   "scanned_commit": "100f66e6242ab8bf8d32feb8f3bf086db66ae2b5",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 65,
+   "id": "optuna",
+   "repository": "optuna/optuna",
+   "scanned_commit": "9e4d3502c85cb58c3e891a48e90ef9afae00acda",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 66,
+   "id": "scikit-learn",
+   "repository": "scikit-learn/scikit-learn",
+   "scanned_commit": "19ca9c861a7adb948a19484337159a748feede54",
+   "origin": "core-100",
+   "spdx": "BSD-3-Clause",
+   "policy": "libre",
+   "license_files": [
+    "COPYING"
+   ],
+   "note": null
+  },
+  {
+   "number": 67,
+   "id": "catboost",
+   "repository": "catboost/catboost",
+   "scanned_commit": "8d797fad544091e60e830e0987e00ddf5bc3b411",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 68,
+   "id": "mlflow",
+   "repository": "mlflow/mlflow",
+   "scanned_commit": "de4bb85d8ce26c94e4ee131b071fcc380e116ff8",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 69,
+   "id": "evidently",
+   "repository": "evidentlyai/evidently",
+   "scanned_commit": "34771fe41c08ca074d96a52aaf4a45cd640cbaf5",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 70,
+   "id": "great-expectations",
+   "repository": "fivetran/great_expectations",
+   "scanned_commit": "a3e335bf4254f77ebd92e526c0e81d6c5caa936b",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 71,
+   "id": "langgraph",
+   "repository": "langchain-ai/langgraph",
+   "scanned_commit": "5ea88ecbcdb9fde713c3abd58850a5b7beaa24ec",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 72,
+   "id": "pydantic-ai",
+   "repository": "pydantic/pydantic-ai",
+   "scanned_commit": "21b2f46740f95a260bd492385c4638094015ec06",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 73,
+   "id": "llama-index",
+   "repository": "run-llama/llama_index",
+   "scanned_commit": "baeabbfe26241a6916e13e2a8c8156a02e0602cd",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 74,
+   "id": "haystack",
+   "repository": "deepset-ai/haystack",
+   "scanned_commit": "bbe4efe50c716d6d05a0637980db3b641236e613",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 75,
+   "id": "langfuse",
+   "repository": "langfuse/langfuse",
+   "scanned_commit": "72399b76e245443f9681ea93b77ca850e1edb55b",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre_nucleo",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": "Núcleo libre; no usar carpetas o archivos enterprise/comerciales."
+  },
+  {
+   "number": 76,
+   "id": "promptfoo",
+   "repository": "promptfoo/promptfoo",
+   "scanned_commit": "e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 77,
+   "id": "ragas",
+   "repository": "vibrantlabsai/ragas",
+   "scanned_commit": "298b68274234c060deacab3cf5fb52aa3a20e885",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 78,
+   "id": "dspy",
+   "repository": "stanfordnlp/dspy",
+   "scanned_commit": "398396012371a95471c8e7be24a70e6660e87aa4",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 79,
+   "id": "bifrost",
+   "repository": "maximhq/bifrost",
+   "scanned_commit": "ff2e69f7f0143ab79c9de5258b90bd9c70cf347b",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 80,
+   "id": "presidio",
+   "repository": "data-privacy-stack/presidio",
+   "scanned_commit": "1d7005932261a4b676e045d16fa2965dbc4b4ba2",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 81,
+   "id": "medusa",
+   "repository": "medusajs/medusa",
+   "scanned_commit": "95e778ea295ca1bb672819c163738d236ce23168",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre_nucleo",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": "Núcleo libre; no usar carpetas o archivos enterprise/comerciales."
+  },
+  {
+   "number": 82,
+   "id": "saleor",
+   "repository": "saleor/saleor",
+   "scanned_commit": "ea4a69fa6faa22de77a30eaee0447dd7dacaadb3",
+   "origin": "core-100",
+   "spdx": "BSD-3-Clause",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 83,
+   "id": "lago",
+   "repository": "getlago/lago",
+   "scanned_commit": "05f363fa8f3948b698137efecedb462b2d2cf333",
+   "origin": "core-100",
+   "spdx": "AGPL-3.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 84,
+   "id": "killbill",
+   "repository": "killbill/killbill",
+   "scanned_commit": "52e2f55f103baf0703ddee71e10a7036595fc851",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 85,
+   "id": "openmeter",
+   "repository": "openmeterio/openmeter",
+   "scanned_commit": "4b7905e23bc739c43e15c4c1e09bbf9031e7cfcd",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 86,
+   "id": "better-auth",
+   "repository": "better-auth/better-auth",
+   "scanned_commit": "262adc0e76969fe04ef9355d1c77972bd5f0a1a8",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.md"
+   ],
+   "note": null
+  },
+  {
+   "number": 87,
+   "id": "keycloak",
+   "repository": "keycloak/keycloak",
+   "scanned_commit": "02167f150c0bd251f7e1e84531081c40081bcba2",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 88,
+   "id": "openfga",
+   "repository": "openfga/openfga",
+   "scanned_commit": "8e4909c4ac5aa53f1915383713c07416280a7449",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 89,
+   "id": "unleash",
+   "repository": "Unleash/unleash",
+   "scanned_commit": "ecaba737eb73b90184508ffdd6344a4603dd1cfe",
+   "origin": "core-100",
+   "spdx": "AGPL-3.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 90,
+   "id": "supabase",
+   "repository": "supabase/supabase",
+   "scanned_commit": "f38928ad90f1c2bd44f668411fb1d2312754d258",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 91,
+   "id": "coolify",
+   "repository": "coollabsio/coolify",
+   "scanned_commit": "d9ab3d1e8bea98215ed19a27f2f4ac1abd2fa40f",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 92,
+   "id": "grafana",
+   "repository": "grafana/grafana",
+   "scanned_commit": "3a858269421f77d107c876f60ce14f8b7aabe5c5",
+   "origin": "core-100",
+   "spdx": "AGPL-3.0",
+   "policy": "excluido",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 93,
+   "id": "prometheus",
+   "repository": "prometheus/prometheus",
+   "scanned_commit": "49c815a0ea46c7a6a6b723e4b634c4bf36f7022c",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 94,
+   "id": "otel-collector",
+   "repository": "open-telemetry/opentelemetry-collector",
+   "scanned_commit": "e366bb7fb49a67fd117332fff93795a0050744ff",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 95,
+   "id": "sops",
+   "repository": "getsops/sops",
+   "scanned_commit": "9aa10f12bcd82400b7eb73331dd7a87a93bb17f7",
+   "origin": "core-100",
+   "spdx": "MPL-2.0",
+   "policy": "libre_condicionado",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": "MPL-2.0: si modificas sus archivos, esos archivos se comparten."
+  },
+  {
+   "number": 96,
+   "id": "infisical",
+   "repository": "Infisical/infisical",
+   "scanned_commit": "09079738070ecc82e17a150f223226eb4f6647d8",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre_nucleo",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": "Núcleo libre; no usar carpetas o archivos enterprise/comerciales."
+  },
+  {
+   "number": 97,
+   "id": "grype",
+   "repository": "anchore/grype",
+   "scanned_commit": "cd1f23eb50dfb52647090158f453c7359172591f",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 98,
+   "id": "syft",
+   "repository": "anchore/syft",
+   "scanned_commit": "a0c0d3890a9d79421c403e8fcadec50a2e55bf21",
+   "origin": "core-100",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 99,
+   "id": "gitleaks",
+   "repository": "gitleaks/gitleaks",
+   "scanned_commit": "5f6ec56cfa6f8c67648d863582c7ae2f206d5c1c",
+   "origin": "core-100",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 100,
+   "id": "restic",
+   "repository": "restic/restic",
+   "scanned_commit": "c734245fd3ae9bcac8ab3aaafb4482d4b5d0ae92",
+   "origin": "core-100",
+   "spdx": "BSD-2-Clause",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 101,
+   "id": "openprospector",
+   "repository": "clawnify/OpenProspector",
+   "scanned_commit": "dad0e778ff4e1438b69574ff9cbb7663a3bda6e6",
+   "origin": "lista-josue-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 102,
+   "id": "langflow",
+   "repository": "langflow-ai/langflow",
+   "scanned_commit": "260cbf347cc5563cc48c79094c175ca31532ea2b",
+   "origin": "lista-josue-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 103,
+   "id": "openrefine",
+   "repository": "OpenRefine/OpenRefine",
+   "scanned_commit": "d97abdabd4c172ddba3581a9259307c7f2b86b44",
+   "origin": "lista-josue-50",
+   "spdx": "BSD-3-Clause",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 104,
+   "id": "openseo",
+   "repository": "duckduckdeploy/openseo",
+   "scanned_commit": "12b525400539f980668d088ff7154236a2376e88",
+   "origin": "lista-josue-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 105,
+   "id": "mcp-gsc",
+   "repository": "AminForou/mcp-gsc",
+   "scanned_commit": "45291df024c7873b2042c83d7add70ced7bb621f",
+   "origin": "lista-josue-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 106,
+   "id": "siteone-crawler",
+   "repository": "janreges/siteone-crawler",
+   "scanned_commit": "f3d967b190a77ff5f816b7ddab74c1a778d9dbaf",
+   "origin": "lista-josue-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 107,
+   "id": "advertools",
+   "repository": "eliasdabbas/advertools",
+   "scanned_commit": "59dc2be7a98ab3bab2a711efacd5023f8ecffa14",
+   "origin": "lista-josue-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 108,
+   "id": "cal-diy",
+   "repository": "calcom/cal.diy",
+   "scanned_commit": "ae027bb70e694e2d2c44569f398d6cbcee0389b1",
+   "origin": "lista-josue-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 109,
+   "id": "uptime-kuma",
+   "repository": "louislam/uptime-kuma",
+   "scanned_commit": "4f6661cfa83a06be0353d5536ef3d9ee0064f534",
+   "origin": "lista-josue-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 110,
+   "id": "opengmb",
+   "repository": "synectus/OpenGMB",
+   "scanned_commit": "8f399472e9d484cfcad77eef33b0da341e469577",
+   "origin": "lista-josue-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 111,
+   "id": "kingfisher-collect",
+   "repository": "open-contracting/kingfisher-collect",
+   "scanned_commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+   "origin": "lista-josue-50",
+   "spdx": "BSD-3-Clause",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 112,
+   "id": "markitdown",
+   "repository": "microsoft/markitdown",
+   "scanned_commit": "ed178952a6672abdfd35b5f9e76a80b6cefc086e",
+   "origin": "lista-josue-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 113,
+   "id": "spacy",
+   "repository": "explosion/spaCy",
+   "scanned_commit": "7ff14d4da84817f84c32b980882178ddacc066a1",
+   "origin": "lista-josue-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 114,
+   "id": "schema-dts",
+   "repository": "google/schema-dts",
+   "scanned_commit": "0dc1d1f518af5a727ada9d162c714ddf74710686",
+   "origin": "lista-josue-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 115,
+   "id": "web-vitals",
+   "repository": "GoogleChrome/web-vitals",
+   "scanned_commit": "94b3b4bced9d63b4ff6bfb8290bf1f505daa00bb",
+   "origin": "lista-josue-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 116,
+   "id": "altcha",
+   "repository": "altcha-org/altcha",
+   "scanned_commit": "5691046ab911524f7c8e0e6a01609c15fd5a2299",
+   "origin": "lista-josue-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 117,
+   "id": "cookieconsent",
+   "repository": "orestbida/cookieconsent",
+   "scanned_commit": "e0a3fe118d90c1c430ca9dfcd03aca531bce3dc5",
+   "origin": "lista-josue-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 118,
+   "id": "libphonenumber",
+   "repository": "google/libphonenumber",
+   "scanned_commit": "981600cc587fb87483ad294a61daa187afc64b2c",
+   "origin": "lista-josue-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 119,
+   "id": "twilio-python",
+   "repository": "twilio/twilio-python",
+   "scanned_commit": "7e3ca781178dcaa542b403591a58e5bc58b874a8",
+   "origin": "lista-josue-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 120,
+   "id": "stripe-python",
+   "repository": "stripe/stripe-python",
+   "scanned_commit": "7254286570dcacb689f933db913e7cdf303818db",
+   "origin": "lista-josue-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 121,
+   "id": "parsedmarc",
+   "repository": "domainaware/parsedmarc",
+   "scanned_commit": "70a0ea0470d04649e33e6b09ce20da991d424f72",
+   "origin": "lista-josue-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 122,
+   "id": "geo-optimizer",
+   "repository": "Auriti-Labs/geo-optimizer-skill",
+   "scanned_commit": "b7fd7dfaaeb9a28841954ac373236211813ca5f2",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 123,
+   "id": "geo-lint",
+   "repository": "IJONIS/geo-lint",
+   "scanned_commit": "b2d79319d1d0d4d4fc5d6abbc4ce5156afc5d14b",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 124,
+   "id": "autogeo",
+   "repository": "cxcscmu/AutoGEO",
+   "scanned_commit": "49456df236774ea24087c44f45e9e52005b8e6a4",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 125,
+   "id": "site-md",
+   "repository": "yazinsai/site-md",
+   "scanned_commit": "c5c31bc781d06f83a81d30a284f0df3aa2ffbe32",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 126,
+   "id": "nlweb",
+   "repository": "microsoft/NLWeb",
+   "scanned_commit": "b423f15d9aeaa023ce75993ac9deed2354597043",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 127,
+   "id": "goaccess",
+   "repository": "allinurl/goaccess",
+   "scanned_commit": "6e890b584b8b36c445aa37dea83d7d5519d5fc46",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "COPYING"
+   ],
+   "note": null
+  },
+  {
+   "number": 128,
+   "id": "ipranges",
+   "repository": "lord-alfred/ipranges",
+   "scanned_commit": "d4ea6c582a509538907480e641bcee6821746bc3",
+   "origin": "autoridad-50",
+   "spdx": "CC0-1.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 129,
+   "id": "anubis",
+   "repository": "TecharoHQ/anubis",
+   "scanned_commit": "f197f9a6235d255000c7b654ac478354a6e4bd02",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 130,
+   "id": "the-great-gpt-firewall",
+   "repository": "samber/the-great-gpt-firewall",
+   "scanned_commit": "60b2214d7b2cbd2c1b9d175afb31ad3024c085bb",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 131,
+   "id": "seo-graph",
+   "repository": "jdevalk/seo-graph",
+   "scanned_commit": "c33eb1e120c620970042e28f1332fc90c30125e6",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 132,
+   "id": "structured-data-validator",
+   "repository": "adobe/structured-data-validator",
+   "scanned_commit": "6918b52651d6f4c5dae612859e2e395de5a1910e",
+   "origin": "autoridad-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 133,
+   "id": "pywikibot",
+   "repository": "wikimedia/pywikibot",
+   "scanned_commit": "b8ccec48b3c26211cd498e27a5ca6eb071627cb1",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 134,
+   "id": "id-openstreetmap",
+   "repository": "openstreetmap/iD",
+   "scanned_commit": "ae5315e584f0df10cace683ec1032140e5a38204",
+   "origin": "autoridad-50",
+   "spdx": "ISC",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.md"
+   ],
+   "note": null
+  },
+  {
+   "number": 135,
+   "id": "sherlock",
+   "repository": "sherlock-project/sherlock",
+   "scanned_commit": "c588d7c8b476df9f9c84912a05d1430fb8cdcdae",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 136,
+   "id": "indexnow-for-python",
+   "repository": "jakob-bagterp/index-now-for-python",
+   "scanned_commit": "47e9f82412e95a55b2c177ca66d79786117349c6",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.md"
+   ],
+   "note": null
+  },
+  {
+   "number": 137,
+   "id": "feed",
+   "repository": "jpmonette/feed",
+   "scanned_commit": "cbad18d8afb6ea9fc38d460fdf56a2713c313aed",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 138,
+   "id": "cdx-toolkit",
+   "repository": "cocrawler/cdx_toolkit",
+   "scanned_commit": "e87b1204993b77a4c41c03239baefa1c8462a6e1",
+   "origin": "autoridad-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 139,
+   "id": "cc-webgraph",
+   "repository": "commoncrawl/cc-webgraph",
+   "scanned_commit": "8a3a34e2f3bc16b865ee234eab83a4917086b814",
+   "origin": "autoridad-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 140,
+   "id": "trendspyg",
+   "repository": "flack0x/trendspyg",
+   "scanned_commit": "9f07b2573e7287df85df9202da206569024723e9",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 141,
+   "id": "waybackpy",
+   "repository": "akamhy/waybackpy",
+   "scanned_commit": "3b3e78d901a600bb22943202c6a8981ca04a5e48",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 142,
+   "id": "newsjack",
+   "repository": "elvisun/newsjack",
+   "scanned_commit": "c2df3a0168083d620b9b36518aeca16a4eb72296",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 143,
+   "id": "gdeltdoc",
+   "repository": "alex9smith/gdelt-doc-api",
+   "scanned_commit": "41220163fbab99982e4dca3a05d25a95b49896d7",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 144,
+   "id": "news-please",
+   "repository": "fhamborg/news-please",
+   "scanned_commit": "f899850be2bb0059da101c13502ec88af057f974",
+   "origin": "autoridad-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 145,
+   "id": "python-podcastindex",
+   "repository": "piqosoft/python-podcastindex",
+   "scanned_commit": "63fdb84b76b5d65c99e9c92428af55cc51aff04e",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 146,
+   "id": "praw",
+   "repository": "praw-dev/praw",
+   "scanned_commit": "4590cb5b0ad2f9afbab983d60d792fc3c74d1f45",
+   "origin": "autoridad-50",
+   "spdx": "BSD-2-Clause",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 147,
+   "id": "youtube-comment-downloader",
+   "repository": "egbertbouman/youtube-comment-downloader",
+   "scanned_commit": "3f557bc8023d9e3ab9edda93bcd516ca2b33d3c1",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 148,
+   "id": "people-also-ask",
+   "repository": "labsonmars/people_also_ask",
+   "scanned_commit": "21db28fb5a75d233bf18db381fab538791eee495",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 149,
+   "id": "google-maps-scraper",
+   "repository": "gosom/google-maps-scraper",
+   "scanned_commit": "e0c1d501e49cdcd5c6b2cecd2a032831f6ee9ba8",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 150,
+   "id": "dnstwist",
+   "repository": "elceef/dnstwist",
+   "scanned_commit": "341395377f40761fe4152f43fd18eea757b6069a",
+   "origin": "autoridad-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 151,
+   "id": "c2pa",
+   "repository": "contentauth/c2pa-rs",
+   "scanned_commit": "0e92435c6d621c02c9bde2a8d82346295ed1f509",
+   "origin": "autoridad-50",
+   "spdx": "Apache-2.0 OR MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE-APACHE",
+    "LICENSE-MIT"
+   ],
+   "note": null
+  },
+  {
+   "number": 152,
+   "id": "vale",
+   "repository": "errata-ai/vale",
+   "scanned_commit": "4ce91ef208b37f9ac2894766e8cd7b33ffe3baed",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 153,
+   "id": "datasette",
+   "repository": "simonw/datasette",
+   "scanned_commit": "32590d8f32244d922ee1f444e432fb48b11ce05b",
+   "origin": "autoridad-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 154,
+   "id": "ckanapi",
+   "repository": "ckan/ckanapi",
+   "scanned_commit": "94b8c24a21a185c270a01bcbcfa72ff4e1b78b1c",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "COPYING"
+   ],
+   "note": null
+  },
+  {
+   "number": 155,
+   "id": "quarto",
+   "repository": "quarto-dev/quarto-cli",
+   "scanned_commit": "1782b5b3099e8e4dd62cf7bac590d3bad2072c56",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "COPYING.md"
+   ],
+   "note": null
+  },
+  {
+   "number": 156,
+   "id": "owncast",
+   "repository": "owncast/owncast",
+   "scanned_commit": "c3a9ac1c46c043358fe7382a6d62d5227e4b2efe",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 157,
+   "id": "auto-editor",
+   "repository": "WyattBlue/auto-editor",
+   "scanned_commit": "2bbdcd95bc221254e4e6e00eb4c827b06ae93f71",
+   "origin": "autoridad-50",
+   "spdx": "Unlicense",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 158,
+   "id": "slidev",
+   "repository": "slidevjs/slidev",
+   "scanned_commit": "437f139ccd4c8482a193b217922e7800a5b3baec",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 159,
+   "id": "carousel-generator",
+   "repository": "FranciscoMoretti/carousel-generator",
+   "scanned_commit": "4bc98958a038717775c1b1d57124b8a6b0095f9a",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 160,
+   "id": "excalidraw",
+   "repository": "excalidraw/excalidraw",
+   "scanned_commit": "82d5847e57dcb6fb5982833ea9ec2137fe0b2bd5",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 161,
+   "id": "apache-answer",
+   "repository": "apache/answer",
+   "scanned_commit": "6744295fa888e0621fc9f9a8ace04f1a4daf8554",
+   "origin": "autoridad-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 162,
+   "id": "local-seo-skills",
+   "repository": "garrettjsmith/localseoskills",
+   "scanned_commit": "c3b7a25b7d5cc370752d74cfea240ccf992a24db",
+   "origin": "autoridad-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 163,
+   "id": "a2a",
+   "repository": "a2aproject/A2A",
+   "scanned_commit": "4d7cda4b1754ed410e41bf3be7ad9ebc62afe3d3",
+   "origin": "autoridad-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 164,
+   "id": "webmention-io",
+   "repository": "aaronpk/webmention.io",
+   "scanned_commit": "9183deed829c2399e6cd7f594ab8f1d84492e86b",
+   "origin": "autoridad-50",
+   "spdx": "BSD (declarada en README)",
+   "policy": "libre_condicionado",
+   "license_files": [],
+   "note": "Licencia declarada solo en el README."
+  },
+  {
+   "number": 165,
+   "id": "claude-skills-c-level",
+   "repository": "alirezarezvani/claude-skills",
+   "scanned_commit": "08cd8a9fc86cc370e2c0d448e8171fbcfdbc5a30",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 166,
+   "id": "tinytroupe",
+   "repository": "microsoft/TinyTroupe",
+   "scanned_commit": "7ce8be378a37ee73f9745d6781452712318afa04",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 167,
+   "id": "gpt-researcher",
+   "repository": "assafelovic/gpt-researcher",
+   "scanned_commit": "ddd4db36208d9c8e49f3b2436efda97baecb5433",
+   "origin": "estrategia-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 168,
+   "id": "forecasting-tools",
+   "repository": "Metaculus/forecasting-tools",
+   "scanned_commit": "bd7e6a65e7f01141af8cab411ff8f51f908f8061",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 169,
+   "id": "onlinewardleymaps",
+   "repository": "damonsk/onlinewardleymaps",
+   "scanned_commit": "71f2aad88ae83862fdce27c55c6733b8ba1009aa",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 170,
+   "id": "operately",
+   "repository": "operately/operately",
+   "scanned_commit": "9fa8692fb61cec13730fb4523daf57c29261be45",
+   "origin": "estrategia-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre_nucleo",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": "Núcleo libre; no usar carpetas o archivos enterprise/comerciales."
+  },
+  {
+   "number": 171,
+   "id": "bpmn-js",
+   "repository": "bpmn-io/bpmn-js",
+   "scanned_commit": "b3f1c4837d9ed2f624af9b7a6bcfe5da7f6eeac8",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 172,
+   "id": "landscape-app",
+   "repository": "cncf/landscapeapp",
+   "scanned_commit": "a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf",
+   "origin": "estrategia-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 173,
+   "id": "datosmex",
+   "repository": "andreslomeliv/DatosMex",
+   "scanned_commit": "4179265209ca8345cc2de533f82612a6ca45314f",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [],
+   "note": "MIT en las subcarpetas BANXICOpy e INEGIpy."
+  },
+  {
+   "number": 174,
+   "id": "wbgapi",
+   "repository": "tgherzog/wbgapi",
+   "scanned_commit": "4d0d2c925a8dac359df5a2d9e82001ff6feeecda",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 175,
+   "id": "census",
+   "repository": "datamade/census",
+   "scanned_commit": "3da5a1068164c27f6e83815f5d28ec300e184fdf",
+   "origin": "estrategia-50",
+   "spdx": "BSD-3-Clause",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 176,
+   "id": "comtradeapicall",
+   "repository": "uncomtrade/comtradeapicall",
+   "scanned_commit": "d8b19588986405df8c3c94062bd73fd08b9110cd",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 177,
+   "id": "py-ecomplexity",
+   "repository": "cid-harvard/py-ecomplexity",
+   "scanned_commit": "d22c0f7fcad4cf629415895dd17afc5685108274",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 178,
+   "id": "openbb",
+   "repository": "OpenBB-finance/OpenBB",
+   "scanned_commit": "e43353a82815ff9ba56ad1b7ad47c32729dcf314",
+   "origin": "estrategia-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 179,
+   "id": "financetoolkit",
+   "repository": "JerBouma/FinanceToolkit",
+   "scanned_commit": "375f820d8f84e90e2f42f5d413ed67056cbd4256",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 180,
+   "id": "jobspy",
+   "repository": "speedyapply/JobSpy",
+   "scanned_commit": "68b88d6909a2342ad75fbb945c4204a3a7ed6665",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 181,
+   "id": "osmnx",
+   "repository": "gboeing/osmnx",
+   "scanned_commit": "5f3b46f048f9f0a693702cea5f29f2eaad840204",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 182,
+   "id": "kepler-gl",
+   "repository": "keplergl/kepler.gl",
+   "scanned_commit": "89954d5ed8fea6fb829f317a488f5b553bf34c24",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 183,
+   "id": "taguette",
+   "repository": "remram44/taguette",
+   "scanned_commit": "52fcdce95709375a4085cb10852bf7dd251ccb3d",
+   "origin": "estrategia-50",
+   "spdx": "BSD-3-Clause",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 184,
+   "id": "bertopic",
+   "repository": "MaartenGr/BERTopic",
+   "scanned_commit": "9036123c97aaa9a6cc4bec4a6db1a7caf9209df6",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 185,
+   "id": "pricesensitivitymeter",
+   "repository": "max-alletsee/pricesensitivitymeter",
+   "scanned_commit": "8188de1e95fa0f407073677f6f88baec2f43c8d4",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": "Licencia MIT de R (archivo corto con año y titular)."
+  },
+  {
+   "number": 186,
+   "id": "squiggle",
+   "repository": "quantified-uncertainty/squiggle",
+   "scanned_commit": "87e04dabcf9e50ceadd6abcd297aad145c999045",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 187,
+   "id": "statsforecast",
+   "repository": "Nixtla/statsforecast",
+   "scanned_commit": "652a4e940f4f7993d894cdff74ac6ec9a5f01247",
+   "origin": "estrategia-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 188,
+   "id": "statsmodels",
+   "repository": "statsmodels/statsmodels",
+   "scanned_commit": "27e747596049cc1a9b06e113af739fdeec59cecc",
+   "origin": "estrategia-50",
+   "spdx": "BSD-3-Clause",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 189,
+   "id": "mlxtend",
+   "repository": "rasbt/mlxtend",
+   "scanned_commit": "1aee767ef57b84a8191511a08955c583b65de382",
+   "origin": "estrategia-50",
+   "spdx": "BSD-3-Clause",
+   "policy": "libre",
+   "license_files": [],
+   "note": "Código BSD-3; documentación CC-BY."
+  },
+  {
+   "number": 190,
+   "id": "networkx",
+   "repository": "networkx/networkx",
+   "scanned_commit": "6855cd586982cc2e4710b8eb87251ccf56674bf1",
+   "origin": "estrategia-50",
+   "spdx": "BSD-3-Clause",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 191,
+   "id": "pymcdm",
+   "repository": "kotbaton/pymcdm",
+   "scanned_commit": "346a44f5afdac249c534912cc8d483e82586c52d",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 192,
+   "id": "nashpy",
+   "repository": "drvinceknight/Nashpy",
+   "scanned_commit": "a797cfd91e065f1ac67f9660b27d487627ec5528",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 193,
+   "id": "mesa",
+   "repository": "projectmesa/mesa",
+   "scanned_commit": "2d9b25177627f38fb43c4273ac2bdd03b95f01cb",
+   "origin": "estrategia-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 194,
+   "id": "pysd",
+   "repository": "SDXorg/pysd",
+   "scanned_commit": "8991d119e139029d4dec712d257cf5fcc3549b8f",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 195,
+   "id": "numpy-financial",
+   "repository": "numpy/numpy-financial",
+   "scanned_commit": "031ed55d322b7aad57311b9d63b589c79df942a1",
+   "origin": "estrategia-50",
+   "spdx": "BSD-3-Clause",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 196,
+   "id": "graphrag",
+   "repository": "microsoft/graphrag",
+   "scanned_commit": "34b2b67ae4601ad0b47bcd179fbe3f2a23aa0857",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 197,
+   "id": "vanna",
+   "repository": "vanna-ai/vanna",
+   "scanned_commit": "365d0617c1a4567ffee1b19b40c27feb4206bfcf",
+   "origin": "estrategia-50",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 198,
+   "id": "marimo",
+   "repository": "marimo-team/marimo",
+   "scanned_commit": "9bdfb7605fe75aebd74ce909b83c3cbd743bd23d",
+   "origin": "estrategia-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 199,
+   "id": "grist",
+   "repository": "gristlabs/grist-core",
+   "scanned_commit": "a3c557ac1bc4bd55b9b9d4333842bec255586ff4",
+   "origin": "estrategia-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 200,
+   "id": "log4brains",
+   "repository": "thomvaill/log4brains",
+   "scanned_commit": "17e32021a8c5130386f17e921d4efa6da7709a66",
+   "origin": "estrategia-50",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 201,
+   "id": "crewai",
+   "repository": "crewAIInc/crewAI",
+   "scanned_commit": "d7dfa0ef5ade793bd48ff7357c6eb45a45294371",
+   "origin": "agentes-autonomos",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 202,
+   "id": "openai-agents",
+   "repository": "openai/openai-agents-python",
+   "scanned_commit": "64fbde5d02b42ae5f9db668eb0184cdb3fc9d775",
+   "origin": "agentes-autonomos",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 203,
+   "id": "google-adk",
+   "repository": "google/adk-python",
+   "scanned_commit": "12aab4aaaa1a72e3edcc65fa4f9d849896ea6c48",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 204,
+   "id": "agent-framework",
+   "repository": "microsoft/agent-framework",
+   "scanned_commit": "92838b60498395142cb8b74693353163e95a0faf",
+   "origin": "agentes-autonomos",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 205,
+   "id": "smolagents",
+   "repository": "huggingface/smolagents",
+   "scanned_commit": "96f33faaf028479119ec8d34507b47694cf14e34",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 206,
+   "id": "camel",
+   "repository": "camel-ai/camel",
+   "scanned_commit": "0366b64bf3609c76f50e396715aab73ba58a930c",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 207,
+   "id": "mastra",
+   "repository": "mastra-ai/mastra",
+   "scanned_commit": "7277766d6c967c475675d58ff2d0e5c6d7be7c84",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre_nucleo",
+   "license_files": [
+    "LICENSE.md"
+   ],
+   "note": "Núcleo libre; no usar carpetas o archivos enterprise/comerciales."
+  },
+  {
+   "number": 208,
+   "id": "any-agent",
+   "repository": "mozilla-ai/any-agent",
+   "scanned_commit": "a469723ac4a0518ab0696d57e09e4dc407c826ec",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 209,
+   "id": "langchain",
+   "repository": "langchain-ai/langchain",
+   "scanned_commit": "ea17e48f0a4336c920394fd029de99f1568b4c38",
+   "origin": "agentes-autonomos",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 210,
+   "id": "langgraph-supervisor",
+   "repository": "langchain-ai/langgraph-supervisor-py",
+   "scanned_commit": "88859b34017ac3569bbd4a3092c7e77593a0a960",
+   "origin": "agentes-autonomos",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 211,
+   "id": "letta",
+   "repository": "letta-ai/letta",
+   "scanned_commit": "8816d3a8516893bfdc0fa14bfb1235226012e295",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 212,
+   "id": "mem0",
+   "repository": "mem0ai/mem0",
+   "scanned_commit": "f1791daa86d469249c9b002f62644d58a1eb96a0",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 213,
+   "id": "graphiti",
+   "repository": "getzep/graphiti",
+   "scanned_commit": "3ed02527499d4eb3b2eb133d716898dc89d7cc99",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 214,
+   "id": "browser-use",
+   "repository": "browser-use/browser-use",
+   "scanned_commit": "480d0bd508ce10dcf27a4716f2f87355a08e8372",
+   "origin": "agentes-autonomos",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 215,
+   "id": "stagehand",
+   "repository": "browserbase/stagehand",
+   "scanned_commit": "6f2686d792b7f5836b04754e0f6a44db39928592",
+   "origin": "agentes-autonomos",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 216,
+   "id": "playwright-mcp",
+   "repository": "microsoft/playwright-mcp",
+   "scanned_commit": "78eca85361efb545a4c0f59b6140aef0721c5412",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 217,
+   "id": "mcp-python-sdk",
+   "repository": "modelcontextprotocol/python-sdk",
+   "scanned_commit": "77001c96f9507be0f4d009b83210a384a5e08bda",
+   "origin": "agentes-autonomos",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 218,
+   "id": "mcp-typescript-sdk",
+   "repository": "modelcontextprotocol/typescript-sdk",
+   "scanned_commit": "919bb8ea88b6e10e72c2f8b6218fad4cfdc40b2c",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": "En transición de MIT a Apache-2.0."
+  },
+  {
+   "number": 219,
+   "id": "fastmcp",
+   "repository": "PrefectHQ/fastmcp",
+   "scanned_commit": "a8745d61e650467756bb28b4157822dbfbdfa34f",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 220,
+   "id": "mcp-agent",
+   "repository": "lastmile-ai/mcp-agent",
+   "scanned_commit": "f62d849350816588b1c6294e7914bbe4d8b84072",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 221,
+   "id": "e2b",
+   "repository": "e2b-dev/E2B",
+   "scanned_commit": "6dc8d5a10aa5db8dc8cf9c4d95fc769d886197fd",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 222,
+   "id": "guardrails",
+   "repository": "guardrails-ai/guardrails",
+   "scanned_commit": "06d0ff2c5f9bcb493d976b76f885e37e41ce845d",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 223,
+   "id": "nemo-guardrails",
+   "repository": "NVIDIA/NeMo-Guardrails",
+   "scanned_commit": "5d7f4c1ca62fb6155066e6c581379d1a5ec11338",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.md"
+   ],
+   "note": null
+  },
+  {
+   "number": 224,
+   "id": "instructor",
+   "repository": "567-labs/instructor",
+   "scanned_commit": "2549049be07ec3be1d617f8904ea8ffe18253c48",
+   "origin": "agentes-autonomos",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 225,
+   "id": "outlines",
+   "repository": "dottxt-ai/outlines",
+   "scanned_commit": "c52af8472c6fe8a607a733ec11b709476af77a96",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 226,
+   "id": "ollama",
+   "repository": "ollama/ollama",
+   "scanned_commit": "a5864fcb33969705de3c0ebfedf4b2a16c970bcc",
+   "origin": "agentes-autonomos",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 227,
+   "id": "vllm",
+   "repository": "vllm-project/vllm",
+   "scanned_commit": "37ea94f715acc34f84bc3728ec3e365e40eb53ac",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 228,
+   "id": "openhands",
+   "repository": "All-Hands-AI/OpenHands",
+   "scanned_commit": "685eb42ded117ba0321aa8c3019e6677e5474317",
+   "origin": "agentes-autonomos",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 229,
+   "id": "storm",
+   "repository": "stanford-oval/storm",
+   "scanned_commit": "fb951af7744dab086e34962e9bc6fe878e145f83",
+   "origin": "agentes-autonomos",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 230,
+   "id": "magentic-ui",
+   "repository": "microsoft/magentic-ui",
+   "scanned_commit": "d3c9d13c39288257286a66daabf7c5b5fb72ee69",
+   "origin": "agentes-autonomos",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 231,
+   "id": "humanlayer",
+   "repository": "humanlayer/humanlayer",
+   "scanned_commit": "b7ad8e1d383ff0f5fbec7bdc30425e4a59d5f789",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 232,
+   "id": "cua",
+   "repository": "trycua/cua",
+   "scanned_commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+   "origin": "agentes-autonomos",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.md"
+   ],
+   "note": null
+  },
+  {
+   "number": 233,
+   "id": "composio",
+   "repository": "ComposioHQ/composio",
+   "scanned_commit": "fdee7595166f8b5dcff026dc609760d1ce82b2e2",
+   "origin": "agentes-autonomos",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 234,
+   "id": "ag-ui",
+   "repository": "ag-ui-protocol/ag-ui",
+   "scanned_commit": "0fc064bb2647fc0bce4fc795af33b5551ac03f88",
+   "origin": "agentes-autonomos",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 235,
+   "id": "copilotkit",
+   "repository": "CopilotKit/CopilotKit",
+   "scanned_commit": "7b88608455528bd2dd62752a01cc25b8c917d35c",
+   "origin": "agentes-autonomos",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 236,
+   "id": "vercel-ai-sdk",
+   "repository": "vercel/ai",
+   "scanned_commit": "0e8e0543aeda7d4dd4ce6eade0d5b7d5a43644c1",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 237,
+   "id": "assistant-ui",
+   "repository": "assistant-ui/assistant-ui",
+   "scanned_commit": "7d7427653f6ba47b0b954510eed9c594d64e74d5",
+   "origin": "agentes-autonomos",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 238,
+   "id": "steel-browser",
+   "repository": "steel-dev/steel-browser",
+   "scanned_commit": "552550af79742a75fef24c24b1134e43e99e3d5e",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 239,
+   "id": "llm-guard",
+   "repository": "protectai/llm-guard",
+   "scanned_commit": "168c1034ffdb33837e7ae6fd6a16b80567c1be03",
+   "origin": "agentes-autonomos",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 240,
+   "id": "a2a-python",
+   "repository": "a2aproject/a2a-python",
+   "scanned_commit": "09c93473a77d0a18be8429ad71958211b736a8c0",
+   "origin": "agentes-autonomos",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 241,
+   "id": "trpc",
+   "repository": "trpc/trpc",
+   "scanned_commit": "1283c63af31aab98bda30fb6168e753480c7d455",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 242,
+   "id": "hono",
+   "repository": "honojs/hono",
+   "scanned_commit": "f6fbaf0299c48eea9e656e03e2ffe7ac755e8823",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 243,
+   "id": "fastapi",
+   "repository": "fastapi/fastapi",
+   "scanned_commit": "5758a9c8347d911444dca97a55b708cc4a8de4f8",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 244,
+   "id": "drizzle",
+   "repository": "drizzle-team/drizzle-orm",
+   "scanned_commit": "3bcb6a27ec1f4f1602aeeb0af2f5aec61010d72d",
+   "origin": "plataforma-producto",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 245,
+   "id": "nextjs",
+   "repository": "vercel/next.js",
+   "scanned_commit": "cbd8159c02ea96064457f7b654bbb9d4eab45137",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "license.md"
+   ],
+   "note": null
+  },
+  {
+   "number": 246,
+   "id": "shadcn-ui",
+   "repository": "shadcn-ui/ui",
+   "scanned_commit": "e62c9435fff729a175f38983dee73b2cb4f6a069",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.md"
+   ],
+   "note": null
+  },
+  {
+   "number": 247,
+   "id": "tailwindcss",
+   "repository": "tailwindlabs/tailwindcss",
+   "scanned_commit": "b08bf83a327271dfb7e3cd485fd793da15013f7c",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 248,
+   "id": "refine",
+   "repository": "refinedev/refine",
+   "scanned_commit": "2352eb5b6539e2f39ad9aef652279ad1dcf2c467",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 249,
+   "id": "echarts",
+   "repository": "apache/echarts",
+   "scanned_commit": "34f4d927eafe251f26f63afd3aeefa30f2feba30",
+   "origin": "plataforma-producto",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 250,
+   "id": "tanstack-query",
+   "repository": "TanStack/query",
+   "scanned_commit": "36dd7927c85ce6cee37ab1eb3af25e7fc7ccbb14",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 251,
+   "id": "tanstack-table",
+   "repository": "TanStack/table",
+   "scanned_commit": "c14e0221b1e656c7bb35e7b3d4cdf188719a3599",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 252,
+   "id": "i18next",
+   "repository": "i18next/i18next",
+   "scanned_commit": "cc3b9853828b1e1fb17d20d176ee9c161e97a348",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 253,
+   "id": "seaweedfs",
+   "repository": "seaweedfs/seaweedfs",
+   "scanned_commit": "e0890391acff2e8cac6dea79c28e931ab1dfb70e",
+   "origin": "plataforma-producto",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 254,
+   "id": "caddy",
+   "repository": "caddyserver/caddy",
+   "scanned_commit": "7591cff1fb03202ce022982af020197f3f387220",
+   "origin": "plataforma-producto",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 255,
+   "id": "openapi-generator",
+   "repository": "OpenAPITools/openapi-generator",
+   "scanned_commit": "1d942536cd430bd303076e0eef28325cc6e965fe",
+   "origin": "plataforma-producto",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 256,
+   "id": "scalar",
+   "repository": "scalar/scalar",
+   "scanned_commit": "252a3ada30e3fcd92e88756b4ccb1c4a9c8f09fa",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 257,
+   "id": "starlight",
+   "repository": "withastro/starlight",
+   "scanned_commit": "62821331b95d55e9346ca34ebacc676d7be1f26b",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 258,
+   "id": "svix",
+   "repository": "svix/svix-webhooks",
+   "scanned_commit": "bb44d9a55f2bd409cb502d8bdab6b2e28710846c",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 259,
+   "id": "bullmq",
+   "repository": "taskforcesh/bullmq",
+   "scanned_commit": "c9c13438716597e1d2e4d5eeb276a9ce88d12750",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 260,
+   "id": "valkey",
+   "repository": "valkey-io/valkey",
+   "scanned_commit": "c98c0e2e6c271a24c829d17b2ed94d64c576c33f",
+   "origin": "plataforma-producto",
+   "spdx": "BSD-3-Clause",
+   "policy": "libre",
+   "license_files": [
+    "COPYING"
+   ],
+   "note": null
+  },
+  {
+   "number": 261,
+   "id": "tusd",
+   "repository": "tus/tusd",
+   "scanned_commit": "cec39980890809a9e7202872ec32f736f3b4a3f5",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 262,
+   "id": "uppy",
+   "repository": "transloadit/uppy",
+   "scanned_commit": "25c2f434932d1ecb2942efad81eff1969a79c85b",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 263,
+   "id": "sharp",
+   "repository": "lovell/sharp",
+   "scanned_commit": "80323211e23afa4f56d63c70e7db17dfd6e588f0",
+   "origin": "plataforma-producto",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 264,
+   "id": "surveyjs",
+   "repository": "surveyjs/survey-library",
+   "scanned_commit": "5f275a7d8daa4ae5a499c5d5302964474fd78e62",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 265,
+   "id": "tiptap",
+   "repository": "ueberdosis/tiptap",
+   "scanned_commit": "93574965bafd2f5067fd59238920595ecc3fa33b",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.md"
+   ],
+   "note": null
+  },
+  {
+   "number": 266,
+   "id": "gotenberg",
+   "repository": "gotenberg/gotenberg",
+   "scanned_commit": "4d577e1467aaffa080b1e89d64ecb86c2fba4e98",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 267,
+   "id": "signoz",
+   "repository": "SigNoz/signoz",
+   "scanned_commit": "ca7daf8ea974b879379101c7f7d8cb420da6acc7",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre_nucleo",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": "Núcleo libre; no usar carpetas o archivos enterprise/comerciales."
+  },
+  {
+   "number": 268,
+   "id": "expo",
+   "repository": "expo/expo",
+   "scanned_commit": "696b087dc08f27e0836409f4a736679bcbde194f",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 269,
+   "id": "hoppscotch",
+   "repository": "hoppscotch/hoppscotch",
+   "scanned_commit": "55908a76a1d0555c9bbb5d74244c14173df95b06",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 270,
+   "id": "zod",
+   "repository": "colinhacks/zod",
+   "scanned_commit": "fef16cba0cf6668eb25ecc32fdfe2ce0a46f6f80",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 271,
+   "id": "vitest",
+   "repository": "vitest-dev/vitest",
+   "scanned_commit": "cab34bb0ee23f00676ea895560c8b16399ce40b7",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 272,
+   "id": "postal",
+   "repository": "postalserver/postal",
+   "scanned_commit": "d96eddbadeda600595d6247486f9ceb8e99cbc15",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "MIT-LICENCE"
+   ],
+   "note": null
+  },
+  {
+   "number": 273,
+   "id": "instantsearch",
+   "repository": "algolia/instantsearch",
+   "scanned_commit": "1066fcd5031876c4dab66b02e8f8216946040d12",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 274,
+   "id": "maplibre",
+   "repository": "maplibre/maplibre-gl-js",
+   "scanned_commit": "04359f204e3e73ff0de36a30bba840a7091c5193",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 275,
+   "id": "crowdsec",
+   "repository": "crowdsecurity/crowdsec",
+   "scanned_commit": "e20782bb3c532f0b9b9a469c0bdaa003588ec8e5",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 276,
+   "id": "vite-pwa",
+   "repository": "vite-pwa/vite-plugin-pwa",
+   "scanned_commit": "355cf3dd283ca50da3ac4759501e9c3312a3da91",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 277,
+   "id": "driverjs",
+   "repository": "kamranahmedse/driver.js",
+   "scanned_commit": "47e3c8761720c119aa08c3feb29b36e5b944938a",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "license"
+   ],
+   "note": null
+  },
+  {
+   "number": 278,
+   "id": "socketio",
+   "repository": "socketio/socket.io",
+   "scanned_commit": "f97d51a810d4f266122eb99bb6c083cd383638f0",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 279,
+   "id": "mercadopago",
+   "repository": "mercadopago/sdk-nodejs",
+   "scanned_commit": "cdfecc30344d6e567c6b1b3b77d766339882b863",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 280,
+   "id": "pdfme",
+   "repository": "pdfme/pdfme",
+   "scanned_commit": "60d73ae0a0b707c241c14e3c70bcec9670c56113",
+   "origin": "plataforma-producto",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.md"
+   ],
+   "note": null
+  },
+  {
+   "number": 281,
+   "id": "splink",
+   "repository": "moj-analytical-services/splink",
+   "scanned_commit": "f319070e56c5b3666ec512811ac1820070f6f2e5",
+   "origin": "motor-datos-propios",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 282,
+   "id": "iceberg",
+   "repository": "apache/iceberg",
+   "scanned_commit": "234d55774d3c7355f92c8e93f8e117b70726e556",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 283,
+   "id": "arrow",
+   "repository": "apache/arrow",
+   "scanned_commit": "ab5b42237dfe14d683bc74ecbddf71109a0c6633",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": "LICENSE.txt incluye avisos MIT de terceros."
+  },
+  {
+   "number": 284,
+   "id": "polars",
+   "repository": "pola-rs/polars",
+   "scanned_commit": "5c36cdd75a30a8ab12a9f70e251c0f267235b2a7",
+   "origin": "motor-datos-propios",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 285,
+   "id": "ibis",
+   "repository": "ibis-project/ibis",
+   "scanned_commit": "6d40f963fee940063e09956c7e60d073f4302259",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 286,
+   "id": "feast",
+   "repository": "feast-dev/feast",
+   "scanned_commit": "108c96704daa72015d8f447a5d503de964c45b3f",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 287,
+   "id": "openlineage",
+   "repository": "OpenLineage/OpenLineage",
+   "scanned_commit": "c41626e99af0a02ad95a2805979167ad948ecb7b",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 288,
+   "id": "datahub",
+   "repository": "datahub-project/datahub",
+   "scanned_commit": "164ce58a867afb6ee6ceac64c1c7aa9b526c1841",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 289,
+   "id": "apache-age",
+   "repository": "apache/age",
+   "scanned_commit": "8c7e44fd2a525dedfd3d4e8168921442eb4fce2f",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 290,
+   "id": "label-studio",
+   "repository": "HumanSignal/label-studio",
+   "scanned_commit": "8831d8b9eb507ebb3ce29ab0021e494bc1893a16",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 291,
+   "id": "causalml",
+   "repository": "uber/causalml",
+   "scanned_commit": "d59bb520fc78410c01c443bad0ac57ea972844b8",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 292,
+   "id": "causal-learn",
+   "repository": "py-why/causal-learn",
+   "scanned_commit": "0dacacf36390e3084704636bc3c36e82e35ee0cc",
+   "origin": "motor-datos-propios",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 293,
+   "id": "tfcausalimpact",
+   "repository": "WillianFuks/tfcausalimpact",
+   "scanned_commit": "99bd5fb866acb352daf1b58c17d8f711d0e1a9ec",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 294,
+   "id": "pandera",
+   "repository": "unionai-oss/pandera",
+   "scanned_commit": "0292915e3321e83ee19380d7329788b7ead05291",
+   "origin": "motor-datos-propios",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 295,
+   "id": "ydata-profiling",
+   "repository": "ydataai/ydata-profiling",
+   "scanned_commit": "7f43aac68b2539bfe8f487f315aeaf44e965d29a",
+   "origin": "motor-datos-propios",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 296,
+   "id": "opendp",
+   "repository": "opendp/opendp",
+   "scanned_commit": "11887ec1aa392f9f1cc08a37cf938962babac7a1",
+   "origin": "motor-datos-propios",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 297,
+   "id": "flaml",
+   "repository": "microsoft/FLAML",
+   "scanned_commit": "46bce0ce989aae0271e68e5daac5b8a9b0522b87",
+   "origin": "motor-datos-propios",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 298,
+   "id": "chronos",
+   "repository": "amazon-science/chronos-forecasting",
+   "scanned_commit": "1224fafa91e1ecd6674f5204066b159e40b5e4a1",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 299,
+   "id": "recommenders",
+   "repository": "recommenders-team/recommenders",
+   "scanned_commit": "cc47866b0599721f8544d1cc850a5a1db091acb3",
+   "origin": "motor-datos-propios",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 300,
+   "id": "shap",
+   "repository": "shap/shap",
+   "scanned_commit": "511710def94e163a4678a1be07a74b9ccf0a4124",
+   "origin": "motor-datos-propios",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 301,
+   "id": "dvc",
+   "repository": "iterative/dvc",
+   "scanned_commit": "b59add99ee667f2b352cc1be337619f965fe3fea",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 302,
+   "id": "sentence-transformers",
+   "repository": "UKPLab/sentence-transformers",
+   "scanned_commit": "688fd663e7b242f41f3f62296d08c69937efeb00",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 303,
+   "id": "transformers",
+   "repository": "huggingface/transformers",
+   "scanned_commit": "0d7a6219179b24586089ae81b45cf725078e681f",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 304,
+   "id": "gliner",
+   "repository": "urchade/GLiNER",
+   "scanned_commit": "beb41b3839267952d0f063c04dd6236e9fd93a38",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 305,
+   "id": "cube",
+   "repository": "cube-js/cube",
+   "scanned_commit": "e19cbba0fcc1441c20eeef484408f340550c0225",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0 AND MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": "Apache-2.0 por defecto; algunos paquetes MIT."
+  },
+  {
+   "number": 306,
+   "id": "jitsu",
+   "repository": "jitsucom/jitsu",
+   "scanned_commit": "6c0d189a55c9e6c7b47d024d046e091ff1636565",
+   "origin": "motor-datos-propios",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 307,
+   "id": "arx",
+   "repository": "arx-deidentifier/arx",
+   "scanned_commit": "4e0a5f5340fe9a58c44b34c2f9acd2d68f1dad5f",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 308,
+   "id": "fides",
+   "repository": "ethyca/fides",
+   "scanned_commit": "e87f3ff835af368defc1ec42dc29ec545a288585",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 309,
+   "id": "river",
+   "repository": "online-ml/river",
+   "scanned_commit": "115df63c9cd57f904dd3a6d586b6cf32d2c1b2c8",
+   "origin": "motor-datos-propios",
+   "spdx": "BSD-3-Clause",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 310,
+   "id": "vowpal",
+   "repository": "VowpalWabbit/vowpal_wabbit",
+   "scanned_commit": "00196b35f63bcb8a6d66966e2b4cf67d6a2bd335",
+   "origin": "motor-datos-propios",
+   "spdx": "BSD-3-Clause",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 311,
+   "id": "ax",
+   "repository": "facebook/Ax",
+   "scanned_commit": "fd8a67a524b063b2615815c638af2c94b034f476",
+   "origin": "motor-datos-propios",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 312,
+   "id": "faker",
+   "repository": "joke2k/faker",
+   "scanned_commit": "affa2c5aada23fc5c00127298a8e904375d32832",
+   "origin": "motor-datos-propios",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 313,
+   "id": "sqlglot",
+   "repository": "tobymao/sqlglot",
+   "scanned_commit": "b476d29f42eeabfd0c8a150b9239a344b02e68dd",
+   "origin": "motor-datos-propios",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 314,
+   "id": "great-tables",
+   "repository": "posit-dev/great-tables",
+   "scanned_commit": "193bfc23b03a034aa5da8a1e7b471840ac2f3f8e",
+   "origin": "motor-datos-propios",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 315,
+   "id": "debezium",
+   "repository": "debezium/debezium",
+   "scanned_commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE.txt"
+   ],
+   "note": null
+  },
+  {
+   "number": 316,
+   "id": "cognee",
+   "repository": "topoteretes/cognee",
+   "scanned_commit": "4053f6cc5536757f26a3665eed95c50088e6dc0b",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 317,
+   "id": "evidence",
+   "repository": "evidence-dev/evidence",
+   "scanned_commit": "4053bfba009e376ec51367ca7c2ca429dedce3c7",
+   "origin": "motor-datos-propios",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 318,
+   "id": "pyod",
+   "repository": "yzhao062/pyod",
+   "scanned_commit": "9680a8b9d767d8226f76e5b3157ed318af881d74",
+   "origin": "motor-datos-propios",
+   "spdx": "BSD-2-Clause",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 319,
+   "id": "mapie",
+   "repository": "scikit-learn-contrib/MAPIE",
+   "scanned_commit": "d5ea5e07aea09a897726fd8641c193850a5c540d",
+   "origin": "motor-datos-propios",
+   "spdx": "BSD-3-Clause",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 320,
+   "id": "lifelines",
+   "repository": "CamDavidsonPilon/lifelines",
+   "scanned_commit": "7a8fc34a013ecd79fa405017b89e1697c1cc6e17",
+   "origin": "motor-datos-propios",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 321,
+   "id": "datasketch",
+   "repository": "ekzhu/datasketch",
+   "scanned_commit": "c7eaaeea3f39909f906a9cf8ad4d21a878cb4e07",
+   "origin": "motor-datos-propios",
+   "spdx": "MIT",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  },
+  {
+   "number": 322,
+   "id": "h3",
+   "repository": "uber/h3",
+   "scanned_commit": "15920096d4a165729c01f749e2bd97334b009519",
+   "origin": "motor-datos-propios",
+   "spdx": "Apache-2.0",
+   "policy": "libre",
+   "license_files": [
+    "LICENSE"
+   ],
+   "note": null
+  }
+ ]
+}
