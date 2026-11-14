@@ -31,6 +31,11 @@ acceptance** y **Verdugo real service acceptance**. La aprobación debe observar
 para el commit concreto: una prueba del núcleo no sustituye ejecución de las
 bibliotecas ni certifica un despliegue productivo. La aceptación usa datos sintéticos.
 
+## Plan de lo que falta
+
+Las 185 piezas pendientes, en 4 tandas de hasta 50, con las reglas para conectar cada una:
+[docs/PLAN_CONEXION.md](docs/PLAN_CONEXION.md) (y `docs/plan_conexion.json` para agentes).
+
 ## Qué añade v0.16
 
 Tres conectores gratuitos más, con ruta y autenticación tomadas del código fuente en el commit
