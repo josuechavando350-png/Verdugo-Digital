@@ -250,14 +250,14 @@ class ConnectionMapTests(unittest.TestCase):
     def test_states_are_computed_from_code(self):
         value = summary()
         self.assertEqual(322, value['registered'])
-        self.assertEqual({'conectado': 69, 'pieza_de_construccion': 56, 'pendiente': 175, 'excluido': 22},
+        self.assertEqual({'conectado': 156, 'pieza_de_construccion': 56, 'pendiente': 88, 'excluido': 22},
                          value['states'])
         self.assertEqual(0, value['live_verified'])
         for sid in service_reads.SPECS:
             self.assertEqual('conectado', connections.state(sid))
         self.assertEqual('excluido', connections.state('twenty'))
         self.assertEqual('pieza_de_construccion', connections.state('tailwindcss'))
-        self.assertEqual('pendiente', connections.state('splink'))
+        self.assertEqual('pendiente', connections.state('krayin-crm'))
 
     def test_map_tampering_is_rejected(self):
         original = json.loads(connections.PATH.read_text())
@@ -285,7 +285,7 @@ class ConnectionMapTests(unittest.TestCase):
             status = engine.status()
         finally:
             engine.close()
-        self.assertEqual(69, status['connection_states']['conectado'])
+        self.assertEqual(156, status['connection_states']['conectado'])
         row = next(r for r in status['integrations'] if r['id'] == 'vllm')
         self.assertEqual(('servicio', 'conectado'), (row['connection_kind'], row['connection_state']))
 

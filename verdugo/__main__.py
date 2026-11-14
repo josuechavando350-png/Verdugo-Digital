@@ -68,6 +68,14 @@ def template(tenant):
     for sid in OPERATIONS_PROXY_ONLY:
         services[sid].update(auth_mode='reviewed_proxy_bearer', proxy_auth_reviewed=False)
     services['apache-answer'].update(auth_mode='native_user_bearer')
+    from .platform_reads import AUTH_MODES, PROXY_ONLY as PLATFORM_PROXIES
+    for sid, mode in AUTH_MODES.items():
+        services[sid]['auth_mode'] = mode
+        if sid in PLATFORM_PROXIES: services[sid]['proxy_auth_reviewed'] = False
+    services['killbill']['proxy_tenant_binding_reviewed'] = False
+    for sid in ('datahub', 'bifrost'): services[sid]['native_auth_enforced_reviewed'] = False
+    services['magentic-ui'].update(user_id=None, user_scope_reviewed=False)
+    services['taguette'].update(project_id=None, document_id=None)
     return {'tenants': {tenant: {'services': services, 'ingress': {}}}}
 
 

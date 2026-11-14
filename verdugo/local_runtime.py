@@ -16,7 +16,7 @@ import sys
 import tempfile
 
 from .common import VerdugoError, fields, identifier, integer, encode
-from . import local_extended, runtime_profile
+from . import local_extended, local_analytics, local_research, local_interop, local_knowledge, local_data, runtime_profile
 
 # Primary published distribution versions; upstream source pins are a separate
 # provenance inventory and must not be confused with installed Python wheels.
@@ -38,6 +38,15 @@ EXTRA = {'presidio': {'presidio-anonymizer': '2.2.366'},
          'catboost': {'scikit-learn': '1.8.0'}}
 SPECS.update(local_extended.SPECS)
 EXTRA.update(local_extended.EXTRA)
+SPECS.update(local_analytics.SPECS)
+EXTRA.update(local_analytics.EXTRA)
+SPECS.update(local_research.SPECS)
+EXTRA.update(local_research.EXTRA)
+SPECS.update(local_interop.SPECS)
+EXTRA.update(local_interop.EXTRA)
+SPECS.update(local_knowledge.SPECS)
+EXTRA.update(local_knowledge.EXTRA)
+SPECS.update(local_data.SPECS)
 MAX_OUTPUT = 1024 * 1024
 WORKER = Path(__file__).with_name('_local_worker.py')
 RECIPES = Path(__file__).with_name('local_recipes.py')
@@ -49,6 +58,16 @@ def supports(service, operation):
 
 def installed(service):
     operation, distribution, expected = SPECS[service]
+    if service in local_data.SPECS:
+        try:
+            local_data.source_bytes(service)
+            present = True
+        except (OSError, ValueError):
+            present = False
+        return {'distribution': distribution, 'distribution_kind': 'bundled-public-data',
+                'expected': expected, 'installed': expected if present else None,
+                'version_matches': present, 'extra_distributions': {}, 'operation': operation,
+                'execution_verified': False, 'runtime_binding': runtime_profile.binding(service)}
     wanted = EXTRA.get(service, {})
     versions = runtime_profile.versions(service, [distribution, *wanted])
     version = versions[distribution]
@@ -113,6 +132,16 @@ def validate(service, operation, params):
         raise VerdugoError('Local adapter/action not implemented')
     if service in local_extended.SPECS:
         return local_extended.validate(service, operation, params)
+    if service in local_analytics.SPECS:
+        return local_analytics.validate(service, operation, params)
+    if service in local_research.SPECS:
+        return local_research.validate(service, operation, params)
+    if service in local_interop.SPECS:
+        return local_interop.validate(service, operation, params)
+    if service in local_knowledge.SPECS:
+        return local_knowledge.validate(service, operation, params)
+    if service in local_data.SPECS:
+        return local_data.validate(service, operation, params)
     required = {
         'html.extract': ('dataset', 'html'),
         'html.inspect': ('dataset', 'html'),
@@ -224,7 +253,7 @@ def preflight(service, operation, cfg):
 
 def implementation_digest():
     h = hashlib.sha256()
-    for path in (Path(__file__), WORKER, RECIPES, Path(local_extended.__file__),
+    for path in (Path(__file__), WORKER, RECIPES, Path(local_extended.__file__), Path(local_analytics.__file__), Path(local_research.__file__), Path(local_interop.__file__), Path(local_knowledge.__file__), Path(local_data.__file__),
                  Path(runtime_profile.__file__), runtime_profile.PROBE):
         h.update(path.name.encode())
         h.update(path.read_bytes())
@@ -266,6 +295,8 @@ def execute(request, cfg):
                'RUNTIME__DLTHUB_TELEMETRY': 'false', 'RUNTIME__ENABLE_RUNTIME_TRACE': 'false',
                'RAGAS_DO_NOT_TRACK': 'true', 'LANGSMITH_TRACING': 'false',
                'LANGCHAIN_TRACING_V2': 'false', 'MLFLOW_ENABLE_ASYNC_LOGGING': 'false'}
+        env.update(FEAST_USAGE='False', PYWIKIBOT_NO_USER_CONFIG='2',
+                   HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1', TOKENIZERS_PARALLELISM='false')
         if public['service'] == 'playwright':
             browser_dir = cfg.get('browser_path')
             if not isinstance(browser_dir, str) or not Path(browser_dir).is_absolute():

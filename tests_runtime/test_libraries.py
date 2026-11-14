@@ -9,6 +9,10 @@ from verdugo import local_runtime
 from verdugo.__main__ import template
 from verdugo.engine import Engine
 from fixtures import CASES
+from research_fixtures import CASES as RESEARCH_CASES, assert_result as assert_research
+from interop_fixtures import CASES as INTEROP_CASES, assert_result as assert_interop
+from knowledge_fixtures import CASES as KNOWLEDGE_CASES, assert_result as assert_knowledge
+from analytics_fixtures import CASES as ANALYTICS_CASES, assert_result as assert_analytics
 from extended_fixtures import CASES as EXTENDED_CASES, assert_result
 
 REQUIRED = os.getenv('VERDUGO_RUNTIME_REQUIRED') == '1'
@@ -94,6 +98,14 @@ class RuntimeAcceptance(unittest.TestCase):
                         self.assertTrue(value['views'][0]['observations']['horizontal_overflow'])
                         self.assertFalse(value['views'][1]['observations']['horizontal_overflow'])
                         self.assertFalse(value['javascript_enabled'])
+                    if sid in RESEARCH_CASES:
+                        assert_research(self, sid, value)
+                    if sid in INTEROP_CASES:
+                        assert_interop(self, sid, value)
+                    if sid in KNOWLEDGE_CASES:
+                        assert_knowledge(self, sid, value)
+                    if sid in ANALYTICS_CASES:
+                        assert_analytics(self, sid, value)
                     if sid in EXTENDED_CASES:
                         assert_result(self, sid, value)
                     replay=engine.execute(command,True)

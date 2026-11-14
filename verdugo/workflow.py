@@ -1,6 +1,9 @@
 """Bounded sequential DAG executor; deterministic references, no eval or shell."""
 from .common import VerdugoError, fields, identifier, digest
 
+MAX_STEPS = 128
+MAX_MANIFEST_BYTES = 1024*1024
+
 
 def references(value):
     if isinstance(value, dict):
@@ -31,11 +34,11 @@ def resolve(value, results):
 
 
 def order(spec, engine):
-    fields(spec, ('id', 'steps'))
+    fields(spec, ('id', 'steps'), max_bytes=MAX_MANIFEST_BYTES)
     identifier(spec['id'])
     if len(spec['id']) > 50: raise VerdugoError('Workflow ID exceeds 50 characters')
-    if not isinstance(spec['steps'], list) or not 1 <= len(spec['steps']) <= 50:
-        raise VerdugoError('Workflow needs 1..50 steps')
+    if not isinstance(spec['steps'], list) or not 1 <= len(spec['steps']) <= MAX_STEPS:
+        raise VerdugoError('Workflow needs 1..128 steps')
     nodes = {}
     for step in spec['steps']:
         fields(step, ('id', 'service', 'operation', 'params'), ('depends_on',))

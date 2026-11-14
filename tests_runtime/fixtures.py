@@ -40,3 +40,13 @@ CASES = {
 
 from extended_fixtures import CASES as EXTENDED_CASES
 CASES.update(EXTENDED_CASES)
+
+from analytics_fixtures import CASES as ANALYTICS_CASES
+CASES.update(ANALYTICS_CASES)
+
+from research_fixtures import CASES as RESEARCH_CASES
+from interop_fixtures import CASES as INTEROP_CASES
+from knowledge_fixtures import CASES as KNOWLEDGE_CASES
+CASES.update(RESEARCH_CASES)
+CASES.update(INTEROP_CASES)
+CASES.update(KNOWLEDGE_CASES)

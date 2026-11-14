@@ -9,7 +9,22 @@ import math
 
 
 def run(service, operation, p):
-    from local_extended import SPECS as EXTENDED, run as run_extended
+    from .local_knowledge import SPECS as KNOWLEDGE, run as run_knowledge
+    if service in KNOWLEDGE:
+        return run_knowledge(service, p)
+    from .local_data import SPECS as DATA, run as run_data
+    if service in DATA:
+        return run_data(service, p)
+    from .local_interop import SPECS as INTEROP, run as run_interop
+    if service in INTEROP:
+        return run_interop(service, p)
+    from .local_research import SPECS as RESEARCH, run as run_research
+    if service in RESEARCH:
+        return run_research(service, p)
+    from .local_analytics import SPECS as ANALYTICS, run as run_analytics
+    if service in ANALYTICS:
+        return run_analytics(service, p)
+    from .local_extended import SPECS as EXTENDED, run as run_extended
     if service in EXTENDED:
         return run_extended(service, p)
     handlers = {

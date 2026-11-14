@@ -328,17 +328,17 @@ class ReadinessInventoryTests(unittest.TestCase):
                 self.assertIn('/blob/'+item['commit']+'/', source['source_url'])
         plan = json.loads((root/'docs/plan_conexion.json').read_text())
         self.assertEqual(set(batch.SPECS), {p['id'] for p in plan['implemented_v018']})
-        self.assertEqual(175, plan['pending'])
-        self.assertEqual(175, len(plan['items']))
+        self.assertEqual(88, plan['pending'])
+        self.assertEqual(88, len(plan['items']))
         self.assertTrue(all(p['live_verified'] is False for p in plan['implemented_v018']))
 
     def test_code_derived_counts_never_certify_live_services(self):
-        self.assertEqual({'conectado': 69, 'pendiente': 175, 'pieza_de_construccion': 56, 'excluido': 22}, connections.summary()['states'])
+        self.assertEqual({'conectado': 156, 'pendiente': 88, 'pieza_de_construccion': 56, 'excluido': 22}, connections.summary()['states'])
         with closing(Engine(':memory:')) as engine:
             status = engine.status()
-        self.assertEqual(69, status['api_adapters_implemented'])
-        self.assertEqual(73, status['api_actions_implemented'])
-        self.assertEqual(88, status['total_adapters_implemented'])
+        self.assertEqual(78, status['api_adapters_implemented'])
+        self.assertEqual(82, status['api_actions_implemented'])
+        self.assertEqual(175, status['total_adapters_implemented'])
         self.assertEqual(0, status['live_verified'])
 
 if __name__ == '__main__':

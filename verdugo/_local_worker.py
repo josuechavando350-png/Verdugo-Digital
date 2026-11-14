@@ -32,11 +32,17 @@ def main():
     resource.setrlimit(resource.RLIMIT_CPU, (budget, budget + 1))
     sys.addaudithook(guard)
     # -I excludes cwd and PYTHONPATH. Add only the fixed installed first-party
-    # module directory so no caller-selected modules can be imported.
-    sys.path.insert(0, str(Path(__file__).resolve().parent))
-    from local_recipes import run
+    # package root so third-party imports cannot resolve to verdugo/mcp.py.
+    # No caller-selected modules can be imported.
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    from verdugo.local_recipes import run
+    from verdugo import local_data
     dist = request['distribution']
-    version = importlib.metadata.version(dist)
+    if request['service'] in local_data.SPECS:
+        local_data.source_bytes(request['service'])
+        version = local_data.SPECS[request['service']][2]
+    else:
+        version = importlib.metadata.version(dist)
     if version != request['version']:
         raise ValueError('Distribution changed')
     if request['service'] == 'evidently' and importlib.metadata.version('pandas') != '2.3.3':

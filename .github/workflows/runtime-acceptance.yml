@@ -36,6 +36,7 @@ jobs:
     timeout-minutes: 20
     env:
       VERDUGO_RAGAS_PYTHON: /tmp/verdugo-ragas-venv/bin/python
+      VERDUGO_RUNTIME_SERVICES: trafilatura,scrapy,duckdb,or-tools,optuna,scikit-learn,catboost,haystack,great-expectations,evidently,presidio,playwright,dlt,langgraph,llama-index,ragas,mlflow,dowhy,econml
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -78,6 +79,7 @@ jobs:
           sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
             HOME="$HOME" \
             VERDUGO_RUNTIME_REQUIRED=1 \
+            VERDUGO_RUNTIME_SERVICES="$VERDUGO_RUNTIME_SERVICES" \
             VERDUGO_RUNTIME_EVIDENCE=/tmp/runtime-execution-evidence.json \
             VERDUGO_RAGAS_PYTHON=/tmp/verdugo-ragas-venv/bin/python \
             PLAYWRIGHT_BROWSERS_PATH=/tmp/verdugo-browsers \
@@ -110,5 +112,42 @@ jobs:
             /tmp/ragas-pip-report.json
             /tmp/ragas-resolved-versions.txt
             /tmp/runtime-availability.json
+          retention-days: 3
+          if-no-files-found: warn
+  local-expansion:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [expansion, interop, knowledge]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements/runtime-*.txt
+      - name: Install isolated exact runtime profiles
+        run: python tests_runtime/install_expansion.py --group "${{ matrix.group }}"
+      - name: Execute original libraries and product composition offline
+        run: |
+          sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
+            HOME="$HOME" \
+            VERDUGO_RUNTIME_REQUIRED=1 \
+            VERDUGO_RUNTIME_EVIDENCE=/tmp/${{ matrix.group }}-execution-evidence.json \
+            python tests_runtime/accept_expansion.py --group "${{ matrix.group }}"
+      - name: Persist execution evidence and dependency graphs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: verdugo-${{ matrix.group }}-evidence-${{ github.sha }}
+          path: |
+            /tmp/*-execution-evidence.json
+            /tmp/*-product-evidence.json
+            /tmp/*-pip-report.json
+            /tmp/*-resolved.txt
           retention-days: 3
           if-no-files-found: warn
