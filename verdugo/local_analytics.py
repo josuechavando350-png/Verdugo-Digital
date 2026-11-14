@@ -14,32 +14,32 @@ import re
 
 # service: (operation, primary distribution, exact tested version)
 SPECS = {
-    'networkx': ('graph.rank', 'networkx', '3.6.1'),
-    'statsmodels': ('trend.fit', 'statsmodels', '0.14.6'),
-    'polars': ('campaigns.summarize', 'polars', '1.40.1'),
-    'sqlglot': ('sql.inspect', 'sqlglot', '28.10.1'),
-    'faker': ('contacts.synthesize', 'Faker', '40.15.0'),
-    'pandera': ('rows.validate', 'pandera', '0.31.1'),
-    'datasketch': ('texts.near_duplicates', 'datasketch', '1.10.0'),
+    'networkx': ('graph.rank', 'networkx', '3.7'),
+    'statsmodels': ('trend.fit', 'statsmodels', '0.15.0'),
+    'polars': ('campaigns.summarize', 'polars', '2.1.0'),
+    'sqlglot': ('sql.inspect', 'sqlglot', '30.31.0'),
+    'faker': ('contacts.synthesize', 'Faker', '40.54.0'),
+    'pandera': ('rows.validate', 'pandera', '0.36.0'),
+    'datasketch': ('texts.near_duplicates', 'datasketch', '2.0.0'),
     'h3': ('points.index', 'h3', '4.5.0'),
     'lifelines': ('retention.estimate', 'lifelines', '0.30.3'),
-    'pyod': ('outliers.detect', 'pyod', '3.2.0'),
-    'river': ('stream.drift', 'river', '0.25.0'),
+    'pyod': ('outliers.detect', 'pyod', '3.6.8'),
+    'river': ('stream.drift', 'river', '0.27.0'),
     'numpy-financial': ('cashflow.evaluate', 'numpy-financial', '1.0.0'),
     'nashpy': ('game.solve', 'nashpy', '0.0.43'),
     'pymcdm': ('alternatives.rank', 'pymcdm', '1.4.0'),
-    'mlxtend': ('baskets.mine', 'mlxtend', '0.24.0'),
-    'arrow': ('table.summarize', 'pyarrow', '24.0.0'),
-    'markitdown': ('html.to_markdown', 'markitdown', '0.1.6'),
-    'great-tables': ('table.render', 'great-tables', '0.21.0'),
-    'spacy': ('text.segment', 'spacy', '3.8.14'),
-    'parsedmarc': ('dmarc.summarize', 'parsedmarc', '9.10.2'),
-    'shap': ('features.attribute', 'shap', '0.52.0'),
-    'statsforecast': ('series.forecast', 'statsforecast', '2.0.4'),
-    'opendp': ('count.privatize', 'opendp', '0.15.2'),
-    'splink': ('records.link', 'splink', '4.0.16'),
+    'mlxtend': ('baskets.mine', 'mlxtend', '0.25.0'),
+    'arrow': ('table.summarize', 'pyarrow', '26.0.1'),
+    'markitdown': ('html.to_markdown', 'markitdown', '0.1.9'),
+    'great-tables': ('table.render', 'great-tables', '1.1.0'),
+    'spacy': ('text.segment', 'spacy', '3.8.18'),
+    'parsedmarc': ('dmarc.summarize', 'parsedmarc', '11.3.0'),
+    'shap': ('features.attribute', 'shap', '0.54.1'),
+    'statsforecast': ('series.forecast', 'statsforecast', '2.1.1'),
+    'opendp': ('count.privatize', 'opendp', '0.16.0'),
+    'splink': ('records.link', 'splink', '5.0.0'),
     'ibis': ('campaigns.summarize', 'ibis-framework', '12.0.0'),
-    'advertools': ('keywords.generate', 'advertools', '0.17.1'),
+    'advertools': ('keywords.generate', 'advertools', '0.18.0'),
     'dnstwist': ('domain.permutations', 'dnstwist', '20250130'),
 }
 EXTRA = {}
@@ -306,15 +306,7 @@ def validate(service, operation, p):
 
 
 def run(service, p):
-    return {'networkx': rank_graph, 'statsmodels': fit_trend, 'polars': summarize_polars,
-            'ibis': summarize_ibis, 'sqlglot': inspect_sql, 'faker': synthesize_contacts,
-            'pandera': validate_rows, 'datasketch': near_duplicates, 'h3': index_points,
-            'lifelines': estimate_retention, 'pyod': detect_outliers, 'river': detect_stream_drift,
-            'numpy-financial': evaluate_cashflow, 'nashpy': solve_game, 'pymcdm': rank_alternatives,
-            'mlxtend': mine_baskets, 'arrow': summarize_table, 'markitdown': html_to_markdown,
-            'great-tables': render_table, 'spacy': segment_text, 'parsedmarc': summarize_dmarc,
-            'shap': attribute_features, 'statsforecast': forecast_series, 'opendp': privatize_count,
-            'splink': link_records, 'advertools': generate_keywords, 'dnstwist': permute_domain}[service](p)
+    return HANDLERS[service](p)
 
 
 def _num(value, digits=8):
@@ -680,7 +672,7 @@ def link_records(p):
         link_type='dedupe_only', probability_two_random_records_match=0.01,
         comparisons=[cl.JaroWinklerAtThresholds('name', [0.9, 0.8]), cl.ExactMatch('email'), cl.ExactMatch('phone')],
         blocking_rules_to_generate_predictions=[block_on('email'), block_on('phone'), block_on('name')])
-    linker = Linker(frame, settings, db_api=DuckDBAPI())
+    linker = Linker(DuckDBAPI().register(frame), settings)
     scored = linker.inference.predict(threshold_match_probability=p.get('threshold', 0.5)).as_pandas_dataframe()
     pairs = [{'a': min(str(a), str(b)), 'b': max(str(a), str(b)), 'match_probability': round(float(m), 6)}
              for a, b, m in zip(scored['unique_id_l'], scored['unique_id_r'], scored['match_probability'])]
@@ -709,3 +701,16 @@ def permute_domain(p):
         techniques[row['technique']] = techniques.get(row['technique'], 0) + 1
     return {'domain': p['domain'], 'permutations': len(rows), 'by_technique': techniques,
             'sample': rows[:p.get('limit', 100)], 'dns_lookups_made': False, 'registration_checked': False}
+
+
+HANDLERS = {
+    'networkx': rank_graph, 'statsmodels': fit_trend, 'polars': summarize_polars,
+    'ibis': summarize_ibis, 'sqlglot': inspect_sql, 'faker': synthesize_contacts,
+    'pandera': validate_rows, 'datasketch': near_duplicates, 'h3': index_points,
+    'lifelines': estimate_retention, 'pyod': detect_outliers, 'river': detect_stream_drift,
+    'numpy-financial': evaluate_cashflow, 'nashpy': solve_game, 'pymcdm': rank_alternatives,
+    'mlxtend': mine_baskets, 'arrow': summarize_table, 'markitdown': html_to_markdown,
+    'great-tables': render_table, 'spacy': segment_text, 'parsedmarc': summarize_dmarc,
+    'shap': attribute_features, 'statsforecast': forecast_series, 'opendp': privatize_count,
+    'splink': link_records, 'advertools': generate_keywords, 'dnstwist': permute_domain,
+}

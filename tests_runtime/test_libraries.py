@@ -10,6 +10,7 @@ from verdugo.__main__ import template
 from verdugo.engine import Engine
 from fixtures import CASES
 from extended_fixtures import CASES as EXTENDED_CASES, assert_result
+from analytics_fixtures import CASES as ANALYTICS_CASES, assert_result as assert_analytics
 
 REQUIRED = os.getenv('VERDUGO_RUNTIME_REQUIRED') == '1'
 SELECTED = os.getenv('VERDUGO_RUNTIME_SERVICES', '').split(',')
@@ -96,6 +97,8 @@ class RuntimeAcceptance(unittest.TestCase):
                         self.assertFalse(value['javascript_enabled'])
                     if sid in EXTENDED_CASES:
                         assert_result(self, sid, value)
+                    if sid in ANALYTICS_CASES:
+                        assert_analytics(self, sid, value)
                     replay=engine.execute(command,True)
                     self.assertTrue(replay['replayed'])
                     self.assertEqual(result['result'],replay['result'])

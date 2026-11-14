@@ -15,21 +15,25 @@ jobs:
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
         with:
           python-version: '3.12'
-      - name: Install candidate distributions
+      - name: Install pinned analytics profile
         run: |
-          python -m venv --copies /tmp/lab-venv
-          if ! /tmp/lab-venv/bin/python -m pip install -r lab/requirements.txt > /tmp/pip-all.log 2>&1; then
-            tail -60 /tmp/pip-all.log
-            echo "LAB-FALLBACK one by one"
-            while read -r req; do
-              /tmp/lab-venv/bin/python -m pip install "$req" > /tmp/pip-one.log 2>&1 || { echo "LAB-INSTALL-FAIL $req"; tail -15 /tmp/pip-one.log; }
-            done < lab/requirements.txt
-          fi
-          echo "LAB-FREEZE-BEGIN"
-          /tmp/lab-venv/bin/python -m pip freeze
-          echo "LAB-FREEZE-END"
-          /tmp/lab-venv/bin/python -m pip check || true
-      - name: Probe recipes without network
+          python -m venv --copies /tmp/verdugo-analytics-venv
+          chmod go-w /tmp/verdugo-analytics-venv/bin/python*
+          /tmp/verdugo-analytics-venv/bin/python -m pip install -r requirements/runtime-analytics.txt > /tmp/pip-all.log 2>&1 || { tail -40 /tmp/pip-all.log; exit 1; }
+          /tmp/verdugo-analytics-venv/bin/python -m pip freeze > /tmp/analytics-resolved.txt
+          grep -v '^#' requirements/runtime-analytics.constraints.txt | sort -f > /tmp/expected.txt
+          sort -f /tmp/analytics-resolved.txt > /tmp/actual.txt
+          diff /tmp/expected.txt /tmp/actual.txt && echo "LAB-FREEZE-MATCHES"
+          /tmp/verdugo-analytics-venv/bin/python -m pip check
+      - name: Direct recipe diagnostics without network
         run: |
           sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
-            HOME="$HOME" /tmp/lab-venv/bin/python lab/driver.py
+            HOME="$HOME" /tmp/verdugo-analytics-venv/bin/python lab/driver.py | grep -E "PROBE-(FAIL|TIMEOUT|STDERR)|PROBE-OK splink|Error|File " || true
+      - name: Engine acceptance for analytics recipes without network
+        run: |
+          PY="$(which python)"
+          sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
+            HOME="$HOME" VERDUGO_RUNTIME_REQUIRED=1 \
+            VERDUGO_RUNTIME_SERVICES=networkx,statsmodels,polars,sqlglot,faker,pandera,datasketch,h3,lifelines,pyod,river,numpy-financial,nashpy,pymcdm,mlxtend,arrow,markitdown,great-tables,spacy,parsedmarc,shap,statsforecast,opendp,splink,ibis,advertools,dnstwist \
+            VERDUGO_ANALYTICS_PYTHON=/tmp/verdugo-analytics-venv/bin/python \
+            "$PY" -m unittest discover -s tests_runtime -p 'test_libraries.py' -v

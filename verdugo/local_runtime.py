@@ -16,7 +16,7 @@ import sys
 import tempfile
 
 from .common import VerdugoError, fields, identifier, integer, encode
-from . import local_extended, runtime_profile
+from . import local_analytics, local_extended, runtime_profile
 
 # Primary published distribution versions; upstream source pins are a separate
 # provenance inventory and must not be confused with installed Python wheels.
@@ -38,6 +38,8 @@ EXTRA = {'presidio': {'presidio-anonymizer': '2.2.366'},
          'catboost': {'scikit-learn': '1.8.0'}}
 SPECS.update(local_extended.SPECS)
 EXTRA.update(local_extended.EXTRA)
+SPECS.update(local_analytics.SPECS)
+EXTRA.update(local_analytics.EXTRA)
 MAX_OUTPUT = 1024 * 1024
 WORKER = Path(__file__).with_name('_local_worker.py')
 RECIPES = Path(__file__).with_name('local_recipes.py')
@@ -113,6 +115,8 @@ def validate(service, operation, params):
         raise VerdugoError('Local adapter/action not implemented')
     if service in local_extended.SPECS:
         return local_extended.validate(service, operation, params)
+    if service in local_analytics.SPECS:
+        return local_analytics.validate(service, operation, params)
     required = {
         'html.extract': ('dataset', 'html'),
         'html.inspect': ('dataset', 'html'),
@@ -225,6 +229,7 @@ def preflight(service, operation, cfg):
 def implementation_digest():
     h = hashlib.sha256()
     for path in (Path(__file__), WORKER, RECIPES, Path(local_extended.__file__),
+                 Path(local_analytics.__file__),
                  Path(runtime_profile.__file__), runtime_profile.PROBE):
         h.update(path.name.encode())
         h.update(path.read_bytes())

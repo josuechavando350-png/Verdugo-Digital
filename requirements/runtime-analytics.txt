@@ -1,0 +1,35 @@
+# Isolated analytics profile (v0.17), Linux x86_64 CPython 3.12. No network, models or user code.
+# Select it with VERDUGO_ANALYTICS_PYTHON; it never shares a venv with runtime.txt or runtime-ragas.txt.
+-c runtime-analytics.constraints.txt
+networkx==3.7
+statsmodels==0.15.0
+polars==2.1.0
+sqlglot==30.31.0
+Faker==40.54.0
+pandera==0.36.0
+datasketch==2.0.0
+h3==4.5.0
+lifelines==0.30.3
+pyod==3.6.8
+river==0.27.0
+numpy-financial==1.0.0
+nashpy==0.0.43
+pymcdm==1.4.0
+mlxtend==0.25.0
+pyarrow==26.0.1
+markitdown==0.1.9
+great-tables==1.1.0
+spacy==3.8.18
+parsedmarc==11.3.0
+shap==0.54.1
+statsforecast==2.1.1
+opendp==0.16.0
+splink==5.0.0
+ibis-framework[duckdb]==12.0.0
+advertools==0.18.0
+dnstwist==20250130
+pandas==2.3.3
+scikit-learn==1.9.1
+scipy==1.18.1
+numpy==2.5.4
+duckdb==2.0.0

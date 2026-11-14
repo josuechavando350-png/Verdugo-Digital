@@ -12,6 +12,9 @@ def run(service, operation, p):
     from local_extended import SPECS as EXTENDED, run as run_extended
     if service in EXTENDED:
         return run_extended(service, p)
+    from local_analytics import SPECS as ANALYTICS, run as run_analytics
+    if service in ANALYTICS:
+        return run_analytics(service, p)
     handlers = {
         'trafilatura': extract_html, 'scrapy': inspect_html,
         'duckdb': aggregate_campaigns, 'or-tools': select_items,

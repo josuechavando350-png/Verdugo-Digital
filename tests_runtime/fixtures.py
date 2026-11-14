@@ -40,3 +40,5 @@ CASES = {
 
 from extended_fixtures import CASES as EXTENDED_CASES
 CASES.update(EXTENDED_CASES)
+from analytics_fixtures import CASES as ANALYTICS_CASES
+CASES.update(ANALYTICS_CASES)

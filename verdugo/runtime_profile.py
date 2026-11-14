@@ -1,4 +1,4 @@
-"""Optional administrator-selected Ragas venv; never supplied in a tool payload.
+"""Optional administrator-selected Ragas and analytics venvs; never supplied in a tool payload.
 
 Dependency isolation is not a hostile-code sandbox. The operator must trust the
 interpreter, its venv, this checkout and all installed packages.
@@ -16,9 +16,12 @@ import sys
 import tempfile
 
 from .common import VerdugoError
+from . import local_analytics
 
 PROBE = Path(__file__).with_name('_runtime_probe.py')
 PROFILE_ENV = {'ragas': 'VERDUGO_RAGAS_PYTHON'}
+# v0.17: the analytics recipes share one separate administrator environment.
+PROFILE_ENV.update({service: 'VERDUGO_ANALYTICS_PYTHON' for service in local_analytics.SPECS})
 
 
 def interpreter(service):

@@ -168,7 +168,7 @@ class EngineGateTests(unittest.TestCase):
         status = self.engine.status()
         self.assertEqual(300, status['license_policy_allowed'])
         self.assertEqual(22, status['license_policy_excluded'])
-        self.assertEqual(59, status['adapters_usable_under_policy'])
+        self.assertEqual(86, status['adapters_usable_under_policy'])
         row = next(r for r in status['integrations'] if r['id'] == 'twenty')
         self.assertEqual(('AGPL-3.0', 'excluido'), (row['license_detected'], row['license_policy']))
         self.assertEqual(0, status['live_verified'])
