@@ -1,0 +1,52 @@
+name: Verdugo pinned contract sources
+on:
+  push:
+    branches: [feat/v0.17-tanda1-read-connectors]
+    paths: ['.github/workflows/upstream-handoff.yml']
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - name: Retrieve fixed public source without executing upstream code
+        run: |
+          python3 - <<'PY'
+          import hashlib, io, json, tarfile, urllib.request
+          from pathlib import Path, PurePosixPath
+          entries=[
+            ('fides','ethyca/fides','e87f3ff835af368defc1ec42dc29ec545a288585',('src/fides/api/',)),
+            ('crawl4ai','unclecode/crawl4ai','cae74b203a33994f7e13b9052c3b0d5c93daa0e6',('deploy/docker/',)),
+            ('steel','steel-dev/steel-browser','552550af79742a75fef24c24b1134e43e99e3d5e',('api/src/',)),
+            ('answer','apache/answer','6744295fa888e0621fc9f9a8ace04f1a4daf8554',('internal/',)),
+            ('gotenberg','gotenberg/gotenberg','4d577e1467aaffa080b1e89d64ecb86c2fba4e98',('pkg/modules/api/',)),
+            ('openrefine','OpenRefine/OpenRefine','d97abdabd4c172ddba3581a9259307c7f2b86b44',('main/src/com/google/refine/commands/workspace/','main/webapp/modules/core/MOD-INF/controller.js')),
+          ]
+          root=Path('/tmp/contract-sources');root.mkdir()
+          report=[]
+          for name,repo,sha,prefixes in entries:
+            url=f'https://codeload.github.com/{repo}/tar.gz/{sha}'
+            with urllib.request.urlopen(url,timeout=120) as r: data=r.read(150_000_001)
+            assert len(data)<=150_000_000
+            files=[]
+            with tarfile.open(fileobj=io.BytesIO(data),mode='r:gz') as archive:
+              for member in archive:
+                parts=PurePosixPath(member.name).parts[1:]
+                if not parts or '..' in parts or not member.isfile() or member.size>2_000_000: continue
+                rel='/'.join(parts)
+                if not any(rel.startswith(p) for p in prefixes):continue
+                target=root/name/rel;target.parent.mkdir(parents=True,exist_ok=True)
+                body=archive.extractfile(member).read();target.write_bytes(body)
+                files.append({'path':rel,'git_blob':hashlib.sha1(b'blob '+str(len(body)).encode()+b'\0'+body).hexdigest()})
+            assert files,(name,'no source files')
+            report.append({'id':name,'repository':repo,'commit':sha,'archive_sha256':hashlib.sha256(data).hexdigest(),'files':files})
+            print(name,len(files))
+          (root/'manifest.json').write_text(json.dumps(report,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verdugo-pinned-contract-sources
+          path: /tmp/contract-sources/
+          retention-days: 1
+          if-no-files-found: error
