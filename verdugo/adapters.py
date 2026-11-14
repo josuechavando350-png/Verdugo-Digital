@@ -4,7 +4,7 @@ import os
 import re
 from urllib.parse import urlencode, urlsplit
 from .common import VerdugoError, fields, text, integer, identifier, digest, encode
-from . import marketing_reads
+from . import marketing_reads, service_reads
 
 # API-contract implementations; live compatibility is NOT established by this list.
 SPECS = {
@@ -53,6 +53,7 @@ SPECS = {
  'documenso': {'envelopes.list': ('GET', '/api/v2/envelope')},
 }
 SPECS.update(marketing_reads.SPECS)
+SPECS.update(service_reads.SPECS)
 HEADERS = {'qdrant': 'api-key', 'metabase': 'X-API-Key',
            'shlink': 'X-Api-Key', 'n8n': 'X-N8N-API-KEY',
            'changedetection': 'x-api-key', 'formbricks': 'x-api-key'}
@@ -91,6 +92,8 @@ def connection(service, cfg):
     headers = {'Accept': 'application/json', 'User-Agent': 'Verdugo-Digital/0.2'}
     if service in marketing_reads.SPECS:
         headers.update(marketing_reads.authorization(service, cfg, token))
+    elif service in service_reads.SPECS:
+        headers.update(service_reads.authorization(service, cfg, token))
     elif service in HEADERS:
         headers[HEADERS[service]] = token
     elif service in ('listmonk', 'langfuse'):
@@ -148,6 +151,11 @@ def build(service, operation, params, cfg):
     if service in marketing_reads.SPECS:
         origin, token, headers = connection(service, cfg)
         return marketing_reads.build(service, operation, params, cfg, origin, token, headers)
+    if service in service_reads.SPECS:
+        if operation not in service_reads.SPECS[service]:
+            raise VerdugoError('Adapter/action not implemented: %s.%s' % (service, operation))
+        origin, token, headers = connection(service, cfg)
+        return service_reads.build(service, operation, params, cfg, origin, token, headers)
     if operation not in SPECS.get(service, {}):
         raise VerdugoError('Adapter/action not implemented: %s.%s' % (service, operation))
     method, path = SPECS[service][operation]

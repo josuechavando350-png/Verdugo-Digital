@@ -307,7 +307,7 @@ class IntegrationTests(RecoveryBase):
 
     def test_no_mcp_self_recovery_or_new_tool_count(self):
         names={x['name'] for x in tool_definitions()}
-        self.assertEqual(21,len(names));self.assertNotIn('verdugo_recover_running',names)
+        self.assertEqual(23,len(names));self.assertNotIn('verdugo_recover_running',names)
         with self.assertRaises(VerdugoError):invoke(self.engine,'verdugo_recover_running',{})
 
     def test_mcp_running_is_not_reported_as_completed(self):

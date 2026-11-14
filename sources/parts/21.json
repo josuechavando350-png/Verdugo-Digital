@@ -1,0 +1,82 @@
+[
+ {
+  "number": 201,
+  "id": "crewai",
+  "repository": "crewAIInc/crewAI",
+  "commit_sha": "d7dfa0ef5ade793bd48ff7357c6eb45a45294371",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 202,
+  "id": "openai-agents",
+  "repository": "openai/openai-agents-python",
+  "commit_sha": "64fbde5d02b42ae5f9db668eb0184cdb3fc9d775",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 203,
+  "id": "google-adk",
+  "repository": "google/adk-python",
+  "commit_sha": "12aab4aaaa1a72e3edcc65fa4f9d849896ea6c48",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 204,
+  "id": "agent-framework",
+  "repository": "microsoft/agent-framework",
+  "commit_sha": "92838b60498395142cb8b74693353163e95a0faf",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 205,
+  "id": "smolagents",
+  "repository": "huggingface/smolagents",
+  "commit_sha": "96f33faaf028479119ec8d34507b47694cf14e34",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 206,
+  "id": "camel",
+  "repository": "camel-ai/camel",
+  "commit_sha": "0366b64bf3609c76f50e396715aab73ba58a930c",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 207,
+  "id": "mastra",
+  "repository": "mastra-ai/mastra",
+  "commit_sha": "7277766d6c967c475675d58ff2d0e5c6d7be7c84",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 208,
+  "id": "any-agent",
+  "repository": "mozilla-ai/any-agent",
+  "commit_sha": "a469723ac4a0518ab0696d57e09e4dc407c826ec",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 209,
+  "id": "langchain",
+  "repository": "langchain-ai/langchain",
+  "commit_sha": "ea17e48f0a4336c920394fd029de99f1568b4c38",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 210,
+  "id": "langgraph-supervisor",
+  "repository": "langchain-ai/langgraph-supervisor-py",
+  "commit_sha": "88859b34017ac3569bbd4a3092c7e77593a0a960",
+  "source_status": "pinned",
+  "license_review": "pending"
+ }
+]

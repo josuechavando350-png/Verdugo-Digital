@@ -17,20 +17,22 @@ from verdugo.mcp import invoke, tool_definitions
 
 
 class SourceEvidenceTests(unittest.TestCase):
-    def test_exact_match_to_100_approved_sources(self):
+    def test_exact_match_to_322_registered_sources(self):
         entries = read_sources()
         approved = catalog()
-        self.assertEqual(100, len(entries))
+        self.assertEqual(322, len(entries))
         self.assertEqual([r["repository"] for r in approved],
                          [r["repository"] for r in entries])
         self.assertTrue(all(len(r["commit_sha"]) == 40 for r in entries))
-        self.assertEqual(100, len({r["commit_sha"] + r["repository"] for r in entries}))
+        self.assertEqual(322, len({r["commit_sha"] + r["repository"] for r in entries}))
 
     def test_summary_is_explicit_about_non_deployment(self):
         value = report()
-        self.assertEqual(100, value["registered"])
-        self.assertEqual(100, value["source_pinned"])
-        self.assertEqual(100, value["license_review_pending"])
+        self.assertEqual(322, value["registered"])
+        self.assertEqual(322, value["source_pinned"])
+        self.assertEqual(322, value["license_review_pending"])
+        self.assertEqual(300, value["license_policy_allowed"])
+        self.assertEqual(22, value["license_policy_excluded"])
         self.assertEqual(len(SPECS), value["http_adapters_implemented"])
         self.assertEqual(0, value["live_verified"])
         self.assertEqual(0, value["production_ready"])
@@ -42,8 +44,8 @@ class SourceEvidenceTests(unittest.TestCase):
             status = engine.status()
         finally:
             engine.close()
-        self.assertEqual(100, status["source_pinned"])
-        self.assertEqual(100, status["license_review_pending"])
+        self.assertEqual(322, status["source_pinned"])
+        self.assertEqual(322, status["license_review_pending"])
         self.assertEqual(0, status["live_verified"])
         self.assertEqual(40, len(status["integrations"][0]["artifact_pin"]))
         self.assertEqual("pinned", status["integrations"][0]["source_status"])
@@ -73,7 +75,7 @@ class SourceEvidenceTests(unittest.TestCase):
             target = Path(temp)
             for name in PART_NAMES:
                 shutil.copyfile(PARTS / name, target / name)
-            self.assertEqual(100, len(read_sources(target)))
+            self.assertEqual(322, len(read_sources(target)))
             first = target / "01.json"
             original = json.loads(first.read_text())
             for field, new_value in (
@@ -97,13 +99,13 @@ class SourceEvidenceTests(unittest.TestCase):
             target = Path(temp)
             for name in PART_NAMES:
                 shutil.copyfile(PARTS / name, target / name)
-            (target / "11.json").write_text("[]")
+            (target / "34.json").write_text("[]")
             with self.assertRaises(VerdugoError):
                 read_sources(target)
 
     def test_source_query_does_not_touch_network(self):
         with patch("socket.socket", side_effect=AssertionError("network attempted")):
-            self.assertEqual(100, report()["source_pinned"])
+            self.assertEqual(322, report()["source_pinned"])
             self.assertTrue(report("restic")["source_commit_sha"])
 
     def test_cli_commands_do_not_create_state(self):

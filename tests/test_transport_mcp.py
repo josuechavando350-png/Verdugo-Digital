@@ -68,7 +68,7 @@ class MCPTests(unittest.TestCase):
     def test_handshake_and_list(self):
         self.assertEqual('2025-11-25',self.handshake()['result']['protocolVersion'])
         res=self.s.handle({'jsonrpc':'2.0','id':2,'method':'tools/list'})
-        self.assertEqual(21,len(res['result']['tools']))
+        self.assertEqual(23,len(res['result']['tools']))
     def test_no_approval_tool_exposed(self):
         self.assertFalse(any('approve' in t['name'] for t in tool_definitions()))
     def test_session_required(self):
@@ -85,7 +85,7 @@ class MCPTests(unittest.TestCase):
         self.handshake()
         out=self.s.handle({'jsonrpc':'2.0','id':2,'method':'tools/call','params':{'name':'verdugo_status','arguments':{}}})
         data=json.loads(out['result']['content'][0]['text'])
-        self.assertEqual(100,data['registered']);self.assertEqual(0,data['live_verified'])
+        self.assertEqual(322,data['registered']);self.assertEqual(0,data['live_verified'])
     def test_bad_json_does_not_pollute_stdout(self):
         out=io.StringIO();serve(self.engine,io.StringIO('{not-json}\n'),out)
         msg=json.loads(out.getvalue());self.assertEqual(-32700,msg['error']['code'])
@@ -101,4 +101,4 @@ class MCPTests(unittest.TestCase):
                 input='\n'.join(json.dumps(m) for m in messages)+'\n',text=True,capture_output=True,timeout=10)
             self.assertEqual(0,out.returncode,out.stderr)
             lines=[json.loads(line) for line in out.stdout.splitlines()]
-            self.assertEqual(2,len(lines));self.assertEqual(21,len(lines[1]['result']['tools']))
+            self.assertEqual(2,len(lines));self.assertEqual(23,len(lines[1]['result']['tools']))

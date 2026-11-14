@@ -2,29 +2,90 @@
 
 Núcleo comercial y de análisis para Nexus Bot Studio. Una sola entrada CLI/MCP,
 un motor de ejecución, flujos con dependencias, permisos locales, auditoría,
-idempotencia y estado SQLite. Versión de ingeniería **0.13.0**.
+idempotencia y estado SQLite. Versión de ingeniería **0.16.0**.
 
-**La integración operativa de los 100 proyectos NO está terminada.** Registrar
+**La integración operativa de los 300 proyectos NO está terminada.** Registrar
 fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 
 ## Estado del código
 
 | Componente | Alcance |
 |---|---|
-| Fuentes aprobadas y fijadas por commit | 100 |
-| Proyectos con una operación implementada | 62: 43 HTTP + 19 de bibliotecas locales |
-| Proyectos sin ningún adaptador | 38 |
-| Operaciones HTTP existentes | 47, limitadas por proveedor |
+| Fuentes registradas y fijadas por commit | 322 (100 núcleo + 222 de v0.14) |
+| Portafolio con licencia libre (política v0.14) | 300 |
+| Excluidos por licencia (registrados, sin operar) | 22 |
+| Proyectos con una operación implementada | 78: 59 HTTP + 19 de bibliotecas locales |
+| Conectados bajo la política de licencias | 59 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
+| Piezas de construcción (se usan al programar, no vía motor) | 56 |
+| Pendientes de conector | 185 |
+| Servicios de pago | 0 (Stripe, Twilio, Mercado Pago, E2B y Composio retirados) |
+| Operaciones HTTP existentes | 63, limitadas por proveedor |
 | Operaciones locales implementadas | 19; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Dos de cinco pasos; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 404 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
-| Herramientas MCP | 21; las operaciones reutilizan execute/workflow existentes |
+| Pruebas unitarias y de contrato | 432 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
+| Herramientas MCP | 23; las operaciones reutilizan execute/workflow existentes |
 | Servicios productivos certificados | 0 |
 
 Los tres workflows de aceptación son **Verdugo verification**, **Verdugo runtime
 acceptance** y **Verdugo real service acceptance**. La aprobación debe observarse
 para el commit concreto: una prueba del núcleo no sustituye ejecución de las
 bibliotecas ni certifica un despliegue productivo. La aceptación usa datos sintéticos.
+
+## Plan de lo que falta
+
+Las 185 piezas pendientes, en 4 tandas de hasta 50, con las reglas para conectar cada una:
+[docs/PLAN_CONEXION.md](docs/PLAN_CONEXION.md) (y `docs/plan_conexion.json` para agentes).
+
+## Qué añade v0.16
+
+Tres conectores gratuitos más, con ruta y autenticación tomadas del código fuente en el commit
+fijado: **Cal** (citas por estado), **Owncast** (personas conectadas al chat del en vivo) y
+**Lighthouse CI** (proyectos auditados). Quedan 59 conectadas y 185 pendientes.
+
+## Qué añade v0.15
+
+**Mapa de conexión de las 322 piezas y 13 conectores nuevos de solo lectura, todos gratuitos.**
+
+- `sources/connections.json` clasifica cada pieza: servicio (75), biblioteca (139),
+  componente (56), cli (21), mcp (6), protocolo (1), datos (2) y excluido (22). El estado
+  no se escribe a mano: `conectado` solo si hay adaptador implementado y licencia libre.
+- Conectores nuevos, cada uno con ruta y autenticación tomadas del código fuente en su
+  commit fijado: vLLM, Ollama, Label Studio, Grist, Datasette, Svix, Cube, Langflow,
+  Android SMS Gateway, SendPortal, CrowdSec, ClickHouse y Dittofeed. Todos `GET`, una página,
+  y guardan solo recuentos o estados (nunca correos, nombres, IPs, números ni payloads).
+- Sin servicios de pago: Stripe, Twilio, Mercado Pago, E2B y Composio salieron del catálogo y se
+  reemplazaron por Android SMS Gateway, Krayin CRM, SendPortal, microsandbox y Huginn (gratuitos
+  y autoalojados). El catálogo sigue en 300 libres.
+- Nuevo comando `python -m verdugo connections [ID]` y herramienta MCP `verdugo_connections`.
+- Resultado: 56 conectadas, 56 piezas de construcción, 188 pendientes, 22 excluidas.
+  Ningún proveedor real fue probado. [Evidencia y condiciones](docs/CONECTORES_V015.md).
+
+## Qué añade v0.14
+
+**Un solo catálogo de 322 entradas y una política de licencias que falla cerrada.**
+
+- Se unieron, sin repetir, el núcleo de 100, los 121 libres de la lista de Josue
+  (21 ya estaban en el núcleo) y tres bloques nuevos: agentes autónomos (40),
+  plataforma de producto (40) y motor de datos propios (42). Total libre: **300**.
+- La licencia de cada entrada se leyó del archivo en la raíz del commit fijado y quedó
+  en `sources/licenses.json`. Solo cuentan como libres MIT, Apache-2.0, BSD, ISC, CC0,
+  Unlicense y PostgreSQL. 12 son libres solo en su núcleo (no usar carpetas enterprise)
+  y 3 son libres con una condición escrita.
+- 22 entradas del núcleo original (AGPL/GPL/LGPL, Elastic, Sustainable Use y la licencia
+  propia de Remotion) quedan **registradas pero excluidas**: el Engine rechaza cualquier
+  plan, lectura o escritura sobre ellas (`Excluded by license policy`) antes de llamar a
+  nada. Sus adaptadores siguen en el código y en el historial; solo se pueden operar si
+  el operador escribe en su configuración privada una excepción con nombre y motivo
+  (`license_policy_exception: {approved_by, reason}`). La plantilla nunca la incluye.
+- Consecuencia práctica: los ejemplos que usan Twenty, Postiz, Plausible o Matomo
+  (`commercial-overview`, `contact-bridge`, `marketing-reads`) quedan bloqueados por
+  política. El CRM con escritura necesita un reemplazo con licencia libre.
+- Nuevo comando `python -m verdugo licenses [ID]` y herramienta MCP de solo lectura
+  `verdugo_license_policy`. `status` y `sources` muestran licencia y política por proyecto.
+- Registrar no es integrar: los 222 proyectos nuevos no tienen adaptador todavía.
+  [Catálogo completo con licencias](docs/CATALOGO_300.md).
+
+Esto no es asesoría legal: `license_review` sigue `pending` en las 322 entradas.
 
 ## Qué añade v0.13
 
