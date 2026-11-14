@@ -11,7 +11,7 @@ from .adapters import SPECS, build, service_config, connection, remote_id
 from . import read_contracts
 from .catalog import catalog
 from .source_evidence import read_sources
-from . import license_policy
+from . import license_policy, connections
 from . import local_runtime
 from .common import VerdugoError, digest, encode, fields, identifier, integer, sanitize, text
 from .transport import send
@@ -114,6 +114,8 @@ class Engine:
             rows.append(item | {'artifact_pin': pins[item['id']],
                 'license_detected': policy[item['id']]['spdx'],
                 'license_policy': policy[item['id']]['policy'],
+                'connection_kind': connections.read_map()[0][item['id']],
+                'connection_state': connections.state(item['id']),
                 'source_status': 'pinned',
                 'adapter_implemented': item['id'] in SPECS,
                 'local_adapter_implemented': item['id'] in local_runtime.SPECS,
@@ -134,6 +136,7 @@ class Engine:
                 'license_policy_allowed': sum(r['license_policy'] != 'excluido' for r in rows),
                 'license_policy_excluded': sum(r['license_policy'] == 'excluido' for r in rows),
                 'adapters_usable_under_policy': sum(r['any_adapter_implemented'] and r['license_policy'] != 'excluido' for r in rows),
+                'connection_states': {s: sum(r['connection_state'] == s for r in rows) for s in connections.STATES},
                 'live_verified': 0, 'note': 'API success is not acceptance certification.',
                 'integrations': rows}
 

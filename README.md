@@ -2,7 +2,7 @@
 
 Núcleo comercial y de análisis para Nexus Bot Studio. Una sola entrada CLI/MCP,
 un motor de ejecución, flujos con dependencias, permisos locales, auditoría,
-idempotencia y estado SQLite. Versión de ingeniería **0.14.0**.
+idempotencia y estado SQLite. Versión de ingeniería **0.15.0**.
 
 **La integración operativa de los 300 proyectos NO está terminada.** Registrar
 fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
@@ -14,20 +14,38 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 | Fuentes registradas y fijadas por commit | 322 (100 núcleo + 222 de v0.14) |
 | Portafolio con licencia libre (política v0.14) | 300 |
 | Excluidos por licencia (registrados, sin operar) | 22 |
-| Proyectos con una operación implementada | 62: 43 HTTP + 19 de bibliotecas locales |
-| Adaptadores utilizables bajo la política de licencias | 43 (19 adaptadores HTTP quedaron bloqueados por licencia) |
-| Proyectos sin ningún adaptador | 260 |
-| Operaciones HTTP existentes | 47, limitadas por proveedor |
+| Proyectos con una operación implementada | 77: 58 HTTP + 19 de bibliotecas locales |
+| Conectados bajo la política de licencias | 58 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
+| Piezas de construcción (se usan al programar, no vía motor) | 56 |
+| Pendientes de conector | 186 |
+| Operaciones HTTP existentes | 62, limitadas por proveedor |
 | Operaciones locales implementadas | 19; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Dos de cinco pasos; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 404 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
-| Herramientas MCP | 22; las operaciones reutilizan execute/workflow existentes |
+| Pruebas unitarias y de contrato | 433 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
+| Herramientas MCP | 23; las operaciones reutilizan execute/workflow existentes |
 | Servicios productivos certificados | 0 |
 
 Los tres workflows de aceptación son **Verdugo verification**, **Verdugo runtime
 acceptance** y **Verdugo real service acceptance**. La aprobación debe observarse
 para el commit concreto: una prueba del núcleo no sustituye ejecución de las
 bibliotecas ni certifica un despliegue productivo. La aceptación usa datos sintéticos.
+
+## Qué añade v0.15
+
+**Mapa de conexión de las 322 piezas y 15 conectores nuevos de solo lectura.**
+
+- `sources/connections.json` clasifica cada pieza: servicio (75), biblioteca (139),
+  componente (56), cli (21), mcp (6), protocolo (1), datos (2) y excluido (22). El estado
+  no se escribe a mano: `conectado` solo si hay adaptador implementado y licencia libre.
+- Conectores nuevos, cada uno con ruta y autenticación tomadas del código fuente en su
+  commit fijado: vLLM, Ollama, Label Studio, Grist, Datasette, Svix, Cube, E2B, Langflow,
+  Mercado Pago, Stripe, Twilio, CrowdSec, ClickHouse y Dittofeed. Todos `GET`, una página,
+  y guardan solo recuentos o estados (nunca correos, nombres, IPs ni payloads).
+- E2B, Mercado Pago, Stripe y Twilio quedan amarrados a su origen oficial: la credencial no
+  puede mandarse a otro dominio.
+- Nuevo comando `python -m verdugo connections [ID]` y herramienta MCP `verdugo_connections`.
+- Resultado: 58 conectadas, 56 piezas de construcción, 186 pendientes, 22 excluidas.
+  Ningún proveedor real fue probado. [Evidencia y condiciones](docs/CONECTORES_V015.md).
 
 ## Qué añade v0.14
 
@@ -52,7 +70,7 @@ bibliotecas ni certifica un despliegue productivo. La aceptación usa datos sint
 - Nuevo comando `python -m verdugo licenses [ID]` y herramienta MCP de solo lectura
   `verdugo_license_policy`. `status` y `sources` muestran licencia y política por proyecto.
 - Registrar no es integrar: los 222 proyectos nuevos no tienen adaptador todavía.
-  [Catálogo completo con licencias](docs/CATALOGO_300_V014.md).
+  [Catálogo completo con licencias](docs/CATALOGO_300.md).
 
 Esto no es asesoría legal: `license_review` sigue `pending` en las 322 entradas.
 

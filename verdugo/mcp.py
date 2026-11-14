@@ -6,7 +6,7 @@ import sys
 from .common import VerdugoError, encode, fields
 from .catalog import graph
 from .adapters import SPECS
-from . import source_evidence, license_policy
+from . import source_evidence, license_policy, connections
 from . import workflow, jobs, reconciliation, readback, surface, commercial, pilot, office
 from . import __version__
 from .bridge import contact_bridge
@@ -20,6 +20,8 @@ TOOLS = [
  ('verdugo_source_evidence', 'Read-only pinned GitHub source evidence. No deployment, license approval, or external API call.',
   {'project_id': {'type': 'string'}}, [], True),
  ('verdugo_license_policy', 'Read-only license policy: detected license and libre/excluido state per project. Not a legal review.',
+  {'project_id': {'type': 'string'}}, [], True),
+ ('verdugo_connections', 'Read-only connection map: kind and computed state of each project. conectado means an implemented adapter, never a verified deployment.',
   {'project_id': {'type': 'string'}}, [], True),
  ('verdugo_sales_intake', 'Local atomic intake with first-party prospect identity and scheduled followup; preview by default, no messages.',
   {'request': OBJ, 'execute': BOOL}, ['request'], False),
@@ -76,6 +78,7 @@ def invoke(engine, name, args):
     fields(args, spec[3], set(spec[2])-set(spec[3]))
     if name == 'verdugo_source_evidence': return source_evidence.report(args.get('project_id'))
     if name == 'verdugo_license_policy': return license_policy.summary(args.get('project_id'))
+    if name == 'verdugo_connections': return connections.summary(args.get('project_id'))
     if name == 'verdugo_sales_intake': return office.intake(engine, args['request'], args.get('execute', False))
     if name == 'verdugo_sales_desk': return office.desk(engine, args.get('params'))
     if name == 'verdugo_pilot': return pilot.check(engine, args['request'], args.get('execute', False))

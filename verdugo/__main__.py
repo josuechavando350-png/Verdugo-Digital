@@ -8,7 +8,7 @@ from . import local_runtime
 from .catalog import catalog, graph
 from .common import VerdugoError, encode, identifier
 from .engine import Engine
-from . import workflow, jobs, reconciliation, readback, surface, recovery, commercial, pilot, backups, office, source_evidence, license_policy
+from . import workflow, jobs, reconciliation, readback, surface, recovery, commercial, pilot, backups, office, source_evidence, license_policy, connections
 from .ingress import make_server
 from .bridge import contact_bridge
 from .diagnostics import doctor
@@ -51,6 +51,12 @@ def template(tenant):
     services['listmonk']['username'] = 'verdugo-api'
     services['activepieces']['project_id'] = 'REPLACE_PROJECT_ID'
     services['prometheus']['allowed_queries'] = ['up']
+    from .service_reads import FIXED_ORIGINS
+    for sid, origin in FIXED_ORIGINS.items():
+        services[sid]['base_url'] = origin
+    services['twilio-python']['account_sid'] = None
+    services['clickhouse'].update(username=None)
+    services['dittofeed'].update(workspace_id=None)
     return {'tenants': {tenant: {'services': services, 'ingress': {}}}}
 
 
@@ -64,6 +70,7 @@ def main(argv=None):
     sub = parser.add_subparsers(dest='cmd', required=True)
     for name in ('status', 'catalog', 'graph', 'mcp', 'demo', 'sources', 'runtime-check'): sub.add_parser(name)
     p = sub.add_parser('licenses'); p.add_argument('project_id', nargs='?')
+    p = sub.add_parser('connections'); p.add_argument('project_id', nargs='?')
     p = sub.add_parser('init'); p.add_argument('--out', default='verdugo.local.json')
     p = sub.add_parser('source-inspect'); p.add_argument('project_id')
     p = sub.add_parser('events'); p.add_argument('--after', type=int, default=0)
@@ -103,6 +110,7 @@ def main(argv=None):
         if args.cmd == 'catalog': print(encode(catalog())); return 0
         if args.cmd == 'sources': print(encode(source_evidence.report())); return 0
         if args.cmd == 'licenses': print(encode(license_policy.summary(args.project_id))); return 0
+        if args.cmd == 'connections': print(encode(connections.summary(args.project_id))); return 0
         if args.cmd == 'runtime-check':
             availability = local_runtime.inventory()
             print(encode(availability))

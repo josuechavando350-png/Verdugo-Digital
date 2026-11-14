@@ -1,0 +1,1624 @@
+{
+ "kinds": {
+  "servicio": "Servicio con API propio o en la nube: el motor lo llama con un adaptador acotado y una credencial por empresa.",
+  "biblioteca": "Biblioteca que el motor ejecuta como receta local aislada (proceso aparte, sin red, con límite de tiempo).",
+  "componente": "Pieza para construir el producto (interfaz, API, móvil). Se conecta al programar la plataforma, no a través del motor.",
+  "cli": "Programa de línea de comandos que el motor ejecutaría como proceso externo con argumentos fijos.",
+  "mcp": "Servidor o paquete de instrucciones para agentes; se conecta a los agentes por MCP, no al motor directamente.",
+  "protocolo": "Especificación que siguen los agentes para hablar entre sí; se implementa con su SDK.",
+  "datos": "Conjunto de datos o lista; se descarga fijado por commit y se lee localmente.",
+  "excluido": "Excluido por licencia: el motor se niega a operarlo."
+ },
+ "records": [
+  {
+   "number": 1,
+   "id": "twenty",
+   "kind": "excluido"
+  },
+  {
+   "number": 2,
+   "id": "frappe-crm",
+   "kind": "excluido"
+  },
+  {
+   "number": 3,
+   "id": "erpnext",
+   "kind": "excluido"
+  },
+  {
+   "number": 4,
+   "id": "odoo",
+   "kind": "excluido"
+  },
+  {
+   "number": 5,
+   "id": "mautic",
+   "kind": "excluido"
+  },
+  {
+   "number": 6,
+   "id": "chatwoot",
+   "kind": "servicio"
+  },
+  {
+   "number": 7,
+   "id": "listmonk",
+   "kind": "excluido"
+  },
+  {
+   "number": 8,
+   "id": "dittofeed",
+   "kind": "servicio"
+  },
+  {
+   "number": 9,
+   "id": "novu",
+   "kind": "servicio"
+  },
+  {
+   "number": 10,
+   "id": "easyappointments",
+   "kind": "excluido"
+  },
+  {
+   "number": 11,
+   "id": "astro",
+   "kind": "componente"
+  },
+  {
+   "number": 12,
+   "id": "payload",
+   "kind": "servicio"
+  },
+  {
+   "number": 13,
+   "id": "ghost",
+   "kind": "servicio"
+  },
+  {
+   "number": 14,
+   "id": "grapesjs",
+   "kind": "componente"
+  },
+  {
+   "number": 15,
+   "id": "formbricks",
+   "kind": "excluido"
+  },
+  {
+   "number": 16,
+   "id": "documenso",
+   "kind": "excluido"
+  },
+  {
+   "number": 17,
+   "id": "postiz",
+   "kind": "excluido"
+  },
+  {
+   "number": 18,
+   "id": "dub",
+   "kind": "excluido"
+  },
+  {
+   "number": 19,
+   "id": "shlink",
+   "kind": "servicio"
+  },
+  {
+   "number": 20,
+   "id": "react-email",
+   "kind": "componente"
+  },
+  {
+   "number": 21,
+   "id": "comfyui",
+   "kind": "excluido"
+  },
+  {
+   "number": 22,
+   "id": "remotion",
+   "kind": "excluido"
+  },
+  {
+   "number": 23,
+   "id": "scrapy",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 24,
+   "id": "crawlee",
+   "kind": "componente"
+  },
+  {
+   "number": 25,
+   "id": "playwright",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 26,
+   "id": "changedetection",
+   "kind": "servicio"
+  },
+  {
+   "number": 27,
+   "id": "trafilatura",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 28,
+   "id": "crawl4ai",
+   "kind": "servicio"
+  },
+  {
+   "number": 29,
+   "id": "lighthouse",
+   "kind": "cli"
+  },
+  {
+   "number": 30,
+   "id": "lighthouse-ci",
+   "kind": "servicio"
+  },
+  {
+   "number": 31,
+   "id": "google-ads",
+   "kind": "servicio"
+  },
+  {
+   "number": 32,
+   "id": "meta-ads",
+   "kind": "servicio"
+  },
+  {
+   "number": 33,
+   "id": "activepieces",
+   "kind": "servicio"
+  },
+  {
+   "number": 34,
+   "id": "n8n",
+   "kind": "excluido"
+  },
+  {
+   "number": 35,
+   "id": "temporal",
+   "kind": "servicio"
+  },
+  {
+   "number": 36,
+   "id": "trigger",
+   "kind": "servicio"
+  },
+  {
+   "number": 37,
+   "id": "nango",
+   "kind": "excluido"
+  },
+  {
+   "number": 38,
+   "id": "dagster",
+   "kind": "servicio"
+  },
+  {
+   "number": 39,
+   "id": "livekit",
+   "kind": "servicio"
+  },
+  {
+   "number": 40,
+   "id": "pipecat",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 41,
+   "id": "whisper",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 42,
+   "id": "dlt",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 43,
+   "id": "airbyte",
+   "kind": "excluido"
+  },
+  {
+   "number": 44,
+   "id": "dbt",
+   "kind": "cli"
+  },
+  {
+   "number": 45,
+   "id": "duckdb",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 46,
+   "id": "clickhouse",
+   "kind": "servicio"
+  },
+  {
+   "number": 47,
+   "id": "postgres",
+   "kind": "servicio"
+  },
+  {
+   "number": 48,
+   "id": "pgvector",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 49,
+   "id": "qdrant",
+   "kind": "servicio"
+  },
+  {
+   "number": 50,
+   "id": "meilisearch",
+   "kind": "servicio"
+  },
+  {
+   "number": 51,
+   "id": "docling",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 52,
+   "id": "posthog",
+   "kind": "servicio"
+  },
+  {
+   "number": 53,
+   "id": "umami",
+   "kind": "servicio"
+  },
+  {
+   "number": 54,
+   "id": "plausible",
+   "kind": "excluido"
+  },
+  {
+   "number": 55,
+   "id": "matomo",
+   "kind": "excluido"
+  },
+  {
+   "number": 56,
+   "id": "metabase",
+   "kind": "excluido"
+  },
+  {
+   "number": 57,
+   "id": "superset",
+   "kind": "servicio"
+  },
+  {
+   "number": 58,
+   "id": "growthbook",
+   "kind": "servicio"
+  },
+  {
+   "number": 59,
+   "id": "robyn",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 60,
+   "id": "meridian",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 61,
+   "id": "econml",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 62,
+   "id": "dowhy",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 63,
+   "id": "pymc-marketing",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 64,
+   "id": "or-tools",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 65,
+   "id": "optuna",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 66,
+   "id": "scikit-learn",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 67,
+   "id": "catboost",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 68,
+   "id": "mlflow",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 69,
+   "id": "evidently",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 70,
+   "id": "great-expectations",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 71,
+   "id": "langgraph",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 72,
+   "id": "pydantic-ai",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 73,
+   "id": "llama-index",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 74,
+   "id": "haystack",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 75,
+   "id": "langfuse",
+   "kind": "servicio"
+  },
+  {
+   "number": 76,
+   "id": "promptfoo",
+   "kind": "cli"
+  },
+  {
+   "number": 77,
+   "id": "ragas",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 78,
+   "id": "dspy",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 79,
+   "id": "bifrost",
+   "kind": "servicio"
+  },
+  {
+   "number": 80,
+   "id": "presidio",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 81,
+   "id": "medusa",
+   "kind": "servicio"
+  },
+  {
+   "number": 82,
+   "id": "saleor",
+   "kind": "servicio"
+  },
+  {
+   "number": 83,
+   "id": "lago",
+   "kind": "excluido"
+  },
+  {
+   "number": 84,
+   "id": "killbill",
+   "kind": "servicio"
+  },
+  {
+   "number": 85,
+   "id": "openmeter",
+   "kind": "servicio"
+  },
+  {
+   "number": 86,
+   "id": "better-auth",
+   "kind": "componente"
+  },
+  {
+   "number": 87,
+   "id": "keycloak",
+   "kind": "servicio"
+  },
+  {
+   "number": 88,
+   "id": "openfga",
+   "kind": "servicio"
+  },
+  {
+   "number": 89,
+   "id": "unleash",
+   "kind": "excluido"
+  },
+  {
+   "number": 90,
+   "id": "supabase",
+   "kind": "servicio"
+  },
+  {
+   "number": 91,
+   "id": "coolify",
+   "kind": "servicio"
+  },
+  {
+   "number": 92,
+   "id": "grafana",
+   "kind": "excluido"
+  },
+  {
+   "number": 93,
+   "id": "prometheus",
+   "kind": "servicio"
+  },
+  {
+   "number": 94,
+   "id": "otel-collector",
+   "kind": "servicio"
+  },
+  {
+   "number": 95,
+   "id": "sops",
+   "kind": "cli"
+  },
+  {
+   "number": 96,
+   "id": "infisical",
+   "kind": "servicio"
+  },
+  {
+   "number": 97,
+   "id": "grype",
+   "kind": "cli"
+  },
+  {
+   "number": 98,
+   "id": "syft",
+   "kind": "cli"
+  },
+  {
+   "number": 99,
+   "id": "gitleaks",
+   "kind": "cli"
+  },
+  {
+   "number": 100,
+   "id": "restic",
+   "kind": "cli"
+  },
+  {
+   "number": 101,
+   "id": "openprospector",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 102,
+   "id": "langflow",
+   "kind": "servicio"
+  },
+  {
+   "number": 103,
+   "id": "openrefine",
+   "kind": "servicio"
+  },
+  {
+   "number": 104,
+   "id": "openseo",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 105,
+   "id": "mcp-gsc",
+   "kind": "mcp"
+  },
+  {
+   "number": 106,
+   "id": "siteone-crawler",
+   "kind": "cli"
+  },
+  {
+   "number": 107,
+   "id": "advertools",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 108,
+   "id": "cal-diy",
+   "kind": "servicio"
+  },
+  {
+   "number": 109,
+   "id": "uptime-kuma",
+   "kind": "servicio"
+  },
+  {
+   "number": 110,
+   "id": "opengmb",
+   "kind": "mcp"
+  },
+  {
+   "number": 111,
+   "id": "kingfisher-collect",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 112,
+   "id": "markitdown",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 113,
+   "id": "spacy",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 114,
+   "id": "schema-dts",
+   "kind": "componente"
+  },
+  {
+   "number": 115,
+   "id": "web-vitals",
+   "kind": "componente"
+  },
+  {
+   "number": 116,
+   "id": "altcha",
+   "kind": "componente"
+  },
+  {
+   "number": 117,
+   "id": "cookieconsent",
+   "kind": "componente"
+  },
+  {
+   "number": 118,
+   "id": "libphonenumber",
+   "kind": "componente"
+  },
+  {
+   "number": 119,
+   "id": "twilio-python",
+   "kind": "servicio"
+  },
+  {
+   "number": 120,
+   "id": "stripe-python",
+   "kind": "servicio"
+  },
+  {
+   "number": 121,
+   "id": "parsedmarc",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 122,
+   "id": "geo-optimizer",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 123,
+   "id": "geo-lint",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 124,
+   "id": "autogeo",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 125,
+   "id": "site-md",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 126,
+   "id": "nlweb",
+   "kind": "mcp"
+  },
+  {
+   "number": 127,
+   "id": "goaccess",
+   "kind": "cli"
+  },
+  {
+   "number": 128,
+   "id": "ipranges",
+   "kind": "datos"
+  },
+  {
+   "number": 129,
+   "id": "anubis",
+   "kind": "servicio"
+  },
+  {
+   "number": 130,
+   "id": "the-great-gpt-firewall",
+   "kind": "datos"
+  },
+  {
+   "number": 131,
+   "id": "seo-graph",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 132,
+   "id": "structured-data-validator",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 133,
+   "id": "pywikibot",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 134,
+   "id": "id-openstreetmap",
+   "kind": "componente"
+  },
+  {
+   "number": 135,
+   "id": "sherlock",
+   "kind": "cli"
+  },
+  {
+   "number": 136,
+   "id": "indexnow-for-python",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 137,
+   "id": "feed",
+   "kind": "componente"
+  },
+  {
+   "number": 138,
+   "id": "cdx-toolkit",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 139,
+   "id": "cc-webgraph",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 140,
+   "id": "trendspyg",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 141,
+   "id": "waybackpy",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 142,
+   "id": "newsjack",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 143,
+   "id": "gdeltdoc",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 144,
+   "id": "news-please",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 145,
+   "id": "python-podcastindex",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 146,
+   "id": "praw",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 147,
+   "id": "youtube-comment-downloader",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 148,
+   "id": "people-also-ask",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 149,
+   "id": "google-maps-scraper",
+   "kind": "cli"
+  },
+  {
+   "number": 150,
+   "id": "dnstwist",
+   "kind": "cli"
+  },
+  {
+   "number": 151,
+   "id": "c2pa",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 152,
+   "id": "vale",
+   "kind": "cli"
+  },
+  {
+   "number": 153,
+   "id": "datasette",
+   "kind": "servicio"
+  },
+  {
+   "number": 154,
+   "id": "ckanapi",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 155,
+   "id": "quarto",
+   "kind": "cli"
+  },
+  {
+   "number": 156,
+   "id": "owncast",
+   "kind": "servicio"
+  },
+  {
+   "number": 157,
+   "id": "auto-editor",
+   "kind": "cli"
+  },
+  {
+   "number": 158,
+   "id": "slidev",
+   "kind": "cli"
+  },
+  {
+   "number": 159,
+   "id": "carousel-generator",
+   "kind": "componente"
+  },
+  {
+   "number": 160,
+   "id": "excalidraw",
+   "kind": "componente"
+  },
+  {
+   "number": 161,
+   "id": "apache-answer",
+   "kind": "servicio"
+  },
+  {
+   "number": 162,
+   "id": "local-seo-skills",
+   "kind": "mcp"
+  },
+  {
+   "number": 163,
+   "id": "a2a",
+   "kind": "protocolo"
+  },
+  {
+   "number": 164,
+   "id": "webmention-io",
+   "kind": "servicio"
+  },
+  {
+   "number": 165,
+   "id": "claude-skills-c-level",
+   "kind": "mcp"
+  },
+  {
+   "number": 166,
+   "id": "tinytroupe",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 167,
+   "id": "gpt-researcher",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 168,
+   "id": "forecasting-tools",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 169,
+   "id": "onlinewardleymaps",
+   "kind": "componente"
+  },
+  {
+   "number": 170,
+   "id": "operately",
+   "kind": "servicio"
+  },
+  {
+   "number": 171,
+   "id": "bpmn-js",
+   "kind": "componente"
+  },
+  {
+   "number": 172,
+   "id": "landscape-app",
+   "kind": "cli"
+  },
+  {
+   "number": 173,
+   "id": "datosmex",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 174,
+   "id": "wbgapi",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 175,
+   "id": "census",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 176,
+   "id": "comtradeapicall",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 177,
+   "id": "py-ecomplexity",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 178,
+   "id": "openbb",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 179,
+   "id": "financetoolkit",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 180,
+   "id": "jobspy",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 181,
+   "id": "osmnx",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 182,
+   "id": "kepler-gl",
+   "kind": "componente"
+  },
+  {
+   "number": 183,
+   "id": "taguette",
+   "kind": "servicio"
+  },
+  {
+   "number": 184,
+   "id": "bertopic",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 185,
+   "id": "pricesensitivitymeter",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 186,
+   "id": "squiggle",
+   "kind": "componente"
+  },
+  {
+   "number": 187,
+   "id": "statsforecast",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 188,
+   "id": "statsmodels",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 189,
+   "id": "mlxtend",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 190,
+   "id": "networkx",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 191,
+   "id": "pymcdm",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 192,
+   "id": "nashpy",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 193,
+   "id": "mesa",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 194,
+   "id": "pysd",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 195,
+   "id": "numpy-financial",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 196,
+   "id": "graphrag",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 197,
+   "id": "vanna",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 198,
+   "id": "marimo",
+   "kind": "componente"
+  },
+  {
+   "number": 199,
+   "id": "grist",
+   "kind": "servicio"
+  },
+  {
+   "number": 200,
+   "id": "log4brains",
+   "kind": "cli"
+  },
+  {
+   "number": 201,
+   "id": "crewai",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 202,
+   "id": "openai-agents",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 203,
+   "id": "google-adk",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 204,
+   "id": "agent-framework",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 205,
+   "id": "smolagents",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 206,
+   "id": "camel",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 207,
+   "id": "mastra",
+   "kind": "componente"
+  },
+  {
+   "number": 208,
+   "id": "any-agent",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 209,
+   "id": "langchain",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 210,
+   "id": "langgraph-supervisor",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 211,
+   "id": "letta",
+   "kind": "servicio"
+  },
+  {
+   "number": 212,
+   "id": "mem0",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 213,
+   "id": "graphiti",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 214,
+   "id": "browser-use",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 215,
+   "id": "stagehand",
+   "kind": "componente"
+  },
+  {
+   "number": 216,
+   "id": "playwright-mcp",
+   "kind": "mcp"
+  },
+  {
+   "number": 217,
+   "id": "mcp-python-sdk",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 218,
+   "id": "mcp-typescript-sdk",
+   "kind": "componente"
+  },
+  {
+   "number": 219,
+   "id": "fastmcp",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 220,
+   "id": "mcp-agent",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 221,
+   "id": "e2b",
+   "kind": "servicio"
+  },
+  {
+   "number": 222,
+   "id": "guardrails",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 223,
+   "id": "nemo-guardrails",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 224,
+   "id": "instructor",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 225,
+   "id": "outlines",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 226,
+   "id": "ollama",
+   "kind": "servicio"
+  },
+  {
+   "number": 227,
+   "id": "vllm",
+   "kind": "servicio"
+  },
+  {
+   "number": 228,
+   "id": "openhands",
+   "kind": "servicio"
+  },
+  {
+   "number": 229,
+   "id": "storm",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 230,
+   "id": "magentic-ui",
+   "kind": "servicio"
+  },
+  {
+   "number": 231,
+   "id": "humanlayer",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 232,
+   "id": "cua",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 233,
+   "id": "composio",
+   "kind": "servicio"
+  },
+  {
+   "number": 234,
+   "id": "ag-ui",
+   "kind": "componente"
+  },
+  {
+   "number": 235,
+   "id": "copilotkit",
+   "kind": "componente"
+  },
+  {
+   "number": 236,
+   "id": "vercel-ai-sdk",
+   "kind": "componente"
+  },
+  {
+   "number": 237,
+   "id": "assistant-ui",
+   "kind": "componente"
+  },
+  {
+   "number": 238,
+   "id": "steel-browser",
+   "kind": "servicio"
+  },
+  {
+   "number": 239,
+   "id": "llm-guard",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 240,
+   "id": "a2a-python",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 241,
+   "id": "trpc",
+   "kind": "componente"
+  },
+  {
+   "number": 242,
+   "id": "hono",
+   "kind": "componente"
+  },
+  {
+   "number": 243,
+   "id": "fastapi",
+   "kind": "componente"
+  },
+  {
+   "number": 244,
+   "id": "drizzle",
+   "kind": "componente"
+  },
+  {
+   "number": 245,
+   "id": "nextjs",
+   "kind": "componente"
+  },
+  {
+   "number": 246,
+   "id": "shadcn-ui",
+   "kind": "componente"
+  },
+  {
+   "number": 247,
+   "id": "tailwindcss",
+   "kind": "componente"
+  },
+  {
+   "number": 248,
+   "id": "refine",
+   "kind": "componente"
+  },
+  {
+   "number": 249,
+   "id": "echarts",
+   "kind": "componente"
+  },
+  {
+   "number": 250,
+   "id": "tanstack-query",
+   "kind": "componente"
+  },
+  {
+   "number": 251,
+   "id": "tanstack-table",
+   "kind": "componente"
+  },
+  {
+   "number": 252,
+   "id": "i18next",
+   "kind": "componente"
+  },
+  {
+   "number": 253,
+   "id": "seaweedfs",
+   "kind": "servicio"
+  },
+  {
+   "number": 254,
+   "id": "caddy",
+   "kind": "servicio"
+  },
+  {
+   "number": 255,
+   "id": "openapi-generator",
+   "kind": "cli"
+  },
+  {
+   "number": 256,
+   "id": "scalar",
+   "kind": "componente"
+  },
+  {
+   "number": 257,
+   "id": "starlight",
+   "kind": "componente"
+  },
+  {
+   "number": 258,
+   "id": "svix",
+   "kind": "servicio"
+  },
+  {
+   "number": 259,
+   "id": "bullmq",
+   "kind": "componente"
+  },
+  {
+   "number": 260,
+   "id": "valkey",
+   "kind": "servicio"
+  },
+  {
+   "number": 261,
+   "id": "tusd",
+   "kind": "servicio"
+  },
+  {
+   "number": 262,
+   "id": "uppy",
+   "kind": "componente"
+  },
+  {
+   "number": 263,
+   "id": "sharp",
+   "kind": "componente"
+  },
+  {
+   "number": 264,
+   "id": "surveyjs",
+   "kind": "componente"
+  },
+  {
+   "number": 265,
+   "id": "tiptap",
+   "kind": "componente"
+  },
+  {
+   "number": 266,
+   "id": "gotenberg",
+   "kind": "servicio"
+  },
+  {
+   "number": 267,
+   "id": "signoz",
+   "kind": "servicio"
+  },
+  {
+   "number": 268,
+   "id": "expo",
+   "kind": "componente"
+  },
+  {
+   "number": 269,
+   "id": "hoppscotch",
+   "kind": "componente"
+  },
+  {
+   "number": 270,
+   "id": "zod",
+   "kind": "componente"
+  },
+  {
+   "number": 271,
+   "id": "vitest",
+   "kind": "componente"
+  },
+  {
+   "number": 272,
+   "id": "postal",
+   "kind": "servicio"
+  },
+  {
+   "number": 273,
+   "id": "instantsearch",
+   "kind": "componente"
+  },
+  {
+   "number": 274,
+   "id": "maplibre",
+   "kind": "componente"
+  },
+  {
+   "number": 275,
+   "id": "crowdsec",
+   "kind": "servicio"
+  },
+  {
+   "number": 276,
+   "id": "vite-pwa",
+   "kind": "componente"
+  },
+  {
+   "number": 277,
+   "id": "driverjs",
+   "kind": "componente"
+  },
+  {
+   "number": 278,
+   "id": "socketio",
+   "kind": "componente"
+  },
+  {
+   "number": 279,
+   "id": "mercadopago",
+   "kind": "servicio"
+  },
+  {
+   "number": 280,
+   "id": "pdfme",
+   "kind": "componente"
+  },
+  {
+   "number": 281,
+   "id": "splink",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 282,
+   "id": "iceberg",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 283,
+   "id": "arrow",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 284,
+   "id": "polars",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 285,
+   "id": "ibis",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 286,
+   "id": "feast",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 287,
+   "id": "openlineage",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 288,
+   "id": "datahub",
+   "kind": "servicio"
+  },
+  {
+   "number": 289,
+   "id": "apache-age",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 290,
+   "id": "label-studio",
+   "kind": "servicio"
+  },
+  {
+   "number": 291,
+   "id": "causalml",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 292,
+   "id": "causal-learn",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 293,
+   "id": "tfcausalimpact",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 294,
+   "id": "pandera",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 295,
+   "id": "ydata-profiling",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 296,
+   "id": "opendp",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 297,
+   "id": "flaml",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 298,
+   "id": "chronos",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 299,
+   "id": "recommenders",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 300,
+   "id": "shap",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 301,
+   "id": "dvc",
+   "kind": "cli"
+  },
+  {
+   "number": 302,
+   "id": "sentence-transformers",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 303,
+   "id": "transformers",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 304,
+   "id": "gliner",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 305,
+   "id": "cube",
+   "kind": "servicio"
+  },
+  {
+   "number": 306,
+   "id": "jitsu",
+   "kind": "servicio"
+  },
+  {
+   "number": 307,
+   "id": "arx",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 308,
+   "id": "fides",
+   "kind": "servicio"
+  },
+  {
+   "number": 309,
+   "id": "river",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 310,
+   "id": "vowpal",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 311,
+   "id": "ax",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 312,
+   "id": "faker",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 313,
+   "id": "sqlglot",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 314,
+   "id": "great-tables",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 315,
+   "id": "debezium",
+   "kind": "servicio"
+  },
+  {
+   "number": 316,
+   "id": "cognee",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 317,
+   "id": "evidence",
+   "kind": "componente"
+  },
+  {
+   "number": 318,
+   "id": "pyod",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 319,
+   "id": "mapie",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 320,
+   "id": "lifelines",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 321,
+   "id": "datasketch",
+   "kind": "biblioteca"
+  },
+  {
+   "number": 322,
+   "id": "h3",
+   "kind": "biblioteca"
+  }
+ ]
+}

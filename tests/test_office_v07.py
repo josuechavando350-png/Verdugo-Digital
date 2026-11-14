@@ -98,7 +98,7 @@ class OfficeTests(Base):
         self.assertEqual('observed_local',result['state'])
         self.assertEqual(1,result['sales']['stage_leads']['identified'])
         self.assertEqual(1,result['followups']['active_leads'])
-        self.assertEqual(43,result['adapters_implemented'])
+        self.assertEqual(58,result['adapters_implemented'])
         self.assertEqual(0,result['live_verified'])
         self.assertFalse(result['external_calls_made'])
         for hidden in ('never-real@example.invalid','Synthetic Person','private:source-001'):
@@ -167,7 +167,7 @@ class OfficeTests(Base):
 
     def test_mcp_shares_same_controls(self):
         names={x['name'] for x in tool_definitions()}
-        self.assertEqual(22,len(names))
+        self.assertEqual(23,len(names))
         self.assertIn('verdugo_sales_intake',names)
         self.assertIn('verdugo_sales_desk',names)
         self.assertEqual('planned',invoke(self.engine,'verdugo_sales_intake',{'request':self.sample()})['state'])

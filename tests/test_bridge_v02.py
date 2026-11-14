@@ -294,12 +294,12 @@ class DoctorTests(Base):
     def test_configuration_checks_never_call_network(self):
         result = doctor(self.engine)
         self.assertEqual(322, len(result['checks']))
-        self.assertEqual(43, sum(r['state'] == 'planned' for r in result['checks']))
+        self.assertEqual(58, sum(r['state'] == 'planned' for r in result['checks']))
         self.assertFalse(self.calls)
 
     def test_bounded_doctor_checks_every_enabled_adapter_once(self):
         result = doctor(self.engine, 'probe-1', True)
-        self.assertEqual(43, len(self.calls))
+        self.assertEqual(58, len(self.calls))
         self.assertTrue(all(r['method'] == 'GET' or (r['service'],r['operation']) in {('plausible','traffic.summary'),('matomo','visits.summary'),('saleor','products.list')} for r in self.calls))
         self.assertEqual(0, result['live_verified'])
         self.assertFalse(any(r['live_verified'] for r in result['checks']))
@@ -318,14 +318,14 @@ class DoctorTests(Base):
 
     def test_fresh_probe_requires_new_identifier(self):
         doctor(self.engine, 'one', True); doctor(self.engine, 'one', True)
-        self.assertEqual(43, len(self.calls))
+        self.assertEqual(58, len(self.calls))
         doctor(self.engine, 'two', True)
-        self.assertEqual(86, len(self.calls))
+        self.assertEqual(116, len(self.calls))
 
     def test_missing_credentials_report_blocked_without_network(self):
         with patch.dict(os.environ, {}, clear=True): result = doctor(self.engine, 'missing', True)
         self.assertFalse(self.calls)
-        self.assertEqual(43, sum(r['state'] == 'blocked' for r in result['checks']))
+        self.assertEqual(58, sum(r['state'] == 'blocked' for r in result['checks']))
 
     def test_viewer_cannot_trigger_remote_probes(self):
         engine = Engine(self.path, self.config, role='viewer', transport=self.transport)
