@@ -1,0 +1,35 @@
+name: Verdugo lab probe
+on:
+  push:
+    branches: ['lab/**']
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+      - name: Install candidate distributions
+        run: |
+          python -m venv --copies /tmp/lab-venv
+          if ! /tmp/lab-venv/bin/python -m pip install -r lab/requirements.txt > /tmp/pip-all.log 2>&1; then
+            tail -60 /tmp/pip-all.log
+            echo "LAB-FALLBACK one by one"
+            while read -r req; do
+              /tmp/lab-venv/bin/python -m pip install "$req" > /tmp/pip-one.log 2>&1 || { echo "LAB-INSTALL-FAIL $req"; tail -15 /tmp/pip-one.log; }
+            done < lab/requirements.txt
+          fi
+          echo "LAB-FREEZE-BEGIN"
+          /tmp/lab-venv/bin/python -m pip freeze
+          echo "LAB-FREEZE-END"
+          /tmp/lab-venv/bin/python -m pip check || true
+      - name: Probe recipes without network
+        run: |
+          sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
+            HOME="$HOME" /tmp/lab-venv/bin/python lab/driver.py
