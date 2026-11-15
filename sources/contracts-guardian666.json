@@ -1,0 +1,350 @@
+{
+  "schema": "verdugo.guardian666.source.v1",
+  "guardian": {
+    "repository": "ibm-granite/granite-guardian",
+    "commit": "0a4ec708fa916f3e9d7fc7e5b75dff836752f448",
+    "license": "Apache-2.0",
+    "scope": "Groundedness message layout and Yes/No semantics read from original evaluation adapter. Inference uses official quantized weights, original model chat template and llama.cpp, not the vLLM adapter."
+  },
+  "native": {
+    "repository": "ggml-org/llama.cpp",
+    "commit": "6d3568e31d4e4b1e4db4acb8f6ceaad0084932f3",
+    "version": "1.0.0-dev",
+    "license": "MIT",
+    "archive_url": "https://codeload.github.com/ggml-org/llama.cpp/tar.gz/6d3568e31d4e4b1e4db4acb8f6ceaad0084932f3",
+    "archive_sha256": "b52b711bab27df18bbd1f3ec0073772764296c11dd6e0c6e99a0b37ef57428ea",
+    "cmake_version": "4.1.3",
+    "cmake_flags": [
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DBUILD_SHARED_LIBS=OFF",
+      "-DGGML_NATIVE=OFF",
+      "-DGGML_OPENMP=OFF",
+      "-DGGML_CUDA=OFF",
+      "-DLLAMA_OPENSSL=OFF",
+      "-DLLAMA_BUILD_TESTS=OFF",
+      "-DLLAMA_BUILD_EXAMPLES=OFF",
+      "-DLLAMA_BUILD_SERVER=OFF",
+      "-DLLAMA_BUILD_APP=OFF",
+      "-DLLAMA_BUILD_COMMIT=6d3568e31d4e4b1e4db4acb8f6ceaad0084932f3",
+      "-DLLAMA_BUILD_NUMBER=0"
+    ],
+    "files": [
+      {
+        "path": "CMakeLists.txt",
+        "blob_sha": "30aed5c914a901dd14dcff90f552d983bc6a6c27",
+        "sha256": "ede5bbf33de939489087579c2b212a097d3bbb208146b12077d375ae5ee7dc58",
+        "review": "content_reviewed"
+      },
+      {
+        "path": "LICENSE",
+        "blob_sha": "e7dca554bcb802f98408383a864404e3aa4eacca",
+        "sha256": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d",
+        "review": "content_reviewed"
+      },
+      {
+        "path": "cmake/arm64-apple-clang.cmake",
+        "blob_sha": "5fcd2882afc9d96ccc1c28396b91e5e46c93f66c",
+        "sha256": "80d01144241c7a45d1c35461aab1256364f8c7e714c3401a8097a567a8179e03",
+        "review": "integrity_only"
+      },
+      {
+        "path": "cmake/arm64-linux-clang.cmake",
+        "blob_sha": "f16e280ec6609c13ad1546b7a0cd97ee07e37776",
+        "sha256": "feb7bd04443531e2287638c23a8d1873203d72a2da95e03f9c28433b27e24bd1",
+        "review": "integrity_only"
+      },
+      {
+        "path": "cmake/arm64-windows-llvm.cmake",
+        "blob_sha": "cdba4e749479fe410a83569da290a292f910979b",
+        "sha256": "f0a603529ab01d7f87b9774f6ac6a6998ec660cb975927859917034e1a8f6319",
+        "review": "integrity_only"
+      },
+      {
+        "path": "cmake/arm64-windows-msvc-cuda.cmake",
+        "blob_sha": "370f2b3d212797255bc64ef38542e92a572c0e7d",
+        "sha256": "e79eb3e2729f20f4a12938c237916eacffd0855e2ebc0eca1900786a9d43f259",
+        "review": "integrity_only"
+      },
+      {
+        "path": "cmake/build-info.cmake",
+        "blob_sha": "c7005950c5612d1d93ca728386b10806b0043106",
+        "sha256": "d5cb300d2a3665eac85370617853a143a4f4a7884977f83d0635b18699f93eee",
+        "review": "integrity_only"
+      },
+      {
+        "path": "cmake/common.cmake",
+        "blob_sha": "ee8d5bf7b1f2a115e48895b28f25ce06b74b1d6a",
+        "sha256": "3f81f000e986f9bd2c05d97dfb6a5d3748f6a873e67ffaf8ee260ed44260e459",
+        "review": "integrity_only"
+      },
+      {
+        "path": "cmake/download-models.cmake",
+        "blob_sha": "57c141265be7f27f8c6b3e81ea75ae376567dd96",
+        "sha256": "22624d8a45620d44ecf7eac863d3e4b4c01da17790667f1c100a9de0fc878342",
+        "review": "integrity_only"
+      },
+      {
+        "path": "cmake/git-vars.cmake",
+        "blob_sha": "1a4c24ebf6adeb1126e626f56de601621179353d",
+        "sha256": "411507be4e991f2afc0007905a95bbf848176a282189d0e27d7df1d48974290d",
+        "review": "integrity_only"
+      },
+      {
+        "path": "cmake/license.cmake",
+        "blob_sha": "de066603ba5e99d0ae4633647e69ef435f6824fd",
+        "sha256": "083515dff8a9b8696e348c7c616934e53941a7db30e1b3f092576632e9a2d1d4",
+        "review": "integrity_only"
+      },
+      {
+        "path": "cmake/llama-config.cmake.in",
+        "blob_sha": "6500203b145f994041f89553604a565db72f2268",
+        "sha256": "6a9d5df19143efe938bcd4fb5ff5a73cf6dcc81e26bbf132d9f6aca21b888b43",
+        "review": "integrity_only"
+      },
+      {
+        "path": "cmake/llama.pc.in",
+        "blob_sha": "31b043c0e399078dbc4c99db232881587a81d273",
+        "sha256": "738a35bfe973f9c5c990e67f92b20bc438a4c2a93bde5a9e45536c0d269006ef",
+        "review": "integrity_only"
+      },
+      {
+        "path": "cmake/riscv64-spacemit-linux-gnu-gcc.cmake",
+        "blob_sha": "faed7fb7831a48d76202ab83ad44f8eccdc23f25",
+        "sha256": "6a2ef73adf92ed68c38820b7503d3e423f27c426306ef4cfaea5d88b4eb51cb8",
+        "review": "integrity_only"
+      },
+      {
+        "path": "cmake/win-app.cmake",
+        "blob_sha": "cf03089ba2020675fce5ea0b8dcc9ce17290107b",
+        "sha256": "24976d1211ade4717efcce31b4b92afe2aa0270759eb05d820b33cf6431cabad",
+        "review": "integrity_only"
+      },
+      {
+        "path": "cmake/x64-windows-llvm.cmake",
+        "blob_sha": "77e79140798b2fcee2d84a3abdeab315c08b7a03",
+        "sha256": "416e1385f9ac92ff29e2158da8b1894ae2cfccc3bb024eb46c3b937cb42477a8",
+        "review": "integrity_only"
+      },
+      {
+        "path": "common/arg.cpp",
+        "blob_sha": "00f9659cb11395d1d9052fddb880d5924540df80",
+        "sha256": "aed16cbdf75fce408cd671f0a827aa4bfacc780a550577f1b69a4ce2c4099c99",
+        "review": "content_reviewed"
+      },
+      {
+        "path": "common/chat.cpp",
+        "blob_sha": "997c135d9c54a9a5de86b233dec9b0cb0e4e802f",
+        "sha256": "65aedf8409a6e396fa02bae433282c9f8821aa2c105e6724c5b8d488ad1a9933",
+        "review": "integrity_only"
+      },
+      {
+        "path": "common/common.cpp",
+        "blob_sha": "657dcdbf530cfab3c2349e6f02c3c8b02cf33300",
+        "sha256": "69d4aeea15fbc50302944714ebf80195259b0c500453db13e7c7a21a0606bdc7",
+        "review": "integrity_only"
+      },
+      {
+        "path": "common/common.h",
+        "blob_sha": "4cfc1b8f3974cf5c54524e6085ba8030255ab8cc",
+        "sha256": "8ac1bb2f6151be59884c4e5af4203039de571315000b71e46b9690901d27912f",
+        "review": "integrity_only"
+      },
+      {
+        "path": "ggml/CMakeLists.txt",
+        "blob_sha": "03bdb03edae17dc4678c516d57f6447e727231a1",
+        "sha256": "d629bfb183a8ae0b823286ac31711f4414a7b0928e188c29dc8bace2f505576d",
+        "review": "integrity_only"
+      },
+      {
+        "path": "ggml/src/CMakeLists.txt",
+        "blob_sha": "5ff78f240720f99e4c0c3d5f8ff719b746c2cb7e",
+        "sha256": "232b65acee5fd0f6f0b92a1ea4ff35e31235035d3d4f6b925e4cd200c08b6a48",
+        "review": "integrity_only"
+      },
+      {
+        "path": "ggml/src/ggml-cpu/CMakeLists.txt",
+        "blob_sha": "8327c52e6daec622fc4462ba4eb12f270e4af621",
+        "sha256": "b69ed1a14063642c47c70b7b4c67177388e02ee3c27d2e7adfde9ed5ba5859bf",
+        "review": "integrity_only"
+      },
+      {
+        "path": "include/llama.h",
+        "blob_sha": "01d8fb88ae5d1349224390360bfbdde1b572df85",
+        "sha256": "3d25d2aac4c289d7831972353d603675845b38f0ff77354903c9b322d82aa51a",
+        "review": "integrity_only"
+      },
+      {
+        "path": "src/llama-model-loader.cpp",
+        "blob_sha": "548ade1019a03d18d667c936e38231df5cb40f80",
+        "sha256": "5a4b0472a0085c56c1cdbc467dd148ec7d54bc124ca1ca7b3052602cae55d86b",
+        "review": "integrity_only"
+      },
+      {
+        "path": "src/llama-model.cpp",
+        "blob_sha": "42924b938a061577cdf61c17b56fd4c798f636d5",
+        "sha256": "c1c17128b46faac7135791ff8e86c1f677a31960569d9b5ed39999f1175fb68e",
+        "review": "integrity_only"
+      },
+      {
+        "path": "src/llama-vocab.cpp",
+        "blob_sha": "f2c1854c93632e169313679268561ed342bda391",
+        "sha256": "066d117901071f326d53b4b808bffe1cd502e89afd2af2c6d1bd6542f65bc529",
+        "review": "integrity_only"
+      },
+      {
+        "path": "tools/completion/CMakeLists.txt",
+        "blob_sha": "a310251eff6e18c5ab09787066d7c76afa673e8f",
+        "sha256": "e0d4a61bfa231df06803349aaffc4bfaa86d85ac1a6788a5c021c4b7a6099fbc",
+        "review": "integrity_only"
+      },
+      {
+        "path": "tools/completion/README.md",
+        "blob_sha": "cc6aae3d04d93508ab03502e322c5ec2fef4dbe5",
+        "sha256": "884b517c05bcba3e9012ab821d77bef52dda96fd2ea112bee7cdce3f240c5562",
+        "review": "integrity_only"
+      },
+      {
+        "path": "tools/completion/completion.cpp",
+        "blob_sha": "b5b5daf2a6dcba53d60623e29dda43ddff142593",
+        "sha256": "0dde1fed7b17e9b37ad0cf3e125210dd1c316364cf2924f24d0f41c38538677b",
+        "review": "content_reviewed"
+      },
+      {
+        "path": "tools/completion/main.cpp",
+        "blob_sha": "bea9a0ec9aa75e9eb4f7962d85ed136e9e0dcb7b",
+        "sha256": "e1e85d25075b816b41865342369e6fc24e8fc56b0ed0c9b592d0c96724f5d63a",
+        "review": "integrity_only"
+      },
+      {
+        "path": "tools/tokenize/CMakeLists.txt",
+        "blob_sha": "1e1836575854da3c0b5d34dd4ac7e7d6c31c2e86",
+        "sha256": "075b45f7115774dd35e22d1235301081ec2b298b3ed27bf414ee015ce457e9ee",
+        "review": "integrity_only"
+      },
+      {
+        "path": "tools/tokenize/tokenize.cpp",
+        "blob_sha": "77b33c4a465779f75c06130939902c816d88aa6e",
+        "sha256": "db0cd035294b91009250029a1435a1a688d72eb489c406b630d2293b30d6fb34",
+        "review": "content_reviewed"
+      }
+    ],
+    "build_targets": [
+      "llama-completion",
+      "llama-tokenize"
+    ],
+    "build_jobs": 2,
+    "compiler_scope": "Native compiler version recorded per operator build; not a bit-reproducibility claim."
+  },
+  "weights": {
+    "repository": "ibm-research/granite-guardian-3.2-3b-a800m-GGUF",
+    "revision": "920ae12a30dc3a5b0fed158a98cd5c25d506b418",
+    "path": "granite-guardian-3.2-3b-a800m-Q4_K_M.gguf",
+    "url": "https://huggingface.co/ibm-research/granite-guardian-3.2-3b-a800m-GGUF/resolve/920ae12a30dc3a5b0fed158a98cd5c25d506b418/granite-guardian-3.2-3b-a800m-Q4_K_M.gguf",
+    "sha256": "72735ad1cb9832df3141a4477cb1035228ba029e0b9076802305a07c870ccfb5",
+    "bytes": 2016896608,
+    "lfs_pointer_blob_sha": "64e73ee7c228b856a4ae27d1d33591ab336bfb78",
+    "license": "Apache-2.0",
+    "license_read_before_download": true,
+    "quantization": "Q4_K_M",
+    "base_repository": "ibm-granite/granite-guardian-3.2-3b-a800m",
+    "base_revision": "3de033d89b499a18d9a573b5192bf3b967ef48c5"
+  },
+  "assets": [
+    {
+      "local_name": "WEIGHTS-LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358,
+      "source_url": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+      "scope": "Full license linked by both official pinned model cards; inspected before downloading weights"
+    },
+    {
+      "local_name": "config.json",
+      "sha256": "c5791b0bd75f8069e63684065c17ef46eecf37ce3adb229ee185b84a3732e875",
+      "bytes": 891,
+      "repository": "ibm-granite/granite-guardian-3.2-3b-a800m",
+      "revision": "3de033d89b499a18d9a573b5192bf3b967ef48c5",
+      "path": "config.json",
+      "blob_sha": "856a828de0757e14cfc9e17042e155e25fba5c4d",
+      "source_url": "https://huggingface.co/ibm-granite/granite-guardian-3.2-3b-a800m/resolve/3de033d89b499a18d9a573b5192bf3b967ef48c5/config.json"
+    },
+    {
+      "local_name": "jinja2-3.1.6-LICENSE.txt",
+      "sha256": "3b49dcee4105eb37bac10faf1be260408fe85d252b8e9df2e0979fc1e094437b",
+      "bytes": 1475,
+      "scope": "Original installed Python renderer dependency license, read in full"
+    },
+    {
+      "local_name": "markupsafe-3.0.3-LICENSE.txt",
+      "sha256": "489a8e1108509ed98a37bb983e11e0f7e1d31f0bd8f99a79c8448e7ff37d07ea",
+      "bytes": 1475,
+      "scope": "Original installed Python renderer dependency license, read in full"
+    },
+    {
+      "local_name": "model-card.md",
+      "sha256": "2aac8775f0a580410f4e861768bee3acdd85d0556f7c5b4e4887bcbd038638f6",
+      "bytes": 16376,
+      "repository": "ibm-granite/granite-guardian-3.2-3b-a800m",
+      "revision": "3de033d89b499a18d9a573b5192bf3b967ef48c5",
+      "path": "README.md",
+      "blob_sha": "d1cb1b7616b659163652b12f15cdadcf68e8ee6a",
+      "source_url": "https://huggingface.co/ibm-granite/granite-guardian-3.2-3b-a800m/resolve/3de033d89b499a18d9a573b5192bf3b967ef48c5/README.md"
+    },
+    {
+      "local_name": "original_format_reference.py.txt",
+      "sha256": "4e25bd8d6aac04f73f13ddf471f5850b9182ea3f77b94453bfb9c4db07bc091c",
+      "bytes": 3643,
+      "repository": "ibm-granite/granite-guardian",
+      "revision": "0a4ec708fa916f3e9d7fc7e5b75dff836752f448",
+      "path": "evaluation/models/granite_guardian_3.py",
+      "blob_sha": "19fc9443237010f608ed36f931e3eb7b34e4637d"
+    },
+    {
+      "local_name": "quantized-card.md",
+      "sha256": "673f0b424dbe85487ccc0e9c6266d52ce73eea9e33ca25375746052dfcfe5734",
+      "bytes": 2616,
+      "repository": "ibm-research/granite-guardian-3.2-3b-a800m-GGUF",
+      "revision": "920ae12a30dc3a5b0fed158a98cd5c25d506b418",
+      "path": "README.md",
+      "blob_sha": "204f7ee3d50acfec8e6ef5f63ea6e9593a237675",
+      "source_url": "https://huggingface.co/ibm-research/granite-guardian-3.2-3b-a800m-GGUF/resolve/920ae12a30dc3a5b0fed158a98cd5c25d506b418/README.md"
+    },
+    {
+      "local_name": "tokenizer_config.json",
+      "sha256": "77f0ed1f33d86a68b6d636dfbe79482a032f3e1105d7ac832d298e95005de1d9",
+      "bytes": 17974,
+      "repository": "ibm-granite/granite-guardian-3.2-3b-a800m",
+      "revision": "3de033d89b499a18d9a573b5192bf3b967ef48c5",
+      "path": "tokenizer_config.json",
+      "blob_sha": "43bfce8e4fbdeab1285505590f663770c11334a7",
+      "source_url": "https://huggingface.co/ibm-granite/granite-guardian-3.2-3b-a800m/resolve/3de033d89b499a18d9a573b5192bf3b967ef48c5/tokenizer_config.json"
+    }
+  ],
+  "limits": {
+    "input": "Two bounded synthetic budget integers; no arbitrary messages, model paths or code",
+    "context_tokens": 512,
+    "generation_tokens": 12,
+    "threads": 2,
+    "batch_size": 128,
+    "ubatch_size": 128,
+    "temperature": 0,
+    "repack": false,
+    "probabilities_calibrated": false,
+    "verdict_never_authorizes": true
+  },
+  "observed_experiments": [
+    {
+      "configuration": "repack default; threads 2; batch/ubatch 128",
+      "result": "No + High printed for supported statement, but process exited 137; not accepted",
+      "cause_proven": false
+    },
+    {
+      "configuration": "no repack; threads 1; batch/ubatch 32",
+      "result": "Yes + High for supported statement; false positive; process exit 0"
+    },
+    {
+      "configuration": "no repack; threads 2; batch/ubatch 128",
+      "result": "Supported 200/200 -> No; unsupported 200/900 -> Yes; both exit 0",
+      "scope": "Two selected examples, no calibration or accuracy estimate; numerical/configuration sensitivity observed."
+    }
+  ]
+}

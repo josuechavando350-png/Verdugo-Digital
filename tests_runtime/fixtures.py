@@ -112,3 +112,6 @@ CASES['hatchet'] = {'dataset':'demo','operation_kind':'write','previous_state':'
 CASES['invariant'] = {'dataset': 'demo', 'events': [{'kind': 'read_private', 'previous_state': 'failed', 'hypothetical_review': True}, {'kind': 'send', 'previous_state': 'uncertain', 'hypothetical_review': False}]}
 
 CASES['pyrit'] = {'dataset': 'demo', 'calls': [{'tool': 'draft', 'format': 'chat', 'outcome': 'invoked', 'simulated': False}, {'tool': 'send', 'format': 'responses', 'outcome': 'not_invoked', 'simulated': False}, {'tool': 'plan', 'format': 'chat', 'outcome': 'invoked', 'simulated': True}]}
+
+CASES['llama-cpp'] = {'dataset':'demo', 'context_budget_units':200, 'response_budget_units':900, 'context_limit':512}
+CASES['granite-guardian'] = {'dataset':'demo', 'context_budget_units':200, 'response_budget_units':900}

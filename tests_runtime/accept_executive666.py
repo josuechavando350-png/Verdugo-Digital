@@ -18,7 +18,7 @@ from verdugo import local_runtime, objectives, workflow
 
 
 def accept():
-    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','openmanus','servers','monty','playwright-python','hatchet','invariant','pyrit')
+    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','openmanus','servers','monty','playwright-python','hatchet','invariant','pyrit','llama-cpp','granite-guardian')
     spec=json.loads((ROOT/'examples/executive666.synthetic.json').read_text())
     cfg=template('nexus')
     for sid in services:
@@ -41,14 +41,14 @@ def accept():
         with closing(engine()) as e:
             result=invoke(e,'verdugo_workflow',{'workflow':spec,'execute':True})
             assert result['state']=='succeeded',result
-            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit'}
+            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review'}
             r=result['steps']['check']['result']
             assert r['planned_contacts']==200 and r['planned_cost_minor']==0
             assert r['feasible_under_declared_limits'] and not r['external_execution_authorized']
             assert result['steps']['agno']['result']['budget_checked']
-            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit'),services):
+            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review'),services):
                 actual=result['steps'][step]['result']
-                assert actual['original_sdk']==sid and actual['llm_calls']==0
+                assert actual['original_sdk']==sid and actual['llm_calls']==(1 if sid=='granite-guardian' else 0)
                 assert not actual['autonomous_agent']
             assert all(c['verdict']=='contradicted' for c in result['steps']['claims']['result']['claims'])
             assert result['steps']['scenarios']['result']['pareto_nondominated_indices']==[0]
@@ -91,7 +91,18 @@ def accept():
             assert not tool_audit['absence_proves_nonexecution']
             assert not tool_audit['successful_completion_proven']
             assert 'fixed_pyrit_call_' not in '\n'.join(e.db.iterdump())
-            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==18
+            tokens = result['steps']['context_budget']['result']
+            model = result['steps']['model_review']['result']
+            assert tokens['fits_context'] and tokens['input_units']==229
+            assert not tokens['model_weights_loaded_for_inference'] and tokens['llm_calls']==0
+            assert model['model_says_unsupported'] and model['agrees_with_synthetic_reference']
+            assert model['llm_calls']==1 and model['model_weights_loaded_for_inference']
+            assert model['prompt_sha256']==tokens['prompt_sha256']
+            assert not model['quality_calibrated'] and not model['probability_estimated']
+            assert not model['external_execution_authorized'] and model['approvals_granted']==0
+            assert 'The synthetic plan has a budget' not in '\n'.join(e.db.iterdump())
+            assert '<confidence>' not in '\n'.join(e.db.iterdump())
+            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==20
         with closing(engine()) as e, \
                 patch.object(local_runtime,'execute',side_effect=AssertionError('SDK re-executed')), \
                 patch.object(objectives,'simulate',side_effect=AssertionError('simulation re-executed')):
@@ -99,7 +110,7 @@ def accept():
             assert replay['state']=='succeeded' and replay['steps']==result['steps']
         proc=subprocess.run([sys.executable,'-m','verdugo','--config',str(config),'--state',state,
                              'workflow','@'+str(ROOT/'examples/executive666.synthetic.json'),'--execute'],
-                            cwd=ROOT,capture_output=True,text=True,timeout=60)
+                            cwd=ROOT,capture_output=True,text=True,timeout=180)
         assert proc.returncode==0,proc.stderr
         assert json.loads(proc.stdout)['state']=='succeeded'
         with closing(engine()) as e:
@@ -237,13 +248,30 @@ def accept():
                 assert audited['message_links_valid']==valid
                 assert audited['recorded_invoked_tool_kind_count']==matches
                 assert audited['tool_calls_executed']==0 and audited['approvals_granted']==0
+            checked=e.execute({'service':'llama-cpp','operation':'tokens.check',
+                'key':'context-too-small','params':{'dataset':'demo','context_budget_units':200,
+                    'response_budget_units':900,'context_limit':200}},True)
+            assert checked['state']=='succeeded',checked
+            assert not checked['result']['result']['fits_context']
+            assert checked['result']['result']['llm_calls']==0
+            # Selected positive and negative controls, not an accuracy estimate.
+            for key, response, expected in [('supported',200,False),('unsupported-repeat',900,True)]:
+                checked=e.execute({'service':'granite-guardian','operation':'risk.assess',
+                    'key':'model-'+key,'params':{'dataset':'demo','context_budget_units':200,
+                        'response_budget_units':response}},True)
+                assert checked['state']=='succeeded',checked
+                observed=checked['result']['result']
+                assert observed['model_says_unsupported']==expected,observed
+                assert observed['agrees_with_synthetic_reference']
+                assert observed['llm_calls']==1 and not observed['probability_estimated']
+                assert observed['approvals_granted']==0
     assert not calls
     return {'schema':'verdugo.executive666.acceptance.v1','services':list(services),
             'original_sdks_executed':True,'mocked_sdks':False,'dataset':'demo',
             'joint_workflow':result,'budget_rejection':data,'negative_process_cases':negative_process_cases,
             'approval_gate_verified':True,'sqlite_restart_replay_verified':True,
             'cli_mcp_shared_engine_verified':True,'live_verified':False,
-            'models_used':0,'external_effects':0,'batch_1_complete':False,
+            'models_used':1,'selected_model_controls_passed':True,'model_accuracy_calibrated':False,'external_effects':0,'batch_1_complete':False,
             'os_network_namespace':os.getenv('VERDUGO_OS_NETWORK_ISOLATED')=='1'}
 
 

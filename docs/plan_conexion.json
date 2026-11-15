@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 351,
+ "pending": 349,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -156,20 +156,6 @@
   },
   {
    "tanda": "666 / lote 1 / fase 1",
-   "id": "granite-guardian",
-   "repository": "ibm-granite/granite-guardian",
-   "commit": "0a4ec708fa916f3e9d7fc7e5b75dff836752f448",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "conciencia",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
    "id": "ethics",
    "repository": "hendrycks/ethics",
    "commit": "fa022dbc62dc6736c2f3780ced6412cae97efb90",
@@ -205,20 +191,6 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "conciencia",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
-   "id": "llama-cpp",
-   "repository": "ggml-org/llama.cpp",
-   "commit": "6d3568e31d4e4b1e4db4acb8f6ceaad0084932f3",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "cli",
-   "domain": "pensamiento",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
    "nota": null,
    "live_verified": false,
@@ -7710,6 +7682,18 @@
    "id": "pyrit",
    "operation": "tools.audit",
    "scope": "Original message-link validation and recorded-invocation matching; synthetic ephemeral messages, no tools or memory database",
+   "live_verified": false
+  },
+  {
+   "id": "llama-cpp",
+   "operation": "tokens.check",
+   "scope": "Original native tokenizer over pinned model vocabulary; bounded synthetic prompt context check, no inference",
+   "live_verified": false
+  },
+  {
+   "id": "granite-guardian",
+   "operation": "risk.assess",
+   "scope": "Official quantized model and original template, local CPU inference on fixed synthetic budget claims; uncalibrated, no authorization",
    "live_verified": false
   }
  ]

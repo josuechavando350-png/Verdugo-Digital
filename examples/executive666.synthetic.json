@@ -443,6 +443,33 @@
           }
         ]
       }
+    },
+    {
+      "id": "context_budget",
+      "service": "llama-cpp",
+      "operation": "tokens.check",
+      "depends_on": [
+        "tool_audit"
+      ],
+      "params": {
+        "dataset": "demo",
+        "context_budget_units": 200,
+        "response_budget_units": 900,
+        "context_limit": 512
+      }
+    },
+    {
+      "id": "model_review",
+      "service": "granite-guardian",
+      "operation": "risk.assess",
+      "depends_on": [
+        "context_budget"
+      ],
+      "params": {
+        "dataset": "demo",
+        "context_budget_units": 200,
+        "response_budget_units": 900
+      }
     }
   ]
 }
