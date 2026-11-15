@@ -1,6 +1,6 @@
 # Piloto 666: avance parcial del lote 1
 
-Tres de 183 piezas del primer lote tienen una operación nueva implementada. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
+Cuatro de 183 piezas del primer lote tienen una operación nueva implementada. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
 
 ## Operación delimitada
 
@@ -37,7 +37,7 @@ La aceptación usa exclusivamente fixtures sintéticos, habilita la revisión de
 
 ## Pendiente
 
-MetaGPT es la siguiente pieza de la cola. Faltan las demás piezas, el modelo local con licencia de pesos revisada, memoria, calibración, pruebas conjuntas de cada perfil y operación con información real autorizada. No se han desplegado servicios, publicado contenidos, enviado mensajes ni gastado presupuesto. `live_verified` sigue en cero. La cola de `registry-666.json` es el snapshot inmutable del registro; `docs/plan_conexion.json` y el inventario calculado reflejan las operaciones implementadas después.
+MetaGPT está bloqueado por su dependencia original ausente. Griptape es la siguiente pieza por implementar. Faltan las demás piezas, el modelo local con licencia de pesos revisada, memoria, calibración, pruebas conjuntas de cada perfil y operación con información real autorizada. No se han desplegado servicios, publicado contenidos, enviado mensajes ni gastado presupuesto. `live_verified` sigue en cero. La cola de `registry-666.json` es el snapshot inmutable del registro; `docs/plan_conexion.json` y el inventario calculado reflejan las operaciones implementadas después.
 
 ## Incremento ejecutivo: Agno y AG2
 
@@ -49,3 +49,11 @@ MetaGPT es la siguiente pieza de la cola. Faltan las demás piezas, el modelo lo
 `examples/executive666.synthetic.json` compone los tres SDK con referencias de resultados y conserva la aprobación y medición del mismo motor. El flujo conjunto original pasó localmente, incluido el rechazo de un presupuesto insuficiente y replay después de cerrar SQLite. Las 750 pruebas unitarias pasaron. La aceptación CI del incremento se observa por separado.
 
 `requirements/runtime-agno666.txt` y `runtime-ag2666.txt` construyen desde archivos del commit exacto con SHA256; sus constraints fijan dependencias. `sources/contracts-executive666.json` vincula las funciones revisadas a archivos y blobs originales. Cada invocación comprueba los módulos revisados de su instalación. Ningún modelo, extra comercial ni servicio está configurado. Los tres planes usan la misma matemática propia: no son estimaciones independientes ni una votación de agentes.
+
+## Langroid: comprobar afirmaciones delimitadas
+
+`langroid / claims.check` despacha una única `ToolMessage` por el `Agent` original con LLM, vector store y parser desactivados. Comprueba aritméticamente si aumentó la tasa de conversión, bajó el costo por cliente o los ingresos declarados superan el gasto publicitario. Puede devolver `supported`, `contradicted` o `insufficient_data`; no verifica verdad semántica, causalidad, ganancias netas ni ingresos reales. El ejemplo conjunto contradice las tres afirmaciones sobre sus recuentos sintéticos.
+
+El SDK intenta cargar `cl100k_base` durante la importación, aun con el parser del agente desactivado. `tests_runtime/prepare_tokenizer666.py` prepara explícitamente su caché fuera del motor, con el SHA256 fijado en tiktoken 0.14.0. El motor exige esos bytes y no los descarga. Se revisó MIT del tiktoken original y se guardó su licencia; son reglas de tokenización, no pesos de un LLM. La aceptación offline conjunta pasó localmente; 757 pruebas unitarias pasan.
+
+MetaGPT no tiene adaptador: su `requirements.txt` fijado exige `lancedb==0.4.0`. El resolvedor falla bajo Python 3.11 y el endpoint de esa versión respondió 404; la lista de releases tampoco la contenía el 2026-11-15. La revisión de código y el bloqueo quedan en `sources/contracts-reasoning666.json`; no se sustituyó una dependencia ni se ignoró el fallo.

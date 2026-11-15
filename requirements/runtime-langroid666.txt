@@ -1,0 +1,2 @@
+-c runtime-langroid666.constraints.txt
+langroid @ https://codeload.github.com/langroid/langroid/tar.gz/be56d05c129ec169d9f2160489438300de8ae30d#sha256=c9e0dab3a6ed9528fb8d01501e7e1fd030b4659156547979d9d976b2fe6a7c33

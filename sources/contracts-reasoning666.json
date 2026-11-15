@@ -1,0 +1,135 @@
+{
+  "scope": "Fixed task ordering and arithmetic claims; no inference or models",
+  "records": [
+    {
+      "id": "metagpt",
+      "repository": "FoundationAgents/MetaGPT",
+      "commit": "11cdf466d042aece04fc6cfd13b28e1a70341b1f",
+      "version": "1.0.0",
+      "archive_sha256": "b319603d0207205e623200e9923a2a34cc3ef75d95922b2ce6ff4afac7485f76",
+      "files": [
+        {
+          "path": "setup.py",
+          "blob_sha": "fc0191672ec6369792e0eb54a465697ea0558012",
+          "sha256": "2b9fba51533458d5b5f0151638fbb9c37984926f4970e215c9d5c07e65f5e5ab",
+          "installed_path": null,
+          "source_url": "https://github.com/FoundationAgents/MetaGPT/blob/11cdf466d042aece04fc6cfd13b28e1a70341b1f/setup.py"
+        },
+        {
+          "path": "requirements.txt",
+          "blob_sha": "39fe0c6111556b5bb1b575cefa268beb68604a57",
+          "sha256": "c61de33a5a857172ebab7b731e7545f48b8b8b89c2df0c1d97002456b7f843d1",
+          "installed_path": null,
+          "source_url": "https://github.com/FoundationAgents/MetaGPT/blob/11cdf466d042aece04fc6cfd13b28e1a70341b1f/requirements.txt"
+        },
+        {
+          "path": "metagpt/schema.py",
+          "blob_sha": "52badcc21ae4e8372529ec2becf6ee104c39e85c",
+          "sha256": "f21ec5023b0bee58ff658af8db840cb5fd84e2bb5d1822035e9c134d3892d9f2",
+          "installed_path": "metagpt/schema.py",
+          "source_url": "https://github.com/FoundationAgents/MetaGPT/blob/11cdf466d042aece04fc6cfd13b28e1a70341b1f/metagpt/schema.py"
+        },
+        {
+          "path": "metagpt/const.py",
+          "blob_sha": "94a7d8529be3df35b6f3837380b9648f8096139a",
+          "sha256": "eca9873e4557bc2417181dcd59c82d8882be12b6b4b39584a42cf79ead702285",
+          "installed_path": "metagpt/const.py",
+          "source_url": "https://github.com/FoundationAgents/MetaGPT/blob/11cdf466d042aece04fc6cfd13b28e1a70341b1f/metagpt/const.py"
+        },
+        {
+          "path": "metagpt/utils/report.py",
+          "blob_sha": "0ae19beba89a9a2bf1b4092699e81a257e99d19d",
+          "sha256": "0ccede93f26fa3daa1229ace12c097465d22fb88bfc288ecdb0173ef01c41d7e",
+          "installed_path": "metagpt/utils/report.py",
+          "source_url": "https://github.com/FoundationAgents/MetaGPT/blob/11cdf466d042aece04fc6cfd13b28e1a70341b1f/metagpt/utils/report.py"
+        }
+      ],
+      "distribution": "metagpt",
+      "live_verified": false,
+      "runtime_state": "blocked_dependency_resolution",
+      "blocker": {
+        "requirement": "lancedb==0.4.0",
+        "python": "3.11.18",
+        "resolver_result": "No solution found: required lancedb version unavailable",
+        "pypi_version_url": "https://pypi.org/pypi/lancedb/0.4.0/json",
+        "pypi_version_http_status": 404,
+        "pypi_release_list_contains_version": false,
+        "checked_date": "2026-11-15",
+        "adapter_implemented": false,
+        "workaround_applied": false
+      }
+    },
+    {
+      "id": "langroid",
+      "repository": "langroid/langroid",
+      "commit": "be56d05c129ec169d9f2160489438300de8ae30d",
+      "version": "0.69.23",
+      "archive_sha256": "c9e0dab3a6ed9528fb8d01501e7e1fd030b4659156547979d9d976b2fe6a7c33",
+      "files": [
+        {
+          "path": "pyproject.toml",
+          "blob_sha": "4d5b272dc1e66c052238c9df2156eccd21cbde0e",
+          "sha256": "86fd89a2536bf53ec66139931f973e03bb1bd9ca37f37535a1d22ee12fa64096",
+          "installed_path": null,
+          "source_url": "https://github.com/langroid/langroid/blob/be56d05c129ec169d9f2160489438300de8ae30d/pyproject.toml"
+        },
+        {
+          "path": "langroid/agent/base.py",
+          "blob_sha": "b1ea00166858b255a39036dcb6327372e9a9e150",
+          "sha256": "0c0e80cef46391c1718db662d9327998e07ef91444b95812de63446017836414",
+          "installed_path": "langroid/agent/base.py",
+          "source_url": "https://github.com/langroid/langroid/blob/be56d05c129ec169d9f2160489438300de8ae30d/langroid/agent/base.py"
+        },
+        {
+          "path": "langroid/agent/tool_message.py",
+          "blob_sha": "de453d24c466ad19f1bf875366e45d0775b78142",
+          "sha256": "189a1d153b5b4aae78dd7d81502058c3196c2d0ffd9e9a37d6d08fa7c3706320",
+          "installed_path": "langroid/agent/tool_message.py",
+          "source_url": "https://github.com/langroid/langroid/blob/be56d05c129ec169d9f2160489438300de8ae30d/langroid/agent/tool_message.py"
+        },
+        {
+          "path": "langroid/agent/chat_document.py",
+          "blob_sha": "03669a8dfb88a4dbaf909532e814fe144f028e6b",
+          "sha256": "a371c8d3b199b3e02d712f72ddda847e09be555cade814e0eba34a2dc6518ad2",
+          "installed_path": "langroid/agent/chat_document.py",
+          "source_url": "https://github.com/langroid/langroid/blob/be56d05c129ec169d9f2160489438300de8ae30d/langroid/agent/chat_document.py"
+        }
+      ],
+      "distribution": "langroid",
+      "live_verified": false
+    }
+  ],
+  "tokenizer_dependency": {
+    "repository": "openai/tiktoken",
+    "commit": "4e71bbe0c078468e00fefbf94b39849389f346e5",
+    "version": "0.14.0",
+    "license": "MIT",
+    "files": [
+      {
+        "path": "LICENSE",
+        "blob_sha": "83ed1036f70d4f419307e8a044a35e163cc35201",
+        "sha256": "418cb499b436128d653d79941333a5437b7be2ea9213dcc2f04d15d5d2c51d86",
+        "source_url": "https://github.com/openai/tiktoken/blob/4e71bbe0c078468e00fefbf94b39849389f346e5/LICENSE",
+        "local_path": "sources/dependency-licenses/tiktoken-0.14.0-LICENSE.txt"
+      },
+      {
+        "path": "tiktoken_ext/openai_public.py",
+        "blob_sha": "02c9ee20fa186223145da1de759bdf001f1f1e1c",
+        "sha256": "954392738e60d0fb6dca1dad80872efc47c8e2733babecbbf0a23970ed66c2cb",
+        "source_url": "https://github.com/openai/tiktoken/blob/4e71bbe0c078468e00fefbf94b39849389f346e5/tiktoken_ext/openai_public.py"
+      },
+      {
+        "path": "tiktoken/load.py",
+        "blob_sha": "3c76bcb3e7c117e8eaca064ef677c28d79096cb7",
+        "sha256": "43c3cfb29dc48a74e70e0c85bb01cfd96a3de069a98de8778ccab7f72a2836cc",
+        "source_url": "https://github.com/openai/tiktoken/blob/4e71bbe0c078468e00fefbf94b39849389f346e5/tiktoken/load.py"
+      }
+    ],
+    "data": {
+      "name": "cl100k_base",
+      "url": "https://openaipublic.blob.core.windows.net/encodings/cl100k_base.tiktoken",
+      "sha256": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+      "scope": "Tokenizer merge ranks needed by Langroid module import; no LLM weights or inference."
+    }
+  }
+}

@@ -29,13 +29,14 @@ jobs:
           /tmp/verdugo-kernel666-venv/bin/python -m pip install -r requirements/runtime-kernel666.txt --report /tmp/kernel666-pip-report.json
           /tmp/verdugo-kernel666-venv/bin/python -m pip check
           /tmp/verdugo-kernel666-venv/bin/python -m pip freeze > /tmp/kernel666-resolved.txt
-          for sdk in agno ag2; do
+          for sdk in agno ag2 langroid; do
             python -m venv --copies /tmp/verdugo-${sdk}666-venv
             chmod go-w /tmp/verdugo-${sdk}666-venv/bin/python*
             /tmp/verdugo-${sdk}666-venv/bin/python -m pip install -r requirements/runtime-${sdk}666.txt --report /tmp/${sdk}666-pip-report.json
             /tmp/verdugo-${sdk}666-venv/bin/python -m pip check
             /tmp/verdugo-${sdk}666-venv/bin/python -m pip freeze > /tmp/${sdk}666-resolved.txt
           done
+          VERDUGO_LANGROID666_PYTHON=/tmp/verdugo-langroid666-venv/bin/python python tests_runtime/prepare_tokenizer666.py
       - name: Original SDK, approval and restart with OS network isolation
         run: |
           sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
@@ -47,6 +48,7 @@ jobs:
             VERDUGO_KERNEL666_PYTHON=/tmp/verdugo-kernel666-venv/bin/python \
             VERDUGO_AGNO666_PYTHON=/tmp/verdugo-agno666-venv/bin/python \
             VERDUGO_AG2666_PYTHON=/tmp/verdugo-ag2666-venv/bin/python \
+            VERDUGO_LANGROID666_PYTHON=/tmp/verdugo-langroid666-venv/bin/python \
             /tmp/verdugo-kernel666-venv/bin/python tests_runtime/accept_executive666.py --out /tmp/executive666-execution-evidence.json
       - name: Preserve scoped evidence and dependency resolution
         if: always()
@@ -62,6 +64,8 @@ jobs:
             /tmp/agno666-resolved.txt
             /tmp/ag2666-pip-report.json
             /tmp/ag2666-resolved.txt
+            /tmp/langroid666-pip-report.json
+            /tmp/langroid666-resolved.txt
           retention-days: 3
           if-no-files-found: error
   baseline:

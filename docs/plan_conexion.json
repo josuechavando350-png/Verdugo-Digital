@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 364,
+ "pending": 363,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -24,23 +24,9 @@
    "kind": "biblioteca",
    "domain": "ejecutivo",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "Blocked 2026-11-15: upstream requires lancedb==0.4.0, absent from PyPI release list; Python 3.11 resolution fails. No dependency override applied.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
-   "id": "langroid",
-   "repository": "langroid/langroid",
-   "commit": "be56d05c129ec169d9f2160489438300de8ae30d",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "ejecutivo",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/contracts-reasoning666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 1",
@@ -7814,6 +7800,12 @@
    "id": "ag2",
    "operation": "actions.check",
    "scope": "One fixed original SDK tool checks hypothetical costs; no model; no approval granted",
+   "live_verified": false
+  },
+  {
+   "id": "langroid",
+   "operation": "claims.check",
+   "scope": "Original fixed tool dispatch checks three arithmetic predicates; no model; synthetic only",
    "live_verified": false
   }
  ]

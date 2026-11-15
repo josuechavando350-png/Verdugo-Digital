@@ -98,3 +98,5 @@ CASES['semantic-kernel'] = {'dataset': 'demo', 'goal': {
 
 from executive666_fixtures import CASES as EXECUTIVE666_CASES
 CASES.update(EXECUTIVE666_CASES)
+from reasoning666_fixtures import CASES as REASONING666_CASES
+CASES.update(REASONING666_CASES)

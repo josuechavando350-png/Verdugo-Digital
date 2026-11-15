@@ -9,6 +9,8 @@ import math
 
 
 def run(service, operation, p):
+    from .local_reasoning666 import SPECS as REASONING666, run as run_reasoning666
+    if service in REASONING666: return run_reasoning666(service, p)
     from .local_executive666 import SPECS as EXECUTIVE666, run as run_executive666
     if service in EXECUTIVE666: return run_executive666(service, p)
     from .local_pilot666 import SPECS as PILOT666, run as run_pilot666

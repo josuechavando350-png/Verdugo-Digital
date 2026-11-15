@@ -114,6 +114,39 @@
       "depends_on": [
         "simulate"
       ]
+    },
+    {
+      "id": "claims",
+      "service": "langroid",
+      "operation": "claims.check",
+      "params": {
+        "dataset": "demo",
+        "currency": "MXN",
+        "before": {
+          "contacts": 200,
+          "clients": 20,
+          "spend_minor": 0,
+          "revenue_minor": 0
+        },
+        "after": {
+          "contacts": {
+            "$ref": "measure.observed_contacts"
+          },
+          "clients": {
+            "$ref": "measure.observed_clients"
+          },
+          "spend_minor": 0,
+          "revenue_minor": 0
+        },
+        "claims": [
+          "conversion_rate_increased",
+          "cost_per_client_decreased",
+          "revenue_above_ad_spend"
+        ]
+      },
+      "depends_on": [
+        "measure"
+      ]
     }
   ]
 }

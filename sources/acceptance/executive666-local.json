@@ -3,7 +3,8 @@
   "services": [
     "semantic-kernel",
     "agno",
-    "ag2"
+    "ag2",
+    "langroid"
   ],
   "original_sdks_executed": true,
   "mocked_sdks": false,
@@ -17,7 +18,7 @@
         "dataset": "demo",
         "distribution": "semantic-kernel",
         "external_provider_calls_made": false,
-        "implementation_sha256": "529cebb8b1ff415c939a8972571f42d83c7d71dd4d8fe291b50d8de467194abd",
+        "implementation_sha256": "0bbed3ea479e2f4648f4060f055f5d8427c204cc12adfd5597ab382b664968c9",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -68,7 +69,7 @@
         "dataset": "demo",
         "distribution": "agno",
         "external_provider_calls_made": false,
-        "implementation_sha256": "529cebb8b1ff415c939a8972571f42d83c7d71dd4d8fe291b50d8de467194abd",
+        "implementation_sha256": "0bbed3ea479e2f4648f4060f055f5d8427c204cc12adfd5597ab382b664968c9",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -123,7 +124,7 @@
         "dataset": "demo",
         "distribution": "ag2",
         "external_provider_calls_made": false,
-        "implementation_sha256": "529cebb8b1ff415c939a8972571f42d83c7d71dd4d8fe291b50d8de467194abd",
+        "implementation_sha256": "0bbed3ea479e2f4648f4060f055f5d8427c204cc12adfd5597ab382b664968c9",
         "ok": true,
         "operation": "actions.check",
         "production_certified": false,
@@ -211,6 +212,51 @@
         "real_revenue_verified": false,
         "calibrated_to_real_market": false,
         "external_calls_made": false
+      },
+      "claims": {
+        "ok": true,
+        "service": "langroid",
+        "operation": "claims.check",
+        "distribution": "langroid",
+        "version": "0.69.23",
+        "dataset": "demo",
+        "result": {
+          "basis": "Supplied synthetic aggregate counts only",
+          "causality_established": false,
+          "claims": [
+            {
+              "claim": "conversion_rate_increased",
+              "verdict": "contradicted"
+            },
+            {
+              "claim": "cost_per_client_decreased",
+              "verdict": "contradicted"
+            },
+            {
+              "claim": "revenue_above_ad_spend",
+              "verdict": "contradicted"
+            }
+          ],
+          "currency": "MXN",
+          "external_execution_authorized": false,
+          "net_profit_verified": false,
+          "real_clients_verified": 0,
+          "semantic_truth_verified": false,
+          "original_sdk": "langroid",
+          "sdk_version": "0.69.23",
+          "source_commit": "be56d05c129ec169d9f2160489438300de8ae30d",
+          "reviewed_modules_verified": 3,
+          "fixed_tool_dispatches": 1,
+          "dataset": "demo",
+          "llm_calls": 0,
+          "autonomous_agent": false,
+          "external_calls_made": false,
+          "dry_run": true
+        },
+        "external_provider_calls_made": false,
+        "production_certified": false,
+        "commercial_success_probability": null,
+        "implementation_sha256": "0bbed3ea479e2f4648f4060f055f5d8427c204cc12adfd5597ab382b664968c9"
       }
     }
   },
