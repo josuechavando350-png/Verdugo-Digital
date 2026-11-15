@@ -13,6 +13,7 @@ from .common import VerdugoError, fields, identifier
 from .local_native import checked
 
 SPECS = {
+    'google-maps-scraper': ('places.inspect', 'compiled-source:google-maps-scraper', 'e0c1d501e49cdcd5c6b2cecd2a032831f6ee9ba8'),
     'grype': ('packages.audit', 'cli:grype', 'cd1f23eb50dfb52647090158f453c7359172591f'),
     'sops': ('encryption.verify', 'cli:sops', '9aa10f12bcd82400b7eb73331dd7a87a93bb17f7'),
     'gitleaks': ('text.scan', 'cli:gitleaks', '5f6ec56cfa6f8c67648d863582c7ae2f206d5c1c'),
@@ -20,6 +21,8 @@ SPECS = {
     'syft': ('packages.inventory', 'cli:syft', 'a0c0d3890a9d79421c403e8fcadec50a2e55bf21'),
     'vale': ('prose.lint', 'cli:vale', '4ce91ef208b37f9ac2894766e8cd7b33ffe3baed'),
 }
+MAPS_SOURCE = Path(__file__).with_name('native_maps')
+MAPS_FILES = {'LICENSE': '3b74f7e7dc75d6ec836c6dc3f072ce510e2a1cbf34aff1f3e7fbc46105ffcd2b', 'main.go': 'fdac79e4386ddea08ab905f3e1f835906046995ec633ffb3c450b35a23c6b977', 'go.mod': 'f699e36c116b6842700fa9f80b34be4404f892aa1d9d8ff4753d5ca5e6f58593', 'gmaps/entry.go': '8b80dec3e063461584e4f8fcbfecf224752f6010a194d20ec03513b4636d943e'}
 ENV = 'VERDUGO_CLI_ROOT'
 
 
@@ -44,6 +47,11 @@ def runtime_state(service):
         with binary.open('rb') as stream:
             for block in iter(lambda: stream.read(1024*1024), b''): h.update(block)
         if h.hexdigest() != row['sha256']: raise ValueError('Binary changed')
+        if service == 'google-maps-scraper':
+            for name, expected_sha in MAPS_FILES.items():
+                source = checked(MAPS_SOURCE/name, budget=128*1024).read_bytes()
+                if hashlib.sha256(source).hexdigest()!=expected_sha:raise ValueError('Maps parser source changed')
+                h.update(source)
         if service == 'grype':
             database = checked(home/'grype-db/6/vulnerability.db',budget=5*1024**3)
             dh = hashlib.sha256()
@@ -69,6 +77,25 @@ def runtime_state(service):
 def validate(service, operation, p):
     from .local_runtime import string
     if service not in SPECS or operation != SPECS[service][0]: raise VerdugoError('Unsupported fixed CLI operation')
+    if service == 'google-maps-scraper':
+        from .local_native_tools import private_json
+        fields(p,('dataset','secret_text'))
+        if p['dataset'] not in ('demo','real'):raise VerdugoError('Explicit dataset required')
+        rows=private_json(p)
+        if not isinstance(rows,list) or not 1<=len(rows)<=10:raise VerdugoError('Provide 1..10 supplied Maps JSON payloads')
+        for row in rows:
+            if not isinstance(row,list) or not 7<=len(row)<=40 or not isinstance(row[6],list) or not 14<=len(row[6])<=220:
+                raise VerdugoError('Expected the original Maps array payload shape')
+        pending=[(rows,0)];count=0
+        while pending:
+            value,depth=pending.pop();count+=1
+            if depth>16 or count>4000:raise VerdugoError('Maps payload is too complex')
+            if isinstance(value,list):pending.extend((v,depth+1) for v in value)
+            elif isinstance(value,dict):raise VerdugoError('Only original array payloads and scalars are supported')
+            elif isinstance(value,float):
+                import math
+                if not math.isfinite(value):raise VerdugoError('Finite numeric payload values required')
+        return
     required = {'gitleaks':('secret_text',), 'restic':('secret_text',), 'syft':('packages',), 'vale':('text',),'sops':('secret_text',),'grype':('packages',)}[service]
     fields(p, ('dataset', *required))
     if p['dataset'] not in ('demo','real'): raise VerdugoError('An explicit dataset is required')
@@ -103,6 +130,16 @@ def invoke(service, args, payload=b'', extra=None, limit=1024*1024):
 
 def run(service, p):
     if not runtime_state(service)['version_matches']: raise ValueError('CLI runtime changed')
+    if service == 'google-maps-scraper':
+        result=json.loads(invoke(service, [], p['secret_text'].encode()))
+        rows=result['records']
+        from .local_runtime import finite
+        from .common import integer
+        if not isinstance(rows,list) or not 1<=len(rows)<=10:raise ValueError('Original Maps parser result shape changed')
+        for row in rows:
+            integer(row['review_count'],0,10**9);finite(row['rating'],0,5);integer(row['categories'],1,100);integer(row['opening_days'],0,7)
+            if type(row['website_present']) is not bool:raise ValueError('Invalid website presence')
+        return result | {'parser_scope':'supplied Google Maps array payloads; no scraping', 'input_payload_retained':False}
     if service == 'gitleaks':
         data = json.loads(invoke(service, ['stdin','--report-format','json','--report-path','-',
               '--redact=100','--exit-code=0','--no-banner','--no-color','--log-level','error',

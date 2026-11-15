@@ -43,6 +43,7 @@ from .local_completion import PROFILES as COMPLETION
 PROFILE_ENV.update({sid: "VERDUGO_"+profile+"_PYTHON" for sid, profile in COMPLETION.items()})
 
 PROFILE_ENV['autogeo'] = 'VERDUGO_UTILITY021_PYTHON'
+PROFILE_ENV['tinytroupe'] = 'VERDUGO_SOURCE021_PYTHON'
 PROFILE_ENV['kingfisher-collect'] = 'VERDUGO_FINALPY021_PYTHON'
 
 def interpreter(service):

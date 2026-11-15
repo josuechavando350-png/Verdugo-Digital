@@ -4,13 +4,13 @@ Fecha: 15 de noviembre de 2026. Versión del motor: 0.21.0.
 
 | Estado | Cuántas |
 |---|---|
-| conectado | 233 |
+| conectado | 239 |
 | pieza_de_construccion | 56 |
-| pendiente | 11 |
+| pendiente | 5 |
 | excluido | 22 |
 | **Total** | 322 |
 
-**Pendientes: 11**, conservando la identificación de las cuatro tandas originales. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
+**Pendientes: 5**, conservando la identificación de las cuatro tandas originales. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
 no se conectan al motor: se usan al construir la plataforma (fase aparte). Las 22 excluidas por licencia no se tocan.
 
 El estado de cada pieza lo calcula el código: `python -m verdugo connections`. Este plan en formato
@@ -229,49 +229,16 @@ que use el motor por su API/MCP. Esa fase se planea cuando las tandas de conecto
 
 ## Complemento v0.21 desde a6809de
 
-41 operaciones adicionales: 17 ejecuciones locales originales y 24 contratos HTTP.
-61 de las 88 de v0.21 están implementadas; 27 siguen pendientes.
-[Alcance y evidencia](ACEPTACION_COMPLEMENTO_V021.md). El estado es derivado del código;
-no se sustituyen adaptadores por fichas de catálogo ni se certifica producción.
+63 operaciones adicionales: 36 operaciones con programas originales, una comparación propia de reglas NAP originales y 26 contratos HTTP. Son 83 de las 88 de v0.21; cinco siguen pendientes. [Alcance y evidencia](ACEPTACION_COMPLEMENTO_V021.md).
+
+Las listas anteriores conservan el plan histórico. La lista pendiente vigente es:
 
 | Pendiente | Trabajo restante |
 |---|---|
-| `microsandbox` | Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback. |
-| `openhands` | Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback. |
-| `valkey` | Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback. |
-| `postgres` | Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback. |
-| `local-seo-skills` | Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos. |
-| `playwright-mcp` | Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos. |
-| `kingfisher-collect` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
-| `cc-webgraph` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
-| `newsjack` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
-| `cua` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
-| `siteone-crawler` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
-| `goaccess` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
-| `sherlock` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
-| `google-maps-scraper` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
-| `quarto` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
-| `auto-editor` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
-| `landscape-app` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
-| `log4brains` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
-| `openapi-generator` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
-| `promptfoo` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
-| `apache-age` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
-| `arx` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
-| `tinytroupe` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
-| `census` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
-| `pricesensitivitymeter` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
-| `pgvector` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
-| `robyn` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
+| `microsandbox` | Operación local original; el API cloud de pago no entra. La nota JSON-RPC inicial no corresponde al commit actual. |
+| `playwright-mcp` | Ejecutar una herramienta MCP original delimitada y comprobar su resultado, no solo registrar el servidor. |
+| `siteone-crawler` | Rastreo original delimitado de contenido autorizado, con proyección y cierre del proceso. |
+| `sherlock` | Operación original delimitada con resultados comprobados; ninguna búsqueda de personas se inicia al preparar el perfil. |
+| `landscape-app` | Validación original del paisaje suministrado, con archivos temporales y sin comunicaciones. |
 
-## Segundo complemento v0.21: seis operaciones adicionales
-
-Se ejecutaron Promptfoo, Log4brains, PriceSensitivityMeter, Robyn, Newsjack y Kingfisher Collect con las funciones originales delimitadas. Quedan **21 pendientes**; el detalle vigente está en el JSON y [la evidencia de aceptación](ACEPTACION_COMPLEMENTO_V021.md). Las operaciones comparten Engine y SQLite y permanecen deshabilitadas por defecto.
-
-## Continuación con motores de datos originales
-
-PostgreSQL 18.7, Valkey, pgvector y Apache AGE ejecutan operaciones fijas sobre datos suministrados en almacenes temporales; resultados y replay pasan por Engine/SQLite. OpenHands incorpora un contrato acotado del Agent Server 1.62.0, probado con HTTP sintético. El JSON vigente tiene **16 pendientes**.
-
-## Validadores y análisis nativos
-
-Se añaden OpenAPI Generator 7.27.0, ARX 3.9.2, el combinador de adyacencias de Common Crawl WebGraph y GoAccess 1.7, ejecutados con datos suministrados. Census incorpora únicamente catálogo de tablas ACS5 profile 2024, sin credenciales. Quedan **11 pendientes** en el JSON vigente.
+CUA normaliza acciones sin ejecutarlas; TinyTroupe compara muestras sin simular agentes. Sus únicas adaptaciones son imports documentados. Google Maps Scraper analiza cargas suministradas con su parser original sin consultar Google. Quarto renderiza texto plano y Auto-Editor mide amplitudes PCM sin editar audio. Local SEO Skills aporta reglas NAP, no un ejecutable upstream ni un servidor MCP. Todas las operaciones comparten Engine, workflows y SQLite.

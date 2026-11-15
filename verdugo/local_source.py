@@ -1,4 +1,6 @@
-"""Reviewed, unmodified upstream modules, bundled with their licenses.
+"""Reviewed upstream functions, bundled with originals and licenses.
+
+CUA and TinyTroupe use explicitly recorded import-only adaptations.
 
 Only fixed module paths and functions are executed; no dynamically supplied code.
 The SHA-256 of both source and license is checked before loading each module.
@@ -11,6 +13,8 @@ import sys
 from .common import VerdugoError, fields, integer
 
 SPECS = {
+    'cua': ('actions.normalize', 'bundled-adapted-source:cua', 'c372e5fb2bae944974e903fbf117c61f4ced696e'),
+    'tinytroupe': ('experiments.compare', 'bundled-adapted-source:tinytroupe', '7ce8be378a37ee73f9745d6781452712318afa04'),
     'cognee': ('text.segment', 'bundled-source:cognee', '4053f6cc5536757f26a3665eed95c50088e6dc0b'),
     'autogeo': ('citations.score', 'bundled-source:autogeo', '49456df236774ea24087c44f45e9e52005b8e6a4'),
     'claude-skills-c-level': ('cashflow.scenario', 'bundled-source:claude-skills-c-level', '08cd8a9fc86cc370e2c0d448e8171fbcfdbc5a30'),
@@ -18,21 +22,25 @@ SPECS = {
     'kingfisher-collect': ('releases.inspect', 'bundled-source:kingfisher-collect', '865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6'),
 }
 HASHES = {
+    'cua': ('b1a8055900863e20ae83271cc5634cc5e4a20619d4eb6e96bd6e291d510a2654', '8e58dea3ed074859ef7cdf74f9eb3b51189dc3cd62080a3200ae40411ccf1182'),
+    'tinytroupe': ('4bd362683d8c36494f34a557dfb834f79dd3454718aabfc2ea88ffe36ff9a708', 'c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383'),
+
     'cognee': ('a9aac48fa224281886c788ef2e3dd40f8d4dcdb640f9b5ce78a3a51f5f6cdfa6', 'a471e34908f50c3f120e9a56f3c30cb34e133e4ede01a9cbd5ce718fc358ecd4'),
     'autogeo': ('3c12623f138dec50c1c905c92c09aef1f3fe9b0a219a6ff6ffaa404007711b9d', '7db440f0a16ee1bb2b77726e9c693a6171667069c6ac1679efbb2c2fe41cf0b3'),
     'claude-skills-c-level': ('c1c8b1b648f53934925c1cd8583550d1ac6990f229d2d664fafd0cf1f23b5051', 'a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151'),
     'newsjack': ('134284b1c0d938d8a2c5b4fcab529303efa7f2fda0cdcd0bbc735556e07fd65b', 'a973d457a5ad23a36205ef48f88c5860680fed6a3d8fdc64df6f43cd0b3e413e'),
     'kingfisher-collect': ('e9ab6e15301976a1db03490219c5e0a4bb4e1f8a36dcddf7e5aaa9ea71b3cbf1', 'c5837dd2d0338223cecd3e7f2e53d1d02e71496343b934cd8cdaeefba52a48d3'),
 }
-EXTRA = {'autogeo': {'nltk': '3.9.2'}, 'kingfisher-collect': {
+EXTRA = {'tinytroupe': {'numpy':'2.4.6','scipy':'1.15.3'}, 'autogeo': {'nltk': '3.9.2'}, 'kingfisher-collect': {
     'scrapy': '2.18.0', 'ijson': '3.5.0', 'jsonpointer': '3.1.1', 'jsonref': '1.1.0',
     'orjson': '3.11.9', 'flattentool': '0.28.0', 'pydantic': '2.13.4', 'rarfile': '4.2', 'requests': '2.34.2',
 }}
-SOURCE_FILES = {'kingfisher-collect': {
+SOURCE_FILES = {'cua': {'types.py': '5fade45cd623c45832ba0770c0ae0301522339dfc2387294f9e4016c5106b5d1', 'adapted.py': 'bb644be17a6ab199f97a8644084adbb7dbaed8fc315f969fec2fd7297a1b919a'}, 'tinytroupe': {'adapted.py': '1eaba4e3388232e799ca42595ebdd97f2fac0f78ffe55846ceb7af148d14d17b'}}
+SOURCE_FILES.update({'kingfisher-collect': {
     'kingfisher_scrapy/__init__.py': 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',
     'kingfisher_scrapy/items.py': 'b57df9b4cfcaef8498ab6add3d385148303ee73b13615b7287f5baf94e351142',
     'kingfisher_scrapy/util.py': '707f16521a0eed153cd68b76c62315d8a57a68c43794ebb19e3cb5815a410048',
-}}
+}})
 ROOT = Path(__file__).with_name('vendor')
 
 
@@ -48,7 +56,7 @@ def source_path(service):
         data = checked(folder / name, budget=128 * 1024).read_bytes()
         if hashlib.sha256(data).hexdigest() != expected:
             raise VerdugoError('Pinned upstream source or license changed')
-    return folder / 'original.py'
+    return folder / ('adapted.py' if service in ('cua','tinytroupe') else 'original.py')
 
 
 def runtime_state(service):
@@ -65,7 +73,7 @@ def runtime_state(service):
         pass
     binding = hashlib.sha256((''.join(HASHES[service]) + ''.join(SOURCE_FILES.get(service, {}).values())
                               + runtime_profile.binding(service)).encode()).hexdigest()
-    return {'distribution': distribution, 'distribution_kind': 'bundled-original-source',
+    return {'distribution': distribution, 'distribution_kind': 'upstream-with-import-adaptation' if service in ('cua','tinytroupe') else 'bundled-original-source',
             'expected': expected, 'installed': expected if present else None,
             'version_matches': present, 'extra_distributions': extras, 'operation': op,
             'execution_verified': False, 'runtime_binding': binding}
@@ -75,13 +83,37 @@ def validate(service, operation, p):
     from .local_runtime import string, finite
     if service not in SPECS or operation != SPECS[service][0]:
         raise VerdugoError('Unsupported pinned-source operation')
-    required = {'cognee': ('text',), 'autogeo': ('sentences', 'source_count'),
+    required = {'cua':('width','height','actions'), 'tinytroupe':('control','treatment','assumptions_reviewed'), 'cognee': ('text',), 'autogeo': ('sentences', 'source_count'),
                 'claude-skills-c-level': ('currency', 'cash_minor', 'mrr_minor', 'opex_minor', 'gross_margin', 'growth_rate', 'months'),
                 'newsjack': ('original', 'rewrite'), 'kingfisher-collect': ('records',)}[service]
     fields(p, ('dataset', *required))
     if p['dataset'] not in ('demo', 'real'):
         raise VerdugoError('An explicit dataset is required')
-    if service == 'newsjack':
+    if service == 'cua':
+        integer(p['width'],1,8192);integer(p['height'],1,8192)
+        if not isinstance(p['actions'],list) or not 1<=len(p['actions'])<=30:raise VerdugoError('Provide 1..30 supplied action records')
+        for row in p['actions']:
+            kind=row.get('type') if isinstance(row,dict) else None
+            keys={'click':('x','y'),'right_click':('x','y'),'double_click':('x','y'),
+                  'move_to':('x','y','duration'),'drag':('from_x','from_y','to_x','to_y','duration'),
+                  'scroll':('direction','amount'),'wait':('seconds',),'done':()}.get(kind)
+            if keys is None:raise VerdugoError('Only fixed mouse, wait and done representations are supported')
+            fields(row,('type',*keys))
+            for key in keys:
+                if key in ('x','from_x','to_x'):integer(row[key],0,p['width']-1)
+                if key in ('y','from_y','to_y'):integer(row[key],0,p['height']-1)
+                if key in ('duration','seconds'):finite(row[key],0,5)
+            if kind=='scroll':
+                if row['direction'] not in ('up','down'):raise VerdugoError('Vertical scrolling only')
+                integer(row['amount'],1,1000)
+    elif service == 'tinytroupe':
+        if p['assumptions_reviewed'] is not True:raise VerdugoError('Review independence and sampling assumptions explicitly')
+        for key in ('control','treatment'):
+            rows=p[key]
+            if not isinstance(rows,list) or not 3<=len(rows)<=100:raise VerdugoError('Provide 3..100 observations per group')
+            for value in rows:finite(value,0.000001,10**6)
+            if min(rows)==max(rows):raise VerdugoError('Each group needs sample variation')
+    elif service == 'newsjack':
         string(p['original'], 8000); string(p['rewrite'], 8000)
     elif service == 'kingfisher-collect':
         from .common import identifier
@@ -132,6 +164,16 @@ def run(service, p):
     module = importlib.util.module_from_spec(spec)
     sys.modules[name] = module
     spec.loader.exec_module(module)
+    if service == 'cua':
+        actions=[module.action_to_dict(module.dict_to_action(row)) for row in p['actions']]
+        return {'actions':actions,'count':len(actions),'actions_executed':False,'desktop_accessed':False,
+                'viewport_bounds_checked':True,'upstream_adaptation':'import namespace only'}
+    if service == 'tinytroupe':
+        value=module.StatisticalTester({'control':{'metric':p['control']}}, {'treatment':{'metric':p['treatment']}}).run_test('welch_t_test',alpha=0.05)['treatment']['metric']
+        keys=('test_type','control_mean','treatment_mean','mean_difference','t_statistic','p_value','confidence_interval','confidence_level','significant','degrees_of_freedom','control_sample_size','treatment_sample_size','effect_size')
+        return {key:value[key] for key in keys} | {'agents_simulated':False,'causal_effect_demonstrated':False,
+                'assumptions':'operator-reviewed independent samples; no multiplicity correction',
+                'upstream_adaptation':'standard-library logger only'}
     if service == 'newsjack':
         value = module.compare_fact_ledgers(p['original'], p['rewrite'])
         categories = ('numbers', 'dates', 'quotes', 'urls', 'entities')

@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 11,
+ "pending": 5,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -16,18 +16,6 @@
   },
   {
    "tanda": "Tanda 1",
-   "id": "local-seo-skills",
-   "repository": "garrettjsmith/localseoskills",
-   "commit": "c3b7a25b7d5cc370752d74cfea240ccf992a24db",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "mcp",
-   "domain": "authority",
-   "que_hacer": "Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos.",
-   "nota": null
-  },
-  {
-   "tanda": "Tanda 1",
    "id": "playwright-mcp",
    "repository": "microsoft/playwright-mcp",
    "commit": "78eca85361efb545a4c0f59b6140aef0721c5412",
@@ -36,18 +24,6 @@
    "kind": "mcp",
    "domain": "agents",
    "que_hacer": "Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos.",
-   "nota": null
-  },
-  {
-   "tanda": "Tanda 2",
-   "id": "cua",
-   "repository": "trycua/cua",
-   "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "agents",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
    "nota": null
   },
   {
@@ -76,42 +52,6 @@
   },
   {
    "tanda": "Tanda 3",
-   "id": "google-maps-scraper",
-   "repository": "gosom/google-maps-scraper",
-   "commit": "e0c1d501e49cdcd5c6b2cecd2a032831f6ee9ba8",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "cli",
-   "domain": "authority",
-   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
-   "nota": null
-  },
-  {
-   "tanda": "Tanda 3",
-   "id": "quarto",
-   "repository": "quarto-dev/quarto-cli",
-   "commit": "1782b5b3099e8e4dd62cf7bac590d3bad2072c56",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "cli",
-   "domain": "authority",
-   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
-   "nota": null
-  },
-  {
-   "tanda": "Tanda 3",
-   "id": "auto-editor",
-   "repository": "WyattBlue/auto-editor",
-   "commit": "2bbdcd95bc221254e4e6e00eb4c827b06ae93f71",
-   "license": "Unlicense",
-   "policy": "libre",
-   "kind": "cli",
-   "domain": "authority",
-   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
-   "nota": null
-  },
-  {
-   "tanda": "Tanda 3",
    "id": "landscape-app",
    "repository": "cncf/landscapeapp",
    "commit": "a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf",
@@ -120,18 +60,6 @@
    "kind": "cli",
    "domain": "strategy",
    "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
-   "nota": null
-  },
-  {
-   "tanda": "Tanda 4",
-   "id": "tinytroupe",
-   "repository": "microsoft/TinyTroupe",
-   "commit": "7ce8be378a37ee73f9745d6781452712318afa04",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "strategy",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
    "nota": null
   }
  ],
@@ -2606,6 +2534,102 @@
    "operation": "tables.summary",
    "live_verified": false,
    "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+  },
+  {
+   "tanda": "Tanda 1",
+   "id": "local-seo-skills",
+   "repository": "garrettjsmith/localseoskills",
+   "commit": "c3b7a25b7d5cc370752d74cfea240ccf992a24db",
+   "license": "MIT",
+   "policy": "libre",
+   "kind": "datos",
+   "domain": "authority",
+   "que_hacer": "Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos.",
+   "nota": "Comparación propia de reglas NAP originales; no programa upstream ni servidor MCP. Directorios no consultados.",
+   "operation": "nap.compare",
+   "live_verified": false,
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "nota_previa": null
+  },
+  {
+   "tanda": "Tanda 2",
+   "id": "cua",
+   "repository": "trycua/cua",
+   "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+   "license": "MIT",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "agents",
+   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "nota": "Operación acotada con programa original y datos suministrados; adaptación de imports declarada cuando aplica; no ejecución de agentes ni servicio productivo.",
+   "operation": "actions.normalize",
+   "live_verified": false,
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "nota_previa": null
+  },
+  {
+   "tanda": "Tanda 3",
+   "id": "google-maps-scraper",
+   "repository": "gosom/google-maps-scraper",
+   "commit": "e0c1d501e49cdcd5c6b2cecd2a032831f6ee9ba8",
+   "license": "MIT",
+   "policy": "libre",
+   "kind": "cli",
+   "domain": "authority",
+   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
+   "nota": "Operación acotada con programa original y datos suministrados; adaptación de imports declarada cuando aplica; no ejecución de agentes ni servicio productivo.",
+   "operation": "places.inspect",
+   "live_verified": false,
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "nota_previa": null
+  },
+  {
+   "tanda": "Tanda 3",
+   "id": "quarto",
+   "repository": "quarto-dev/quarto-cli",
+   "commit": "1782b5b3099e8e4dd62cf7bac590d3bad2072c56",
+   "license": "MIT",
+   "policy": "libre",
+   "kind": "cli",
+   "domain": "authority",
+   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
+   "nota": "Operación acotada con programa original y datos suministrados; adaptación de imports declarada cuando aplica; no ejecución de agentes ni servicio productivo.",
+   "operation": "document.render",
+   "live_verified": false,
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "nota_previa": null
+  },
+  {
+   "tanda": "Tanda 3",
+   "id": "auto-editor",
+   "repository": "WyattBlue/auto-editor",
+   "commit": "2bbdcd95bc221254e4e6e00eb4c827b06ae93f71",
+   "license": "Unlicense",
+   "policy": "libre",
+   "kind": "cli",
+   "domain": "authority",
+   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
+   "nota": "Operación acotada con programa original y datos suministrados; adaptación de imports declarada cuando aplica; no ejecución de agentes ni servicio productivo.",
+   "operation": "audio.levels",
+   "live_verified": false,
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "nota_previa": null
+  },
+  {
+   "tanda": "Tanda 4",
+   "id": "tinytroupe",
+   "repository": "microsoft/TinyTroupe",
+   "commit": "7ce8be378a37ee73f9745d6781452712318afa04",
+   "license": "MIT",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "strategy",
+   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "nota": "Operación acotada con programa original y datos suministrados; adaptación de imports declarada cuando aplica; no ejecución de agentes ni servicio productivo.",
+   "operation": "experiments.compare",
+   "live_verified": false,
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "nota_previa": null
   }
  ]
 }

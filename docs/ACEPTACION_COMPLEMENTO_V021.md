@@ -1,13 +1,13 @@
 # Complemento v0.21 — evidencia y alcance
 
 Base: `a6809de201ba517846e19cf965194b21e6617050`, rama `feat/v0.21-final88`, PR #20.
-Se añaden **57 de las 68 integraciones pendientes**: 31 operaciones locales
-originales y 26 contratos HTTP. Junto con las 20 anteriores de v0.21, son
-77 operaciones de esta tanda y **11 todavía pendientes**. No declarar terminada
+Se añaden **63 de las 68 integraciones pendientes**: 36 operaciones locales
+con código original, una comparación propia de reglas NAP originales y 26 contratos HTTP. Junto con las 20 anteriores de v0.21, son
+83 operaciones de esta tanda y **5 todavía pendientes**. No declarar terminada
 la tanda. No se modifica main ni se altera la política de licencias.
 
-Inventario actual: 322 entradas; 233 conectadas bajo la política, 56 componentes,
-11 pendientes y 22 excluidas. Hay 104 adaptadores HTTP (108 acciones) y 148
+Inventario actual: 322 entradas; 239 conectadas bajo la política, 56 componentes,
+5 pendientes y 22 excluidas. Hay 104 adaptadores HTTP (108 acciones) y 154
 operaciones locales; 19 adaptadores HTTP históricos siguen excluidos por licencia.
 
 ## Operaciones comprobadas y límites
@@ -75,13 +75,20 @@ operaciones locales; 19 adaptadores HTTP históricos siguen excluidos por licenc
 | `goaccess` | `requests.summarize` | Parser GoAccess 1.7 original sobre eventos suministrados transformados a COMMON; recuentos HTTP y bytes; no mide visitantes reales ni consulta archivos de logs externos. |
 | `census` | `tables.summary` | Catálogo público fijo de tablas ACS5 profile 2024; no envía claves ni consulta población. |
 
+| `cua` | `actions.normalize` | Serializadores y dataclasses originales; cambio único de import de tipos; no ejecuta acciones ni accede al escritorio. |
+| `tinytroupe` | `experiments.compare` | Welch original y estadísticas descriptivas; logger adaptado, fórmulas intactas; revisión explícita de supuestos; no simula agentes ni prueba causalidad. |
+| `local-seo-skills` | `nap.compare` | Comparación propia de reglas NAP exactas de la fuente original; no programa upstream ni MCP; no consulta directorios ni mide ranking. |
+| `google-maps-scraper` | `places.inspect` | EntryFromJSON y Validate originales compilados, cargas suministradas; solo recuentos/rating; no consulta Google Maps ni verifica reseñas. |
+| `quarto` | `document.render` | Quarto 1.11.9 original convierte secciones de texto plano en HTML pasivo; sin ejecución de código, includes, red ni publicación. |
+| `auto-editor` | `audio.levels` | Auto-Editor 31.9.0 original mide amplitudes PCM mono suministradas, máximo un segundo; no edita ni transcribe audio. |
+
 ## Ejecución observada
 
-- Suite de núcleo y contratos: 707 pruebas aprobadas en CPython 3.12.
-- Las 31 operaciones locales originales participan en el flujo conjunto siguiente.
+- Suite de núcleo y contratos: 712 pruebas aprobadas en CPython 3.12.
+- Las 36 operaciones locales originales y la comparación de reglas NAP participan en el flujo conjunto siguiente.
   Vanna alimenta dbt mediante una referencia de workflow; los resultados persisten en SQLite.
-- Flujo conjunto de las 57 integraciones nuevas: 31 operaciones locales originales
-  + 26 respuestas HTTP sintéticas + instantánea comercial, 58 pasos, 211.826 s.
+- Flujo conjunto de las 63 integraciones nuevas: 36 operaciones con código original
+  + una comparación de reglas NAP + 26 respuestas HTTP sintéticas + instantánea comercial, 64 pasos, 249.852 s.
   Cero llamadas HTTP o ejecuciones de worker durante el replay tras reinicio.
   [Evidencia local](evidence/v021-completion-local.json).
 - Ocho paquetes npm originales probados juntos, incluidos los cuatro anteriores;
@@ -153,3 +160,9 @@ El perfil `tools021` prepara Eclipse Temurin 21.0.13+9, OpenAPI Generator 7.27.0
 La [respuesta oficial de Census](evidence/v021-census-public-metadata.json) del 15 de noviembre devolvió cinco tablas de metadatos, sin clave. Esto no certifica una consulta demográfica ni la disponibilidad futura del servicio.
 
 El checkpoint `11b5a44` aprobó runtimes ([43675593741](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43675593741)), incluido `database021` con sockets Unix sin red, y servicios originales ([43675593745](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43675593745)). Verificación falló porque un gate conservaba el contador HTTP 102 anterior, aunque sus pruebas unitarias/Termux/SQLite pasaron. Los contadores de gates se actualizan junto con este nuevo inventario; su CI debe observarse por separado.
+
+El checkpoint de 57 `e4283187b145e8639f29d23bafff8481c616b821` aprobó [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43677805478), [runtimes](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43677805475) y [servicios originales](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43677805490). No sustituye el CI del nuevo checkpoint.
+
+`source021` pasó en 8.994 s con CUA, TinyTroupe, reglas NAP y Google Maps Scraper en el mismo producto, reinicio/replay, fallo del parser sin título y muestras de medias iguales. TinyTroupe usa NumPy 2.4.6/SciPy 1.15.3 fijados y `pip check`. CUA conserva archivos originales y licencia; solo cambia el import de tipos. TinyTroupe conserva su original y licencia; solo reemplaza el import del logger. Se verifica que esas sustituciones explican exactamente todos los bytes distintos. No se usan SDK ficticios ni módulos simulados. Maps compila `gmaps/entry.go` intacto con Go 1.26.11 y un puente propio de proyección. NAP compara campos exactos y devuelve solo IDs y campos discordantes; las instrucciones originales se verifican por Git SHA. [Evidencia de producto](evidence/v021-source021-local.json).
+
+`media021` pasó en 50.116 s con Quarto y Auto-Editor originales, flujo conjunto, reinicio/replay, silencio PCM y texto que intenta incluir archivos/código/enlaces/HTML. Quarto recibe Markdown escapado y formato HTML minimal fijo; Deno deniega red y se rechaza contenido activo. Auto-Editor recibe WAV generado de 800–8000 amplitudes a 8000 Hz, PCM 16 bits; la cuantización se refleja en los niveles. No se aceptan archivos, comandos, filtros, formatos o URLs del llamante. Se fijan 2601 archivos de las distribuciones originales, incluidos binarios y licencias. `VERDUGO_MEDIA_ROOT` elige el perfil preparado por el administrador. [Artefactos](evidence/v021-media-artifacts.json) y [resultados](evidence/v021-media021-local.json). Estos ejecutables son Linux x86_64; no se presume compatibilidad Termux.

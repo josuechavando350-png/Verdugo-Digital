@@ -374,6 +374,104 @@
       ]
     },
     {
+      "id": "cua",
+      "catalog_commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+      "operation": "actions.normalize",
+      "distribution": "bundled-adapted-source:cua",
+      "executed_version": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "LICENSE.md",
+          "git_blob_sha": "b8b198ce3ebaa22c9f59588a80f9f1875d85b34a",
+          "sha256": "c0779290c1d4783169aa3dbfb55feb505e563ef8a004bbf55298ceffcfbda8d9",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/LICENSE.md"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "README.md",
+          "git_blob_sha": "2fd153f7bbd28e26c69dc67bd436393b0e6b6337",
+          "sha256": "282243b39800d67a63e1dd2bd2b6713231049dc8647dee6bb2f14d1b83c6591e",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/README.md"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "libs/cua-bench/LICENSE",
+          "git_blob_sha": "98422212249abb3877d0536dd43c684ea235cb5e",
+          "sha256": "8e58dea3ed074859ef7cdf74f9eb3b51189dc3cd62080a3200ae40411ccf1182",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/libs/cua-bench/LICENSE"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "libs/cua-bench/cua_bench/__init__.py",
+          "git_blob_sha": "0c3383257f1acf1a0b388cb8839c024d98a357b2",
+          "sha256": "729b4ef93dacff0920386731cee31b11c1358abb6f6e1a141807db3d076e44cd",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/libs/cua-bench/cua_bench/__init__.py"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "libs/cua-bench/cua_bench/actions.py",
+          "git_blob_sha": "2e4f166ba9f8e91cea9b197215dba68d481ec781",
+          "sha256": "b1a8055900863e20ae83271cc5634cc5e4a20619d4eb6e96bd6e291d510a2654",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/libs/cua-bench/cua_bench/actions.py"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "libs/cua-bench/cua_bench/types.py",
+          "git_blob_sha": "e2a1dfbe419faf7996a4778b68c412aebff55261",
+          "sha256": "5fade45cd623c45832ba0770c0ae0301522339dfc2387294f9e4016c5106b5d1",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/libs/cua-bench/cua_bench/types.py"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "libs/cua-bench/pyproject.toml",
+          "git_blob_sha": "2e4d085bf961b2e812e653a6b7f404f8c4a805c3",
+          "sha256": "1106a67602256729d229979a402fbae28b5eb5180f423d426f0b18ba4e241a1e",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/libs/cua-bench/pyproject.toml"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "libs/python/agent/cua_agent/types.py",
+          "git_blob_sha": "1a43e2ceaa95b5868e68182f514b666f32e7b3b0",
+          "sha256": "50776bfbc06921f54cbd30a100d5bd1c9b1d3af9568f20fcc0f1da0a34b71dd6",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/libs/python/agent/cua_agent/types.py"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "libs/python/agent/tests/test_uitars_coordinate_security.py",
+          "git_blob_sha": "559c4c474ed4c8c2242063cd13f11048a587464e",
+          "sha256": "c3db61270d4e8f1c5bf0df2c2be46214706b502e1faf359c92b49132703da061",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/libs/python/agent/tests/test_uitars_coordinate_security.py"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "package.json",
+          "git_blob_sha": "12c0f9146bb95995c40edc0ce8d15bce0bf0b868",
+          "sha256": "8bdf34b2cf5298ff3761bec91660b471c096ee541bb2b16b9bb730d8e8d65577",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/package.json"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "pyproject.toml",
+          "git_blob_sha": "238cae2d2180a1678b7f4da5efbe59881afd3a62",
+          "sha256": "0c2e6296ff2e6a5a0384373ed33d5df297c28ccadbc904baaa92c38c7cbc5982",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/pyproject.toml"
+        }
+      ]
+    },
+    {
       "id": "datosmex",
       "catalog_commit": "4179265209ca8345cc2de533f82612a6ca45314f",
       "operation": "fix.latest",
@@ -1910,6 +2008,72 @@
       ]
     },
     {
+      "id": "tinytroupe",
+      "catalog_commit": "7ce8be378a37ee73f9745d6781452712318afa04",
+      "operation": "experiments.compare",
+      "distribution": "bundled-adapted-source:tinytroupe",
+      "executed_version": "7ce8be378a37ee73f9745d6781452712318afa04",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "microsoft/TinyTroupe",
+          "commit": "7ce8be378a37ee73f9745d6781452712318afa04",
+          "path": "LICENSE",
+          "git_blob_sha": "9e841e7a26e4eb057b24511e7b92d42b257a80e5",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "source_url": "https://github.com/microsoft/TinyTroupe/blob/7ce8be378a37ee73f9745d6781452712318afa04/LICENSE"
+        },
+        {
+          "repository": "microsoft/TinyTroupe",
+          "commit": "7ce8be378a37ee73f9745d6781452712318afa04",
+          "path": "README.md",
+          "git_blob_sha": "b5b02517a598f758193b80afcdb20acc4ec9ffe4",
+          "sha256": "ec74ab62135d01df3d07c6e76f6b47ede43cbbd0635f5106193eb34dde0deca0",
+          "source_url": "https://github.com/microsoft/TinyTroupe/blob/7ce8be378a37ee73f9745d6781452712318afa04/README.md"
+        },
+        {
+          "repository": "microsoft/TinyTroupe",
+          "commit": "7ce8be378a37ee73f9745d6781452712318afa04",
+          "path": "pyproject.toml",
+          "git_blob_sha": "57c402186955da787c4eac12b480932973c5606e",
+          "sha256": "52b6605d61e8b97f8268b809a440bfd44ccbdd1541b0da64e0bd7e092c13438d",
+          "source_url": "https://github.com/microsoft/TinyTroupe/blob/7ce8be378a37ee73f9745d6781452712318afa04/pyproject.toml"
+        },
+        {
+          "repository": "microsoft/TinyTroupe",
+          "commit": "7ce8be378a37ee73f9745d6781452712318afa04",
+          "path": "tests/unit/test_statistical_tests.py",
+          "git_blob_sha": "60e9415750a6c6065487b5a2b0c8a89f03c40d7e",
+          "sha256": "9a6b2535efc28eacdcbfd109065ff26936a7190dbc40b4ee1adcc496b5b10ac4",
+          "source_url": "https://github.com/microsoft/TinyTroupe/blob/7ce8be378a37ee73f9745d6781452712318afa04/tests/unit/test_statistical_tests.py"
+        },
+        {
+          "repository": "microsoft/TinyTroupe",
+          "commit": "7ce8be378a37ee73f9745d6781452712318afa04",
+          "path": "tinytroupe/__init__.py",
+          "git_blob_sha": "852cc76e53bda12c26ec26c0e714fea1ae593d33",
+          "sha256": "087b89e00912bc44df27bf4959ee0866392a4714d2eb647a89cca7c10ad6a34b",
+          "source_url": "https://github.com/microsoft/TinyTroupe/blob/7ce8be378a37ee73f9745d6781452712318afa04/tinytroupe/__init__.py"
+        },
+        {
+          "repository": "microsoft/TinyTroupe",
+          "commit": "7ce8be378a37ee73f9745d6781452712318afa04",
+          "path": "tinytroupe/experimentation/__init__.py",
+          "git_blob_sha": "79dfbd070a758ae7b46452e17b0f8e97ba92371f",
+          "sha256": "c0ca39890f1e674affc2f68c3a0b6278dfc4567d1f5bc03a1684b5b2b1e7e6a8",
+          "source_url": "https://github.com/microsoft/TinyTroupe/blob/7ce8be378a37ee73f9745d6781452712318afa04/tinytroupe/experimentation/__init__.py"
+        },
+        {
+          "repository": "microsoft/TinyTroupe",
+          "commit": "7ce8be378a37ee73f9745d6781452712318afa04",
+          "path": "tinytroupe/experimentation/statistical_tests.py",
+          "git_blob_sha": "78f08232dc072667d514ec0e948ab80836d550d1",
+          "sha256": "4bd362683d8c36494f34a557dfb834f79dd3454718aabfc2ea88ffe36ff9a708",
+          "source_url": "https://github.com/microsoft/TinyTroupe/blob/7ce8be378a37ee73f9745d6781452712318afa04/tinytroupe/experimentation/statistical_tests.py"
+        }
+      ]
+    },
+    {
       "id": "trendspyg",
       "catalog_commit": "9f07b2573e7287df85df9202da206569024723e9",
       "operation": "traffic.normalize",
@@ -2433,7 +2597,8 @@
       "path": "namespace/v1/message.pb.go",
       "git_blob_sha": "fbafeefdf6baf5e4d8755acf58dcda3bf0c1f8e4",
       "sha256": "41c1b68dfb81f9bd9b8aaf1dd75094feeab0164511637e2e285b1cb6b028402b",
-      "source_url": "https://github.com/temporalio/api-go/blob/a25ff4a2e7f88373feb9940809b5511881c35cc5/namespace/v1/message.pb.go"
+      "source_url": "https://github.com/temporalio/api-go/blob/a25ff4a2e7f88373feb9940809b5511881c35cc5/namespace/v1/message.pb.go",
+      "tag": "v1.64.3"
     },
     {
       "repository": "temporalio/api-go",
@@ -2441,7 +2606,8 @@
       "path": "temporalproto/json_marshal.go",
       "git_blob_sha": "2ff14a2f9a27a5e87afd94085eb412aeea1df962",
       "sha256": "f009759d407ad6fef862680e598987e73481dde92659782bdcb65261e36e6e29",
-      "source_url": "https://github.com/temporalio/api-go/blob/a25ff4a2e7f88373feb9940809b5511881c35cc5/temporalproto/json_marshal.go"
+      "source_url": "https://github.com/temporalio/api-go/blob/a25ff4a2e7f88373feb9940809b5511881c35cc5/temporalproto/json_marshal.go",
+      "tag": "v1.64.3"
     },
     {
       "repository": "temporalio/api-go",
@@ -2449,7 +2615,8 @@
       "path": "workflowservice/v1/request_response.pb.go",
       "git_blob_sha": "9f46f2e8c6510662d249acef1965ca9c07c406ee",
       "sha256": "842d45128b776a2fb48415a6b2f62440dbd240e180814dfee49927eab619b36d",
-      "source_url": "https://github.com/temporalio/api-go/blob/a25ff4a2e7f88373feb9940809b5511881c35cc5/workflowservice/v1/request_response.pb.go"
+      "source_url": "https://github.com/temporalio/api-go/blob/a25ff4a2e7f88373feb9940809b5511881c35cc5/workflowservice/v1/request_response.pb.go",
+      "tag": "v1.64.3"
     },
     {
       "repository": "temporalio/api-go",
@@ -2457,7 +2624,8 @@
       "path": "workflowservice/v1/service.pb.gw.go",
       "git_blob_sha": "0b553accec44159b7b2970056a116ca935f1cd8a",
       "sha256": "bea36d35bf0297bc1f8f9993c8e70d3b86f65e66a0428217749679876272ab04",
-      "source_url": "https://github.com/temporalio/api-go/blob/a25ff4a2e7f88373feb9940809b5511881c35cc5/workflowservice/v1/service.pb.gw.go"
+      "source_url": "https://github.com/temporalio/api-go/blob/a25ff4a2e7f88373feb9940809b5511881c35cc5/workflowservice/v1/service.pb.gw.go",
+      "tag": "v1.64.3"
     }
   ],
   "external_specifications": [

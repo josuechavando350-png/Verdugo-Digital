@@ -1,0 +1,16 @@
+{
+  "binaries": {
+    "google-maps-scraper": {
+      "source_commit": "e0c1d501e49cdcd5c6b2cecd2a032831f6ee9ba8",
+      "sha256": "aff226c1f9fac43d6d57d0920b743e0cda0a2c19665bb8efeefc45f74df6e519",
+      "original_sources": {
+        "LICENSE": "3b74f7e7dc75d6ec836c6dc3f072ce510e2a1cbf34aff1f3e7fbc46105ffcd2b",
+        "main.go": "fdac79e4386ddea08ab905f3e1f835906046995ec633ffb3c450b35a23c6b977",
+        "go.mod": "f699e36c116b6842700fa9f80b34be4404f892aa1d9d8ff4753d5ca5e6f58593",
+        "gmaps/entry.go": "8b80dec3e063461584e4f8fcbfecf224752f6010a194d20ec03513b4636d943e"
+      },
+      "go_archive_sha256": "9849f4e04ee35303714e34fbc3ac8ab44ea3e448a95aa182f91e3b9b79c710ec",
+      "scope": "Original EntryFromJSON and Validate; fixed first-party projection; no network"
+    }
+  }
+}

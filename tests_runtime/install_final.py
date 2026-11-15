@@ -14,7 +14,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from verdugo.local_cli import SPECS
 from install_expansion import install
-GROUPS={'tools021':['openapi-generator','cc-webgraph','arx','goaccess'],'planning021':['mcp-agent','nemo-guardrails'],'content021':['graphiti','openbb','people-also-ask','jobspy'],
+GROUPS={'media021':['quarto','auto-editor'],'source021':['cua','tinytroupe','local-seo-skills','google-maps-scraper'],'tools021':['openapi-generator','cc-webgraph','arx','goaccess'],'planning021':['mcp-agent','nemo-guardrails'],'content021':['graphiti','openbb','people-also-ask','jobspy'],
         'entities021':['chronos','gliner'],'pycli021':['dvc','dnstwist'],
         'finalpy021':['newsjack','kingfisher-collect'],
         'database021':['valkey','postgres','pgvector','apache-age'],
@@ -116,6 +116,12 @@ if __name__=='__main__':
             print('BEGIN_VERDUGO_FREEZE '+name,flush=True)
             print(Path('/tmp/'+name+'-resolved.txt').read_text(),flush=True)
             print('END_VERDUGO_FREEZE '+name,flush=True)
+    elif args.group=='media021':
+        from install_media import install as install_media
+        install_media()
+    elif args.group=='source021':
+        from install_source import install as install_source
+        install_source()
     elif args.group=='tools021':
         from install_native_tools import install as install_tools
         install_tools()

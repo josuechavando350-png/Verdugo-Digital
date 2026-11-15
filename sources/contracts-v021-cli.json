@@ -1,6 +1,6 @@
 {
   "schema": "verdugo.source-api-evidence.v1",
-  "scope": "six original source-built fixed CLI operations; no caller-controlled command",
+  "scope": "seven fixed source-built CLI operations; original Maps parser with first-party bridge; no caller commands",
   "files": [
     {
       "service": "gitleaks",
@@ -161,6 +161,22 @@
       "path": "cmd/grype/cli/commands/db_status.go",
       "blob_sha": "af402e27aab1bce3f257c299ee434cb7d8aa06c5",
       "url": "https://github.com/anchore/grype/blob/cd1f23eb50dfb52647090158f453c7359172591f/cmd/grype/cli/commands/db_status.go"
+    },
+    {
+      "service": "google-maps-scraper",
+      "repository": "gosom/google-maps-scraper",
+      "commit": "e0c1d501e49cdcd5c6b2cecd2a032831f6ee9ba8",
+      "path": "gmaps/entry.go",
+      "blob_sha": "2a2ea694aa7916d7773cd217beb1baefceae4bb8",
+      "url": "https://github.com/gosom/google-maps-scraper/blob/e0c1d501e49cdcd5c6b2cecd2a032831f6ee9ba8/gmaps/entry.go"
+    },
+    {
+      "service": "google-maps-scraper",
+      "repository": "gosom/google-maps-scraper",
+      "commit": "e0c1d501e49cdcd5c6b2cecd2a032831f6ee9ba8",
+      "path": "LICENSE",
+      "blob_sha": "3370b0256da0e20f19fbdc2e5ed1721d36880a55",
+      "url": "https://github.com/gosom/google-maps-scraper/blob/e0c1d501e49cdcd5c6b2cecd2a032831f6ee9ba8/LICENSE"
     }
   ]
 }

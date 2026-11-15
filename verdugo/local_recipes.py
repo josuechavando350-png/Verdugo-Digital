@@ -9,6 +9,8 @@ import math
 
 
 def run(service, operation, p):
+    from .local_media import SPECS as MEDIA, run as run_media
+    if service in MEDIA: return run_media(service, p)
     from .local_native_tools import SPECS as NATIVE_TOOLS, run as run_native_tools
     if service in NATIVE_TOOLS: return run_native_tools(service, p)
     from .local_database import SPECS as DATABASE, run as run_database

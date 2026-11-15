@@ -11,11 +11,12 @@ selected=GROUPS[args.group]
 for sid in selected:
     key=runtime_profile.PROFILE_ENV.get(sid)
     if key:os.environ.setdefault(key,'/tmp/verdugo-'+key.removeprefix('VERDUGO_').removesuffix('_PYTHON').lower().replace('_','-')+'-venv/bin/python')
+os.environ.setdefault('VERDUGO_MEDIA_ROOT','/tmp/verdugo-media021')
 os.environ.setdefault('VERDUGO_NATIVE_TOOLS_ROOT', '/tmp/verdugo-java021')
 os.environ.setdefault('VERDUGO_DATABASE_ROOT','/tmp/verdugo-database021')
 os.environ.setdefault('VERDUGO_R_ROOT','/tmp/verdugo-r021')
 os.environ.setdefault('VERDUGO_NATIVE_ROOT','/tmp/verdugo-node021')
-os.environ.setdefault('VERDUGO_CLI_ROOT','/tmp/verdugo-cli021')
+os.environ.setdefault('VERDUGO_CLI_ROOT','/tmp/verdugo-maps021' if args.group=='source021' else '/tmp/verdugo-cli021')
 os.environ['VERDUGO_RUNTIME_SERVICES']=','.join(selected)
 os.environ['VERDUGO_RUNTIME_REQUIRED']='1'
 os.environ['VERDUGO_RUNTIME_EVIDENCE']='/tmp/'+args.group+'-execution-evidence.json'

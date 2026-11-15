@@ -73,3 +73,9 @@ CASES.update(DATABASE_CASES)
 
 from native_tools_fixtures import CASES as TOOLS_CASES
 CASES.update(TOOLS_CASES)
+
+from source_fixtures import CASES as SOURCE_CASES
+CASES.update(SOURCE_CASES)
+
+from media_fixtures import CASES as MEDIA_CASES
+CASES.update(MEDIA_CASES)
