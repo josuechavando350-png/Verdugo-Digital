@@ -13,7 +13,7 @@ const esc=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&g
   const context=await browser.newContext({javaScriptEnabled:false,serviceWorkers:'block',offline:true});
   await context.route('**/*',r=>r.abort());const page=await context.newPage();
   await page.setContent('<!doctype html><html><head><title>'+esc(p.title)+'</title></head><body><main>'+p.headings.map(h=>`<h${h.level}>${esc(h.text)}</h${h.level}>`).join('')+p.buttons.map(b=>'<button>'+esc(b)+'</button>').join('')+'</main></body></html>');
-  const server=await createConnection({capabilities:['core'],browser:{browserName:'chromium',isolated:true,contextOptions:{javaScriptEnabled:false}},outputMode:'stdout'},async()=>context);
+  const server=await createConnection({capabilities:['core'],browser:{browserName:'chromium',isolated:false,contextOptions:{javaScriptEnabled:false}},outputMode:'stdout'},async()=>context);
   const client=new Client({name:'verdugo-fixed-client',version:'0.21.0'},{capabilities:{}});
   const [ct,st]=InMemoryTransport.createLinkedPair();await server.connect(st);await client.connect(ct);
   try {
