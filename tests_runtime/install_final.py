@@ -68,6 +68,9 @@ def cli(selected):
         subprocess.run([go,'install','-p','2','filippo.io/age/cmd/age-keygen@v1.3.1'],env=dict(env,GOBIN=str(home/'bin')),check=True)
         manifest['binaries']['sops'].update(age_keygen_version='v1.3.1',age_keygen_sha256=digest(home/'bin/age-keygen'))
     # Free build cache before unpacking the multi-gigabyte vulnerability snapshot.
+    # Go marks extracted module directories read-only. Its cleanup command
+    # handles permissions correctly for the unprivileged CI account.
+    subprocess.run([go,'clean','-modcache'],env=dict(env,GOTOOLCHAIN='local'),check=True)
     shutil.rmtree(build)
     if 'grype' in selected:
         archive=home/'db.tar.zst';download(DB_URL,archive,DB_SHA)
