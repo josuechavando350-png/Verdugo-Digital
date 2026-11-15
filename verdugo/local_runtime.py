@@ -16,7 +16,7 @@ import sys
 import tempfile
 
 from .common import VerdugoError, fields, identifier, integer, encode
-from . import local_pilot666, local_executive666, local_reasoning666, local_flow666, local_planning666, local_volt666, local_manus666, local_memory666, local_monty666, local_browserstate666, local_dispatch666, local_trace666, local_toolaudit666, local_guardian666, local_explain666, local_lens666, objectives
+from . import local_pilot666, local_executive666, local_reasoning666, local_flow666, local_planning666, local_volt666, local_manus666, local_memory666, local_monty666, local_browserstate666, local_dispatch666, local_trace666, local_toolaudit666, local_guardian666, local_explain666, local_lens666, local_tensor666, local_encoding666, local_quant666, objectives
 from . import local_extended, local_analytics, local_research, local_interop, local_knowledge, local_data, local_native, local_cli, local_content, local_pycli, local_planning, local_completion, local_source, local_r, local_database, local_native_tools, local_media, local_images, local_lastnode, local_owned_http, runtime_profile
 
 # Primary published distribution versions; upstream source pins are a separate
@@ -77,6 +77,9 @@ SPECS.update(local_toolaudit666.SPECS)
 SPECS.update(local_guardian666.SPECS)
 SPECS.update(local_explain666.SPECS)
 SPECS.update(local_lens666.SPECS)
+SPECS.update(local_tensor666.SPECS)
+SPECS.update(local_quant666.SPECS)
+SPECS.update(local_encoding666.SPECS)
 EXTRA.update(local_completion.EXTRA)
 EXTRA.update(local_planning.EXTRA)
 EXTRA.update(local_content.EXTRA)
@@ -90,6 +93,12 @@ def supports(service, operation):
 
 
 def installed(service):
+    if service in local_quant666.SPECS:
+        return local_quant666.runtime_state(service)
+    if service in local_encoding666.SPECS:
+        return local_encoding666.runtime_state(service)
+    if service in local_tensor666.SPECS:
+        return local_tensor666.runtime_state(service)
     operation, distribution, expected = SPECS[service]
     if service in local_browserstate666.SPECS:
         return local_browserstate666.runtime_state(service)
@@ -193,6 +202,12 @@ def labels(values, count, minimum_per_class=1):
 
 
 def validate(service, operation, params):
+    if service in local_encoding666.SPECS:
+        return local_encoding666.validate(service, operation, params)
+    if service in local_quant666.SPECS:
+        return local_quant666.validate(service, operation, params)
+    if service in local_tensor666.SPECS:
+        return local_tensor666.validate(service, operation, params)
     if service in local_lens666.SPECS:
         return local_lens666.validate(service, operation, params)
     if service in local_explain666.SPECS:
@@ -390,6 +405,8 @@ def implementation_digest():
                  Path(local_guardian666.__file__), local_guardian666.CONTRACT,
                  Path(local_explain666.__file__), local_explain666.CONTRACT,
                  Path(local_lens666.__file__), local_lens666.CONTRACT,
+                 Path(local_tensor666.__file__), Path(local_encoding666.__file__), local_encoding666.CONTRACT,
+                 Path(local_quant666.__file__), local_quant666.CONTRACT, local_tensor666.CONTRACT,
                  local_guardian666.ASSETS / 'tokenizer_config.json',
                  Path(local_browserstate666.__file__), local_browserstate666.CONTRACT, local_browserstate666.GUARD,
                  Path(local_memory666.__file__), local_memory666.CONTRACT, local_memory666.WORKER):

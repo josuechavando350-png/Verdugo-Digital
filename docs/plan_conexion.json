@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 348,
+ "pending": 347,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -206,23 +206,9 @@
    "kind": "cli",
    "domain": "pensamiento",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "setup.py original requiere bibliotecas nativas todavía no compiladas. Preparación TVM/tokenizers-cpp/XGrammar pendiente; no es un fallo de compilación upstream demostrado.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
-   "id": "candle",
-   "repository": "huggingface/candle",
-   "commit": "cfcbd7186d13271843ce7eb41d25659bd0835850",
-   "license": "Apache-2.0 AND MIT",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "pensamiento",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/contracts-executive-blockers666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 1",
@@ -234,23 +220,9 @@
    "kind": "biblioteca",
    "domain": "pensamiento",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "Dependencia obligatoria cufile-python declara MIT, pero wheel, sdist y árbol original inspeccionados omiten LICENSE; evidencia completa pendiente, no reclasificación como privativa.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
-   "id": "tokenizers",
-   "repository": "huggingface/tokenizers",
-   "commit": "39e28180be35af322d0abf08007d937641a5493b",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "pensamiento",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/contracts-executive-blockers666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 1",
@@ -258,20 +230,6 @@
    "repository": "vllm-project/llm-compressor",
    "commit": "f8a3abb5358765a1864783deb3e38d3e2452912a",
    "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "pensamiento",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
-   "id": "bitsandbytes",
-   "repository": "bitsandbytes-foundation/bitsandbytes",
-   "commit": "a616886cacf86701514f0cb1d6be760f967481c0",
-   "license": "MIT",
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "pensamiento",
@@ -4871,6 +4829,34 @@
    "nota": null,
    "live_verified": false,
    "evidence": "sources/registry-666.json"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 1",
+   "id": "candle",
+   "repository": "huggingface/candle",
+   "commit": "cfcbd7186d13271843ce7eb41d25659bd0835850",
+   "license": "Apache-2.0 AND MIT",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "pensamiento",
+   "que_hacer": "Resolver revisión de dependencias sin omitir requisitos ni ampliar política automáticamente.",
+   "nota": "Candidate source build succeeded, but transitive license evidence falls outside the closed allowlist. Disabled; see contracts-executive-blockers666.json.",
+   "live_verified": false,
+   "evidence": "sources/contracts-tensor666.json"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 1",
+   "id": "tokenizers",
+   "repository": "huggingface/tokenizers",
+   "commit": "39e28180be35af322d0abf08007d937641a5493b",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "pensamiento",
+   "que_hacer": "Resolver revisión de dependencias sin omitir requisitos ni ampliar política automáticamente.",
+   "nota": "Candidate source build succeeded, but transitive license evidence falls outside the closed allowlist. Disabled; see contracts-executive-blockers666.json.",
+   "live_verified": false,
+   "evidence": "sources/contracts-encoding666.json"
   }
  ],
  "baseline_commit": "35516f830cba1e0dbb06b91f44357128440fc832",
@@ -7696,6 +7682,21 @@
    "live_verified": false,
    "evidence": "sources/contracts-lens666.json",
    "operation": "activations.check"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 1",
+   "id": "bitsandbytes",
+   "repository": "bitsandbytes-foundation/bitsandbytes",
+   "commit": "a616886cacf86701514f0cb1d6be760f967481c0",
+   "license": "MIT",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "pensamiento",
+   "que_hacer": "Operación local implementada; sin certificación productiva.",
+   "nota": "Original native CPU blockwise quantization and reconstruction, fixed synthetic inputs; report error and complete array byte counts.",
+   "live_verified": false,
+   "evidence": "sources/contracts-quant666.json",
+   "operation": "quantization.check"
   }
  ]
 }

@@ -268,7 +268,7 @@ class LoopbackTests(unittest.TestCase):
 
             def do_POST(self):
                 owner.calls.append(('WRITE', self.path, None))
-                self.send_response(405)
+                self.send_response(406)
                 self.end_headers()
 
         self.server = HTTPServer(('127.0.0.1', 0), Handler)
@@ -382,14 +382,14 @@ class CatalogueTruthTests(unittest.TestCase):
 
     def test_connection_changes_are_code_derived_and_do_not_certify_production(self):
         report = connections.summary()
-        self.assertEqual({'conectado': 262, 'pendiente': 348, 'pieza_de_construccion': 56, 'excluido': 22}, report['states'])
+        self.assertEqual({'conectado': 263, 'pendiente': 347, 'pieza_de_construccion': 56, 'excluido': 22}, report['states'])
         self.assertEqual(0, report['live_verified'])
         with closing(Engine(':memory:')) as engine:
             status = engine.status()
         self.assertEqual(103, status['api_adapters_implemented'])
         self.assertEqual(107, status['api_actions_implemented'])
-        self.assertEqual(281, status['total_adapters_implemented'])
-        self.assertEqual(407, status['projects_without_any_adapter'])
+        self.assertEqual(282, status['total_adapters_implemented'])
+        self.assertEqual(406, status['projects_without_any_adapter'])
 
 
 if __name__ == '__main__':

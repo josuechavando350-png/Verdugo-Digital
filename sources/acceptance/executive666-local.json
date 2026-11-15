@@ -19,7 +19,8 @@
     "llama-cpp",
     "granite-guardian",
     "interpret",
-    "transformerlens"
+    "transformerlens",
+    "bitsandbytes"
   ],
   "original_sdks_executed": true,
   "mocked_sdks": false,
@@ -33,7 +34,7 @@
         "dataset": "demo",
         "distribution": "semantic-kernel",
         "external_provider_calls_made": false,
-        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4",
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -84,7 +85,7 @@
         "dataset": "demo",
         "distribution": "agno",
         "external_provider_calls_made": false,
-        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4",
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -139,7 +140,7 @@
         "dataset": "demo",
         "distribution": "griptape",
         "external_provider_calls_made": false,
-        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4",
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66",
         "ok": true,
         "operation": "objective.scenarios",
         "production_certified": false,
@@ -188,7 +189,7 @@
         "dataset": "demo",
         "distribution": "strands-agents",
         "external_provider_calls_made": false,
-        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4",
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66",
         "ok": true,
         "operation": "limits.parallel",
         "production_certified": false,
@@ -228,7 +229,7 @@
         "dataset": "demo",
         "distribution": "mcp:@modelcontextprotocol/server-memory",
         "external_provider_calls_made": false,
-        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4",
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66",
         "ok": true,
         "operation": "graph.audit",
         "production_certified": false,
@@ -267,7 +268,7 @@
         "dataset": "demo",
         "distribution": "ag2",
         "external_provider_calls_made": false,
-        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4",
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66",
         "ok": true,
         "operation": "actions.check",
         "production_certified": false,
@@ -303,7 +304,7 @@
         "dataset": "demo",
         "distribution": "unified-planning",
         "external_provider_calls_made": false,
-        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4",
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66",
         "ok": true,
         "operation": "sequence.validate",
         "production_certified": false,
@@ -339,7 +340,7 @@
         "dataset": "demo",
         "distribution": "playwright",
         "external_provider_calls_made": false,
-        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4",
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66",
         "ok": true,
         "operation": "cookies.check",
         "production_certified": false,
@@ -464,7 +465,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
       },
       "measure": {
         "algorithm": "synthetic-funnel-v1",
@@ -525,7 +526,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
       },
       "review": {
         "ok": true,
@@ -556,7 +557,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
       },
       "measurement_review": {
         "ok": true,
@@ -588,7 +589,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
       },
       "dispatch_policy": {
         "ok": true,
@@ -631,7 +632,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
       },
       "trace_policy": {
         "ok": true,
@@ -675,7 +676,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
       },
       "tool_audit": {
         "ok": true,
@@ -711,7 +712,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
       },
       "context_budget": {
         "ok": true,
@@ -752,7 +753,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
       },
       "model_review": {
         "ok": true,
@@ -797,7 +798,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
       },
       "explanation": {
         "ok": true,
@@ -840,7 +841,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
       },
       "activations": {
         "ok": true,
@@ -886,7 +887,54 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
+      },
+      "quantization": {
+        "ok": true,
+        "service": "bitsandbytes",
+        "operation": "quantization.check",
+        "distribution": "bitsandbytes",
+        "version": "0.50.3.dev0",
+        "dataset": "demo",
+        "result": {
+          "value_count": 64,
+          "block_count": 1,
+          "block_size": 64,
+          "original_array_bytes": 256,
+          "quantized_array_bytes": 64,
+          "scale_array_bytes": 4,
+          "codebook_array_bytes": 1024,
+          "total_representation_array_bytes": 1092,
+          "array_bytes_saved": -836,
+          "object_and_allocator_overhead_included": false,
+          "max_absolute_reconstruction_error": 0.22500038146972656,
+          "mean_absolute_reconstruction_error": 0.10493236082220392,
+          "scalar_reconstruction_max_error": 0.0,
+          "block_scales_verified": true,
+          "native_cpu_path_used": true,
+          "model_weights_loaded": false,
+          "model_accuracy_measured": false,
+          "speed_benchmarked": false,
+          "quality_calibrated": false,
+          "original_sdk": "bitsandbytes",
+          "sdk_version": "0.50.3.dev0",
+          "source_commit": "a616886cacf86701514f0cb1d6be760f967481c0",
+          "native_artifact_receipt_verified": true,
+          "reproducible_binary_build_proven": false,
+          "dataset": "demo",
+          "dry_run": true,
+          "llm_calls": 0,
+          "autonomous_agent": false,
+          "external_calls_made": false,
+          "external_execution_authorized": false,
+          "operator_approval_required": true,
+          "approvals_granted": 0,
+          "business_outcome_proven": false
+        },
+        "external_provider_calls_made": false,
+        "production_certified": false,
+        "commercial_success_probability": null,
+        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
       }
     }
   },

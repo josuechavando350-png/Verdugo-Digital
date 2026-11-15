@@ -18,7 +18,7 @@ from verdugo import local_runtime, objectives, workflow
 
 
 def accept():
-    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','servers','monty','playwright-python','hatchet','invariant','pyrit','llama-cpp','granite-guardian','interpret','transformerlens')
+    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','servers','monty','playwright-python','hatchet','invariant','pyrit','llama-cpp','granite-guardian','interpret','transformerlens','bitsandbytes')
     spec=json.loads((ROOT/'examples/executive666.synthetic.json').read_text())
     cfg=template('nexus')
     for sid in services:
@@ -41,12 +41,12 @@ def accept():
         with closing(engine()) as e:
             result=invoke(e,'verdugo_workflow',{'workflow':spec,'execute':True})
             assert result['state']=='succeeded',result
-            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations'}
+            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations','quantization'}
             r=result['steps']['check']['result']
             assert r['planned_contacts']==200 and r['planned_cost_minor']==0
             assert r['feasible_under_declared_limits'] and not r['external_execution_authorized']
             assert result['steps']['agno']['result']['budget_checked']
-            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations'),services):
+            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations','quantization'),services):
                 actual=result['steps'][step]['result']
                 assert actual['original_sdk']==sid and actual['llm_calls']==(1 if sid=='granite-guardian' else 0)
                 assert not actual['autonomous_agent']
@@ -114,7 +114,13 @@ def accept():
             assert activation['untrained_toy_model'] and not activation['pretrained_weights_downloaded']
             assert not activation['real_llm_reasoning_explained'] and activation['approvals_granted']==0
             assert 'logits' not in activation and 'activations' not in activation
-            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==21
+            quantized=result['steps']['quantization']['result']
+            assert quantized['native_cpu_path_used'] and quantized['block_scales_verified']
+            assert quantized['original_array_bytes']==256 and quantized['quantized_array_bytes']==64
+            assert quantized['codebook_array_bytes']==1024 and quantized['scale_array_bytes']==4
+            assert quantized['total_representation_array_bytes']==1092 and quantized['array_bytes_saved']==-836
+            assert quantized['scalar_reconstruction_max_error']<1e-4 and not quantized['speed_benchmarked']
+            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==22
         with closing(engine()) as e, \
                 patch.object(local_runtime,'execute',side_effect=AssertionError('SDK re-executed')), \
                 patch.object(objectives,'simulate',side_effect=AssertionError('simulation re-executed')):
@@ -283,6 +289,13 @@ def accept():
                 activation=checked['result']['result']
                 assert activation['max_output_change']==0 and activation['max_restored_output_error']==0
                 assert activation['hooks_remaining']==0 and activation['max_future_attention']==0
+            for label,values in [('zero',[0]*64),('one',[17]),('partial',[17]*65),('extreme',[-1000,1000]*256)]:
+                checked=e.execute({'service':'bitsandbytes','operation':'quantization.check',
+                    'key':'quantization-'+label,'params':{'dataset':'demo','values':values}},True)
+                assert checked['state']=='succeeded',checked
+                q=checked['result']['result']
+                assert q['native_cpu_path_used'] and q['scalar_reconstruction_max_error']<1e-4
+                if label!='extreme':assert q['max_absolute_reconstruction_error']==0
     assert not calls
     return {'schema':'verdugo.executive666.acceptance.v1','services':list(services),
             'original_sdks_executed':True,'mocked_sdks':False,'dataset':'demo',

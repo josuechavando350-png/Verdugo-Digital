@@ -515,6 +515,389 @@
       "observed_license": "Intel EULA for Developer Tools (August 2024)",
       "reason": "Official x86_64 CPU profile requires intel-openmp; inspected distribution license is outside permitted runtime license set. Not installed or executed.",
       "scope": "Concrete CPU path only; default CUDA profile separately needs hardware/dependency review. Other versions or original platform profiles not ruled out. No override or legal conclusion."
+    },
+    {
+      "id": "lmcache",
+      "state": "pending",
+      "repo": "LMCache/LMCache",
+      "commit": "bcafb031401d404a5dabae4853f5e23bf9e5685c",
+      "required_by_original_source": {
+        "path": "requirements/common.txt",
+        "blob_sha": "d875b5fcb62a1857a843f59823a0c6987ee0b554",
+        "sha256": "f96698ec099d4587d5cd1fbc50329fb71b8799bae708c6e5ee7cdd7ef4f6a756",
+        "dependency_lines": [
+          "cufile-python"
+        ]
+      },
+      "inspected_dependency": {
+        "distribution": "cufile-python",
+        "version": "0.2.0",
+        "declared_license": "MIT",
+        "artifacts": [
+          {
+            "filename": "cufile_python-0.2.0-py3-none-any.whl",
+            "url": "https://files.pythonhosted.org/packages/99/ce/14f95b3176ef603921e0583c72f6d909c75a7b2cce34b4918ef05d633af0/cufile_python-0.2.0-py3-none-any.whl",
+            "sha256": "f19a67b32f11ffdde35d0a62f44ca196f51463a106dd54b30e1f4c5c4577cb19",
+            "member_names": [
+              "cufile/__init__.py",
+              "cufile/bindings.py",
+              "cufile/cufile.py",
+              "tests/__init__.py",
+              "tests/test_cufile.py",
+              "cufile_python-0.2.0.dist-info/METADATA",
+              "cufile_python-0.2.0.dist-info/WHEEL",
+              "cufile_python-0.2.0.dist-info/top_level.txt",
+              "cufile_python-0.2.0.dist-info/RECORD"
+            ]
+          },
+          {
+            "filename": "cufile_python-0.2.0.tar.gz",
+            "url": "https://files.pythonhosted.org/packages/b8/6f/d2db22da38c41c3e37e12b2ed2edd251bd20f5d861f50cb39e70524b98b8/cufile_python-0.2.0.tar.gz",
+            "sha256": "13455ff4df789ce623ced2cffb3c84671a47c99fd9ee737399e524a3d0aeb3f3",
+            "member_names": [
+              "cufile_python-0.2.0",
+              "cufile_python-0.2.0/PKG-INFO",
+              "cufile_python-0.2.0/README.md",
+              "cufile_python-0.2.0/cufile",
+              "cufile_python-0.2.0/cufile/__init__.py",
+              "cufile_python-0.2.0/cufile/bindings.py",
+              "cufile_python-0.2.0/cufile/cufile.py",
+              "cufile_python-0.2.0/cufile_python.egg-info",
+              "cufile_python-0.2.0/cufile_python.egg-info/PKG-INFO",
+              "cufile_python-0.2.0/cufile_python.egg-info/SOURCES.txt",
+              "cufile_python-0.2.0/cufile_python.egg-info/dependency_links.txt",
+              "cufile_python-0.2.0/cufile_python.egg-info/top_level.txt",
+              "cufile_python-0.2.0/setup.cfg",
+              "cufile_python-0.2.0/setup.py",
+              "cufile_python-0.2.0/tests",
+              "cufile_python-0.2.0/tests/__init__.py",
+              "cufile_python-0.2.0/tests/test_cufile.py"
+            ]
+          }
+        ],
+        "repository": "yanok/cufile-python",
+        "commit": "a45d43c79513b1b5aafe9ef15c127b16a3791e7b",
+        "tree": {
+          "sha": "a45d43c79513b1b5aafe9ef15c127b16a3791e7b",
+          "url": "https://api.github.com/repos/yanok/cufile-python/git/trees/a45d43c79513b1b5aafe9ef15c127b16a3791e7b",
+          "tree": [
+            {
+              "path": ".github",
+              "mode": "040000",
+              "type": "tree",
+              "sha": "36b7863e366e04d92fa1824ca59fe07398c4ade5",
+              "url": "https://api.github.com/repos/yanok/cufile-python/git/trees/36b7863e366e04d92fa1824ca59fe07398c4ade5"
+            },
+            {
+              "path": ".github/workflows",
+              "mode": "040000",
+              "type": "tree",
+              "sha": "8aa1b86d2717122fa63a6dba494e573fcd5fe46d",
+              "url": "https://api.github.com/repos/yanok/cufile-python/git/trees/8aa1b86d2717122fa63a6dba494e573fcd5fe46d"
+            },
+            {
+              "path": ".github/workflows/ci.yml",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "ca306414221731b0027254b4730b15626d0d1b7d",
+              "size": 761,
+              "url": "https://api.github.com/repos/yanok/cufile-python/git/blobs/ca306414221731b0027254b4730b15626d0d1b7d"
+            },
+            {
+              "path": ".gitignore",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "ef922a92740b519a046b8dd2d7ed3c1688f2d439",
+              "size": 164,
+              "url": "https://api.github.com/repos/yanok/cufile-python/git/blobs/ef922a92740b519a046b8dd2d7ed3c1688f2d439"
+            },
+            {
+              "path": "CHANGELOG.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "a29f5f3cec8a537d49a4e89201d348aa7463575f",
+              "size": 118,
+              "url": "https://api.github.com/repos/yanok/cufile-python/git/blobs/a29f5f3cec8a537d49a4e89201d348aa7463575f"
+            },
+            {
+              "path": "README.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "0bdd7cf0f4c7fd48773bc70443e6076a5950e853",
+              "size": 929,
+              "url": "https://api.github.com/repos/yanok/cufile-python/git/blobs/0bdd7cf0f4c7fd48773bc70443e6076a5950e853"
+            },
+            {
+              "path": "cufile",
+              "mode": "040000",
+              "type": "tree",
+              "sha": "8ce5648c901da1a9982e82c6b337a834150598d0",
+              "url": "https://api.github.com/repos/yanok/cufile-python/git/trees/8ce5648c901da1a9982e82c6b337a834150598d0"
+            },
+            {
+              "path": "cufile/__init__.py",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "e820127ee81b164712f91763a5ab64fa0744d449",
+              "size": 176,
+              "url": "https://api.github.com/repos/yanok/cufile-python/git/blobs/e820127ee81b164712f91763a5ab64fa0744d449"
+            },
+            {
+              "path": "cufile/bindings.py",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "ef653c1d70e0427bdfc16b42234d51e8e29a49c1",
+              "size": 2893,
+              "url": "https://api.github.com/repos/yanok/cufile-python/git/blobs/ef653c1d70e0427bdfc16b42234d51e8e29a49c1"
+            },
+            {
+              "path": "cufile/cufile.py",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "3d360f8d4681ee188fab073bf6244fecb6f18548",
+              "size": 3090,
+              "url": "https://api.github.com/repos/yanok/cufile-python/git/blobs/3d360f8d4681ee188fab073bf6244fecb6f18548"
+            },
+            {
+              "path": "requirements.txt",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "92ffdd53d1ff8bb994e0a43f2ce1a69806667fe2",
+              "size": 94,
+              "url": "https://api.github.com/repos/yanok/cufile-python/git/blobs/92ffdd53d1ff8bb994e0a43f2ce1a69806667fe2"
+            },
+            {
+              "path": "setup.py",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "e04d4ef945533654bedcc3490cff07403928aed9",
+              "size": 604,
+              "url": "https://api.github.com/repos/yanok/cufile-python/git/blobs/e04d4ef945533654bedcc3490cff07403928aed9"
+            },
+            {
+              "path": "tests",
+              "mode": "040000",
+              "type": "tree",
+              "sha": "0c0be21828a6f73407100480eea54d59fcb93beb",
+              "url": "https://api.github.com/repos/yanok/cufile-python/git/trees/0c0be21828a6f73407100480eea54d59fcb93beb"
+            },
+            {
+              "path": "tests/__init__.py",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "0d87c7f367d6ea59dad3ea769c14b0b5766a93a4",
+              "size": 40,
+              "url": "https://api.github.com/repos/yanok/cufile-python/git/blobs/0d87c7f367d6ea59dad3ea769c14b0b5766a93a4"
+            },
+            {
+              "path": "tests/test_cufile.py",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "8286bafc4317b852ed4da78720abaef78c4247f9",
+              "size": 5138,
+              "url": "https://api.github.com/repos/yanok/cufile-python/git/blobs/8286bafc4317b852ed4da78720abaef78c4247f9"
+            },
+            {
+              "path": "tests/test_cufile_mock.py",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "0d5784db76b21a22e113eb8296ec2350b0eee03e",
+              "size": 20477,
+              "url": "https://api.github.com/repos/yanok/cufile-python/git/blobs/0d5784db76b21a22e113eb8296ec2350b0eee03e"
+            }
+          ],
+          "truncated": false
+        },
+        "files": [
+          {
+            "path": "README.md",
+            "blob_sha": "0bdd7cf0f4c7fd48773bc70443e6076a5950e853",
+            "text": "# cufile-python\n\nA basic Python wrapper for the NVidia cuFile API\n\n## Installation\n\n```bash\npip install cufile-python\n```\n\n## Usage\n\nBasic usage with the `CuFile` context manager:\n\n```python\nfrom cufile import CuFile\nimport torch\nimport ctypes\n\n# allocate an empty buffer in VRAM\nt = torch.empty((1024, 1024, 16), dtype=torch.float32, device=\"cuda\")\nwith CuFile(\"test.bin\", \"r\") as f:\n    f.read(ctypes.c_void_p(t.data_ptr()), t.nbytes)\n```\n\nAlternatively one could `import cufile.bindings` and use it as if calling libcufile from C++.\n\n## Development\n\nTo set up the development environment:\n\n1. Clone the repository:\n```bash\ngit clone https://github.com/yanok/cufile-python.git\ncd cufile-python\n```\n\n2. Install development dependencies:\n```bash\npip install -r requirements.txt\n```\n\n3. Run tests:\n```bash\npython -m pytest tests/\n```\n\n## License\n\nThis project is licensed under the MIT License - see the LICENSE file for details. ",
+            "sha256": "d2999e68b9f93991de5187d04ea8df4e27dd210c6306157f7ea1f7fdf2a060ac"
+          },
+          {
+            "path": "setup.py",
+            "blob_sha": "e04d4ef945533654bedcc3490cff07403928aed9",
+            "text": "from setuptools import setup, find_packages\n\nsetup(\n    name=\"cufile-python\",\n    version=\"0.2.0\",\n    packages=find_packages(),\n    install_requires=[],\n    author=\"Ilya Yanok\",\n    author_email=\"ilya.yanok@gmail.com\",\n    description=\"A basic Python wrapper for the NVidia cuFile API\",\n    long_description=open(\"README.md\").read(),\n    long_description_content_type=\"text/markdown\",\n    url=\"https://github.com/yanok/cufile-python\",\n    license=\"MIT\",\n    classifiers=[\n        \"Programming Language :: Python :: 3\",\n        \"Operating System :: POSIX :: Linux\",\n    ],\n    python_requires=\">=3.6\",\n)\n",
+            "sha256": "f537b1ba600b9e6323dca768cb94b47c334fdc0298e871e138f430bdb3b4f132"
+          },
+          {
+            "path": "cufile/__init__.py",
+            "blob_sha": "e820127ee81b164712f91763a5ab64fa0744d449",
+            "text": "\"\"\"\ncufile-python - A basic Python wrapper for the NVidia cuFile API\n\"\"\"\n\n__version__ = \"0.1.0\"\n\nfrom .cufile import CuFile, CuFileDriver\n\n__all__ = [\"CuFile\", \"CuFileDriver\"]\n",
+            "sha256": "8396c16a578aeb4bb028b423119fd03c46119bd8a2541199b4831a88fe6ac367"
+          },
+          {
+            "path": "cufile/bindings.py",
+            "blob_sha": "ef653c1d70e0427bdfc16b42234d51e8e29a49c1",
+            "text": "import ctypes\n\nlibcufile = ctypes.CDLL(\"libcufile.so\")\n\n\nclass CUfileError(ctypes.Structure):\n    _fields_ = [(\"err\", ctypes.c_int), (\"cu_err\", ctypes.c_int)]\n\n\nCUfileHandle_t = ctypes.c_void_p\n\n\nclass DescrUnion(ctypes.Union):\n    _fields_ = [(\"fd\", ctypes.c_int), (\"handle\", ctypes.c_void_p)]\n\n\nclass CUfileDescr(ctypes.Structure):\n    _fields_ = [\n        (\"type\", ctypes.c_int),\n        (\"handle\", DescrUnion),\n        (\"fs_ops\", ctypes.c_void_p),\n    ]\n\n\nlibcufile.cuFileDriverOpen.restype = CUfileError\nlibcufile.cuFileDriverClose.restype = CUfileError\nlibcufile.cuFileHandleRegister.restype = CUfileError\nlibcufile.cuFileBufRegister.restype = CUfileError\nlibcufile.cuFileBufDeregister.restype = CUfileError\nlibcufile.cuFileRead.restype = ctypes.c_size_t\nlibcufile.cuFileWrite.restype = ctypes.c_size_t\nlibcufile.cuFileHandleRegister.argtypes = [\n    ctypes.POINTER(CUfileHandle_t),\n    ctypes.POINTER(CUfileDescr),\n]\nlibcufile.cuFileHandleDeregister.argtypes = [CUfileHandle_t]\nlibcufile.cuFileBufRegister.argtypes = [ctypes.c_void_p, ctypes.c_size_t, ctypes.c_int]\nlibcufile.cuFileBufDeregister.argtypes = [ctypes.c_void_p]\nlibcufile.cuFileRead.argtypes = [\n    CUfileHandle_t,\n    ctypes.c_void_p,\n    ctypes.c_size_t,\n    ctypes.c_longlong,\n    ctypes.c_longlong,\n]\nlibcufile.cuFileWrite.argtypes = [\n    CUfileHandle_t,\n    ctypes.c_void_p,\n    ctypes.c_size_t,\n    ctypes.c_longlong,\n    ctypes.c_longlong,\n]\n\n\n# convenience\ndef _ck(status: CUfileError, name: str):\n    if status.err != 0:\n        raise RuntimeError(\n            f\"{name} failed (cuFile err={status.err}, cuda_err={status.cu_err})\"\n        )\n\n\ndef cuFileDriverOpen() -> None:\n    _ck(libcufile.cuFileDriverOpen(), \"cuFileDriverOpen\")\n\n\ndef cuFileDriverClose() -> None:\n    _ck(libcufile.cuFileDriverClose(), \"cuFileDriverClose\")\n\n\ndef cuFileHandleRegister(fd: int) -> CUfileHandle_t:\n    descr = CUfileDescr(type=1, handle=DescrUnion(fd=fd))\n    handle = CUfileHandle_t()\n    _ck(libcufile.cuFileHandleRegister(handle, descr), \"cuFileHandleRegister\")\n    return handle\n\n\ndef cuFileHandleDeregister(handle: CUfileHandle_t) -> None:\n    libcufile.cuFileHandleDeregister(handle), \"cuFileHandleDeregister\"\n\n\ndef cuFileBufRegister(buf: ctypes.c_void_p, size: int, flags: int) -> None:\n    _ck(libcufile.cuFileBufRegister(buf, size, flags), \"cuFileBufRegister\")\n\n\ndef cuFileBufDeregister(buf: ctypes.c_void_p) -> None:\n    _ck(libcufile.cuFileBufDeregister(buf), \"cuFileBufDeregister\")\n\n\ndef cuFileRead(\n    handle: CUfileHandle_t,\n    buf: ctypes.c_void_p,\n    size: int,\n    file_offset: int,\n    dev_offset: int,\n) -> int:\n    return libcufile.cuFileRead(handle, buf, size, file_offset, dev_offset)\n\n\ndef cuFileWrite(\n    handle: CUfileHandle_t,\n    buf: ctypes.c_void_p,\n    size: int,\n    file_offset: int,\n    dev_offset: int,\n) -> int:\n    return libcufile.cuFileWrite(handle, buf, size, file_offset, dev_offset)\n",
+            "sha256": "4d86f0674b5562a43db4301a3428ff6950261e981bb364cd1f875838cbe1e6a1"
+          }
+        ]
+      },
+      "reason": "The mandatory dependency declares MIT but its wheel, sdist and inspected original Git tree omit LICENSE; README links that missing file. Full license text at a pinned source has not been verified. LMCache is not installed or counted.",
+      "scope": "Missing evidence, not a claim that cufile-python is proprietary. Native libcufile requirements also remain unverified for a usable runtime."
+    },
+    {
+      "id": "mlc-llm",
+      "state": "pending",
+      "repo": "mlc-ai/mlc-llm",
+      "commit": "3b7663abb6962c1ac1be0337630321fd7bfcf9ff",
+      "files": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+        },
+        {
+          "path": "CMakeLists.txt",
+          "blob_sha": "34dae7ef0505c28e8a1adeb95aed40890eb6665a",
+          "sha256": "586b4f88092347808c4d5dbc79bb44aedffa72741edeb665487db5722931553e"
+        },
+        {
+          "path": ".gitmodules",
+          "blob_sha": "8939f0ee538f10918e622310dbc567f02b5a5159",
+          "sha256": "3a3db6b1b5b095902704cd6960498165d8599eecc9e7cab3fc11623fdf095548"
+        },
+        {
+          "path": "python/setup.py",
+          "blob_sha": "2b0ee7d221f971d7b9950bb7ba71e8c24310e8c8",
+          "sha256": "2308938ea1a0ae0829efd00bffe8d798be64636c624b933d14b7f66c4a9ab3c9"
+        },
+        {
+          "path": "python/mlc_llm/libinfo.py",
+          "blob_sha": "f17cff7e40ad05e503b6f36c05317f529064258d",
+          "sha256": "72198b537d59217b8bbf78db924577e9f22e528f89c9ba2ba66f3cb9767daf3d"
+        },
+        {
+          "path": "python/requirements.txt",
+          "blob_sha": "a2a0973351f56f737e6e659936a6617d30af70d8",
+          "sha256": "2f58fabc13970ac2c8a8d2fa69526bdb1bbfd04e2c16ea9e96961247dfb6141a"
+        }
+      ],
+      "runtime_state": "pending_native_build",
+      "observed_setup_error": "RuntimeError: Cannot find libraries: libmlc_llm.so",
+      "reason": "Original setup.py requires libmlc_llm and libmlc_llm_module. Neither has been built in this environment; original CMake requires TVM, tokenizers-cpp and XGrammar source dependencies. No metadata-only operation is counted as model execution.",
+      "scope": "Local preparation incomplete, not a proven upstream compile failure or incompatibility. First metadata probe lacked setuptools; retried with a prepared interpreter and observed the native-library prerequisite."
+    },
+    {
+      "id": "tokenizers",
+      "state": "pending",
+      "reason": "Dependency license outside the closed repository allowlist; no exception or policy extension applied. Permissive Zlib/Unicode-3.0 are not described as nonfree.",
+      "source_commit": "39e28180be35af322d0abf08007d937641a5493b",
+      "source_contract": "sources/contracts-encoding666.json",
+      "original_lock_sha256": "8c318fa6926c594e27b3045aaa785803c9ce84d436095183335cc1062be48790",
+      "lock_origin": "Original committed bindings/python/Cargo.lock, built with --locked. Initial regenerated-lock experiment was discarded and rebuilt.",
+      "inspected_dependencies": [
+        {
+          "name": "colored",
+          "version": "3.1.1",
+          "dependency_chain": [
+            {
+              "name": "tokenizers-python",
+              "version": "1.0.0-dev.2"
+            },
+            {
+              "name": "tokenizers",
+              "version": "1.0.0-dev.2"
+            },
+            {
+              "name": "tk-encode",
+              "version": "0.1.0-dev.2"
+            },
+            {
+              "name": "ptr_hash",
+              "version": "2.1.3"
+            },
+            {
+              "name": "colored",
+              "version": "3.1.1"
+            }
+          ],
+          "license": "MPL-2.0",
+          "crate_url": "https://static.crates.io/crates/colored/colored-3.1.1.crate",
+          "crate_sha256": "faf9468729b8cbcea668e36183cb69d317348c2e08e994829fb56ebfdfbaac34",
+          "manifest_sha256": "7ebccaf0015d9f4ea608c3698b497d865e39da54cbc29a0e8f469521d9e89e28",
+          "manifest_text": "# THIS FILE IS AUTOMATICALLY GENERATED BY CARGO\n#\n# When uploading crates to the registry Cargo will automatically\n# \"normalize\" Cargo.toml files for maximal compatibility\n# with all versions of Cargo and also rewrite `path` dependencies\n# to registry (e.g., crates.io) dependencies.\n#\n# If you are reading this file be aware that the original Cargo.toml\n# will likely look very different (and much more reasonable).\n# See Cargo.toml.orig for the original contents.\n\n[package]\nedition = \"2021\"\nrust-version = \"1.80\"\nname = \"colored\"\nversion = \"3.1.1\"\nauthors = [\"Thomas Wickham <mackwic@gmail.com>\"]\nbuild = false\nautolib = false\nautobins = false\nautoexamples = false\nautotests = false\nautobenches = false\ndescription = \"The most simple way to add colors in your terminal\"\nhomepage = \"https://github.com/mackwic/colored\"\nreadme = \"README.md\"\nkeywords = [\n    \"color\",\n    \"string\",\n    \"term\",\n    \"ansi_term\",\n    \"term-painter\",\n]\nlicense = \"MPL-2.0\"\nrepository = \"https://github.com/mackwic/colored\"\n\n[features]\nno-color = []\n\n[lib]\nname = \"colored\"\npath = \"src/lib.rs\"\n\n[[example]]\nname = \"as_error\"\npath = \"examples/as_error.rs\"\n\n[[example]]\nname = \"control\"\npath = \"examples/control.rs\"\n\n[[example]]\nname = \"custom_colors\"\npath = \"examples/custom_colors.rs\"\n\n[[example]]\nname = \"dynamic_colors\"\npath = \"examples/dynamic_colors.rs\"\n\n[[example]]\nname = \"most_simple\"\npath = \"examples/most_simple.rs\"\n\n[[example]]\nname = \"nested_colors\"\npath = \"examples/nested_colors.rs\"\n\n[[test]]\nname = \"ansi_term_compat\"\npath = \"tests/ansi_term_compat.rs\"\n\n[dev-dependencies.ansiterm]\nversion = \"0.12\"\n\n[dev-dependencies.insta]\nversion = \"1\"\n\n[dev-dependencies.rspec]\nversion = \"1\"\n\n[target.\"cfg(windows)\".dependencies.windows-sys]\nversion = \">=0.48,<=0.61\"\nfeatures = [\n    \"Win32_Foundation\",\n    \"Win32_System_Console\",\n]\n\n[lints.clippy]\ncomplexity = \"warn\"\ncorrectness = \"warn\"\nnursery = \"warn\"\npedantic = \"warn\"\nperf = \"warn\"\nstyle = \"warn\"\nsuspicious = \"warn\"\n\n[lints.clippy.expect_used]\nlevel = \"allow\"\npriority = 10\n\n[lints.clippy.missing_const_for_fn]\nlevel = \"allow\"\npriority = 10\n\n[lints.clippy.module_name_repetitions]\nlevel = \"allow\"\npriority = 10\n\n[lints.clippy.too_many_lines]\nlevel = \"allow\"\npriority = 10\n\n[lints.clippy.unwrap_used]\nlevel = \"allow\"\npriority = 10\n\n[lints.clippy.wildcard_imports]\nlevel = \"allow\"\npriority = 10\n\n[lints.rust]\ndeprecated = \"warn\"\nunsafe_code = \"warn\"\n",
+          "license_sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
+          "license_text": "Mozilla Public License Version 2.0\n==================================\n\n1. Definitions\n--------------\n\n1.1. \"Contributor\"\n    means each individual or legal entity that creates, contributes to\n    the creation of, or owns Covered Software.\n\n1.2. \"Contributor Version\"\n    means the combination of the Contributions of others (if any) used\n    by a Contributor and that particular Contributor's Contribution.\n\n1.3. \"Contribution\"\n    means Covered Software of a particular Contributor.\n\n1.4. \"Covered Software\"\n    means Source Code Form to which the initial Contributor has attached\n    the notice in Exhibit A, the Executable Form of such Source Code\n    Form, and Modifications of such Source Code Form, in each case\n    including portions thereof.\n\n1.5. \"Incompatible With Secondary Licenses\"\n    means\n\n    (a) that the initial Contributor has attached the notice described\n        in Exhibit B to the Covered Software; or\n\n    (b) that the Covered Software was made available under the terms of\n        version 1.1 or earlier of the License, but not also under the\n        terms of a Secondary License.\n\n1.6. \"Executable Form\"\n    means any form of the work other than Source Code Form.\n\n1.7. \"Larger Work\"\n    means a work that combines Covered Software with other material, in \n    a separate file or files, that is not Covered Software.\n\n1.8. \"License\"\n    means this document.\n\n1.9. \"Licensable\"\n    means having the right to grant, to the maximum extent possible,\n    whether at the time of the initial grant or subsequently, any and\n    all of the rights conveyed by this License.\n\n1.10. \"Modifications\"\n    means any of the following:\n\n    (a) any file in Source Code Form that results from an addition to,\n        deletion from, or modification of the contents of Covered\n        Software; or\n\n    (b) any new file in Source Code Form that contains any Covered\n        Software.\n\n1.11. \"Patent Claims\" of a Contributor\n    means any patent claim(s), including without limitation, method,\n    process, and apparatus claims, in any patent Licensable by such\n    Contributor that would be infringed, but for the grant of the\n    License, by the making, using, selling, offering for sale, having\n    made, import, or transfer of either its Contributions or its\n    Contributor Version.\n\n1.12. \"Secondary License\"\n    means either the GNU General Public License, Version 2.0, the GNU\n    Lesser General Public License, Version 2.1, the GNU Affero General\n    Public License, Version 3.0, or any later versions of those\n    licenses.\n\n1.13. \"Source Code Form\"\n    means the form of the work preferred for making modifications.\n\n1.14. \"You\" (or \"Your\")\n    means an individual or a legal entity exercising rights under this\n    License. For legal entities, \"You\" includes any entity that\n    controls, is controlled by, or is under common control with You. For\n    purposes of this definition, \"control\" means (a) the power, direct\n    or indirect, to cause the direction or management of such entity,\n    whether by contract or otherwise, or (b) ownership of more than\n    fifty percent (50%) of the outstanding shares or beneficial\n    ownership of such entity.\n\n2. License Grants and Conditions\n--------------------------------\n\n2.1. Grants\n\nEach Contributor hereby grants You a world-wide, royalty-free,\nnon-exclusive license:\n\n(a) under intellectual property rights (other than patent or trademark)\n    Licensable by such Contributor to use, reproduce, make available,\n    modify, display, perform, distribute, and otherwise exploit its\n    Contributions, either on an unmodified basis, with Modifications, or\n    as part of a Larger Work; and\n\n(b) under Patent Claims of such Contributor to make, use, sell, offer\n    for sale, have made, import, and otherwise transfer either its\n    Contributions or its Contributor Version.\n\n2.2. Effective Date\n\nThe licenses granted in Section 2.1 with respect to any Contribution\nbecome effective for each Contribution on the date the Contributor first\ndistributes such Contribution.\n\n2.3. Limitations on Grant Scope\n\nThe licenses granted in this Section 2 are the only rights granted under\nthis License. No additional rights or licenses will be implied from the\ndistribution or licensing of Covered Software under this License.\nNotwithstanding Section 2.1(b) above, no patent license is granted by a\nContributor:\n\n(a) for any code that a Contributor has removed from Covered Software;\n    or\n\n(b) for infringements caused by: (i) Your and any other third party's\n    modifications of Covered Software, or (ii) the combination of its\n    Contributions with other software (except as part of its Contributor\n    Version); or\n\n(c) under Patent Claims infringed by Covered Software in the absence of\n    its Contributions.\n\nThis License does not grant any rights in the trademarks, service marks,\nor logos of any Contributor (except as may be necessary to comply with\nthe notice requirements in Section 3.4).\n\n2.4. Subsequent Licenses\n\nNo Contributor makes additional grants as a result of Your choice to\ndistribute the Covered Software under a subsequent version of this\nLicense (see Section 10.2) or under the terms of a Secondary License (if\npermitted under the terms of Section 3.3).\n\n2.5. Representation\n\nEach Contributor represents that the Contributor believes its\nContributions are its original creation(s) or it has sufficient rights\nto grant the rights to its Contributions conveyed by this License.\n\n2.6. Fair Use\n\nThis License is not intended to limit any rights You have under\napplicable copyright doctrines of fair use, fair dealing, or other\nequivalents.\n\n2.7. Conditions\n\nSections 3.1, 3.2, 3.3, and 3.4 are conditions of the licenses granted\nin Section 2.1.\n\n3. Responsibilities\n-------------------\n\n3.1. Distribution of Source Form\n\nAll distribution of Covered Software in Source Code Form, including any\nModifications that You create or to which You contribute, must be under\nthe terms of this License. You must inform recipients that the Source\nCode Form of the Covered Software is governed by the terms of this\nLicense, and how they can obtain a copy of this License. You may not\nattempt to alter or restrict the recipients' rights in the Source Code\nForm.\n\n3.2. Distribution of Executable Form\n\nIf You distribute Covered Software in Executable Form then:\n\n(a) such Covered Software must also be made available in Source Code\n    Form, as described in Section 3.1, and You must inform recipients of\n    the Executable Form how they can obtain a copy of such Source Code\n    Form by reasonable means in a timely manner, at a charge no more\n    than the cost of distribution to the recipient; and\n\n(b) You may distribute such Executable Form under the terms of this\n    License, or sublicense it under different terms, provided that the\n    license for the Executable Form does not attempt to limit or alter\n    the recipients' rights in the Source Code Form under this License.\n\n3.3. Distribution of a Larger Work\n\nYou may create and distribute a Larger Work under terms of Your choice,\nprovided that You also comply with the requirements of this License for\nthe Covered Software. If the Larger Work is a combination of Covered\nSoftware with a work governed by one or more Secondary Licenses, and the\nCovered Software is not Incompatible With Secondary Licenses, this\nLicense permits You to additionally distribute such Covered Software\nunder the terms of such Secondary License(s), so that the recipient of\nthe Larger Work may, at their option, further distribute the Covered\nSoftware under the terms of either this License or such Secondary\nLicense(s).\n\n3.4. Notices\n\nYou may not remove or alter the substance of any license notices\n(including copyright notices, patent notices, disclaimers of warranty,\nor limitations of liability) contained within the Source Code Form of\nthe Covered Software, except that You may alter any license notices to\nthe extent required to remedy known factual inaccuracies.\n\n3.5. Application of Additional Terms\n\nYou may choose to offer, and to charge a fee for, warranty, support,\nindemnity or liability obligations to one or more recipients of Covered\nSoftware. However, You may do so only on Your own behalf, and not on\nbehalf of any Contributor. You must make it absolutely clear that any\nsuch warranty, support, indemnity, or liability obligation is offered by\nYou alone, and You hereby agree to indemnify every Contributor for any\nliability incurred by such Contributor as a result of warranty, support,\nindemnity or liability terms You offer. You may include additional\ndisclaimers of warranty and limitations of liability specific to any\njurisdiction.\n\n4. Inability to Comply Due to Statute or Regulation\n---------------------------------------------------\n\nIf it is impossible for You to comply with any of the terms of this\nLicense with respect to some or all of the Covered Software due to\nstatute, judicial order, or regulation then You must: (a) comply with\nthe terms of this License to the maximum extent possible; and (b)\ndescribe the limitations and the code they affect. Such description must\nbe placed in a text file included with all distributions of the Covered\nSoftware under this License. Except to the extent prohibited by statute\nor regulation, such description must be sufficiently detailed for a\nrecipient of ordinary skill to be able to understand it.\n\n5. Termination\n--------------\n\n5.1. The rights granted under this License will terminate automatically\nif You fail to comply with any of its terms. However, if You become\ncompliant, then the rights granted under this License from a particular\nContributor are reinstated (a) provisionally, unless and until such\nContributor explicitly and finally terminates Your grants, and (b) on an\nongoing basis, if such Contributor fails to notify You of the\nnon-compliance by some reasonable means prior to 60 days after You have\ncome back into compliance. Moreover, Your grants from a particular\nContributor are reinstated on an ongoing basis if such Contributor\nnotifies You of the non-compliance by some reasonable means, this is the\nfirst time You have received notice of non-compliance with this License\nfrom such Contributor, and You become compliant prior to 30 days after\nYour receipt of the notice.\n\n5.2. If You initiate litigation against any entity by asserting a patent\ninfringement claim (excluding declaratory judgment actions,\ncounter-claims, and cross-claims) alleging that a Contributor Version\ndirectly or indirectly infringes any patent, then the rights granted to\nYou by any and all Contributors for the Covered Software under Section\n2.1 of this License shall terminate.\n\n5.3. In the event of termination under Sections 5.1 or 5.2 above, all\nend user license agreements (excluding distributors and resellers) which\nhave been validly granted by You or Your distributors under this License\nprior to termination shall survive termination.\n\n************************************************************************\n*                                                                      *\n*  6. Disclaimer of Warranty                                           *\n*  -------------------------                                           *\n*                                                                      *\n*  Covered Software is provided under this License on an \"as is\"       *\n*  basis, without warranty of any kind, either expressed, implied, or  *\n*  statutory, including, without limitation, warranties that the       *\n*  Covered Software is free of defects, merchantable, fit for a        *\n*  particular purpose or non-infringing. The entire risk as to the     *\n*  quality and performance of the Covered Software is with You.        *\n*  Should any Covered Software prove defective in any respect, You     *\n*  (not any Contributor) assume the cost of any necessary servicing,   *\n*  repair, or correction. This disclaimer of warranty constitutes an   *\n*  essential part of this License. No use of any Covered Software is   *\n*  authorized under this License except under this disclaimer.         *\n*                                                                      *\n************************************************************************\n\n************************************************************************\n*                                                                      *\n*  7. Limitation of Liability                                          *\n*  --------------------------                                          *\n*                                                                      *\n*  Under no circumstances and under no legal theory, whether tort      *\n*  (including negligence), contract, or otherwise, shall any           *\n*  Contributor, or anyone who distributes Covered Software as          *\n*  permitted above, be liable to You for any direct, indirect,         *\n*  special, incidental, or consequential damages of any character      *\n*  including, without limitation, damages for lost profits, loss of    *\n*  goodwill, work stoppage, computer failure or malfunction, or any    *\n*  and all other commercial damages or losses, even if such party      *\n*  shall have been informed of the possibility of such damages. This   *\n*  limitation of liability shall not apply to liability for death or   *\n*  personal injury resulting from such party's negligence to the       *\n*  extent applicable law prohibits such limitation. Some               *\n*  jurisdictions do not allow the exclusion or limitation of           *\n*  incidental or consequential damages, so this exclusion and          *\n*  limitation may not apply to You.                                    *\n*                                                                      *\n************************************************************************\n\n8. Litigation\n-------------\n\nAny litigation relating to this License may be brought only in the\ncourts of a jurisdiction where the defendant maintains its principal\nplace of business and such litigation shall be governed by laws of that\njurisdiction, without reference to its conflict-of-law provisions.\nNothing in this Section shall prevent a party's ability to bring\ncross-claims or counter-claims.\n\n9. Miscellaneous\n----------------\n\nThis License represents the complete agreement concerning the subject\nmatter hereof. If any provision of this License is held to be\nunenforceable, such provision shall be reformed only to the extent\nnecessary to make it enforceable. Any law or regulation which provides\nthat the language of a contract shall be construed against the drafter\nshall not be used to construe this License against a Contributor.\n\n10. Versions of the License\n---------------------------\n\n10.1. New Versions\n\nMozilla Foundation is the license steward. Except as provided in Section\n10.3, no one other than the license steward has the right to modify or\npublish new versions of this License. Each version will be given a\ndistinguishing version number.\n\n10.2. Effect of New Versions\n\nYou may distribute the Covered Software under the terms of the version\nof the License under which You originally received the Covered Software,\nor under the terms of any subsequent version published by the license\nsteward.\n\n10.3. Modified Versions\n\nIf you create software not governed by this License, and you want to\ncreate a new license for such software, you may create and use a\nmodified version of this License if you rename the license and remove\nany references to the name of the license steward (except to note that\nsuch modified license differs from this License).\n\n10.4. Distributing Source Code Form that is Incompatible With Secondary\nLicenses\n\nIf You choose to distribute Source Code Form that is Incompatible With\nSecondary Licenses under the terms of this version of the License, the\nnotice described in Exhibit B of this License must be attached.\n\nExhibit A - Source Code Form License Notice\n-------------------------------------------\n\n  This Source Code Form is subject to the terms of the Mozilla Public\n  License, v. 2.0. If a copy of the MPL was not distributed with this\n  file, You can obtain one at http://mozilla.org/MPL/2.0/.\n\nIf it is not possible or desirable to put the notice in a particular\nfile, then You may include the notice in a location (such as a LICENSE\nfile in a relevant directory) where a recipient would be likely to look\nfor such a notice.\n\nYou may add additional accurate notices of copyright ownership.\n\nExhibit B - \"Incompatible With Secondary Licenses\" Notice\n---------------------------------------------------------\n\n  This Source Code Form is \"Incompatible With Secondary Licenses\", as\n  defined by the Mozilla Public License, v. 2.0.\n"
+        }
+      ],
+      "historical_source_build_and_numeric_probe_succeeded": true,
+      "counted_as_operational": false,
+      "scope": "Selected resolved runtime/build dependencies examined; not a complete transitive license audit of all profiles."
+    },
+    {
+      "id": "candle",
+      "state": "pending",
+      "reason": "Dependency license outside the closed repository allowlist; no exception or policy extension applied. Permissive Zlib/Unicode-3.0 are not described as nonfree.",
+      "source_commit": "cfcbd7186d13271843ce7eb41d25659bd0835850",
+      "source_contract": "sources/contracts-tensor666.json",
+      "original_lock_sha256": "e98f276dc7d968e12a2c5f2f21aa60b6b56c695c3ebb7377afe269f2ea2d8c0a",
+      "lock_origin": "Operator-generated from original manifests on 2026-11-15; upstream does not track a root Cargo.lock. Not an upstream-authored lock.",
+      "inspected_dependencies": [
+        {
+          "name": "yoke",
+          "version": "0.8.4",
+          "dependency_chain": [
+            {
+              "name": "candle-pyo3",
+              "version": "0.11.1"
+            },
+            {
+              "name": "candle-core",
+              "version": "0.11.1"
+            },
+            {
+              "name": "yoke",
+              "version": "0.8.4"
+            }
+          ],
+          "license": "Unicode-3.0",
+          "crate_url": "https://static.crates.io/crates/yoke/yoke-0.8.4.crate",
+          "crate_sha256": "417ef3fcf6c300b7dbd25c85531a746931c02ad536f3cf4786ed1e88223340b3",
+          "manifest_sha256": "2a20f6b442c41ee8ee5df4c43f2d9cf5e6c973daa899a75bb5a87c9972b0ced5",
+          "manifest_text": "# THIS FILE IS AUTOMATICALLY GENERATED BY CARGO\n#\n# When uploading crates to the registry Cargo will automatically\n# \"normalize\" Cargo.toml files for maximal compatibility\n# with all versions of Cargo and also rewrite `path` dependencies\n# to registry (e.g., crates.io) dependencies.\n#\n# If you are reading this file be aware that the original Cargo.toml\n# will likely look very different (and much more reasonable).\n# See Cargo.toml.orig for the original contents.\n\n[package]\nedition = \"2021\"\nrust-version = \"1.82\"\nname = \"yoke\"\nversion = \"0.8.4\"\nauthors = [\"Manish Goregaokar <manishsmail@gmail.com>\"]\nbuild = false\ninclude = [\n    \"data/**/*\",\n    \"src/**/*\",\n    \"examples/**/*\",\n    \"benches/**/*\",\n    \"tests/**/*\",\n    \"Cargo.toml\",\n    \"LICENSE\",\n    \"README.md\",\n    \"build.rs\",\n]\nautolib = false\nautobins = false\nautoexamples = false\nautotests = false\nautobenches = false\ndescription = \"Abstraction allowing borrowed data to be carried along with the backing data it borrows from\"\nreadme = \"README.md\"\nkeywords = [\n    \"zero-copy\",\n    \"serialization\",\n    \"memory-efficiency\",\n    \"self-referential\",\n]\ncategories = [\n    \"data-structures\",\n    \"memory-management\",\n    \"caching\",\n    \"no-std\",\n]\nlicense = \"Unicode-3.0\"\nrepository = \"https://github.com/unicode-org/icu4x\"\n\n[package.metadata.workspaces]\nindependent = true\n\n[package.metadata.docs.rs]\nall-features = true\n\n[package.metadata.cargo-all-features]\nmax_combination_size = 3\n\n[features]\nalloc = [\n    \"stable_deref_trait/alloc\",\n    \"zerofrom/alloc\",\n]\ndefault = [\n    \"alloc\",\n    \"zerofrom\",\n]\nderive = [\n    \"dep:yoke-derive\",\n    \"zerofrom/derive\",\n]\nserde = []\nzerofrom = [\"dep:zerofrom\"]\n\n[lib]\nname = \"yoke\"\npath = \"src/lib.rs\"\n\n[[test]]\nname = \"bincode\"\npath = \"tests/bincode.rs\"\n\n[[test]]\nname = \"miri\"\npath = \"tests/miri.rs\"\n\n[dependencies.stable_deref_trait]\nversion = \"1.2.0\"\ndefault-features = false\n\n[dependencies.yoke-derive]\nversion = \"0.8.4\"\noptional = true\ndefault-features = false\n\n[dependencies.zerofrom]\nversion = \"0.1.6\"\noptional = true\ndefault-features = false\n\n[dev-dependencies.bincode]\nversion = \"1.3.1\"\n\n[dev-dependencies.postcard]\nversion = \"1.0.3\"\ndefault-features = false\n\n[dev-dependencies.serde]\nversion = \"1.0.220\"\ndefault-features = false\n\n[lints.clippy]\nalloc_instead_of_core = \"warn\"\nbool_assert_comparison = \"allow\"\nbranches_sharing_code = \"warn\"\ncollection_is_never_read = \"warn\"\ncrosspointer_transmute = \"warn\"\ndbg_macro = \"warn\"\ndebug_assert_with_mut_call = \"warn\"\ndoc_markdown = \"warn\"\nexhaustive_enums = \"deny\"\nexhaustive_structs = \"deny\"\nfn_to_numeric_cast_any = \"warn\"\ninfinite_loop = \"warn\"\nlarge_stack_arrays = \"warn\"\nmismatching_type_param_order = \"warn\"\nmissing_fields_in_debug = \"warn\"\nmissing_transmute_annotations = \"warn\"\nnegative_feature_names = \"warn\"\nor_fun_call = \"warn\"\nsame_functions_in_if_condition = \"warn\"\ntodo = \"warn\"\ntransmute_bytes_to_str = \"warn\"\ntransmute_int_to_bool = \"warn\"\ntransmute_int_to_non_zero = \"warn\"\ntransmute_ptr_to_ptr = \"warn\"\ntransmute_ptr_to_ref = \"warn\"\ntransmute_undefined_repr = \"warn\"\ntransmutes_expressible_as_ptr_casts = \"warn\"\ntrivially_copy_pass_by_ref = \"deny\"\nunnecessary_wraps = \"warn\"\nuseless_transmute = \"warn\"\nwildcard_dependencies = \"warn\"\n\n[lints.rust]\nmissing_debug_implementations = \"deny\"\ntrivial_numeric_casts = \"deny\"\nunused_lifetimes = \"warn\"\nunused_macro_rules = \"warn\"\nunused_qualifications = \"warn\"\n\n[lints.rust.unexpected_cfgs]\nlevel = \"warn\"\npriority = 0\ncheck-cfg = [\n    \"cfg(icu4c_enable_renaming)\",\n    \"cfg(needs_alloc_error_handler)\",\n    \"cfg(icu4x_nightly_tests)\",\n    \"cfg(icu4x_run_size_tests)\",\n    \"cfg(icu4x_unstable_fast_trie_only)\",\n]\n",
+          "license_sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "license_text": "UNICODE LICENSE V3\n\nCOPYRIGHT AND PERMISSION NOTICE\n\nCopyright © 2020-2024 Unicode, Inc.\n\nNOTICE TO USER: Carefully read the following legal agreement. BY\nDOWNLOADING, INSTALLING, COPYING OR OTHERWISE USING DATA FILES, AND/OR\nSOFTWARE, YOU UNEQUIVOCALLY ACCEPT, AND AGREE TO BE BOUND BY, ALL OF THE\nTERMS AND CONDITIONS OF THIS AGREEMENT. IF YOU DO NOT AGREE, DO NOT\nDOWNLOAD, INSTALL, COPY, DISTRIBUTE OR USE THE DATA FILES OR SOFTWARE.\n\nPermission is hereby granted, free of charge, to any person obtaining a\ncopy of data files and any associated documentation (the \"Data Files\") or\nsoftware and any associated documentation (the \"Software\") to deal in the\nData Files or Software without restriction, including without limitation\nthe rights to use, copy, modify, merge, publish, distribute, and/or sell\ncopies of the Data Files or Software, and to permit persons to whom the\nData Files or Software are furnished to do so, provided that either (a)\nthis copyright and permission notice appear with all copies of the Data\nFiles or Software, or (b) this copyright and permission notice appear in\nassociated Documentation.\n\nTHE DATA FILES AND SOFTWARE ARE PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY\nKIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF\nTHIRD PARTY RIGHTS.\n\nIN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE\nBE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES,\nOR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,\nWHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION,\nARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA\nFILES OR SOFTWARE.\n\nExcept as contained in this notice, the name of a copyright holder shall\nnot be used in advertising or otherwise to promote the sale, use or other\ndealings in these Data Files or Software without prior written\nauthorization of the copyright holder.\n\nSPDX-License-Identifier: Unicode-3.0\n\n—\n\nPortions of ICU4X may have been adapted from ICU4C and/or ICU4J.\nICU 1.8.1 to ICU 57.1 © 1995-2016 International Business Machines Corporation and others.\n"
+        },
+        {
+          "name": "foldhash",
+          "version": "0.2.0",
+          "dependency_chain": [
+            {
+              "name": "candle-pyo3",
+              "version": "0.11.1"
+            },
+            {
+              "name": "candle-core",
+              "version": "0.11.1"
+            },
+            {
+              "name": "safetensors",
+              "version": "0.8.0"
+            },
+            {
+              "name": "hashbrown",
+              "version": "0.16.1"
+            },
+            {
+              "name": "foldhash",
+              "version": "0.2.0"
+            }
+          ],
+          "license": "Zlib",
+          "crate_url": "https://static.crates.io/crates/foldhash/foldhash-0.2.0.crate",
+          "crate_sha256": "77ce24cb58228fbb8aa041425bb1050850ac19177686ea6e0f41a70416f56fdb",
+          "manifest_sha256": "0a76cc29da1c33f4bdb505f5828ecdc20859c4cb9faa402e000f5f10511a27cc",
+          "manifest_text": "# THIS FILE IS AUTOMATICALLY GENERATED BY CARGO\n#\n# When uploading crates to the registry Cargo will automatically\n# \"normalize\" Cargo.toml files for maximal compatibility\n# with all versions of Cargo and also rewrite `path` dependencies\n# to registry (e.g., crates.io) dependencies.\n#\n# If you are reading this file be aware that the original Cargo.toml\n# will likely look very different (and much more reasonable).\n# See Cargo.toml.orig for the original contents.\n\n[package]\nedition = \"2021\"\nrust-version = \"1.60\"\nname = \"foldhash\"\nversion = \"0.2.0\"\nauthors = [\"Orson Peters <orsonpeters@gmail.com>\"]\nbuild = false\nexclude = [\n    \"benches\",\n    \"tools\",\n    \"assets\",\n]\nautolib = false\nautobins = false\nautoexamples = false\nautotests = false\nautobenches = false\ndescription = \"A fast, non-cryptographic, minimally DoS-resistant hashing algorithm.\"\nreadme = \"README.md\"\nkeywords = [\n    \"hash\",\n    \"hasher\",\n    \"no-std\",\n]\ncategories = [\n    \"algorithms\",\n    \"no-std\",\n]\nlicense = \"Zlib\"\nrepository = \"https://github.com/orlp/foldhash\"\n\n[features]\ndefault = [\"std\"]\nnightly = []\nstd = []\n\n[lib]\nname = \"foldhash\"\npath = \"src/lib.rs\"\nbench = false\n\n[dependencies]\n\n[dev-dependencies.ahash]\nversion = \"0.8\"\n\n[dev-dependencies.chrono]\nversion = \"0.4\"\n\n[dev-dependencies.criterion]\nversion = \"0.5\"\n\n[dev-dependencies.fxhash]\nversion = \"0.2\"\n\n[dev-dependencies.hashbrown]\nversion = \"0.15\"\n\n[dev-dependencies.rand]\nversion = \"0.8\"\n\n[dev-dependencies.rapidhash]\nversion = \"3.1.0\"\n\n[dev-dependencies.uuid]\nversion = \"1.8\"\n\n[profile.release]\nlto = \"thin\"\n",
+          "license_sha256": "b1181a40b2a7b25cf66fd01481713bc1005df082c53ef73e851e55071b102744",
+          "license_text": "Copyright (c) 2024 Orson Peters\n\nThis software is provided 'as-is', without any express or implied warranty. In\nno event will the authors be held liable for any damages arising from the use of\nthis software.\n\nPermission is granted to anyone to use this software for any purpose, including\ncommercial applications, and to alter it and redistribute it freely, subject to\nthe following restrictions:\n\n1. The origin of this software must not be misrepresented; you must not claim\n    that you wrote the original software. If you use this software in a product,\n    an acknowledgment in the product documentation would be appreciated but is\n    not required.\n\n2. Altered source versions must be plainly marked as such, and must not be\n    misrepresented as being the original software.\n\n3. This notice may not be removed or altered from any source distribution."
+        }
+      ],
+      "historical_source_build_and_numeric_probe_succeeded": true,
+      "counted_as_operational": false,
+      "scope": "Selected resolved runtime/build dependencies examined; not a complete transitive license audit of all profiles."
     }
   ]
 }

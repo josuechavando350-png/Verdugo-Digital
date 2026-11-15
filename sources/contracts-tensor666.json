@@ -1,0 +1,1576 @@
+{
+  "schema": "verdugo.tensor666.sources.v1",
+  "id": "candle",
+  "operation": "scores.normalize",
+  "repository": "huggingface/candle",
+  "commit": "cfcbd7186d13271843ce7eb41d25659bd0835850",
+  "distribution": "candle-nn",
+  "version": "0.11.1",
+  "license": "MIT OR Apache-2.0",
+  "archive_url": "https://codeload.github.com/huggingface/candle/tar.gz/cfcbd7186d13271843ce7eb41d25659bd0835850",
+  "archive_sha256": "8213599cc23e803a436bd0601928cfcb368f9cf5960cfee22454052eba28fef0",
+  "cargo_lock_sha256": "e98f276dc7d968e12a2c5f2f21aa60b6b56c695c3ebb7377afe269f2ea2d8c0a",
+  "cargo_lock_origin": "Operator-generated from original manifests on 2026-11-15; upstream does not track a root Cargo.lock. Not an upstream-authored lock.",
+  "rust_version": "1.100.0",
+  "maturin_version": "1.15.0",
+  "python_version": "3.13",
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "1",
+    "CARGO_PROFILE_RELEASE_LTO": "false",
+    "CARGO_PROFILE_RELEASE_CODEGEN_UNITS": "256",
+    "CARGO_PROFILE_RELEASE_OPT_LEVEL": "1",
+    "CARGO_PROFILE_RELEASE_DEBUG": "0",
+    "CARGO_INCREMENTAL": "0",
+    "MATURIN_PEP517_ARGS": "--locked"
+  },
+  "features": "Original default CPU only plus pyo3/extension-module; no cuda, mkl, accelerate or onnx extras.",
+  "operation_scope": [
+    "Original native tensor construction, matmul, softmax and sum_all on bounded synthetic integer inputs cast to float32.",
+    "Two to eight rows and two to four caller-supplied coefficients, each integer in [-100,100].",
+    "Independent scalar multiplication reference and normalized sum check; outputs are counts and numeric diagnostics."
+  ],
+  "limitations": [
+    "No learned model or weights. Normalized shares are not outcome probabilities.",
+    "No inference speed, business accuracy, calibration, causal effect or operator approval claim.",
+    "Receipt is operator-generated, not independent attestation or bit-for-bit build reproducibility.",
+    "Selected source contents reviewed; other files verified for integrity only."
+  ],
+  "files": [
+    {
+      "path": "Cargo.toml",
+      "blob_sha": "83af42675b1f55066cbbe651a9326811ad35d366",
+      "sha256": "aca2d24a149b4d5f72fc5e0b30369201ba5260b20032e2afd3096fb6ea628e3c",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "LICENSE-APACHE",
+      "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "LICENSE-MIT",
+      "blob_sha": "31aa79387f27e730e33d871925e152e35e428031",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "candle-core/Cargo.toml",
+      "blob_sha": "b04c0b4e4dc158bccc6b72ab9d70e3f17914c673",
+      "sha256": "1e7601ea91584ee3f71a65294d2a00193bb20b944be4cfb4e1eede858dfd10dc",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/LICENSE",
+      "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/README.md",
+      "blob_sha": "246f5bae61e012bfa13b4c5c2ee4169e266a9352",
+      "sha256": "9b00007b1d568125e67d6f2ff5c40acd8227dec4c62681cbc87775768a125200",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/benches/bench_main.rs",
+      "blob_sha": "307ba2dc8566af45a362bae8fdb3be1f9825b858",
+      "sha256": "803dd883def9b8249e82b3e3afa557539c4a594fbe4d9ac24e816a269ccc6b09",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/benches/benchmarks/affine.rs",
+      "blob_sha": "1d6edd4c6903207e2e1bdce687dd9abd54811ef8",
+      "sha256": "260d6aeb9faf50808ac278dd93664dd24769bcd5c53333490d742cdff298844c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/benches/benchmarks/binary.rs",
+      "blob_sha": "9caed2ded8070bcbef047ad505388663a7091e8a",
+      "sha256": "580fc54bce55134b6ee999234aaf860819d231f06ab8c85c376264be86b462c3",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/benches/benchmarks/broadcast.rs",
+      "blob_sha": "334c4768321fc42fcf9e8dfbb7eaacf020607716",
+      "sha256": "3dd7c266983f0374d56a9f059ad9ea504998d27ed9ee0e5edbc5188f3428eb0d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/benches/benchmarks/cat.rs",
+      "blob_sha": "c8a128da6c9a16917cacac4df277f68de66d98ca",
+      "sha256": "4703c55b210f9086cba450d4ecf971a7b259174c86ae71650ce84c194114130c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/benches/benchmarks/contiguous.rs",
+      "blob_sha": "0fe84b0cffce4e8eade5bd57586298d77a97e81c",
+      "sha256": "0a8e206f26f78d6170f329ca04e7c1c3d66988bb3fc8ff2ab412287b12da39c5",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/benches/benchmarks/conv_transpose2d.rs",
+      "blob_sha": "7bd5c5bf069d9b94705e48f72f5135d3c39228bc",
+      "sha256": "f57723066b6fc173d2957181e2e54a06505213303f82577b10d482983048981a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/benches/benchmarks/copy.rs",
+      "blob_sha": "00eff3dca63981e7246af4eace8a490ea0a5d2c1",
+      "sha256": "406c04fa73a664a785dd7d9c6a4ad4d09b4c0c0b52072b8e429566485fd61938",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/benches/benchmarks/matmul.rs",
+      "blob_sha": "08732d2b3215f8f4ed38f8ac4952496c556abadb",
+      "sha256": "8ceb3d0e312a82770f85414459009d0385043eb1fa384f8dd34476b84cf42bbb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/benches/benchmarks/mod.rs",
+      "blob_sha": "8d1df1686b0823a434bf3d2141bbf9f8ffd587a5",
+      "sha256": "17a26e016de4f8cd39e14c85e2e757e3a4816f1375308719291c8256a519f3ee",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/benches/benchmarks/qmatmul.rs",
+      "blob_sha": "be1d2ad021c7023f6269f3f3a7bd19729cd5a877",
+      "sha256": "cd71f24bc0dbdd716f36fec4658a444cde64fdeacca1cdf63bbf1501ede12e40",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/benches/benchmarks/random.rs",
+      "blob_sha": "365e051c0e3ae7beb6f6d5176023f562ce690b77",
+      "sha256": "0f68d50a3da9f1096ab00c6a1141b58454b335604d6c2ff3d39af830a47b9138",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/benches/benchmarks/reduce.rs",
+      "blob_sha": "6020633c00aa4fc6e8d5fd82caccba9c1087d5aa",
+      "sha256": "8a0ce9e9f10ca9d210db3c424325dd082ccc08fd288080f0b579ab1c7faa8fc6",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/benches/benchmarks/unary.rs",
+      "blob_sha": "65723bb3fd104732284dbd3c69adae35045399c4",
+      "sha256": "40153b0fe906af2235e0a356719a208d82b5910853df93957f8e18bcb61bcef1",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/benches/benchmarks/vec_dot.rs",
+      "blob_sha": "92a4e4320bafd06b3206a0516dd34b23d8ba231c",
+      "sha256": "2cad7e5a5af300daa75ca2dc12aa4fa492bc47ad6e5860eb5f8cfb3aeef82d21",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/benches/benchmarks/where_cond.rs",
+      "blob_sha": "074976b2148f587c68880b6acf6544e232d1e6f7",
+      "sha256": "8586db40937286ff11ea598a12667afb05e1161bd4c2eb609a8f091eaf2b5461",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/examples/basics.rs",
+      "blob_sha": "e99140344108de300a7025fd14d06d2287552b7f",
+      "sha256": "6c85b5c338290f8d2eeeb548209fc4f4d4052fa4bfd2ea07846731cd9c36d88d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/examples/cuda_basics.rs",
+      "blob_sha": "4eadcdeb82caa78ae51cd21feaf78ea407eea4da",
+      "sha256": "ec4aa80f89acf913ca74828fdf19ceb24808406794e98caa3f524dd23ce66cd4",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/examples/cuda_sum_benchmark.rs",
+      "blob_sha": "5bd4b4eefec350aceda4be1ec5b6201265ea5bb6",
+      "sha256": "f53810234d3b90cbef0cc23c7ac1ad8141a9a93d1e86f7c358f5d32fcc5c76cc",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/examples/cutile.rs",
+      "blob_sha": "f1fd7dc8d888df5f1f4b00996c3b1b609a3ec2f8",
+      "sha256": "6cf0a12ea46a4e462acdd2c269278aa7c18a9f00da715fb9b278df1b6b419260",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/examples/metal_basics.rs",
+      "blob_sha": "3f433d9c26f74eb44a980ec4c54db7ddfa89e759",
+      "sha256": "4f2cb274449cf1b6326b1ed2211f1076d55e621fcc81cdd501eca72e7203351e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/accelerate.rs",
+      "blob_sha": "d371d3b33bea65bb402d331b29ad5b6e37439331",
+      "sha256": "9be99929bb6553d9baf6b6a5a56fa66bfdbee122f76c4792a00e09ac8a0d638a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/backend.rs",
+      "blob_sha": "d8ab2b56299b929f6572fcabc2f5478c271303c5",
+      "sha256": "822a96a62ef7d300141b7d439807482bd40bded3f592e9e72c1e108f43ff63cc",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/backprop.rs",
+      "blob_sha": "7dc4114758c4db82449bb52a2de1ed02bf0e5b50",
+      "sha256": "d83f4fdd46286c5ef168c562722e2f70e5fa48e6def9844be801a837b3b11f56",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/conv.rs",
+      "blob_sha": "115035ef1c6601b8924a892389310845d457663b",
+      "sha256": "31b8870d37dad9d2962985657121e85bc350830555d20054700921ea689a0d9f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/convert.rs",
+      "blob_sha": "38e7a7c9a6a4a6aed8bedd7bffcd98627924f153",
+      "sha256": "664562f7fc98008b1cbf4815aacf79311141a40d9a003f86ecdb8cebcf6abbae",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/cpu/avx.rs",
+      "blob_sha": "1aaa40ece643cbae5efc05e9ac262b5f55515fe3",
+      "sha256": "765598c0ca4a847e0fb5e431bfa955d8f33bf4ae0f1cece5dbceba9cb288e522",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/cpu/erf.rs",
+      "blob_sha": "f1e273ecc8c6ea4d3cdc23ce1ac703ff68fd2bf3",
+      "sha256": "76682497d42eac75e101cb88948cfecea1845a28322b194b4fb75f50e8f1bda4",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/cpu/features.rs",
+      "blob_sha": "1384b136be7575f636f2dba75ef03a64df327b0f",
+      "sha256": "93ff82c294cdf65ca4731f27a3937e37140d04cc439d468f7e90a698aa6a8a0c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/cpu/kernels.rs",
+      "blob_sha": "9928c8ac7385dcf0c9c4648dae9adc00f235a9cf",
+      "sha256": "3b713eec65529f2a9aafd20fec7271c095b3bf9c955bbf69b2d8d0490ff32755",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/cpu/mod.rs",
+      "blob_sha": "afc684f697f5df322ba080691d06fb0e162b7c40",
+      "sha256": "d746041d21a98a059b2ca144d732acd58069925c566e4ea0f5f2b0a040d3eb4a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/cpu/neon.rs",
+      "blob_sha": "5b5fa965ee371262ee694b40f76db3e770740ba3",
+      "sha256": "352e128ae0ede30224fa77f0681dc8810ea194284dbddcbd5bcb8c0984ee8b01",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/cpu/simd128.rs",
+      "blob_sha": "caacd821b4bd23f57d8100d16a5fe14c84cdb13f",
+      "sha256": "9c95b5f94d645567e26bdd219b2aeacc09f20e1f472a0edc6c47fe209b72ab38",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/cpu_backend/conv2d.rs",
+      "blob_sha": "b55e32386c7067aaf4f85e994c25cb5fa3eaf63f",
+      "sha256": "0c019f8bb35a0ef82908c99bdb0ce229ab1a5f4c55662ce898b2672b4daaa9b4",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/cpu_backend/mod.rs",
+      "blob_sha": "1e2bf6451ccc3fc57fd65651197bec5cddec0c52",
+      "sha256": "0da73738ec8ed2ede1b9588f3bc766f060c268cd69081d88de7006ffb02bf642",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/cpu_backend/utils.rs",
+      "blob_sha": "f2c4c1f1e3197f264213ab1554c0187c6e266db0",
+      "sha256": "6f800552f9fa59f3033489b689fa0b91bfa24b6115c2614fcd0421c781668520",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/cuda_backend/cudnn.rs",
+      "blob_sha": "d7d8770587ced65d3bd3bc8942ab98fe730b50d6",
+      "sha256": "3e3237559a6148567a369effe6e9616bbc12a6b67c13c09b2d52e6f6382f04b8",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/cuda_backend/cutile.rs",
+      "blob_sha": "cc4d977946bbe26cc15a808f030c219b91c00ede",
+      "sha256": "4a4d5fda441245d0393c89111a04429800d0a898706d8ef1612caf9ae8518913",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/cuda_backend/device.rs",
+      "blob_sha": "ab809a069a508a48d238b2eb1f53afe49f841c77",
+      "sha256": "1ed1255c64a72d745ad1de19e70cdb4660d11109be701c83631c8baa4306dc79",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/cuda_backend/error.rs",
+      "blob_sha": "bd6f8ac6da4319994f0480cdf2b0619c47dcaaf8",
+      "sha256": "b60bce29f50ce640fb1932009bd447f0ff7fc0e293900befb05a9d8df0e43413",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/cuda_backend/mod.rs",
+      "blob_sha": "93f315c49c72aaaaa7e74d12e84e800534eeaab0",
+      "sha256": "1d5b8c2b75cb6418476fe0e5642a4c69f0eb95606d1c88e329243346e4cc1160",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/cuda_backend/utils.rs",
+      "blob_sha": "10f8876ab574edc33cae22727ee849679a19e65a",
+      "sha256": "24ceb7c9e50389a911e9aaf4d4f01e92ca3f2a06743adfa72981ba870a0574d9",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/custom_op.rs",
+      "blob_sha": "a29fbfcbe07f51e9aa8ec0dac91633e2c19e9a15",
+      "sha256": "98693b40f8bc5a47fc2038fde1275d3ee1f38ab501c4777ea02cd0fa25f46669",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/device.rs",
+      "blob_sha": "f5b14c1ef4e840f0acdeb635e996bc7f803799b4",
+      "sha256": "9a45ece9eb361f5fcb9a00bda952c0a3df541803b773f0e4ac132445cca79b88",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/display.rs",
+      "blob_sha": "a9b53947f399717e69d7de3a5fdfa734217943d6",
+      "sha256": "17d38758a849310137f69069a0806224b9fdb682c0b44196b6d5885327515211",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/dtype.rs",
+      "blob_sha": "f6ac3c8c7e678e34beb692f09c1f5bff51b4f019",
+      "sha256": "75b91eb41b522e935e3a14d3ab27dca2232b7cfab54eb2e702e60a0c8830677c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/dummy_cuda_backend.rs",
+      "blob_sha": "2aa45859660097c3fff38b06ca895938e2c45c3b",
+      "sha256": "842836efb0c1ca8097d1a5c11140207f185b7f877603e98091afdf7d494fee47",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/dummy_dtype.rs",
+      "blob_sha": "5fdb0961a8310695f87f628666540fe79095af6c",
+      "sha256": "50bcae6eeba464291a8d85020e967056b42cc7199658999de7159d0c4e8190e0",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/dummy_metal_backend.rs",
+      "blob_sha": "8c23b580fc9b726c7abd452c5f229b1b0a37efb6",
+      "sha256": "e59c40e1aea0210adac21316af7b7e9b838d8357da9492045f530a139d35acd7",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/error.rs",
+      "blob_sha": "c5a1f954a35672c823b436320e1970c3fe700124",
+      "sha256": "06920b103b6b24ae6c4738461edf71e581ef68bead89c639cd37219a24f72325",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/indexer.rs",
+      "blob_sha": "d6cd6debf83759feb4741d778e3117c02838b217",
+      "sha256": "2df921d3e8284540a34c197b692b384ed5d6a25047d3685535f01c227718a3e0",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/layout.rs",
+      "blob_sha": "fddc8bfe4ef8c530f6bbca0bf4afc94e5d760fac",
+      "sha256": "1f2c2f5dfb2c9bbaa928eae9512d4ed1271832f3e0057bcd1eaa4aedcac29a61",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/lib.rs",
+      "blob_sha": "7237510aeb84be345e0c2230a387f74afab48ebf",
+      "sha256": "a141d521bc464b66f5625a954e6676759a0bef2d7c61c7451d53f1b35fc5fe92",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/metal_backend/device.rs",
+      "blob_sha": "da74884315ea4844c17a638617abe25c6b2ae6fc",
+      "sha256": "8650796c85eb444b099ecb31fbc171187ee1f27d2dd8b5c4155b62b6a4f44b48",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/metal_backend/mod.rs",
+      "blob_sha": "9aba03a8c5d23a655caabbd8da90b63a26a2aa61",
+      "sha256": "5c9aa5725671efcd48b672303c686f51d7c45efe44812b52ac00ec16408615a4",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/mkl.rs",
+      "blob_sha": "359add741c81a096202915d4900493cb30f99980",
+      "sha256": "c80564bd6139736e0e28336ba3130f386da963d62238eb45f2f1a15c506c2254",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/nditer.rs",
+      "blob_sha": "1dc0494ba499f6dc6beb745f754d981209558dc5",
+      "sha256": "1a989ddd49e88d7c50e5f794be473b3df9867b0185d4b0fa48ea11271aef090b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/npy.rs",
+      "blob_sha": "fd399bec11e0d09ea79f8bf446dbc8349406ba06",
+      "sha256": "423a29e79de556ea8010bf5a49ed8cf968a796f0a06cdc075dd9196c6900161b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/op.rs",
+      "blob_sha": "513e94eafd85dd7c5e18eff957cef3693d786e58",
+      "sha256": "2bca96d46ae0eedd878f31c955c37d7046cdfe08e20ce03787c07dd17f2878d0",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/pickle.rs",
+      "blob_sha": "97ef0c52cfa7b28d432fc3b732f3274d189b867d",
+      "sha256": "e7e90e591f3b01900f02095a202e71479c5e8de587c816d8e552aeec65ffbd21",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/quantized/avx.rs",
+      "blob_sha": "01fdaf504949faa6b48f1460fa71f3fd259cae6e",
+      "sha256": "cf50cb1111c49e9db7c1ea2834b2aac2c6c374256bd80c71f6c69e7a112e80cf",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/quantized/cuda.rs",
+      "blob_sha": "bd8efc3e5750cb17df101f78726135f890dbcd09",
+      "sha256": "7a021df686166f3c5a4af678eb09d076a6b9c5feee86613fce8eef703c76e089",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/quantized/dummy_cuda.rs",
+      "blob_sha": "754a9912c2612dca1490d209ce5caa501828360d",
+      "sha256": "6724e95c52c6b2f7c37cd05cd55212a773f376084476cf7b050e4ce8fdfd2302",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/quantized/dummy_metal.rs",
+      "blob_sha": "32e598ea613980a6b982697606d1f0e23199e862",
+      "sha256": "bc186ba54af5a2a5b386bc3674ca20465b658ee21285f6c680495303500760e1",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/quantized/fast_mmq.rs",
+      "blob_sha": "0e3fd0a347f7f0ec39511c5d9243d3766770ce0b",
+      "sha256": "e739c2331b896c15a783c0296c211808d754b8fd537821035de0fa0bdcafb918",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/quantized/fast_mmvq.rs",
+      "blob_sha": "0b53552b3a8af43dd8a15912989fc36b25cd40f3",
+      "sha256": "d1a833eaad8897848d365c2773cc067359b8b8afc3adc6644e1c467959283eb7",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/quantized/ggml_file.rs",
+      "blob_sha": "ea5ec025787639eec71de581ad727ba1f013dd40",
+      "sha256": "dfc48f822e4393bc836efcf782f4a6bb36168ac9d641324a054f13ee862aadac",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/quantized/gguf_file.rs",
+      "blob_sha": "fa075100c68ee3b128e2e636dbff3a7a804c1b5b",
+      "sha256": "303d0bc548677b41a572b4c878a79905108775eba840037daf778b051d281822",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/quantized/imatrix_file.rs",
+      "blob_sha": "ed228b74ce0ac6633b29893e56a0b0f5adc66006",
+      "sha256": "4ad710e64a0c9d3e5c2be1f6ca0a760035babb66c5fb91774acd1d7a30288d66",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/quantized/k_quants.rs",
+      "blob_sha": "38a49c08fe2ec3001f9593b917b7e70dd81ad025",
+      "sha256": "5da7585da32cceae1193dbf522e14eee317b9af391584a9042f92fb2fd85eddd",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/quantized/metal.rs",
+      "blob_sha": "33ca3252e589d06f284bb5d413b32bbe8b031395",
+      "sha256": "d048c1d2a60ba2cbbee37f13bb35a762fb744fe770121a6725f54e33c7a32397",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/quantized/metal/moe.rs",
+      "blob_sha": "eb3d64c454ff47e086c3731dffd70ad14fabcbf8",
+      "sha256": "82f83071a641dd7d31a6931a764145573b3b705ea8f9a045e7f5862203a3ce45",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/quantized/mod.rs",
+      "blob_sha": "378cd906fdfd9e2677bc95ab534aaa2717fa3d1c",
+      "sha256": "f7d25df3861d4c25d9d2ca8a94ee6b2e34f7fb7de0ec179d70d19b5c1857b49b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/quantized/neon.rs",
+      "blob_sha": "d7fe7608433284a13a6ae9e688040449961b8a73",
+      "sha256": "0d74f999ccfd2a7a0f6b7109d8ad2a504cd251c646b32e60d5a19042014f8ccb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/quantized/repack.rs",
+      "blob_sha": "0ea3c4974cf2e68da3295653365d5d14a5e9c3a8",
+      "sha256": "9381b250cc7d8e9f92ed08783cd927043ebb80491c3037c08c73a3b42287ff66",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/quantized/repack_x86.rs",
+      "blob_sha": "3f6fa1d330586189e91c9bd296ce8739bec78ffe",
+      "sha256": "a0fc0b307371399cb63b486549be2d2b1ba1a838f26a4d1e15ddbbb32ce54ce9",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/quantized/simd128.rs",
+      "blob_sha": "4c02f9919eb4ee5754206ddf217c798a29dc91c5",
+      "sha256": "5c8000c6dea9803de8befde33b15970c1b1dcbf83b914c6261a3e9c2b658c1da",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/quantized/tokenizer.rs",
+      "blob_sha": "9172d95a4d8f78741fbc5af602034e4e57c7f378",
+      "sha256": "c83c0b8147cef5c1e48edc3c46fed869b5c5101951870eb83d0a8991d96ec8fa",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/quantized/utils.rs",
+      "blob_sha": "9dd9c0918aa071ab187717aea29b36a08c00d374",
+      "sha256": "33a4ff45fafb4baecbd6b95f68fd373d447283be19e38e63f1f4da3434f3a47b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/safetensors.rs",
+      "blob_sha": "b289059cf85ed59606169715f9fd1821c77e9d4e",
+      "sha256": "ef749410cba738ad44008ed2f05ecf2d1ce756cf184e244360a30d561d621ab8",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/scalar.rs",
+      "blob_sha": "5c512c03b9e897bc05eca046c702098d581cefa5",
+      "sha256": "d98ca484e6fd0580f2b8bb2c3c43283671496042aa9d58115829052532d6200c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/shape.rs",
+      "blob_sha": "114c9481dfe9708a2f8c93bebe0ce772433daa0b",
+      "sha256": "d52a838b8f4dd0be7357a3d580614cd3966409994a3ab651659611fba52441c1",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/sort.rs",
+      "blob_sha": "c49da7f2abe2176dbef533aa7d71eb6b25280d89",
+      "sha256": "0f3ed706b3fb869994a4c17e361e63e1a4265332141bf2ec34ee47f543491a8e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/storage.rs",
+      "blob_sha": "9f5763132e0a13ff885142a763b327f1e035e5ca",
+      "sha256": "75ab418219e6ba8d12cb5b53f98c1added6b7e43b98229c94d6fc6547125e7ef",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/streaming.rs",
+      "blob_sha": "f4c0a9ff0b2888770b8c7ef9e9626ddf53d20eb6",
+      "sha256": "abd0de65d894b617e6e3fb0c0787f220582bcb1f8eb9341c33bb74aaa23bf165",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/strided_index.rs",
+      "blob_sha": "97764b3b6db267feb353d4b5f0a2fbe5eba4265d",
+      "sha256": "bcf9da995eb6e9f304fb0107fef0a96be4e5e94d5171b66d904c8d12f31eaf4d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/tensor.rs",
+      "blob_sha": "0ab1c0fbe49405fe97ab258bbf1f5d28bb55895a",
+      "sha256": "cbf049fba05d25283a04105d375c17b91819e5cf23ae6660496840f60621a61a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/tensor_cat.rs",
+      "blob_sha": "165af816d7286a5b1f53f8c02466ffc9a41a8866",
+      "sha256": "4bbb636cc44295ec02c29ab4057796342f78437ad62fc007cef0dbe8f6ca7914",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/test_utils.rs",
+      "blob_sha": "e331399f4d1309f93c77253f2d1c71d0372b9993",
+      "sha256": "b3eec41e2864344b9e0a0eec4f0be70f8273617b99684d41315809530327debb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/utils.rs",
+      "blob_sha": "324e623b936914e7e65fa57c6b77764094ebb51d",
+      "sha256": "72e8e5ac3dcbb73bd9563b07db938f2fb6b3d7830c51c9b7b664ad8383dbe22e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/src/variable.rs",
+      "blob_sha": "1e4880e59aaa51a611b8347f735edddac12a39f3",
+      "sha256": "b9b10b5d2d4a81d1ab920f9337e556a634bae7e484a0b04ea855f9a903fc87ec",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/bilinear_tests.rs",
+      "blob_sha": "3716df6ba4f2781e485844ef16b9302b33b0a997",
+      "sha256": "6844aa75cbe436d753391e3839619adca77a1f83d6ae78957261181fabbefe9a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/conv_tests.rs",
+      "blob_sha": "d24bf8c8293caa804b21b7d9f415d801a18092e9",
+      "sha256": "d63078f5013368e1a26178c10bafb8fddde4ca5388d732ba8cca5141af50252e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/custom_op_tests.rs",
+      "blob_sha": "3209fcaa2a92367cd93c2314c824859cb3a5e2a9",
+      "sha256": "9c6c3f84939b592e699098c0416d0ad8054775b1c648f0efbcfc64e059bbbe01",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/cutile_tests.rs",
+      "blob_sha": "e1fa2d5cfe3f5e04b9c8bdfc458ae42000e769f7",
+      "sha256": "bdb6a9c5f92e7fd526eccd224e6837178c7096c22727f910f62edbe2614d2e97",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/display_tests.rs",
+      "blob_sha": "8ab8bb6ab70ab15153e5908b9562c5749ecf0dd8",
+      "sha256": "cf59d2ee9954a639db5c43ade847d4629503b706282419fae8c6481790c41e9b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/fortran_tensor_3d.pth",
+      "blob_sha": "bd50b03d9cd74135fa6f53e2bf39da2f7ac0879d",
+      "sha256": "f5178bcd53eb6cb54c9a5e825492c717bf4e7bbadb9f0f3833b6c5c6764f7a38",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/gguf_tests.rs",
+      "blob_sha": "b90136b6255b435b8043d198f04505eaa4b34bc5",
+      "sha256": "b4b290f306f9a5d6da56c530287e3f6db091a2a4407710c286fe456d1ec11306",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/grad_tests.rs",
+      "blob_sha": "7989613e6768d426bdc6002bf00cb7fce23b3347",
+      "sha256": "65c1d2fa75e4f073bb2de742f372f299641f68617ed222b770573a4a17930e16",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/indexing_tests.rs",
+      "blob_sha": "047205a31faa336be99b34a1c8e0b9f84c648a6f",
+      "sha256": "3d9e855b36a3e0b8683777b3d13c6d34859773f47e5ff309d612cbfcafdd6be4",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/layout_tests.rs",
+      "blob_sha": "f7a52e7d341a3b7bbc78309e394cf8525b43f880",
+      "sha256": "4ffb74cf6658adb02e8218de8b8abffc3d4da4636ec4a9afc8f2b7447d2958d7",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/matmul_tests.rs",
+      "blob_sha": "b34c4e62919264a1071df297951bc0540b58cee5",
+      "sha256": "27ac782bec04ad72ba7304c2b902d207e1d9f7d0f8a05845320bba82a3d5414b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/metal_concurrent_tests.rs",
+      "blob_sha": "850e817d24d1fe3311da38b7389e4eb0db3496f4",
+      "sha256": "0c52c29f655f1bdf21ff9f24a15682eb6d5b197f17ae217df7f8db533deecf07",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/metal_indexed_moe.rs",
+      "blob_sha": "f7cae348139e883fa8df22f8ffa2867d793bda88",
+      "sha256": "3c0b72de62ee8eecc4d8c7b19f46b5dac24068299f79a562d09d7cce8cb7935b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/npy.py",
+      "blob_sha": "0fd2778a159815df75eb2d4fb3c7bef8b4b00c4e",
+      "sha256": "e2547b01e13fc3807991286645dba5eea7c5b3d76e821be2cfa7822be7a2f818",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/pool_tests.rs",
+      "blob_sha": "1edb7d353be8f8279cd639d536957e58faca878a",
+      "sha256": "b574c67ce8486578d55b3f27070f83bf1c1137173b9d3762d5cd2e7d25c9f8b3",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/pth.py",
+      "blob_sha": "5c787c2036bce476caecad603b92b94314cf7ce3",
+      "sha256": "7ef7b4686691b33173f376f22daa121e92c91bec172994afe3deebd53e77f0b7",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/pth_tests.rs",
+      "blob_sha": "7ea3d1420ef51b747b39f3bc310398b639a5d55f",
+      "sha256": "32440ce8dcb64ddf469e7cf122f4d19aa0ae484650c20d127d147fb99052fa35",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/quantized_tests.rs",
+      "blob_sha": "f2fa3082ae066b9c5835be52a122e1b7b330a8e6",
+      "sha256": "ac393f4a6ac74eda1c7320dbc5786fd206122cf985aa5a26800aaaed2ad1a496",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/serialization_tests.rs",
+      "blob_sha": "f81350e6e17657cd2a578616d542aa38451b488f",
+      "sha256": "98db2da64586ec61234767421a792e712f2c072fe2382b1ff589c771b03b7d57",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/tensor_tests.rs",
+      "blob_sha": "4d9baf26bf2d96272b33d9f3c91d2b86bf49f2e8",
+      "sha256": "6a7d5551b8c7d4eb9093409dcb2bc78a503ea23becc0bf3921075cc71b58aa4e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/test.npy",
+      "blob_sha": "a3ff5af9540510ac6518b5a2478bc1a40f992371",
+      "sha256": "f314ddddf18999d4890f4fec8bb6539fc62b6f41861fa85e1c04c98a03097dda",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/test.npz",
+      "blob_sha": "b6683caab0e0e9e66cb5ca649aab4980a1e650df",
+      "sha256": "999497e0c309302915e4db2b16118ce097c68aac66c08058fac8db3d58c7809a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/test.pt",
+      "blob_sha": "f2fa7da3e47d765585833e67c9f02e4612cd26f2",
+      "sha256": "2bc164fa96f78ef8fcb8eab5fdae9b991efe946b9b63071fdf1769dba5d3fe25",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-core/tests/test_with_key.pt",
+      "blob_sha": "a598e02c42ea4daf5450f7888dada9b2874471e0",
+      "sha256": "2775d95f17d2630e2534e3ae09462624955031407a67f0f3b52115c49601b747",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/Cargo.toml",
+      "blob_sha": "21d9f9861dc1bd3148c6e6527fb6167adfa1de1e",
+      "sha256": "f1402f2da62be1d8c3113b497f07e9ffa437239cb99c6259d330e8dabcec11a9",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/README.md",
+      "blob_sha": "d50aa4a2f4f6cd1ca3b2a00543316a289b91ae4a",
+      "sha256": "32c45d1b97936c044441c0db7a6eb71108bc74d6b3c80c469393ae97f33fb666",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/benches/bench_main.rs",
+      "blob_sha": "44bd6da826678d43a7c12347a5cc41dc4cf0e284",
+      "sha256": "f6030a21c53264f017bcd57718a50a700330d71cdfdede46014f82784abf7af1",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/benches/benchmarks/conv.rs",
+      "blob_sha": "72166f3bd060e50370a2cbbb4691e3aabed6270d",
+      "sha256": "8efdbd65a8b68c2e665499f390f64bc34e3fd43e6ddbad4a9ffc273da1490c32",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/benches/benchmarks/mod.rs",
+      "blob_sha": "edb8811b84382a1671ce1356807538a07d23de2e",
+      "sha256": "add2b3d4e8958767aa7f0354ae433b5f94c45a8d44dbd00324413cbdcbb886e1",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/benches/benchmarks/norm.rs",
+      "blob_sha": "a945fd476a4c4e19976c0a116dfbcb5c0cfb8db2",
+      "sha256": "58078e0d8605482734e441c32afa1343964c2b496d4305e10dd862b45a9f90b7",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/benches/benchmarks/softmax.rs",
+      "blob_sha": "7b5f1c64ac9b724906c8f08388d1e47b7cb94762",
+      "sha256": "9ac0251e46482770d72d46014773416ca2f4567253f58e5f29cc9036493016f0",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/examples/basic_optimizer.rs",
+      "blob_sha": "810f7a7a7503cdad397e0cd287703adebd02c1ea",
+      "sha256": "1d234c49e95a094b9eeb392ade97f0ae31edb0059b05a5ba1b6b96118169f1ca",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/examples/cpu_benchmarks.rs",
+      "blob_sha": "430316b89df56f2a9fca45d030c593bda7cf469f",
+      "sha256": "3503f7d960289488e3d2c068dc607bf7916c2dee9f46c36ece84eec8d8a27851",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/activation.rs",
+      "blob_sha": "f2a992afccb2b477cccad6377baa7e96918af991",
+      "sha256": "29e39dd7004e50d0868d98863cced5a29be76c7dd1c7639edeb3d872bd6db1fc",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/attention/cpu_flash/causal.rs",
+      "blob_sha": "bc0d233b5681159c0c1a5380e1f56bb18e15005c",
+      "sha256": "7d28116e839c83e7481b20594b9f63e0e5d9df8c9a2aa7a9c1810c7ab8fe979a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/attention/cpu_flash/mod.rs",
+      "blob_sha": "d667a4ba22720d88d7827aabbd75d904ccad2966",
+      "sha256": "81b096395743b69520b8890f2512169603e7de02583c13a558fce6c7eceb4fbe",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/attention/cpu_flash/online_softmax.rs",
+      "blob_sha": "de30795d714eea55081d89a2afc98f4b3d5e26c4",
+      "sha256": "ce93a1ca733c9115e724c2734c947e0bc72edd30a10060ff8aff3fae8ce0f615",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/attention/cpu_flash/standard.rs",
+      "blob_sha": "d864d4eb2f61bdd144983741c0d47d5e294597ba",
+      "sha256": "7a11b5d87c119f2641c32d24703fa4ba51b5b7e30011eed901db11f76428504a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/attention/cpu_flash/varlen.rs",
+      "blob_sha": "ab17b197bad9be566feea383fc73397a63680ee1",
+      "sha256": "745f330f7b2d4f93423ac2867f1ec91d85f6f056e61114123e5b5fd861f4286d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/attention/mod.rs",
+      "blob_sha": "f72ea63f3d10651058472c839199b539dc4b6c8b",
+      "sha256": "cc238ba7fcd4f87df6e9e689f27e32cee77785494e7e33c2fef6777cda2a4eb1",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/attention/varlen.rs",
+      "blob_sha": "eb07fd6ada42540a5ef2e9b0efc86273fce46e0b",
+      "sha256": "d77a53df06c73b8426d16042a925466b1dc5c68436539e33904023cc0b6f4414",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/batch_norm.rs",
+      "blob_sha": "4c67961d069ebf6548a0808550d2ff4ba5211eec",
+      "sha256": "dd82ea471d4bc7ef4a940daa4b28a83c1b9c83e159942afa2889669af1f4eb98",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/conv.rs",
+      "blob_sha": "6b01c2c6ebbb62df5425ed11eca515a839c94959",
+      "sha256": "2d76ab578f6a20a45dfb0ca53ec89deda086fd9ea9ee9a73c3375023f7564e37",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/cpu_flash_attention.rs",
+      "blob_sha": "21364e18069fea2acaab28abe44bee63748653b7",
+      "sha256": "f036555b662468d41f8abbf7d511a8bd110f78caebd4dbf193f6935b5a9e839d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/embedding.rs",
+      "blob_sha": "52968bc261b5fa1e3c64bfed7bbead199eb7575b",
+      "sha256": "b870ba7dabcbf8bd9d3fb53053cc9a7af641b96ffcea3f8e58e04fd78bab57c1",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/encoding.rs",
+      "blob_sha": "a40b957a8ff2fe6b9e497e649339058a54af730f",
+      "sha256": "133ce60ecbee7b0694a6681639f2025c8445fa4f2c9a5b2c64c44dcbe29fff9a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/func.rs",
+      "blob_sha": "72744404acc530fff4d0be81c82cd96f41b3d8c4",
+      "sha256": "1878bf7ea3b424ff9571e3127aeacce793b47cbdf8a925d0cb61fe631c4268f7",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/group_norm.rs",
+      "blob_sha": "9646942571585db4fdc4878ab5c7ede24b9c20f5",
+      "sha256": "2b8a2aba115f56dd507dbdd8258440d8dd2114d70474af88ea4cdb11888bdd2e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/init.rs",
+      "blob_sha": "5b9c4fda9bc3a6c77f46b1a43c2e834a41406ecc",
+      "sha256": "ed6d794d9c4b0200e37a4f2b0b3c99a5a5c1dafc49bc9e5b99c8ce80074a893e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/kv_cache.rs",
+      "blob_sha": "8ca8410b4952769b1b7bca18527a6e9928932afc",
+      "sha256": "67fa32cce0e7f05bc19b305760f555509d0d73731b40aa43974fd24a70408e17",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/layer_norm.rs",
+      "blob_sha": "a270f2d429842bfa29d7e6832329ef20018bf587",
+      "sha256": "73d17ab82a01c19ca246ffe46e827a924830c943301daa34b5de89ae02526a37",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/lib.rs",
+      "blob_sha": "96c9c0a915ae1ff8e90f539416a8d79840173098",
+      "sha256": "9a568a854f35b1d7f866015f01e5d8f138180b4f6790fd181b6d80bb9a6a211d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/linear.rs",
+      "blob_sha": "82c82793ff63afe250cc877c94c4ea11d685b10e",
+      "sha256": "c7827f685ef90affe4cefee1d133e9acdbd2489125e6f47f233f62e289a9c658",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/loss.rs",
+      "blob_sha": "f593bed633991d77a22b6be56bb008c809eb1c9e",
+      "sha256": "53fd5ec03c94ee5e88f44ef896a5cefa7c921a91455090fb702c880b6d9ce3cb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/moe.rs",
+      "blob_sha": "70da571679d7e4c31c0afdc2beeb210afd28d6ec",
+      "sha256": "c9cf96f2f07b07b8aff97703a3568d45db4f366d721a3d92e794e6999484c365",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/moe/cutile.rs",
+      "blob_sha": "d7bca7c58e3e82913476aaea3b4b7e7f5399e3da",
+      "sha256": "686550bdfb76b92837fd86a85bae92dd935755b5b8fea1a9db6f97b2119b1808",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/ops.rs",
+      "blob_sha": "1309605b263ee597ad628fa8713a852301dd2bbe",
+      "sha256": "5f3342ddd29441833f3739931b532c5f66ff45b107fd4f867d198370f17887e5",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "candle-nn/src/optim.rs",
+      "blob_sha": "2c671fc59ee917ffbdbc22d50b235f6c2fc5bf2f",
+      "sha256": "76ba71fc8983c847809a05b4ad1a4d4cd9e2d6937e187a7ad6a19c7de2596194",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/rnn.rs",
+      "blob_sha": "798db6ac4dc581bcd6f735a2aa3e362de5c2bcb6",
+      "sha256": "16cf395e945e55944c5febbcf87b4ebf6a4ee72df09d0cb544cb254f75fdaa3b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/rotary_emb.rs",
+      "blob_sha": "0755fa7fdf4f51c7615e03a8110a8673704e1f6e",
+      "sha256": "49259a559ee10e959a7209cc7c7c63c643726ea2a014482a0cc978aaa3af84c8",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/sampling.rs",
+      "blob_sha": "802274137a52581a0c9bb0f1ac3cc5f0cb20fdfd",
+      "sha256": "5442429039c708b60bd3bc73e23a59c52a6841592e327dfccea3cea11fb35024",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/sequential.rs",
+      "blob_sha": "de5ae4971bf4fae36b2cbc262b9a35bf40d94d44",
+      "sha256": "1f962d8d7b8dbd017f3cf1a70f5d4e7b452fa0891d77aaedf0a90921595d7de1",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/var_builder.rs",
+      "blob_sha": "86f91d80f518f9cb7e4d6844038e137dcdd0f196",
+      "sha256": "e86a25ab1cfbd8f90878695b86c93f60ebbcd6247dbf59537d4b1ad21f24bcb7",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/src/var_map.rs",
+      "blob_sha": "919474ab0cffe31a068bfd3ee1e469a338bf2099",
+      "sha256": "c831e9f6ab5c527d8b39feb9db2df402a67aef08e86a05c10735e251587bebba",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/tests/batch_norm.rs",
+      "blob_sha": "8ce49c923da039d68939ceccc249fa3d2d762933",
+      "sha256": "8835d6bde0a5d3cb3f64cf9e8a118d6376c6f00f61a2aa7c901336e360da93eb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/tests/bf16_add_bisect.rs",
+      "blob_sha": "be3b4e1d3bbf9d0045ad961060b22dc19f94b716",
+      "sha256": "be3390850e7050096be549d88f4c95635bba5b439fd0691e30c473f405191b7e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/tests/bf16_conv_bench.rs",
+      "blob_sha": "e4e78b73681ae44416c2c0fc38e30fa43fb3f8e6",
+      "sha256": "c1a8ab5dc67613f4a30adb6fd27da095540689aad5b30ce8acb83684c4f8df81",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/tests/bf16_cpu_ops.rs",
+      "blob_sha": "65d355cc0caeffb42822fcc219ecb61baf7598c2",
+      "sha256": "adf9f78e29cb699158e16136a3fca699d67205d60c7c7bd063ae3e9b374bea8f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/tests/cpu_flash_attn.rs",
+      "blob_sha": "dceda4bc2926bfc5e017498ae685167f59a115fe",
+      "sha256": "157dcb9f5fa6bdab988caddd80ae48db4d6b3656ffcbf80a0100f85ca1366b0b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/tests/cutile_moe.rs",
+      "blob_sha": "b2bdbfe2613ff73deb21e046fd99fba647a943de",
+      "sha256": "526a9649f1d93b3a81d4f03367f2756dd9aa9f944bbea001194fc819499e864e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/tests/group_norm.rs",
+      "blob_sha": "8145a220cd140b1b7ae14477d7ce7b321f0a900b",
+      "sha256": "833b4618b3d1a692d4141f391ea71e3443ec95890f245d9e18137af665459bc7",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/tests/kv_cache.rs",
+      "blob_sha": "c8a193a84d76b0e3b5ce9c305fdf721d93c89183",
+      "sha256": "d618c3f99973b8649490cedb78ad240dead407a8da76f76e44e048863541f2c2",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/tests/layer_norm.rs",
+      "blob_sha": "044d8aa7e10411beb96b618eee39dd9201639965",
+      "sha256": "12b3ca2a51e621d0875e8020b28a39831349d23d8c802ae10de82fe904ded4ce",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/tests/loss.rs",
+      "blob_sha": "38c4ea917d8781469559ff69c3c90a29f386af3a",
+      "sha256": "6fcb2cb7693530364054eb66078274a5f59edac75291e3c09b73034982381e1f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/tests/one_hot.rs",
+      "blob_sha": "36afdf689d7113d3aa6e98f34f97ed4acfd377b3",
+      "sha256": "212e42f428c0d4d0459f2f0fe83025af17bdb8b447193ee70160ed164fd29880",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/tests/ops.rs",
+      "blob_sha": "dca47b908fad713456e3dea608a27a54367fbb4d",
+      "sha256": "9685f6f9a9acb1be75910b9545efae5973e294b83933c2cae21a4a5fb6ac8452",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/tests/optim.rs",
+      "blob_sha": "4eb14ed81be9926f72ee284d9c343b5f65b0e81b",
+      "sha256": "f6aa7765930cc2b9d9a9c6bd34e0a7b82613ef33d7906d28655f213eaf06d9e1",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/tests/rnn.rs",
+      "blob_sha": "498c918851fc02bf579b954cedc84b0c7703d185",
+      "sha256": "a7c7fd317abf23b8f9c95ce6c1e720b2b1ac72f3e79b71e2ed01269935908d5e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/tests/sdpa.rs",
+      "blob_sha": "318f9c4621a6279231ea91fd5a757edf0a7fd5a6",
+      "sha256": "c23430ea3146036b76a1ee387032fe2f69e0d7d7bf7febe40d1d4c675baa5dff",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-nn/tests/varlen_flash_attention.rs",
+      "blob_sha": "f55eddc4c089f4306dbdc12462f8686272c53da4",
+      "sha256": "0d1adb00a665dd1a2605d691239df91a9df035dccb73523c404f26ae8839ff28",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/.gitignore",
+      "blob_sha": "3d1f96fbbb54cd6afb536bc067108c66e4de1cee",
+      "sha256": "8b8aacbab0c66812a4331400f4dadd7e8e30245e9a348f1831e167809feaf4aa",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/Cargo.toml",
+      "blob_sha": "8a6a023b08ea0f6437c024039f659fa5506f5321",
+      "sha256": "105ac702029a55f0dda01d344d68c72b93b36f5cec947a980d88639d87019169",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "candle-pyo3/README.md",
+      "blob_sha": "be6d4f685aabba167c52f53d57ec5fc3ca763625",
+      "sha256": "0ec2d99ae2c645490d64e2941b8ff7aed1dca4694081f984d3c364d514c92aef",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/_additional_typing/README.md",
+      "blob_sha": "81984691a675b1d7f829655af146c9664d43c7bd",
+      "sha256": "3c7889dca29d8632013930b2806e29b60fe1eda1f8dff952f126c1823211dc8d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/_additional_typing/__init__.py",
+      "blob_sha": "7a65080ba545eb8be111054d3360b9749d8e69dd",
+      "sha256": "f61aab258cb47dbecd3c3394866dcdf00f4484fd42c823d204419f5bd6e7df57",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/build.rs",
+      "blob_sha": "dace4a9ba9f8307ce41f599c8ed41059896ec705",
+      "sha256": "c609c2f1a8594abf959388e559d76241e51b0216faa7b37f529255eb1fc2c5eb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/e5.py",
+      "blob_sha": "9b54ebcbc4a0a996d78c20d89f46f084f2d4af0c",
+      "sha256": "41ced8b6d31bd12e70dfab5390b51a2f8eb906fc4db573bbe945fb7b4d353a4b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/py_src/candle/__init__.py",
+      "blob_sha": "e0e188cb7656567844fe1760238b65722a10f5ad",
+      "sha256": "ecde768c0c3216ca70dca34248db409dcaf5508c768feb6b020e1b669edd5f45",
+      "installed_path": "candle/__init__.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "candle-pyo3/py_src/candle/__init__.pyi",
+      "blob_sha": "b0f05de591d9b6dd1ae127337da51da9f1aefe4e",
+      "sha256": "0c0af89a619c25720bc76cbb770fe0e93e52c411e8d8bbffa1e972b8c69117a8",
+      "installed_path": "candle/__init__.pyi",
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/py_src/candle/functional/__init__.py",
+      "blob_sha": "095e54e4a5fd81d23216f67101633013c6dd9439",
+      "sha256": "d3ea7c214a81c0cb634e15b2cdc12c2438d459486ff1748ca7dcbed64014b85c",
+      "installed_path": "candle/functional/__init__.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "candle-pyo3/py_src/candle/functional/__init__.pyi",
+      "blob_sha": "4f7c2aa65a5220d3541b29401767bc75061880ce",
+      "sha256": "3c171d89e44c2725f7f439d7e44b0b876bca52032916140a78d6b45040baf3a0",
+      "installed_path": "candle/functional/__init__.pyi",
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/py_src/candle/models/bert.py",
+      "blob_sha": "df1fa5bf36d610940ed31cd40b264372389ac50d",
+      "sha256": "3b952101dcf929b21edec6841be0c1be3d8267a5d1d3295c8db95488edb4ab78",
+      "installed_path": "candle/models/bert.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/py_src/candle/models/llama.py",
+      "blob_sha": "fd9b30af3d62ccb8ba5bc8c86eb46796fe879f5a",
+      "sha256": "254b336695899f9fec1dec7fdbe314f5055ea7c1e71fa06e9df31edaca9a0f7c",
+      "installed_path": "candle/models/llama.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/py_src/candle/nn/__init__.py",
+      "blob_sha": "8da0e8aa81212715c25089f1ea6e3a6d227683c6",
+      "sha256": "a96dbd9139bd908d84e211d815a0f5be2271c2830872e22b81e15adfcd882fb6",
+      "installed_path": "candle/nn/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/py_src/candle/nn/__init__.pyi",
+      "blob_sha": "118c4cff30f2f704be3c93e28ca1e461344e920d",
+      "sha256": "cecf84422eb5ff75da30be9d902c8759d02f5e6c04fd444993a3c4c5523a16ac",
+      "installed_path": "candle/nn/__init__.pyi",
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/py_src/candle/nn/container.py",
+      "blob_sha": "963a8a4a6ef817fbe0cc3ea56c70efc21200c6c9",
+      "sha256": "fac5a1c34651ab05a03c27717f2d899f5c979acd4fdc473bcb89fc0f66c821eb",
+      "installed_path": "candle/nn/container.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/py_src/candle/nn/linear.py",
+      "blob_sha": "d275eb1ec8a110d082d07a5938b038bda8977578",
+      "sha256": "f49f6452797830cb8285d889c4c8faf69b6da09646e54055c0b146455f176048",
+      "installed_path": "candle/nn/linear.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/py_src/candle/nn/module.py",
+      "blob_sha": "972d9a91df51d908715a3f25b8e139a1cf683ab5",
+      "sha256": "0c6782fd67ffba83d56b35437cb61a8b80309ef811d92fe7543b2812cf7184ac",
+      "installed_path": "candle/nn/module.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/py_src/candle/nn/normalization.py",
+      "blob_sha": "61d29c51f034a0aced6c813d192046098323a183",
+      "sha256": "4558d3eaa0d555d30c095a28087956e2640a7a9d019fab5ce1e01b24f73060bb",
+      "installed_path": "candle/nn/normalization.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/py_src/candle/nn/sparse.py",
+      "blob_sha": "386f80817d4346075a835922873030b37396c9f9",
+      "sha256": "7aa7502d96544367485a60a046922e1deb6f4ac466aa68220a126d8f2f458540",
+      "installed_path": "candle/nn/sparse.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/py_src/candle/onnx/__init__.py",
+      "blob_sha": "856ecd7d971bd2a151d7215c1a30434bfeaa462d",
+      "sha256": "d6c606188c93724c9e3264473ec99d6b1d6c2c19a5b73507c8dce0042e905d70",
+      "installed_path": "candle/onnx/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/py_src/candle/onnx/__init__.pyi",
+      "blob_sha": "a23cd2f0d58b1eeaea4a5dc1e432ec76100ddba5",
+      "sha256": "53d5cac9157f4cc026c869294df743f8336480b7b6354004f8f73619cbc4bdcc",
+      "installed_path": "candle/onnx/__init__.pyi",
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/py_src/candle/testing/__init__.py",
+      "blob_sha": "c8fa706e0b36b00840b0ab6e6a530bb741c036e8",
+      "sha256": "598bb8ac8089a2462cf0a04ba6740245111f557145779fc34de968f0a17cc205",
+      "installed_path": "candle/testing/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/py_src/candle/typing/__init__.py",
+      "blob_sha": "b2262a97d09fb693080d3e51019ab64ea3f5a8ab",
+      "sha256": "36abde72bd026b41b6deb526907b78834569947ff845bc5826b35c2676101e21",
+      "installed_path": "candle/typing/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/py_src/candle/utils/__init__.py",
+      "blob_sha": "62d85dc984f3aa1c317d87245adcc228c9bb625e",
+      "sha256": "33c24d7a92b30cce0070ddfb66101d0ce7356957272d3587352b377e5f6c1623",
+      "installed_path": "candle/utils/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/py_src/candle/utils/__init__.pyi",
+      "blob_sha": "05c9c886290a3a2c0779875f4a6203bdffae6d80",
+      "sha256": "b5fa5d6de7ef471d7e3cfca9b3068a2b6cfd91b1a5da23ccc66fd4692d50686a",
+      "installed_path": "candle/utils/__init__.pyi",
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/pyproject.toml",
+      "blob_sha": "e98f6ee5b58ff73265a973da40fdf070c6e173e5",
+      "sha256": "95a0c1df22a8285a11685c041f6fb413b1a907175a321ac2c24e10a70abb2ecc",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "candle-pyo3/quant-llama.py",
+      "blob_sha": "6e6698282f14f8f393b69e7e3eea4850dbd94d00",
+      "sha256": "53651d664c7083d5b5bdbf2d3e50abe01bbe43873ca32bc7fefe3eb0d3c372a6",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/src/lib.rs",
+      "blob_sha": "8a6b5f409b2c0a3b1aead54090fb3c975d050587",
+      "sha256": "6f450bbfc137c74e1f8273a463cd8aa3b3c1301393c7cc76522078cfa7f450c2",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "candle-pyo3/src/onnx.rs",
+      "blob_sha": "77f147ef311d51e4ba018bbbea6465ada55273d1",
+      "sha256": "826706460d8fc1222b0e9bed854be08fe00235d50e0f3252ea0dce8ae4bcef49",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/src/shape.rs",
+      "blob_sha": "5ebbe410df0c02e78618766ff3dc120615ac12fa",
+      "sha256": "9c15e019d2c1910f6323cdd8be4acbb533f7842b37adfbfb8d3527500637cdba",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/src/utils.rs",
+      "blob_sha": "ad0a76a58f1fd68bb22ebe26718ad1d12bfadb84",
+      "sha256": "b10679d7a741b325d8dadf63d9bf681b183f82221bb50a4073900fc6dfab86f4",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/stub.py",
+      "blob_sha": "06cfad3f4abfea072fa01f1f724bd400cbf8a9fb",
+      "sha256": "cc54e55669831fdc9db4e414f7b5e254d330e836648d0ee8db4945513ecd55a9",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/test.py",
+      "blob_sha": "e4ff772a1f79d82485e9c023cd5d1fe039e4f7cb",
+      "sha256": "991196d5bad9d682e615b5cea8d2d0c7d8dd415271dab0d4790c8ff1f2132c99",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/test_pytorch.py",
+      "blob_sha": "db0f35227c0370a46d33eb88d52f4107c2eba95e",
+      "sha256": "c4091f14a2bcf4083c78614bdb5e4901e182aeb635f292bea3c94216278d5175",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/tests/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/tests/bindings/test_linear.py",
+      "blob_sha": "5936aac4699c0ce0d053ec2483386eac55bdc1a2",
+      "sha256": "a55c25e3d092a4d6ddc327a2dbe4d138c78921801e37a11e635d1d29b77ec9c9",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/tests/bindings/test_module.py",
+      "blob_sha": "8d7a670deffc0ffc36eab087cce764ffc7acfe5d",
+      "sha256": "60831a6924a75ac84a9fa917d25238357b535cfb13275709ef888de735d2f829",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/tests/bindings/test_testing.py",
+      "blob_sha": "db2fd3f7fab2b8dde917ea67d0ec0d0d5bd6e75d",
+      "sha256": "9fd99636c6acf7628526dbfed05fbfe13d07f8d1eb827b9ff0fde1181482a751",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/tests/native/test_shape.py",
+      "blob_sha": "864e24d679d86c67d0c6f46c0b8f69afddbcbd14",
+      "sha256": "74c4a24006856f262e1c360f5133354ca07e9349170ef9821b9a3e1e6c0c595e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/tests/native/test_tensor.py",
+      "blob_sha": "04eaca0da7ff95171de075d302b3a113bc1ef859",
+      "sha256": "046a8f3c6be9fba002d74c925ca462acf6ac5739c24fb03cc808f1a961d1c3ba",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "candle-pyo3/tests/native/test_utils.py",
+      "blob_sha": "f5f5312250ed2e6ae2380f7055507bebfac77acb",
+      "sha256": "38aaa2bf0cf4b794f524c6f01aa6586657affddafa271a18686c1d711d9b3882",
+      "installed_path": null,
+      "review": "integrity_only"
+    }
+  ],
+  "status": "pending_dependency_license_review",
+  "registered_adapter": false,
+  "live_verified": false
+}

@@ -1,0 +1,1807 @@
+{
+  "schema": "verdugo.encoding666.sources.v1",
+  "id": "tokenizers",
+  "operation": "sequence.encode",
+  "repository": "huggingface/tokenizers",
+  "commit": "39e28180be35af322d0abf08007d937641a5493b",
+  "distribution": "tokenizers",
+  "version": "1.0.0.dev2",
+  "license": "Apache-2.0",
+  "archive_url": "https://codeload.github.com/huggingface/tokenizers/tar.gz/39e28180be35af322d0abf08007d937641a5493b",
+  "archive_sha256": "3d0bfd92972a474859d190bfa104ba33d5d43f8f343f8712565f3da8c30a9a37",
+  "cargo_lock_sha256": "8c318fa6926c594e27b3045aaa785803c9ce84d436095183335cc1062be48790",
+  "cargo_lock_origin": "Original committed bindings/python/Cargo.lock, built with --locked. Initial regenerated-lock experiment was discarded and rebuilt.",
+  "rust_version": "1.100.0",
+  "maturin_version": "1.15.0",
+  "python_version": "3.12",
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "1",
+    "CARGO_PROFILE_RELEASE_LTO": "false",
+    "CARGO_PROFILE_RELEASE_CODEGEN_UNITS": "256",
+    "CARGO_PROFILE_RELEASE_OPT_LEVEL": "1",
+    "CARGO_PROFILE_RELEASE_DEBUG": "0",
+    "CARGO_INCREMENTAL": "0",
+    "MATURIN_PEP517_ARGS": "--locked"
+  },
+  "features": "Original Python binding defaults from Cargo.toml; no pretrained vocabulary or weights.",
+  "operation_scope": [
+    "Original Tokenizer WordLevel and WhitespaceSplit compiled natively.",
+    "Encode at most four synthetic word sequences with fixed six-entry vocabulary, right truncation and padding.",
+    "Compare original IDs and masks to independent enum reference; persist only counts."
+  ],
+  "limitations": [
+    "Upstream calls these reworked Python bindings not for release yet; no stability or production certification.",
+    "Synthetic vocabulary is not a pretrained language-model tokenizer. No LLM or business accuracy claim.",
+    "Operator build receipt is not independent attestation or reproducible binary proof.",
+    "Selected content reviewed; remaining original files integrity-checked only."
+  ],
+  "files": [
+    {
+      "path": "LICENSE",
+      "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "bindings/python/.gitignore",
+      "blob_sha": "7ff606a48be6f93ea0020907302c5f34c8b04f36",
+      "sha256": "a72c80c80df759508ea9a13b1a0330bcf77294cd256430460967de9a00301bcd",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/Cargo.lock",
+      "blob_sha": "5cb9771e3d1e8dba23e68a28dcd3a4ed9724f84d",
+      "sha256": "8c318fa6926c594e27b3045aaa785803c9ce84d436095183335cc1062be48790",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/Cargo.toml",
+      "blob_sha": "9956734218465cd8dcd4dce6d3942005ac36ff98",
+      "sha256": "dc602a716218f48e9e9beba10eeb9622c7c721bbe2b8a983fd2195376f4144be",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "bindings/python/Makefile",
+      "blob_sha": "dd7dcde8f8223a6c078f3ee235e29f817f0d7e26",
+      "sha256": "460de48c2a336873705955248974e914fda52a1fce8ea806fa9eff8cf2137620",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/README.md",
+      "blob_sha": "9c39e3f1fedc471c02f3407e7a6b203ae8058df9",
+      "sha256": "99bcb70a5918e1a7ad909df9a13c0411a9cb6c6cd628cbbcc37c6f0e8aaaa013",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/build.rs",
+      "blob_sha": "dace4a9ba9f8307ce41f599c8ed41059896ec705",
+      "sha256": "c609c2f1a8594abf959388e559d76241e51b0216faa7b37f529255eb1fc2c5eb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/examples/batch_padding.py",
+      "blob_sha": "f3e2b4cf007ba9448949be27d9e4c9f93f3d88a4",
+      "sha256": "402a51b5299faa0cfd75e2c6cb2c10fc4d0f5d09dc2085fcfa63cd42ed0e5d61",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/examples/composition.py",
+      "blob_sha": "c0a3dd89deee43789cfae2eefc05383e6e5587e2",
+      "sha256": "a67c6b444a613baf37a274b59c0afe115e4b184d75b9e18072f720c1c51b9a18",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/examples/encode_decode.py",
+      "blob_sha": "a882e0dcba8a5a62ca6b39eba2a5441f50faa109",
+      "sha256": "2a275d360a763ee1d8d7251510c3918cfcebd67eb9d23a8c024c36e5a6b53af7",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/examples/encode_pair.py",
+      "blob_sha": "1af15f33069641abde336ee725013d2bbef85b4c",
+      "sha256": "c5177bbbe8eadaee9a458f1a3508b3bd41e6e6a91f1a48dde222737550321a19",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/examples/from_pretrained.py",
+      "blob_sha": "99b426a403196295fe25755588d6632382ba5a7a",
+      "sha256": "5ef6eb5e8ae957abb4852e2ad3e242fcfadfe9dec113b35844473f911ea46765",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/examples/multiprocessing_workers.py",
+      "blob_sha": "9d53033ba0864b0ff66112c72dc6397a508a3064",
+      "sha256": "62e6eb7dab7f6b0916710dcc79b7cc10ab160164f90dc080fdf427fb0bf1c772",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/examples/train_parity_bpe.py",
+      "blob_sha": "c19242ea3891dc38eb953b8014973a6b1490a33f",
+      "sha256": "222bd9c63f4b0998bfab913cbef4850c55d708d44ee4c260260e63319e9e9441",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/examples/truncation.py",
+      "blob_sha": "b99242a20ecf6924cce4036b3c18d8a6e46ea65d",
+      "sha256": "ff207674c0d5143cd385ac2794b159c3bee276f9e09c28b7157281cef12e6bdb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/pyproject.toml",
+      "blob_sha": "b26f212f1bab6c60f194c2f6d81fb462cdd7aeb8",
+      "sha256": "ada0fffb161210a68f1b51ef904d88ae2df333c01e8ec2af310b029769d2e326",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "bindings/python/python/tokenizers/__init__.py",
+      "blob_sha": "69da07b0e8fd1a06b587fe2ab9a3122b82f7c220",
+      "sha256": "6336375918b778cf675b29fe4284388ae1e50c906542f4728a821070c5103cf5",
+      "installed_path": "tokenizers/__init__.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "bindings/python/python/tokenizers/decoders.py",
+      "blob_sha": "5d12beb4e11dc1a58d6f0eceec5785acfbfbdc47",
+      "sha256": "58392f63dd604007400ed1abf32a20b036f04a1e52708dbd263aecc5f23119a4",
+      "installed_path": "tokenizers/decoders.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/python/tokenizers/decoders.pyi",
+      "blob_sha": "30a3c39e0562171a34343e6c35e0e8cdb751ca41",
+      "sha256": "5345496ea71e6cdae753f94465b163870e7fefd3a8901eb84a0e2b26e18e9149",
+      "installed_path": "tokenizers/decoders.pyi",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/python/tokenizers/models.py",
+      "blob_sha": "e36b20f2bfecc89809ada55a1365c5116c59168c",
+      "sha256": "1ef6d4c903dd382d26056b4973089b146eb3b9bc21a46876e9b87bc1dbc18e85",
+      "installed_path": "tokenizers/models.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/python/tokenizers/models.pyi",
+      "blob_sha": "b58ac15742f6e00c76193c4c8c0b3697dc0148ae",
+      "sha256": "1783457001cf6e5751b76f78c0e1df1a068993f07d505b043baebb5cffd192d8",
+      "installed_path": "tokenizers/models.pyi",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/python/tokenizers/normalizers.py",
+      "blob_sha": "b51bdf4af996b6ab09279a289d113fe6931e4f85",
+      "sha256": "f7faab4cec1d2de19e3005da7bee1a069b7e9083a372a93e917957d249c00ff7",
+      "installed_path": "tokenizers/normalizers.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/python/tokenizers/normalizers.pyi",
+      "blob_sha": "c3498cd691e3e5e5a7fb4d8f7a01a93d676ab864",
+      "sha256": "e5eff4bacfd4620bef0fbf77be754261db6b2f4666b1ca22c21b9aa2c091804a",
+      "installed_path": "tokenizers/normalizers.pyi",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/python/tokenizers/pre_tokenizers.py",
+      "blob_sha": "a19e9b0b6143a03f98d51ecb5fffcf676061673b",
+      "sha256": "02d7bcfdda2a1e56dc1642e151076f5d2a066f1d9bb7663c9e85ad829262320c",
+      "installed_path": "tokenizers/pre_tokenizers.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/python/tokenizers/pre_tokenizers.pyi",
+      "blob_sha": "50b3ec7259f4cb32cebd054db745826378d358e0",
+      "sha256": "3f91e7b90f73d92286a61508752f5d5e7db57011eddf471ef46ca603321d60c2",
+      "installed_path": "tokenizers/pre_tokenizers.pyi",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/python/tokenizers/processors.py",
+      "blob_sha": "b1e7d98913ce6fcc7ab0a0970ad28b2e8fb7156d",
+      "sha256": "d88a55faa79f9c39b7d1f0162f06ddec0ec5d93b6a05efdced99be9c704c5ab3",
+      "installed_path": "tokenizers/processors.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/python/tokenizers/processors.pyi",
+      "blob_sha": "dbcb26088510c086533148d68b5c27c2e966872b",
+      "sha256": "5dde615d49223f0798f4befd268fc48084a6857c57342c88a494c3fb93a834a4",
+      "installed_path": "tokenizers/processors.pyi",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/python/tokenizers/py.typed",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "tokenizers/py.typed",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/python/tokenizers/tokenizers.pyi",
+      "blob_sha": "58c3cefe046a968a2f187ac15bd3c24f6030c0d5",
+      "sha256": "604ac330f436f90a605815f590493118d406be57c9d7399fc2db31881116ff67",
+      "installed_path": "tokenizers/tokenizers.pyi",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/rust-toolchain",
+      "blob_sha": "2bf5ad0447d3370461c6f32a0a5bc8a3177376aa",
+      "sha256": "2b92ea252be0fbc26f70317cdaa7b6411ea634b50d55338cd8c495e4dbf25d1d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/added_token.rs",
+      "blob_sha": "9d9996b4824ddcac0380a5127f8276d7db3bedd5",
+      "sha256": "446e01201f4aec98364ecec2c104b7984e3e913ed89be6abac4f1eb52655e1e9",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/added_tokens_spec.rs",
+      "blob_sha": "52ceab728b4a707e524f9a3fbc42def6c16ce7a0",
+      "sha256": "ff164417b1586238452dc5b5de03e09d35d1489a964ecc7cac047a440822f453",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/compiled.rs",
+      "blob_sha": "fdd992fbcf318277c08138aa740c4fc44da889a5",
+      "sha256": "fdf8151d4e03b8484525ea2cdb71278c58026075af29f99d59289daf69bf38f2",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "bindings/python/src/components/component_sequence.rs",
+      "blob_sha": "50c6e01e959f3e6e0acad59c1fd9fe80f158b82d",
+      "sha256": "0b04627a797b633ccf6ccf5050961230a2e9dfba3ab15ebdaae78d1c3a375cbe",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/components/component_spec.rs",
+      "blob_sha": "23b4045b3070b618813397b6562f4fee4052874f",
+      "sha256": "9c56841338c02b3bb5c631cb9521fde34d024b80c2b56fdd8c6cbda3ce4ebdd0",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/components/decoders.rs",
+      "blob_sha": "ae5187fc98692baa37aeb5f3aa9543896b01e020",
+      "sha256": "0b737aaa502b6cc6343d1e151a437755166f124d57afb517eb5043abc28dc9ac",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/components/macros/component_kind.rs",
+      "blob_sha": "5a4eb03e3d2072477bedbf07d52efe20e8a7b457",
+      "sha256": "a4b64efbfcdc132bd05a174ade4c86f6c27b7874117da1f72f139d54c9da3894",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/components/macros/component_module.rs",
+      "blob_sha": "2afbe0c55b976467a1c544ee4c39cab6b78f71c2",
+      "sha256": "8eba33082db7873d74832c3b1af08dfcbdb2da2c3d2ea60601cd740fb2fe6a46",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/components/macros/field_types.rs",
+      "blob_sha": "347f3f6109e4acb6716d22f23cbe6ae6acc1a2d5",
+      "sha256": "43ec1485d82efc4f529b050c8624a02f5b18ced03a9de7fecb5890b2eb7943e9",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/components/macros/mod.rs",
+      "blob_sha": "0ff65f1767c4c92a9633cbe62d526a863497cfc8",
+      "sha256": "eda39bf74f097c1f33430475e369af03ddfeba92a50cc95dd7e45b7a303a2586",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/components/macros/sequence_class.rs",
+      "blob_sha": "bd220ee4a3a9a114ac72d2bc29617ac2933ed4ab",
+      "sha256": "895de57f7c7219e7a3194c7eabe95d85ebaeebe3c9b12aca30c482be5f37ee4a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/components/mod.rs",
+      "blob_sha": "169845ce5a0bae54529d556ac7e33a6fbb37f86c",
+      "sha256": "faa01b7c5a6684d1172bbaf3a32219c802c3a543cf9b12afe47b49f5b01da09d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/components/models.rs",
+      "blob_sha": "f49d64f7ccf17aac6ad03944209f6ff8cbd9e478",
+      "sha256": "f42c47cb06e7345466b13454277f9056a4d2e1796925301cbf484b68cbd8bcda",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "bindings/python/src/components/normalizers.rs",
+      "blob_sha": "32805d071ecc30f8bea5ae955fcc0873035876cc",
+      "sha256": "a5ea615b4c8c7880207a2f7b7523de13792e052cdb27417140eea8b005d0d1dc",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/components/pre_tokenizers.rs",
+      "blob_sha": "3983b81bffe6ab127a3b45df3cf168933d37d135",
+      "sha256": "b302077e3c4a46f535ed442d8960c0d62f60ccd48ce727391409edb9ff9df5d4",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "bindings/python/src/components/processors.rs",
+      "blob_sha": "6dfc510ccdc381b62bbf907c7a7408eff171ac04",
+      "sha256": "090b364857236b98b9998cda93855e7317dddf256cf16e2ad3a5e9f026917727",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/decode_stream.rs",
+      "blob_sha": "ab8f4d837240f328ccfbb08104d97a5c1d36f826",
+      "sha256": "66de2fd5e84f8d65e111736838787f155f5adb77ea9660902b5c42ebd45ee7cb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/encoding.rs",
+      "blob_sha": "5190ba152c58846e3c8f93e6a0a4e53bcde019fd",
+      "sha256": "ab4584a82ab02f5397cb6d2d319c290a6d4624970680174015f69cbaffa1db06",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "bindings/python/src/error.rs",
+      "blob_sha": "d6436f95ad517e205ea503614ffffa2c430fa49e",
+      "sha256": "267015c7824df88402d0a53a6aff4111e0ac510cbd1e6ccc7e39cef80abe8bd1",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/input.rs",
+      "blob_sha": "73ab5761ab17788492bcaa1a0e655e0dddbf46ae",
+      "sha256": "dbad0775c590fdc29d6d521ba039044bc2a2dcf16bfec179cc00a2fd4cd81a85",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/lib.rs",
+      "blob_sha": "09e549d395cd32e785a7363ac2715255cba42aeb",
+      "sha256": "86084930eaef285b4d29f4cf27bf90fcc99e05e3440b78fbaa5f698d6ef9979d",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "bindings/python/src/options/mod.rs",
+      "blob_sha": "244a8aaf751d561fa2e077fd8bc9f15aa62194d0",
+      "sha256": "04bb4641d4b68a102f869575171fb5d4d83fb12e65bb61c88f53325806a18c97",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/options/padding.rs",
+      "blob_sha": "96632ec886bb48a2289019c4421bf0d8926301fd",
+      "sha256": "f9857c28b2d59b3c73a7b45855fc92e333399886828325e7b2c59d09d3e8140f",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "bindings/python/src/options/truncation.rs",
+      "blob_sha": "3c1599927422adb5c80541337a4c0b650f22ee23",
+      "sha256": "05c500abac42246508cd941af78d3760ad762599c62157f60b16cd68772c46bf",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "bindings/python/src/regex.rs",
+      "blob_sha": "9b212cbf2d065f0c9b67e4b09ccdd57a21e63255",
+      "sha256": "73f3b03581b0ffc55a140a2f54f9ed826b36c6fdd3bee6900c5416917c5521c3",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/repr.rs",
+      "blob_sha": "768005b32e068dd7b126d204ea2a59b70934dd26",
+      "sha256": "7be105945f9585fb2f41babfb9d06e707c41facbf164248d43d8108b3f2aa9b0",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/src/tokenizer.rs",
+      "blob_sha": "dbae7b7bec866d13279d6784dc2c248e2a9407a5",
+      "sha256": "36a8f5ac06600540504eb01a793d3c86fa730ce2e45a863ba223ea3a08ea7c5e",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "bindings/python/src/type_hints.rs",
+      "blob_sha": "ba8a7c16c85b450f2c5d9737915cc42f0ebb559f",
+      "sha256": "d0f016fdfe6fb745fdb612325ad87ba8bffdc9e493b24285b0c35c493f03604f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/conftest.py",
+      "blob_sha": "e2ff0eaf607d561cbc8ca9263edeecd4041b6885",
+      "sha256": "d2a19d728a91ce4eef19588065799b875f0c213a0d99b56f0fa90d4b355bef3f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_added_token.py",
+      "blob_sha": "bdd1d1ee906f55a007b7d0cafcfa6c65969039ee",
+      "sha256": "00483c8f65eb63ca89a5b03f55b7673e6eeae4881f8093d91ff37da3de28e235",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_compiled.py",
+      "blob_sha": "4f2d879a17fef5224ec24781b511c2f94495e532",
+      "sha256": "81c15a3ef2a0e881bb7623f17a63dfb3437b73dc4aea6d8d5d97bab6ced6f196",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_composition.py",
+      "blob_sha": "e73d33a85b92fbbf42c5a647cea7c5d318c06922",
+      "sha256": "5220b02059e9980864a5676bc1920a0dbc5e584d82756aa02bd8843da393fb9b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_decode.py",
+      "blob_sha": "90823e9c57cc42cc2f941e54a50b638c72177841",
+      "sha256": "cd02a48c187a3a06e879f5ffb8213d440c3ab00f4b381867dc85a2e3e470ce72",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_decode_stream.py",
+      "blob_sha": "4bf0dae5e2783db16fc1babfed63a7b400a52351",
+      "sha256": "d8d671d00577cb3260c9979e4f1a91b7ceb638b6faa5f7c2e46200f455741e70",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_encode.py",
+      "blob_sha": "d6db5dfca8da1e46accf7fa67160a041745b34e2",
+      "sha256": "74ae8042901d446c04f746c0f3bf8b54fa40d37b468814ef61f0724477433b1a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_encoding.py",
+      "blob_sha": "589ff993ab7ff5c198f0b33b23e5dbf486b4fd93",
+      "sha256": "ea77a910121667928492945d61c28fe3773d74e8a77c35f93a15ce3625f640c5",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_from_pretrained.py",
+      "blob_sha": "5878b0daeb0a6ebab3008c4b28ceb25b263c2e10",
+      "sha256": "f9bd60712b2f682905dd2d93c3816b58df8e9a0902f27c1d78c8636273e7509d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_generated_components.py",
+      "blob_sha": "c15a6e62d8fdf3287fd44b3e44831ddf70beebd9",
+      "sha256": "3eb5f5d9c8cbd11527a91e3ebf5a912356e495fc6c105fe3667c5c251ccf6166",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_load.py",
+      "blob_sha": "c1777233444d50d1f190d447da4f8019182127db",
+      "sha256": "b3b8a9e22b6378b009f0120be6aa117fc6b5c438f1825119c07d590fff3e0311",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_padding.py",
+      "blob_sha": "a360c18d2501b5aef48662399d2941cb26098946",
+      "sha256": "199ff83924f3a305e042f546903d605134b68a78fbc8b532f63d9c2cd375a443",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_padding_and_truncation.py",
+      "blob_sha": "3197b39ca86e13c06e75db220c95ed24fc3afce1",
+      "sha256": "9184379abdb607222727809171ac9e8000b9b8b0eb27d95911d41482a3efba89",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_processors.py",
+      "blob_sha": "cb8e0c01f9ae6b9f97a29987833a65e50a971245",
+      "sha256": "f4186c790363ed3453acd6d52dd0de3309fd6093533ee475f5a05eea5cb5d935",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_regex.py",
+      "blob_sha": "4a5b43fe4d824045d4c4fb01e6a7cee07b3c5573",
+      "sha256": "4a056027aac11fa6816b54d85dc008b18eeba306ad3aed9d4706e613896192a7",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_save.py",
+      "blob_sha": "a2817aabcda8234804f14f421e065f4bf03b5bd5",
+      "sha256": "25c7535c00d7075eb1d0005f2229a429af754708a06f382602e2cb92f35b6abf",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_threads.py",
+      "blob_sha": "40d5ac151cb7d5015094fdafed203e7790868499",
+      "sha256": "b06b419db1c0c793375210e8976d49fefb7066c76b1fdd2d43f7cee74df5ad8e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_tokenize.py",
+      "blob_sha": "8c9287bf605a1443c4a02b3fd5c357ac60a5364d",
+      "sha256": "d666a4162d827dd9c0735d7e5dc7e32cd71d427e96eaaed74268c4b95bb0fd9c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_truncation.py",
+      "blob_sha": "36b54e4d3dec5732ea75de4bacfe7021393bfe30",
+      "sha256": "9ca165659d88d81056ed0586170e9c7848f28036564f3b203bdeffac24b89171",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_vocab.py",
+      "blob_sha": "f7319012afa8291e7296a8fd36cec2d402d8b704",
+      "sha256": "7495d3c7fdb60745930778ea31736398d5ed4ae7a0f88740d5f453491150df91",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tests/test_workers.py",
+      "blob_sha": "b6d2c9cdc442afea3d5cc86a8e1dd77180a6dbb3",
+      "sha256": "798c31b6d72c841cf95ed740417702219d25c0c822e2e41bbcfe9571d93df8ef",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tools/stub-gen/Cargo.lock",
+      "blob_sha": "6a6f134e7798378889ec69a4e98e9d325863151d",
+      "sha256": "fc7a627cb0c36709834e85e07f2313383ee2f8fbf31f6a15acec234cac27b4e6",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tools/stub-gen/Cargo.toml",
+      "blob_sha": "4c1ee9d5e0885b55bcb1f1f97f524277a064ed36",
+      "sha256": "1ebfd811c8466d3166bd219244b91970b2d9b2d31fc1d68c4ed5e82376127034",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "bindings/python/tools/stub-gen/src/main.rs",
+      "blob_sha": "102ec54e720116a68b27f42802febf7a15c94ee0",
+      "sha256": "6da48a4504c3e5049dbb21a4ac8030db488111a05d6ba2bdc891706366b358ca",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/Cargo.lock",
+      "blob_sha": "20bfc4bec5fc56b31201c4c780479fe99b0edb13",
+      "sha256": "dd3616c08f74d703f6a47e85fa314c2750074a709f8cd9867419459033743526",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/Cargo.toml",
+      "blob_sha": "fb1527a85c14a4e586df72499db63dcab9bf5566",
+      "sha256": "ae59746cd24c11118462f85b41ff3908bf6319cc4ac8a571d2fb368c4481a350",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "tokenizers/bitcannon/Cargo.toml",
+      "blob_sha": "0972357c2c889ef082f5e3a0e342760c7452eaa0",
+      "sha256": "05a8613cdb9cbc04caa0c806627188b7d53cd955a67863f95bd37333f1f2ab0c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/classes.rs",
+      "blob_sha": "4360dafea01a39072c5ba691ba7f64652841a361",
+      "sha256": "988f3a2114e6cbd634325d17b6a517c63a1b562a7d602fe560c92b2f86f4900a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/classify/atom_tables.rs",
+      "blob_sha": "c18107d9d92b997a419316bd932ea0ab77a316c5",
+      "sha256": "083433d38392875ed8235b68f6d436937fe3c7f2a0190ec82ad0ad110f06c70b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/classify/avx.rs",
+      "blob_sha": "5f6d0afb3c36e7e904f41ff45ec70e002227ce01",
+      "sha256": "9a2da1a9265c2343a6f0be9b1f49a6a5cfc33956719230b3842d83409fa08606",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/classify/mod.rs",
+      "blob_sha": "7848f849e202314a84610a12ade8945490ce6833",
+      "sha256": "6bcf00d38096f897d3d7333bcad6890b4132dc66caacd0af4d72432d7f91b297",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/classify/neon.rs",
+      "blob_sha": "12e418fa07321aca4202a90c30b4369949da1156",
+      "sha256": "2e91e53699c3be6bef43817f37846f078d1528c4ab8d46d72ab884e90bd018ed",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/classify/tables.rs",
+      "blob_sha": "8627f01a11614ca5131fd046d6e4cfe48b286c2e",
+      "sha256": "9ba641617627491af69568219eccbe0533b29b11b2da76c06dc2185e12af746a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/classify/wasm.rs",
+      "blob_sha": "fc56605341349a9d0d8da10ab0cf83e9d4eeb162",
+      "sha256": "c06fca6cf50c25e61867c6555abe1e0ce00dfcf1b4d51b1a2cee70a3452cc80e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/lib.rs",
+      "blob_sha": "2fd27706fd4e831401aa6d0ef737f7db39b8963f",
+      "sha256": "fe04ea4f3bf1bcb02f5f069da9afb82ee468b57f92343134914adb442403e3b9",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/literal.rs",
+      "blob_sha": "0fd3b2584fa08215a944a5ac8423f196b444fc6b",
+      "sha256": "40eb34fc1f6955cef3d078a5912ddab069a363d4c4f861bfc9a6f6d48592af88",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/models/cl100k.rs",
+      "blob_sha": "3e295740a5bdafe741535f13bce582b7786146f1",
+      "sha256": "a9ca26d4e5c2f573c073dec12ae00da950a74c0037c32d9fb0cf3c98e0156844",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/models/deepseek.rs",
+      "blob_sha": "15040d0930839324e96ef9a72112bac4e7fc39c1",
+      "sha256": "cb66cce81c04eba9811f45014d092b072a94c48ca4a07ec6741398909333a95e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/models/family_gpt.rs",
+      "blob_sha": "cffb43816d8f2d10905da40a4485b97c490caabf",
+      "sha256": "e8cfe59006eb2226e055a6bc18a0f7ba9090c9b895e113f50a91ab79771e1357",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/models/family_o200k.rs",
+      "blob_sha": "1536151f4ac50bc30b08f3e5501a0c1cfa38c801",
+      "sha256": "d2f7e7bfd3a79c2a320494a9534b832af2d3d1c0991f258c98171507914f004d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/models/gpt2.rs",
+      "blob_sha": "72b46c78668670369d5a34656439c09ea7aa9c1e",
+      "sha256": "61bba8f9fcf24f03e51c76af6729738543108fe96b7f9b4a3450b6e44beaad6b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/models/kimi.rs",
+      "blob_sha": "762e165e59037c418b2397f7172c5fd4a9531b07",
+      "sha256": "d6ac68503d3aba1769c230cef7d60596613cc288f993101932b554e6bdb7ba46",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/models/mod.rs",
+      "blob_sha": "71399ae9269f45f735d8a5d056b0edbda68dcf3f",
+      "sha256": "cbc7ca341aff50fac64c03af67942e91a1f9285d8d216e8796dc15039937e7ef",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/models/o200k.rs",
+      "blob_sha": "23c99b84026ac7f4ff9a9e48baabc4335800450a",
+      "sha256": "b2c38f27d1a2126028c5251508079706294dfc2ccd84671c565caf84003fd8ba",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/models/tekken.rs",
+      "blob_sha": "3e587d77cc07a1299f4335d2d04566fa47f5008f",
+      "sha256": "10c0cc6b874a56c5e47bc95f7afb486f9f4f312b0d9dacf3d8eac18953339f84",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/regexes.rs",
+      "blob_sha": "c7d11028a4477fbf8c6be510ff8f3dc18fb1aba5",
+      "sha256": "8065766c3645d14b6381973b3950e9ed3c7dff3e50a192ccc0ae1dc2c63c2056",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/simd/mod.rs",
+      "blob_sha": "286e49497aef1604e1400f25b1b955ae34aa9bd5",
+      "sha256": "1b0934924acc269b59e2f18486b8beae44d182314fce9e774d7b33bc1ffaba4d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/simd/neon.rs",
+      "blob_sha": "572192f2561ae5cf101aac5341706622a31c1534",
+      "sha256": "65f2f8295f7e45473bb77359bc46000751d1e9e9cb4e4811f43b0b24af7e78f3",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/simd/rvv.rs",
+      "blob_sha": "192644753e1b02e37aef225756ee2746cefe2bd9",
+      "sha256": "af1db73ac764ad964a51ddfbfd60b6e7ef45116c1ae43ad253ce5df8e36fbb4d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/src/simd/x86.rs",
+      "blob_sha": "457ebdd553032cdcddbc6164b4c7cfeae5c8e316",
+      "sha256": "f2feb45badeb1bc9fedb215a6355c21777fe48902c442c73cab13814b238119a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/tests/classes.rs",
+      "blob_sha": "45aff27f33f4ff396bab71c2f8b4753e7609c79a",
+      "sha256": "782287e31bdf132ccae273f0e43c7ac1be41734ac5c2f99e5bf8cdedfb5aebc7",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitcannon/tests/parity.rs",
+      "blob_sha": "15bb59f374f64ac02d3034d29e198c01973b94d7",
+      "sha256": "af03c2e1c6635bddcdad32a4aa662e10e709ec5c6de93355109030046cdb6bb5",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitmap_gen/Cargo.toml",
+      "blob_sha": "8c570848220f40d5218d3c6e33065ec20b79a988",
+      "sha256": "a9381a2798d00ab4c0de2bb15f0febecfb66fc480a74afb6a0685ebab1f61d1c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitmap_gen/src/lib.rs",
+      "blob_sha": "83514616030a704c114ee711834c6e1e4691c492",
+      "sha256": "c496c924325951ca083ebb8146759abd6837cf0df5270e08d9e6330a7bc1130b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/bitmap_gen/src/main.rs",
+      "blob_sha": "5b8a37c38d99f65a12a2b031c5c5256ba3df8ddb",
+      "sha256": "b8a35df84ea686f51a0190d5d12bd22b2aaf52b6efab7b6f6d8b343c0a85490f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/src/lib.rs",
+      "blob_sha": "7f2443eb97d05345f29fd2b72fa1e87ac15bedc4",
+      "sha256": "8c7c2486086bdbec8670aa1d0f80f4d0087acfa7ad89e37cb50214449875d939",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-convert/Cargo.toml",
+      "blob_sha": "5d2c15e35a3c560e4a883af0d82d84dfd3ba85ee",
+      "sha256": "3563dbf1081e02dea70d1a27212ecf30c77a98cf55ebacb0c2665f28e5c407a1",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-convert/src/convert.rs",
+      "blob_sha": "0fd0033c74b898f23ca5082823733671bf1ed61c",
+      "sha256": "ae96db5ad5433289ebe48d8799e0df866033614848f844cb49b1b3cbd5ac70ba",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-convert/src/lib.rs",
+      "blob_sha": "0909b02d3e69ba07fe9dd6f3bb0ab25522fba726",
+      "sha256": "a008e844d75c1306bbd135374d2af4777c5b43148860083474417b3900b3c698",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-convert/tests/convert.rs",
+      "blob_sha": "d40311923a587c76b5906c8fa660fd381b053d9b",
+      "sha256": "64dbafbc74bcecba7853e9ca406f86a8bb9bbd09bd72ba027c7134ca5ccc9d73",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-convert/tests/oracle.rs",
+      "blob_sha": "9a050e2fbba27f2f7f3e10bef0b77c9df0e4ad09",
+      "sha256": "f142c19f352e2bd7e5dec7d6f7ce2499242b5c08f207ecc3831b761ad0297f10",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/Cargo.toml",
+      "blob_sha": "7ecab802d41bfaf059dab33b32237aef17cc2cb5",
+      "sha256": "7e4cf43bbb17ba6600837cb5ffeddcd5c029d5491af33e6b671ef47e2be806fd",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/decoders/bpe.rs",
+      "blob_sha": "ef4b7175b2b8a2907d2f89b484775faf2ac134b4",
+      "sha256": "29069c0193f1280de0b9d28c58637946709329dce9650ee2f74fd3a57a439373",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/decoders/byte_fallback.rs",
+      "blob_sha": "b4e244e4cd428b7b59ca2b59f13ecf049e74c7b9",
+      "sha256": "d9fac673dfcb9902e305456c84fdcab9871c6d1315055bbe76634994b78e6513",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/decoders/byte_level.rs",
+      "blob_sha": "58fcb419536777a74e6249be499fd2cf97fbe209",
+      "sha256": "9d5190c2c8d0dea7074260b08ce8b36fe10a7bfc8228508793a0ee27c756bd8c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/decoders/ctc.rs",
+      "blob_sha": "227432ca6ff023fc75f47c7c9334f7a9b6f5b64b",
+      "sha256": "039833867c58c972d18ea7c50623746164076eb4888a1202d10d1cd0ff761a89",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/decoders/fuse.rs",
+      "blob_sha": "7ecbfc31f0ab4f958a5970e9edf1a6f7b39e6a52",
+      "sha256": "b5b66c632a04dad1c6fba5e04fa74efc68bf785e5530942a1ce1fe84ec4db73c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/decoders/metaspace.rs",
+      "blob_sha": "a0cd0f2b2f33136a31349708a26117c83e62b00c",
+      "sha256": "7b3c22135bbdf3a0499de3c93571572e1ddf0254d751f78be51b7f5adb746ca4",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/decoders/mod.rs",
+      "blob_sha": "b14fdad58ce0f6f9b611cf449e9eff27b0b644b7",
+      "sha256": "d22e559fc2ff5280c792651e6b9d85d3385035f640d401c6660621ae0181d156",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/decoders/replace.rs",
+      "blob_sha": "b421fdb68cf79e04802b0264ba2b3059f65be1e3",
+      "sha256": "cf603db3be43bfe2184d5e7c3101de7c28f06bfaf379f46174ad387fe2390f05",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/decoders/runtime.rs",
+      "blob_sha": "487b300b07053b21655564f8fbc4dc477d3f0722",
+      "sha256": "b42530022f6f0480a14782a634d2f35abba125a588e7d089a967557cc8cf0c52",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/decoders/strip.rs",
+      "blob_sha": "12c9c6b53aea91174ca5b58a00dae6b7884c1f53",
+      "sha256": "a1689e19fb925ffc510195118114e361c994af392e5b132871981c71df55db1f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/decoders/wordpiece.rs",
+      "blob_sha": "6ff55fcf1e7521bb088b74ef4ceeaddbd8ba01b9",
+      "sha256": "bfdc1e7ae13af300f419fa5d602394707ec227bb233531bf301eba9a24ccda7d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/lib.rs",
+      "blob_sha": "2b02e390b4f378591727e07e893d942bdc027d83",
+      "sha256": "960448e6b4f1493a3b65f0435d3aeb9e2a1456bd5f160bbe21f83b35f062caba",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/models/bpe/convert.rs",
+      "blob_sha": "1458c2ba69b178533bb8ff24fcb52d3d487ab466",
+      "sha256": "ee7bb23519fdb4cac827f1e28cb5891a93420d87b295753ac9f2802709f2cf12",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/models/bpe/fold/byte_level.rs",
+      "blob_sha": "01114166cda7de3a25b2cc4f3c6daab7f1a80c9d",
+      "sha256": "bf034b414852f17e2ca75e8eb77c1a453464d38748246693c1cf4080527b3d25",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/models/bpe/fold/mod.rs",
+      "blob_sha": "05ceb9c910145bfdaf48f407331d9f75d0411aaa",
+      "sha256": "34e3aa9be3ef87d5fa4334d45a35ff88e46c5305b4a55904b5b3ee7f1f1993d3",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/models/bpe/merge_hot_cold_queue.rs",
+      "blob_sha": "d4c380bb95d157bc553249fa79ddda67bb5f9f82",
+      "sha256": "db6f40162e77a2d84ce72c6aa7c7a0673009481c66eccac9118f37f50c6a04a9",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/models/bpe/merge_multipass.rs",
+      "blob_sha": "b075d0e7948c0bf5112336bd6219421f1fd3d1a1",
+      "sha256": "1948c20b37f603af2147965f49bfabf0c866db7f87377f9a86709742cfe31777",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/models/bpe/mod.rs",
+      "blob_sha": "84260b964de0c6d45a579b4625ccf2acb1191439",
+      "sha256": "442a3efcfcc164cfc3ffbf0c96c300d403b55f30783e9e2a79da0e45e7b59164",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/models/bpe/model.rs",
+      "blob_sha": "5fa02b766b39dd747a4ed15130d9fb4f63d44163",
+      "sha256": "b7e3c5fe5347f94a8d580052d9b6227359aa83c698dcc72a921013697fd5e485",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/models/bpe/pair_map.rs",
+      "blob_sha": "b9f69a03e0b5867f62f58d100b92777af893b076",
+      "sha256": "88f6b09c29a31ad95dd60e4afbcaf79485f20274c9af17ffa77bf2cab4f31114",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/models/bpe/serialization.rs",
+      "blob_sha": "f13eb54dcf26ac0fed0446cb45afa6cdca76e22c",
+      "sha256": "bbc0e5e0f73e54332a0bb03c0ab1c132d9d224b76a7fadf9b7a7902f724efcfc",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/models/bpe/tables.rs",
+      "blob_sha": "8332bfa095e2823ea48b3e46ecb06377839ab80b",
+      "sha256": "5325a31880cfdf927984a3bac37339e72836846f3190e81b923b6e6c8fb17491",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/models/bpe/tests.rs",
+      "blob_sha": "a28c962175963e6237b9f9e88e3df833345dfc54",
+      "sha256": "6de21c1ec5678889290269cbd786c860e477ce44136c83f9520d3a39b88ccda8",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/models/mod.rs",
+      "blob_sha": "2601397816cac1b99d4969ae6753147fb2fafb11",
+      "sha256": "cfe8bd2072fc2fff5d7959d00c798cec6c26e25af04bc33a2670da87a57eee3c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/models/unigram/lattice.rs",
+      "blob_sha": "496bfc570a6c005bd4eeaf698d683bd0aa300f3b",
+      "sha256": "45a8824691ab495d956d6e6ff0a1f54787532c3686983029ac0e7a8dfa815626",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/models/unigram/mod.rs",
+      "blob_sha": "f9de5f35ab6ca2e10616d6bbf30b9ed970d6167c",
+      "sha256": "b2e548f65ed74de47e9144edd31b58d4d83a898f879480b9ff6f427c60329652",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/models/unigram/model.rs",
+      "blob_sha": "0293eb6d1bacf3414cd3ec21a1776a88b62d1a87",
+      "sha256": "dce64d24738c23258b3c9d5c994f5560e7a533ced2a5549c14e28f2c5ea0ea54",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/models/unigram/tests.rs",
+      "blob_sha": "92d7e2fc00d53465aee12d8028f0c20a70bb91e2",
+      "sha256": "e574c79c2f4dee909a1c29ad6332ade78e086442703789a975d1446355169e34",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/models/unigram/trie.rs",
+      "blob_sha": "7c7149d00a5d63f71f90918911991de9c10e748a",
+      "sha256": "ae2cf2aeb7f468d64d70a4696b4f739ac37e7fc7e6b3d3c4347f1c6f65a8d76c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/models/wordlevel/mod.rs",
+      "blob_sha": "edf273f5141ad28844558109a335a83368ce5840",
+      "sha256": "f4ffa0f75b5ba258db99e7ca9759161c57e43ceed0ffbcae49a486eb6955f7db",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/models/wordpiece/mod.rs",
+      "blob_sha": "31ad38eae6d41f1a96f98eda1b5b22eb4bb9ce98",
+      "sha256": "e658705a30bf585c3239bd7d2e2a43a059ec25077385925a551701b8e5dfab4a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/normalizers/bert.rs",
+      "blob_sha": "cf8b39e794800cb7dbb2a36c8d2d54d6de658a92",
+      "sha256": "7afc3cf4ac3f4f663f1b4086e7e51e9e119afeb745fa275ca098d20b935fafdf",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/normalizers/byte_level.rs",
+      "blob_sha": "1b2f36666f9ca57dadd9002693439f704add63a2",
+      "sha256": "f2370f1ccee2dc0ecd8265b570de329d26dee23f61152695ae552a260895839a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/normalizers/metaspace.rs",
+      "blob_sha": "8158ef2c339827badc4a422a57bb6b6c19628a54",
+      "sha256": "2bfd33f51d25dfbe3adc98fc684db1b3fd529e61d60cc8039f9bd2084bdb2367",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/normalizers/mod.rs",
+      "blob_sha": "5f3af83c88d4209d3733dcf7d8ae96f53a7472b9",
+      "sha256": "da050d2019e5d3d4c0f780e7a92ba73a23f85dbc7dd216f2073f19ba38c5e3b2",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/normalizers/precompiled.rs",
+      "blob_sha": "0abb027de8445837f82b2dbf16e8b3e3aba881c1",
+      "sha256": "56835bb8a7fbb7a9ee2ecba9125cd4a78331b3dbcad405f77f11d7573a37695b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/normalizers/prepend.rs",
+      "blob_sha": "e246f43169597a962a29d8c345dc73e416b4bb7b",
+      "sha256": "161c367dbd8bf9aad1afa17cce59aeee74b76221c5191debfc68b4c74bdb9fbc",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/normalizers/replace.rs",
+      "blob_sha": "8438c2d5667e96469462cb67e3229f8cf3c54296",
+      "sha256": "fe020c91049334ed839d794660077592e389f907a99578a272229eee928dc8f2",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/normalizers/strip.rs",
+      "blob_sha": "30723a81aeb763941ffd16018ceed48e6088dd54",
+      "sha256": "262adfa8d0b5fa29eacc08e4d644ecf8735a8fbdef908f8d6ba16971a3ba4d0b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/normalizers/strip_accents.rs",
+      "blob_sha": "050e92245ac294f6f55b2441ae28e9936aa0b08b",
+      "sha256": "8ac087f92b5fc02381857dbc0afd39f49445f069e017fb37639ff59bc1d991ef",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/normalizers/unicode.rs",
+      "blob_sha": "8114511d4c010864a1d840494dc0d630a77d03a6",
+      "sha256": "d39c358b041de74e3018362ff8c1f7d43a9da1583ef82f272f9dcd73f0cd7c67",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/normalizers/utils.rs",
+      "blob_sha": "3a0e43ee1edc596d80180a00457db12542ecbdc8",
+      "sha256": "c02137ba5f232a19b3e8b0fe1419b711150070d273c759a362e881bc0af869f8",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/pre_tokenizers/bert.rs",
+      "blob_sha": "b0a2ab4c8893a7571253685c0dd7676c2ab68021",
+      "sha256": "91e5a64c747d077b86f329be664cd9cdbfa1ef8bd521a945eddcdb47ca28a324",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/pre_tokenizers/byte_level.rs",
+      "blob_sha": "74afb09dc4385b027624698b5982917a76c084bf",
+      "sha256": "a89430b26ea92a65144e64011c42bcfdb35484071e9aa763256a5ac2a22ca058",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/pre_tokenizers/delimiter.rs",
+      "blob_sha": "19634c5981ee3c1a852593b247834d55ce20e3ee",
+      "sha256": "d365c6e9d27c00585fb84ff5b231e7a82776be163f96f780449f09f17ad77afc",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/pre_tokenizers/digits.rs",
+      "blob_sha": "1c5ca9de064a333034a95710aa2e51197d5eaf29",
+      "sha256": "1a6437274c164bf6da9412fbdea6f50d604d27bd0fc15b8a2cfa21d39bf390d4",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/pre_tokenizers/fixed_length.rs",
+      "blob_sha": "dcc445a4e09b728367e73ac7b2db3c5e7210f289",
+      "sha256": "e70508ddb8b0d4aa72e76cb30282c0f23840dac57c1a6f099f9c91b46973a62c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/pre_tokenizers/mod.rs",
+      "blob_sha": "ee2a74ab4da84cda2d241e102be1e53c7369f00c",
+      "sha256": "be42ecfa0aef650a0a3ba027b82cec70e9ce7e5d3756818079076f495e8484ef",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/pre_tokenizers/punctuation.rs",
+      "blob_sha": "c35a2d4deceb565957bd55f000e4e5b694fb48e8",
+      "sha256": "d9c90d2c66076f5cbdab8a9bbcc7a749f4197de7bd598d2d165bdab7efb18a53",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/pre_tokenizers/sequence.rs",
+      "blob_sha": "5088409e34aead13a41c696fb491f5ef3eba3ed0",
+      "sha256": "85deddf3f89fa0f9f80d65c4ef22bd7458e936cb816d1aa2b9d235d1c9325c15",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/pre_tokenizers/split.rs",
+      "blob_sha": "42433957e30e7736a146d524e80a5173fcf812c6",
+      "sha256": "35ba34d1f87ca13e26aa249cbaf502a54532bf5d99f6f88aec9a12bcd6b5030a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/pre_tokenizers/unicode_scripts/mod.rs",
+      "blob_sha": "5e6e7eb3a5ef19d91021f40cc4fc9026e9867dd2",
+      "sha256": "5740e30dba4e6e819309a24144c95d228d9aca437950fc0285b134f238f1788e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/pre_tokenizers/unicode_scripts/pre_tokenizer.rs",
+      "blob_sha": "6019ba00a9ceb7fc6b7368a9d99b19ecb014551d",
+      "sha256": "581b7702bf68e09679a220df922650f5415a6385df22709a8f0648166af4403b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/pre_tokenizers/unicode_scripts/scripts.rs",
+      "blob_sha": "2f4588aa80507599435ae5a91f8b66748fa608fb",
+      "sha256": "c614fe1c9a79b1e4cbbb9f3cc3ad130dd6506e12ff74688d611a8eeff47c2167",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/pre_tokenizers/whitespace.rs",
+      "blob_sha": "b2194cf415f08b339b92db5e9f4cb357f0350a25",
+      "sha256": "ca8df6374f778a5ab46336a0dcb92c905a5df4de7fbb7f5ef13d577075a65aa3",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/processors/mod.rs",
+      "blob_sha": "1ca2210c6d7a04b9360f76306c706d9330a82c31",
+      "sha256": "f9e7e4d3c8db7043d34013e7c9af5cd9c2dc2bff54fade83d5986b207a16b454",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/tokenizer/encoding.rs",
+      "blob_sha": "d71657d826e3ed9a7631a90d3422e6f344ec5067",
+      "sha256": "6ae3f4f7ce2406ed2814c5ac841794483ac27a134c0486a33faed3973bb6b30b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/tokenizer/mod.rs",
+      "blob_sha": "a73dde394994e98c33f0fea3d7402a17cd2d8528",
+      "sha256": "d2b15ac88826a2299b692ff5956ffba675baf1e76773be26602566ef40c62bcb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/tokenizer/pattern.rs",
+      "blob_sha": "276fbc834f0c7c237676fccc1c485ea981a0cf9c",
+      "sha256": "55bde797154ed96c962366516f612036f819bfdb5270dfe9d09878cda3dfb6b8",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/tokenizer/pipeline/encode_options.rs",
+      "blob_sha": "d3ab9a1fb37390053bab293a68e2231739d0be52",
+      "sha256": "0665b260347869ffbff6c97a58c25c0b4895bdb577364fed96f88a3e5a492e27",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/tokenizer/pipeline/mod.rs",
+      "blob_sha": "9432b2cefaf9410d0e4996d184f0577043c56586",
+      "sha256": "1851f3713f30421d05672251356218cdeeaccea8c4460561db743f6ccc6e4a3b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/tokenizer/pipeline/normalizer.rs",
+      "blob_sha": "c958a3e60c9c0f97f15d58fc00fc38286818b978",
+      "sha256": "c1e1af1575a233e66048678dd02a830f63558f5f83304f8af6764be4b27a43bd",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/tokenizer/pipeline/parallel.rs",
+      "blob_sha": "9f72fe39dc8806e184ee2e22498da3f71fb660a6",
+      "sha256": "7d7a30d0c7d31fbe19bb7a1ba0180363dd139673a0708a79ff098cb32031b91c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/tokenizer/pipeline/post_processor.rs",
+      "blob_sha": "0d2c9c0a15d4fd0f265a54908de1ef559d53b2fb",
+      "sha256": "af2577a40aa9615f368a0bf5171c85ef1667a036df4207ca5918bb85f8272716",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/tokenizer/pipeline/pre_tokenizer.rs",
+      "blob_sha": "1b5d93e2072fc5fbf8374632b2def3dfe08f6994",
+      "sha256": "47cd5aed0689a6ce0de018b5952caccd9933fe151bddb663e2f82fb7eb9a46bb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/tokenizer/pipeline/scratch_pool.rs",
+      "blob_sha": "36c7533b495bea69652b1e2e6acd10aeeba83e5b",
+      "sha256": "a1c2ed14ddaefc8c2ed0010c887bf279b1442b88693f92e18340fc25f4ef24f6",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/utils/byte_level.rs",
+      "blob_sha": "47c42f8ddad50c70704c613b2b3c872dc5bfba64",
+      "sha256": "299a8a662f412405b80920d6c6e77766007009b29e4d9f42d95e52e175fcac3e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/utils/cache.rs",
+      "blob_sha": "248f3f41cae2ba3a189bd20b6ca2a5c25301374b",
+      "sha256": "afa33054dc08f7ff0bb3ce26c9b97f84581fa74bcb55a4aa5bc582a7a160e14d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/utils/fancy.rs",
+      "blob_sha": "dbbb214dc3fb99889fc28bc9f6d6799c0bf2c1e0",
+      "sha256": "69405ac2e8418f45dc8e37beb6551bcc8b2a292924cc4247fcf2fa02f6d45b03",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/utils/from_pretrained.rs",
+      "blob_sha": "fff874c0e38f9c85dd65d52cd023d7ce322cbcf8",
+      "sha256": "bafad36ad5670b42c54e59c3d24dc61af52c1e5c415bfea4b454e3e8281cbfc9",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/utils/iter.rs",
+      "blob_sha": "c5e15af75eeb23249bd6af4da01094f35fe399d5",
+      "sha256": "004540ac0fc434f6ec25c1cf8e6818998550da936a728aa5a301458c6c66a540",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/utils/mod.rs",
+      "blob_sha": "82e1bdf3926b5f059e1e75e3b890e0b00fca2649",
+      "sha256": "9e5359c0c68454cee03e51134e09a23386e8da2381f8392b8564c537b091f6b3",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/utils/no_regex.rs",
+      "blob_sha": "9901e557238814dae22b606d811902964304fc41",
+      "sha256": "48bf7803e4471ab082e971b9715ab11b288ed150d9da914a82a05d152303a5ea",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/utils/padding.rs",
+      "blob_sha": "22f4414212f1ad9a56f6ecd81a357a42be96e3ca",
+      "sha256": "cc7be63a39d941ecdeaff16178768ae4f88111515cf46326dc7d3532cfb4d42c",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/utils/parallelism.rs",
+      "blob_sha": "62bcb8ed267dde5de293bbf21b5ec738da183bb9",
+      "sha256": "772e33bc227c0489b97ecd641fc54c255cc26273186ed4c7395980a37c5d38ef",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/utils/perfect_hash.rs",
+      "blob_sha": "f8d1d0caf5be8ec573979d4c53713d2f2870fd00",
+      "sha256": "c9706b81fa3e7cd58aae1e7e1db5d04db1f04e2decd6d4152f0280c529fe780d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/utils/search.rs",
+      "blob_sha": "79433fa77f7e086da26b8adcf232202a246ed383",
+      "sha256": "753614b58b383cef6e7b781a6418007a891b0ae36d1d096909b1e0942f0cf929",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/utils/truncation.rs",
+      "blob_sha": "142f9429752382bd975a7a423d3da10134a19110",
+      "sha256": "5bbd224a169d739280f085794c909066a9b1afd1b6261d70996c5e5a90d05302",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/utils/unicode.rs",
+      "blob_sha": "db817a84159a5e7c7fb4e5e5343f210ff326462b",
+      "sha256": "044d8dc970441b9e08175d66bda30809f862d41b29a56ac855683da8a3ea2642",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/utils/unrolled_regex.rs",
+      "blob_sha": "e07bde47e9592739929460c1091b3b273bf1b212",
+      "sha256": "b98b1f6de6782a718066c7ae10632c57b3089d03145a5d10258a1a6c3dca229e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/utils/word_cache.rs",
+      "blob_sha": "4679ef6f117e57560c10f137c0bc90f3258ec559",
+      "sha256": "5038a79d6ae84b327408f2382a9fd69e5f0517f0e57143f63d65ea08563afdd3",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/vocab/bucket_added_vocabulary.rs",
+      "blob_sha": "a5afa64a3a70e9be375340220fe24f952e0fb908",
+      "sha256": "9748383b52065793f8598e4412aca01a36ad29afd3c214fc619a734c42331bbf",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/vocab/bucket_vocab_store.rs",
+      "blob_sha": "b9b343a670a18b33d7d166ae93032eba8f437a50",
+      "sha256": "8d57e61bcdb117287f379c33a4c32a99a8b1397ea1d996c55a491f1d9798d506",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/vocab/buckets.rs",
+      "blob_sha": "a5dfc105c5578a9bd81320c20f2fe18614cffffa",
+      "sha256": "9237fc0ef8e5c2ccb3ed0e0d04bd99ba6b050b95a541cb9d87f946b8d1b19cd8",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-encode/src/vocab/mod.rs",
+      "blob_sha": "d26557cf8f3e02d9a366d1ff71cc6fc09064991e",
+      "sha256": "f836e8bba742e088c957135afef98a109d4dc06a7f974ce4247568fb6930d22d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/Cargo.toml",
+      "blob_sha": "769543a2ed19569690a4deb8fedc4e40fa868aea",
+      "sha256": "345a275e7fbb41c41d4116646324093bde1558c998b3ae03044d83e4693a2852",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/benches/decode.rs",
+      "blob_sha": "a0e4d7736267a6ba535091dacd30b68df9770847",
+      "sha256": "bd8d0d203fab3e48238e8d12d97f6d750e9975073b266eb941423eb53d3b4389",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/benches/encode.rs",
+      "blob_sha": "bbd6403eeeeecb19e9a5e7f21416b54a1d7ce488",
+      "sha256": "d5b8f15a3e5204807440d3141e10317fb9833bf588064bffc9b71c7a877ab979",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/benches/scratch_scaling.rs",
+      "blob_sha": "847f393b96983152d0736662f4f5ab997dae40fe",
+      "sha256": "ea75ca5322a505ff267d4546a54ac0e935a67367971ef17a7479d090bac2c8ba",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/examples/binsize_pipeline.rs",
+      "blob_sha": "eca5e96c064907f2e94b75282ba90969e1d80640",
+      "sha256": "d16a884944e80493e192fab8524746ae4bff6f966dd75cde8e73c678c03019f0",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/from_json/added_tokens.rs",
+      "blob_sha": "8b98ce0c0cbe77165711c10c668d17454d8a6357",
+      "sha256": "59116cf53ab5a31f884cfcceb5c095c28e455077cc01abcbbf6b53f631f607fb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/from_json/decoders.rs",
+      "blob_sha": "32a712fdb5c0aaea26f8ca1bcc87123578a1be18",
+      "sha256": "a6b798c40574fe0ea878a3c4ac6c1dbf28c3beac2c4979621a3891e79b00c9cb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/from_json/mod.rs",
+      "blob_sha": "3c9a71a764654a2623cd8f3690de4f082767424a",
+      "sha256": "d55f90ad24030425ceed0371dfcdf32464718385b0231ab2f50e3799e61a3852",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/from_json/model.rs",
+      "blob_sha": "ee400d21b2f0a4c63fbf090a0550a94582254c7e",
+      "sha256": "828bd0b0463e04fd82deae50c7ddcca2f9649c25fb1797bf1574f0ab3a67f1a2",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/from_json/normalizers.rs",
+      "blob_sha": "1a7c1e4643fdb064f7cd9cddeb60a23fca097029",
+      "sha256": "3ecbfb233ec7252cdb795ee5a68b31baed8ff99f7d221c88ae0649d412897a7d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/from_json/padding.rs",
+      "blob_sha": "09833453d65f9affa31d60359eb6ac480853cac3",
+      "sha256": "195b9faab6960f793436b2c0b8bab4edf682207546e1ef474c679ea8d74da83a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/from_json/post_processors.rs",
+      "blob_sha": "5220c4e00bf8ba3e3ddc7e31e3325d796ce3270d",
+      "sha256": "144fe3976d6b617dddbcb3d70e99dc5a8a8b19f828e63c5dde89248faf83a80d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/from_json/pre_tokenizers.rs",
+      "blob_sha": "9758222cfffc1fc5acaebe75aeeafa25a67231ce",
+      "sha256": "3b0b1b53f59bda27695e98fa09a814de3fdd6f933a9e9f090bbd3381d816ea34",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/from_json/tests.rs",
+      "blob_sha": "86f2e53211e77f9acb7c180cced6386ddddc1115",
+      "sha256": "a604decaaa61bb3ad7fd67a3b78ffc2dec1d506ec2bfc7d177784e56e3c52bc6",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/from_json/truncation.rs",
+      "blob_sha": "898d52e33d679b8988534a8c7557d10c0fa9e6de",
+      "sha256": "be494468cdd5fa80dd6d99135c53664f9c89fe0b0ab87bb337dcd70fa08d029c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/json/mod.rs",
+      "blob_sha": "b500538d3d3ea308b944a8ade1d1c47206556aef",
+      "sha256": "82c527320cf419e766dee4b8c9e647363fe23a6fd304618bdfbe6b5c0e7edadb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/json/tests.rs",
+      "blob_sha": "dd4230f069511ecfb03e602d2a25bedb6a690432",
+      "sha256": "93b90ce6aa50d7dd19a7fbff5f514bdbdc41d115a56739c4f0e9db39929ff000",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/lib.rs",
+      "blob_sha": "6dd37a5f553819f5aad89043007485d4f933c0b2",
+      "sha256": "f1454516fd79ab22f8f5a937252bfb8ed2e1cfabf41cc037a7e0e4cdedaec4b8",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/schemas.rs",
+      "blob_sha": "5c26f8b342cb5256c035e22ef26c72b8729ea955",
+      "sha256": "a22e1a0e64d904d3e7f94349cad469189e92759152e15a71fc5c09d138123460",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/schemas/tests.rs",
+      "blob_sha": "70bfdf6b92e4f818621ba532a24f813f610eaf11",
+      "sha256": "51d8c93b3b7a2fab2106a100fe84084907bff3dd3b6cfd9802481db78aece51f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/to_json/added_tokens.rs",
+      "blob_sha": "069c3fbf9564a90daf0c92405a0ad01b486a6089",
+      "sha256": "1da517b813f32b2e637e0d75e74378787a46065d2e4ca53861d580ede607b429",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/to_json/decoders.rs",
+      "blob_sha": "83b815a7e4e6dba67321559a58d7677f30ad35da",
+      "sha256": "d7858d7097f1548d75eecf59528c7ef571203deedaa5abfbffaf806f9f7952c4",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/to_json/mod.rs",
+      "blob_sha": "3520067114f3e7daa87a1ed9ae9d55eb9124507e",
+      "sha256": "7308d2a031db487a4c8de61b739cd8fad48670cb1400d7f5b30c4b60355f2b4b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/to_json/model.rs",
+      "blob_sha": "8fd90b5b57b95fb41d38a87900cb74c6a4edee3a",
+      "sha256": "a21d627232bc936cf7479c6d15e92c78f10dbe133c1f8b1c3339aecf9860a479",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/to_json/normalizers.rs",
+      "blob_sha": "c7018a7d0980393d1fb552963436901bafad0845",
+      "sha256": "a0297b25ffd55b45aa75a8252855d6b2a781441b19207f59def1131bf330fb60",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/to_json/padding.rs",
+      "blob_sha": "b482cdf660d4e4a182c0679e7d06515ace175875",
+      "sha256": "58ab5a24a054a63af3cfcc38d6211b389c3c36f6b46184f35d77881b4010dd7b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/to_json/post_processors.rs",
+      "blob_sha": "0eb363c7e64dd94fb49858fa07fe5c754a84cd2f",
+      "sha256": "2e89358aa85a8fa12e9424ea6c7b82beca8accb0b2821ef15dde1445411eb088",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/to_json/pre_tokenizers.rs",
+      "blob_sha": "ce55f19aecd9bfd81c962e758d6bad7676012c30",
+      "sha256": "5852c74e22e519ef6b9023ace6ea3ff4998ab816d357cb55d6852a0ea784a7de",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/to_json/tests.rs",
+      "blob_sha": "aba0dcd403987d7d71a2b729b9f913aa10d2f751",
+      "sha256": "6ad26e3fd3d86eb939ac267ca2ac85fc3fe0a504cae01ed7e7d9eb80d8351c10",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/to_json/truncation.rs",
+      "blob_sha": "3605311e8c7f28278111f3861a3cc8ce7418c5f6",
+      "sha256": "e7e826efb668d36bee90c0a5289bd9cc5a0e519cc3d22e278b295cfa385a1a9f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/to_json/writer.rs",
+      "blob_sha": "0cd92144a9a213297a547c4fa595b426956af891",
+      "sha256": "21ab0b4864f5164ecb1c72678193a4e5ce12a91e85f4c489f774edc714148b10",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/src/vendored.rs",
+      "blob_sha": "f2bd657fa71c143e67ec8f6fba40757152cdf917",
+      "sha256": "06e37cf985076aa1daf633586bbbb8d8539ac9ea216b051c66da964821d1dfbc",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/tests/decode_stream.rs",
+      "blob_sha": "6ca47232a1b8349c83d722161ef8ed67afedfe09",
+      "sha256": "752ff68035d661350a8df6bed21081a92408eb1b12938a0ce5fcbd4c0d9c7620",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-serialize/tests/fold_parity.rs",
+      "blob_sha": "02bca3a09093d958ccd6f68387038762ada39c62",
+      "sha256": "0d080a8158628f49ebebb65c85387266d9a9daba23646f8f7cfcd640797a593b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-train/Cargo.toml",
+      "blob_sha": "15d9cc773803a9b24cf44a437fb95aebb0bbc557",
+      "sha256": "7c0fef2f9f1f913cbed2aaf7ee8963fee1c2a7830a2adfcd7f8f3201c86e0801",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-train/src/added_token_serde.rs",
+      "blob_sha": "9b5e4a20bf654ba2e1e463feb3be5737db236e71",
+      "sha256": "63c369d7d41f8bb82eca88d1237cd1cd24476a6a636bb533171bef39d29e1e3e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-train/src/lib.rs",
+      "blob_sha": "e15c68f10e34dec3937baab280581220b1c9a2f7",
+      "sha256": "7094c26dcfea9fba0593dbdd64b321ccd160db2abddac50cd2f2028e7602ba7a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-train/src/progress.rs",
+      "blob_sha": "668046b40050b8393ce4dbdb9b0ea0aa7f61a3d3",
+      "sha256": "518d4c6e1ab0baea29e9e5fcba87426b375030e48df0fbff0bdcb3f60d13d9fb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-train/src/trainable.rs",
+      "blob_sha": "8ba1600023a374f32a2ab74bee8b89409b2afbaf",
+      "sha256": "553e57f697265240c2e7d16530b4c899eee9f965b7d82ff2875fa8a5ebfa7a5b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-train/src/trainer.rs",
+      "blob_sha": "5aaa3a4bebb5748209cf5837d337bba2002b60fa",
+      "sha256": "247b4b76cb8e20074786867022b49d9947fd0ee4dbbc711acdc53689ac41fdf9",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-train/src/trainers/bpe/mod.rs",
+      "blob_sha": "97a05e64a9d86eeb346cd4a8d85d7d8eea0d84ca",
+      "sha256": "49092ebbe82b9adddcf6ff631c94ca34c52a876dac63f7024ec9c1fb5c601d5d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-train/src/trainers/bpe/parity_trainer.rs",
+      "blob_sha": "d9180159eaf3e0694a07f23428224eac50ca7447",
+      "sha256": "a6881ee79d6dc9ade285b97df870628320589b262d185e477ecac49ad3059555",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-train/src/trainers/bpe/word.rs",
+      "blob_sha": "2ae19dbbd459cb6db3c59a418069686beaefdc40",
+      "sha256": "b81cd9c9819c7be9a76b6556fd58f0c1d04fb00992998e224f360aa7706553bd",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-train/src/trainers/mod.rs",
+      "blob_sha": "68167d985941e93e3e3977f50835d96f05641f03",
+      "sha256": "b3f051f2bd302e61b12499ca58c0c02898f0ca844af50106733e2e4ece769e86",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-train/src/trainers/unigram.rs",
+      "blob_sha": "8aa3780f66e88d54edfa0d4602886ceaad0708fa",
+      "sha256": "0af1bed4d78cbeb4bcbb281b73d1a9aa08374395be07750fab2e9df8121c2a5d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-train/src/trainers/wordlevel.rs",
+      "blob_sha": "2e2bb268f2793f04264d16b5935b48814909d637",
+      "sha256": "fb04ebb2c94788bcb1d2afd332d9485c3b34c78030b3b815ee6815cc002156e0",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "tokenizers/tk-train/src/trainers/wordpiece.rs",
+      "blob_sha": "6faa0b2db4aede71d340e87d64d71f797362ee4f",
+      "sha256": "d274b244a8ad07e115bad65b0c71eaeaca37f33b7a0af8f7a24c06d1344c4596",
+      "installed_path": null,
+      "review": "integrity_only"
+    }
+  ],
+  "status": "pending_dependency_license_review",
+  "registered_adapter": false,
+  "live_verified": false
+}

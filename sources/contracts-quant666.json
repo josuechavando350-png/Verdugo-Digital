@@ -1,0 +1,571 @@
+{
+  "schema": "verdugo.quant666.sources.v1",
+  "id": "bitsandbytes",
+  "operation": "quantization.check",
+  "repository": "bitsandbytes-foundation/bitsandbytes",
+  "commit": "a616886cacf86701514f0cb1d6be760f967481c0",
+  "distribution": "bitsandbytes",
+  "version": "0.50.3.dev0",
+  "license": "MIT",
+  "archive_url": "https://codeload.github.com/bitsandbytes-foundation/bitsandbytes/tar.gz/a616886cacf86701514f0cb1d6be760f967481c0",
+  "archive_sha256": "2d5204fb505a43ede5d4100536cbcd2b8e76b56e4d73544a7a0821f27a78c88a",
+  "python_version": "3.12",
+  "build_environment": {
+    "CXX": "g++",
+    "CC": "gcc",
+    "CMAKE_ARGS": "-DCOMPUTE_BACKEND=cpu -DCMAKE_DISABLE_FIND_PACKAGE_OpenMP=TRUE -DHAS_AVX512F_FLAG=FALSE -DHAS_AVX512BF16_FLAG=FALSE",
+    "CMAKE_BUILD_PARALLEL_LEVEL": "1"
+  },
+  "build_tools": {
+    "cmake": "4.1.3",
+    "scikit-build-core": "1.1.2",
+    "setuptools": "84.2.1"
+  },
+  "torch_version": "2.9.1+cpu",
+  "operation_scope": [
+    "Native original float32 CPU quantize_blockwise and dequantize_blockwise with fixed block size 64.",
+    "At most 512 synthetic integers; finite reconstruction, scalar codebook reference and numeric error reporting.",
+    "Storage count includes uint8 array, float32 per-block scales and 256-entry float32 codebook."
+  ],
+  "limitations": [
+    "No learned model or weights, GPU execution, accuracy calibration, speed benchmark or commercial outcome.",
+    "Reconstruction loss is reported; exact reconstruction is not promised.",
+    "Total byte count excludes Python object metadata and allocator overhead; it is not observed RAM use.",
+    "Operator receipt, not independent attestation or binary reproducibility proof.",
+    "Selected content reviewed; other files verified for integrity only."
+  ],
+  "files": [
+    {
+      "path": "CMakeLists.txt",
+      "blob_sha": "0066d086f1cf20c2783f9009482bafa2663bd89d",
+      "sha256": "b248579ea0feba8f3c7dc1c3aef15cd50163080c599db7df8a8766d739d450d0",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "LICENSE",
+      "blob_sha": "b96dcb0480a0b0be0727976e5202a1e7b23edc3f",
+      "sha256": "52412d7bc7ce4157ea628bbaacb8829e0a9cb3c58f57f99176126bc8cf2bfc85",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "bitsandbytes/__init__.py",
+      "blob_sha": "3097a1a60fe91d14821ee0eb1966d8cb01a80ffa",
+      "sha256": "026aeaf979736dd15f80b145880dc4de03ebbe131b47b9f066645da1772255b8",
+      "installed_path": "bitsandbytes/__init__.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "bitsandbytes/__main__.py",
+      "blob_sha": "e716b6f3ff54cb847682d68fd4cb0e6893dba3fe",
+      "sha256": "037880f501fcc9f9feeb4b8deb0ffb5948ae44833befbad9fe97ff1ec66db1ee",
+      "installed_path": "bitsandbytes/__main__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/_ops.py",
+      "blob_sha": "43efd860999f38d8d0b20a0398dd73ad41e5ad2e",
+      "sha256": "e6d9ed4c268e52044a8ff5f895f94ca88bf02d156b25c4616141cfa9daaf924c",
+      "installed_path": "bitsandbytes/_ops.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/autograd/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "bitsandbytes/autograd/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/autograd/_functions.py",
+      "blob_sha": "8a069bd101a089afc59b7d4d3d48e5dd399bc967",
+      "sha256": "77ca54c87b69ad470ac73e5d7dde94948f20de9de8b8764957728bc29831f37f",
+      "installed_path": "bitsandbytes/autograd/_functions.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/backends/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "bitsandbytes/backends/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/backends/cpu/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "bitsandbytes/backends/cpu/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/backends/cpu/ops.py",
+      "blob_sha": "44fb5dcebc794d7cd8e5a509f5144016d775fbee",
+      "sha256": "d4bfca8b4ce6a6a368aeccdd1516f98f505bf374f6e66d64fb22e6229eb1ff67",
+      "installed_path": "bitsandbytes/backends/cpu/ops.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "bitsandbytes/backends/cuda/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "bitsandbytes/backends/cuda/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/backends/cuda/ops.py",
+      "blob_sha": "a0d9ffe8311a649b9d77f93af4f70a909b24a811",
+      "sha256": "d58fa0a0c053d5a0ecd1e93d847531d5e0226a0bd8048472ee0ca632464cc20f",
+      "installed_path": "bitsandbytes/backends/cuda/ops.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/backends/default/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "bitsandbytes/backends/default/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/backends/default/ops.py",
+      "blob_sha": "521802922810fd6f6432564ef1f71233936d2508",
+      "sha256": "e39afd16dca6e6f34a14305ade0ba4acbb49dc2c7a9baf937341d7e33b682819",
+      "installed_path": "bitsandbytes/backends/default/ops.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/backends/hpu/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "bitsandbytes/backends/hpu/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/backends/hpu/ops.py",
+      "blob_sha": "645687598c23523319450b0613cea42a319156d1",
+      "sha256": "1a017363ed6b3a0aa61fb71c5e22bf69ea3dc8a4e2b6f8fbf966cea86806f6e3",
+      "installed_path": "bitsandbytes/backends/hpu/ops.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/backends/mps/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "bitsandbytes/backends/mps/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/backends/mps/ops.py",
+      "blob_sha": "04c3d4fda9d070014b0dccde9f001cebfac178f7",
+      "sha256": "d93a6ceb2d03359d061f61abd70d152ffed4af26bf2693d7c6d47f8470bd0770",
+      "installed_path": "bitsandbytes/backends/mps/ops.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/backends/triton/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "bitsandbytes/backends/triton/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/backends/triton/kernels_4bit.py",
+      "blob_sha": "4dc01412b7ace66a1bfd5b8ca46f4c3947303add",
+      "sha256": "6e380698b4b40056fa19e457d71fea113c32a9f3ce4a83a6d93ea33cea18ef84",
+      "installed_path": "bitsandbytes/backends/triton/kernels_4bit.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/backends/triton/kernels_8bit_quant.py",
+      "blob_sha": "c0a5a21efff7507e1409fc2d021c9814bed22c1e",
+      "sha256": "92774d59c8f4ffe143b52997529c9ac5fc4f7c73831aafd6cf9d425de9a3adfc",
+      "installed_path": "bitsandbytes/backends/triton/kernels_8bit_quant.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/backends/triton/kernels_optim.py",
+      "blob_sha": "f7eb2e213be9f4a5a5ace6393b11ad616dc33d57",
+      "sha256": "4e0458ad0c4c1bd931dccb772d92c1dd53dbff9a2da5ed9991550197f20771b1",
+      "installed_path": "bitsandbytes/backends/triton/kernels_optim.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/backends/triton/ops.py",
+      "blob_sha": "2dfe7e758f1a118e7a2d80251e373306bffb107f",
+      "sha256": "723cfe3134cc8d598477e238a84bb697de43e3956f648e1faa8e91a1a99e2ab8",
+      "installed_path": "bitsandbytes/backends/triton/ops.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/backends/utils.py",
+      "blob_sha": "a63e59a99609e1ee42a982590cc1e9e67023d33c",
+      "sha256": "dc564f2fbf13dba81388a23d4c87167dd54da04af8f17b0db52685fe42b11c84",
+      "installed_path": "bitsandbytes/backends/utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/backends/xpu/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "bitsandbytes/backends/xpu/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/backends/xpu/ops.py",
+      "blob_sha": "731200c534ab1950072daed3d2dd70026a2a64b1",
+      "sha256": "0ffcde964e1bf23c4b4ae9f39b73ba8a50b90a2d9a02909446f1467074432596",
+      "installed_path": "bitsandbytes/backends/xpu/ops.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/cextension.py",
+      "blob_sha": "e234f20d3346c5effcdc15ae426b9e54c16a6412",
+      "sha256": "a7ce4d7bcb504bf7d268ce96658dbe832804b6f6ed999f61eaf2beeb9385c9bd",
+      "installed_path": "bitsandbytes/cextension.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "bitsandbytes/consts.py",
+      "blob_sha": "8242d104e0084179af9ac564af574f63e7403a30",
+      "sha256": "c5f0da75001ac7e99ac6a907ad535b67a5084c9a12d1781c51fa299a32e08a53",
+      "installed_path": "bitsandbytes/consts.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/cuda_specs.py",
+      "blob_sha": "25ce3cd1efacf417cc20e57a528777f864a48e52",
+      "sha256": "6a4153476671439085a452de83940a15b54e678c73dd449ac78dd1c5accfdb69",
+      "installed_path": "bitsandbytes/cuda_specs.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/diagnostics/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "bitsandbytes/diagnostics/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/diagnostics/cuda.py",
+      "blob_sha": "655da84a05fbf4288398f9d0c3ff3cfb9b38d3d7",
+      "sha256": "3b7f74ecfc45ad6af980ddf89c31e063b75609a61c3f63f90f7e4360895aa463",
+      "installed_path": "bitsandbytes/diagnostics/cuda.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/diagnostics/main.py",
+      "blob_sha": "a64925c062cf19571f18cd8a5179874dcb8d2894",
+      "sha256": "d3ca45b8a8d0ae5b735728fb177721df548f25c23a3c6892c9542db341ad4c9a",
+      "installed_path": "bitsandbytes/diagnostics/main.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/diagnostics/utils.py",
+      "blob_sha": "facc58b30af8f3eb3a7895e712588dcf092721ee",
+      "sha256": "102888dbbf6387bf3defb45664520e9264c91b88353bf62240bc0fe2249aed3c",
+      "installed_path": "bitsandbytes/diagnostics/utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/functional.py",
+      "blob_sha": "33b2cd9ac674f338429fc972669596dbedc88143",
+      "sha256": "520a9e9d3afba11124734df60e48a27e38b6389305df888834405b435e285817",
+      "installed_path": "bitsandbytes/functional.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "bitsandbytes/nn/__init__.py",
+      "blob_sha": "54c2614bdd981e57165cd267015e38081c46ffe6",
+      "sha256": "69338d130d2b0abe714edf71c365feb1ba5727170583e317364b05c57b602ffe",
+      "installed_path": "bitsandbytes/nn/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/nn/modules.py",
+      "blob_sha": "ebc0b09439c4620ef015b18b242328aa65f14c18",
+      "sha256": "f7ab2160681e2f089caae80d6fd283ac6a9b9f1b82269e6f395c3b046faf606e",
+      "installed_path": "bitsandbytes/nn/modules.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/nn/parametrize.py",
+      "blob_sha": "55f679cae7e504b6a16bcbdcaea03700255757c8",
+      "sha256": "b527362228f8ab52767af19d0fb9d517c358f5d55d691ebbf24296d557bb6c03",
+      "installed_path": "bitsandbytes/nn/parametrize.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/optim/__init__.py",
+      "blob_sha": "07174c38dfec8cbb6a3e93f8177af965026e168e",
+      "sha256": "d11a8cd54ea3c14f0509e78f0dc878404bb601911856bb4323cf651767752140",
+      "installed_path": "bitsandbytes/optim/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/optim/adagrad.py",
+      "blob_sha": "2566d1e47ef37a55966bb66b5931cca1c41d85f0",
+      "sha256": "bcfb69d0cf68a6fd88e3645d4b079042225af6abb875d6206f329a806225f96e",
+      "installed_path": "bitsandbytes/optim/adagrad.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/optim/adam.py",
+      "blob_sha": "63210bdc30e7db78642a8208d35395507b5f773a",
+      "sha256": "5086e35454e6419539133a55e3ed23cc09f86e56ce627450af768f4a19517557",
+      "installed_path": "bitsandbytes/optim/adam.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/optim/adamw.py",
+      "blob_sha": "36e151dfc66caea5c178c87c7fc2a246be40d126",
+      "sha256": "da6b56da8475cf2eb5591e68114501d159b4e40f9367c463a3324dc202aa263b",
+      "installed_path": "bitsandbytes/optim/adamw.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/optim/ademamix.py",
+      "blob_sha": "7b79c8e88ad9aef5991e065bcf9fe3920923c6f2",
+      "sha256": "05201c910272c146b75035a2ced263a8de63a062f3534eabf24012acd4f63cca",
+      "installed_path": "bitsandbytes/optim/ademamix.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/optim/lamb.py",
+      "blob_sha": "15af97d6d0825dbdb8b9d84a0675725deb5549c1",
+      "sha256": "6a639a61e348c14ed1e817a79e3f8e4bb40d09a9071c4adef155cce49be730b3",
+      "installed_path": "bitsandbytes/optim/lamb.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/optim/lars.py",
+      "blob_sha": "c2f5aa7847ae77a394a96056cf5f68a52f92040f",
+      "sha256": "a37dacd45522138f4646973e59d4e646efc5781efddb6641321dd4341c5c6968",
+      "installed_path": "bitsandbytes/optim/lars.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/optim/lion.py",
+      "blob_sha": "6100491f660d1a2fcf8be9a3f5a2468a511d77ed",
+      "sha256": "394bb56b2b0833ce4d347345bbe2c34c22c8e87a2a3cd329f9b2d5819006b479",
+      "installed_path": "bitsandbytes/optim/lion.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/optim/optimizer.py",
+      "blob_sha": "dfc6e5d65ef791b26b4b92d89aba1265019d5556",
+      "sha256": "2e07a06ea0736e4e6ce7bb821207264aa5c2e7044718c88021b7bae3a15ddf2e",
+      "installed_path": "bitsandbytes/optim/optimizer.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/optim/rmsprop.py",
+      "blob_sha": "54c1fbda0935f42be13fe743e080977938278417",
+      "sha256": "dac1d263585f4ebf37699bc198811fce84e228447c2d973f043926c891b794fb",
+      "installed_path": "bitsandbytes/optim/rmsprop.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/optim/sgd.py",
+      "blob_sha": "75fc714744403f7776c5c11c096ebffe8acdbbf4",
+      "sha256": "8158db8e362b9b5f7b4623adeaf2e85da33169654ae837bdd40a7f28be9616d8",
+      "installed_path": "bitsandbytes/optim/sgd.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/py.typed",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "bitsandbytes/py.typed",
+      "review": "integrity_only"
+    },
+    {
+      "path": "bitsandbytes/utils.py",
+      "blob_sha": "513baceab4ad3233909818864dd4fdf2df527f01",
+      "sha256": "1b5a196e0200b74ee6f7eed2a4b051b488ec8a923c902a6d75f4d62b3f7a83d2",
+      "installed_path": "bitsandbytes/utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/common.cuh",
+      "blob_sha": "7aed74fa20824e5ad54c6cbcafcd77f96dcc5c35",
+      "sha256": "d52f236ff48735458c2242be5544e12009a9b8b7b48f4a25f57378b1199edf6f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/common.h",
+      "blob_sha": "1496c0bc3c04d95cc8a7e5fb98a41765fa25cb7d",
+      "sha256": "dacb1e77490631794653d64e7efe9b0ed91023f5517afc81c0717543f0bb7dce",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/compat.cuh",
+      "blob_sha": "fa92ef917283ef20c3d74fe1023aadd46ebda701",
+      "sha256": "8d94193170f5911ac202b5c193c01346102bf5e7c167241a63c5680772b83eb3",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/compat_device.cuh",
+      "blob_sha": "8419f14856f0b1cedac4f453d4be9d170b01b5ea",
+      "sha256": "cb983d7de31c7e7fb4e9704a23eaa69564223e9f467f19f5732aec3e23508ad5",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/cpu_ops.cpp",
+      "blob_sha": "dfb9046ac561f79f06114d9faaaf89a2efcf13d7",
+      "sha256": "55635eb61013a7e1545da195f9c9c113f2646a325883cc5b847740d8c53c43bf",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "csrc/cpu_ops.h",
+      "blob_sha": "3a1ec40a84e765399a96189c4e58cf56c698a950",
+      "sha256": "7450f8bc5d26f9acf6d89b89158055c08b18e7f8679f4ba5231a0f7cdb1388e0",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/gemm_4bit.cu",
+      "blob_sha": "ff2f011a260d1dc011b9ede46261fb2fa6d72720",
+      "sha256": "0af029821fa01814ec630cb8637c10fee92ebaa9a847c16434f15b4c5e97ab6b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/gemm_4bit_common.cuh",
+      "blob_sha": "c05d344b37e0fe1d8c12704d6109c6e50eacf915",
+      "sha256": "21ebc933c3083ba7691f1c38af162284aa07f1807a319fc6cd81573fd8e2c12e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/gemm_4bit_mma.cuh",
+      "blob_sha": "3119bb5dac5d18045c48c174faf820387387447c",
+      "sha256": "270bcdf9df977af006f8914f825ef0389f8e3cdd04e8cfe2337a38ae17eccee8",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/gemm_4bit_simt.cu",
+      "blob_sha": "d0f5354fba6ec8f466f7a390f80c56616042c4e6",
+      "sha256": "c22604d6fc7f6714a9be1973202507d282a12c7de0b11b433add84f80bed26b0",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/gemm_4bit_simt.cuh",
+      "blob_sha": "28e508e48b528b0bd00e3040b2ad5a2e7f56e4dd",
+      "sha256": "b53cc2892b7335e2db8f49de0b4eefe94a130e46c2207dc146bc2ec111699ccd",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/gemm_4bit_sm75.cu",
+      "blob_sha": "28ea804d06473344e1dae2aa3960a2fa7eab77c5",
+      "sha256": "e30047daa390dff888c2e0b3850ac9163cccad7e9fe32aa818558e15e17b742b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/gemm_4bit_sm75.cuh",
+      "blob_sha": "c693bb26117f341788401537146591186cb920d5",
+      "sha256": "90a1608e720cbe841b584f64ee766d09a4fab9c1ba184cd96f042ce0bf9a43da",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/gemm_4bit_sm80.cu",
+      "blob_sha": "0cf535364cfdcc8e47a7428951fb7bbd975d63a8",
+      "sha256": "d6889480c5117ffc0b8c6ee012fd4422600aa23e283a194e213132e56e2bde97",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/gemm_4bit_sm80.cuh",
+      "blob_sha": "56c7c201be1873d3df8e5f76a0e7b9d427b6fca9",
+      "sha256": "86999d7e4723cc487f96db73b5fe2bc58723daebb25f0f7d79f6384c60cb8732",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/kernels.cu",
+      "blob_sha": "df0f093df449c6c50cebcfbbeb2c78d8378962b4",
+      "sha256": "a88d7a522b21b3d6e50cacad890c0c3ac44ad17b5f205c4b34ae91995ba1e5d6",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/kernels.cuh",
+      "blob_sha": "dc511661bc7099026451aebdb89bdc44a444387c",
+      "sha256": "41537d007472e235c48250d84ce9c177dedcdf9453af74b90b56584c8324c1bb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/ops.cu",
+      "blob_sha": "f6f8904550575027057a0b395aa67877a83fa658",
+      "sha256": "365305ee10783a9c7687fb3983f00ccf024fc4055c5714f94056de52fc476074",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/ops.cuh",
+      "blob_sha": "c7114bcaa9d30d9fad42656480f2feeff879ac22",
+      "sha256": "8b148248634eeb4ff78833e35c92a318a79192c5405d2952d7dcfd568755c826",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/pythonInterface.cpp",
+      "blob_sha": "24431603b21d46e6483b04cb860c72f01cff0298",
+      "sha256": "9d19d0ce526c6bfd3ab5bccafbad3815f951e748488ae4109788813cd008dc18",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "csrc/xpu_kernels.cpp",
+      "blob_sha": "e9d4c0ccb1d565132acd60cf942c7f4630cc5385",
+      "sha256": "db72ae7bf211a353f1f7867178ba0c41a5da95dcfe83b36892df0eb8e04824eb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/xpu_kernels.h",
+      "blob_sha": "d3dac55b2f695d0f1f3e0bde929d704c418e8f15",
+      "sha256": "4cd4ebeeec20b937245263881640719a99f75a4ef20756c7b6cd19b8a229c389",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/xpu_ops.cpp",
+      "blob_sha": "960201e2e544ea33d71e007b008a80cec7aaae7e",
+      "sha256": "99c8ae153efbda6ea063d75254f2ea785db8c67a49574b6fd43125c35cbb1fcf",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "csrc/xpu_ops.h",
+      "blob_sha": "a5ea80f970718c2f9db5744eb3e4d12af8fb01d6",
+      "sha256": "7bc7f7046b2443eb5fc3a9ce73f6ba7949558c98ffec26082d341d5f0d09b348",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "pyproject.toml",
+      "blob_sha": "8a38bb8aa563e55d936ccc25fbaedd28b4a3ae67",
+      "sha256": "d88a6f7fd14f5226438a2cab4b48ace737b998fc5444bcbb972e6586ec8ce676",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "setup.py",
+      "blob_sha": "6c8f4b705e688d6b4d555df1a3e7afa4b10e91c3",
+      "sha256": "7413e623fc960932a42c496ce8f49059d1a85d0fc0adc390653bef7c81a2a161",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    }
+  ]
+}
