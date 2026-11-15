@@ -1,0 +1,238 @@
+{
+  "schema": "verdugo.vector-reads666.v1",
+  "records": [
+    {
+      "id": "kernel-memory",
+      "repository": "dluc/kernel-memory",
+      "commit": "8fc4e16f31257faa34c5e368f8e99b45df7e4049",
+      "files": [
+        {
+          "path": "service/Service.AspNetCore/WebAPIEndpoints.cs",
+          "git_blob_sha": "bb29917fe9249edf386220393c846d086556f1dc",
+          "sha256": "7042043b3bc04be5e1747ce593891f699f9c9a7209a43bc621be83cedfca5bba",
+          "source_url": "https://github.com/dluc/kernel-memory/blob/8fc4e16f31257faa34c5e368f8e99b45df7e4049/service/Service.AspNetCore/WebAPIEndpoints.cs",
+          "review_scope": "Selected route, authentication, request and response declarations; full-file hashes verified against original Git blobs."
+        },
+        {
+          "path": "service/Service/HttpFilters/HttpAuthEndpointFilter.cs",
+          "git_blob_sha": "c7f3630198867f421197753746177fb640d880e6",
+          "sha256": "e008b4d7d9e35dd8a417ed510e411449544ad9019ea0533c58e01b70dd68a279",
+          "source_url": "https://github.com/dluc/kernel-memory/blob/8fc4e16f31257faa34c5e368f8e99b45df7e4049/service/Service/HttpFilters/HttpAuthEndpointFilter.cs",
+          "review_scope": "Selected route, authentication, request and response declarations; full-file hashes verified against original Git blobs."
+        },
+        {
+          "path": "service/Core/Configuration/ServiceAuthorizationConfig.cs",
+          "git_blob_sha": "357faf8a334f2881bbd19a38c1a55f9723bd01f2",
+          "sha256": "1bccc294da96da9d6decbbe2cf0ad1065ed8bdfd354ae87fb44bdc41e5f140d6",
+          "source_url": "https://github.com/dluc/kernel-memory/blob/8fc4e16f31257faa34c5e368f8e99b45df7e4049/service/Core/Configuration/ServiceAuthorizationConfig.cs",
+          "review_scope": "Selected route, authentication, request and response declarations; full-file hashes verified against original Git blobs."
+        },
+        {
+          "path": "service/Abstractions/Constants.cs",
+          "git_blob_sha": "8d485c1ef0883b96cf6566bcc210627e3412e946",
+          "sha256": "60852376977eae517d669267e3a5a90c26a8a1f523b49883add82621256235a1",
+          "source_url": "https://github.com/dluc/kernel-memory/blob/8fc4e16f31257faa34c5e368f8e99b45df7e4049/service/Abstractions/Constants.cs",
+          "review_scope": "Selected route, authentication, request and response declarations; full-file hashes verified against original Git blobs."
+        },
+        {
+          "path": "service/Abstractions/Models/IndexCollection.cs",
+          "git_blob_sha": "f45fbfda6c0568f3403b713a96f3c45d6dea8884",
+          "sha256": "e76e3e5da2873ea4967a4678e27728c6b68b7e76ee7fb39f7251f9accec61b58",
+          "source_url": "https://github.com/dluc/kernel-memory/blob/8fc4e16f31257faa34c5e368f8e99b45df7e4049/service/Abstractions/Models/IndexCollection.cs",
+          "review_scope": "Selected route, authentication, request and response declarations; full-file hashes verified against original Git blobs."
+        },
+        {
+          "path": "service/Abstractions/Models/IndexDetails.cs",
+          "git_blob_sha": "c4044f14e2cec049ad656151ecd9fe1a1f2a70ac",
+          "sha256": "2f6736bcc4cc907e0772253cace126ad8118c9003fce709a7caed6919757623f",
+          "source_url": "https://github.com/dluc/kernel-memory/blob/8fc4e16f31257faa34c5e368f8e99b45df7e4049/service/Abstractions/Models/IndexDetails.cs",
+          "review_scope": "Selected route, authentication, request and response declarations; full-file hashes verified against original Git blobs."
+        },
+        {
+          "path": "service/Service/Program.cs",
+          "git_blob_sha": "68329fb72a03cffdddddc64465a5ba451ce193b4",
+          "sha256": "8e78e6e2036be5792245acf2b7db0f930543f8b7a1ed6c2ff21b5c22a89abd59",
+          "source_url": "https://github.com/dluc/kernel-memory/blob/8fc4e16f31257faa34c5e368f8e99b45df7e4049/service/Service/Program.cs",
+          "review_scope": "Selected route, authentication, request and response declarations; full-file hashes verified against original Git blobs."
+        }
+      ],
+      "license_evidence": [
+        {
+          "repository": "dluc/kernel-memory",
+          "commit_sha": "8fc4e16f31257faa34c5e368f8e99b45df7e4049",
+          "path": "LICENSE",
+          "blob_sha": "9e841e7a26e4eb057b24511e7b92d42b257a80e5",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "local_path": "sources/license-texts/c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383.txt",
+          "source_url": "https://github.com/dluc/kernel-memory/blob/8fc4e16f31257faa34c5e368f8e99b45df7e4049/LICENSE"
+        }
+      ],
+      "license_text_read": true,
+      "operation": "indexes.summary",
+      "method": "GET",
+      "path": "/indexes",
+      "fixed_body": null,
+      "live_verified": false,
+      "original_server_executed": false,
+      "sdk_installed": false,
+      "authentication": "ServiceAuthorization.Enabled=true, APIKey mode and original Authorization header. Raw key without Bearer; minimum 32 characters. Dedicated instance.",
+      "cost": "No paid endpoint, model or hosted service. Operator supplies a reviewed existing self-hosted instance; no provisioning.",
+      "limits": [
+        "No caller paths, tenant, database, credentials, filters or model selection.",
+        "Chroma count is the original u32 JSON scalar. Kernel Memory and Milvus arrays are capped at 1000; oversized responses fail instead of truncating.",
+        "Only recounted or reported numbers retained; no index names, collection names, vectors or document text.",
+        "No retrieval, embedding, ingestion or provider quality evaluation.",
+        "Source and synthetic HTTP acceptance do not certify original servers, deployment, dependency closure or production."
+      ]
+    },
+    {
+      "id": "chroma",
+      "repository": "chroma-core/chroma",
+      "commit": "1a3ac2c7c623adbd03ed2508dc27b98cdf26016d",
+      "files": [
+        {
+          "path": "rust/frontend/src/server.rs",
+          "git_blob_sha": "8afddf5392e3f244c74c9304270cfcc24ba31f01",
+          "sha256": "43a491146aeceb6884302c99285af5096f363c7057344973a0497f595d98823b",
+          "source_url": "https://github.com/chroma-core/chroma/blob/1a3ac2c7c623adbd03ed2508dc27b98cdf26016d/rust/frontend/src/server.rs",
+          "review_scope": "Selected route, authentication, request and response declarations; full-file hashes verified against original Git blobs."
+        },
+        {
+          "path": "rust/frontend-core/src/auth.rs",
+          "git_blob_sha": "e3cd972632d2ba21937b6c3d1d810e4e818928f8",
+          "sha256": "93e74a1d96e9883f5053d808b729a592c58c2a9972de564250681986707edd9b",
+          "source_url": "https://github.com/chroma-core/chroma/blob/1a3ac2c7c623adbd03ed2508dc27b98cdf26016d/rust/frontend-core/src/auth.rs",
+          "review_scope": "Selected route, authentication, request and response declarations; full-file hashes verified against original Git blobs."
+        },
+        {
+          "path": "rust/types/src/api_types.rs",
+          "git_blob_sha": "31db429e842febfcf616ae78b5b00082146a3bdb",
+          "sha256": "8b6f78940c3ab3bbe45a6240fecae12516f92cd9b6db6ab2afc71cfbb43acc61",
+          "source_url": "https://github.com/chroma-core/chroma/blob/1a3ac2c7c623adbd03ed2508dc27b98cdf26016d/rust/types/src/api_types.rs",
+          "review_scope": "Selected route, authentication, request and response declarations; full-file hashes verified against original Git blobs."
+        },
+        {
+          "path": "rust/frontend/src/lib.rs",
+          "git_blob_sha": "7b1d84586b38324e2e81ac19f6acf04927db02cc",
+          "sha256": "28ce7cddc883862ce70971afb5bf6192ede2a8076f5c314b2ce22ce4cd7dc0a1",
+          "source_url": "https://github.com/chroma-core/chroma/blob/1a3ac2c7c623adbd03ed2508dc27b98cdf26016d/rust/frontend/src/lib.rs",
+          "review_scope": "Selected route, authentication, request and response declarations; full-file hashes verified against original Git blobs."
+        },
+        {
+          "path": "rust/frontend/src/bin/frontend_service.rs",
+          "git_blob_sha": "9070528795a6c92487c190d417d92aeb1cc5b213",
+          "sha256": "f26fcbab840a0fc6a8ad841ac55c1a7eca0f4505ff428727aafd8191d7d6ba77",
+          "source_url": "https://github.com/chroma-core/chroma/blob/1a3ac2c7c623adbd03ed2508dc27b98cdf26016d/rust/frontend/src/bin/frontend_service.rs",
+          "review_scope": "Selected route, authentication, request and response declarations; full-file hashes verified against original Git blobs."
+        }
+      ],
+      "license_evidence": [
+        {
+          "repository": "chroma-core/chroma",
+          "commit_sha": "1a3ac2c7c623adbd03ed2508dc27b98cdf26016d",
+          "path": "LICENSE",
+          "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "local_path": "sources/license-texts/c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.txt",
+          "source_url": "https://github.com/chroma-core/chroma/blob/1a3ac2c7c623adbd03ed2508dc27b98cdf26016d/LICENSE"
+        }
+      ],
+      "license_text_read": true,
+      "operation": "collections.summary",
+      "method": "GET",
+      "path": "/api/v2/tenants/default_tenant/databases/default_database/collections_count",
+      "fixed_body": null,
+      "live_verified": false,
+      "original_server_executed": false,
+      "sdk_installed": false,
+      "authentication": "Rust frontend_service_entrypoint receives Arc::new(()) for authentication: it returns a default identity without validating headers. Requires a reviewed authenticating proxy and dedicated company instance.",
+      "cost": "No paid endpoint, model or hosted service. Operator supplies a reviewed existing self-hosted instance; no provisioning.",
+      "limits": [
+        "No caller paths, tenant, database, credentials, filters or model selection.",
+        "Chroma count is the original u32 JSON scalar. Kernel Memory and Milvus arrays are capped at 1000; oversized responses fail instead of truncating.",
+        "Only recounted or reported numbers retained; no index names, collection names, vectors or document text.",
+        "No retrieval, embedding, ingestion or provider quality evaluation.",
+        "Source and synthetic HTTP acceptance do not certify original servers, deployment, dependency closure or production."
+      ]
+    },
+    {
+      "id": "milvus",
+      "repository": "milvus-io/milvus",
+      "commit": "efb4bc44e460c4fac2c196a6842cf5537f2e714d",
+      "files": [
+        {
+          "path": "internal/distributed/proxy/httpserver/handler_v2.go",
+          "git_blob_sha": "73782d1996e39da0c97023cf4f5682473796e656",
+          "sha256": "d483f5dafbb2f81def17c46e47cd472172e08d57fe947914992ae027ee825d22",
+          "source_url": "https://github.com/milvus-io/milvus/blob/efb4bc44e460c4fac2c196a6842cf5537f2e714d/internal/distributed/proxy/httpserver/handler_v2.go",
+          "review_scope": "Selected route, authentication, request and response declarations; full-file hashes verified against original Git blobs."
+        },
+        {
+          "path": "internal/distributed/proxy/httpserver/request_v2.go",
+          "git_blob_sha": "3bbaa67568e330a017108162c9eb0e2f978def54",
+          "sha256": "6fcf1960b3ed7952ba4d9f495ca04a5059308fca618ad1ee47ef9434176d6b68",
+          "source_url": "https://github.com/milvus-io/milvus/blob/efb4bc44e460c4fac2c196a6842cf5537f2e714d/internal/distributed/proxy/httpserver/request_v2.go",
+          "review_scope": "Selected route, authentication, request and response declarations; full-file hashes verified against original Git blobs."
+        },
+        {
+          "path": "internal/distributed/proxy/httpserver/constant.go",
+          "git_blob_sha": "d1b946baa80fc9d4390d47ea092612359477d343",
+          "sha256": "caafdf433a06b29e59653820b7dbf510c2167d4304c6dfcda31ea320bd28f0c6",
+          "source_url": "https://github.com/milvus-io/milvus/blob/efb4bc44e460c4fac2c196a6842cf5537f2e714d/internal/distributed/proxy/httpserver/constant.go",
+          "review_scope": "Selected route, authentication, request and response declarations; full-file hashes verified against original Git blobs."
+        },
+        {
+          "path": "internal/distributed/proxy/httpserver/utils.go",
+          "git_blob_sha": "859bf8954ecd0432e0f2f59350f2f9b97af3f20d",
+          "sha256": "a474e7fb4c0d6caf8a9677face2073744c84711973100fee03fce865291eaf20",
+          "source_url": "https://github.com/milvus-io/milvus/blob/efb4bc44e460c4fac2c196a6842cf5537f2e714d/internal/distributed/proxy/httpserver/utils.go",
+          "review_scope": "Selected route, authentication, request and response declarations; full-file hashes verified against original Git blobs."
+        },
+        {
+          "path": "internal/distributed/proxy/service.go",
+          "git_blob_sha": "8964c9341f0a4236f8dc7febc9667b94af8c37d5",
+          "sha256": "82fdf3ba1a42a2cd5b63908240717faef6e62fa19cfe2d9b63001365dd68a273",
+          "source_url": "https://github.com/milvus-io/milvus/blob/efb4bc44e460c4fac2c196a6842cf5537f2e714d/internal/distributed/proxy/service.go",
+          "review_scope": "Selected route, authentication, request and response declarations; full-file hashes verified against original Git blobs."
+        },
+        {
+          "path": "pkg/util/merr/utils.go",
+          "git_blob_sha": "a7356a0f2c4296f5e58820bdd92d24ee85ea0854",
+          "sha256": "fd336b23e4e786be343cfe58d46c5bb96a9c3930c26ed8ca664596349d8ec7d4",
+          "source_url": "https://github.com/milvus-io/milvus/blob/efb4bc44e460c4fac2c196a6842cf5537f2e714d/pkg/util/merr/utils.go",
+          "review_scope": "Selected route, authentication, request and response declarations; full-file hashes verified against original Git blobs."
+        }
+      ],
+      "license_evidence": [
+        {
+          "repository": "milvus-io/milvus",
+          "commit_sha": "efb4bc44e460c4fac2c196a6842cf5537f2e714d",
+          "path": "LICENSE",
+          "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "local_path": "sources/license-texts/c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.txt",
+          "source_url": "https://github.com/milvus-io/milvus/blob/efb4bc44e460c4fac2c196a6842cf5537f2e714d/LICENSE"
+        }
+      ],
+      "license_text_read": true,
+      "operation": "collections.summary",
+      "method": "POST",
+      "path": "/v2/vectordb/collections/list",
+      "fixed_body": {
+        "dbName": "default"
+      },
+      "live_verified": false,
+      "original_server_executed": false,
+      "sdk_installed": false,
+      "authentication": "AuthorizationEnabled must enable authenticate middleware for the /v2/vectordb router. Authorization Bearer is parsed as username:password or an API key. Scope of ShowCollections is the visible default database, not a promise of all cluster collections.",
+      "cost": "No paid endpoint, model or hosted service. Operator supplies a reviewed existing self-hosted instance; no provisioning.",
+      "limits": [
+        "No caller paths, tenant, database, credentials, filters or model selection.",
+        "Chroma count is the original u32 JSON scalar. Kernel Memory and Milvus arrays are capped at 1000; oversized responses fail instead of truncating.",
+        "Only recounted or reported numbers retained; no index names, collection names, vectors or document text.",
+        "No retrieval, embedding, ingestion or provider quality evaluation.",
+        "Source and synthetic HTTP acceptance do not certify original servers, deployment, dependency closure or production."
+      ]
+    }
+  ]
+}

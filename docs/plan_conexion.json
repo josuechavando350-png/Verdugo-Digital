@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 341,
+ "pending": 338,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -332,9 +332,9 @@
    "kind": "biblioteca",
    "domain": "juicio",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "The three reviewed workspace manifests require giskard-core/checks/agents siblings, PostHog, NumPy >=2.4.1, httpx and giskard-llm. Source metadata review is partial; isolated runtime resolution, dependency licenses and a model-free contract remain pending. No SDK installed or build failure asserted.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/review-memory-next666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 1",
@@ -346,9 +346,9 @@
    "kind": "biblioteca",
    "domain": "juicio",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "The original crfm-helm manifest has mandatory Torch and torchvision, Transformers, datasets and scientific/evaluation libraries. A compatible CPU runtime and dependency-closure review are not prepared. No SDK installed and no upstream build failure asserted.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/review-memory-next666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 2",
@@ -360,9 +360,9 @@
    "kind": "biblioteca",
    "domain": "memoria",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "The original requirements include faiss-gpu >=1.7,<2, NumPy 1.24, SentenceTransformers and FlagEmbedding. ShortTermMemory imports utils, which eagerly imports OpenAI, NumPy and SentenceTransformer. The module was not isolated by replacing imports or skipping requirements; environment resolution and original execution remain pending.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/review-memory-next666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 2",
@@ -374,9 +374,9 @@
    "kind": "biblioteca",
    "domain": "memoria",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "setup.py reads requirements.txt, including graspologic, dspy-ai, hnswlib, neo4j and aioboto3. No SDK installation or dependency-closure review completed; this is not an observed upstream build failure.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/review-memory-next666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 2",
@@ -388,9 +388,9 @@
    "kind": "biblioteca",
    "domain": "memoria",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "Original pyproject.toml requires igraph ^0.11.6. Compatible candidate igraph 0.11.9 contains an original GPL-2.0 LICENSE, outside this repository policy. This artifact was inspected without installing or executing it. No full environment resolution and no claim about every alternative version.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/review-memory-next666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 2",
@@ -402,9 +402,9 @@
    "kind": "biblioteca",
    "domain": "memoria",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "Original pyproject.toml requires lightrag-hku <1.5 and MinerU core >=3.4.1,<4 on Python <3.14. The marker omits MinerU on Python 3.14; no claim that every profile requires it. A compatible parser, exact dependency licenses and any used model-weight licenses remain pending. No SDK or model installed.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/review-memory-next666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 2",
@@ -416,9 +416,9 @@
    "kind": "biblioteca",
    "domain": "memoria",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "Original main_server.py exposes POST /process with task.cmd submit or query. Only this entrypoint was reviewed: its task schema, result retention and authentication boundary still need verification. No executable contract was added from this partial evidence.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/review-memory-next666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 2",
@@ -430,51 +430,9 @@
    "kind": "servicio",
    "domain": "memoria",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "The original backend pins Torch 2.10.0 CPU, torchvision, torchaudio, PyMuPDF 1.28.2, certifi 2026.10.19 and multiple SDKs. Exact artifact license review and bounded endpoint authentication are pending; no inference from other versions or deployment claim. No backend installed.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 2",
-   "id": "kernel-memory",
-   "repository": "dluc/kernel-memory",
-   "commit": "8fc4e16f31257faa34c5e368f8e99b45df7e4049",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "servicio",
-   "domain": "memoria",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 2",
-   "id": "chroma",
-   "repository": "chroma-core/chroma",
-   "commit": "1a3ac2c7c623adbd03ed2508dc27b98cdf26016d",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "servicio",
-   "domain": "memoria",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 2",
-   "id": "milvus",
-   "repository": "milvus-io/milvus",
-   "commit": "efb4bc44e460c4fac2c196a6842cf5537f2e714d",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "servicio",
-   "domain": "memoria",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/review-memory-next666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 2",
@@ -7703,6 +7661,51 @@
    "live_verified": false,
    "evidence": "sources/contracts-memory-reads666.json",
    "operation": "documents.summary"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 2",
+   "id": "kernel-memory",
+   "repository": "dluc/kernel-memory",
+   "commit": "8fc4e16f31257faa34c5e368f8e99b45df7e4049",
+   "license": "MIT",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "memoria",
+   "que_hacer": "Implementado: lectura HTTP acotada del inventario; aceptación sintética, servidor original no ejecutado.",
+   "nota": "Instancia dedicada y autenticación revisada obligatorias. Sin nombres persistidos, búsqueda vectorial ni modelos.",
+   "live_verified": false,
+   "evidence": "sources/contracts-vector-reads666.json",
+   "operation": "indexes.summary"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 2",
+   "id": "chroma",
+   "repository": "chroma-core/chroma",
+   "commit": "1a3ac2c7c623adbd03ed2508dc27b98cdf26016d",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "memoria",
+   "que_hacer": "Implementado: lectura HTTP acotada del inventario; aceptación sintética, servidor original no ejecutado.",
+   "nota": "Instancia dedicada y autenticación revisada obligatorias. Sin nombres persistidos, búsqueda vectorial ni modelos.",
+   "live_verified": false,
+   "evidence": "sources/contracts-vector-reads666.json",
+   "operation": "collections.summary"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 2",
+   "id": "milvus",
+   "repository": "milvus-io/milvus",
+   "commit": "efb4bc44e460c4fac2c196a6842cf5537f2e714d",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "memoria",
+   "que_hacer": "Implementado: lectura HTTP acotada del inventario; aceptación sintética, servidor original no ejecutado.",
+   "nota": "Instancia dedicada y autenticación revisada obligatorias. Sin nombres persistidos, búsqueda vectorial ni modelos.",
+   "live_verified": false,
+   "evidence": "sources/contracts-vector-reads666.json",
+   "operation": "collections.summary"
   }
  ]
 }

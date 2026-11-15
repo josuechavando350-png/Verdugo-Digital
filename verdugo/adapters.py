@@ -4,7 +4,7 @@ import os
 import re
 from urllib.parse import urlencode, urlsplit
 from .common import VerdugoError, fields, text, integer, identifier, digest, encode
-from . import memory_reads666, judgment_reads666, marketing_reads, service_reads, tanda1_reads, readiness_reads, operations_reads, platform_reads, completion_reads, public_reads
+from . import vector_reads666, memory_reads666, judgment_reads666, marketing_reads, service_reads, tanda1_reads, readiness_reads, operations_reads, platform_reads, completion_reads, public_reads
 
 # API-contract implementations; live compatibility is NOT established by this list.
 SPECS = {
@@ -53,6 +53,7 @@ SPECS = {
  'documenso': {'envelopes.list': ('GET', '/api/v2/envelope')},
 }
 SPECS.update(marketing_reads.SPECS)
+SPECS.update(vector_reads666.SPECS)
 SPECS.update(memory_reads666.SPECS)
 SPECS.update(judgment_reads666.SPECS)
 SPECS.update(service_reads.SPECS)
@@ -100,7 +101,9 @@ def connection(service, cfg):
     if not token or len(token) > 8192 or any(not 33 <= ord(c) <= 126 for c in token):
         raise VerdugoError('Missing or invalid service credential: ' + env_name)
     headers = {'Accept': 'application/json', 'User-Agent': 'Verdugo-Digital/0.2'}
-    if service in memory_reads666.SPECS:
+    if service in vector_reads666.SPECS:
+        headers.update(vector_reads666.authorization(service, cfg, token))
+    elif service in memory_reads666.SPECS:
         headers.update(memory_reads666.authorization(service, cfg, token))
     elif service in judgment_reads666.SPECS:
         headers.update(judgment_reads666.authorization(service, cfg, token))
@@ -172,6 +175,9 @@ def remote_id(result, path):
 
 
 def build(service, operation, params, cfg):
+    if service in vector_reads666.SPECS:
+        origin, token, headers = connection(service, cfg)
+        return vector_reads666.build(service, operation, params, cfg, origin, token, headers)
     if service in memory_reads666.SPECS:
         origin, token, headers = connection(service, cfg)
         return memory_reads666.build(service, operation, params, cfg, origin, token, headers)

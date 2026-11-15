@@ -45,8 +45,8 @@ class ProductTests(unittest.TestCase):
         with closing(self.engine()) as engine:
             r=product.overview(engine)
         self.assertEqual(688,len(r['services']))
-        self.assertEqual({'conectado':269,'pendiente':341,'pieza_de_construccion':56,'excluido':22},r['connection_states'])
-        self.assertEqual(71,r['bounded_observation_routes'])
+        self.assertEqual({'conectado':272,'pendiente':338,'pieza_de_construccion':56,'excluido':22},r['connection_states'])
+        self.assertEqual(74,r['bounded_observation_routes'])
         self.assertEqual(0,r['business']['reported_paid_clients'])
         self.assertFalse(r['external_calls_made']); self.assertFalse(self.calls)
 
@@ -97,13 +97,18 @@ class ProductTests(unittest.TestCase):
             config['tenants']['nexus']['services'][sid] = memory[sid]
             env[memory[sid]['token_env']] = TOKEN
         combined.update(memory_replies)
+        from test_vector_reads666 import configured as vector_config, REPLIES as vector_replies, TOKEN as VECTOR_TOKEN
+        vector = vector_config()['tenants']['nexus']['services']
+        for sid in vector_replies:
+            config['tenants']['nexus']['services'][sid] = vector[sid]
+        combined.update(vector_replies)
         routes = product.read_operations()
         for sid in routes:
             cfg = config['tenants']['nexus']['services'][sid]
             cfg.update(enabled=True,license_reviewed=True,version='synthetic-product-contract')
             if sid not in services and sid not in batch_replies and sid not in readiness and sid not in REPLIES:
                 if cfg.get('token_env'):
-                    env[cfg['token_env']] = GHOST_KEY if sid=='ghost' else 'api_synthetic' if sid=='documenso' else TOKEN
+                    env[cfg['token_env']] = VECTOR_TOKEN if sid in vector_replies else GHOST_KEY if sid=='ghost' else 'api_synthetic' if sid=='documenso' else TOKEN
         env.update(VERDUGO_COMPLETION_TOKEN=COMPLETION_TOKEN, VERDUGO_COMPLETION_DEVELOPER=DEVELOPER)
         calls=[]
         def transport(req,cfg):
@@ -112,14 +117,14 @@ class ProductTests(unittest.TestCase):
         with patch.dict(os.environ,env), closing(Engine(self.path,config,transport=transport)) as engine:
             r=product.observe(engine,request(services=list(routes)),True)
             self.assertEqual('succeeded',r['state'],r)
-            self.assertEqual(71,r['new_observations']); self.assertEqual(set(routes),set(calls))
-            self.assertEqual(72,engine.db.execute('SELECT count(*) FROM runs').fetchone()[0])
+            self.assertEqual(74,r['new_observations']); self.assertEqual(set(routes),set(calls))
+            self.assertEqual(75,engine.db.execute('SELECT count(*) FROM runs').fetchone()[0])
             dump='\n'.join(engine.db.iterdump())
             for sentinel in ('private-person@example.invalid','private@example.invalid','never-retain-this@example.invalid'):
                 self.assertNotIn(sentinel,dump)
         with patch.dict(os.environ,env), closing(Engine(self.path,config,transport=transport)) as engine:
-            self.assertEqual(71,product.observe(engine,request(services=list(routes)),True)['reused_observations'])
-        self.assertEqual(71,len(calls))
+            self.assertEqual(74,product.observe(engine,request(services=list(routes)),True)['reused_observations'])
+        self.assertEqual(74,len(calls))
 
     def test_configuration_failure_blocks_every_selected_service_before_any_effect(self):
         self.config['tenants']['nexus']['services']['seaweedfs']['proxy_auth_reviewed']=False
