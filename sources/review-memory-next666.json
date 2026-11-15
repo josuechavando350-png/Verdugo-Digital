@@ -259,8 +259,8 @@
       "id": "txtai",
       "repository": "neuml/txtai",
       "commit": "973512fc0d30250613f7571a7b6446101aa9b92e",
-      "status": "preparation_pending",
-      "note": "The original default package requires faiss-cpu, Torch and Transformers. setup.py also exposes a MINIMAL variant named txtai_minimal without runtime requirements; its usable original operations still need inspection. No unsupported claim that every profile requires Torch, and no SDK installed.",
+      "status": "bounded_minimal_profile_implemented",
+      "note": "Original MINIMAL=1 build is supported by unchanged setup.py and has no required runtime Python dependencies. The complete installed package and original license are checked by Git blob and SHA256 evidence. A bounded original content-store reconciliation operation is implemented; no model, vector or semantic search capability is claimed. See sources/contracts-content666.json and tests_runtime/accept_content666.py.",
       "files": [
         {
           "path": "setup.py",
@@ -269,10 +269,10 @@
           "source_url": "https://github.com/neuml/txtai/blob/973512fc0d30250613f7571a7b6446101aa9b92e/setup.py"
         }
       ],
-      "sdk_installed": false,
-      "runtime_executed": false,
+      "sdk_installed": true,
+      "runtime_executed": true,
       "live_verified": false,
-      "counted_as_connected": false
+      "counted_as_connected": true
     },
     {
       "id": "flagembedding",

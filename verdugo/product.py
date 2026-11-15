@@ -6,7 +6,7 @@ the observation report. Other operations remain available via workflow.
 """
 import time
 
-from . import (commercial, connections, license_policy, local_runtime,
+from . import (integration_audit, commercial, connections, license_policy, local_runtime,
                knowledge_reads666, vector_reads666, memory_reads666, judgment_reads666, marketing_reads, operations_reads, platform_reads, completion_reads, public_reads, read_contracts, readiness_reads,
                reconciliation, service_reads, tanda1_reads, workflow)
 from .adapters import SPECS, service_config
@@ -41,6 +41,7 @@ def overview(engine, dataset='real'):
     return {'name': 'Verdugo Digital', 'state': 'observed_local', 'tenant': engine.tenant,
             'observed_at': time.time(), 'connection_states': state['states'],
             'registered': state['registered'], 'services': rows,
+            'integration_audit': integration_audit.summary(),
             'bounded_observation_routes': len(routes), 'local_analysis_routes': len(local_runtime.SPECS), 'business': business,
             'reconciliation_required': len(pending['items']),
             'reconciliation_list_truncated': len(pending['items']) == pending['limit'],

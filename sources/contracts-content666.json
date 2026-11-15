@@ -1,0 +1,1702 @@
+{
+  "schema": "verdugo.content666.original.v1",
+  "id": "txtai",
+  "repository": "neuml/txtai",
+  "commit": "973512fc0d30250613f7571a7b6446101aa9b92e",
+  "version": "9.15.0",
+  "archive_url": "https://codeload.github.com/neuml/txtai/tar.gz/973512fc0d30250613f7571a7b6446101aa9b92e",
+  "archive_sha256": "1fc1e99970e9f8f1dbde38ef168b921de866ee83cfb724325866c0ba9eb54238",
+  "build_tools": {
+    "setuptools": "80.9.0",
+    "wheel": "0.45.1"
+  },
+  "profile": "upstream MINIMAL=1; no extras",
+  "runtime_dependencies": [],
+  "license_text_read": true,
+  "license": "Apache-2.0",
+  "files": [
+    {
+      "path": "LICENSE",
+      "blob_sha": "ca0a1be0119a00629ad2cb8b213180fd9ad0064a",
+      "sha256": "63d73e865c8cdf3e9ee7822f96ef5620afceed7458cdf65e1f916ebe21f516b9",
+      "installed_path": "txtai_minimal-9.15.0.dist-info/licenses/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "blob_sha": "e962fbbade971c38c11242e83e9584cdbbd99f91",
+      "sha256": "cb429f4c4fcd302b25c8ea608c3d557c615760a41679e5cddea114f7c1006534",
+      "installed_path": null
+    },
+    {
+      "path": "pyproject.toml",
+      "blob_sha": "6b313bcfc6a00b3035c6757be07491e0d2cde246",
+      "sha256": "69b2cd382fd9d97bd368ea67dc4fb5f97612948191e88c97ba81e59321818f6a",
+      "installed_path": null
+    },
+    {
+      "path": "setup.py",
+      "blob_sha": "693f6ee18d97bb169ebaab17556422720fa8c75c",
+      "sha256": "49e5d7b67754b0a4c1ff4a403518e55c2fc76d290b71e3dd098b42aa41576be8",
+      "installed_path": null
+    },
+    {
+      "path": "src/python/txtai/__init__.py",
+      "blob_sha": "8f698163edd7689c17c5fe60a3e915ace629f064",
+      "sha256": "16eae3bd99493c0838b757be7ee7919c7bc41103de6b5e997c20668b9dbae19b",
+      "installed_path": "txtai/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/agent/__init__.py",
+      "blob_sha": "81e054efd3e515d0b839e3ee556557cd153c7f61",
+      "sha256": "ffca7cfe722b883731852f3600cfb0032f82b3633ea2295937364a7ae73ae944",
+      "installed_path": "txtai/agent/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/agent/base.py",
+      "blob_sha": "23463db90f9a6617369e07f7d0fda64a57ca2bd5",
+      "sha256": "457029858634332c94afaf0306c53ac92b18699a7c5c6fc43b3276b9f2255105",
+      "installed_path": "txtai/agent/base.py"
+    },
+    {
+      "path": "src/python/txtai/agent/factory.py",
+      "blob_sha": "35f3f50143d5c7f37b9ff1148299f3e79e880ab1",
+      "sha256": "90bbbf0e3c566234e74e32302fd8fb096a3ddfb65e317b1129bb2ec65d791b28",
+      "installed_path": "txtai/agent/factory.py"
+    },
+    {
+      "path": "src/python/txtai/agent/model.py",
+      "blob_sha": "a3f0be4b6c0a8539d358320feb692de69eff8f99",
+      "sha256": "bfe3fc33bd25450b1bd88ab148098a19016220dd7d31853ae68b3878b7be1e22",
+      "installed_path": "txtai/agent/model.py"
+    },
+    {
+      "path": "src/python/txtai/agent/placeholder.py",
+      "blob_sha": "8a04d8c1c02444f26d376e853a6f00bd4b8dcdfd",
+      "sha256": "45a5a4d5da8364948924c2e042944a2d3b66623462d1bc0cd1e0a6b91ee50c5b",
+      "installed_path": "txtai/agent/placeholder.py"
+    },
+    {
+      "path": "src/python/txtai/agent/tool/__init__.py",
+      "blob_sha": "c45c38e63d6e8725fb9258749498d33e6333996a",
+      "sha256": "8c77e01b9ca4a539e48473b25a26a4abc135e6ff53dead2032efc72d0bf5149d",
+      "installed_path": "txtai/agent/tool/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/agent/tool/bash.py",
+      "blob_sha": "b847c5e56d157ee5e5b127dce53b75560ba56329",
+      "sha256": "9047e895476a3e5a75c0eeddbe575f5ac651d4c2ba446a11b7cf0f9336937973",
+      "installed_path": "txtai/agent/tool/bash.py"
+    },
+    {
+      "path": "src/python/txtai/agent/tool/edit.py",
+      "blob_sha": "148555129f8f104ffeec2521c5d2c92e61cc731c",
+      "sha256": "9b17be3159589376b8521e1a53b7b5bc2e28cdb2e052eb9e7299657e63abf8c3",
+      "installed_path": "txtai/agent/tool/edit.py"
+    },
+    {
+      "path": "src/python/txtai/agent/tool/embeddings.py",
+      "blob_sha": "c0a75321aa0fcb8f9648da991afc3f095785d5f4",
+      "sha256": "f8a80ad048520fcafe1c46b5d6118518e2713b220659b1e59e65650f60cefe6f",
+      "installed_path": "txtai/agent/tool/embeddings.py"
+    },
+    {
+      "path": "src/python/txtai/agent/tool/factory.py",
+      "blob_sha": "dfb899287b70a37b356984b098211de377351dbd",
+      "sha256": "1d8c9594ba258605a65e622d3342148fdfca5b998e4924b81d641212553627c5",
+      "installed_path": "txtai/agent/tool/factory.py"
+    },
+    {
+      "path": "src/python/txtai/agent/tool/function.py",
+      "blob_sha": "7fd80dd20be14ab07e1b912d07d861e9cd58bbee",
+      "sha256": "54802d27e8e245fa12f894dc6d69335df414ce436a37f00f9cc61e26d6981606",
+      "installed_path": "txtai/agent/tool/function.py"
+    },
+    {
+      "path": "src/python/txtai/agent/tool/glob.py",
+      "blob_sha": "e49faa14f53e55548e9e16c552f8a46b5b9af84c",
+      "sha256": "03823e726cc426ca7f0dadd0fa842ac922a2df292de75a3afe323685527e649d",
+      "installed_path": "txtai/agent/tool/glob.py"
+    },
+    {
+      "path": "src/python/txtai/agent/tool/grep.py",
+      "blob_sha": "d65bcd0dc1d4ea7aa3da6d1a7d9e2540831e72e4",
+      "sha256": "37e1679f5366fe701b47b64393276b0497c5b0abc8d84915d263c320987b3343",
+      "installed_path": "txtai/agent/tool/grep.py"
+    },
+    {
+      "path": "src/python/txtai/agent/tool/read.py",
+      "blob_sha": "9e00286b05744070cd10c27563a83f27a6843a08",
+      "sha256": "f1fed42affe51bef59f5f6168b16c2e5fbc2b8ef6609f79d16216c8247d3c5aa",
+      "installed_path": "txtai/agent/tool/read.py"
+    },
+    {
+      "path": "src/python/txtai/agent/tool/skill.py",
+      "blob_sha": "4143e994a2a62b0dfec131b889a7a87d185ad62c",
+      "sha256": "a04c5407b35f146ace23aff88c40c1707105d19318ca01343b246e7b190678b3",
+      "installed_path": "txtai/agent/tool/skill.py"
+    },
+    {
+      "path": "src/python/txtai/agent/tool/todo.py",
+      "blob_sha": "aa784ce6daa1c285d3f4ba1f5f16d9e94ca41eae",
+      "sha256": "8b5b0fb6a1262cc189c1db0abf41b487bf6c3334873a19a4a1d00a3080d610dc",
+      "installed_path": "txtai/agent/tool/todo.py"
+    },
+    {
+      "path": "src/python/txtai/agent/tool/write.py",
+      "blob_sha": "6cbc9e8c758b9c1761a3287ae029604e98cf0b1c",
+      "sha256": "4ca8acd7cbc45492d8382c8479a62855bc49bc9336e92917f7b93d1dfdd797c8",
+      "installed_path": "txtai/agent/tool/write.py"
+    },
+    {
+      "path": "src/python/txtai/ann/__init__.py",
+      "blob_sha": "8a54db19981209a023e33b2352e2e4631e089011",
+      "sha256": "2f7cadae04e0b313bc6270af9151f0a83f74f85f85b6935e681295caac2c7179",
+      "installed_path": "txtai/ann/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/ann/base.py",
+      "blob_sha": "399a85b782647c30a186b0c7bb2135f39985e68f",
+      "sha256": "44b82f5a2a35abad9e49f012ae65e8fb0109c4200701d4fe9ff1874ceadc6fd7",
+      "installed_path": "txtai/ann/base.py"
+    },
+    {
+      "path": "src/python/txtai/ann/dense/__init__.py",
+      "blob_sha": "76b1432692b8d09ef28bd73dad14b65a762de927",
+      "sha256": "2b5892e664e3005b6a74f7adfba583dc82469b0c69c2722f74e6ce5887ec2c1c",
+      "installed_path": "txtai/ann/dense/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/ann/dense/annoy.py",
+      "blob_sha": "eca8e8654908609774d05078fe26c87eb0974bd1",
+      "sha256": "0d559632caca4b9fda1d5518c42d248b637bcf0dc00d0ca4ed3cc1e05e151687",
+      "installed_path": "txtai/ann/dense/annoy.py"
+    },
+    {
+      "path": "src/python/txtai/ann/dense/factory.py",
+      "blob_sha": "bd66d0e72c32955a58054319ad472b474492d7c0",
+      "sha256": "161cde74b657d0cef827978fa18117d9bce90c636abd3307215ee9258ab20c90",
+      "installed_path": "txtai/ann/dense/factory.py"
+    },
+    {
+      "path": "src/python/txtai/ann/dense/faiss.py",
+      "blob_sha": "1729dcec584634f4db5148be625f968a8fa3793a",
+      "sha256": "ae8fd5f809a83d477224f392585650e29ab80cf18387fde338dd95d4c5237941",
+      "installed_path": "txtai/ann/dense/faiss.py"
+    },
+    {
+      "path": "src/python/txtai/ann/dense/ggml.py",
+      "blob_sha": "d8d0fa1845d12db4402d3588a2013b805a57bdc2",
+      "sha256": "7022c8e29f077d226a2c05f39312319035ce3f6079dc09c47a71b8be675972a2",
+      "installed_path": "txtai/ann/dense/ggml.py"
+    },
+    {
+      "path": "src/python/txtai/ann/dense/hnsw.py",
+      "blob_sha": "d4416097ef2e07d3854b8e58fd05777a6ed52c98",
+      "sha256": "237a6c27235ca5facd834554c1f3c59fc70800ec0a2768bbd3836ecfb46d4c26",
+      "installed_path": "txtai/ann/dense/hnsw.py"
+    },
+    {
+      "path": "src/python/txtai/ann/dense/milvus.py",
+      "blob_sha": "d9930f8ab14e42c10c0b011e32fe31e96e451a84",
+      "sha256": "b673c9c363aec518fad842547b078fb5cc832e56e2425a781e507101c569ae7c",
+      "installed_path": "txtai/ann/dense/milvus.py"
+    },
+    {
+      "path": "src/python/txtai/ann/dense/numpy.py",
+      "blob_sha": "5cdbb26f675a7c05f5e79c1d2cbfbcbe4f71938c",
+      "sha256": "1f21d197c26fdd1fc7721edccc853e40a56377e0e0e19761e9878344ef0437d7",
+      "installed_path": "txtai/ann/dense/numpy.py"
+    },
+    {
+      "path": "src/python/txtai/ann/dense/pgvector.py",
+      "blob_sha": "d1c081261027e9dd2cf9d0afed405ebc1ba68adc",
+      "sha256": "0e6480b74245a168c0a0ddc7d31815b8591b9b694f8bdb71021b3d7aaaad6215",
+      "installed_path": "txtai/ann/dense/pgvector.py"
+    },
+    {
+      "path": "src/python/txtai/ann/dense/rabitq.py",
+      "blob_sha": "fd2cb7581e08b9a5e2849812436c724a6e613bcc",
+      "sha256": "fd1d1283eb3ec7bdd0cc7e6ff197ad2de049c7880d3e84094368713560e2fb8b",
+      "installed_path": "txtai/ann/dense/rabitq.py"
+    },
+    {
+      "path": "src/python/txtai/ann/dense/sqlite.py",
+      "blob_sha": "5f6970a325aed289f67ce5a365590bbfb9551a25",
+      "sha256": "e80f2d129fb7abbae62e93de63d943c04b1217dcc9a4904d59486ad0da900edb",
+      "installed_path": "txtai/ann/dense/sqlite.py"
+    },
+    {
+      "path": "src/python/txtai/ann/dense/torch.py",
+      "blob_sha": "5957aa571a7a11acd71b960d29e10b9dcad26904",
+      "sha256": "e6996b6fb3df860d92cd26ccf22403814bf298f2349dd7e45021363a0b2acf76",
+      "installed_path": "txtai/ann/dense/torch.py"
+    },
+    {
+      "path": "src/python/txtai/ann/dense/turbovec.py",
+      "blob_sha": "8a97261b58709218b6feb9fad0849c3f89843a4c",
+      "sha256": "830b7b1ff795c7b62b221e350d1774a3a5bf1503e212adda52d32b9ed036adf4",
+      "installed_path": "txtai/ann/dense/turbovec.py"
+    },
+    {
+      "path": "src/python/txtai/ann/dense/zvec.py",
+      "blob_sha": "b4a964fe7e580701661c30b74bb7a6b9563e8bbf",
+      "sha256": "957fffff9147aa904e06ecd799673d5179e954e839a2c583a052c282d3a84ebf",
+      "installed_path": "txtai/ann/dense/zvec.py"
+    },
+    {
+      "path": "src/python/txtai/ann/sparse/__init__.py",
+      "blob_sha": "dd6c908c8f6f93b0e006e2ce14425b6439586c28",
+      "sha256": "9bc2b979f5d0d3b3d9c3266ea753e1a8e6eb5769e39521b46d65d6a1a692beca",
+      "installed_path": "txtai/ann/sparse/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/ann/sparse/factory.py",
+      "blob_sha": "0da5296c5993f1dac635713f03cc2dc668c28924",
+      "sha256": "dd2ff3332893c700dfaf3739fbbc4058730c78c7970f532dc655de45027d185d",
+      "installed_path": "txtai/ann/sparse/factory.py"
+    },
+    {
+      "path": "src/python/txtai/ann/sparse/ivfsparse.py",
+      "blob_sha": "06571b13e9a229f9f66c5ab01f36bd6d1e994aa0",
+      "sha256": "8071cb6f119c1947ab06ba0ba511743d73d32a562fec1308b7f4efe94471b438",
+      "installed_path": "txtai/ann/sparse/ivfsparse.py"
+    },
+    {
+      "path": "src/python/txtai/ann/sparse/milvussparse.py",
+      "blob_sha": "7de499b05bd23c44977338ae95ec3c62e2d01823",
+      "sha256": "82eb0cb678c760f7398e354e420e4d8c758fd77bedc9bcca8cb4d0542382b696",
+      "installed_path": "txtai/ann/sparse/milvussparse.py"
+    },
+    {
+      "path": "src/python/txtai/ann/sparse/pgsparse.py",
+      "blob_sha": "0147425fe34770f905bc127ca68ae9a7141f86c7",
+      "sha256": "464fd600b5dea43198df521d1ebbc8267e3ea5c9b931745399f3000a2d4d1ae4",
+      "installed_path": "txtai/ann/sparse/pgsparse.py"
+    },
+    {
+      "path": "src/python/txtai/ann/sparse/zvecsparse.py",
+      "blob_sha": "ed1a59eafa5fdc0f5800106217f10e8da9435e00",
+      "sha256": "0b70736a6a1999c844f9469f63dc370fc9c0ef43f968964cd76e238d84339f74",
+      "installed_path": "txtai/ann/sparse/zvecsparse.py"
+    },
+    {
+      "path": "src/python/txtai/api/__init__.py",
+      "blob_sha": "6ef6cdfdc9454c842f16a85a01b5d21a9078c06a",
+      "sha256": "d0780a771e2f39f801fb1acd8412b3c211091c94322fdc65a7ebd046b63bbe1a",
+      "installed_path": "txtai/api/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/api/application.py",
+      "blob_sha": "4118d6c08b6c6c52917d0d5f7b96ec29fea62df1",
+      "sha256": "a965c723d2e183aab414bce81992069714e7f5dc81fb2e3f6fbb2f7cb9d2e927",
+      "installed_path": "txtai/api/application.py"
+    },
+    {
+      "path": "src/python/txtai/api/authorization.py",
+      "blob_sha": "c9b03ad7c2507162c450ab7d0d4fefae3e4492e7",
+      "sha256": "75323547d8d92cd8b6dadce316539fe7e8cf0706fdbcc2b5c5e1f79f492391e7",
+      "installed_path": "txtai/api/authorization.py"
+    },
+    {
+      "path": "src/python/txtai/api/base.py",
+      "blob_sha": "16c37896177333bf2892213467ad9fda21894892",
+      "sha256": "a01112491acef16e902e1e8ee176ed9f5dc79670f6bb51363c4cb9719249e0e4",
+      "installed_path": "txtai/api/base.py"
+    },
+    {
+      "path": "src/python/txtai/api/cluster.py",
+      "blob_sha": "1e18d22024d2f392f6c08d13be0164742c74f750",
+      "sha256": "95bd40b7869ddc7361c5c956c4814da41c81d4a26390dd3e80da2cc28c618a60",
+      "installed_path": "txtai/api/cluster.py"
+    },
+    {
+      "path": "src/python/txtai/api/extension.py",
+      "blob_sha": "337f8d3a86eb02b2e418ba1f63a4b4a2c5143ffb",
+      "sha256": "164c2be8c6072081b5935913bb71d101e5dec25e49689cacacbcde7f1bf8b85f",
+      "installed_path": "txtai/api/extension.py"
+    },
+    {
+      "path": "src/python/txtai/api/factory.py",
+      "blob_sha": "7c86aa6dd92395bc36873b3b76704116ac5703b3",
+      "sha256": "c21e36a7781222b0d1c6fcd163dc44d6afbd348f6df50f32e3b46d4b1e002c30",
+      "installed_path": "txtai/api/factory.py"
+    },
+    {
+      "path": "src/python/txtai/api/responses/__init__.py",
+      "blob_sha": "3747f7979dcd9998ead21a18f978dbacf6ed1d37",
+      "sha256": "011eb4fffbc163b7243367700600ebb71b4a8e45c6970f1ec17b9843f416437e",
+      "installed_path": "txtai/api/responses/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/api/responses/factory.py",
+      "blob_sha": "a63bdb4b4ce87d11a034472fa4ae213eff8be8b5",
+      "sha256": "e95ebf2e9421b1a4e9149213e8800713a50356369612cfc0d44691b86202c1f6",
+      "installed_path": "txtai/api/responses/factory.py"
+    },
+    {
+      "path": "src/python/txtai/api/responses/json.py",
+      "blob_sha": "2235d751fe6dd9a5904d22fd525225a29d638ab8",
+      "sha256": "0c1e5edb5e96ab548f0c73588da605fa19eb2ca08590e1d5ab8849f83a21ab4a",
+      "installed_path": "txtai/api/responses/json.py"
+    },
+    {
+      "path": "src/python/txtai/api/responses/messagepack.py",
+      "blob_sha": "230a6f6daacebca745b5626793b9b4db27bbe5b5",
+      "sha256": "bc35bfe5c6e68f8fd1c46ca1b1ad6d66ecc4cf0c983d8ac1549459d22fdbc075",
+      "installed_path": "txtai/api/responses/messagepack.py"
+    },
+    {
+      "path": "src/python/txtai/api/route.py",
+      "blob_sha": "cc74358f08579807f91926d6911342fdcedd6adb",
+      "sha256": "e344200af96135612b90545469ad09e8f8ec3800722a355f08420b9d39e0119a",
+      "installed_path": "txtai/api/route.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/__init__.py",
+      "blob_sha": "029db1df148256f1f5b44ececed6fc9e706fd209",
+      "sha256": "c32baf816db367cfd11582d3ad7a012541cee91c9837c11b6b4726eab0181043",
+      "installed_path": "txtai/api/routers/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/agent.py",
+      "blob_sha": "fd57052a2f10f35d949417e150c822a19b92e59d",
+      "sha256": "8a6163e83946599ff787d5325f34faee806ca51fd52d37459fbc94e3808cfe67",
+      "installed_path": "txtai/api/routers/agent.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/caption.py",
+      "blob_sha": "698ca0e478a822de61d5ad9d8b4f6a28d71fb512",
+      "sha256": "d7bad071a90a93c25a0ed0af8471d66b66171a2d10a5076019f029684b2fcc54",
+      "installed_path": "txtai/api/routers/caption.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/embeddings.py",
+      "blob_sha": "df139cdc23e66cfd672a2aa5a6b7698cf3075bc9",
+      "sha256": "a927499915b2b4fcee525555edf194c205a8168c61748091c9e6b94acbb55c30",
+      "installed_path": "txtai/api/routers/embeddings.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/entity.py",
+      "blob_sha": "618cc5bcf822de5c10cef98663b5b0b81b044c48",
+      "sha256": "d6b3108325230dd5b83d9d4a94e495705d6dd9f20ffb2a0b09d522da2b2b44b7",
+      "installed_path": "txtai/api/routers/entity.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/extractor.py",
+      "blob_sha": "750e7cd6d1a3e17ba643283f3880f32cfa878c05",
+      "sha256": "f498481dc5ddebc20cf9531e765383e5dd3b9b60b1bf0f97084d7fe0a9e87010",
+      "installed_path": "txtai/api/routers/extractor.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/labels.py",
+      "blob_sha": "493c94dc704622e96e3b6fa8be74fd91820e4650",
+      "sha256": "9753e31f9edd31d3090249d87da7ac0f3158213f84dea629c5d6843dcc00eb65",
+      "installed_path": "txtai/api/routers/labels.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/llm.py",
+      "blob_sha": "f30bb9d0b908fe382510b796e4d40f65e93c77ac",
+      "sha256": "0aba0af622066be14374e7c604d19a445f1a92485e21b1a9b60c9383ef5b9984",
+      "installed_path": "txtai/api/routers/llm.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/objects.py",
+      "blob_sha": "2f35bd215cce534f4d52fb3804e59719a113532f",
+      "sha256": "27a5a814a16e118ee4494a54b08569bbf40beda5c1fed8a3f843a3e73368c743",
+      "installed_path": "txtai/api/routers/objects.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/openai.py",
+      "blob_sha": "06171cd9205a1912f9680afe491712798c399a69",
+      "sha256": "a2bc80824b775914d8955ca378a9df691304c8714616da49cadeff2931470044",
+      "installed_path": "txtai/api/routers/openai.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/rag.py",
+      "blob_sha": "2173d2e52112fc6ecae0bf837494efff66efcad4",
+      "sha256": "62918996350b775db1ac7e18a3c15c79dff517db454a9222a84cccd0618d75c5",
+      "installed_path": "txtai/api/routers/rag.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/reranker.py",
+      "blob_sha": "7f938649fe2ff96c193b08f2636b94010fc734c2",
+      "sha256": "20d7abc7b271f52c904959879fb09125ba3d8e3a1aea5ecb8c84aac1b0bac41e",
+      "installed_path": "txtai/api/routers/reranker.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/segmentation.py",
+      "blob_sha": "4199a94606d7c7411bdbb04cd292f865489fa2a3",
+      "sha256": "39309eb1db1f7ec4b73271568ba3d531a63390c57fd226ad7b51977f4c386b91",
+      "installed_path": "txtai/api/routers/segmentation.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/similarity.py",
+      "blob_sha": "ad63da252a4e12e46a99dfe8c02d75c7984814f3",
+      "sha256": "9b6d5ed3aec50c1ab5890e857e93b22ed8c9f75df2e287ccd07a0ab75028c7c2",
+      "installed_path": "txtai/api/routers/similarity.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/summary.py",
+      "blob_sha": "bc03d0fe03f8c3df276c76380d25a557f1b04557",
+      "sha256": "06d6aa5144a9bc212b71bdfaff00049cf23675a9407c12789de4d7bf23f89da1",
+      "installed_path": "txtai/api/routers/summary.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/tabular.py",
+      "blob_sha": "3ae1117499bbefe64498bff6e1fb7e66b8e04434",
+      "sha256": "c581eaa9d88cbf646a594e42da0eb2b8e02ba4dc8d5bceed6ea8780ea83f4794",
+      "installed_path": "txtai/api/routers/tabular.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/textractor.py",
+      "blob_sha": "638d8cf5c7be8fc24670507f51a5c329cfffcf76",
+      "sha256": "e1ce255a4810dbdd4bef7a45db0092b5090c07781aafc1c1194060c0953c2010",
+      "installed_path": "txtai/api/routers/textractor.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/texttospeech.py",
+      "blob_sha": "ef3bdbc9e9fd676b83ff45d2005ec48398ae02ff",
+      "sha256": "3cfe6795dc0a8cfa6e476b3ec9bfb0989b0e519f2c207b5db3a27ac0081f8d03",
+      "installed_path": "txtai/api/routers/texttospeech.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/transcription.py",
+      "blob_sha": "f0d1f7576fb763580c6f85696ce533f41a45f3c7",
+      "sha256": "d43a58fe24c4c85cadebce3898b8b3a1cbff7b944eaf8c868e3757a0520a05ec",
+      "installed_path": "txtai/api/routers/transcription.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/translation.py",
+      "blob_sha": "4a7b3fb1478a8dfd2a1051cd836ae959f17f3ae1",
+      "sha256": "6aeaf24e8ed625fed1842ec2752d959de776cde184db246b842eb2d69c7f7a51",
+      "installed_path": "txtai/api/routers/translation.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/upload.py",
+      "blob_sha": "2fff3d9a9f656d4c467564db5bfacf1784b3aee2",
+      "sha256": "b60b8b1ddc083015463cfd8971db046054311b78a9b1f801ee55c9ff2fbea803",
+      "installed_path": "txtai/api/routers/upload.py"
+    },
+    {
+      "path": "src/python/txtai/api/routers/workflow.py",
+      "blob_sha": "647fd140eedc4353aac1ff5435b033833357a377",
+      "sha256": "10c6668945784cb992eb5f22243aa201e12bba506a8cc38e238ae7f96dac06df",
+      "installed_path": "txtai/api/routers/workflow.py"
+    },
+    {
+      "path": "src/python/txtai/app/__init__.py",
+      "blob_sha": "b7c0ff424d248ddbe8232534874e4603db7949e3",
+      "sha256": "91de16fd62d49abfbab488844b24baec8d221e5eefa899c1bf64b16ad23f694c",
+      "installed_path": "txtai/app/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/app/base.py",
+      "blob_sha": "dbefbdc446283f704ff0af58274c483960ee0a4d",
+      "sha256": "e16ba856d450111c44adc1f39f0b5f02ce02d8ea47f2149b0c511386beef168a",
+      "installed_path": "txtai/app/base.py"
+    },
+    {
+      "path": "src/python/txtai/archive/__init__.py",
+      "blob_sha": "398bb58041f5dae67d2c546b05341d88bc108bdb",
+      "sha256": "74cd3f9e5024cd673784395f9d1b374cd38f4149e4b9152d1a417f1f0327b8ba",
+      "installed_path": "txtai/archive/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/archive/base.py",
+      "blob_sha": "8afd68dab17042c48ebc6f188773dbd8ed2f45bb",
+      "sha256": "6792f1b822963f08ab53f4eb31de2aa5ede5b57dc48e09f2539babd3886cf306",
+      "installed_path": "txtai/archive/base.py"
+    },
+    {
+      "path": "src/python/txtai/archive/compress.py",
+      "blob_sha": "2411ba70e2596ec1bdb6e49c33a9dcdddca4f193",
+      "sha256": "e6ad4e359ab17cab4e13ef60bc02662e2d61f4b25abcd97a104e96da25fd22ec",
+      "installed_path": "txtai/archive/compress.py"
+    },
+    {
+      "path": "src/python/txtai/archive/factory.py",
+      "blob_sha": "57b63a94891723e0be0cad8da797f659707cd254",
+      "sha256": "19278e8f92186c9a6edede2085b272cac48d90116e2cb6196c0eb2409248bd25",
+      "installed_path": "txtai/archive/factory.py"
+    },
+    {
+      "path": "src/python/txtai/archive/tar.py",
+      "blob_sha": "37c5df4e9114d81311e0c62d5437e477451a57bb",
+      "sha256": "ee8f296f0cc351c64a45f605a5f0571ce1a20aab19942b942233d5ad6b410d10",
+      "installed_path": "txtai/archive/tar.py"
+    },
+    {
+      "path": "src/python/txtai/archive/zip.py",
+      "blob_sha": "e9660201b5b60b1bb0563baed3143929c272f3cb",
+      "sha256": "e22c58a81860b609f60583559d9accd20c3d3594db8b47a465568491f8768ecb",
+      "installed_path": "txtai/archive/zip.py"
+    },
+    {
+      "path": "src/python/txtai/cloud/__init__.py",
+      "blob_sha": "e2fd6d71f9c4d3a303b535abc9dcc4bd37b19c4f",
+      "sha256": "5182d8ae8792dfb57b2f2c672e0d4efc5f5c97bb5e5f11c5c060fe34124254da",
+      "installed_path": "txtai/cloud/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/cloud/base.py",
+      "blob_sha": "0c5e53dc3c91eb4b27ffde4a258ccccfbf6e5660",
+      "sha256": "eeed2a2059f13dfd9c58ae3e048374d5b12c6e414f22966032e77c0383ed959c",
+      "installed_path": "txtai/cloud/base.py"
+    },
+    {
+      "path": "src/python/txtai/cloud/factory.py",
+      "blob_sha": "5abb7ece166c56ebe055aee4b9a0fb6699a0de06",
+      "sha256": "f57cc166fd9597cc43e55ca4e1cd8b96c968a5e2f25bad27aa68896bfbbe2e39",
+      "installed_path": "txtai/cloud/factory.py"
+    },
+    {
+      "path": "src/python/txtai/cloud/hub.py",
+      "blob_sha": "f7f84fd4148cdaf158e9519f5e0284f49b9e1317",
+      "sha256": "c2023faed7d357464fd2bd57e7e1cdc3160c7678cad9d6a3f58d90f7108c834b",
+      "installed_path": "txtai/cloud/hub.py"
+    },
+    {
+      "path": "src/python/txtai/cloud/storage.py",
+      "blob_sha": "0a4cd9315c5db16d40cdadccff5230a56fd0c8b0",
+      "sha256": "ffd1a788cf9990b24819104263eb7789a6c15ca8fa0445bef81f8701aa1b401e",
+      "installed_path": "txtai/cloud/storage.py"
+    },
+    {
+      "path": "src/python/txtai/console/__init__.py",
+      "blob_sha": "890e1e2b0514a073c70e4739976791169635b77d",
+      "sha256": "c614a885603f5acbda1cdd9094131219219d34455d700d4cb29bac700ea823f7",
+      "installed_path": "txtai/console/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/console/__main__.py",
+      "blob_sha": "c0a474d6c29b817037b66b381d611bbce9131ebb",
+      "sha256": "b5596c00dbcc9f905e87e14ffee408a2d442df9a1dadcce11e17f970dfeeebde",
+      "installed_path": "txtai/console/__main__.py"
+    },
+    {
+      "path": "src/python/txtai/console/base.py",
+      "blob_sha": "b440c278bedb90216145a2fb89584be456183758",
+      "sha256": "26f51bb7202bcf45af50dd94c4e66cab62c5e1835ea66d03d2a65cc9009b01bc",
+      "installed_path": "txtai/console/base.py"
+    },
+    {
+      "path": "src/python/txtai/data/__init__.py",
+      "blob_sha": "7f25379f2ac4c300806954b043bf20ced43c6b36",
+      "sha256": "4808ccc0621157fb8b5424575f0d7a53bec395cdcfce053b56219d5ce6b35066",
+      "installed_path": "txtai/data/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/data/base.py",
+      "blob_sha": "c1de9366b07f79495ebb79cdf091d7c57b4d926e",
+      "sha256": "1685b1f160d897a502b19bc674f37b4b992deb720cfc57d5277a4080143e794d",
+      "installed_path": "txtai/data/base.py"
+    },
+    {
+      "path": "src/python/txtai/data/labels.py",
+      "blob_sha": "531e1956bca9f298f766e7f7d4e1a742deb67151",
+      "sha256": "fdb99a8d8012ea1698762b712d49405c280220424408e24c4786687f75e6a303",
+      "installed_path": "txtai/data/labels.py"
+    },
+    {
+      "path": "src/python/txtai/data/questions.py",
+      "blob_sha": "92ad9d11d21ba771492b30c07e4063f57663a011",
+      "sha256": "00fb5a5215ddc7689ca75b62b04e47c8817fd4a16803498b9476edb595c3b132",
+      "installed_path": "txtai/data/questions.py"
+    },
+    {
+      "path": "src/python/txtai/data/sequences.py",
+      "blob_sha": "a34596a35f073f36245bfeb9a2d5e1dc4c408265",
+      "sha256": "0b027807899f69e3116a1ec3ec4574087639711237176e011b9af388823d6eae",
+      "installed_path": "txtai/data/sequences.py"
+    },
+    {
+      "path": "src/python/txtai/data/texts.py",
+      "blob_sha": "2d40d853144b3e6b0ee5c8550d64dbb4f7adffdf",
+      "sha256": "e91ff60c5a19901b8176d2c76b9c3d13021b84e11fc17b16b05e4ab6cb47669b",
+      "installed_path": "txtai/data/texts.py"
+    },
+    {
+      "path": "src/python/txtai/data/tokens.py",
+      "blob_sha": "6433851be539f9aafa46763973ee1819315541a6",
+      "sha256": "250ca9c1e3f301be6af989633e7177fc5a4d9ab915c9b9354e528e32e79ebd0a",
+      "installed_path": "txtai/data/tokens.py"
+    },
+    {
+      "path": "src/python/txtai/database/__init__.py",
+      "blob_sha": "c564b2dd64d378f000908c77d119d488a02dc768",
+      "sha256": "430d2b098298521d82ad122ae9ec740a689da6a998f4b7e2e1fc52a1aa3cb561",
+      "installed_path": "txtai/database/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/database/base.py",
+      "blob_sha": "0c30fc79bc23b48fc46ab9f300f7d1ac187b9e76",
+      "sha256": "6a668b67994f50bfd0d8cbc94e7f963a3720f3552a7cb6d50a2a3b42c23d6c6f",
+      "installed_path": "txtai/database/base.py"
+    },
+    {
+      "path": "src/python/txtai/database/client.py",
+      "blob_sha": "25efe7adc2c483b6d10592169d1d6eab89c27e97",
+      "sha256": "451a0ca7c22345b5aef5a0c4bbbbfd91e86546d48b7d934a9a9c7b16195f38e7",
+      "installed_path": "txtai/database/client.py"
+    },
+    {
+      "path": "src/python/txtai/database/duckdb.py",
+      "blob_sha": "bfb0b39e8ace0fc4cd6e98669d95a7ed1d2b21b2",
+      "sha256": "1f80814cc7cfb191e70542c6addca49e5b8acfe6ccca079d075b3fe97c92c78a",
+      "installed_path": "txtai/database/duckdb.py"
+    },
+    {
+      "path": "src/python/txtai/database/embedded.py",
+      "blob_sha": "80d72cd5e476b5533ad3fc2e1742ee8c41689318",
+      "sha256": "c9be630c5036505c6dee4245ae51e8da604aa4d2a3c20d65367a615227d059d1",
+      "installed_path": "txtai/database/embedded.py"
+    },
+    {
+      "path": "src/python/txtai/database/encoder/__init__.py",
+      "blob_sha": "0f8b3b47aa64e1b830595b5dee797f015878f8f1",
+      "sha256": "02b311ff7a916b18943fc15588f22828bdcea5641df4256d8b1ce1b5234ad76f",
+      "installed_path": "txtai/database/encoder/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/database/encoder/base.py",
+      "blob_sha": "7a02fc4440de68efd371a3bcc255179b4c48028b",
+      "sha256": "510018a4e56bc09322fe04fd27f62956f871e2eaf772d6af8facf41279415c8a",
+      "installed_path": "txtai/database/encoder/base.py"
+    },
+    {
+      "path": "src/python/txtai/database/encoder/factory.py",
+      "blob_sha": "765feaf427edebd3f3e483202e0709d145bc39a8",
+      "sha256": "a1674d4bebb150c1aa323497ff5680051bf4dad62d8345c2b1944adc3d982cc8",
+      "installed_path": "txtai/database/encoder/factory.py"
+    },
+    {
+      "path": "src/python/txtai/database/encoder/image.py",
+      "blob_sha": "900bb1db1473b79bffba821419c195f38ae8b3f2",
+      "sha256": "b20c169a2bca23d788656f56d5f61f15c9b8ec9de3ba3d6ad4056baf7c68e631",
+      "installed_path": "txtai/database/encoder/image.py"
+    },
+    {
+      "path": "src/python/txtai/database/encoder/serialize.py",
+      "blob_sha": "1badc49dc2aad48123f2da9963c4be05d2061f5f",
+      "sha256": "4ea9852dc3419ca9ff3ca137b111c9cf1b8a0d72de28fe65dcbed6f55c6f04a6",
+      "installed_path": "txtai/database/encoder/serialize.py"
+    },
+    {
+      "path": "src/python/txtai/database/factory.py",
+      "blob_sha": "9e24e2d1ba47980418877aab193ad23f92939708",
+      "sha256": "bf48331e5358e00223f88f3c1f015d4075ea5f8c1c270a9d3a5bf7ef94c05f7a",
+      "installed_path": "txtai/database/factory.py"
+    },
+    {
+      "path": "src/python/txtai/database/rdbms.py",
+      "blob_sha": "a5b220e27107dfefc649510284d6604a118a84a5",
+      "sha256": "11480cddea8c67c9ff87f98181dc2394a7f7182252f76edc59a325ddc632a0c3",
+      "installed_path": "txtai/database/rdbms.py"
+    },
+    {
+      "path": "src/python/txtai/database/schema/__init__.py",
+      "blob_sha": "c91db785a1a7b8f3fc6eb135566d9361cfd12ecd",
+      "sha256": "fb8bdfe534867b20dbe62ca503598d3249fddc7b396fc3004dbe3ffe15532c5f",
+      "installed_path": "txtai/database/schema/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/database/schema/orm.py",
+      "blob_sha": "0815abf88e86a3b6ea2fb088b565a189ba161e49",
+      "sha256": "17874474af13810ec2edea72408ed673fabd358af38367dcc2751016a6b4182e",
+      "installed_path": "txtai/database/schema/orm.py"
+    },
+    {
+      "path": "src/python/txtai/database/schema/statement.py",
+      "blob_sha": "790cb0d2176c32bd9639ae90a74a84fe231abb0a",
+      "sha256": "750296d546b072fe6ad97d142c053c8ab765b3b40da2f0408dfdf8ecd0902ad1",
+      "installed_path": "txtai/database/schema/statement.py"
+    },
+    {
+      "path": "src/python/txtai/database/sql/__init__.py",
+      "blob_sha": "ba0ad0a5adf1fc7a8170b488579b65f6e39f9b0f",
+      "sha256": "1430879919adb3ce9842908022c7d1cd557ced9c9843b6aada273d24050d2a2c",
+      "installed_path": "txtai/database/sql/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/database/sql/aggregate.py",
+      "blob_sha": "0f49978643961b2d1a48044bde4e01724ddfcffd",
+      "sha256": "bc9502e53cf90053f2d5ff06e375ad73fe69cd96f73ee34fd21bfa01ea5e1abe",
+      "installed_path": "txtai/database/sql/aggregate.py"
+    },
+    {
+      "path": "src/python/txtai/database/sql/base.py",
+      "blob_sha": "04d6086e29a8a0eb81c4035448a9613213cbf5f7",
+      "sha256": "702996d1fbe1b6d815192f82c98eed7c2ae3429dd394543e203544af26ad69fe",
+      "installed_path": "txtai/database/sql/base.py"
+    },
+    {
+      "path": "src/python/txtai/database/sql/error.py",
+      "blob_sha": "5745bea2bf5647857119d804a559ce355e6e7279",
+      "sha256": "f7bb15183c51e169456143497083876b8f846fdfe4aece5fa8354ee05601ba3c",
+      "installed_path": "txtai/database/sql/error.py"
+    },
+    {
+      "path": "src/python/txtai/database/sql/expression.py",
+      "blob_sha": "ed7f70f14341336a07110b8accfca7c11b01b99c",
+      "sha256": "8cd92b32da8edd9d8ac9f7530b966204378d40ce65a8a4a2aa435f237cc3c3dd",
+      "installed_path": "txtai/database/sql/expression.py"
+    },
+    {
+      "path": "src/python/txtai/database/sql/token.py",
+      "blob_sha": "7bf8186f3da95673e4af1e30868f7320e8523c1a",
+      "sha256": "11f57de9a746353af75edfaa57578acfbcb24d9ae16f5efbd1eaada7af5cc9c3",
+      "installed_path": "txtai/database/sql/token.py"
+    },
+    {
+      "path": "src/python/txtai/database/sqlite.py",
+      "blob_sha": "b2082d2367a3038f1d81a32c36f4ad7ed545ce63",
+      "sha256": "ddd75beeb5ad8d4c9d92058313ed406a7b057cbb60e93c5e62bfaa9ad721caf7",
+      "installed_path": "txtai/database/sqlite.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/__init__.py",
+      "blob_sha": "a5ed3d6e5ba7a82535c11bdefe90fc60a55e828b",
+      "sha256": "19319420c9f19879bcfb789845e1f4b3275c28cce1f92e3bfd5f44ed739648b0",
+      "installed_path": "txtai/embeddings/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/base.py",
+      "blob_sha": "91ce89392fa86a04ad6116539e8e3f9618b7a97e",
+      "sha256": "71973456bc6887a1b6937d2922a8de167dcadef91cb495c08c480c323e89f7e3",
+      "installed_path": "txtai/embeddings/base.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/index/__init__.py",
+      "blob_sha": "5b3a1f187ffcb2f347d80c67cef53293d7fb3054",
+      "sha256": "0723eb51875fd64def2c0616504ad2d1fdc50e3625a2d9047c646647185e7370",
+      "installed_path": "txtai/embeddings/index/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/index/action.py",
+      "blob_sha": "75ffff1bf01d2fd587e40337263855008e80671e",
+      "sha256": "884da6ac16a48b031b77f1977744a43ece539b81276511b969a4de42b6cdbfed",
+      "installed_path": "txtai/embeddings/index/action.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/index/autoid.py",
+      "blob_sha": "cd15035740b5d17a3e859523d8cf00f1c46597c1",
+      "sha256": "70f55855dbfef06dd5021808494d6acd2dd555d5750b01d0a86307d6fdaa275e",
+      "installed_path": "txtai/embeddings/index/autoid.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/index/configuration.py",
+      "blob_sha": "bf8f317d713542f4c9f635a58f319e367f642a01",
+      "sha256": "cd12540f2f907d8c7ff855b0e9a2f95de424d1af48757d7118eb89806888c662",
+      "installed_path": "txtai/embeddings/index/configuration.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/index/documents.py",
+      "blob_sha": "31a48a7687a0064a2b50a2527840ccad63e09aa5",
+      "sha256": "9cabc6aad37765285bc93717c09d4b2f0b6578138ec3187fa7f8e232192b33a3",
+      "installed_path": "txtai/embeddings/index/documents.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/index/functions.py",
+      "blob_sha": "28d1a9136b04565b359a29ea5eee22313f1c9a96",
+      "sha256": "c92363a41ddf955dd70edca0f817536e9bf3d7bcef36c87ecee8054d20631b5b",
+      "installed_path": "txtai/embeddings/index/functions.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/index/indexes.py",
+      "blob_sha": "5526e669ca874dd15ec70e01317131ca5f0c4868",
+      "sha256": "090f5c9f9b89ec165bf8fdc1196f3393fbec9b71d37bce069886beaddf13d651",
+      "installed_path": "txtai/embeddings/index/indexes.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/index/indexids.py",
+      "blob_sha": "5935a8efb65dc37fb9e8ccbbf87b0a2897a7b8c5",
+      "sha256": "5685ba1c1e9d73eee902586659ad36a4eddd588f15c9790a6868c1ae011b1148",
+      "installed_path": "txtai/embeddings/index/indexids.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/index/reducer.py",
+      "blob_sha": "b359913f0b1bb7aefe7e60f60f8b0e1d457a18c4",
+      "sha256": "c599d79d9d8f5ba2d128f89a22d24d538183839bd9a66b9085910d62ff7895d2",
+      "installed_path": "txtai/embeddings/index/reducer.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/index/stream.py",
+      "blob_sha": "9cc641ae8988deb9117eb64e96258dde4c64c595",
+      "sha256": "3d253e2f1daef290abbe9be891cb130bb08d7966468ce5a1175154381de0d676",
+      "installed_path": "txtai/embeddings/index/stream.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/index/transform.py",
+      "blob_sha": "87c0e4f7992344314243fe5a459ee0c7c4fa2f3f",
+      "sha256": "462e63b3cefa700fcaeae36fe85b54d651ce71ed999efd17be5153ffe9d8669a",
+      "installed_path": "txtai/embeddings/index/transform.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/search/__init__.py",
+      "blob_sha": "828b5ade8603887a7aca2d42b1601e9ac135b3a6",
+      "sha256": "7ac3bda56288a69fbb6dbee14ba3638f57d48ef3b540c5b4d3cf831b3108f38c",
+      "installed_path": "txtai/embeddings/search/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/search/base.py",
+      "blob_sha": "5d0c2156f606a5d94b20cfbc3dba7c7182d59c5a",
+      "sha256": "965b309e02aa50f7ba804a9ea7c47f84e10d668a015c86d22e0868ec793782df",
+      "installed_path": "txtai/embeddings/search/base.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/search/errors.py",
+      "blob_sha": "559000f0663d1f8874f4b5c3b15b1d79078bd3e9",
+      "sha256": "dd933c489a7996becfa777d9da5be287a9d8b11b747d0b4568377d601ee6d1d8",
+      "installed_path": "txtai/embeddings/search/errors.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/search/explain.py",
+      "blob_sha": "ee4582f6f297d6e4b5a0c945ec5825d82385ae15",
+      "sha256": "96db1987ea5600bfb259265279ba661a1eadcc7f7ee5fc8c5a610b0753c31868",
+      "installed_path": "txtai/embeddings/search/explain.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/search/hybrid.py",
+      "blob_sha": "42f32eacfc93c69f5670a612830b5a1ea1399bbd",
+      "sha256": "fa7af287035cc8ee7d5a022ccbcd8e5c977863c3990a0f69973b07ce1e529979",
+      "installed_path": "txtai/embeddings/search/hybrid.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/search/ids.py",
+      "blob_sha": "073355e33eeb1499b230a65524d32b281782a6bc",
+      "sha256": "5628ad8f5e64889dd17762cce0b068d7c7aa305a25c4d5d3e2384cab2705546d",
+      "installed_path": "txtai/embeddings/search/ids.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/search/query.py",
+      "blob_sha": "fd54d4876ce8010e27df7208a938d4fae92dda01",
+      "sha256": "6997675afeaec662a32322ee2a245a927e8f78365e9274f0d0953fbbbb78a505",
+      "installed_path": "txtai/embeddings/search/query.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/search/scan.py",
+      "blob_sha": "72745709f1de170455be41e4dc659bef71b86e78",
+      "sha256": "b76146c3d7c7ff9fac4cbc0680d5dcf8df6e76c16655849a99561a1e2a10f7e0",
+      "installed_path": "txtai/embeddings/search/scan.py"
+    },
+    {
+      "path": "src/python/txtai/embeddings/search/terms.py",
+      "blob_sha": "e36ae9c53d576acb69f19d388c1bb10192cef414",
+      "sha256": "0d34708613030ed2947ba5ed218010cfc636c88783886c7083e1d09e50f09315",
+      "installed_path": "txtai/embeddings/search/terms.py"
+    },
+    {
+      "path": "src/python/txtai/graph/__init__.py",
+      "blob_sha": "1b0b3fbec15bf720c027754ea30a5bb21853533b",
+      "sha256": "3e5fb371f060afe29c0a1cb61317f79adfd78c77fb8e08d465108d3fdbb790be",
+      "installed_path": "txtai/graph/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/graph/base.py",
+      "blob_sha": "f1c214be6e449239f3172576a1c7fd4fe4718827",
+      "sha256": "8bba351f4d56830492c7439f5966b313b794c3efbdd22689c267fd13437a8ed3",
+      "installed_path": "txtai/graph/base.py"
+    },
+    {
+      "path": "src/python/txtai/graph/factory.py",
+      "blob_sha": "e1c62544294d67241178853b2f3380cb18ba8118",
+      "sha256": "bde8cd4cb8017a35194ecbe281a84a388c996eecf795df48470ce389a8163518",
+      "installed_path": "txtai/graph/factory.py"
+    },
+    {
+      "path": "src/python/txtai/graph/networkx.py",
+      "blob_sha": "f45afc034103548942af3a21c90abedc7d15015c",
+      "sha256": "9ea0c70c246ad779a9615e85d6b11d4e66592243a6f0c8912f22cb8e3cd9c042",
+      "installed_path": "txtai/graph/networkx.py"
+    },
+    {
+      "path": "src/python/txtai/graph/query.py",
+      "blob_sha": "216a3e27e7428557777d9e70dcc3d4a69dc011e3",
+      "sha256": "c1283fa8b1644eabf94e2038ad5c3a19f19fb262f066247313661fde10c7d7de",
+      "installed_path": "txtai/graph/query.py"
+    },
+    {
+      "path": "src/python/txtai/graph/rdbms.py",
+      "blob_sha": "ac8c3f22243750d3e4da6fa597fad493b23bcd03",
+      "sha256": "e0422b0a93f90bb827f38b5bdfd3ce522238192bd39a5c4e4def7fab699ea03c",
+      "installed_path": "txtai/graph/rdbms.py"
+    },
+    {
+      "path": "src/python/txtai/graph/topics.py",
+      "blob_sha": "1ed83f14f5968d55450e0f1f21c68c48718883a8",
+      "sha256": "fdb2751b3afb9762615cfa43d52d2a0e256a8b47ac3b463e25f5e5025045aa87",
+      "installed_path": "txtai/graph/topics.py"
+    },
+    {
+      "path": "src/python/txtai/models/__init__.py",
+      "blob_sha": "2658504cffaa06ccb1e1cb981d01ffa7e7a824ac",
+      "sha256": "f353d76b31552c5a2117dd44ac8f52e1c735279109fe46ddfde73ff74a8dc0cb",
+      "installed_path": "txtai/models/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/models/models.py",
+      "blob_sha": "bc80a22eeb3e8bd7eff1076457175ae663c57408",
+      "sha256": "75c04f0bd9f918a997dd58ae8f38af98bbeb636c3c4357dbb71f8983913df148",
+      "installed_path": "txtai/models/models.py"
+    },
+    {
+      "path": "src/python/txtai/models/onnx.py",
+      "blob_sha": "eebc73f293e878e0eb234bbb04340feaf1e62bba",
+      "sha256": "02b5b88887be3a1fcd4bf3fb95ea9aee19b77897f557a307d5136ede2c17d31b",
+      "installed_path": "txtai/models/onnx.py"
+    },
+    {
+      "path": "src/python/txtai/models/pooling/__init__.py",
+      "blob_sha": "fe8d1974321e142f69ac311c610569641405104f",
+      "sha256": "d9f43d3067798182bece52eca1bf99b1188e3e356f8ee5381edf5d9be44f03b2",
+      "installed_path": "txtai/models/pooling/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/models/pooling/base.py",
+      "blob_sha": "24fc4e01a534f2cd65930f18d5f6534df34d2084",
+      "sha256": "ffdd4bdfb7921e50d62037f6432a36731d99f4a22af0320c47cd5f9db326ba9f",
+      "installed_path": "txtai/models/pooling/base.py"
+    },
+    {
+      "path": "src/python/txtai/models/pooling/cls.py",
+      "blob_sha": "41f5742cbf0d10d7d37c4c39c0efa5f8d1eb5569",
+      "sha256": "79ed79b31b3f98242f0f0188efaf82d193f117e935ae2cb9442c5655b79f4c88",
+      "installed_path": "txtai/models/pooling/cls.py"
+    },
+    {
+      "path": "src/python/txtai/models/pooling/factory.py",
+      "blob_sha": "59cc777aef0b826e12ee6d1679766da882ab4341",
+      "sha256": "f9d65ea2d9540f9b83b3190d05a2aca6dc6e16bcff894d1ae3239c56754b3c13",
+      "installed_path": "txtai/models/pooling/factory.py"
+    },
+    {
+      "path": "src/python/txtai/models/pooling/last.py",
+      "blob_sha": "9c3baa538f6990c2cadeb77c64eb8c501f2358d0",
+      "sha256": "6be74dc479044a4fd3214581b421dbe1f39563d6b1b35f7a03083039a678befb",
+      "installed_path": "txtai/models/pooling/last.py"
+    },
+    {
+      "path": "src/python/txtai/models/pooling/late.py",
+      "blob_sha": "63eec2f797e7fe3a1365ccd6d3fc0042b2710d72",
+      "sha256": "b5d5e9e6599c55c91f597013527efd4a17ea369266ad2a5b0a5d93bf3cbafaf8",
+      "installed_path": "txtai/models/pooling/late.py"
+    },
+    {
+      "path": "src/python/txtai/models/pooling/lemur.py",
+      "blob_sha": "851da3bab3ecea7443b45a9f67b07ad77e805926",
+      "sha256": "e7db43bb3587edb608e76b6e9826dc4be3587a05ac1874c848fa72926406de57",
+      "installed_path": "txtai/models/pooling/lemur.py"
+    },
+    {
+      "path": "src/python/txtai/models/pooling/max.py",
+      "blob_sha": "f2b173d7afe25761ea060f16326d982a7a97af8c",
+      "sha256": "2eef7d211054e205b129dbdeb19ed46e61303543eb52818756be34d42763cc15",
+      "installed_path": "txtai/models/pooling/max.py"
+    },
+    {
+      "path": "src/python/txtai/models/pooling/mean.py",
+      "blob_sha": "1b193815a8ca55d5dc3de57ba65f03f1ded8525f",
+      "sha256": "c31b767ed30a80d7762a3f7e2000d2c1770ccdf0433b2a0184a05fd4887a36da",
+      "installed_path": "txtai/models/pooling/mean.py"
+    },
+    {
+      "path": "src/python/txtai/models/pooling/muvera.py",
+      "blob_sha": "585a197e5b0b84cd563aac3645098fa4e8b46860",
+      "sha256": "56f61a5b022628c0964e1992a78d01766fbf8d4b739fa0c5f8de0259874f5e58",
+      "installed_path": "txtai/models/pooling/muvera.py"
+    },
+    {
+      "path": "src/python/txtai/models/registry.py",
+      "blob_sha": "637834817e71dca47a272852cfe5f49376654e99",
+      "sha256": "04401f9d07d2191ce60901651af01ea6392e9a0ca0fb872900dc808a69b2be27",
+      "installed_path": "txtai/models/registry.py"
+    },
+    {
+      "path": "src/python/txtai/models/tokendetection.py",
+      "blob_sha": "0861794eae83367c03e26f9b6c0c43f8c4b4c055",
+      "sha256": "06cdd61ed0d2c13b3dd5c1904c14aa107500d0c53d6874178765c00c8c4156a8",
+      "installed_path": "txtai/models/tokendetection.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/__init__.py",
+      "blob_sha": "5c658be6a8c5e4d9710b4acac902cfdd290793c9",
+      "sha256": "c96bffc0cbb70252e01c4df5ecf012408b3f0dfcd4bb929dce13f797f86ac556",
+      "installed_path": "txtai/pipeline/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/audio/__init__.py",
+      "blob_sha": "e3a1d8e3479f0907a0c5bed27631f0b9ff1e2947",
+      "sha256": "de0d14a5a27f2fc896a2dfd2b91a8d3f500ce6178e68b71d626ec3154b708aaa",
+      "installed_path": "txtai/pipeline/audio/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/audio/audiomixer.py",
+      "blob_sha": "3578f9e06c0082d665d2106b4255f9ace3eec2a6",
+      "sha256": "631d798303ef728434d8278373b9ac9632a769ab05b6504d0409f677a4baff27",
+      "installed_path": "txtai/pipeline/audio/audiomixer.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/audio/audiostream.py",
+      "blob_sha": "0ab77d86aaf907b9a465a59cd3076bf50dc1f765",
+      "sha256": "6e0e63aa4f16edaf998e4ef69d8ecc6d56382c84c4f1d263e3dc67e4e7e4a9e2",
+      "installed_path": "txtai/pipeline/audio/audiostream.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/audio/microphone.py",
+      "blob_sha": "6c396b14f923e3ffc8e403bfb6e9d4b6602377e8",
+      "sha256": "aa3548c71c7b71e888b64323cfbb6c068d5950e71c5d026c51b0eb10a4d3fbe0",
+      "installed_path": "txtai/pipeline/audio/microphone.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/audio/signal.py",
+      "blob_sha": "1ae6c920996d69e2ce6e6f6e02fb1d8c82d1ca5f",
+      "sha256": "fc7ed5612ef624ab0296a1afa01be7a418ffbb17b4cd550d144f06a05262e081",
+      "installed_path": "txtai/pipeline/audio/signal.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/audio/texttoaudio.py",
+      "blob_sha": "cfb700b9bb82cf09066a1dca87c9993c0c936821",
+      "sha256": "487afd755bddfadb4a8b2caad684a1e0512ceb9daa41d8f76b6317aba5ddcecd",
+      "installed_path": "txtai/pipeline/audio/texttoaudio.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/audio/texttospeech.py",
+      "blob_sha": "d48d9e083d9e75d41dfc060f0087054f7e181562",
+      "sha256": "0338866efd155087536d2da2a46d73741bbdb66ecc7817c156680d148d0fd7ca",
+      "installed_path": "txtai/pipeline/audio/texttospeech.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/audio/transcription.py",
+      "blob_sha": "e6af12c863d2986a3de168fa58e9df467ecb2358",
+      "sha256": "79d73eb55b026c5742cbbcbf179b41b949b2d7b77a8ca09012696eb6e30e2756",
+      "installed_path": "txtai/pipeline/audio/transcription.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/base.py",
+      "blob_sha": "f42add89238ff85e48706694ea1bbcaea96a4117",
+      "sha256": "a8baeb96ba0380e8b09a9c6edc0d0f9ea379cb1ed91cff1d7ceec92b56314561",
+      "installed_path": "txtai/pipeline/base.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/data/__init__.py",
+      "blob_sha": "f63a7febdadd89afbe1a48084578b5df08068368",
+      "sha256": "103baae043b5a66730cf03b071f353c3f150afad7a0df39b342f9b8240aac8bf",
+      "installed_path": "txtai/pipeline/data/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/data/filetohtml.py",
+      "blob_sha": "a875115d2c6d5a939522fb35330fb317eb0504bb",
+      "sha256": "602e0fba2bb1f79fcf6cf1b91f2c2291a9131caf4eb752aa255119f5b254dac9",
+      "installed_path": "txtai/pipeline/data/filetohtml.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/data/htmltomd.py",
+      "blob_sha": "5e0a5b0b6759b06986669a23bb5e394c16b288cd",
+      "sha256": "542b0e76ccb21c61a52a5bf2f428f491b415454354d18c5b86b8f10c29ae54c3",
+      "installed_path": "txtai/pipeline/data/htmltomd.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/data/safeopen.py",
+      "blob_sha": "7550914f2155b5d051fb4415ae01772f8d8bc10c",
+      "sha256": "4cae5767f051295607b4b60f1841249cdd14cb4c70ac2cbe356f4bfcaa1af1a5",
+      "installed_path": "txtai/pipeline/data/safeopen.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/data/segmentation.py",
+      "blob_sha": "cdee0f90f29086e9061e799eb8a5eef63bd3ad8b",
+      "sha256": "35e5c6700b104b3d5d8a3a3940ece34679de9f7fbaf8423b5a6d520b380151ef",
+      "installed_path": "txtai/pipeline/data/segmentation.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/data/tabular.py",
+      "blob_sha": "5a2fea3e801ad9eb6b6b4c8dbf3f5260a50acce5",
+      "sha256": "dbb749975ce364672e1f41dc8d72666513f1f38bf99bd48e795422f05a0341da",
+      "installed_path": "txtai/pipeline/data/tabular.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/data/textractor.py",
+      "blob_sha": "3c349d07eb1b6006c17847b1377b2d45031e9676",
+      "sha256": "30ccb3f1c8060c98629d45805164e2e319ba468ee3c66f7bd03e21e274b14a04",
+      "installed_path": "txtai/pipeline/data/textractor.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/data/tokenizer.py",
+      "blob_sha": "2ede126aca8346d78aef348b3e120c7ba89858f0",
+      "sha256": "e7665c1802c3f62be17c180a39824937e24b2a705d8c0ab5514ba8d072dbca7b",
+      "installed_path": "txtai/pipeline/data/tokenizer.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/data/urlretrieve.py",
+      "blob_sha": "a6b2f7bbce88d89283b30b65f7b5d984a732ab84",
+      "sha256": "3aea4e311291827ab412e9c9557a9db0d0b7ae8dd6851c1ef65acdb550a9a1f2",
+      "installed_path": "txtai/pipeline/data/urlretrieve.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/factory.py",
+      "blob_sha": "180e81af48bdccb50466eed4975b7d3eba24f2c5",
+      "sha256": "0e55318613b557f2a420f96ec46e1086fa29900743494d001679e2f48fa173e3",
+      "installed_path": "txtai/pipeline/factory.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/hfmodel.py",
+      "blob_sha": "d434d78372f906b22b6b995cb880ad246f7827db",
+      "sha256": "03296f978f3e0d1ee810ecc62d45030efa11ff826747cfb9389d213f104043b4",
+      "installed_path": "txtai/pipeline/hfmodel.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/hfpipeline.py",
+      "blob_sha": "8001c708acba89795047b765fdc71a8b7ffe28ea",
+      "sha256": "3b1b462b10d1332d3899437ee0f266ea5e421c06b63746b506f8fc38fe3a3153",
+      "installed_path": "txtai/pipeline/hfpipeline.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/image/__init__.py",
+      "blob_sha": "1cdc0ecf65098f8360fc124cc7c0679e31bd4e63",
+      "sha256": "d4f3e52bf525e3886fb1a75a8952367571f642c7925f91f47e3aaf351b69bb12",
+      "installed_path": "txtai/pipeline/image/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/image/caption.py",
+      "blob_sha": "75d7fbba8231f7b61d86ee39ce8153d341e9021e",
+      "sha256": "4a4e0e472e7af9bb5e2dda8c8a504fb715dfc5ea3d35a7ae518f1cc5ab47b858",
+      "installed_path": "txtai/pipeline/image/caption.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/image/imagehash.py",
+      "blob_sha": "41ff40ebafbd4b3abddba2b7c4a5203e60054ae6",
+      "sha256": "61f32b03722413e7f12347d56a86526aedf562398a42d88b6cd15d2a5f32e6ef",
+      "installed_path": "txtai/pipeline/image/imagehash.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/image/objects.py",
+      "blob_sha": "0dbaff4e1d523abdcd43376c4f665360260b635e",
+      "sha256": "3340327bd6384aa89ed0f2e88b29e321d7a90049c7037c435a389627320a925d",
+      "installed_path": "txtai/pipeline/image/objects.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/llm/__init__.py",
+      "blob_sha": "3f8ba807449c4cbd6f4badbcd7175a86896ba48a",
+      "sha256": "e475335371637d6f34be14b691c69c2e2304eafadfd6a77e3f00eefb3c234687",
+      "installed_path": "txtai/pipeline/llm/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/llm/factory.py",
+      "blob_sha": "d55e60186525196b6015669041b700571b40300c",
+      "sha256": "aa22c14ca9114e3fe3d47f55c9e9e6e7ac1929f9335166646b8b8d88db5f866f",
+      "installed_path": "txtai/pipeline/llm/factory.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/llm/generation.py",
+      "blob_sha": "995d778978d4efcf9665bd4c9d645773d5201872",
+      "sha256": "e8fd56f4087044b74089fcb685e4d05334f42f480723681970061854371c6bfb",
+      "installed_path": "txtai/pipeline/llm/generation.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/llm/huggingface.py",
+      "blob_sha": "1a8f2f3dbeb954918933a7b0528c091e14217c6c",
+      "sha256": "55485e726a4c56d895216e2dcd7097b91bb1b899c26a197c24c6cb5f4a05cb5d",
+      "installed_path": "txtai/pipeline/llm/huggingface.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/llm/litellm.py",
+      "blob_sha": "03098c26edaae97533e5a156c215b3cf26d2297c",
+      "sha256": "d35fb97cb5dad76fd4ec0ac56b47857277fa26a04e32270d66c849a3707c6837",
+      "installed_path": "txtai/pipeline/llm/litellm.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/llm/litert.py",
+      "blob_sha": "bc7d5695efc581bd687e6d801c36a2a02bdbc623",
+      "sha256": "19b9bf448107cc246d30f6b5615610247f2d5402a7510c3c32e3be043ba424b5",
+      "installed_path": "txtai/pipeline/llm/litert.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/llm/llama.py",
+      "blob_sha": "572cffdf24122f32d150db7a34b6c0c321e46e66",
+      "sha256": "f3b3e5725ca61be36f1e1fc60cfd4a46cc7fc711d90b49341b62ce7d52cbf1b7",
+      "installed_path": "txtai/pipeline/llm/llama.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/llm/llm.py",
+      "blob_sha": "a4364b115e0b7b275691a77d452ba58f0be78b98",
+      "sha256": "51680f84ff923a82f6e02414f7cc7248a72eeaa50c54f193e6419c4fc4ec9b34",
+      "installed_path": "txtai/pipeline/llm/llm.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/llm/opencode.py",
+      "blob_sha": "037b31fbcfd62e6bf6ed5edea34c65c2f85a1cb5",
+      "sha256": "30fce0b94c0e5c05f5c401f14fc1ef2b08218d75b37d302a0d858dedcadfd11d",
+      "installed_path": "txtai/pipeline/llm/opencode.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/llm/rag.py",
+      "blob_sha": "10f2958effcd3cdfb1bc0974625d5ea3ef21c47d",
+      "sha256": "24ffcecd6d752144292616ae9e586adf7182dca5c6249124af68009f1d77799e",
+      "installed_path": "txtai/pipeline/llm/rag.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/nop.py",
+      "blob_sha": "d4bf018555ee44e8308cd7ef953473f91652ced8",
+      "sha256": "3f9fa96abe6673ee688757a21c0b187404fb980701a5bbaf5898a92ee0e73be7",
+      "installed_path": "txtai/pipeline/nop.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/tensors.py",
+      "blob_sha": "15967f69d9a787292af39b07d007561f1a2e2c29",
+      "sha256": "be923d606a69bb7fa0eea9d2d1341a5b9ed98776ee3ffbfd3d953649143da2f0",
+      "installed_path": "txtai/pipeline/tensors.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/text/__init__.py",
+      "blob_sha": "be6b979221d033671a9e071311a809d666f1535d",
+      "sha256": "207060ee0f40cc1b349436ff1011e7f8851a10e7dc889c30f600b0b7ef4bf5bd",
+      "installed_path": "txtai/pipeline/text/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/text/crossencoder.py",
+      "blob_sha": "c41f8c7ecbec79fed0fcdb7c6478e710865881f4",
+      "sha256": "c0e955522bcb901dcee16a2cf43846ba3bed79dc17bb1868e4ffbc3acaccce3b",
+      "installed_path": "txtai/pipeline/text/crossencoder.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/text/entity.py",
+      "blob_sha": "c48f4ea1fbeec1f5895b16c793e4b05f481319f4",
+      "sha256": "8b25251f3947752f9d22c853764f450fc53856984d80d1bb2f500d738b5f3718",
+      "installed_path": "txtai/pipeline/text/entity.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/text/labels.py",
+      "blob_sha": "d2e2d27bb2fe0a9315552a0125bb61f55c3295a4",
+      "sha256": "440d7956eb497e0b4a710f000a88fb9df09d87e8e6b8cb686d9df6742375edaa",
+      "installed_path": "txtai/pipeline/text/labels.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/text/lateencoder.py",
+      "blob_sha": "899927be20e4f11e3dc3b671dee2331680cc46c9",
+      "sha256": "21c0ecec5af84f673269372f2d2dd033a9fa0d1f81df67061cdcaf3d2f2d2243",
+      "installed_path": "txtai/pipeline/text/lateencoder.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/text/questions.py",
+      "blob_sha": "f149aea83537c4d7b14a1294304c1e93d38481d9",
+      "sha256": "801dbf737d3ca76be5304c46e269c0fbbe6e4174ab80b8c2594f641abea3a9ed",
+      "installed_path": "txtai/pipeline/text/questions.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/text/reranker.py",
+      "blob_sha": "743253ed979de30d3e62360f7507dfdd23192877",
+      "sha256": "f554e8fa69af2791815c6764da6d58a6e31c68817cf9eeff7e40cc96253b89d7",
+      "installed_path": "txtai/pipeline/text/reranker.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/text/similarity.py",
+      "blob_sha": "486f5307a1d57ca017654d1467ab40ca6febef08",
+      "sha256": "76713c6f71577f4b3e3ed826412f32470e8f0f004d1f7d7d4b3795d9e60f48a6",
+      "installed_path": "txtai/pipeline/text/similarity.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/text/summary.py",
+      "blob_sha": "b313c5ecd08ca9a3b3d1ad7c7f94049cab70f86e",
+      "sha256": "2b809f2d697a538a7ec82214fe84e80dafb7517b13ea3914d863300c74394b49",
+      "installed_path": "txtai/pipeline/text/summary.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/text/translation.py",
+      "blob_sha": "281a8ac9d9d1d457fe9c9c4f999f8831444bcc00",
+      "sha256": "89153356b2df69b1997f070d7517fc6825602b7877f22e559810e821c39f6c8d",
+      "installed_path": "txtai/pipeline/text/translation.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/train/__init__.py",
+      "blob_sha": "9a8dbc7b48410db319a05fa678864d0215ba4873",
+      "sha256": "1ca24151befcac195502997e8aaa5d1111a02da12fe053bb69d8eef615309c8f",
+      "installed_path": "txtai/pipeline/train/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/train/hfonnx.py",
+      "blob_sha": "76373738e93805746a03b028345e4328b1b6c8da",
+      "sha256": "7e9c0ad7f80d72097b02407fcc3b28d390c838b74c08b897b817597f2eb1c59d",
+      "installed_path": "txtai/pipeline/train/hfonnx.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/train/hftrainer.py",
+      "blob_sha": "4be49af1dab660f0e226f884392f0c63c1ef20fe",
+      "sha256": "ebe4898c056ff9418effad61b9efe58c1cb751701f108453ab9eb88bc816b825",
+      "installed_path": "txtai/pipeline/train/hftrainer.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/train/lemur.py",
+      "blob_sha": "f85d99b0f5bac21f05e4c1c67d83fc19660f976d",
+      "sha256": "0982cfceaad9a36998a863e682a8de394e192660875abfc7f124d38231d44f24",
+      "installed_path": "txtai/pipeline/train/lemur.py"
+    },
+    {
+      "path": "src/python/txtai/pipeline/train/mlonnx.py",
+      "blob_sha": "6160dd2e5256f00e2fa55731ed80d62e7ff42d24",
+      "sha256": "13de2ca1d45f4dd11e061689fc03d278bc16042da36c7653b264292589ec80e3",
+      "installed_path": "txtai/pipeline/train/mlonnx.py"
+    },
+    {
+      "path": "src/python/txtai/scoring/__init__.py",
+      "blob_sha": "db4bca303f6525d2cd827b51b6957af2e08cc2b0",
+      "sha256": "e763240eac802de80bcb2e2fa5530d92972128fe714ec4fe9383640b9c2f6d5f",
+      "installed_path": "txtai/scoring/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/scoring/base.py",
+      "blob_sha": "d8e7b0689d75e14278120b2f5e4d476de630993f",
+      "sha256": "74701fae7fda502597020e2e2c0beee34719d41f244fa0423daaf5fb80c6fd7b",
+      "installed_path": "txtai/scoring/base.py"
+    },
+    {
+      "path": "src/python/txtai/scoring/bm25.py",
+      "blob_sha": "24b7aacd76baeda43105d1506dbb9c659dd8751d",
+      "sha256": "b439409ebb4f46af6c9115f4fe09989b18bf1aca877d3a38e6798517bca8792c",
+      "installed_path": "txtai/scoring/bm25.py"
+    },
+    {
+      "path": "src/python/txtai/scoring/factory.py",
+      "blob_sha": "955ed0ffb8e0e9012c0a3839e1646a65b92b46bf",
+      "sha256": "41fade7737b4aad65c390c4f0e4ffd6ad5152a756f883feb564ee5bf90761166",
+      "installed_path": "txtai/scoring/factory.py"
+    },
+    {
+      "path": "src/python/txtai/scoring/normalize.py",
+      "blob_sha": "5b01e7705c81f071c94c364bb188c0062cbdac0c",
+      "sha256": "b284d44694046528772bc473fc5c4739b0828ddb54115172569c8e9f780dc580",
+      "installed_path": "txtai/scoring/normalize.py"
+    },
+    {
+      "path": "src/python/txtai/scoring/pgtext.py",
+      "blob_sha": "954149551610c591bb1e439aa24b2eba594394ee",
+      "sha256": "e6cd6b26e675cbe18a8ee48f722c18968f67947b803d8cf848ee659776ce95c6",
+      "installed_path": "txtai/scoring/pgtext.py"
+    },
+    {
+      "path": "src/python/txtai/scoring/sif.py",
+      "blob_sha": "c57cd50a11f2216c6e8792e4b3e8b24382a0e4d7",
+      "sha256": "625353e40c6014d3c51f53394104030a3fde17b33bba9f554c8573c3bda7c818",
+      "installed_path": "txtai/scoring/sif.py"
+    },
+    {
+      "path": "src/python/txtai/scoring/sparse.py",
+      "blob_sha": "f49173e346c0951defb706c7204336b0203eafa6",
+      "sha256": "945319c6803dbfcb3f34dbd8df01e840b23b0cb24b49acaa2755a091d952128a",
+      "installed_path": "txtai/scoring/sparse.py"
+    },
+    {
+      "path": "src/python/txtai/scoring/terms.py",
+      "blob_sha": "a96dda6ae895bd26bf00c9ea3a2c949fc3c2637b",
+      "sha256": "ae6f3552ad6534f91da6719d934480ca1ec65f348f64cb758894389e706639af",
+      "installed_path": "txtai/scoring/terms.py"
+    },
+    {
+      "path": "src/python/txtai/scoring/tfidf.py",
+      "blob_sha": "4b7bd4e8fa7d0c09c222320a36f72064593572da",
+      "sha256": "cbbfd00fa6105957876d383ad7ed0fdcf0a05d3805254e39664a36bc3c83d00b",
+      "installed_path": "txtai/scoring/tfidf.py"
+    },
+    {
+      "path": "src/python/txtai/serialize/__init__.py",
+      "blob_sha": "72eb3d944f8037584959900e3347a2732a63f344",
+      "sha256": "c41a2fa5dddb516b5f94c4f970fb994ed79c2bc805db555c1a42a1ab503e01a3",
+      "installed_path": "txtai/serialize/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/serialize/base.py",
+      "blob_sha": "76410daeac1b19691a19ddd540fc48b5cc8ccc7a",
+      "sha256": "954baaf05c85593203ad2dfc12fcd6bfb71bc9a35c4f9a671c4f7cdb90126243",
+      "installed_path": "txtai/serialize/base.py"
+    },
+    {
+      "path": "src/python/txtai/serialize/errors.py",
+      "blob_sha": "18d2d8c3a55a4561f96d7b1f18e631bba988eaa4",
+      "sha256": "900f8b1012d5e3a09c00320737e137b5fcd9f457bcab3ce57796841e9eb63fc5",
+      "installed_path": "txtai/serialize/errors.py"
+    },
+    {
+      "path": "src/python/txtai/serialize/factory.py",
+      "blob_sha": "2d1bfcc13af979f8f831ea54434a93070ffd0c12",
+      "sha256": "16133753eb95e8e9130046c1e45fc0db82768fd8368f00bc325b93015640c8d3",
+      "installed_path": "txtai/serialize/factory.py"
+    },
+    {
+      "path": "src/python/txtai/serialize/messagepack.py",
+      "blob_sha": "dd952443564830dede4bb58c8c64472a73cf5073",
+      "sha256": "3e30c204f75e6e6e48d82ffa29320e8c47df56cc2aaf5ac6cf4556950d002c16",
+      "installed_path": "txtai/serialize/messagepack.py"
+    },
+    {
+      "path": "src/python/txtai/serialize/pickle.py",
+      "blob_sha": "1091e59c49f7a7fa845854fbb19aa4ea063f845e",
+      "sha256": "4f153d6ccb2287d188acec3b55d3f4d298169f9d10c556a5d85eb180ada22d80",
+      "installed_path": "txtai/serialize/pickle.py"
+    },
+    {
+      "path": "src/python/txtai/serialize/serializer.py",
+      "blob_sha": "efb8df59212663e556579465ac8190fa365b1800",
+      "sha256": "d1d5e9108fbd1fb3c1bc0282ec3c6c94f7e39a8a9d869eab6e11c51c4cb11958",
+      "installed_path": "txtai/serialize/serializer.py"
+    },
+    {
+      "path": "src/python/txtai/util/__init__.py",
+      "blob_sha": "af762ef269aa10cd5472715f6e87772aeab6c44d",
+      "sha256": "583961e9e785d2630f2c613d1bfad1fe2e7a380363a2f12d0a18ba7dcc27cbc1",
+      "installed_path": "txtai/util/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/util/download.py",
+      "blob_sha": "b1f691831afb1b33729f1eebbc280f4aac1e57d6",
+      "sha256": "6eab087e64581581e8fb9dc8a716eff364edcab223cd733fa752bdc3af8bd8fb",
+      "installed_path": "txtai/util/download.py"
+    },
+    {
+      "path": "src/python/txtai/util/library.py",
+      "blob_sha": "c3056110cf99f75fa2fd2ee3372a3d1d0f1b26d5",
+      "sha256": "3a0a89e6456ad690e0d3900503bbb16b34ce71a2d22e9684dff298ce9f6387ac",
+      "installed_path": "txtai/util/library.py"
+    },
+    {
+      "path": "src/python/txtai/util/resolver.py",
+      "blob_sha": "ec7730ed0cda90232051aa9c9aaae26813c90df4",
+      "sha256": "cabc9fec02f7835078edd63ea68bdc96c9c71be17d5c468f03817e3c13bb4387",
+      "installed_path": "txtai/util/resolver.py"
+    },
+    {
+      "path": "src/python/txtai/util/sparsearray.py",
+      "blob_sha": "0d0db45c9cae5f8e8207528cdd8aefa8d78070ba",
+      "sha256": "6241131053a02e4a0936083608ac68312cdb7be9f73d0fad3c357430c40c824c",
+      "installed_path": "txtai/util/sparsearray.py"
+    },
+    {
+      "path": "src/python/txtai/util/template.py",
+      "blob_sha": "374c34c88dca47c732a20c81fab518fd64cd121e",
+      "sha256": "754cf68dec8927fc84574972cf08ff10bd99b2236c17ee65f0b3f8c1ca80282f",
+      "installed_path": "txtai/util/template.py"
+    },
+    {
+      "path": "src/python/txtai/vectors/__init__.py",
+      "blob_sha": "13c647817112b706a9281b07687bddec2fdb6a0d",
+      "sha256": "7e1a463f1443f06bbcbacb97bedc05f644de559e51e26bd7fa652022c92745ba",
+      "installed_path": "txtai/vectors/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/vectors/base.py",
+      "blob_sha": "3e947fcb3ab0e8e7cf4a3e285596d65c2732d8d2",
+      "sha256": "08f912800e509552d06499e5c5ece51d87f4bb12355402467705e554664f7cbc",
+      "installed_path": "txtai/vectors/base.py"
+    },
+    {
+      "path": "src/python/txtai/vectors/dense/__init__.py",
+      "blob_sha": "c7831436fc8023f6d7c1d7bd4db0c9144b924523",
+      "sha256": "df3c3045a103edf138f92923c519e085121d235e1e66e0ec9f9e2535809ee771",
+      "installed_path": "txtai/vectors/dense/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/vectors/dense/external.py",
+      "blob_sha": "2467c931f8cf1d1d74f4035c6ba5b45a73d5728c",
+      "sha256": "c0550f79620d00c97f66a7bb682d7d04fc6818474581f137f323959e5176ee55",
+      "installed_path": "txtai/vectors/dense/external.py"
+    },
+    {
+      "path": "src/python/txtai/vectors/dense/factory.py",
+      "blob_sha": "d81e596e506354a2f9e4bf1e656fac29aaaf9285",
+      "sha256": "c058a3cba670a2551bd72713ef3b12bfd56def2f90e3c92f36ab9dc774dbe933",
+      "installed_path": "txtai/vectors/dense/factory.py"
+    },
+    {
+      "path": "src/python/txtai/vectors/dense/huggingface.py",
+      "blob_sha": "8d9b4c3789eb6558fbf69b74e79dc28ae524ddd6",
+      "sha256": "8628a5efb91872b87fd170a665022fba7871586eb24f441e1923a432efb7c077",
+      "installed_path": "txtai/vectors/dense/huggingface.py"
+    },
+    {
+      "path": "src/python/txtai/vectors/dense/litellm.py",
+      "blob_sha": "3833644ad3eac2018f80c81af137eab266beb56d",
+      "sha256": "65d996e6adc8aa7333c8ca0fedeacb8665beb2b0552fb05f9e0ededdbbb8d5d0",
+      "installed_path": "txtai/vectors/dense/litellm.py"
+    },
+    {
+      "path": "src/python/txtai/vectors/dense/litert.py",
+      "blob_sha": "a35b64bb0db60dc7ea00fb2f74339fc70fedadc2",
+      "sha256": "6d87c73c9cbe6bf60cb60f8abb3cfbae59cf997f44b5ea37ed0fa96ff0a06c15",
+      "installed_path": "txtai/vectors/dense/litert.py"
+    },
+    {
+      "path": "src/python/txtai/vectors/dense/llama.py",
+      "blob_sha": "7b344e3dee0f8bff093516717787b2715c8106f8",
+      "sha256": "0d76962c82a956439cb70e8d2022d0e2ca68807544be85acfce56ea48d627d2e",
+      "installed_path": "txtai/vectors/dense/llama.py"
+    },
+    {
+      "path": "src/python/txtai/vectors/dense/m2v.py",
+      "blob_sha": "f13753b6b4487a0360a12d5aa9081d6d9124901a",
+      "sha256": "b9b2368cca09935fb30409733f60fd5261379a85c386498f2a59f9ff15a9cf10",
+      "installed_path": "txtai/vectors/dense/m2v.py"
+    },
+    {
+      "path": "src/python/txtai/vectors/dense/onnx.py",
+      "blob_sha": "566c34eda2656819d87cd3fc0dc87b2ba9492a60",
+      "sha256": "68e60be9be104aa9c64fbc90a5b41ed77a20baf1a12b9f4be360cc6b01e87a6e",
+      "installed_path": "txtai/vectors/dense/onnx.py"
+    },
+    {
+      "path": "src/python/txtai/vectors/dense/sbert.py",
+      "blob_sha": "93906c8f2a6474a9902e5aad4b70fa1fdb3a9dd5",
+      "sha256": "ac7d35a048f84bae272c5fd47c7c774a1579a97d2bea86ecb299298b8050a831",
+      "installed_path": "txtai/vectors/dense/sbert.py"
+    },
+    {
+      "path": "src/python/txtai/vectors/dense/words.py",
+      "blob_sha": "67c3df03f209a35fc785b45427ecba6b34122e6e",
+      "sha256": "40d81202c6bad6437f1003027dd5a09761f62484c2311da8af3b1652a291b573",
+      "installed_path": "txtai/vectors/dense/words.py"
+    },
+    {
+      "path": "src/python/txtai/vectors/recovery.py",
+      "blob_sha": "1b8d1953e7f4a7e4b7c0ad39a0540a7b3f0dbb75",
+      "sha256": "940d58728fa0e92f396c52b956ba68b525092b667c8c438854776618e084a4f3",
+      "installed_path": "txtai/vectors/recovery.py"
+    },
+    {
+      "path": "src/python/txtai/vectors/sparse/__init__.py",
+      "blob_sha": "dfce5a8a7c761d4dba4f3564c3eaf4068e056bd4",
+      "sha256": "6be7708ed042c8579ef5502b209009d944dce076ae6aa860d2c5dfb5d9fc99f7",
+      "installed_path": "txtai/vectors/sparse/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/vectors/sparse/base.py",
+      "blob_sha": "a2f7acf424dfed81814278cfadd8070e6b2ff9da",
+      "sha256": "0b38147b548de61bd033abf1fb121cf7421bff7adb596e93f462edce69bba642",
+      "installed_path": "txtai/vectors/sparse/base.py"
+    },
+    {
+      "path": "src/python/txtai/vectors/sparse/factory.py",
+      "blob_sha": "f1ffbfe949e9ae6714aabe8ea0c6375c2cdc42aa",
+      "sha256": "b9504cc0a55bb2e1e2a76539d698458aee0d0b1e3fd48d0c54e46455b60efeca",
+      "installed_path": "txtai/vectors/sparse/factory.py"
+    },
+    {
+      "path": "src/python/txtai/vectors/sparse/sbert.py",
+      "blob_sha": "b387ffc451ebd3748dd8a17adf813ee264481956",
+      "sha256": "46699b0919e36fd9d16b2fa2e7c1ca8d54ac2747634127170cb0aa907d4a6932",
+      "installed_path": "txtai/vectors/sparse/sbert.py"
+    },
+    {
+      "path": "src/python/txtai/version.py",
+      "blob_sha": "bf33d14908a0e3892367ca5845109b8cde08b7a5",
+      "sha256": "60e63a7fbd085c0e07cd82acfb6b4e349bd1fae61eaeff0bd7d598db74c654c9",
+      "installed_path": "txtai/version.py"
+    },
+    {
+      "path": "src/python/txtai/workflow/__init__.py",
+      "blob_sha": "24e56efc3df0a08992781a8fb30a3daf7a1f1f4a",
+      "sha256": "842a6fa07255e896017c76f85c822963587c92e50ba5df727f49433ba5494145",
+      "installed_path": "txtai/workflow/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/workflow/base.py",
+      "blob_sha": "aaec4cfbb3e0febb980fbeeefc7236a8c12c64e6",
+      "sha256": "f84f03303dd79404399a9d65475ffef28f6ed1140dcb3263c3437b7fda28e22d",
+      "installed_path": "txtai/workflow/base.py"
+    },
+    {
+      "path": "src/python/txtai/workflow/execute.py",
+      "blob_sha": "e5dafb4a9861f4d10379c33ca9b3e761866792dd",
+      "sha256": "ffeaccdeac4afce85b278ff78aa6ca05a25d0d786c4bb906ba84e495ad466e6f",
+      "installed_path": "txtai/workflow/execute.py"
+    },
+    {
+      "path": "src/python/txtai/workflow/factory.py",
+      "blob_sha": "087dbd03a6d78098cc2b8c21b1623b8cdaeb9212",
+      "sha256": "47f353fff29ca5ee081e3aae5a61b17dedb0258a7a07aabf5dd2d202f0b977a7",
+      "installed_path": "txtai/workflow/factory.py"
+    },
+    {
+      "path": "src/python/txtai/workflow/task/__init__.py",
+      "blob_sha": "996790cdd0cf3a2a3cd31bc73ece3202542a87eb",
+      "sha256": "4c3360d0835a3c0ff5378f22543ab59275e24deadbd0b50791bbc2a4d21b4e4f",
+      "installed_path": "txtai/workflow/task/__init__.py"
+    },
+    {
+      "path": "src/python/txtai/workflow/task/base.py",
+      "blob_sha": "e4baf76fd597af036dda70bed2e9747b9d9a82d9",
+      "sha256": "0167c4ce3f6d85aea7d968a40c88a0195ec12aced3bd2f3bd94198866147102b",
+      "installed_path": "txtai/workflow/task/base.py"
+    },
+    {
+      "path": "src/python/txtai/workflow/task/console.py",
+      "blob_sha": "482290c955465d3b0df17c7776c4c79606d9cfc3",
+      "sha256": "e06831ec477d0ee87b75b3e1d4fe487ca62cf90fd861cbb40cf981c781f3179d",
+      "installed_path": "txtai/workflow/task/console.py"
+    },
+    {
+      "path": "src/python/txtai/workflow/task/export.py",
+      "blob_sha": "302a008971f0b31751afc3f1e94a0be655ed8592",
+      "sha256": "7dadf531d9c10ffdd920acc20b1c84ae4fadcb64cdf3c19077b9c6ecc8fbea7d",
+      "installed_path": "txtai/workflow/task/export.py"
+    },
+    {
+      "path": "src/python/txtai/workflow/task/factory.py",
+      "blob_sha": "69cc14d2fc540b5cddd14016a76a0b6a0ee88c5c",
+      "sha256": "ded99ecadf0b79cb9f6443f5049c3c23655cf193807e075272eb6ab77b3d8f3f",
+      "installed_path": "txtai/workflow/task/factory.py"
+    },
+    {
+      "path": "src/python/txtai/workflow/task/file.py",
+      "blob_sha": "5834bb179f20a8c8401754b8c58503a19deac077",
+      "sha256": "614344d204312411bb670f5a5652327f2af816f5be34d1d1455fb60e94b13c81",
+      "installed_path": "txtai/workflow/task/file.py"
+    },
+    {
+      "path": "src/python/txtai/workflow/task/image.py",
+      "blob_sha": "f6a2e9f999aa7c2c6f8acaa43d53955ca4ea59ca",
+      "sha256": "b377380704c49653ab773f54563d1a8a94968b7ea9e21050da309743f20f6d3c",
+      "installed_path": "txtai/workflow/task/image.py"
+    },
+    {
+      "path": "src/python/txtai/workflow/task/retrieve.py",
+      "blob_sha": "cfd0a62c6e827388fa320dd26d71a7ea3ba0791f",
+      "sha256": "22e7908551a1037981d9e0dd2c3c5523f1ef631ba0de91af9b12793eb0fba447",
+      "installed_path": "txtai/workflow/task/retrieve.py"
+    },
+    {
+      "path": "src/python/txtai/workflow/task/service.py",
+      "blob_sha": "4869882e1d38df71e9cfe7c62f851af562cc89de",
+      "sha256": "e8ac5ef9c5a4d969c7289d22f757209ef93c4a2f3345b7a5d6b7923b053e80f6",
+      "installed_path": "txtai/workflow/task/service.py"
+    },
+    {
+      "path": "src/python/txtai/workflow/task/storage.py",
+      "blob_sha": "4b9ebced231575a9d7ab93a9dd5f40fe80bc9d33",
+      "sha256": "cceba55a5bc3e9c2a294b648f1286d29fec44d9ad039f057f5fab6af49276594",
+      "installed_path": "txtai/workflow/task/storage.py"
+    },
+    {
+      "path": "src/python/txtai/workflow/task/stream.py",
+      "blob_sha": "93c2efaeee537f923b62126805e6394f0fbef7a6",
+      "sha256": "ca9dc685ce2c19b07494a73dd6ef5862eee22d22795ceb129cd65d6775292021",
+      "installed_path": "txtai/workflow/task/stream.py"
+    },
+    {
+      "path": "src/python/txtai/workflow/task/template.py",
+      "blob_sha": "ebe0fd9e6c8d9e5911e8833a78ec3f4a4068687b",
+      "sha256": "0b28ccf68b41d90d946aeba82b7ed6dc54df558bafe8038db207a18e4592736b",
+      "installed_path": "txtai/workflow/task/template.py"
+    },
+    {
+      "path": "src/python/txtai/workflow/task/url.py",
+      "blob_sha": "e952234c23c41b70528d05136755d062ad2eb73f",
+      "sha256": "1fd6dcc9b7d7b6392efba28f0d6af6e28dac64c8a54b1d91ea54ea91d0f28686",
+      "installed_path": "txtai/workflow/task/url.py"
+    },
+    {
+      "path": "src/python/txtai/workflow/task/workflow.py",
+      "blob_sha": "f05a4c954610c95b8f7532ee77c6a158ccf3bca3",
+      "sha256": "83a561caa55bb4b7a3a57aede921d2df1ca601eb7af9e2bef13e8a43474d3f4c",
+      "installed_path": "txtai/workflow/task/workflow.py"
+    }
+  ],
+  "installed_source_count": 277,
+  "scope": "Original ephemeral SQLite content insert, fixed aggregate query and deletion with numeric independent reference. No semantic/vector search or models.",
+  "live_verified": false
+}

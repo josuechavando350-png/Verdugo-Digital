@@ -136,3 +136,4 @@ CASES['sympy'] = {'dataset':'demo','coefficients':[1,-2,1],'points':[0,1,3]}
 CASES['rdflib'] = {'dataset':'demo','node_count':4,'edges':[[0,1],[1,2],[2,0],[0,1]],'start':0}
 
 CASES['z3'] = {'dataset':'demo','spend_limit':8,'unit_limit':3,'minimum_yield':6}
+CASES['txtai'] = {'dataset':'demo','rows':[[0,10],[1,-5],[0,20]],'remove':[0]}

@@ -84,4 +84,4 @@ def summary(project_id=None):
             'pending': sorted(s for s in table if state(s) == 'pendiente'),
             'live_verified': 0,
             'note': 'conectado means an adapter is implemented and allowed by license policy; '
-                    'it does not mean a real service was deployed or verified.'}
+                    'root policy does not verify dependency closure; it does not mean a real service was deployed or verified.'}

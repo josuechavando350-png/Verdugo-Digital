@@ -8,7 +8,7 @@ Fecha: 15 de noviembre de 2026. Base: `main` después de la v0.21.1.
 |---|---|---|---|
 | Catálogo libre (cuerpo) | 300 | `sources/parts/*.json`, `sources/licenses.json` | 243 conectadas, 56 piezas de construcción, 1 pendiente (`meta-ads`) |
 | Simulador de mercado (bola de cristal) | 50 | `sources/simulador-mercado.json` | registrado; adaptador pendiente |
-| Cerebro (piloto) | 150 | `sources/cerebro-150.json` | 27 operaciones locales y 10 lecturas HTTP; 113 pendientes |
+| Cerebro (piloto) | 150 | `sources/cerebro-150.json` | 28 operaciones locales y 10 lecturas HTTP; 112 pendientes |
 | Últimas 166 | 166 | `sources/final-166.json` | registrado; adaptador pendiente |
 | **Total libre** | **666** | | |
 
@@ -18,8 +18,8 @@ Los 22 excluidos por licencia siguen registrados, pero no cuentan ni se operan.
 
 - **Tanda 0: terminada y aceptada en CI.** 688 identidades GitHub distintas, 666 permitidas por política y 22 excluidas. Se conservan 69 partes: 68 de diez y una de ocho.
 - Cinco propuestas eran alias de proyectos ya registrados (Ragas, Presidio, FastMCP, Recommenders y Great Expectations). TEN Framework tiene restricciones adicionales: no se contó como Apache libre. Las seis sustituciones y su alcance constan en [REGISTRO_666.md](REGISTRO_666.md).
-- **Estado actual: 280 conectadas; 56 de construcción; 330 pendientes; certificadas en producción: 0.** Semantic Kernel, Agno, AG2, Langroid, Griptape, BeeAI, Strands/Harness SDK, VoltAgent, Unified Planning, el servidor MCP de memoria, Monty, Playwright para Python, Hatchet, Invariant, PyRIT, llama.cpp, Granite Guardian, InterpretML, TransformerLens, Bitsandbytes, Guidance, LM Format Enforcer, USearch, Rerankers, SymPy, RDFLib y Z3 añaden veintisiete operaciones locales limitadas; registrar las otras piezas no añade adaptadores.
-- **Lote 1 (183): 37 operaciones implementadas: 27 locales probadas conjuntamente y 10 lecturas HTTP probadas por sockets sintéticos; consultar CI del commit vigente. Lote 2 (183): 0 implementadas. Ninguno de los dos lotes está terminado.** Orden completo, sin duplicados, en `sources/registry-666.json/work_queue`.
+- **Estado actual: 281 conectadas; 56 de construcción; 329 pendientes; certificadas en producción: 0.** Semantic Kernel, Agno, AG2, Langroid, Griptape, BeeAI, Strands/Harness SDK, VoltAgent, Unified Planning, el servidor MCP de memoria, Monty, Playwright para Python, Hatchet, Invariant, PyRIT, llama.cpp, Granite Guardian, InterpretML, TransformerLens, Bitsandbytes, Guidance, LM Format Enforcer, USearch, Rerankers, SymPy, RDFLib, Z3 y txtai añaden veintiocho operaciones locales limitadas; registrar las otras piezas no añade adaptadores.
+- **Lote 1 (183): 38 operaciones implementadas: 28 locales probadas conjuntamente y 10 lecturas HTTP probadas por sockets sintéticos; consultar CI del commit vigente. Lote 2 (183): 0 implementadas. Ninguno de los dos lotes está terminado.** Orden completo, sin duplicados, en `sources/registry-666.json/work_queue`.
 - Registro aceptado en `b95f8be09e2a34ff12f163b6f872287eed3afd26`: [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43690692125), [runtime](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43690692198) y [servicios](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43690692157), los tres `success`. PR #24 permanece sin fusionar.
 - El primer checkpoint del piloto (`77670600a4ee083413f5838b1e36991ddbff2347`) pasó [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43692332291), [runtime](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43692332306) y [servicios](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43692332315). Esa evidencia cubre Semantic Kernel; no certifica cambios posteriores.
 - El checkpoint ejecutivo `e914b2622e430ee72121fefc1e256e0adabc126d` pasó [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43693358786), [runtime](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43693358773) y [servicios](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43693358774), cubriendo tres SDK. El checkpoint posterior de Langroid también está aceptado.
@@ -92,6 +92,14 @@ Los 22 excluidos por licencia siguen registrados, pero no cuentan ni se operan.
 - El incremento pasa **897 pruebas locales** y el paso de CI de **77 observaciones HTTP**. La aceptación original conjunta pasó con **27 componentes y 29 pasos**, aprobación, CLI/MCP y replay tras reinicio. Los tres workflows del nuevo commit deben observarse por separado. Oxigraph, Tree of Thoughts, Language Agent Tree Search, Reflexion y Graph of Thoughts conservan preparación pendiente delimitada en `sources/review-reasoning-next666.json`, sin descargar pesos ni usar proveedores de pago.
 
 - **Revisión del final del sublote de 80:** OASIS exige `igraph 0.11.6`; el wheel exacto revisado incluye GPL-2.0, fuera de la política. LLM Reasoners, OpenR, TextGrad, Trace, AdalFlow, OpenEvolve, PromptWizard, EvoAgentX y Concordia mantienen preparación pendiente. Se distinguen dependencias obligatorias y extras opcionales; una revisión de manifiestos no se cuenta como ejecución. Evidencia en `sources/review-end80-next666.json`.
+
+## Continuación tras recuperar la conversación
+
+- Recuperado el árbol `c8e6ddf725d85cde70c180329dc29ca9046c2a06`, publicado en `1dc6bd7a116a6ebdb8dbc55732993ebf4efe25a8`; contiene Z3 y Jena además de la captura.
+- **txtai / content.reconcile:** edición MINIMAL oficial, sin dependencias runtime obligatorias. Inserta registros numéricos sintéticos, compara agregaciones y eliminaciones con una referencia independiente y prueba borrado repetido. No proporciona búsqueda semántica ni modelos. Fuente y licencia verificadas en 277 archivos instalados.
+- **Auditoría integrada en product-status:** cuenta identidades GitHub y lotes sin duplicados; diferencia licencias raíz, adaptadores y cierre de dependencias. Mantiene visible la revisión de certifi en doce perfiles; no convierte una revisión incompleta en aprobación.
+- **Estado vigente de los sublotes: 16/80 y 0/81.** Lote original 1: 38/183, con 145 pendientes. Lote original 2: 0/183. Las 22 incorporaciones anteriores no se cuentan de nuevo.
+- Instalación limpia y cuatro casos originales de txtai con CLI/MCP/SQLite/reinicio comprobados. La evidencia de los workflows se observa por commit; no se hereda del anterior.
 
 ## Reanudación: sublotes de 80 y 81
 

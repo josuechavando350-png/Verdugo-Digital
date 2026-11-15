@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 330,
+ "pending": 329,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -459,20 +459,6 @@
    "domain": "memoria",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
    "nota": "The original Python build requires scikit-build-core, SWIG and NumPy; the CPU profile needs the native libraries and BLAS before the SWIG module. Native build and dependency review remain pending; no build failure observed.",
-   "live_verified": false,
-   "evidence": "sources/review-memory-next666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 2",
-   "id": "txtai",
-   "repository": "neuml/txtai",
-   "commit": "973512fc0d30250613f7571a7b6446101aa9b92e",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "memoria",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": "The original default package requires faiss-cpu, Torch and Transformers. setup.py also exposes a MINIMAL variant named txtai_minimal without runtime requirements; its usable original operations still need inspection. No unsupported claim that every profile requires Torch, and no SDK installed.",
    "live_verified": false,
    "evidence": "sources/review-memory-next666.json"
   },
@@ -7714,6 +7700,21 @@
    "live_verified": false,
    "evidence": "sources/contracts-logic666.json",
    "operation": "constraints.check"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 2",
+   "id": "txtai",
+   "repository": "neuml/txtai",
+   "commit": "973512fc0d30250613f7571a7b6446101aa9b92e",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "memoria",
+   "que_hacer": "Conciliación numérica con el almacén de contenido original txtai; edición MINIMAL oficial sin extras.",
+   "nota": "Inserción, agregación fija y eliminación efímeras con referencia independiente. No búsqueda semántica ni modelos.",
+   "live_verified": false,
+   "evidence": "sources/contracts-content666.json",
+   "operation": "content.reconcile"
   }
  ]
 }

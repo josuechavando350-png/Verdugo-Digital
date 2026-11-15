@@ -18,7 +18,7 @@ from verdugo import local_runtime, objectives, workflow
 
 
 def accept():
-    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','servers','monty','playwright-python','hatchet','invariant','pyrit','llama-cpp','granite-guardian','interpret','transformerlens','bitsandbytes','guidance','lm-format-enforcer','usearch','rerankers','sympy','rdflib','z3')
+    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','servers','monty','playwright-python','hatchet','invariant','pyrit','llama-cpp','granite-guardian','interpret','transformerlens','bitsandbytes','guidance','lm-format-enforcer','usearch','rerankers','sympy','rdflib','z3','txtai')
     spec=json.loads((ROOT/'examples/executive666.synthetic.json').read_text())
     cfg=template('nexus')
     for sid in services:
@@ -41,12 +41,12 @@ def accept():
         with closing(engine()) as e:
             result=invoke(e,'verdugo_workflow',{'workflow':spec,'execute':True})
             assert result['state']=='succeeded',result
-            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations','quantization','schema_check','prefix_check','neighbors_check','ranked_results','polynomial_check','reachability_check','constraints_check'}
+            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations','quantization','schema_check','prefix_check','neighbors_check','ranked_results','polynomial_check','reachability_check','constraints_check','content_reconcile'}
             r=result['steps']['check']['result']
             assert r['planned_contacts']==200 and r['planned_cost_minor']==0
             assert r['feasible_under_declared_limits'] and not r['external_execution_authorized']
             assert result['steps']['agno']['result']['budget_checked']
-            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations','quantization','schema_check','prefix_check','neighbors_check','ranked_results','polynomial_check','reachability_check','constraints_check'),services):
+            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations','quantization','schema_check','prefix_check','neighbors_check','ranked_results','polynomial_check','reachability_check','constraints_check','content_reconcile'),services):
                 actual=result['steps'][step]['result']
                 assert actual['original_sdk']==sid and actual['llm_calls']==(1 if sid=='granite-guardian' else 0)
                 assert not actual['autonomous_agent']
@@ -148,7 +148,12 @@ def accept():
             constraints=result['steps']['constraints_check']['result']
             assert constraints['verdict']=='sat' and constraints['native_witness_units']==[1,1,0]
             assert constraints['feasible_assignments']==1 and constraints['finite_reference_verified']
-            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==29
+            content=result['steps']['content_reconcile']['result']
+            assert content['remaining_count']==2 and content['repeated_deletion_verified']
+            assert content['after_groups']==[{'segment':0,'total':result['steps']['measure']['observed_contacts'],'records':1},
+                                              {'segment':1,'total':result['steps']['measure']['observed_clients'],'records':1}]
+            assert 'fixed_synthetic_content' not in '\n'.join(e.db.iterdump())
+            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==30
         with closing(engine()) as e, \
                 patch.object(local_runtime,'execute',side_effect=AssertionError('SDK re-executed')), \
                 patch.object(objectives,'simulate',side_effect=AssertionError('simulation re-executed')):

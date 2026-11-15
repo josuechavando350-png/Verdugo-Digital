@@ -1,0 +1,248 @@
+{
+  "schema": "verdugo.content666.acceptance.v1",
+  "status": "passed",
+  "synthetic": true,
+  "original_sdk": "txtai",
+  "profile": "upstream_MINIMAL",
+  "cases": [
+    {
+      "original_sdk": "txtai",
+      "sdk_version": "9.15.0",
+      "dataset": "demo",
+      "profile": "upstream_MINIMAL",
+      "input_count": 3,
+      "removed_count": 1,
+      "remaining_count": 2,
+      "before_groups": [
+        {
+          "segment": 0,
+          "total": 30,
+          "records": 2
+        },
+        {
+          "segment": 1,
+          "total": -5,
+          "records": 1
+        }
+      ],
+      "after_groups": [
+        {
+          "segment": 0,
+          "total": 20,
+          "records": 1
+        },
+        {
+          "segment": 1,
+          "total": -5,
+          "records": 1
+        }
+      ],
+      "independent_aggregates_verified": true,
+      "repeated_deletion_verified": true,
+      "ephemeral_content_store_closed": true,
+      "persistent_content_store": false,
+      "raw_text_retained": false,
+      "semantic_search_verified": false,
+      "model_weights_loaded": false,
+      "llm_calls": 0,
+      "autonomous_agent": false,
+      "dry_run": true,
+      "external_calls_made": false,
+      "external_execution_authorized": false,
+      "operator_approval_required": true,
+      "approvals_granted": 0,
+      "business_outcome_proven": false,
+      "live_verified": false
+    },
+    {
+      "original_sdk": "txtai",
+      "sdk_version": "9.15.0",
+      "dataset": "demo",
+      "profile": "upstream_MINIMAL",
+      "input_count": 1,
+      "removed_count": 0,
+      "remaining_count": 1,
+      "before_groups": [
+        {
+          "segment": 0,
+          "total": 0,
+          "records": 1
+        }
+      ],
+      "after_groups": [
+        {
+          "segment": 0,
+          "total": 0,
+          "records": 1
+        }
+      ],
+      "independent_aggregates_verified": true,
+      "repeated_deletion_verified": true,
+      "ephemeral_content_store_closed": true,
+      "persistent_content_store": false,
+      "raw_text_retained": false,
+      "semantic_search_verified": false,
+      "model_weights_loaded": false,
+      "llm_calls": 0,
+      "autonomous_agent": false,
+      "dry_run": true,
+      "external_calls_made": false,
+      "external_execution_authorized": false,
+      "operator_approval_required": true,
+      "approvals_granted": 0,
+      "business_outcome_proven": false,
+      "live_verified": false
+    },
+    {
+      "original_sdk": "txtai",
+      "sdk_version": "9.15.0",
+      "dataset": "demo",
+      "profile": "upstream_MINIMAL",
+      "input_count": 2,
+      "removed_count": 2,
+      "remaining_count": 0,
+      "before_groups": [
+        {
+          "segment": 0,
+          "total": 0,
+          "records": 2
+        }
+      ],
+      "after_groups": [],
+      "independent_aggregates_verified": true,
+      "repeated_deletion_verified": true,
+      "ephemeral_content_store_closed": true,
+      "persistent_content_store": false,
+      "raw_text_retained": false,
+      "semantic_search_verified": false,
+      "model_weights_loaded": false,
+      "llm_calls": 0,
+      "autonomous_agent": false,
+      "dry_run": true,
+      "external_calls_made": false,
+      "external_execution_authorized": false,
+      "operator_approval_required": true,
+      "approvals_granted": 0,
+      "business_outcome_proven": false,
+      "live_verified": false
+    },
+    {
+      "original_sdk": "txtai",
+      "sdk_version": "9.15.0",
+      "dataset": "demo",
+      "profile": "upstream_MINIMAL",
+      "input_count": 32,
+      "removed_count": 2,
+      "remaining_count": 30,
+      "before_groups": [
+        {
+          "segment": 0,
+          "total": -4000000,
+          "records": 4
+        },
+        {
+          "segment": 1,
+          "total": 4000000,
+          "records": 4
+        },
+        {
+          "segment": 2,
+          "total": -4000000,
+          "records": 4
+        },
+        {
+          "segment": 3,
+          "total": 4000000,
+          "records": 4
+        },
+        {
+          "segment": 4,
+          "total": -4000000,
+          "records": 4
+        },
+        {
+          "segment": 5,
+          "total": 4000000,
+          "records": 4
+        },
+        {
+          "segment": 6,
+          "total": -4000000,
+          "records": 4
+        },
+        {
+          "segment": 7,
+          "total": 4000000,
+          "records": 4
+        }
+      ],
+      "after_groups": [
+        {
+          "segment": 0,
+          "total": -3000000,
+          "records": 3
+        },
+        {
+          "segment": 1,
+          "total": 4000000,
+          "records": 4
+        },
+        {
+          "segment": 2,
+          "total": -4000000,
+          "records": 4
+        },
+        {
+          "segment": 3,
+          "total": 4000000,
+          "records": 4
+        },
+        {
+          "segment": 4,
+          "total": -4000000,
+          "records": 4
+        },
+        {
+          "segment": 5,
+          "total": 4000000,
+          "records": 4
+        },
+        {
+          "segment": 6,
+          "total": -4000000,
+          "records": 4
+        },
+        {
+          "segment": 7,
+          "total": 3000000,
+          "records": 3
+        }
+      ],
+      "independent_aggregates_verified": true,
+      "repeated_deletion_verified": true,
+      "ephemeral_content_store_closed": true,
+      "persistent_content_store": false,
+      "raw_text_retained": false,
+      "semantic_search_verified": false,
+      "model_weights_loaded": false,
+      "llm_calls": 0,
+      "autonomous_agent": false,
+      "dry_run": true,
+      "external_calls_made": false,
+      "external_execution_authorized": false,
+      "operator_approval_required": true,
+      "approvals_granted": 0,
+      "business_outcome_proven": false,
+      "live_verified": false
+    }
+  ],
+  "source_commit": "973512fc0d30250613f7571a7b6446101aa9b92e",
+  "contract_sha256": "575536a79555561d92104927a18d77820afc03b2286382706dd2685f2abedad5",
+  "runtime_binding": "052fef11035c0139fb4a5910bf38adcce73f36f4fbf5433534c0ec8812ba3a0f",
+  "product_cli_mcp_restart_verified": true,
+  "raw_text_persisted": false,
+  "unexpected_module_and_dependency_rejected": true,
+  "os_network_isolated": false,
+  "live_verified": false,
+  "all_666_integrated": false
+}

@@ -59,6 +59,8 @@ jobs:
             sudo apt-get install -y gcc-14 g++-14
           fi
           python tests_runtime/install_usearch666.py
+          python tests_runtime/install_content666.py
+          VERDUGO_CONTENT666_PYTHON=/tmp/verdugo-content666/bin/python python tests_runtime/accept_content666.py --out /tmp/content666-execution-evidence.json
           python tests_runtime/install_symbolic666.py
           python tests_runtime/install_logic666.py
       - name: Original SDK, approval and restart with OS network isolation
@@ -79,6 +81,7 @@ jobs:
             VERDUGO_PLANNING666_PYTHON=/tmp/verdugo-planning666-venv/bin/python \
             VERDUGO_MONTY666_PYTHON=/tmp/verdugo-monty666-venv/bin/python \
             VERDUGO_LOGIC666_PYTHON=/tmp/verdugo-z3666/bin/python \
+            VERDUGO_CONTENT666_PYTHON=/tmp/verdugo-content666/bin/python \
             VERDUGO_SYMBOLIC666_PYTHON=/tmp/verdugo-symbolic666/bin/python \
             VERDUGO_RANKING666_PYTHON=/tmp/verdugo-ranking666-venv/bin/python \
             VERDUGO_USEARCH666_PYTHON=/tmp/verdugo-usearch666/bin/python \
@@ -135,6 +138,9 @@ jobs:
             /tmp/z3666-pip-report.json
             /tmp/z3666-resolved.txt
             /tmp/z3666-build-receipt.json
+            /tmp/content666-pip-report.json
+            /tmp/content666-resolved.txt
+            /tmp/content666-execution-evidence.json
             /tmp/symbolic666-pip-report.json
             /tmp/symbolic666-resolved.txt
             /tmp/ranking666-pip-report.json

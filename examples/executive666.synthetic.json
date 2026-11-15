@@ -809,6 +809,32 @@
       "depends_on": [
         "reachability_check"
       ]
+    },
+    {
+      "id": "content_reconcile",
+      "service": "txtai",
+      "operation": "content.reconcile",
+      "params": {
+        "dataset": "demo",
+        "rows": [
+          [
+            0,
+            {
+              "$ref": "measure.observed_contacts"
+            }
+          ],
+          [
+            1,
+            {
+              "$ref": "measure.observed_clients"
+            }
+          ]
+        ],
+        "remove": []
+      },
+      "depends_on": [
+        "measure"
+      ]
     }
   ]
 }

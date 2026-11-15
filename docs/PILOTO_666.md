@@ -1,6 +1,6 @@
 # Piloto 666: avance parcial del lote 1
 
-Treinta y siete de 183 piezas del primer lote tienen una operación nueva implementada: 27 locales y diez lecturas HTTP con aceptación sintética. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
+Treinta y ocho de 183 piezas del primer lote tienen una operación nueva implementada: 28 locales y diez lecturas HTTP con aceptación sintética. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
 
 ## Operación delimitada
 
@@ -304,3 +304,12 @@ El solver examina tres variables enteras de cero a tres, con costos y rendimient
 La plantilla mantiene la integración desactivada. Exige `api_surface=self_hosted_fuseki_admin`, `auth_mode=native_basic`, instancia dedicada y las revisiones `native_auth_enforced_reviewed`, `dedicated_instance_reviewed` y `status_route_basic_auth_reviewed`. La credencial privada es un único `usuario:contraseña` ASCII; el encabezado Basic se construye internamente. La configuración Shiro original incluye `/$/server = anon`: debe comprobarse una protección Basic efectiva de esa ruta, por ejemplo mediante el mecanismo Jetty de autenticación para todo el servidor respaldado por el código. Una configuración predeterminada o solo una contraseña configurada sin proteger la ruta no satisface la revisión.
 
 Las siete pruebas usan respuestas sintéticas, sockets locales, CLI/MCP, SQLite y reinicio. Cubren respuestas inválidas, duplicados, límites, cambios de credencial/revisión y ausencia de datos privados persistidos. El servidor original y sus dependencias Java no se instalaron ni ejecutaron; `live_verified=false` y producción certificada continúa en cero.
+
+
+## txtai: conciliación de contenido acotada
+
+`content.reconcile` usa el almacén original SQLite de la distribución oficial `txtai_minimal`, construida con `MINIMAL=1` desde el commit fijado. No modifica ni omite dependencias obligatorias: ese perfil original no declara ninguna. Solo admite hasta 32 pares de segmento y cantidad enteros y una lista de índices por eliminar; la consulta SQL es fija, no hay destinos, modelos ni texto del usuario. Contrasta agrupaciones y borrados contra una referencia escalar, cierra el almacén efímero y conserva solo resultados numéricos en Engine. No demuestra recuperación semántica ni memoria comercial permanente.
+
+Preparación: `python tests_runtime/install_content666.py`. Perfil: `VERDUGO_CONTENT666_PYTHON=/tmp/verdugo-content666/bin/python`. Aceptación: `python tests_runtime/accept_content666.py --out /tmp/content666-evidence.json`. El instalador exige un destino nuevo; la huella verifica los 277 archivos instalados, el intérprete, la configuración y la ausencia de paquetes o módulos adicionales. El mismo servicio participa en `product-run`, MCP y el flujo conjunto del piloto.
+
+En el flujo conjunto, `content_reconcile` recibe mediante referencias los contactos y clientes de la etapa `measure`. No vuelve a introducir esas mediciones a mano. La aceptación independiente del componente y sus límites se conserva en `evidence/accepted/content666-local-20261115.json`.
