@@ -13,10 +13,16 @@ from . import connections, license_policy
 from .registry666 import read_registry
 
 ROOT = Path(__file__).resolve().parents[1]
+# Ordered 39 IDs implemented at 4dbd055, joined with LF and no trailing LF.
+# Future adapters must never be substituted into this historical baseline.
+BASELINE_IDS_SHA256 = 'fd397fe906a3bfd6d00311f032e07ecc40e2b771763bf20e944497202460ce67'
 REVIEWS = (
     'contracts-executive-blockers666.json', 'review-runtime-next666.json',
     'review-memory-next666.json', 'review-logic-next666.json',
     'review-reasoning-next666.json', 'review-end80-next666.json', 'review-numeric-next666.json',
+    'review-license-decision666.json',
+    'review-candle-dependencies666.json',
+    'review-clingo-dependencies666.json',
 )
 
 
@@ -28,6 +34,40 @@ def read_json(path, limit=4*1024*1024):
         return json.loads(raw), hashlib.sha256(raw).hexdigest()
     except (OSError, UnicodeError, ValueError) as exc:
         raise VerdugoError('Integration evidence is unreadable') from exc
+
+
+def continuation_batches(resume, queue, implemented):
+    """Keep A/B membership fixed while deriving completion from actual code."""
+    rebatch = resume.get('rebatch')
+    if (resume.get('schema') != 'verdugo.resume666.v2' or not isinstance(rebatch, dict)
+            or rebatch.get('baseline_commit') != '4dbd05535e35208a1f9fb8e92a1d3da433b76c34'
+            or rebatch.get('outside_batches_pending') != ['meta-ads']):
+        raise VerdugoError('Invalid A/B continuation baseline')
+    previous, groups = rebatch.get('previously_implemented'), rebatch.get('batches')
+    if (not isinstance(previous, list) or len(previous) != 39
+            or any(not isinstance(sid, str) for sid in previous)
+            or hashlib.sha256('\n'.join(previous).encode()).hexdigest() != BASELINE_IDS_SHA256
+            or len(set(previous)) != 39 or not set(previous) <= implemented
+            or not set(resume['previously_implemented']) <= set(previous)
+            or previous != [r['id'] for r in queue if r['id'] in previous]
+            or any(r['batch'] != 1 for r in queue if r['id'] in previous)
+            or not isinstance(groups, list) or len(groups) != 2):
+        raise VerdugoError('Invalid A/B previously implemented identities')
+    expected = [sid for group in resume['subbatches'] for sid in group['ids']
+                if sid not in previous] + [r['id'] for r in queue if r['batch'] == 2]
+    if len(expected) != 327 or len(set(expected)) != 327:
+        raise VerdugoError('Invalid A/B pending sequence')
+    batches, offset = [], 0
+    for group, name, size in zip(groups, ('A', 'B'), (164, 163)):
+        if (not isinstance(group, dict) or group.get('name') != name
+                or type(group.get('size')) is not int or group['size'] != size
+                or group.get('ids') != expected[offset:offset+size]):
+            raise VerdugoError('A/B continuation changes membership, size or order')
+        done = [sid for sid in group['ids'] if sid in implemented]
+        batches.append({'name': name, 'size': size, 'implemented': len(done),
+                        'pending': size-len(done), 'implemented_ids': done})
+        offset += size
+    return batches
 
 
 def summary():
@@ -57,6 +97,11 @@ def summary():
     if (any(not isinstance(s, str) for s in previous) or len(membership) != len(set(membership))
             or set(membership) != {r['id'] for r in queue if r['batch'] == 1}):
         raise VerdugoError('Continuation double-counts or loses an original batch identity')
+    # The historical 80/81 groups retain their original relative queue order.
+    historical_order = [sid for group in groups for sid in group['ids']]
+    if historical_order != [r['id'] for r in queue if r['batch'] == 1 and r['id'] not in previous]:
+        raise VerdugoError('Historical continuation order differs from work_queue')
+    batches = continuation_batches(resume, queue, implemented)
     findings = []
     for name in REVIEWS:
         document, digest = read_json(ROOT/'sources'/name)
@@ -99,7 +144,10 @@ def summary():
         'original_batches': [{'number': n, 'size': 183,
             'implemented': sum(r['id'] in implemented for r in queue if r['batch'] == n),
             'pending': sum(r['id'] not in implemented for r in queue if r['batch'] == n)} for n in (1, 2)],
-        'subbatches': subbatches, 'review_findings': findings,
+        'subbatches': subbatches, 'batches': batches,
+        'implemented_before_rebatch': 39,
+        'outside_batches_pending': ['meta-ads'] if states['meta-ads'] == 'pendiente' else [],
+        'review_findings': findings,
         'existing_profile_review': {'dependency': existing['dependency'], 'version': existing['version'],
             'review_status': 'dependency_license_scope_unresolved', 'profiles': impacted,
             'evidence_path': 'sources/review-runtime-next666.json', 'evidence_sha256': digest},

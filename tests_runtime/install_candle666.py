@@ -43,7 +43,7 @@ def record_installation(prefix, source, record, rust_version):
 
 
 def install(prefix):
-    raise RuntimeError('Candle dependency license review unresolved; preparation disabled')
+    raise RuntimeError('Candle full dependency closure and current acceptance pending; preparation disabled')
 
 
 def _historical_unregistered_installer(prefix):

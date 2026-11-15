@@ -5,8 +5,8 @@
       "id": "bm25s",
       "repository": "xhluca/bm25s",
       "commit": "b335013d0172e8c2aabd1399d60146cc51768458",
-      "status": "blocked_reviewed_dependency_candidate",
-      "note": "Original BM25S requires NumPy without an exact pin. The inspected NumPy 2.2.6 source distribution includes libdivide under Zlib; LICENSES_bundled.txt explicitly classifies it as bundled library code, unlike the build-only libraries it separately identifies. Zlib is permissive and royalty-free, but absent from the inherited closed allowlist. No exception or policy change was made. This finding does not characterize every other compatible NumPy version or prove commercial incompatibility. No BM25S or NumPy installation/build was performed. Partial source extraction first hit workspace ENOSPC; review continued directly from the verified source archive.",
+      "status": "pending_dependency_closure_and_acceptance",
+      "note": "Owner approved Zlib on 2026-11-15: the inspected NumPy 2.2.6 libdivide text is now allowed. The fixed BM25S commit, dependency resolution, installed artifacts, bounded contract and runtime acceptance still need preparation. Other NumPy versions were not assessed by this finding.",
       "files": [
         {
           "path": "LICENSE",
@@ -66,7 +66,23 @@
       "sdk_installed": false,
       "runtime_executed": false,
       "counted_as_connected": false,
-      "live_verified": false
+      "live_verified": false,
+      "assessment_before_owner_decision": {
+        "status": "blocked_reviewed_dependency_candidate",
+        "note": "Original BM25S requires NumPy without an exact pin. The inspected NumPy 2.2.6 source distribution includes libdivide under Zlib; LICENSES_bundled.txt explicitly classifies it as bundled library code, unlike the build-only libraries it separately identifies. Zlib is permissive and royalty-free, but absent from the inherited closed allowlist. No exception or policy change was made. This finding does not characterize every other compatible NumPy version or prove commercial incompatibility. No BM25S or NumPy installation/build was performed. Partial source extraction first hit workspace ENOSPC; review continued directly from the verified source archive."
+      },
+      "policy_reassessment": {
+        "date": "2026-11-15",
+        "approved_additions": [
+          "Zlib",
+          "BSL-1.0",
+          "Unicode-3.0"
+        ],
+        "reviewed_blocker_removed": true,
+        "complete_dependency_closure_verified": false,
+        "counted_as_connected": false,
+        "evidence": "sources/review-license-decision666.json"
+      }
     }
   ]
 }

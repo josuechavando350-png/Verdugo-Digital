@@ -9,7 +9,7 @@ from .local_native import checked
 from . import runtime_profile
 
 CANDIDATE_SPECS = {'candle': ('scores.normalize', 'candle-nn', '0.11.1')}
-SPECS = {}  # Quarantined: dependency license outside the configured allowlist.
+SPECS = {}  # Full active dependency closure and current acceptance still pending.
 CONTRACT = Path(__file__).resolve().parents[1] / 'sources/contracts-tensor666.json'
 RECEIPT = 'share/verdugo-candle/build.json'
 PACKAGE = 'lib/python3.13/site-packages'
@@ -84,7 +84,7 @@ def validate(service, operation, p):
 
 
 def run(service, p):
-    raise VerdugoError('Candle dependency license review unresolved; candidate disabled')
+    raise VerdugoError('Candle full dependency closure and current acceptance pending; candidate disabled')
 
 
 def _historical_unregistered_recipe(service, p):

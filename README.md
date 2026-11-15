@@ -9,11 +9,13 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 
 ## Hacia los 666
 
-El plan para llegar a 666 piezas libres (300 del catálogo + 50 del simulador + 150 del cerebro + 166 finales) está en [docs/PLAN_666.md](docs/PLAN_666.md), con las instrucciones por tanda en [docs/PROMPT_ASTRA_666.md](docs/PROMPT_ASTRA_666.md). El registro contiene 688 identidades distintas: 666 permitidas por licencia raíz y 22 excluidas. Treinta y nueve de las 366 incorporaciones tienen una operación implementada: 28 locales y once lecturas HTTP con aceptación sintética; 327 siguen pendientes. La auditoría corrigió cinco alias duplicados y una licencia restringida; evidencia y cola de dos lotes de 183 en [docs/REGISTRO_666.md](docs/REGISTRO_666.md).
+El plan para llegar a 666 piezas libres (300 del catálogo + 50 del simulador + 150 del cerebro + 166 finales) está en [docs/PLAN_666.md](docs/PLAN_666.md), con las instrucciones por tanda en [docs/PROMPT_ASTRA_666.md](docs/PROMPT_ASTRA_666.md). El registro contiene 688 identidades distintas: 666 permitidas por licencia raíz y 22 excluidas. Treinta y nueve de las 366 incorporaciones tienen una operación implementada: 28 locales y once lecturas HTTP con aceptación sintética; 327 siguen pendientes. La auditoría corrigió cinco alias duplicados y una licencia restringida; evidencia y cola original de dos lotes de 183 en [docs/REGISTRO_666.md](docs/REGISTRO_666.md).
 
 OpenManus fue retirado tras detectar su dependencia obligatoria GPL-3.0; vuelve a pendientes. InterpretML incorpora una explicación aditiva sintética. TransformerLens añade diagnóstico de un modelo sin entrenar; Bitsandbytes añade diagnóstico nativo de cuantización; Guidance y LM Format Enforcer comprueban formatos y prefijos sintéticos; TensorZero y Opik añaden lecturas acotadas de registros existentes; MemOS y LightRAG añaden recuentos de tareas y documentos; Kernel Memory, Chroma y Milvus añaden inventarios acotados; USearch añade diagnóstico nativo de vecinos y RAGFlow un inventario comunitario; Rerankers ordena puntuaciones suministradas e Infinity cuenta modelos declarados; SymPy comprueba polinomios, RDFLib comprueba alcanzabilidad, Z3 comprueba factibilidad finita y Jena cuenta datasets de Fuseki; txtai concilia contenido numérico en su almacén efímero original; KAG consulta el estado de una tarea existente mediante su protocolo original; el total vigente llega a 39 incorporaciones con adaptador; las pruebas funcionales históricas no sustituyen revisión de dependencias.
 
 El campo `integration_audit` de `product-status` verifica identidades y pertenencia a los lotes, muestra las revisiones pendientes y conserva el hallazgo de certifi en doce perfiles. `all_666_integrated=false` y `distribution_license_closure_verified=false`: el registro no certifica un producto distribuible. [Continuidad y alcance actual](docs/CONTINUIDAD_666.md).
+
+La continuación vigente está dividida en **Lote A 0/164 · Lote B 0/163**. La pertenencia exacta figura en `sources/resume-666.json/rebatch`, sin recontar las 39 incorporaciones anteriores. Se aprobaron únicamente Zlib, Boost Software License 1.0 (`BSL-1.0`) y Unicode-3.0; la reevaluación de candidatos conserva los límites de revisión y no añade adaptadores. Tokenizers continúa bloqueado por MPL-2.0.
 
 ## Estado del código
 
@@ -30,7 +32,7 @@ El campo `integration_audit` de `product-status` verifica identidades y pertenen
 | Operaciones HTTP existentes | 118, limitadas por proveedor |
 | Operaciones locales implementadas | 187; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Flujo de 87 operaciones nuevas + métricas locales; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 915 pruebas locales; comprobar los tres workflows del commit vigente en CI |
+| Pruebas unitarias y de contrato | 920 pruebas locales; comprobar los tres workflows del commit vigente en CI |
 | Herramientas MCP | 25; product-status/product-run reutilizan el mismo motor |
 | Servicios productivos certificados | 0 |
 

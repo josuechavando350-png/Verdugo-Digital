@@ -335,8 +335,8 @@
       "id": "bm25s",
       "repository": "xhluca/bm25s",
       "commit": "b335013d0172e8c2aabd1399d60146cc51768458",
-      "status": "blocked_reviewed_dependency_candidate",
-      "note": "The original package requires NumPy; SciPy is optional. The inspected NumPy 2.2.6 source candidate bundles libdivide under Zlib, a permissive license absent from the closed allowlist. Evidence and limits in sources/review-numeric-next666.json. No install/build or adapter; other candidates are not ruled out by this review.",
+      "status": "pending_dependency_closure_and_acceptance",
+      "note": "Owner approved Zlib on 2026-11-15. The specific libdivide finding in NumPy 2.2.6 no longer blocks this candidate. BM25S requires NumPy; SciPy is an optional indexing extra. Full dependency review, source build, bounded contract and acceptance remain pending. See sources/review-numeric-next666.json and sources/review-license-decision666.json.",
       "files": [
         {
           "path": "LICENSE",
@@ -372,7 +372,11 @@
       "sdk_installed": false,
       "runtime_executed": false,
       "live_verified": false,
-      "counted_as_connected": false
+      "counted_as_connected": false,
+      "assessment_before_owner_decision": {
+        "status": "blocked_reviewed_dependency_candidate",
+        "note": "The original package requires NumPy; SciPy is optional. The inspected NumPy 2.2.6 source candidate bundles libdivide under Zlib, a permissive license absent from the closed allowlist. Evidence and limits in sources/review-numeric-next666.json. No install/build or adapter; other candidates are not ruled out by this review."
+      }
     },
     {
       "id": "tantivy",

@@ -782,8 +782,8 @@
     },
     {
       "id": "tokenizers",
-      "state": "pending",
-      "reason": "Dependency license outside the closed repository allowlist; no exception or policy extension applied. Permissive Zlib/Unicode-3.0 are not described as nonfree.",
+      "state": "blocked_unapproved_mpl_dependency",
+      "reason": "Still blocked: the reviewed mandatory ptr_hash -> colored 3.1.1 dependency is MPL-2.0, not one of the three owner-approved additions. Candidate remains unregistered.",
       "source_commit": "39e28180be35af322d0abf08007d937641a5493b",
       "source_contract": "sources/contracts-encoding666.json",
       "original_lock_sha256": "8c318fa6926c594e27b3045aaa785803c9ce84d436095183335cc1062be48790",
@@ -825,12 +825,28 @@
       ],
       "historical_source_build_and_numeric_probe_succeeded": true,
       "counted_as_operational": false,
-      "scope": "Selected resolved runtime/build dependencies examined; not a complete transitive license audit of all profiles."
+      "scope": "Selected resolved runtime/build dependencies examined; not a complete transitive license audit of all profiles.",
+      "assessment_before_owner_decision": {
+        "state": "pending",
+        "reason": "Dependency license outside the closed repository allowlist; no exception or policy extension applied. Permissive Zlib/Unicode-3.0 are not described as nonfree."
+      },
+      "policy_reassessment": {
+        "date": "2026-11-15",
+        "approved_additions": [
+          "Zlib",
+          "BSL-1.0",
+          "Unicode-3.0"
+        ],
+        "reviewed_blocker_removed": false,
+        "complete_dependency_closure_verified": false,
+        "counted_as_connected": false,
+        "evidence": "sources/review-license-decision666.json"
+      }
     },
     {
       "id": "candle",
-      "state": "pending",
-      "reason": "Dependency license outside the closed repository allowlist; no exception or policy extension applied. Permissive Zlib/Unicode-3.0 are not described as nonfree.",
+      "state": "blocked_unapproved_build_license_expression",
+      "reason": "Zlib and Unicode-3.0 findings were resolved by the owner decision. The fixed CPU Python build still requires target-lexicon 0.13.6 through pyo3-build-config 0.29.3. Its exact license expression Apache-2.0 WITH LLVM-exception is outside the closed list; no additional expression or exception was approved. This is a policy boundary, not a claim of a paid/nonfree dependency. The additional permissions in the LLVM text were not silently treated as a new approved SPDX expression. No alternate version was substituted.",
       "source_commit": "cfcbd7186d13271843ce7eb41d25659bd0835850",
       "source_contract": "sources/contracts-tensor666.json",
       "original_lock_sha256": "e98f276dc7d968e12a2c5f2f21aa60b6b56c695c3ebb7377afe269f2ea2d8c0a",
@@ -897,7 +913,24 @@
       ],
       "historical_source_build_and_numeric_probe_succeeded": true,
       "counted_as_operational": false,
-      "scope": "Selected resolved runtime/build dependencies examined; not a complete transitive license audit of all profiles."
+      "scope": "Selected resolved runtime/build dependencies examined; not a complete transitive license audit of all profiles.",
+      "assessment_before_owner_decision": {
+        "state": "pending",
+        "reason": "Dependency license outside the closed repository allowlist; no exception or policy extension applied. Permissive Zlib/Unicode-3.0 are not described as nonfree."
+      },
+      "policy_reassessment": {
+        "date": "2026-11-15",
+        "approved_additions": [
+          "Zlib",
+          "BSL-1.0",
+          "Unicode-3.0"
+        ],
+        "reviewed_blocker_removed": true,
+        "complete_dependency_closure_verified": false,
+        "counted_as_connected": false,
+        "evidence": "sources/review-license-decision666.json"
+      },
+      "additional_dependency_review": "sources/review-candle-dependencies666.json"
     }
   ]
 }

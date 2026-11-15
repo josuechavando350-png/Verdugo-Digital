@@ -1,6 +1,16 @@
 # Verdugo Digital — Plan de los 666
 
-Fecha: 15 de noviembre de 2026. Base: `main` después de la v0.21.1.
+Fecha: 15 de noviembre de 2026. Rama de trabajo: `feat/666-pilot` (PR #25 en borrador) sobre `feat/666-registry` (PR #24).
+
+## Estado vigente: lotes A y B
+
+**Lote A 0/164 · Lote B 0/163.** Las 39 incorporaciones ya implementadas quedan fuera de ambos lotes y no se vuelven a contar. Total: **282 adaptadores implementados, 56 piezas de construcción, 328 pendientes y `live_verified=0`**. Los 327 miembros de A/B son las 63 piezas restantes del sublote de 80, las 81 del segundo sublote y las 183 del lote 2 original, en ese orden. `meta-ads` es la pendiente restante y sigue bloqueada sin fuente original suficiente.
+
+La pertenencia exacta e inmutable está en `sources/resume-666.json/rebatch`. A termina en `axolotl` y B empieza en `openrlhf`; `product-status.integration_audit.batches` calcula el avance desde los adaptadores existentes y rechaza omisiones, duplicados, reordenamientos y recuentos de las 39 anteriores. Los lotes originales y sublotes se conservan como historia.
+
+**Decisión de licencias aplicada:** se añaden únicamente Zlib, Boost Software License 1.0 (`BSL-1.0`, distinta de Business Source License) y Unicode-3.0 a AGENTS.md y a la política. Se releyeron las licencias raíz fijadas y se comprobaron los hashes de los textos de las dependencias revisadas. Quedan levantados esos bloqueos concretos de BM25S, Rustworkx, Clingo y Candle, pero siguen pendientes el cierre completo de sus perfiles, contrato/build cuando falte y aceptación vigente. La revisión ampliada de Candle confirmó 136 checksums de crates del árbol CPU fijado y encontró `pyo3-build-config 0.29.3 → target-lexicon 0.13.6`, bajo `Apache-2.0 WITH LLVM-exception`, fuera de la lista literal autorizada. Se detuvo ese perfil; no se afirma que sea una licencia de pago. El LICENSE original está enlazado por commit, blob SHA y SHA256 en `sources/review-candle-dependencies666.json`. La revisión nativa de Clingo comprobó nueve archivos fuente comprimidos y sus licencias raíz, y conserva pendiente el alcance del aviso GPL con excepción de los analizadores Bison (`sources/review-clingo-dependencies666.json`); no se compiló ni se reclasificó el proyecto completo. Tokenizers continúa bloqueado por `colored 3.1.1` MPL-2.0. No se habilitó ninguna excepción. Evidencia acotada: `sources/review-license-decision666.json`; los análisis previos se conservan, identificados como anteriores a la decisión.
+
+**Corrección inicial de CI:** el fallo de `4dbd055` fue una coincidencia de `9999` con los decimales de `observed_at`, no una filtración observada. El commit `486a27119f0085196d0f37136c54a15b1e3a4c83` fija ese timestamp en la prueba y compara el esquema público completo, conservando los controles de privacidad. En ese commit, [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43763785526) y [servicios](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43763785456) aprobaron, y [runtime](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43763785520) terminó también en `success` antes de incorporar nuevos adaptadores. Los tres workflows de `486a271` quedaron en verde, incluido `baseline`. Los cambios de política y lotes pasan **921 pruebas locales**; la ejecución local no sustituye los tres workflows del commit vigente.
 
 ## Inventario
 
@@ -106,9 +116,9 @@ Los 22 excluidos por licencia siguen registrados, pero no cuentan ni se operan.
 - **KAG añade `task.summary`:** consulta fija `cmd=query` sobre una tarea configurada privadamente. Verifica el identificador de respuesta, proyecta recuentos y mantiene la ambigüedad entre fallo, ausencia y expiración. Pasaron 11 pruebas nuevas y cinco casos con el esquema y la caché originales; no se ejecutó el servidor completo. [Contrato y alcance](KAG_666.md).
 - La revisión ampliada de Egg confirma la dependencia obligatoria de `symbol_table` en `foldhash`; se documentó el candidato 0.1.5 Zlib. SWI-Prolog exige ZLIB aun seleccionando LibBF en lugar de GMP. Ninguno se contó como integrado ni se amplió la política.
 
-## Reanudación: sublotes de 80 y 81
+## Reanudación: sublotes de 80 y 81 (histórico)
 
-Por instrucción del dueño, las 161 piezas pendientes del lote 1 se dividen en sublotes de 80 y 81, conservando el orden original. Las 22 ya comprobadas no se vuelven a contar. El lote 2 original de 183 sigue separado. La pertenencia exacta queda en `sources/resume-666.json`; un bloqueo revisado no equivale a una conexión terminada.
+Esta organización histórica queda sustituida para trabajo nuevo por los lotes A/B descritos al inicio. Por instrucción anterior del dueño, las 161 piezas pendientes del lote 1 se dividieron en sublotes de 80 y 81, conservando el orden original. Las 22 ya comprobadas no se vuelven a contar. El lote 2 original de 183 sigue separado. La pertenencia exacta queda en `sources/resume-666.json`; un bloqueo revisado no equivale a una conexión terminada.
 
 LM Evaluation Harness conserva un bloqueo de la resolución examinada: `pytablewriter 1.2.1 → mbstrdecoder 1.1.5 → chardet 6.0.0.post1`, LGPL-2.1. La evidencia completa se incorporó desde PR #25 a `sources/review-runtime-next666.json`. La versión 7.7.0 usada por Semantic Kernel se comprobó por separado como 0BSD; no se extiende el hallazgo entre versiones.
 
@@ -138,7 +148,9 @@ Un solo sistema que recibe un objetivo de negocio ("20 clientes este mes para es
 
 ## Orden de construcción
 
-El plan original dividía el trabajo en tandas de hasta 50. La organización vigente usa dos lotes de 183, con pruebas, los tres workflows observados en verde y PR encadenados. Las fases funcionales originales se conservan abajo. Por instrucción del dueño del 15 de noviembre, la ejecución se agrupa en **dos lotes de 183**, en el orden explícito de `sources/registry-666.json/work_queue`. El registro (tanda 0) sigue siendo previo.
+El orden vigente usa **Lote A (164) y Lote B (163)**, con membresía exacta en `sources/resume-666.json/rebatch` y progreso calculado desde el código. Primero van los 63 pendientes del antiguo sublote de 80, luego los 81 del segundo sublote y finalmente los 183 del lote 2 original. Las primeras 164 piezas forman A y las 163 restantes B. Los 39 adaptadores anteriores se conservan fuera de estos lotes. Un bloqueo revisado sigue pendiente. Los checkpoints requieren commit publicado, los tres workflows observados y PR en borrador encadenados; no fusionar a `main`.
+
+Las fases funcionales originales se conservan abajo como referencia; no alteran la nueva cola.
 
 | Tanda | Qué | Piezas | Criterio de terminado |
 |---|---|---|---|

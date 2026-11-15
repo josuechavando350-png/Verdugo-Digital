@@ -6,7 +6,8 @@ root license file. It is a technical classification, not a legal review:
 IP lawyer) still has to approve real use. This module never fetches anything.
 
 Policies:
-- libre: permissive license (MIT, Apache-2.0, BSD, ISC, CC0, Unlicense, PostgreSQL).
+- libre: permissive license (MIT, Apache-2.0, BSD, ISC, CC0, Unlicense,
+  PostgreSQL, Zlib, Boost Software License 1.0, Unicode-3.0).
 - libre_nucleo: permissive core; enterprise/commercial folders must not be used.
 - libre_condicionado: usable as-is with a stated condition (MPL-2.0 files,
   Meta platform SDK, license declared only in README).
@@ -27,7 +28,8 @@ POLICIES = ('libre', 'libre_nucleo', 'libre_condicionado', 'excluido')
 PERMISSIVE = {'MIT', 'Apache-2.0', 'Apache-2.0 OR MIT', 'Apache-2.0 AND MIT',
               'BSD-2-Clause', 'BSD-3-Clause', 'ISC', 'CC0-1.0', 'Unlicense',
               'PostgreSQL', 'MIT AND BUSL-1.1', 'MIT AND BSD-3-Clause',
-              'Apache-2.0 AND BSD-3-Clause'}
+              'Apache-2.0 AND BSD-3-Clause', 'Zlib', 'BSL-1.0', 'Unicode-3.0'}
+# BSL-1.0 is Boost Software License 1.0, never Business Source (BUSL-1.1).
 EXCLUDED = frozenset({
     'twenty', 'frappe-crm', 'erpnext', 'odoo', 'mautic', 'listmonk',
     'easyappointments', 'formbricks', 'documenso', 'postiz', 'dub', 'comfyui',

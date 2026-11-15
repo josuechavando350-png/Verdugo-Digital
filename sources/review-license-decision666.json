@@ -1,0 +1,206 @@
+{
+  "schema": "verdugo.owner-license-decision666.v1",
+  "decision_date": "2026-11-15",
+  "approved_additions": [
+    "Zlib",
+    "BSL-1.0",
+    "Unicode-3.0"
+  ],
+  "scope": "Owner policy update and scoped reassessment of original license bytes. No new adapter, full dependency-closure certification, model-weight approval or production verification.",
+  "records": [
+    {
+      "id": "bm25s",
+      "repository": "xhluca/bm25s",
+      "commit": "b335013d0172e8c2aabd1399d60146cc51768458",
+      "status": "pending_dependency_closure_and_acceptance",
+      "note": "Owner approved Zlib on 2026-11-15: the inspected NumPy 2.2.6 libdivide text is now allowed. The fixed BM25S commit, dependency resolution, installed artifacts, bounded contract and runtime acceptance still need preparation. Other NumPy versions were not assessed by this finding.",
+      "root_license_evidence": [
+        {
+          "repository": "xhluca/bm25s",
+          "commit_sha": "b335013d0172e8c2aabd1399d60146cc51768458",
+          "path": "LICENSE",
+          "blob_sha": "7a0a000ba7fc0e5dcdaf653b8f38d4a898ef5479",
+          "sha256": "8c159b4c621a86c4695c83f42a00932b26183f6da8ab62b0865835594426c8ff",
+          "local_path": "sources/license-texts/8c159b4c621a86c4695c83f42a00932b26183f6da8ab62b0865835594426c8ff.txt",
+          "source_url": "https://github.com/xhluca/bm25s/blob/b335013d0172e8c2aabd1399d60146cc51768458/LICENSE"
+        }
+      ],
+      "reviewed_dependencies": [
+        {
+          "name": "numpy/libdivide",
+          "version": "2.2.6",
+          "spdx": "Zlib",
+          "artifact_sha256": "e29554e2bef54a90aa5cc07da6ce955accb83f21ab5de01a62c8478897b264fd",
+          "license_path": "numpy/_core/include/numpy/libdivide/LICENSE.txt",
+          "license_sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+          "allowed_by_current_policy": true
+        }
+      ],
+      "source_review": "sources/review-numeric-next666.json",
+      "counted_as_connected": false,
+      "live_verified": false,
+      "source_review_sha256": "55ea9f20f04b0a8390d0be616721a27cef5082ec63d5d4607092a659b8ab62c5"
+    },
+    {
+      "id": "rustworkx",
+      "repository": "Qiskit/rustworkx",
+      "commit": "e32b4d3342834a78efd9b5144393e6c28ac1b137",
+      "status": "pending_dependency_closure_and_acceptance",
+      "note": "Owner approved Zlib on 2026-11-15: the original Cargo.lock foldhash 0.1.5 license is now allowed. Full active dependency closure, source build, bounded contract and runtime acceptance remain pending.",
+      "root_license_evidence": [
+        {
+          "repository": "Qiskit/rustworkx",
+          "commit_sha": "e32b4d3342834a78efd9b5144393e6c28ac1b137",
+          "path": "LICENSE",
+          "blob_sha": "68c771a099958211169377d766a7389422f5573d",
+          "sha256": "5df2a0d87d6c562f0ea11c688ac52532aa28d744cabc7994ff0537f64b3b3320",
+          "local_path": "sources/license-texts/5df2a0d87d6c562f0ea11c688ac52532aa28d744cabc7994ff0537f64b3b3320.txt",
+          "source_url": "https://github.com/Qiskit/rustworkx/blob/e32b4d3342834a78efd9b5144393e6c28ac1b137/LICENSE"
+        }
+      ],
+      "reviewed_dependencies": [
+        {
+          "name": "foldhash",
+          "version": "0.1.5",
+          "spdx": "Zlib",
+          "artifact_sha256": "d9c4f5dac5e15c24eb999c26181a6ca40b39fe946cbe4c263c7209467bc83af2",
+          "license_path": "foldhash-0.1.5/LICENSE",
+          "license_sha256": "b1181a40b2a7b25cf66fd01481713bc1005df082c53ef73e851e55071b102744",
+          "allowed_by_current_policy": true
+        }
+      ],
+      "source_review": "sources/review-logic-next666.json",
+      "counted_as_connected": false,
+      "live_verified": false,
+      "source_review_sha256": "4112bf9584ea0f7c10b541ce695b25054e002a929c04c769d93e6b3a9d80a5f1"
+    },
+    {
+      "id": "clingo",
+      "repository": "potassco/clingo",
+      "commit": "f1d4b8e63a665898fddf4a620333eb0a1bfdebd9",
+      "status": "pending_generated_parser_license_scope",
+      "note": "Owner approved BSL-1.0 on 2026-11-15: variant/wide-integer no longer block the pinned profile. The native CLI was inspected without Python/Lua; nine source archives and their root licenses were verified. Its generated Bison parsers carry a GPL notice and a larger-work exception whose scope has not been certified under the closed policy. This does not classify the whole MIT-root Clingo project as GPL-only or paid. No build, adapter or runtime acceptance yet. Evidence: sources/review-clingo-dependencies666.json.",
+      "root_license_evidence": [
+        {
+          "repository": "potassco/clingo",
+          "commit_sha": "f1d4b8e63a665898fddf4a620333eb0a1bfdebd9",
+          "path": "LICENSE.md",
+          "blob_sha": "c94e4a1d0482c8f9587d4ba78a53a2af66dd440e",
+          "sha256": "8de01c48f0adf249cd631e7320fbf4f15b6f5c25ddb18cdf1410c95c9f0c445d",
+          "local_path": "sources/license-texts/8de01c48f0adf249cd631e7320fbf4f15b6f5c25ddb18cdf1410c95c9f0c445d.txt",
+          "source_url": "https://github.com/potassco/clingo/blob/f1d4b8e63a665898fddf4a620333eb0a1bfdebd9/LICENSE.md"
+        }
+      ],
+      "reviewed_dependencies": [
+        {
+          "name": "ckormanyos/wide-integer",
+          "commit": "c725651dd2d97932822daf92337cf634eb56d9fa",
+          "spdx": "BSL-1.0",
+          "license_path": "LICENSE_1_0.txt",
+          "license_sha256": "588cbc0d57c4e195cc639cd8975634d257428e3559b0cb8ca6b84bc07e503b89",
+          "blob_sha": "143501e825a1061a4295f5caec4fc4ec384941e7",
+          "allowed_by_current_policy": true
+        },
+        {
+          "name": "mpark/variant",
+          "commit": "23cb94f027d4ef33bf48133acc2695c7e5c6f1e7",
+          "spdx": "BSL-1.0",
+          "license_path": "LICENSE.md",
+          "license_sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566",
+          "blob_sha": "36b7cd93cdfbac762f5be4c6ce276df2ea6305c2",
+          "allowed_by_current_policy": true
+        }
+      ],
+      "source_review": "sources/review-logic-next666.json",
+      "counted_as_connected": false,
+      "live_verified": false,
+      "source_review_sha256": "4112bf9584ea0f7c10b541ce695b25054e002a929c04c769d93e6b3a9d80a5f1",
+      "additional_review": "sources/review-clingo-dependencies666.json"
+    },
+    {
+      "id": "candle",
+      "repository": "huggingface/candle",
+      "commit": "cfcbd7186d13271843ce7eb41d25659bd0835850",
+      "status": "blocked_unapproved_build_license_expression",
+      "note": "Zlib and Unicode-3.0 findings were resolved by the owner decision. The fixed CPU Python build still requires target-lexicon 0.13.6 through pyo3-build-config 0.29.3. Its exact license expression Apache-2.0 WITH LLVM-exception is outside the closed list; no additional expression or exception was approved. This is a policy boundary, not a claim of a paid/nonfree dependency. The additional permissions in the LLVM text were not silently treated as a new approved SPDX expression. No alternate version was substituted.",
+      "root_license_evidence": [
+        {
+          "repository": "huggingface/candle",
+          "commit_sha": "cfcbd7186d13271843ce7eb41d25659bd0835850",
+          "path": "LICENSE-APACHE",
+          "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "local_path": "sources/license-texts/c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.txt",
+          "source_url": "https://github.com/huggingface/candle/blob/cfcbd7186d13271843ce7eb41d25659bd0835850/LICENSE-APACHE"
+        },
+        {
+          "repository": "huggingface/candle",
+          "commit_sha": "cfcbd7186d13271843ce7eb41d25659bd0835850",
+          "path": "LICENSE-MIT",
+          "blob_sha": "31aa79387f27e730e33d871925e152e35e428031",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "local_path": "sources/license-texts/23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3.txt",
+          "source_url": "https://github.com/huggingface/candle/blob/cfcbd7186d13271843ce7eb41d25659bd0835850/LICENSE-MIT"
+        }
+      ],
+      "reviewed_dependencies": [
+        {
+          "name": "yoke",
+          "version": "0.8.4",
+          "spdx": "Unicode-3.0",
+          "artifact_sha256": "417ef3fcf6c300b7dbd25c85531a746931c02ad536f3cf4786ed1e88223340b3",
+          "license_path": "LICENSE",
+          "license_sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2",
+          "allowed_by_current_policy": true
+        },
+        {
+          "name": "foldhash",
+          "version": "0.2.0",
+          "spdx": "Zlib",
+          "artifact_sha256": "77ce24cb58228fbb8aa041425bb1050850ac19177686ea6e0f41a70416f56fdb",
+          "license_path": "LICENSE",
+          "license_sha256": "b1181a40b2a7b25cf66fd01481713bc1005df082c53ef73e851e55071b102744",
+          "allowed_by_current_policy": true
+        }
+      ],
+      "source_review": "sources/contracts-executive-blockers666.json",
+      "counted_as_connected": false,
+      "live_verified": false,
+      "source_review_sha256": "9643fe31349a84bbc86c57fe7ae912c4cf15515d1cd9c1f4a5706f87d51fa7bd",
+      "additional_dependency_review": "sources/review-candle-dependencies666.json"
+    },
+    {
+      "id": "tokenizers",
+      "repository": "huggingface/tokenizers",
+      "commit": "39e28180be35af322d0abf08007d937641a5493b",
+      "status": "blocked_unapproved_mpl_dependency",
+      "note": "Still blocked: the reviewed mandatory ptr_hash -> colored 3.1.1 dependency is MPL-2.0, not one of the three owner-approved additions. Candidate remains unregistered.",
+      "root_license_evidence": [
+        {
+          "repository": "huggingface/tokenizers",
+          "commit_sha": "39e28180be35af322d0abf08007d937641a5493b",
+          "path": "LICENSE",
+          "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "local_path": "sources/license-texts/c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.txt",
+          "source_url": "https://github.com/huggingface/tokenizers/blob/39e28180be35af322d0abf08007d937641a5493b/LICENSE"
+        }
+      ],
+      "reviewed_dependencies": [
+        {
+          "name": "colored",
+          "version": "3.1.1",
+          "spdx": "MPL-2.0",
+          "artifact_sha256": "faf9468729b8cbcea668e36183cb69d317348c2e08e994829fb56ebfdfbaac34",
+          "license_path": "LICENSE",
+          "license_sha256": "fab3dd6bdab226f1c08630b1dd917e11fcb4ec5e1e020e2c16f83a0a13863e85",
+          "allowed_by_current_policy": false
+        }
+      ],
+      "source_review": "sources/contracts-executive-blockers666.json",
+      "counted_as_connected": false,
+      "live_verified": false,
+      "source_review_sha256": "9643fe31349a84bbc86c57fe7ae912c4cf15515d1cd9c1f4a5706f87d51fa7bd"
+    }
+  ]
+}

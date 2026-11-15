@@ -53,6 +53,30 @@ class CatalogueTests(unittest.TestCase):
 
 
 class PolicyEvidenceTests(unittest.TestCase):
+    def test_owner_approved_three_exact_licenses_without_widening_other_terms(self):
+        original = json.loads(PATH.read_text())
+        # Exercise the evidence validator on a pre-expansion libre record;
+        # the production pinned evidence and excluded portfolio stay unchanged.
+        self.assertEqual('libre', original['records'][200]['policy'])
+        with tempfile.TemporaryDirectory() as temp:
+            target = Path(temp) / 'licenses.json'
+            for spdx in ('Zlib', 'BSL-1.0', 'Unicode-3.0'):
+                changed = json.loads(json.dumps(original))
+                changed['records'][200]['spdx'] = spdx
+                target.write_text(json.dumps(changed))
+                with self.subTest(approved=spdx):
+                    self.assertEqual(spdx, fresh_policy(target)['crewai']['spdx'])
+            for spdx in ('BUSL-1.1', 'BSL', 'Business Source License 1.0',
+                         'MPL-2.0', 'Unicode-DFS-2016', 'Zlib AND MPL-2.0',
+                         'Apache-2.0 WITH LLVM-exception',
+                         'GPL-3.0', 'LGPL-2.1', 'Elastic-2.0', 'UNKNOWN'):
+                changed['records'][200]['spdx'] = spdx
+                target.write_text(json.dumps(changed))
+                with self.subTest(rejected=spdx), self.assertRaises(VerdugoError):
+                    fresh_policy(target)
+        self.assertEqual(666, summary()['allowed'])
+        self.assertEqual(sorted(EXCLUDED), summary()['excluded'])
+
     def test_exactly_300_allowed_and_22_excluded(self):
         value = summary()
         self.assertEqual(688, value['registered'])

@@ -4,7 +4,15 @@ El producto todavía no está terminado. La meta es un sistema conjunto con
 componentes distintos y permisos compatibles; contar repositorios o renombrar
 una capacidad no demuestra esa integración.
 
-## Estado recuperado
+## Reanudación vigente
+
+Rama `feat/666-pilot`, PR #25 en borrador sobre `feat/666-registry` (PR #24). El fallo de privacidad de `4dbd055` se corrigió en `486a271` mediante comparación completa de campos y un timestamp que reproduce la colisión. Los tres workflows de ese commit terminaron en `success` antes de agregar otro adaptador. La evidencia por workflow figura en [PLAN_666.md](PLAN_666.md).
+
+**Lote A 0/164 · Lote B 0/163**: membresía exacta en `sources/resume-666.json/rebatch`, validada por `integration_audit`. Las 39 incorporaciones previas no se cuentan de nuevo. El orden conserva 63 pendientes del antiguo sublote de 80, 81 del siguiente y 183 del lote 2. `meta-ads` queda fuera y bloqueada. Se mantiene el total de 282/56/328 y cero verificaciones productivas.
+
+Por decisión del dueño se aprobaron Zlib, BSL-1.0 (Boost, no Business Source) y Unicode-3.0. La reevaluación con hashes está en `sources/review-license-decision666.json`. Esos bloqueos concretos de BM25S, Rustworkx, Clingo y Candle dejan de aplicar; el cierre completo y aceptación siguen pendientes. La revisión ampliada de Candle encontró `target-lexicon 0.13.6` (`Apache-2.0 WITH LLVM-exception`) en las dependencias de build del perfil fijado; esa expresión tampoco se aprobó. Evidencia original y árbol activo en `sources/review-candle-dependencies666.json`. La revisión nativa de Clingo comprobó nueve archivos fuente comprimidos y sus licencias raíz, y conserva pendiente el alcance del aviso GPL con excepción de los analizadores Bison (`sources/review-clingo-dependencies666.json`); no se compiló ni se reclasificó el proyecto completo. Tokenizers mantiene el bloqueo MPL-2.0. Pasan 921 pruebas locales; consultar CI del commit vigente antes de conectar más piezas.
+
+## Estado recuperado anterior
 
 La conversación anterior publicó `1dc6bd7a116a6ebdb8dbc55732993ebf4efe25a8`,
 árbol `c8e6ddf725d85cde70c180329dc29ca9046c2a06`, en `feat/666-pilot`, PR #25.
@@ -45,8 +53,7 @@ La cifra 666 se refiere a licencias raíz. No certifica el cierre de dependencia
 pesos ni permiso de distribución de todo el producto. El informe conserva los
 bloqueos y las preparaciones pendientes con ruta y SHA256 de su evidencia.
 El hallazgo anterior sobre `certifi 2026.10.23` sigue presente en doce perfiles;
-se vuelve a comprobar contra sus archivos actuales. No se amplió la lista de
-licencias ni se creó ninguna excepción.
+se vuelve a comprobar contra sus archivos actuales. Las tres adiciones autorizadas no permiten MPL-2.0 ni resuelven este hallazgo; no se creó ninguna excepción.
 
 Se conservan los avisos y licencias originales. Un repositorio sin licencia
 no se interpreta como código libre para incorporar.
@@ -82,7 +89,7 @@ de modificarlo. Los otros 63 candidatos del sublote de 80 siguen pendientes;
 sus revisiones acotadas están enlazadas en el informe. Un candidato bloqueado
 no se convierte en terminado por añadir una explicación o un nombre distinto.
 
-## Siguiente candidato revisado
+## Revisión anterior de BM25S (superada por la decisión de licencias)
 
 BM25S sigue pendiente. El candidato de dependencia NumPy 2.2.6 incluye
 libdivide Zlib. Es una licencia permisiva sin pago, pero no pertenece a la
@@ -104,6 +111,6 @@ su propia observación de CI.
 
 Se implementó `kag / task.summary` sin cambiar la lista de licencias. Son 39 incorporaciones: 28 locales y 11 lecturas HTTP. Pasaron 915 pruebas y el flujo de 78 observaciones HTTP sintéticas del producto, con reinicio/replay. Los cinco casos con módulos originales de solicitud y caché no equivalen a ejecutar el servidor KAG completo. La operación, las restricciones de autenticación, la privacidad y los límites están en [KAG_666.md](KAG_666.md).
 
-Egg y SWI-Prolog recibieron revisión adicional acotada; sus hallazgos están en `sources/review-logic-next666.json`. La decisión sobre ampliar licencias permanece pendiente; no se aplicó ninguna excepción. Las nuevas pruebas CI deben observarse en su propio commit.
+Egg y SWI-Prolog recibieron revisión adicional acotada; sus hallazgos están en `sources/review-logic-next666.json`. En ese checkpoint la ampliación de licencias seguía pendiente; la decisión vigente está al inicio de este documento. No se aplicó ninguna excepción. Las nuevas pruebas CI deben observarse en su propio commit.
 
 El control adicional de fuentes comprobó 688 commits fijados distintos, sin grupos con el mismo commit. Esto complementa la identidad GitHub; no certifica que dos árboles con historias distintas o dos capacidades no se solapen. Evidencia del incremento: `evidence/accepted/kag-contract-local-20261115.json`.
