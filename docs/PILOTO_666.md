@@ -101,3 +101,5 @@ El incremento añade comprobaciones de archivo alterado, rutas inesperadas, par�
 ## Dependencias que bloquean otras piezas
 
 DeerFlow exige `langgraph-api>=0.8.1`; el archivo LICENSE de la rueda oficial 0.8.1 es Elastic-2.0. Open Deep Research exige `pymupdf>=1.25.3`; COPYING de la rueda oficial 1.25.3 declara AGPL-3.0 o licencia comercial. Esas instalaciones revisadas no cumplen la política de este repo. No se instalaron, no se agregaron excepciones y las dos piezas siguen pendientes. Se guardan fuente del requisito, blob, hash del artefacto y texto de licencia en `sources/contracts-executive-blockers666.json`. Esto no afirma que toda versión futura o integración mínima separada sea imposible.
+
+La instalación CI detectó una URL de Torch duplicada: una copia en constraints no tenía el fragmento SHA256 y pip la consideró distinta de la URL fijada en requirements. Se eliminó esa duplicación; la única referencia restante conserva versión CPU y SHA256 exactos. La resolución completa con pip 25.0.1, igual que CI, pasó localmente; no cambió la dependencia ejecutada.
