@@ -84,7 +84,6 @@ def template(tenant):
     services['anubis'].update(username=None, native_auth_enforced_reviewed=False)
     services['google-ads'].update(base_url='https://googleads.googleapis.com',
                                 developer_token_env=None, oauth_scope_reviewed=False)
-    services['meta-ads'].update(base_url='https://graph.facebook.com', oauth_scope_reviewed=False)
     services['debezium'].update(connector_id=None, debezium_connector_reviewed=False)
     services['otel-collector'].update(default_metrics_names_reviewed=False)
     for sid in ('huginn', 'opengmb', 'livekit', 'webmention-io', 'datosmex'):

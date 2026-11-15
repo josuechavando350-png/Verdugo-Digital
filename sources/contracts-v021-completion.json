@@ -838,6 +838,14 @@
           "git_blob_sha": "8512fe02c98686ae0ba88dd5b58e3b10d0173159",
           "sha256": "1bff50437d45b8b4694640af447ef5d75a2dab6f06bd809b59a8f77416bb71cc",
           "source_url": "https://github.com/googleads/google-ads-python/blob/f253b400dc5924b731fcb42dbcd99e485200581e/pyproject.toml"
+        },
+        {
+          "repository": "googleads/google-ads-python",
+          "commit": "f253b400dc5924b731fcb42dbcd99e485200581e",
+          "path": "google/ads/googleads/interceptors/metadata_interceptor.py",
+          "git_blob_sha": "daef6e73208518cd692b5e1501166bdf33deee72",
+          "sha256": "74d92e671ac83855377468ddd4b3b0525cd3e41334b29665f5b1940870004ead",
+          "source_url": "https://github.com/googleads/google-ads-python/blob/f253b400dc5924b731fcb42dbcd99e485200581e/google/ads/googleads/interceptors/metadata_interceptor.py"
         }
       ]
     },
@@ -1336,56 +1344,6 @@
           "git_blob_sha": "dde2fe211508815a0ad8f60706f1c63b05e11937",
           "sha256": "9f19e43fad4e1b23d70c4d506ba2e29c723b895482a3a5b27e419db39fbf2256",
           "source_url": "https://github.com/google/meridian/blob/f4ca39d406e1a86bd13d65fdf14166268044fd2d/setup.py"
-        }
-      ]
-    },
-    {
-      "id": "meta-ads",
-      "catalog_commit": "b08e5c1d36a2adad3c4ede6578654c8eaca5f225",
-      "operation": "accounts.summary",
-      "distribution": null,
-      "executed_version": null,
-      "live_verified": false,
-      "files": [
-        {
-          "repository": "meta/facebook-python-business-sdk",
-          "commit": "b08e5c1d36a2adad3c4ede6578654c8eaca5f225",
-          "path": "README.md",
-          "git_blob_sha": "29279d2777dc87b08ea173c75e6d6f5c8c5b8606",
-          "sha256": "e815725e951a5024ee99694d7551b5d99f2e82e30f05cd0403f12ab6a6f92777",
-          "source_url": "https://github.com/meta/facebook-python-business-sdk/blob/b08e5c1d36a2adad3c4ede6578654c8eaca5f225/README.md"
-        },
-        {
-          "repository": "meta/facebook-python-business-sdk",
-          "commit": "b08e5c1d36a2adad3c4ede6578654c8eaca5f225",
-          "path": "facebook_business/adobjects/user.py",
-          "git_blob_sha": "2dc14a9519c0bcab7d64d00379eee4047e407d67",
-          "sha256": "05e64c051d1cfbf9fc37b47880c40e7d2acf233f7c085657a7b59f39f924c66d",
-          "source_url": "https://github.com/meta/facebook-python-business-sdk/blob/b08e5c1d36a2adad3c4ede6578654c8eaca5f225/facebook_business/adobjects/user.py"
-        },
-        {
-          "repository": "meta/facebook-python-business-sdk",
-          "commit": "b08e5c1d36a2adad3c4ede6578654c8eaca5f225",
-          "path": "facebook_business/api.py",
-          "git_blob_sha": "adb385ac45a0355abab87e339a6de8ec099f49a7",
-          "sha256": "2f2e537354859758faba0d89a910b2212b478e0b2aaee771bb1c239abf4c2c72",
-          "source_url": "https://github.com/meta/facebook-python-business-sdk/blob/b08e5c1d36a2adad3c4ede6578654c8eaca5f225/facebook_business/api.py"
-        },
-        {
-          "repository": "meta/facebook-python-business-sdk",
-          "commit": "b08e5c1d36a2adad3c4ede6578654c8eaca5f225",
-          "path": "facebook_business/apiconfig.py",
-          "git_blob_sha": "5dfbac7ebec45fba0c3794cfac91156d9c86e505",
-          "sha256": "04dd66743e203a6f55b472d9cef6379f21e618f327813489c48d5eb99addf3c7",
-          "source_url": "https://github.com/meta/facebook-python-business-sdk/blob/b08e5c1d36a2adad3c4ede6578654c8eaca5f225/facebook_business/apiconfig.py"
-        },
-        {
-          "repository": "meta/facebook-python-business-sdk",
-          "commit": "b08e5c1d36a2adad3c4ede6578654c8eaca5f225",
-          "path": "setup.py",
-          "git_blob_sha": "ea24ff4b287f55b5e76461f6cc09506b4e9f7e3b",
-          "sha256": "6917ed163f010621acb828f99e9dc88e8948fa9072e0c93546e679279449562a",
-          "source_url": "https://github.com/meta/facebook-python-business-sdk/blob/b08e5c1d36a2adad3c4ede6578654c8eaca5f225/setup.py"
         }
       ]
     },
@@ -2626,6 +2584,14 @@
       "sha256": "bea36d35bf0297bc1f8f9993c8e70d3b86f65e66a0428217749679876272ab04",
       "source_url": "https://github.com/temporalio/api-go/blob/a25ff4a2e7f88373feb9940809b5511881c35cc5/workflowservice/v1/service.pb.gw.go",
       "tag": "v1.64.3"
+    },
+    {
+      "repository": "googleapis/googleapis",
+      "commit": "97f6460c3558c1435d7fd001a9251f8df058ae2f",
+      "path": "google/ads/googleads/v26/services/customer_service.proto",
+      "git_blob_sha": "d8b4dba283b512ea71d00bb47e2c6980f2c01bbd",
+      "sha256": "0cca59c738498fb0010f39f437d29eaff5dbe7577aae4bcdd011ae445795e685",
+      "source_url": "https://github.com/googleapis/googleapis/blob/97f6460c3558c1435d7fd001a9251f8df058ae2f/google/ads/googleads/v26/services/customer_service.proto"
     }
   ],
   "external_specifications": [

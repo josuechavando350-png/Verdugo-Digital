@@ -112,7 +112,7 @@ class CatalogTests(Base):
 
     def test_no_false_live_status(self):
         s=self.engine.status()
-        self.assertEqual(104,s['api_adapters_implemented'])
+        self.assertEqual(103,s['api_adapters_implemented'])
         self.assertEqual(0,s['live_verified'])
         self.assertFalse(any(r['live_verified'] for r in s['integrations']))
 
@@ -120,7 +120,7 @@ class CatalogTests(Base):
         g=graph(SPECS)
         self.assertEqual(323,len(g['nodes']))
         self.assertEqual(322,len(g['edges']))
-        self.assertEqual(104,sum(e['kind']=='adapter' for e in g['edges']))
+        self.assertEqual(103,sum(e['kind']=='adapter' for e in g['edges']))
         self.assertFalse(any(e['live'] for e in g['edges']))
 
     def test_template_disabled(self):

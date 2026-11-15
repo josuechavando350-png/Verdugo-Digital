@@ -14,10 +14,10 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 | Fuentes registradas y fijadas por commit | 322 (100 núcleo + 222 de v0.14) |
 | Portafolio con licencia libre (política v0.14) | 300 |
 | Excluidos por licencia (registrados, sin operar) | 22 |
-| Proyectos con una operación implementada | 263: 104 HTTP + 138 bibliotecas locales + 17 CLI + 1 MCP local + 3 consultas/reglas de datos |
-| Conectados bajo la política de licencias | 244 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
+| Proyectos con una operación implementada | 262: 103 HTTP + 138 bibliotecas locales + 17 CLI + 1 MCP local + 3 consultas/reglas de datos |
+| Conectados bajo la política de licencias | 243 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
 | Piezas de construcción (se usan al programar, no vía motor) | 56 |
-| Pendientes de conector | 0 |
+| Pendientes de conector | 1 (`meta-ads`, ver corrección v0.21.1) |
 | Servicios de pago | 0 (Stripe, Twilio, Mercado Pago, E2B y Composio retirados) |
 | Operaciones HTTP existentes | 108, limitadas por proveedor |
 | Operaciones locales implementadas | 159; aceptación de ejecución real exigida por commit |
@@ -37,6 +37,8 @@ Estado actual y alcance de las operaciones, con las identificaciones históricas
 [docs/PLAN_CONEXION.md](docs/PLAN_CONEXION.md) (y `docs/plan_conexion.json` para agentes).
 
 ## Continuación v0.21: 88 operaciones adicionales
+
+> **Corrección v0.21.1 (revisión):** `google-ads` conserva su lectura con evidencia original añadida (`googleapis/googleapis@97f6460c35`: ruta REST `GET /v26/customers:listAccessibleCustomers` en `customer_service.proto`; encabezado `developer-token` en `google/ads/googleads/interceptors/metadata_interceptor.py` de google-ads-python). `meta-ads` vuelve a pendiente: los SDK oficiales de Meta (Python, Node, PHP, Java y Ruby) envían `access_token` en la URL y ninguno respalda el encabezado Bearer que usaba el contrato. Quedan 87 operaciones de la tanda, 25 contratos HTTP nuevos y 1 pendiente.
 
 La segunda tanda incorpora **88 operaciones implementadas, 0 pendientes de implementación**. La aceptación del commit vigente exige los tres workflows completos.
 Las últimas 68 incluyen 41 operaciones locales con código original, una comparación propia de reglas NAP originales y 26 lecturas HTTP.

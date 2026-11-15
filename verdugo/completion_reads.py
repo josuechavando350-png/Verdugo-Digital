@@ -24,7 +24,6 @@ SPECS = {
     'openprospector': {'readiness.summary': ('GET', '/api/health')},
     'openseo': {'projects.summary': ('GET', '/api/projects')},
     'google-ads': {'accounts.summary': ('GET', '/v26/customers:listAccessibleCustomers')},
-    'meta-ads': {'accounts.summary': ('GET', '/v26.0/me/adaccounts?fields=id,account_status&limit=50')},
     'temporal': {'namespaces.summary': ('GET', '/api/v1/namespaces?pageSize=50')},
     'otel-collector': {'metrics.summary': ('GET', '/metrics')},
     'debezium': {'connector.summary': ('GET', '/connectors/{connector_id}/status')},
@@ -52,7 +51,6 @@ PINS = {
     'openprospector': 'dad0e778ff4e1438b69574ff9cbb7663a3bda6e6',
     'openseo': '12b525400539f980668d088ff7154236a2376e88',
     'google-ads': 'f253b400dc5924b731fcb42dbcd99e485200581e',
-    'meta-ads': 'b08e5c1d36a2adad3c4ede6578654c8eaca5f225',
     'temporal': '03ecd1d228d2b8d9d433da55785afc9aeeead918',
     'otel-collector': 'e366bb7fb49a67fd117332fff93795a0050744ff',
     'debezium': 'a4c282ea70d3f913df699464f3e42f9ddb7eb03e',
@@ -68,7 +66,7 @@ PINS = {
 }
 AUTH_MODES = {sid: 'reviewed_proxy_bearer' for sid in SPECS}
 AUTH_MODES.update({'anubis': 'native_metrics_basic', 'openseo': 'native_api_bearer',
-                   'google-ads': 'native_oauth_developer_token', 'meta-ads': 'native_oauth_bearer',
+                   'google-ads': 'native_oauth_developer_token',
                    'huginn': 'native_session_cookie', 'opengmb': 'native_api_bearer', 'livekit': 'native_roomlist_jwt',
                    'webmention-io': 'native_api_bearer', 'datosmex': 'native_bmx_token',
                    'mcp-gsc': 'native_oauth_bearer', 'praw': 'native_oauth_bearer',
@@ -93,7 +91,7 @@ def auth_policy(service, cfg):
         raise VerdugoError('A reviewed authenticating proxy is required')
     if service == 'anubis' and cfg.get('native_auth_enforced_reviewed') is not True:
         raise VerdugoError('Review native metrics Basic authentication enforcement')
-    if service in ('google-ads', 'meta-ads', 'mcp-gsc', 'praw') and cfg.get('oauth_scope_reviewed') is not True:
+    if service in ('google-ads', 'mcp-gsc', 'praw') and cfg.get('oauth_scope_reviewed') is not True:
         raise VerdugoError('Review OAuth account scope and developer access')
     if service == 'debezium' and cfg.get('debezium_connector_reviewed') is not True:
         raise VerdugoError('Review that the configured Kafka Connect connector is Debezium')
@@ -167,8 +165,6 @@ def build(service, operation, params, cfg, origin, token, headers):
         raise VerdugoError('Only one bounded response is supported')
     if service == 'google-ads' and origin != 'https://googleads.googleapis.com':
         raise VerdugoError('Google Ads uses its fixed official origin')
-    if service == 'meta-ads' and origin != 'https://graph.facebook.com':
-        raise VerdugoError('Meta Ads uses its fixed official origin')
     fixed = {'webmention-io': 'https://webmention.io', 'datosmex': 'https://www.banxico.org.mx',
              'mcp-gsc': 'https://www.googleapis.com', 'praw': 'https://oauth.reddit.com',
              'python-podcastindex': 'https://api.podcastindex.org'}
@@ -419,21 +415,6 @@ def check(service, operation, response, request=None):
         if not isinstance(token, str) or len(token) > 4096:
             _bad()
         return result | {'namespaces_in_response': len(rows), 'has_more': bool(token), 'workflow_execution_verified': False}
-    if service == 'meta-ads':
-        rows = response.get('data')
-        if not isinstance(rows, list) or len(rows) > 50 or 'error' in response:
-            _bad()
-        seen, states = set(), {}
-        for row in rows:
-            if (not isinstance(row, dict) or not isinstance(row.get('id'), str) or not re.fullmatch(r'act_[0-9]{1,30}', row['id'])
-                    or row['id'] in seen or type(row.get('account_status')) is not int or not 0 <= row['account_status'] <= 1000):
-                _bad()
-            seen.add(row['id']); key = str(row['account_status']); states[key] = states.get(key, 0) + 1
-        paging = response.get('paging', {})
-        if not isinstance(paging, dict) or ('next' in paging and not isinstance(paging['next'], str)):
-            _bad()
-        return result | {'accounts_in_response': len(rows), 'account_status_codes': states,
-                         'has_more': bool(paging.get('next')), 'campaigns_changed': False, 'advertising_spend_incurred': False}
     if service == 'tusd':
         value = response.get('bounded_text')
         if not isinstance(value, str):

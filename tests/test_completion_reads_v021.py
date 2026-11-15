@@ -29,8 +29,6 @@ REPLIES = {
     'openprospector': {'ok': True, 'configured_providers': 3, 'queue_available': True, 'private': PRIVATE},
     'openseo': {'ok': True, 'data': [{'id': '12345678-1234-1234-1234-123456789abc', 'name': PRIVATE}]},
     'google-ads': {'resourceNames': ['customers/1234567890', 'customers/9876543210']},
-    'meta-ads': {'data': [{'id': 'act_12345', 'account_status': 1, 'name': PRIVATE}],
-                 'paging': {'next': 'https://graph.facebook.com/next?access_token=' + TOKEN}},
     'temporal': {'namespaces': [{'namespaceInfo': {'id': 'namespace-1', 'name': PRIVATE}}], 'nextPageToken': 'cHJpdmF0ZQ=='},
     'debezium': {'name': 'sales', 'connector': {'state': 'RUNNING', 'worker_id': PRIVATE},
                  'tasks': [{'id': 0, 'state': 'FAILED', 'trace': PRIVATE}]},
@@ -55,7 +53,7 @@ REPLIES = {
 EXPECTED = {'openhands': ('process_health_reported', True), 'anubis': ('process_health_reported', True), 'postal': ('process_health_reported', True),
             'tusd': ('open_connections_reported', 3), 'nlweb': ('uptime_seconds_reported', 12.5),
             'openprospector': ('configured_providers', 3), 'openseo': ('projects_in_response', 1),
-            'google-ads': ('directly_accessible_accounts', 2), 'meta-ads': ('accounts_in_response', 1),
+            'google-ads': ('directly_accessible_accounts', 2),
             'temporal': ('namespaces_in_response', 1), 'debezium': ('tasks_in_response', 1),
             'otel-collector': ('uptime_seconds_reported', 42.25), 'huginn': ('agents_in_response', 2),
             'opengmb': ('advertised_actions', 2), 'livekit': ('participants_reported', 2),
@@ -128,9 +126,7 @@ class CompletionReads(unittest.TestCase):
         self.assertEqual(0, check('google-ads', op, {})['directly_accessible_accounts'])
 
     def test_provider_scope_and_identifiers_are_bound(self):
-        cfg = self.config['tenants']['nexus']['services']['meta-ads']
-        with self.assertRaises(VerdugoError):
-            build('meta-ads', 'accounts.summary', {}, cfg | {'base_url': 'https://other.invalid'})
+        self.assertNotIn('meta-ads', reads.SPECS)
         for sid, flag in [('debezium', 'debezium_connector_reviewed'), ('otel-collector', 'default_metrics_names_reviewed')]:
             cfg = self.config['tenants']['nexus']['services'][sid]
             with self.assertRaises(VerdugoError): build(sid, command(sid)['operation'], {}, cfg | {flag: False})

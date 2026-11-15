@@ -1,13 +1,15 @@
 # Complemento v0.21 — evidencia y alcance
 
+> **Corrección v0.21.1 (revisión):** `google-ads` conserva su lectura con evidencia original añadida (`googleapis/googleapis@97f6460c35`: ruta REST `GET /v26/customers:listAccessibleCustomers` en `customer_service.proto`; encabezado `developer-token` en `google/ads/googleads/interceptors/metadata_interceptor.py` de google-ads-python). `meta-ads` vuelve a pendiente: los SDK oficiales de Meta (Python, Node, PHP, Java y Ruby) envían `access_token` en la URL y ninguno respalda el encabezado Bearer que usaba el contrato. Quedan 87 operaciones de la tanda, 25 contratos HTTP nuevos y 1 pendiente.
+
 Base: `a6809de201ba517846e19cf965194b21e6617050`, rama `feat/v0.21-final88`, PR #20.
 Se añaden **68 de las 68 integraciones pendientes**: 41 operaciones locales
 con código original, una comparación propia de reglas NAP originales y 26 contratos HTTP. Junto con las 20 anteriores de v0.21, son
 88 operaciones de esta tanda y **0 pendientes de implementación**. La aceptación
 exige los tres workflows completos sobre el commit vigente. No se modifica main ni se altera la política de licencias.
 
-Inventario actual: 322 entradas; 244 conectadas bajo la política, 56 componentes,
-0 pendientes y 22 excluidas. Hay 104 adaptadores HTTP (108 acciones) y 159
+Inventario actual (tras la corrección): 322 entradas; 243 conectadas bajo la política, 56 componentes,
+1 pendiente (`meta-ads`) y 22 excluidas. Hay 103 adaptadores HTTP (107 acciones) y 159
 operaciones locales; 19 adaptadores HTTP históricos siguen excluidos por licencia.
 
 ## Operaciones comprobadas y límites
@@ -37,7 +39,7 @@ operaciones locales; 19 adaptadores HTTP históricos siguen excluidos por licenc
 | `livekit` | `rooms.summary` | POST de lectura ListRooms, JWT con roomList, duración 60 s; recuentos de salas/participantes; no medios. |
 | `mcp-gsc` | `sites.summary` | Sitios y niveles de permiso reportados por Search Console; OAuth; no publica contenido ni ejecuta MCP. |
 | `meridian` | `media.transform` | Adstock geométrico normalizado y Hill con parámetros suministrados; no ajusta MMM ni demuestra causalidad. |
-| `meta-ads` | `accounts.summary` | Primera página de cuentas publicitarias y estados; OAuth, API v26.0; no gasto. |
+| `meta-ads` | — | Retirado en la corrección v0.21.1: contrato Bearer sin respaldo en los SDK originales; vuelve a pendiente. |
 | `nlweb` | `health.summary` | Salud y tiempo activo reportados; proxy; no verifica respuestas de modelos. |
 | `opengmb` | `actions.summary` | Catálogo de acciones anunciadas; Bearer nativo; no comprueba permisos efectivos ni ejecuta acciones. |
 | `openprospector` | `readiness.summary` | Proveedores configurados y disponibilidad declarada de cola; proxy; no contactos extraídos. |
