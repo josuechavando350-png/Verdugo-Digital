@@ -6,7 +6,7 @@ import sys
 from .common import VerdugoError, encode, fields
 from .catalog import graph
 from .adapters import SPECS
-from . import source_evidence
+from . import source_evidence, license_policy, connections, product
 from . import workflow, jobs, reconciliation, readback, surface, commercial, pilot, office
 from . import __version__
 from .bridge import contact_bridge
@@ -17,7 +17,15 @@ SUPPORTED = (VERSION, '2025-06-18')
 OBJ = {'type': 'object'}
 BOOL = {'type': 'boolean', 'default': False}
 TOOLS = [
+ ('verdugo_product_status', 'One local product overview: all connections, bounded observation routes and declared business state. No provider calls.',
+  {'dataset': {'type': 'string', 'enum': ['real', 'demo'], 'default': 'real'}}, [], True),
+ ('verdugo_product_run', 'One bounded observation workflow across selected services and local business records; preview by default. Reports saved versus new observations, not production certification.',
+  {'request': OBJ, 'execute': BOOL}, ['request'], False),
  ('verdugo_source_evidence', 'Read-only pinned GitHub source evidence. No deployment, license approval, or external API call.',
+  {'project_id': {'type': 'string'}}, [], True),
+ ('verdugo_license_policy', 'Read-only license policy: detected license and libre/excluido state per project. Not a legal review.',
+  {'project_id': {'type': 'string'}}, [], True),
+ ('verdugo_connections', 'Read-only connection map: kind and computed state of each project. conectado means an implemented adapter, never a verified deployment.',
   {'project_id': {'type': 'string'}}, [], True),
  ('verdugo_sales_intake', 'Local atomic intake with first-party prospect identity and scheduled followup; preview by default, no messages.',
   {'request': OBJ, 'execute': BOOL}, ['request'], False),
@@ -71,8 +79,13 @@ def tool_definitions():
 def invoke(engine, name, args):
     spec = next((s for s in TOOLS if s[0] == name), None)
     if not spec: raise VerdugoError('Unknown tool')
-    fields(args, spec[3], set(spec[2])-set(spec[3]))
+    fields(args, spec[3], set(spec[2])-set(spec[3]),
+           max_bytes=workflow.MAX_MANIFEST_BYTES if name in ('verdugo_product_run', 'verdugo_workflow') else 32768)
+    if name == 'verdugo_product_status': return product.overview(engine, args.get('dataset', 'real'))
+    if name == 'verdugo_product_run': return product.observe(engine, args['request'], args.get('execute', False))
     if name == 'verdugo_source_evidence': return source_evidence.report(args.get('project_id'))
+    if name == 'verdugo_license_policy': return license_policy.summary(args.get('project_id'))
+    if name == 'verdugo_connections': return connections.summary(args.get('project_id'))
     if name == 'verdugo_sales_intake': return office.intake(engine, args['request'], args.get('execute', False))
     if name == 'verdugo_sales_desk': return office.desk(engine, args.get('params'))
     if name == 'verdugo_pilot': return pilot.check(engine, args['request'], args.get('execute', False))
@@ -127,7 +140,8 @@ class Session:
         elif method == 'tools/list': result = {'tools': tool_definitions()}
         elif method == 'tools/call':
             try:
-                fields(params, ('name',), ('arguments', '_meta'))
+                fields(params, ('name',), ('arguments', '_meta'),
+                       max_bytes=workflow.MAX_MANIFEST_BYTES if params.get('name') in ('verdugo_product_run', 'verdugo_workflow') else 32768)
                 output = invoke(self.engine, params['name'], params.get('arguments', {}))
                 result = {'content': [{'type': 'text', 'text': encode(output)}],
                           'isError': isinstance(output, dict) and output.get('state') in

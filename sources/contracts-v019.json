@@ -1,0 +1,138 @@
+{
+  "version": "0.19.0",
+  "actual_upstream_servers_executed": false,
+  "records": [
+    {
+      "id": "apache-answer",
+      "repository": "apache/answer",
+      "commit": "6744295fa888e0621fc9f9a8ace04f1a4daf8554",
+      "live_verified": false,
+      "files": [
+        {
+          "path": "internal/base/server/http.go",
+          "git_blob_sha": "22e7afdb7019c6d8fbad8b1bf56aead91559515f",
+          "source_url": "https://github.com/apache/answer/blob/6744295fa888e0621fc9f9a8ace04f1a4daf8554/internal/base/server/http.go"
+        },
+        {
+          "path": "internal/router/answer_api_router.go",
+          "git_blob_sha": "84b8b4e1c27b77a51e29961bbf79f669d4adf950",
+          "source_url": "https://github.com/apache/answer/blob/6744295fa888e0621fc9f9a8ace04f1a4daf8554/internal/router/answer_api_router.go"
+        },
+        {
+          "path": "internal/base/middleware/auth.go",
+          "git_blob_sha": "bb4cf25544203826f34f47f8bef1a87f605037db",
+          "source_url": "https://github.com/apache/answer/blob/6744295fa888e0621fc9f9a8ace04f1a4daf8554/internal/base/middleware/auth.go"
+        },
+        {
+          "path": "internal/controller/notification_controller.go",
+          "git_blob_sha": "849c9effa4fc40fb54722aaa7a2317efb9149464",
+          "source_url": "https://github.com/apache/answer/blob/6744295fa888e0621fc9f9a8ace04f1a4daf8554/internal/controller/notification_controller.go"
+        },
+        {
+          "path": "internal/schema/notification_schema.go",
+          "git_blob_sha": "b9e0293892dcd3893ef92b23748f7b8bd307b520",
+          "source_url": "https://github.com/apache/answer/blob/6744295fa888e0621fc9f9a8ace04f1a4daf8554/internal/schema/notification_schema.go"
+        },
+        {
+          "path": "internal/base/handler/handler.go",
+          "git_blob_sha": "0c2fe8f4fd6305899d58bbd78c15a50891be45e2",
+          "source_url": "https://github.com/apache/answer/blob/6744295fa888e0621fc9f9a8ace04f1a4daf8554/internal/base/handler/handler.go"
+        },
+        {
+          "path": "internal/base/handler/response.go",
+          "git_blob_sha": "51be8a8a18dbd5c4935bad19720100fd5905aac8",
+          "source_url": "https://github.com/apache/answer/blob/6744295fa888e0621fc9f9a8ace04f1a4daf8554/internal/base/handler/response.go"
+        },
+        {
+          "path": "internal/service/notification/notification_service.go",
+          "git_blob_sha": "6a69cbaef7ca4bcc88b1652e74903b4ba1546edf",
+          "source_url": "https://github.com/apache/answer/blob/6744295fa888e0621fc9f9a8ace04f1a4daf8554/internal/service/notification/notification_service.go"
+        }
+      ]
+    },
+    {
+      "id": "caddy",
+      "repository": "caddyserver/caddy",
+      "commit": "7591cff1fb03202ce022982af020197f3f387220",
+      "live_verified": false,
+      "files": [
+        {
+          "path": "admin.go",
+          "git_blob_sha": "14174559e9c677a0faa84303abe0d6078dc8b423",
+          "source_url": "https://github.com/caddyserver/caddy/blob/7591cff1fb03202ce022982af020197f3f387220/admin.go"
+        },
+        {
+          "path": "modules/caddyhttp/app.go",
+          "git_blob_sha": "1c42212b29b59af5a7e56dd7cb216e6e8e2c9b60",
+          "source_url": "https://github.com/caddyserver/caddy/blob/7591cff1fb03202ce022982af020197f3f387220/modules/caddyhttp/app.go"
+        },
+        {
+          "path": "modules/caddyhttp/server.go",
+          "git_blob_sha": "8a7431792638de9ddf6e93c1d2beb2dc524dc41c",
+          "source_url": "https://github.com/caddyserver/caddy/blob/7591cff1fb03202ce022982af020197f3f387220/modules/caddyhttp/server.go"
+        }
+      ]
+    },
+    {
+      "id": "seaweedfs",
+      "repository": "seaweedfs/seaweedfs",
+      "commit": "e0890391acff2e8cac6dea79c28e931ab1dfb70e",
+      "live_verified": false,
+      "files": [
+        {
+          "path": "weed/server/master_server.go",
+          "git_blob_sha": "465c925cdf369c1b9f016a49232273e7ac2bc951",
+          "source_url": "https://github.com/seaweedfs/seaweedfs/blob/e0890391acff2e8cac6dea79c28e931ab1dfb70e/weed/server/master_server.go"
+        },
+        {
+          "path": "weed/server/master_server_handlers_admin.go",
+          "git_blob_sha": "e6479ea49a3ebbf98a28b8ea0556ab7f5a6ec01e",
+          "source_url": "https://github.com/seaweedfs/seaweedfs/blob/e0890391acff2e8cac6dea79c28e931ab1dfb70e/weed/server/master_server_handlers_admin.go"
+        },
+        {
+          "path": "weed/security/guard.go",
+          "git_blob_sha": "1c62a40e5810e6bb7733971a3f929b7395b8808f",
+          "source_url": "https://github.com/seaweedfs/seaweedfs/blob/e0890391acff2e8cac6dea79c28e931ab1dfb70e/weed/security/guard.go"
+        },
+        {
+          "path": "weed/topology/topology_info.go",
+          "git_blob_sha": "11dc0f85564736ab8d18b6ebbc00f928950d8d80",
+          "source_url": "https://github.com/seaweedfs/seaweedfs/blob/e0890391acff2e8cac6dea79c28e931ab1dfb70e/weed/topology/topology_info.go"
+        }
+      ]
+    },
+    {
+      "id": "dagster",
+      "repository": "dagster-io/dagster",
+      "commit": "93e5f51da49420d3e06d9399471070acedb554ca",
+      "live_verified": false,
+      "files": [
+        {
+          "path": "python_modules/dagster-graphql/dagster_graphql/schema/roots/query.py",
+          "git_blob_sha": "0a60ea593c98e53ba0c64bd44d33d5803ad99483",
+          "source_url": "https://github.com/dagster-io/dagster/blob/93e5f51da49420d3e06d9399471070acedb554ca/python_modules/dagster-graphql/dagster_graphql/schema/roots/query.py"
+        },
+        {
+          "path": "python_modules/dagster-graphql/dagster_graphql/schema/external.py",
+          "git_blob_sha": "f71c576cdd65af0e926bae90d90c86356f231171",
+          "source_url": "https://github.com/dagster-io/dagster/blob/93e5f51da49420d3e06d9399471070acedb554ca/python_modules/dagster-graphql/dagster_graphql/schema/external.py"
+        },
+        {
+          "path": "python_modules/dagster-webserver/dagster_webserver/webserver.py",
+          "git_blob_sha": "e387458f545b9ea58206a12faa3f0f97430d2c72",
+          "source_url": "https://github.com/dagster-io/dagster/blob/93e5f51da49420d3e06d9399471070acedb554ca/python_modules/dagster-webserver/dagster_webserver/webserver.py"
+        },
+        {
+          "path": "python_modules/dagster-webserver/dagster_webserver/graphql.py",
+          "git_blob_sha": "8fa8684db8d3b9f8cdd472b0e0502eefc163a14c",
+          "source_url": "https://github.com/dagster-io/dagster/blob/93e5f51da49420d3e06d9399471070acedb554ca/python_modules/dagster-webserver/dagster_webserver/graphql.py"
+        },
+        {
+          "path": "python_modules/dagster-webserver/dagster_webserver/app.py",
+          "git_blob_sha": "2520819f98c2c6a94ffbce77650c6b8dafde5f08",
+          "source_url": "https://github.com/dagster-io/dagster/blob/93e5f51da49420d3e06d9399471070acedb554ca/python_modules/dagster-webserver/dagster_webserver/app.py"
+        }
+      ]
+    }
+  ]
+}

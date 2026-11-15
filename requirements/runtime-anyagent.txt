@@ -1,0 +1,4 @@
+-c runtime-anyagent.constraints.txt
+any-agent[openai]==1.18.0
+mcp==1.30.0
+openai-agents==0.24.0

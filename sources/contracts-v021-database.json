@@ -1,0 +1,83 @@
+{
+  "scope": "Bounded ephemeral native database operations; catalog and executed PostgreSQL release differ explicitly",
+  "records": [
+    {
+      "id": "valkey",
+      "catalog_commit": "c98c0e2e6c271a24c829d17b2ed94d64c576c33f",
+      "executed_version": "c98c0e2e6c271a24c829d17b2ed94d64c576c33f",
+      "operation": "cache.match",
+      "files": [
+        {
+          "path": "README.md",
+          "git_blob_sha": "92a586339de9b13fba5406ae514a1c72f1b53327",
+          "sha256": "87625b05d383cb43b68f711992118fde02377cf10e4c6dcfc6238a7a43b4f1f7",
+          "url": "https://github.com/valkey-io/valkey/blob/c98c0e2e6c271a24c829d17b2ed94d64c576c33f/README.md"
+        }
+      ]
+    },
+    {
+      "id": "postgres",
+      "catalog_commit": "8d87367b39e44b0913ca585c733795cc2d30bff1",
+      "executed_version": "18.7",
+      "operation": "campaigns.aggregate",
+      "files": [
+        {
+          "path": "README.md",
+          "git_blob_sha": "f6104c038b3d5c69e7dc058aa4518c3cbcf56731",
+          "sha256": "f8f3f3b5e7f522c8b4d8e49679ccab090b26fd0a0b4bcf6fd54e22fec6a88b2a",
+          "url": "https://github.com/postgres/postgres/blob/8d87367b39e44b0913ca585c733795cc2d30bff1/README.md"
+        },
+        {
+          "path": "configure.ac",
+          "git_blob_sha": "36e4f9ca0cf5e9f095a8a2d87ff9240e0512f128",
+          "sha256": "85cabcc01ea051977ae13384d27edde37c75a4b1a2f23a167e31a43bc52a60dc",
+          "url": "https://github.com/postgres/postgres/blob/8d87367b39e44b0913ca585c733795cc2d30bff1/configure.ac"
+        }
+      ]
+    },
+    {
+      "id": "pgvector",
+      "catalog_commit": "66accb3af6705ea9975a33f6704f1cde50d99447",
+      "executed_version": "66accb3af6705ea9975a33f6704f1cde50d99447",
+      "operation": "vectors.rank",
+      "files": [
+        {
+          "path": "Makefile",
+          "git_blob_sha": "207a19b2d9117ded08c3550ac16b5dd3a09f1a38",
+          "sha256": "001100efe93873d598d67ca103e6da1649f9cf95951454744e3f31c52208c109",
+          "url": "https://github.com/pgvector/pgvector/blob/66accb3af6705ea9975a33f6704f1cde50d99447/Makefile"
+        },
+        {
+          "path": "README.md",
+          "git_blob_sha": "f5fde78f3a110cc3fcbc000046c13ca21a90f3fa",
+          "sha256": "19cebadeeb8d3181d01ef00399674ec41bd2f0363850cdccc7685d4260c5a1c6",
+          "url": "https://github.com/pgvector/pgvector/blob/66accb3af6705ea9975a33f6704f1cde50d99447/README.md"
+        }
+      ]
+    },
+    {
+      "id": "apache-age",
+      "catalog_commit": "8c7e44fd2a525dedfd3d4e8168921442eb4fce2f",
+      "executed_version": "8c7e44fd2a525dedfd3d4e8168921442eb4fce2f",
+      "operation": "graph.degrees",
+      "files": [
+        {
+          "path": "Makefile",
+          "git_blob_sha": "fac0511c7fe6df08e30405eb219dea25531ccdcb",
+          "sha256": "e835847d4b449453ee0af485b9d843e67f76af5f2774b38d50c577c9dc3eb09d",
+          "url": "https://github.com/apache/age/blob/8c7e44fd2a525dedfd3d4e8168921442eb4fce2f/Makefile"
+        },
+        {
+          "path": "README.md",
+          "git_blob_sha": "2d2101e5153cc414b35cba49865dd5e42b9eb4ee",
+          "sha256": "2810834911f22702ad02c33da790124e7bfccc1a148c8f92c50ddb21bacf1cac",
+          "url": "https://github.com/apache/age/blob/8c7e44fd2a525dedfd3d4e8168921442eb4fce2f/README.md"
+        }
+      ]
+    }
+  ],
+  "postgres_release_archive": {
+    "url": "https://ftp.postgresql.org/pub/source/v18.7/postgresql-18.7.tar.bz2",
+    "sha256": "441dfae4280cae3e0425e5f876f80559fb0731c140f1aae22b3e5a54d0411bfd"
+  }
+}

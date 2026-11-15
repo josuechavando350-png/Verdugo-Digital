@@ -1,0 +1,82 @@
+[
+ {
+  "number": 101,
+  "id": "openprospector",
+  "repository": "clawnify/OpenProspector",
+  "commit_sha": "dad0e778ff4e1438b69574ff9cbb7663a3bda6e6",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 102,
+  "id": "langflow",
+  "repository": "langflow-ai/langflow",
+  "commit_sha": "260cbf347cc5563cc48c79094c175ca31532ea2b",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 103,
+  "id": "openrefine",
+  "repository": "OpenRefine/OpenRefine",
+  "commit_sha": "d97abdabd4c172ddba3581a9259307c7f2b86b44",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 104,
+  "id": "openseo",
+  "repository": "duckduckdeploy/openseo",
+  "commit_sha": "12b525400539f980668d088ff7154236a2376e88",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 105,
+  "id": "mcp-gsc",
+  "repository": "AminForou/mcp-gsc",
+  "commit_sha": "45291df024c7873b2042c83d7add70ced7bb621f",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 106,
+  "id": "siteone-crawler",
+  "repository": "janreges/siteone-crawler",
+  "commit_sha": "f3d967b190a77ff5f816b7ddab74c1a778d9dbaf",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 107,
+  "id": "advertools",
+  "repository": "eliasdabbas/advertools",
+  "commit_sha": "59dc2be7a98ab3bab2a711efacd5023f8ecffa14",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 108,
+  "id": "cal-diy",
+  "repository": "calcom/cal.diy",
+  "commit_sha": "ae027bb70e694e2d2c44569f398d6cbcee0389b1",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 109,
+  "id": "uptime-kuma",
+  "repository": "louislam/uptime-kuma",
+  "commit_sha": "4f6661cfa83a06be0353d5536ef3d9ee0064f534",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 110,
+  "id": "opengmb",
+  "repository": "synectus/OpenGMB",
+  "commit_sha": "8f399472e9d484cfcad77eef33b0da341e469577",
+  "source_status": "pinned",
+  "license_review": "pending"
+ }
+]

@@ -6,10 +6,10 @@ import sys
 import traceback
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / 'verdugo'))
+sys.path.insert(0, str(ROOT))
 from fixtures import CASES
-from _local_worker import guard
-from local_recipes import run
+from verdugo._local_worker import guard
+from verdugo.local_recipes import run
 
 if len(sys.argv) != 2 or sys.argv[1] not in tuple(CASES):
     raise SystemExit('Only fixed synthetic diagnosis cases are supported')

@@ -1,0 +1,5 @@
+-c runtime-discovery.constraints.txt
+cdx-toolkit==0.9.39
+geo-optimizer-skill==4.23.0
+news-please==1.6.16
+parsedmarc==11.3.0

@@ -1,0 +1,19 @@
+-c runtime-research.constraints.txt
+# Dedicated runtime profile; primary distributions tested independently from source pins.
+advertools==0.18.0
+causalml==0.18.0
+feast==0.68.0
+flaml[automl]==2.8.0
+pyiceberg[pyarrow,sql-sqlite]==0.12.0
+langchain-text-splitters==1.1.3
+mesa==3.5.2
+opendp==0.16.0
+openlineage-python==1.55.0
+osmnx==2.1.1
+ecomplexity==0.5.3
+pywikibot==11.10.0
+recommenders==1.2.1
+splink==5.0.0
+vowpalwabbit==9.11.9
+ydata-profiling==4.18.4
+setuptools==80.9.0

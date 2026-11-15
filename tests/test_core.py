@@ -7,6 +7,9 @@ import threading
 import time
 import unittest
 from unittest.mock import patch
+from verdugo.license_policy import EXCLUDED
+from verdugo.service_reads import FIXED_ORIGINS
+POLICY_EXCEPTION = {'approved_by': 'contract-fixture', 'reason': 'Synthetic contract test of an adapter excluded by license policy.'}
 from verdugo.adapters import SPECS, build
 from verdugo.catalog import catalog, graph
 from verdugo.common import VerdugoError
@@ -26,13 +29,38 @@ class Base(unittest.TestCase):
         self.config = template('nexus')
         for cfg in self.config['tenants']['nexus']['services'].values():
             cfg.update(enabled=True, license_reviewed=True, version='contract-fixture-only')
+        for sid in EXCLUDED:
+            self.config['tenants']['nexus']['services'][sid]['license_policy_exception'] = dict(POLICY_EXCEPTION)
+        self.config['tenants']['nexus']['services']['android-sms-gateway']['username'] = 'sms'
+        self.config['tenants']['nexus']['services']['lighthouse-ci']['username'] = 'lhci'
+        self.config['tenants']['nexus']['services']['clickhouse']['username'] = 'verdugo_readonly'
+        self.config['tenants']['nexus']['services']['dittofeed']['workspace_id'] = '00000000-0000-4000-8000-000000000001'
         for sid in ('plausible','matomo'):
             self.config['tenants']['nexus']['services'][sid].update(
                 site_id='example.invalid' if sid=='plausible' else 1,
                 report_start_date='2026-10-01', report_end_date='2026-10-07')
+        from verdugo.tanda1_reads import PROXY_ONLY as PREVIOUS_PROXY_ONLY
+        from verdugo.operations_reads import PROXY_ONLY as OPERATIONS_PROXY_ONLY
+        PROXY_ONLY = PREVIOUS_PROXY_ONLY | OPERATIONS_PROXY_ONLY
+        for sid in PROXY_ONLY:
+            self.config['tenants']['nexus']['services'][sid]['proxy_auth_reviewed'] = True  # synthetic fixtures only
+        self.config['tenants']['nexus']['services']['uptime-kuma']['api_access_reviewed'] = True  # synthetic only
+        self.config['tenants']['nexus']['services']['gotenberg']['proxy_auth_reviewed'] = True  # synthetic only
+        from verdugo.platform_reads import PROXY_ONLY as PLATFORM_PROXIES
+        services = self.config['tenants']['nexus']['services']
+        for sid in PLATFORM_PROXIES: services[sid]['proxy_auth_reviewed'] = True
+        services['killbill']['proxy_tenant_binding_reviewed'] = True
+        for sid in ('datahub', 'bifrost'): services[sid]['native_auth_enforced_reviewed'] = True
+        services['magentic-ui'].update(user_id='demo-user', user_scope_reviewed=True)
+        services['taguette'].update(project_id=1, document_id=2)
+        from test_completion_reads_v021 import configure as completion_config
+        from test_public_reads_v021 import configure as public_config
+        completion_config(self.config); public_config(self.config)
         self.config['tenants']['other'] = copy.deepcopy(self.config['tenants']['nexus'])
         self.env = patch.dict(os.environ, {c['token_env']: ('api_synthetic-key-not-real' if c['token_env'].endswith('_DOCUMENSO_TOKEN') else 'a'*24+':'+'b'*64 if c['token_env'].endswith('_GHOST_TOKEN') else SECRET) for c in
-            self.config['tenants']['nexus']['services'].values() if 'token_env' in c})
+            self.config['tenants']['nexus']['services'].values() if c.get('token_env')} | {
+                'VERDUGO_COMPLETION_TOKEN': 'oseo_private_test_credential',
+                'VERDUGO_COMPLETION_DEVELOPER': 'private_test_developer_credential'})
         self.env.start()
         self.calls = []
         def transport(req, cfg):
@@ -76,27 +104,27 @@ class Base(unittest.TestCase):
 
 
 class CatalogTests(Base):
-    def test_exact_100_unique(self):
+    def test_exact_322_unique(self):
         rows=catalog()
-        self.assertEqual(100,len(rows))
-        self.assertEqual(100,len({r['id'] for r in rows}))
-        self.assertEqual(100,len({r['repository'] for r in rows}))
+        self.assertEqual(322,len(rows))
+        self.assertEqual(322,len({r['id'] for r in rows}))
+        self.assertEqual(322,len({r['repository'].casefold() for r in rows}))
 
     def test_no_false_live_status(self):
         s=self.engine.status()
-        self.assertEqual(43,s['api_adapters_implemented'])
+        self.assertEqual(103,s['api_adapters_implemented'])
         self.assertEqual(0,s['live_verified'])
         self.assertFalse(any(r['live_verified'] for r in s['integrations']))
 
     def test_logical_graph_has_every_project(self):
         g=graph(SPECS)
-        self.assertEqual(101,len(g['nodes']))
-        self.assertEqual(100,len(g['edges']))
-        self.assertEqual(43,sum(e['kind']=='adapter' for e in g['edges']))
+        self.assertEqual(323,len(g['nodes']))
+        self.assertEqual(322,len(g['edges']))
+        self.assertEqual(103,sum(e['kind']=='adapter' for e in g['edges']))
         self.assertFalse(any(e['live'] for e in g['edges']))
 
     def test_template_disabled(self):
-        self.assertEqual(100,len(template('nexus')['tenants']['nexus']['services']))
+        self.assertEqual(322,len(template('nexus')['tenants']['nexus']['services']))
         self.assertFalse(any(c['enabled'] for c in template('nexus')['tenants']['nexus']['services'].values()))
 
     def test_all_recipes_build(self):
@@ -107,7 +135,10 @@ class CatalogTests(Base):
                             else {'query':'up'} if sid=='prometheus'
                             else {'remote_id':'42'} if op.endswith('.get') else {})
                     req=build(sid,op,params,self.config['tenants']['nexus']['services'][sid])
-                    self.assertTrue(req['public']['url'].startswith('https://example.invalid/'))
+                    COMPLETION_ORIGINS = {'google-ads':'https://googleads.googleapis.com','meta-ads':'https://graph.facebook.com','webmention-io':'https://webmention.io','datosmex':'https://www.banxico.org.mx','mcp-gsc':'https://www.googleapis.com','praw':'https://oauth.reddit.com','python-podcastindex':'https://api.podcastindex.org'}
+                    from verdugo.public_reads import ORIGINS as PUBLIC_ORIGINS
+                    origin = (FIXED_ORIGINS | COMPLETION_ORIGINS | PUBLIC_ORIGINS).get(sid, 'https://example.invalid')
+                    self.assertTrue(req['public']['url'].startswith(origin + '/'))
                     self.assertNotIn(SECRET,json.dumps(req['public']))
 
 

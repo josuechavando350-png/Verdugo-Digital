@@ -1,0 +1,17 @@
+{
+  "service": "census",
+  "operation": "tables.summary",
+  "raw_provider_payload_retained": false,
+  "live_verified": false,
+  "production_certified": false,
+  "scope": "one_bounded_response",
+  "tables_in_response": 5,
+  "dataset": "acs/acs5/profile",
+  "year": 2024,
+  "metadata_only": true,
+  "population_data_retrieved": false,
+  "source_url": "https://api.census.gov/data/2024/acs/acs5/profile/groups.json",
+  "observed_at": "2026-11-15",
+  "response_sha256": "0c4368f94c3e28072b1534c7b984a18b1e748519c5fea2cb11bc56063cfdd69d",
+  "test_scope": "Unauthenticated official metadata response; no provider activation or population query"
+}

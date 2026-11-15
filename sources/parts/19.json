@@ -1,0 +1,82 @@
+[
+ {
+  "number": 181,
+  "id": "osmnx",
+  "repository": "gboeing/osmnx",
+  "commit_sha": "5f3b46f048f9f0a693702cea5f29f2eaad840204",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 182,
+  "id": "kepler-gl",
+  "repository": "keplergl/kepler.gl",
+  "commit_sha": "89954d5ed8fea6fb829f317a488f5b553bf34c24",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 183,
+  "id": "taguette",
+  "repository": "remram44/taguette",
+  "commit_sha": "52fcdce95709375a4085cb10852bf7dd251ccb3d",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 184,
+  "id": "bertopic",
+  "repository": "MaartenGr/BERTopic",
+  "commit_sha": "9036123c97aaa9a6cc4bec4a6db1a7caf9209df6",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 185,
+  "id": "pricesensitivitymeter",
+  "repository": "max-alletsee/pricesensitivitymeter",
+  "commit_sha": "8188de1e95fa0f407073677f6f88baec2f43c8d4",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 186,
+  "id": "squiggle",
+  "repository": "quantified-uncertainty/squiggle",
+  "commit_sha": "87e04dabcf9e50ceadd6abcd297aad145c999045",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 187,
+  "id": "statsforecast",
+  "repository": "Nixtla/statsforecast",
+  "commit_sha": "652a4e940f4f7993d894cdff74ac6ec9a5f01247",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 188,
+  "id": "statsmodels",
+  "repository": "statsmodels/statsmodels",
+  "commit_sha": "27e747596049cc1a9b06e113af739fdeec59cecc",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 189,
+  "id": "mlxtend",
+  "repository": "rasbt/mlxtend",
+  "commit_sha": "1aee767ef57b84a8191511a08955c583b65de382",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 190,
+  "id": "networkx",
+  "repository": "networkx/networkx",
+  "commit_sha": "6855cd586982cc2e4710b8eb87251ccf56674bf1",
+  "source_status": "pinned",
+  "license_review": "pending"
+ }
+]

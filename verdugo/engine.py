@@ -11,6 +11,7 @@ from .adapters import SPECS, build, service_config, connection, remote_id
 from . import read_contracts
 from .catalog import catalog
 from .source_evidence import read_sources
+from . import license_policy, connections
 from . import local_runtime
 from .common import VerdugoError, digest, encode, fields, identifier, integer, sanitize, text
 from .transport import send
@@ -106,10 +107,15 @@ class Engine:
 
     def status(self):
         pins = {r['id']: r['commit_sha'] for r in read_sources()}
+        policy = license_policy.read_policy()
         rows = []
         for item in catalog():
             cfg = service_config(self.config, self.tenant, item['id'])
             rows.append(item | {'artifact_pin': pins[item['id']],
+                'license_detected': policy[item['id']]['spdx'],
+                'license_policy': policy[item['id']]['policy'],
+                'connection_kind': connections.read_map()[0][item['id']],
+                'connection_state': connections.state(item['id']),
                 'source_status': 'pinned',
                 'adapter_implemented': item['id'] in SPECS,
                 'local_adapter_implemented': item['id'] in local_runtime.SPECS,
@@ -127,6 +133,10 @@ class Engine:
                 'local_adapters_implemented': len(local_runtime.SPECS),
                 'total_adapters_implemented': len(set(SPECS) | set(local_runtime.SPECS)),
                 'projects_without_any_adapter': sum(not r['any_adapter_implemented'] for r in rows),
+                'license_policy_allowed': sum(r['license_policy'] != 'excluido' for r in rows),
+                'license_policy_excluded': sum(r['license_policy'] == 'excluido' for r in rows),
+                'adapters_usable_under_policy': sum(r['any_adapter_implemented'] and r['license_policy'] != 'excluido' for r in rows),
+                'connection_states': {s: sum(r['connection_state'] == s for r in rows) for s in connections.STATES},
                 'live_verified': 0, 'note': 'API success is not acceptance certification.',
                 'integrations': rows}
 
@@ -140,6 +150,7 @@ class Engine:
         cfg = service_config(self.config, self.tenant, service)
         if cfg.get('enabled') is not True:
             raise VerdugoError('Integration disabled: ' + service)
+        license_policy.check(service, cfg)
         if cfg.get('license_reviewed') is not True:
             raise VerdugoError('License/use review required: ' + service)
         version = cfg.get('version')

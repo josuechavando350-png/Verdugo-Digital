@@ -1,0 +1,82 @@
+[
+ {
+  "number": 111,
+  "id": "kingfisher-collect",
+  "repository": "open-contracting/kingfisher-collect",
+  "commit_sha": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 112,
+  "id": "markitdown",
+  "repository": "microsoft/markitdown",
+  "commit_sha": "ed178952a6672abdfd35b5f9e76a80b6cefc086e",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 113,
+  "id": "spacy",
+  "repository": "explosion/spaCy",
+  "commit_sha": "7ff14d4da84817f84c32b980882178ddacc066a1",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 114,
+  "id": "schema-dts",
+  "repository": "google/schema-dts",
+  "commit_sha": "0dc1d1f518af5a727ada9d162c714ddf74710686",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 115,
+  "id": "web-vitals",
+  "repository": "GoogleChrome/web-vitals",
+  "commit_sha": "94b3b4bced9d63b4ff6bfb8290bf1f505daa00bb",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 116,
+  "id": "altcha",
+  "repository": "altcha-org/altcha",
+  "commit_sha": "5691046ab911524f7c8e0e6a01609c15fd5a2299",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 117,
+  "id": "cookieconsent",
+  "repository": "orestbida/cookieconsent",
+  "commit_sha": "e0a3fe118d90c1c430ca9dfcd03aca531bce3dc5",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 118,
+  "id": "libphonenumber",
+  "repository": "google/libphonenumber",
+  "commit_sha": "981600cc587fb87483ad294a61daa187afc64b2c",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 119,
+  "id": "android-sms-gateway",
+  "repository": "capcom6/android-sms-gateway",
+  "commit_sha": "e2c6bb56a4d60bd39195e9415589a3ec14bd00a7",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 120,
+  "id": "krayin-crm",
+  "repository": "krayin/laravel-crm",
+  "commit_sha": "ed6deebfcb8c616eaf352c893a10a6d8e666fc6e",
+  "source_status": "pinned",
+  "license_review": "pending"
+ }
+]

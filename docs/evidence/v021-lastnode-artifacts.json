@@ -1,0 +1,23 @@
+{
+  "node_sha256": "e32e2d16081cf644f88392934288086e7662529d0d43277c34f7aad2207cfafb",
+  "lock_sha256": "c7e3e89d2dc249d94598690a689d4b8e0cdc7ab7e054bae5ba89b1f92a5fdd37",
+  "packages": {
+    "@playwright/mcp": "0.0.85",
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "js-yaml": "4.1.1",
+    "lodash": "4.18.1",
+    "colors": "1.4.0",
+    "axios": "1.21.1"
+  },
+  "landscape_files": {
+    "validateLandscape.js": "b14e0bcb00977c8c42c87e99f95898faf447dbcfe7d6de103b01321bf622e1e2",
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "actualTwitter.js": "35f7ff75c5e8d53526e12499beefca8b8577ec628208e0e3fd9a833306010f21",
+    "reporter.original.js": "e4d4733a35f149e1c7e2181443dd9c78e44dcd77de379cb0368be76c21b678e8",
+    "fatalErrors.js": "e7f30439293f1a681633b525e37b701ea4b81905530d54162f5b373958690bfb",
+    "reporter.js": "22a98b1a771607f58c0da60badff814716d98ecc5bcc50a4b20283628279d423",
+    "settings.js": "83892e22c0a4b1525dc3a81b3ea65304f693d15c48f455de90d7ca937ab4bb2b",
+    "NOTICE.md": "a8a5576bd3098b10ddfd9ddba11c5880a8de069e5d2c2cfb8947b5fe9ce02eb5",
+    "yaml.js": "04046fded6170cd85e329aa48cad397ff12b3a3d32efe1f841e4e69651378056"
+  }
+}

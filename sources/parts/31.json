@@ -1,0 +1,82 @@
+[
+ {
+  "number": 301,
+  "id": "dvc",
+  "repository": "iterative/dvc",
+  "commit_sha": "b59add99ee667f2b352cc1be337619f965fe3fea",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 302,
+  "id": "sentence-transformers",
+  "repository": "UKPLab/sentence-transformers",
+  "commit_sha": "688fd663e7b242f41f3f62296d08c69937efeb00",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 303,
+  "id": "transformers",
+  "repository": "huggingface/transformers",
+  "commit_sha": "0d7a6219179b24586089ae81b45cf725078e681f",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 304,
+  "id": "gliner",
+  "repository": "urchade/GLiNER",
+  "commit_sha": "beb41b3839267952d0f063c04dd6236e9fd93a38",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 305,
+  "id": "cube",
+  "repository": "cube-js/cube",
+  "commit_sha": "e19cbba0fcc1441c20eeef484408f340550c0225",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 306,
+  "id": "jitsu",
+  "repository": "jitsucom/jitsu",
+  "commit_sha": "6c0d189a55c9e6c7b47d024d046e091ff1636565",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 307,
+  "id": "arx",
+  "repository": "arx-deidentifier/arx",
+  "commit_sha": "4e0a5f5340fe9a58c44b34c2f9acd2d68f1dad5f",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 308,
+  "id": "fides",
+  "repository": "ethyca/fides",
+  "commit_sha": "e87f3ff835af368defc1ec42dc29ec545a288585",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 309,
+  "id": "river",
+  "repository": "online-ml/river",
+  "commit_sha": "115df63c9cd57f904dd3a6d586b6cf32d2c1b2c8",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 310,
+  "id": "vowpal",
+  "repository": "VowpalWabbit/vowpal_wabbit",
+  "commit_sha": "00196b35f63bcb8a6d66966e2b4cf67d6a2bd335",
+  "source_status": "pinned",
+  "license_review": "pending"
+ }
+]

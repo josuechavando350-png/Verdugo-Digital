@@ -1,0 +1,42 @@
+{
+  "service": "playwright-mcp",
+  "operation": "document.snapshot",
+  "catalog_commit": "78eca85361efb545a4c0f59b6140aef0721c5412",
+  "version": "0.0.85",
+  "sdk_version": "1.32.2",
+  "playwright_version": "1.66.0-alpha-2026-11-09",
+  "original_tool": "browser_snapshot",
+  "transport": "MCP SDK InMemoryTransport between original Client and original Server",
+  "context": "Fresh Chromium context supplied through official contextGetter; isolated=false reuses this already-private context",
+  "remote_navigation": false,
+  "arbitrary_tools": false,
+  "live_verified": false,
+  "files": [
+    {
+      "path": "LICENSE",
+      "git_blob_sha": "cefe596afef12e19a8e5e923f1a04c7da3188760",
+      "url": "https://github.com/microsoft/playwright-mcp/blob/78eca85361efb545a4c0f59b6140aef0721c5412/LICENSE"
+    },
+    {
+      "path": "index.d.ts",
+      "git_blob_sha": "e4b6a736568c91d47605f80acf0e2dd5b4bf67c1",
+      "url": "https://github.com/microsoft/playwright-mcp/blob/78eca85361efb545a4c0f59b6140aef0721c5412/index.d.ts"
+    },
+    {
+      "path": "index.js",
+      "git_blob_sha": "75594c777c3663c82255873bfbdd385aff221071",
+      "url": "https://github.com/microsoft/playwright-mcp/blob/78eca85361efb545a4c0f59b6140aef0721c5412/index.js"
+    },
+    {
+      "path": "package.json",
+      "git_blob_sha": "fd656432f2d27946bce803cb266b682146681a59",
+      "url": "https://github.com/microsoft/playwright-mcp/blob/78eca85361efb545a4c0f59b6140aef0721c5412/package.json"
+    }
+  ],
+  "original_probe": {
+    "commit": "df413d105604d5b7359948e337610c99c39c08a2",
+    "job_id": 132715169636,
+    "result": "passed",
+    "engine_integration": "verified separately by current commit CI"
+  }
+}

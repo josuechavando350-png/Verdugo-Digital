@@ -1,0 +1,186 @@
+{
+  "schema": "verdugo.source-api-evidence.v1",
+  "scope": "bounded operations; wheel distributions validated separately",
+  "files": [
+    {
+      "service": "crewai",
+      "repository": "crewAIInc/crewAI",
+      "catalog_repository": "crewAIInc/crewAI",
+      "commit": "d7dfa0ef5ade793bd48ff7357c6eb45a45294371",
+      "path": "lib/crewai/src/crewai/tools/base_tool.py",
+      "blob_sha": "11c53148c20e8077f4ba319674c9e8ca61d32050",
+      "url": "https://github.com/crewAIInc/crewAI/blob/d7dfa0ef5ade793bd48ff7357c6eb45a45294371/lib/crewai/src/crewai/tools/base_tool.py"
+    },
+    {
+      "service": "openai-agents",
+      "repository": "openai/openai-agents-python",
+      "catalog_repository": "openai/openai-agents-python",
+      "commit": "64fbde5d02b42ae5f9db668eb0184cdb3fc9d775",
+      "path": "src/agents/tool.py",
+      "blob_sha": "671e46f308817102d7e89c1ba036b4e6e2047f11",
+      "url": "https://github.com/openai/openai-agents-python/blob/64fbde5d02b42ae5f9db668eb0184cdb3fc9d775/src/agents/tool.py"
+    },
+    {
+      "service": "google-adk",
+      "repository": "google/adk-python",
+      "catalog_repository": "google/adk-python",
+      "commit": "12aab4aaaa1a72e3edcc65fa4f9d849896ea6c48",
+      "path": "src/google/adk/tools/function_tool.py",
+      "blob_sha": "1d12e4192f03b4922849f967ea7a628299e8b2b0",
+      "url": "https://github.com/google/adk-python/blob/12aab4aaaa1a72e3edcc65fa4f9d849896ea6c48/src/google/adk/tools/function_tool.py"
+    },
+    {
+      "service": "agent-framework",
+      "repository": "microsoft/agent-framework",
+      "catalog_repository": "microsoft/agent-framework",
+      "commit": "92838b60498395142cb8b74693353163e95a0faf",
+      "path": "python/packages/core/agent_framework/_tools.py",
+      "blob_sha": "07402194e28e38bbd04622ff8f7874ba3a5e25bb",
+      "url": "https://github.com/microsoft/agent-framework/blob/92838b60498395142cb8b74693353163e95a0faf/python/packages/core/agent_framework/_tools.py"
+    },
+    {
+      "service": "smolagents",
+      "repository": "huggingface/smolagents",
+      "catalog_repository": "huggingface/smolagents",
+      "commit": "96f33faaf028479119ec8d34507b47694cf14e34",
+      "path": "src/smolagents/tools.py",
+      "blob_sha": "931acfeccb6f2663b6c073bfa0fd8f0088c01eac",
+      "url": "https://github.com/huggingface/smolagents/blob/96f33faaf028479119ec8d34507b47694cf14e34/src/smolagents/tools.py"
+    },
+    {
+      "service": "camel",
+      "repository": "camel-ai/camel",
+      "catalog_repository": "camel-ai/camel",
+      "commit": "0366b64bf3609c76f50e396715aab73ba58a930c",
+      "path": "camel/toolkits/function_tool.py",
+      "blob_sha": "c5914a82870d72a1bb50c029977ef1fc8ac58415",
+      "url": "https://github.com/camel-ai/camel/blob/0366b64bf3609c76f50e396715aab73ba58a930c/camel/toolkits/function_tool.py"
+    },
+    {
+      "service": "any-agent",
+      "repository": "mozilla-ai/any-agent",
+      "catalog_repository": "mozilla-ai/any-agent",
+      "commit": "a469723ac4a0518ab0696d57e09e4dc407c826ec",
+      "path": "src/any_agent/tools/wrappers.py",
+      "blob_sha": "35fcd0fd7e61a57a20032d12c9216a1736d73e5f",
+      "url": "https://github.com/mozilla-ai/any-agent/blob/a469723ac4a0518ab0696d57e09e4dc407c826ec/src/any_agent/tools/wrappers.py"
+    },
+    {
+      "service": "fastmcp",
+      "repository": "PrefectHQ/fastmcp",
+      "catalog_repository": "PrefectHQ/fastmcp",
+      "commit": "a8745d61e650467756bb28b4157822dbfbdfa34f",
+      "path": "fastmcp_slim/fastmcp/tools/function_tool.py",
+      "blob_sha": "85bbfcf7524015e4e6ed0148f8140ba8e3ff1ca8",
+      "url": "https://github.com/PrefectHQ/fastmcp/blob/a8745d61e650467756bb28b4157822dbfbdfa34f/fastmcp_slim/fastmcp/tools/function_tool.py"
+    },
+    {
+      "service": "guardrails",
+      "repository": "guardrails-ai/guardrails",
+      "catalog_repository": "guardrails-ai/guardrails",
+      "commit": "06d0ff2c5f9bcb493d976b76f885e37e41ce845d",
+      "path": "guardrails/guard.py",
+      "blob_sha": "331bace1e910b6f1fe9fc9b269ffbf1d10b84452",
+      "url": "https://github.com/guardrails-ai/guardrails/blob/06d0ff2c5f9bcb493d976b76f885e37e41ce845d/guardrails/guard.py"
+    },
+    {
+      "service": "instructor",
+      "repository": "567-labs/instructor",
+      "catalog_repository": "567-labs/instructor",
+      "commit": "2549049be07ec3be1d617f8904ea8ffe18253c48",
+      "path": "instructor/v2/core/function_calls.py",
+      "blob_sha": "2366ab991f8dd4823d57a8a85e786eff4a11bd5a",
+      "url": "https://github.com/567-labs/instructor/blob/2549049be07ec3be1d617f8904ea8ffe18253c48/instructor/v2/core/function_calls.py"
+    },
+    {
+      "service": "outlines",
+      "repository": "dottxt-ai/outlines",
+      "catalog_repository": "dottxt-ai/outlines",
+      "commit": "c52af8472c6fe8a607a733ec11b709476af77a96",
+      "path": "src/outlines/types/dsl.py",
+      "blob_sha": "c6968130919a2629c34ef216b3b7d00bd40e47e0",
+      "url": "https://github.com/dottxt-ai/outlines/blob/c52af8472c6fe8a607a733ec11b709476af77a96/src/outlines/types/dsl.py"
+    },
+    {
+      "service": "llm-guard",
+      "repository": "protectai/llm-guard",
+      "catalog_repository": "protectai/llm-guard",
+      "commit": "168c1034ffdb33837e7ae6fd6a16b80567c1be03",
+      "path": "llm_guard/input_scanners/regex.py",
+      "blob_sha": "28b7368f4641e1c122fd888c95e542777cd689bc",
+      "url": "https://github.com/protectai/llm-guard/blob/168c1034ffdb33837e7ae6fd6a16b80567c1be03/llm_guard/input_scanners/regex.py"
+    },
+    {
+      "service": "sentence-transformers",
+      "repository": "huggingface/sentence-transformers",
+      "catalog_repository": "UKPLab/sentence-transformers",
+      "commit": "688fd663e7b242f41f3f62296d08c69937efeb00",
+      "path": "sentence_transformers/util/similarity.py",
+      "blob_sha": "a0e7add0435d80213e6a2e2c03c8b5d3ca83fc46",
+      "url": "https://github.com/huggingface/sentence-transformers/blob/688fd663e7b242f41f3f62296d08c69937efeb00/sentence_transformers/util/similarity.py"
+    },
+    {
+      "service": "transformers",
+      "repository": "huggingface/transformers",
+      "catalog_repository": "huggingface/transformers",
+      "commit": "0d7a6219179b24586089ae81b45cf725078e681f",
+      "path": "src/transformers/models/bert/tokenization_bert.py",
+      "blob_sha": "47cb639fab40cfbfb9749230dc6b5c94d35d8b8d",
+      "url": "https://github.com/huggingface/transformers/blob/0d7a6219179b24586089ae81b45cf725078e681f/src/transformers/models/bert/tokenization_bert.py"
+    },
+    {
+      "service": "bertopic",
+      "repository": "MaartenGr/BERTopic",
+      "catalog_repository": "MaartenGr/BERTopic",
+      "commit": "9036123c97aaa9a6cc4bec4a6db1a7caf9209df6",
+      "path": "bertopic/vectorizers/_ctfidf.py",
+      "blob_sha": "5ce58ed83c630ae3632dbbe54955956ca0f6d5b9",
+      "url": "https://github.com/MaartenGr/BERTopic/blob/9036123c97aaa9a6cc4bec4a6db1a7caf9209df6/bertopic/vectorizers/_ctfidf.py"
+    },
+    {
+      "service": "ax",
+      "repository": "meta/Ax",
+      "catalog_repository": "facebook/Ax",
+      "commit": "fd8a67a524b063b2615815c638af2c94b034f476",
+      "path": "ax/api/client.py",
+      "blob_sha": "1b7ec8efb3c8ebb5155cdd80d171c6fcb0b7f41e",
+      "url": "https://github.com/meta/Ax/blob/fd8a67a524b063b2615815c638af2c94b034f476/ax/api/client.py"
+    },
+    {
+      "service": "geo-optimizer",
+      "repository": "Auriti-Labs/geo-optimizer-skill",
+      "catalog_repository": "Auriti-Labs/geo-optimizer-skill",
+      "commit": "b7fd7dfaaeb9a28841954ac373236211813ca5f2",
+      "path": "src/geo_optimizer/core/audit_meta.py",
+      "blob_sha": "25ff591c042f2eff99e30c01f1e2db5885adc458",
+      "url": "https://github.com/Auriti-Labs/geo-optimizer-skill/blob/b7fd7dfaaeb9a28841954ac373236211813ca5f2/src/geo_optimizer/core/audit_meta.py"
+    },
+    {
+      "service": "parsedmarc",
+      "repository": "domainaware/parsedmarc",
+      "catalog_repository": "domainaware/parsedmarc",
+      "commit": "70a0ea0470d04649e33e6b09ce20da991d424f72",
+      "path": "parsedmarc/__init__.py",
+      "blob_sha": "4e8722dff19a88d40c83f677f6f5a79a6ef30455",
+      "url": "https://github.com/domainaware/parsedmarc/blob/70a0ea0470d04649e33e6b09ce20da991d424f72/parsedmarc/__init__.py"
+    },
+    {
+      "service": "cdx-toolkit",
+      "repository": "commoncrawl/cdx_toolkit",
+      "catalog_repository": "cocrawler/cdx_toolkit",
+      "commit": "e87b1204993b77a4c41c03239baefa1c8462a6e1",
+      "path": "cdx_toolkit/__init__.py",
+      "blob_sha": "efa2d9f23cde2b1d8f27296ecdbc62feedcc824c",
+      "url": "https://github.com/commoncrawl/cdx_toolkit/blob/e87b1204993b77a4c41c03239baefa1c8462a6e1/cdx_toolkit/__init__.py"
+    },
+    {
+      "service": "news-please",
+      "repository": "fhamborg/news-please",
+      "catalog_repository": "fhamborg/news-please",
+      "commit": "f899850be2bb0059da101c13502ec88af057f974",
+      "path": "newsplease/__init__.py",
+      "blob_sha": "7915dc54f3f1df8ed66af2dde79ed88b210da458",
+      "url": "https://github.com/fhamborg/news-please/blob/f899850be2bb0059da101c13502ec88af057f974/newsplease/__init__.py"
+    }
+  ]
+}

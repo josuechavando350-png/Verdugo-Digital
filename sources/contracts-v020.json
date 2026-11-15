@@ -1,0 +1,215 @@
+{
+  "schema": "verdugo.source-api-evidence.v1",
+  "scope": "bounded analytical operations; source inventory does not prove installed wheel identity",
+  "files": [
+    {
+      "service": "spacy",
+      "repository": "explosion/spaCy",
+      "commit": "7ff14d4da84817f84c32b980882178ddacc066a1",
+      "path": "spacy/language.py",
+      "blob_sha": "57347fee84be245fe613c27f57988949d73a1a5c",
+      "url": "https://github.com/explosion/spaCy/blob/7ff14d4da84817f84c32b980882178ddacc066a1/spacy/language.py"
+    },
+    {
+      "service": "arrow",
+      "repository": "apache/arrow",
+      "commit": "ab5b42237dfe14d683bc74ecbddf71109a0c6633",
+      "path": "python/pyarrow/table.pxi",
+      "blob_sha": "30fff040fc37a23053a302c044b0d35891f32db7",
+      "url": "https://github.com/apache/arrow/blob/ab5b42237dfe14d683bc74ecbddf71109a0c6633/python/pyarrow/table.pxi"
+    },
+    {
+      "service": "polars",
+      "repository": "pola-rs/polars",
+      "commit": "5c36cdd75a30a8ab12a9f70e251c0f267235b2a7",
+      "path": "py-polars/src/polars/dataframe/frame.py",
+      "blob_sha": "c88457fa6b72be5d575c264585d8a719cd089130",
+      "url": "https://github.com/pola-rs/polars/blob/5c36cdd75a30a8ab12a9f70e251c0f267235b2a7/py-polars/src/polars/dataframe/frame.py"
+    },
+    {
+      "service": "networkx",
+      "repository": "networkx/networkx",
+      "commit": "6855cd586982cc2e4710b8eb87251ccf56674bf1",
+      "path": "networkx/algorithms/dag.py",
+      "blob_sha": "d3d3b9dead69b36dee5a47a5c46a773ede6657c1",
+      "url": "https://github.com/networkx/networkx/blob/6855cd586982cc2e4710b8eb87251ccf56674bf1/networkx/algorithms/dag.py"
+    },
+    {
+      "service": "sqlglot",
+      "repository": "tobymao/sqlglot",
+      "commit": "b476d29f42eeabfd0c8a150b9239a344b02e68dd",
+      "path": "sqlglot/__init__.py",
+      "blob_sha": "2039e77a87d825de988b14050b5e3fbba52e91eb",
+      "url": "https://github.com/tobymao/sqlglot/blob/b476d29f42eeabfd0c8a150b9239a344b02e68dd/sqlglot/__init__.py"
+    },
+    {
+      "service": "faker",
+      "repository": "joke2k/faker",
+      "commit": "affa2c5aada23fc5c00127298a8e904375d32832",
+      "path": "faker/generator.py",
+      "blob_sha": "5eda9648e2d7354c54a2b4c94bb79caefb667d4a",
+      "url": "https://github.com/joke2k/faker/blob/affa2c5aada23fc5c00127298a8e904375d32832/faker/generator.py"
+    },
+    {
+      "service": "statsmodels",
+      "repository": "statsmodels/statsmodels",
+      "commit": "27e747596049cc1a9b06e113af739fdeec59cecc",
+      "path": "statsmodels/regression/linear_model.py",
+      "blob_sha": "b3b521c43be9b5a87820adc1846001776b4e09ce",
+      "url": "https://github.com/statsmodels/statsmodels/blob/27e747596049cc1a9b06e113af739fdeec59cecc/statsmodels/regression/linear_model.py"
+    },
+    {
+      "service": "shap",
+      "repository": "shap/shap",
+      "commit": "511710def94e163a4678a1be07a74b9ccf0a4124",
+      "path": "shap/explainers/_tree.py",
+      "blob_sha": "5ebbfee6d13c5dc6b7b26b6f5d5c251623321dcb",
+      "url": "https://github.com/shap/shap/blob/511710def94e163a4678a1be07a74b9ccf0a4124/shap/explainers/_tree.py"
+    },
+    {
+      "service": "causal-learn",
+      "repository": "py-why/causal-learn",
+      "commit": "0dacacf36390e3084704636bc3c36e82e35ee0cc",
+      "path": "causallearn/utils/cit.py",
+      "blob_sha": "56f860fab4eb38e0809cc4c0d2e25c8b681cf18c",
+      "url": "https://github.com/py-why/causal-learn/blob/0dacacf36390e3084704636bc3c36e82e35ee0cc/causallearn/utils/cit.py"
+    },
+    {
+      "service": "numpy-financial",
+      "repository": "numpy/numpy-financial",
+      "commit": "031ed55d322b7aad57311b9d63b589c79df942a1",
+      "path": "numpy_financial/_financial.py",
+      "blob_sha": "08220b21eb1f9425fb65f2f860b72c48a616ddc2",
+      "url": "https://github.com/numpy/numpy-financial/blob/031ed55d322b7aad57311b9d63b589c79df942a1/numpy_financial/_financial.py"
+    },
+    {
+      "service": "datasketch",
+      "repository": "ekzhu/datasketch",
+      "commit": "c7eaaeea3f39909f906a9cf8ad4d21a878cb4e07",
+      "path": "datasketch/minhash.py",
+      "blob_sha": "d1870b48a8a816e6c0eaf1141e10eaf4c423a7c8",
+      "url": "https://github.com/ekzhu/datasketch/blob/c7eaaeea3f39909f906a9cf8ad4d21a878cb4e07/datasketch/minhash.py"
+    },
+    {
+      "service": "nashpy",
+      "repository": "drvinceknight/Nashpy",
+      "commit": "a797cfd91e065f1ac67f9660b27d487627ec5528",
+      "path": "src/nashpy/game.py",
+      "blob_sha": "3965c9f0cc68fcecd514878a5bd7ad903a1e4044",
+      "url": "https://github.com/drvinceknight/Nashpy/blob/a797cfd91e065f1ac67f9660b27d487627ec5528/src/nashpy/game.py"
+    },
+    {
+      "service": "pymcdm",
+      "repository": "kotbaton/pymcdm",
+      "commit": "346a44f5afdac249c534912cc8d483e82586c52d",
+      "path": "pymcdm/methods/topsis.py",
+      "blob_sha": "b513755ada8eb7d5227a3ac32c4c740b87dc374b",
+      "url": "https://github.com/kotbaton/pymcdm/blob/346a44f5afdac249c534912cc8d483e82586c52d/pymcdm/methods/topsis.py"
+    },
+    {
+      "service": "h3",
+      "repository": "uber/h3",
+      "commit": "15920096d4a165729c01f749e2bd97334b009519",
+      "path": "src/h3lib/include/h3api.h.in",
+      "blob_sha": "c88ec981830b3e2f1fcbfa387d4b003f55a4070c",
+      "url": "https://github.com/uber/h3/blob/15920096d4a165729c01f749e2bd97334b009519/src/h3lib/include/h3api.h.in"
+    },
+    {
+      "service": "mlxtend",
+      "repository": "rasbt/mlxtend",
+      "commit": "1aee767ef57b84a8191511a08955c583b65de382",
+      "path": "mlxtend/frequent_patterns/apriori.py",
+      "blob_sha": "376f518e7bd282a05f4b7c542a03f5ca14db75f6",
+      "url": "https://github.com/rasbt/mlxtend/blob/1aee767ef57b84a8191511a08955c583b65de382/mlxtend/frequent_patterns/apriori.py"
+    },
+    {
+      "service": "lifelines",
+      "repository": "CamDavidsonPilon/lifelines",
+      "commit": "7a8fc34a013ecd79fa405017b89e1697c1cc6e17",
+      "path": "lifelines/fitters/kaplan_meier_fitter.py",
+      "blob_sha": "8d3f2b17dab44bda18653b0b5cb953c7714f2473",
+      "url": "https://github.com/CamDavidsonPilon/lifelines/blob/7a8fc34a013ecd79fa405017b89e1697c1cc6e17/lifelines/fitters/kaplan_meier_fitter.py"
+    },
+    {
+      "service": "pyod",
+      "repository": "yzhao062/pyod",
+      "commit": "9680a8b9d767d8226f76e5b3157ed318af881d74",
+      "path": "pyod/models/knn.py",
+      "blob_sha": "b99f1d864d1a76209da210a32f98e944465fb745",
+      "url": "https://github.com/yzhao062/pyod/blob/9680a8b9d767d8226f76e5b3157ed318af881d74/pyod/models/knn.py"
+    },
+    {
+      "service": "mapie",
+      "repository": "scikit-learn-contrib/MAPIE",
+      "commit": "d5ea5e07aea09a897726fd8641c193850a5c540d",
+      "path": "mapie/regression/regression.py",
+      "blob_sha": "904a3a44feb8354c06a06f67dfb5f6b10777e998",
+      "url": "https://github.com/scikit-learn-contrib/MAPIE/blob/d5ea5e07aea09a897726fd8641c193850a5c540d/mapie/regression/regression.py"
+    },
+    {
+      "service": "pandera",
+      "repository": "unionai-oss/pandera",
+      "commit": "0292915e3321e83ee19380d7329788b7ead05291",
+      "path": "pandera/api/pandas/container.py",
+      "blob_sha": "89f1342fed430c5e81552001e6713f9b844d5e69",
+      "url": "https://github.com/unionai-oss/pandera/blob/0292915e3321e83ee19380d7329788b7ead05291/pandera/api/pandas/container.py"
+    },
+    {
+      "service": "great-tables",
+      "repository": "posit-dev/great-tables",
+      "commit": "193bfc23b03a034aa5da8a1e7b471840ac2f3f8e",
+      "path": "great_tables/gt.py",
+      "blob_sha": "bceb3570530d77667374e99e3f2f05416e98e902",
+      "url": "https://github.com/posit-dev/great-tables/blob/193bfc23b03a034aa5da8a1e7b471840ac2f3f8e/great_tables/gt.py"
+    },
+    {
+      "service": "statsforecast",
+      "repository": "Nixtla/statsforecast",
+      "commit": "652a4e940f4f7993d894cdff74ac6ec9a5f01247",
+      "path": "python/statsforecast/models.py",
+      "blob_sha": "05048fd40eaa59ba9139135db46d98c67853e902",
+      "url": "https://github.com/Nixtla/statsforecast/blob/652a4e940f4f7993d894cdff74ac6ec9a5f01247/python/statsforecast/models.py"
+    },
+    {
+      "service": "markitdown",
+      "repository": "microsoft/markitdown",
+      "commit": "ed178952a6672abdfd35b5f9e76a80b6cefc086e",
+      "path": "packages/markitdown/src/markitdown/_markitdown.py",
+      "blob_sha": "53ba8b1afd0225f40a12038a73512f3a8b52d56d",
+      "url": "https://github.com/microsoft/markitdown/blob/ed178952a6672abdfd35b5f9e76a80b6cefc086e/packages/markitdown/src/markitdown/_markitdown.py"
+    },
+    {
+      "service": "ibis",
+      "repository": "ibis-project/ibis",
+      "commit": "6d40f963fee940063e09956c7e60d073f4302259",
+      "path": "ibis/expr/types/relations.py",
+      "blob_sha": "d00d1171e4a9cf69c9170b4836d8a3b538e79ea6",
+      "url": "https://github.com/ibis-project/ibis/blob/6d40f963fee940063e09956c7e60d073f4302259/ibis/expr/types/relations.py"
+    },
+    {
+      "service": "river",
+      "repository": "online-ml/river",
+      "commit": "115df63c9cd57f904dd3a6d586b6cf32d2c1b2c8",
+      "path": "river/stats/var.py",
+      "blob_sha": "11cd97cc33f4a494f30e13b38aaa074b889ece2f",
+      "url": "https://github.com/online-ml/river/blob/115df63c9cd57f904dd3a6d586b6cf32d2c1b2c8/river/stats/var.py"
+    },
+    {
+      "service": "river",
+      "repository": "online-ml/river",
+      "commit": "115df63c9cd57f904dd3a6d586b6cf32d2c1b2c8",
+      "path": "river/stats/mean.py",
+      "blob_sha": "1456571258540991c29099a038bb868f976271c5",
+      "url": "https://github.com/online-ml/river/blob/115df63c9cd57f904dd3a6d586b6cf32d2c1b2c8/river/stats/mean.py"
+    },
+    {
+      "service": "h3",
+      "repository": "uber/h3-py",
+      "ref": "v4.5.0",
+      "path": "src/h3/api/basic_str/__init__.py",
+      "blob_sha": "92056a2062d52d93731f15a84b18876f49ec4ee8",
+      "url": "https://github.com/uber/h3-py/blob/v4.5.0/src/h3/api/basic_str/__init__.py",
+      "scope": "official Python wrapper; catalog pins core C library separately"
+    }
+  ]
+}

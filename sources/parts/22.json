@@ -1,0 +1,82 @@
+[
+ {
+  "number": 211,
+  "id": "letta",
+  "repository": "letta-ai/letta",
+  "commit_sha": "8816d3a8516893bfdc0fa14bfb1235226012e295",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 212,
+  "id": "mem0",
+  "repository": "mem0ai/mem0",
+  "commit_sha": "f1791daa86d469249c9b002f62644d58a1eb96a0",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 213,
+  "id": "graphiti",
+  "repository": "getzep/graphiti",
+  "commit_sha": "3ed02527499d4eb3b2eb133d716898dc89d7cc99",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 214,
+  "id": "browser-use",
+  "repository": "browser-use/browser-use",
+  "commit_sha": "480d0bd508ce10dcf27a4716f2f87355a08e8372",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 215,
+  "id": "stagehand",
+  "repository": "browserbase/stagehand",
+  "commit_sha": "6f2686d792b7f5836b04754e0f6a44db39928592",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 216,
+  "id": "playwright-mcp",
+  "repository": "microsoft/playwright-mcp",
+  "commit_sha": "78eca85361efb545a4c0f59b6140aef0721c5412",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 217,
+  "id": "mcp-python-sdk",
+  "repository": "modelcontextprotocol/python-sdk",
+  "commit_sha": "77001c96f9507be0f4d009b83210a384a5e08bda",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 218,
+  "id": "mcp-typescript-sdk",
+  "repository": "modelcontextprotocol/typescript-sdk",
+  "commit_sha": "919bb8ea88b6e10e72c2f8b6218fad4cfdc40b2c",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 219,
+  "id": "fastmcp",
+  "repository": "PrefectHQ/fastmcp",
+  "commit_sha": "a8745d61e650467756bb28b4157822dbfbdfa34f",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 220,
+  "id": "mcp-agent",
+  "repository": "lastmile-ai/mcp-agent",
+  "commit_sha": "f62d849350816588b1c6294e7914bbe4d8b84072",
+  "source_status": "pinned",
+  "license_review": "pending"
+ }
+]

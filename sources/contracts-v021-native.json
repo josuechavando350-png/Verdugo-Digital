@@ -1,0 +1,262 @@
+{
+  "schema": "verdugo.source-api-evidence.v1",
+  "scope": "Eight fixed original npm operations; no model or network calls",
+  "files": [
+    {
+      "service": "geo-lint",
+      "repository": "IJONIS/geo-lint",
+      "commit": "b2d79319d1d0d4d4fc5d6abbc4ce5156afc5d14b",
+      "path": "src/index.ts",
+      "blob_sha": "099f68eead40f721e07eef34716f9def00849653",
+      "url": "https://github.com/IJONIS/geo-lint/blob/b2d79319d1d0d4d4fc5d6abbc4ce5156afc5d14b/src/index.ts"
+    },
+    {
+      "service": "geo-lint",
+      "repository": "IJONIS/geo-lint",
+      "commit": "b2d79319d1d0d4d4fc5d6abbc4ce5156afc5d14b",
+      "path": "src/adapters/types.ts",
+      "blob_sha": "c1aa3e7bf60bd6bab09662b8a3d283912c69c0d5",
+      "url": "https://github.com/IJONIS/geo-lint/blob/b2d79319d1d0d4d4fc5d6abbc4ce5156afc5d14b/src/adapters/types.ts"
+    },
+    {
+      "service": "geo-lint",
+      "repository": "IJONIS/geo-lint",
+      "commit": "b2d79319d1d0d4d4fc5d6abbc4ce5156afc5d14b",
+      "path": "src/types.ts",
+      "blob_sha": "ed69e884da0a94d44a81a1d0f83c893c601cdf97",
+      "url": "https://github.com/IJONIS/geo-lint/blob/b2d79319d1d0d4d4fc5d6abbc4ce5156afc5d14b/src/types.ts"
+    },
+    {
+      "service": "geo-lint",
+      "repository": "IJONIS/geo-lint",
+      "commit": "b2d79319d1d0d4d4fc5d6abbc4ce5156afc5d14b",
+      "path": "package.json",
+      "blob_sha": "b45db08efd02b6f2bec5a3d24b8a6639017eb0ec",
+      "url": "https://github.com/IJONIS/geo-lint/blob/b2d79319d1d0d4d4fc5d6abbc4ce5156afc5d14b/package.json"
+    },
+    {
+      "service": "site-md",
+      "repository": "yazinsai/site-md",
+      "commit": "c5c31bc781d06f83a81d30a284f0df3aa2ffbe32",
+      "path": "src/convert.ts",
+      "blob_sha": "81c54624634667169b5242980b5c37f65017d0db",
+      "url": "https://github.com/yazinsai/site-md/blob/c5c31bc781d06f83a81d30a284f0df3aa2ffbe32/src/convert.ts"
+    },
+    {
+      "service": "site-md",
+      "repository": "yazinsai/site-md",
+      "commit": "c5c31bc781d06f83a81d30a284f0df3aa2ffbe32",
+      "path": "src/index.ts",
+      "blob_sha": "e93302d5f04e8cbd929113a167be417d88fabb75",
+      "url": "https://github.com/yazinsai/site-md/blob/c5c31bc781d06f83a81d30a284f0df3aa2ffbe32/src/index.ts"
+    },
+    {
+      "service": "site-md",
+      "repository": "yazinsai/site-md",
+      "commit": "c5c31bc781d06f83a81d30a284f0df3aa2ffbe32",
+      "path": "package.json",
+      "blob_sha": "815d41987d3b2e73ff1de5538e0fbff1234fd839",
+      "url": "https://github.com/yazinsai/site-md/blob/c5c31bc781d06f83a81d30a284f0df3aa2ffbe32/package.json"
+    },
+    {
+      "service": "seo-graph",
+      "repository": "jdevalk/seo-graph",
+      "commit": "c33eb1e120c620970042e28f1332fc90c30125e6",
+      "path": "packages/seo-graph-core/src/pieces/breadcrumb.ts",
+      "blob_sha": "bba4c60123934ecceb974575b4fcfe58fab3e4c1",
+      "url": "https://github.com/jdevalk/seo-graph/blob/c33eb1e120c620970042e28f1332fc90c30125e6/packages/seo-graph-core/src/pieces/breadcrumb.ts"
+    },
+    {
+      "service": "seo-graph",
+      "repository": "jdevalk/seo-graph",
+      "commit": "c33eb1e120c620970042e28f1332fc90c30125e6",
+      "path": "packages/seo-graph-core/src/assemble.ts",
+      "blob_sha": "927df1a4b15097165de7e0bb7250ffc5ad7b0a94",
+      "url": "https://github.com/jdevalk/seo-graph/blob/c33eb1e120c620970042e28f1332fc90c30125e6/packages/seo-graph-core/src/assemble.ts"
+    },
+    {
+      "service": "seo-graph",
+      "repository": "jdevalk/seo-graph",
+      "commit": "c33eb1e120c620970042e28f1332fc90c30125e6",
+      "path": "packages/seo-graph-core/package.json",
+      "blob_sha": "b049be233a0fbc3d7e88dbfe63b1a796a929a92e",
+      "url": "https://github.com/jdevalk/seo-graph/blob/c33eb1e120c620970042e28f1332fc90c30125e6/packages/seo-graph-core/package.json"
+    },
+    {
+      "service": "structured-data-validator",
+      "repository": "adobe/structured-data-validator",
+      "commit": "6918b52651d6f4c5dae612859e2e395de5a1910e",
+      "path": "src/validator.js",
+      "blob_sha": "81d85ef4a91ee4ddfc58bbc9ffb4f057f4e55b47",
+      "url": "https://github.com/adobe/structured-data-validator/blob/6918b52651d6f4c5dae612859e2e395de5a1910e/src/validator.js"
+    },
+    {
+      "service": "structured-data-validator",
+      "repository": "adobe/structured-data-validator",
+      "commit": "6918b52651d6f4c5dae612859e2e395de5a1910e",
+      "path": "src/types/BreadcrumbList.js",
+      "blob_sha": "8cb2fc863a6392b29c4d4a0d323a6aa4400c0dcd",
+      "url": "https://github.com/adobe/structured-data-validator/blob/6918b52651d6f4c5dae612859e2e395de5a1910e/src/types/BreadcrumbList.js"
+    },
+    {
+      "service": "structured-data-validator",
+      "repository": "adobe/structured-data-validator",
+      "commit": "6918b52651d6f4c5dae612859e2e395de5a1910e",
+      "path": "package.json",
+      "blob_sha": "844bfdc7abe60279c4111bc3ce480c6c00bc22af",
+      "url": "https://github.com/adobe/structured-data-validator/blob/6918b52651d6f4c5dae612859e2e395de5a1910e/package.json"
+    },
+    {
+      "service": "slidev",
+      "repository": "slidevjs/slidev",
+      "commit": "437f139ccd4c8482a193b217922e7800a5b3baec",
+      "path": "packages/parser/src/core.ts",
+      "blob_sha": "a022911dcd7a38e5f9207544aecea27dfbf7aeb4",
+      "url": "https://github.com/slidevjs/slidev/blob/437f139ccd4c8482a193b217922e7800a5b3baec/packages/parser/src/core.ts"
+    },
+    {
+      "service": "slidev",
+      "repository": "slidevjs/slidev",
+      "commit": "437f139ccd4c8482a193b217922e7800a5b3baec",
+      "path": "packages/parser/src/index.ts",
+      "blob_sha": "46d458ad7fd8ff3be1a1fc05b22b13b5a43cdab4",
+      "url": "https://github.com/slidevjs/slidev/blob/437f139ccd4c8482a193b217922e7800a5b3baec/packages/parser/src/index.ts"
+    },
+    {
+      "service": "slidev",
+      "repository": "slidevjs/slidev",
+      "commit": "437f139ccd4c8482a193b217922e7800a5b3baec",
+      "path": "packages/parser/package.json",
+      "blob_sha": "6e6ff5cd7ffe76b2b37e97a3f9df7183a7d0a82f",
+      "url": "https://github.com/slidevjs/slidev/blob/437f139ccd4c8482a193b217922e7800a5b3baec/packages/parser/package.json"
+    },
+    {
+      "service": "lighthouse",
+      "repository": "GoogleChrome/lighthouse",
+      "commit": "5313024aa05786138dfd38c6740ef354e20c3f92",
+      "path": "core/audits/seo/meta-description.js",
+      "blob_sha": "a46fa098508e359db3f7ec001646da953ac1d3d0",
+      "url": "https://github.com/GoogleChrome/lighthouse/blob/5313024aa05786138dfd38c6740ef354e20c3f92/core/audits/seo/meta-description.js"
+    },
+    {
+      "service": "lighthouse",
+      "repository": "GoogleChrome/lighthouse",
+      "commit": "5313024aa05786138dfd38c6740ef354e20c3f92",
+      "path": "package.json",
+      "blob_sha": "a07e9d731542e6a90e2178b864152acbb9e18328",
+      "url": "https://github.com/GoogleChrome/lighthouse/blob/5313024aa05786138dfd38c6740ef354e20c3f92/package.json"
+    },
+    {
+      "service": "promptfoo",
+      "repository": "promptfoo/promptfoo",
+      "commit": "e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d",
+      "path": "README.md",
+      "blob_sha": "2a56017c2609e3a92d7d5539147c9c7e620a3420",
+      "url": "https://github.com/promptfoo/promptfoo/blob/e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d/README.md"
+    },
+    {
+      "service": "promptfoo",
+      "repository": "promptfoo/promptfoo",
+      "commit": "e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d",
+      "path": "package.json",
+      "blob_sha": "39a10f027d2f6905dd0e408ce15e9f6e1e4ebffa",
+      "url": "https://github.com/promptfoo/promptfoo/blob/e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d/package.json"
+    },
+    {
+      "service": "promptfoo",
+      "repository": "promptfoo/promptfoo",
+      "commit": "e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d",
+      "path": "src/assertions/contains.ts",
+      "blob_sha": "4f8849349d128c08719c8dafa6504e56ffeff0f0",
+      "url": "https://github.com/promptfoo/promptfoo/blob/e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d/src/assertions/contains.ts"
+    },
+    {
+      "service": "promptfoo",
+      "repository": "promptfoo/promptfoo",
+      "commit": "e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d",
+      "path": "src/index.ts",
+      "blob_sha": "259862e1032da53d25e2e3e977d427362e6f1e11",
+      "url": "https://github.com/promptfoo/promptfoo/blob/e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d/src/index.ts"
+    },
+    {
+      "service": "promptfoo",
+      "repository": "promptfoo/promptfoo",
+      "commit": "e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d",
+      "path": "src/providers/echo.ts",
+      "blob_sha": "d33d4915015efa2e784d08c74964dd3adfd58e8a",
+      "url": "https://github.com/promptfoo/promptfoo/blob/e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d/src/providers/echo.ts"
+    },
+    {
+      "service": "log4brains",
+      "repository": "thomvaill/log4brains",
+      "commit": "17e32021a8c5130386f17e921d4efa6da7709a66",
+      "path": "README.md",
+      "blob_sha": "fae9918071b3a88b75bcfdbc174c877d70a55391",
+      "url": "https://github.com/thomvaill/log4brains/blob/17e32021a8c5130386f17e921d4efa6da7709a66/README.md"
+    },
+    {
+      "service": "log4brains",
+      "repository": "thomvaill/log4brains",
+      "commit": "17e32021a8c5130386f17e921d4efa6da7709a66",
+      "path": "package.json",
+      "blob_sha": "75a9230c5745f38576e3ede02ca2d1b3d0f525ad",
+      "url": "https://github.com/thomvaill/log4brains/blob/17e32021a8c5130386f17e921d4efa6da7709a66/package.json"
+    },
+    {
+      "service": "log4brains",
+      "repository": "thomvaill/log4brains",
+      "commit": "17e32021a8c5130386f17e921d4efa6da7709a66",
+      "path": "packages/core/package.json",
+      "blob_sha": "c3574492d52d1ff006a7e8f0c5af66147a4d9593",
+      "url": "https://github.com/thomvaill/log4brains/blob/17e32021a8c5130386f17e921d4efa6da7709a66/packages/core/package.json"
+    },
+    {
+      "service": "log4brains",
+      "repository": "thomvaill/log4brains",
+      "commit": "17e32021a8c5130386f17e921d4efa6da7709a66",
+      "path": "packages/core/src/adr/domain/Adr.ts",
+      "blob_sha": "4963d127909cc567902390c53e54fb98f36951b1",
+      "url": "https://github.com/thomvaill/log4brains/blob/17e32021a8c5130386f17e921d4efa6da7709a66/packages/core/src/adr/domain/Adr.ts"
+    },
+    {
+      "service": "log4brains",
+      "repository": "thomvaill/log4brains",
+      "commit": "17e32021a8c5130386f17e921d4efa6da7709a66",
+      "path": "packages/core/src/adr/domain/MarkdownBody.ts",
+      "blob_sha": "5aa9e8ab8fa2be9bed309e25d856e21c929668ce",
+      "url": "https://github.com/thomvaill/log4brains/blob/17e32021a8c5130386f17e921d4efa6da7709a66/packages/core/src/adr/domain/MarkdownBody.ts"
+    },
+    {
+      "service": "log4brains",
+      "repository": "thomvaill/log4brains",
+      "commit": "17e32021a8c5130386f17e921d4efa6da7709a66",
+      "path": "packages/core/src/index.ts",
+      "blob_sha": "841190487d53d5b04a82aeabeb8425f1b19fdece",
+      "url": "https://github.com/thomvaill/log4brains/blob/17e32021a8c5130386f17e921d4efa6da7709a66/packages/core/src/index.ts"
+    },
+    {
+      "service": "log4brains",
+      "repository": "thomvaill/log4brains",
+      "commit": "17e32021a8c5130386f17e921d4efa6da7709a66",
+      "path": "packages/core/src/infrastructure/api/Log4brains.ts",
+      "blob_sha": "cba79c123d131314b45412e9e8534057cff8a5c1",
+      "url": "https://github.com/thomvaill/log4brains/blob/17e32021a8c5130386f17e921d4efa6da7709a66/packages/core/src/infrastructure/api/Log4brains.ts"
+    },
+    {
+      "service": "log4brains",
+      "repository": "thomvaill/log4brains",
+      "commit": "17e32021a8c5130386f17e921d4efa6da7709a66",
+      "path": "packages/core/src/infrastructure/config/index.ts",
+      "blob_sha": "fcac5002d04490cd50a57ee0db2ab048e3bdd811",
+      "url": "https://github.com/thomvaill/log4brains/blob/17e32021a8c5130386f17e921d4efa6da7709a66/packages/core/src/infrastructure/config/index.ts"
+    },
+    {
+      "service": "log4brains",
+      "repository": "thomvaill/log4brains",
+      "commit": "17e32021a8c5130386f17e921d4efa6da7709a66",
+      "path": "packages/core/src/infrastructure/config/schema.ts",
+      "blob_sha": "4e85ecbd58466cf3451236cb74586dd2769811d0",
+      "url": "https://github.com/thomvaill/log4brains/blob/17e32021a8c5130386f17e921d4efa6da7709a66/packages/core/src/infrastructure/config/schema.ts"
+    }
+  ]
+}

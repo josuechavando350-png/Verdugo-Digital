@@ -1,0 +1,10 @@
+{
+  "version": "0.7.15",
+  "url": "https://github.com/superradcompany/microsandbox/releases/download/v0.7.15/microsandbox-linux-x86_64.tar.gz",
+  "sha256": "37ffc7bf7b2b977ab004f620f47ae4466f021a9b880c94f46f697c56cf6932b7",
+  "files": {
+    "msb": "2cb46d96a14ad389e8546d333b61f797d24f249b0e6c3a347763c58bfb2a2742",
+    "libkrunfw.so.5.6.1": "e54cd5d8849162bbdb136d3342f0601be1b713a2af529bd60d335ec2d44fdb7c"
+  },
+  "scope": "Original load and image inspect; no VM, cloud or KVM requirement"
+}

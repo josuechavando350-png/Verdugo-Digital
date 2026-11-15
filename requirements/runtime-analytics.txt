@@ -1,0 +1,26 @@
+-c runtime-analytics.constraints.txt
+# Dedicated analytics profile; source pins are separate from wheel versions.
+markitdown[html]==0.1.9
+spacy==3.8.18
+pyarrow==26.0.1
+polars==2.1.0
+ibis-framework[duckdb]==12.0.0
+networkx==3.7
+sqlglot==30.31.0
+Faker==40.54.0
+statsmodels==0.15.0
+shap==0.54.1
+causal-learn==0.1.4.8
+numpy-financial==1.0.0
+datasketch==2.0.0
+nashpy==0.0.43
+pymcdm==1.4.0
+h3==4.5.0
+mlxtend==0.25.0
+lifelines==0.30.3
+pyod==3.6.8
+mapie==1.6.0
+pandera[pandas]==0.36.0
+great-tables==1.1.0
+river==0.27.0
+statsforecast==2.1.1

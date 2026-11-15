@@ -22,7 +22,7 @@ def identifier(value):
     return value
 
 
-def fields(params, required=(), optional=()):
+def fields(params, required=(), optional=(), *, max_bytes=32768):
     if not isinstance(params, dict):
         raise VerdugoError('Parameters must be an object')
     missing = set(required) - params.keys()
@@ -30,8 +30,8 @@ def fields(params, required=(), optional=()):
     if missing or extra:
         raise VerdugoError('Invalid fields: missing=%s extra=%s' %
                            (sorted(missing), sorted(extra)))
-    if len(encode(params).encode()) > 32768:
-        raise VerdugoError('Parameters exceed 32 KiB')
+    if len(encode(params).encode()) > max_bytes:
+        raise VerdugoError('Parameters exceed %d KiB' % (max_bytes//1024))
 
 
 def text(value, maximum=1000):
