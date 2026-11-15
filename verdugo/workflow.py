@@ -1,5 +1,8 @@
 """Bounded sequential DAG executor; deterministic references, no eval or shell."""
-from .common import VerdugoError, fields, identifier, digest
+from .common import sanitize, VerdugoError, fields, identifier, digest
+
+MAX_STEPS = 128
+MAX_MANIFEST_BYTES = 1024*1024
 
 
 def references(value):
@@ -31,11 +34,11 @@ def resolve(value, results):
 
 
 def order(spec, engine):
-    fields(spec, ('id', 'steps'))
+    fields(spec, ('id', 'steps'), max_bytes=MAX_MANIFEST_BYTES)
     identifier(spec['id'])
     if len(spec['id']) > 50: raise VerdugoError('Workflow ID exceeds 50 characters')
-    if not isinstance(spec['steps'], list) or not 1 <= len(spec['steps']) <= 50:
-        raise VerdugoError('Workflow needs 1..50 steps')
+    if not isinstance(spec['steps'], list) or not 1 <= len(spec['steps']) <= MAX_STEPS:
+        raise VerdugoError('Workflow needs 1..128 steps')
     nodes = {}
     for step in spec['steps']:
         fields(step, ('id', 'service', 'operation', 'params'), ('depends_on',))
@@ -62,8 +65,9 @@ def order(spec, engine):
     return result
 
 
-def run(engine, spec, execute=False):
+def run(engine, spec, execute=False, include_evidence=False):
     if type(execute) is not bool: raise VerdugoError('execute must be boolean')
+    if type(include_evidence) is not bool: raise VerdugoError('include_evidence must be boolean')
     steps = order(spec, engine)  # All adapters/config/license gates checked before first step.
     fingerprint = digest(spec)
     with engine.transaction():
@@ -81,19 +85,34 @@ def run(engine, spec, execute=False):
             plans.append(engine.plan({'service': step['service'], 'operation': step['operation'],
                 'params': step['params'], 'key': spec['id'] + '-' + step['id']}))
     if not execute:
-        return {'state': 'planned', 'id': spec['id'], 'ordered_steps': steps, 'action_plans': plans,
+        return {'state': 'planned', 'id': spec['id'], 'ordered_steps': sanitize(steps), 'action_plans': plans,
                 'approval_batch': [{'key': p['key'], 'fingerprint': p['fingerprint']} for p in plans if p['requires_approval']],
                 'external_calls_made': False,
                 'note': 'Dependent values and per-action approvals are checked at execution.'}
-    results = {}
+    results, evidence = {}, {}
     for step in steps:
         command = {'service': step['service'], 'operation': step['operation'],
                    'params': resolve(step['params'], results),
                    'key': spec['id'] + '-' + step['id']}
         outcome = engine.execute(command, execute=True)
+        if include_evidence:
+            row = engine.db.execute('SELECT hash,finished FROM runs WHERE tenant=? AND key=?',
+                                    (engine.tenant, command['key'])).fetchone()
+            evidence[step['id']] = {
+                'key': command['key'], 'state': outcome['state'],
+                'replayed': outcome.get('replayed', False),
+                'fingerprint': row['hash'] if row else None,
+                'observed_at': row['finished'] if row and outcome['state'] == 'succeeded' else None,
+                'result_digest': digest(outcome['result']) if outcome['state'] == 'succeeded' else None}
         if outcome['state'] != 'succeeded':
-            return {'state': 'paused', 'step': step['id'], 'outcome': outcome,
+            partial = {'state': 'paused', 'step': step['id'], 'outcome': outcome,
                     'completed_steps': list(results),
                     'note': 'No distributed rollback. Reconcile before resuming.'}
+            if include_evidence:
+                partial.update(id=spec['id'], steps=results, evidence=evidence)
+            return partial
         results[step['id']] = outcome['result']
-    return {'state': 'succeeded', 'id': spec['id'], 'steps': results}
+    result = {'state': 'succeeded', 'id': spec['id'], 'steps': results}
+    if include_evidence:
+        result['evidence'] = evidence
+    return result

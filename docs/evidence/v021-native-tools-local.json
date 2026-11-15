@@ -1,0 +1,16 @@
+{
+  "services": [
+    "arx",
+    "cc-webgraph",
+    "goaccess",
+    "openapi-generator"
+  ],
+  "synthetic_http_services": [],
+  "steps": 5,
+  "execution": "passed",
+  "sqlite_restart": "passed",
+  "replay_worker_calls": 0,
+  "replay_http_calls": 0,
+  "private_input_persisted": false,
+  "production_certified": false
+}

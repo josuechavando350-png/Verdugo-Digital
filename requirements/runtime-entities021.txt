@@ -1,0 +1,5 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+-c runtime-entities021.constraints.txt
+chronos-forecasting==2.3.2
+gliner==0.2.30
+torch==2.15.0+cpu

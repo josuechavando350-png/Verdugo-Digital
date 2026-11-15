@@ -1,0 +1,4 @@
+-c runtime-guard.constraints.txt
+--extra-index-url https://download.pytorch.org/whl/cpu
+llm-guard==0.3.16
+torch==2.15.0+cpu

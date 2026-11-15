@@ -1,0 +1,114 @@
+{
+  "schema": "verdugo.source-api-evidence.v1",
+  "scope": "Unmodified upstream R functions executed with pinned R 4.2.2; no R package installation, fitting, plotting or weighted survey path.",
+  "files": [
+    {
+      "service": "pricesensitivitymeter",
+      "repository": "max-alletsee/pricesensitivitymeter",
+      "commit": "8188de1e95fa0f407073677f6f88baec2f43c8d4",
+      "path": "LICENSE",
+      "bundled_name": "LICENSE",
+      "blob_sha": "f4854d20fa3a1ac961f30ea2816355795ad0e0d5",
+      "url": "https://github.com/max-alletsee/pricesensitivitymeter/blob/8188de1e95fa0f407073677f6f88baec2f43c8d4/LICENSE"
+    },
+    {
+      "service": "pricesensitivitymeter",
+      "repository": "max-alletsee/pricesensitivitymeter",
+      "commit": "8188de1e95fa0f407073677f6f88baec2f43c8d4",
+      "path": "R/psm-utils.R",
+      "bundled_name": "psm-utils.R",
+      "blob_sha": "dfa33038e2612f7ecad6c05b055d9289527027fe",
+      "url": "https://github.com/max-alletsee/pricesensitivitymeter/blob/8188de1e95fa0f407073677f6f88baec2f43c8d4/R/psm-utils.R"
+    },
+    {
+      "service": "pricesensitivitymeter",
+      "repository": "max-alletsee/pricesensitivitymeter",
+      "commit": "8188de1e95fa0f407073677f6f88baec2f43c8d4",
+      "path": "R/psm_class_summary.R",
+      "bundled_name": "psm_class_summary.R",
+      "blob_sha": "905502606d8fef38a4082da6607e2e7432ff041c",
+      "url": "https://github.com/max-alletsee/pricesensitivitymeter/blob/8188de1e95fa0f407073677f6f88baec2f43c8d4/R/psm_class_summary.R"
+    },
+    {
+      "service": "pricesensitivitymeter",
+      "repository": "max-alletsee/pricesensitivitymeter",
+      "commit": "8188de1e95fa0f407073677f6f88baec2f43c8d4",
+      "path": "R/psm_constants.R",
+      "bundled_name": "psm_constants.R",
+      "blob_sha": "984ae74c3e4588ea29996d31babee14b63e62194",
+      "url": "https://github.com/max-alletsee/pricesensitivitymeter/blob/8188de1e95fa0f407073677f6f88baec2f43c8d4/R/psm_constants.R"
+    },
+    {
+      "service": "pricesensitivitymeter",
+      "repository": "max-alletsee/pricesensitivitymeter",
+      "commit": "8188de1e95fa0f407073677f6f88baec2f43c8d4",
+      "path": "R/psm_data_processing.R",
+      "bundled_name": "psm_data_processing.R",
+      "blob_sha": "1368473e4097e1af59d41ad4813cf7bec59d2b88",
+      "url": "https://github.com/max-alletsee/pricesensitivitymeter/blob/8188de1e95fa0f407073677f6f88baec2f43c8d4/R/psm_data_processing.R"
+    },
+    {
+      "service": "pricesensitivitymeter",
+      "repository": "max-alletsee/pricesensitivitymeter",
+      "commit": "8188de1e95fa0f407073677f6f88baec2f43c8d4",
+      "path": "R/psm_functions.R",
+      "bundled_name": "psm_functions.R",
+      "blob_sha": "b12505a4444d0eede0b4d0cffccb3a16ec65ef5e",
+      "url": "https://github.com/max-alletsee/pricesensitivitymeter/blob/8188de1e95fa0f407073677f6f88baec2f43c8d4/R/psm_functions.R"
+    },
+    {
+      "service": "pricesensitivitymeter",
+      "repository": "max-alletsee/pricesensitivitymeter",
+      "commit": "8188de1e95fa0f407073677f6f88baec2f43c8d4",
+      "path": "R/psm_plot.R",
+      "bundled_name": "psm_plot.R",
+      "blob_sha": "7ce93356b99df9788d3be81a35b2f95b38ee2c3b",
+      "url": "https://github.com/max-alletsee/pricesensitivitymeter/blob/8188de1e95fa0f407073677f6f88baec2f43c8d4/R/psm_plot.R"
+    },
+    {
+      "service": "pricesensitivitymeter",
+      "repository": "max-alletsee/pricesensitivitymeter",
+      "commit": "8188de1e95fa0f407073677f6f88baec2f43c8d4",
+      "path": "R/psm_utils.R",
+      "bundled_name": "psm_utils.R",
+      "blob_sha": "4e4bec1f04b00cffa8adbb8782ca7dcfe0b05a9a",
+      "url": "https://github.com/max-alletsee/pricesensitivitymeter/blob/8188de1e95fa0f407073677f6f88baec2f43c8d4/R/psm_utils.R"
+    },
+    {
+      "service": "pricesensitivitymeter",
+      "repository": "max-alletsee/pricesensitivitymeter",
+      "commit": "8188de1e95fa0f407073677f6f88baec2f43c8d4",
+      "path": "R/psm_validation.R",
+      "bundled_name": "psm_validation.R",
+      "blob_sha": "18cc2be5bc5eb0d8c03c0a87e4d51a59d4d45a1a",
+      "url": "https://github.com/max-alletsee/pricesensitivitymeter/blob/8188de1e95fa0f407073677f6f88baec2f43c8d4/R/psm_validation.R"
+    },
+    {
+      "service": "pricesensitivitymeter",
+      "repository": "max-alletsee/pricesensitivitymeter",
+      "commit": "8188de1e95fa0f407073677f6f88baec2f43c8d4",
+      "path": "R/psm_weighted_functions.R",
+      "bundled_name": "psm_weighted_functions.R",
+      "blob_sha": "df1475b2bd1546eabd54e563c751ff8f4e7ddbd6",
+      "url": "https://github.com/max-alletsee/pricesensitivitymeter/blob/8188de1e95fa0f407073677f6f88baec2f43c8d4/R/psm_weighted_functions.R"
+    },
+    {
+      "service": "robyn",
+      "repository": "facebookexperimental/Robyn",
+      "commit": "aab4226ed5e40196cdbd82ff7fbbff55e91e1f58",
+      "path": "LICENSE",
+      "bundled_name": "LICENSE",
+      "blob_sha": "1b277b98b674add4e8cd774e49465afb2b89021d",
+      "url": "https://github.com/facebookexperimental/Robyn/blob/aab4226ed5e40196cdbd82ff7fbbff55e91e1f58/LICENSE"
+    },
+    {
+      "service": "robyn",
+      "repository": "facebookexperimental/Robyn",
+      "commit": "aab4226ed5e40196cdbd82ff7fbbff55e91e1f58",
+      "path": "R/R/transformation.R",
+      "bundled_name": "transformation.R",
+      "blob_sha": "89c6266b34e0b602e2d8359e6bf7095e376a4685",
+      "url": "https://github.com/facebookexperimental/Robyn/blob/aab4226ed5e40196cdbd82ff7fbbff55e91e1f58/R/R/transformation.R"
+    }
+  ]
+}

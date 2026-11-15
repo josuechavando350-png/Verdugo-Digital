@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "id": "fides",
+      "repository": "ethyca/fides",
+      "commit": "e87f3ff835af368defc1ec42dc29ec545a288585",
+      "files": [
+        {
+          "path": "src/fides/api/schemas/oauth.py",
+          "git_blob_sha": "1eea0190830a14633ef887eeb1960a1c5806118f",
+          "source_url": "https://github.com/ethyca/fides/blob/e87f3ff835af368defc1ec42dc29ec545a288585/src/fides/api/schemas/oauth.py"
+        },
+        {
+          "path": "src/fides/api/schemas/policy.py",
+          "git_blob_sha": "bf77461ac14f8927b78b6edba2fadf0e2e372fdf",
+          "source_url": "https://github.com/ethyca/fides/blob/e87f3ff835af368defc1ec42dc29ec545a288585/src/fides/api/schemas/policy.py"
+        },
+        {
+          "path": "src/fides/api/v1/endpoints/policy_endpoints.py",
+          "git_blob_sha": "099e9d99102800733324e43150bc8649ef0894b4",
+          "source_url": "https://github.com/ethyca/fides/blob/e87f3ff835af368defc1ec42dc29ec545a288585/src/fides/api/v1/endpoints/policy_endpoints.py"
+        },
+        {
+          "path": "src/fides/common/urn_registry.py",
+          "git_blob_sha": "d315404f2f4bdc6977d8575a4ce5d37acec6e3f5",
+          "source_url": "https://github.com/ethyca/fides/blob/e87f3ff835af368defc1ec42dc29ec545a288585/src/fides/common/urn_registry.py",
+          "retrieval": "GitHub.fetch_file"
+        }
+      ],
+      "auth": "native_oauth_bearer",
+      "live_verified": false
+    },
+    {
+      "id": "crawl4ai",
+      "repository": "unclecode/crawl4ai",
+      "commit": "cae74b203a33994f7e13b9052c3b0d5c93daa0e6",
+      "files": [
+        {
+          "path": "deploy/docker/hook_registry.py",
+          "git_blob_sha": "2aada7b0cbb0a61fbad483faf3410550ed776d20",
+          "source_url": "https://github.com/unclecode/crawl4ai/blob/cae74b203a33994f7e13b9052c3b0d5c93daa0e6/deploy/docker/hook_registry.py"
+        },
+        {
+          "path": "deploy/docker/server.py",
+          "git_blob_sha": "0963da11dd7d0f78a80ca018dfc4f25f0635145a",
+          "source_url": "https://github.com/unclecode/crawl4ai/blob/cae74b203a33994f7e13b9052c3b0d5c93daa0e6/deploy/docker/server.py"
+        }
+      ],
+      "auth": "reviewed_proxy_bearer",
+      "live_verified": false
+    },
+    {
+      "id": "steel-browser",
+      "repository": "steel-dev/steel-browser",
+      "commit": "552550af79742a75fef24c24b1134e43e99e3d5e",
+      "files": [
+        {
+          "path": "api/src/modules/sessions/sessions.controller.ts",
+          "git_blob_sha": "cf871c80412dbc0dc9844802cdfa68906acfd82d",
+          "source_url": "https://github.com/steel-dev/steel-browser/blob/552550af79742a75fef24c24b1134e43e99e3d5e/api/src/modules/sessions/sessions.controller.ts"
+        },
+        {
+          "path": "api/src/modules/sessions/sessions.routes.ts",
+          "git_blob_sha": "d9b099676089e4ca92aab8d2aa9aba19bfdca824",
+          "source_url": "https://github.com/steel-dev/steel-browser/blob/552550af79742a75fef24c24b1134e43e99e3d5e/api/src/modules/sessions/sessions.routes.ts"
+        },
+        {
+          "path": "api/src/modules/sessions/sessions.schema.ts",
+          "git_blob_sha": "9a026b31aa727ce2a2e073772495bb69a8eaa5b5",
+          "source_url": "https://github.com/steel-dev/steel-browser/blob/552550af79742a75fef24c24b1134e43e99e3d5e/api/src/modules/sessions/sessions.schema.ts"
+        },
+        {
+          "path": "api/src/steel-browser-plugin.ts",
+          "git_blob_sha": "1831adb94af1acb4886ebf532485b9a88309a2fc",
+          "source_url": "https://github.com/steel-dev/steel-browser/blob/552550af79742a75fef24c24b1134e43e99e3d5e/api/src/steel-browser-plugin.ts"
+        }
+      ],
+      "auth": "reviewed_proxy_bearer",
+      "live_verified": false
+    },
+    {
+      "id": "openrefine",
+      "repository": "OpenRefine/OpenRefine",
+      "commit": "d97abdabd4c172ddba3581a9259307c7f2b86b44",
+      "files": [
+        {
+          "path": "main/src/com/google/refine/commands/workspace/GetAllProjectMetadataCommand.java",
+          "git_blob_sha": "197d115bed629bc574d10263afd5a6e717f5cff6",
+          "source_url": "https://github.com/OpenRefine/OpenRefine/blob/d97abdabd4c172ddba3581a9259307c7f2b86b44/main/src/com/google/refine/commands/workspace/GetAllProjectMetadataCommand.java"
+        },
+        {
+          "path": "main/webapp/modules/core/MOD-INF/controller.js",
+          "git_blob_sha": "3e80125d99c160e6daaf0efb54fa0295c307cc56",
+          "source_url": "https://github.com/OpenRefine/OpenRefine/blob/d97abdabd4c172ddba3581a9259307c7f2b86b44/main/webapp/modules/core/MOD-INF/controller.js"
+        }
+      ],
+      "auth": "reviewed_proxy_bearer",
+      "live_verified": false
+    }
+  ]
+}

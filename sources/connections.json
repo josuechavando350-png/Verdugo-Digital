@@ -4,7 +4,7 @@
   "biblioteca": "Biblioteca que el motor ejecuta como receta local aislada (proceso aparte, sin red, con límite de tiempo).",
   "componente": "Pieza para construir el producto (interfaz, API, móvil). Se conecta al programar la plataforma, no a través del motor.",
   "cli": "Programa de línea de comandos que el motor ejecutaría como proceso externo con argumentos fijos.",
-  "mcp": "Servidor o paquete de instrucciones para agentes; se conecta a los agentes por MCP, no al motor directamente.",
+  "mcp": "Servidor MCP original; una herramienta acotada se llama con cliente y transporte local dentro del worker compartido, sin comandos ni destinos elegidos por params.",
   "protocolo": "Especificación que siguen los agentes para hablar entre sí; se implementa con su SDK.",
   "datos": "Conjunto de datos o lista; se descarga fijado por commit y se lee localmente.",
   "excluido": "Excluido por licencia: el motor se niega a operarlo."
@@ -153,7 +153,7 @@
   {
    "number": 29,
    "id": "lighthouse",
-   "kind": "cli"
+   "kind": "biblioteca"
   },
   {
    "number": 30,
@@ -228,7 +228,7 @@
   {
    "number": 44,
    "id": "dbt",
-   "kind": "cli"
+   "kind": "biblioteca"
   },
   {
    "number": 45,
@@ -243,7 +243,7 @@
   {
    "number": 47,
    "id": "postgres",
-   "kind": "servicio"
+   "kind": "biblioteca"
   },
   {
    "number": 48,
@@ -388,7 +388,7 @@
   {
    "number": 76,
    "id": "promptfoo",
-   "kind": "cli"
+   "kind": "biblioteca"
   },
   {
    "number": 77,
@@ -513,7 +513,7 @@
   {
    "number": 101,
    "id": "openprospector",
-   "kind": "biblioteca"
+   "kind": "servicio"
   },
   {
    "number": 102,
@@ -528,12 +528,12 @@
   {
    "number": 104,
    "id": "openseo",
-   "kind": "biblioteca"
+   "kind": "servicio"
   },
   {
    "number": 105,
    "id": "mcp-gsc",
-   "kind": "mcp"
+   "kind": "servicio"
   },
   {
    "number": 106,
@@ -558,7 +558,7 @@
   {
    "number": 110,
    "id": "opengmb",
-   "kind": "mcp"
+   "kind": "servicio"
   },
   {
    "number": 111,
@@ -638,7 +638,7 @@
   {
    "number": 126,
    "id": "nlweb",
-   "kind": "mcp"
+   "kind": "servicio"
   },
   {
    "number": 127,
@@ -723,7 +723,7 @@
   {
    "number": 143,
    "id": "gdeltdoc",
-   "kind": "biblioteca"
+   "kind": "servicio"
   },
   {
    "number": 144,
@@ -733,12 +733,12 @@
   {
    "number": 145,
    "id": "python-podcastindex",
-   "kind": "biblioteca"
+   "kind": "servicio"
   },
   {
    "number": 146,
    "id": "praw",
-   "kind": "biblioteca"
+   "kind": "servicio"
   },
   {
    "number": 147,
@@ -798,7 +798,7 @@
   {
    "number": 158,
    "id": "slidev",
-   "kind": "cli"
+   "kind": "biblioteca"
   },
   {
    "number": 159,
@@ -818,12 +818,12 @@
   {
    "number": 162,
    "id": "local-seo-skills",
-   "kind": "mcp"
+   "kind": "datos"
   },
   {
    "number": 163,
    "id": "a2a",
-   "kind": "protocolo"
+   "kind": "biblioteca"
   },
   {
    "number": 164,
@@ -833,7 +833,7 @@
   {
    "number": 165,
    "id": "claude-skills-c-level",
-   "kind": "mcp"
+   "kind": "biblioteca"
   },
   {
    "number": 166,
@@ -873,17 +873,17 @@
   {
    "number": 173,
    "id": "datosmex",
-   "kind": "biblioteca"
+   "kind": "servicio"
   },
   {
    "number": 174,
    "id": "wbgapi",
-   "kind": "biblioteca"
+   "kind": "servicio"
   },
   {
    "number": 175,
    "id": "census",
-   "kind": "biblioteca"
+   "kind": "servicio"
   },
   {
    "number": 176,
@@ -1008,7 +1008,7 @@
   {
    "number": 200,
    "id": "log4brains",
-   "kind": "cli"
+   "kind": "biblioteca"
   },
   {
    "number": 201,
@@ -1113,7 +1113,7 @@
   {
    "number": 221,
    "id": "microsandbox",
-   "kind": "servicio"
+   "kind": "cli"
   },
   {
    "number": 222,
@@ -1163,7 +1163,7 @@
   {
    "number": 231,
    "id": "humanlayer",
-   "kind": "biblioteca"
+   "kind": "servicio"
   },
   {
    "number": 232,
@@ -1308,7 +1308,7 @@
   {
    "number": 260,
    "id": "valkey",
-   "kind": "servicio"
+   "kind": "biblioteca"
   },
   {
    "number": 261,

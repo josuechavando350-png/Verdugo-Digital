@@ -19,7 +19,33 @@ from .common import VerdugoError
 
 PROBE = Path(__file__).with_name('_runtime_probe.py')
 PROFILE_ENV = {'ragas': 'VERDUGO_RAGAS_PYTHON'}
+from .local_analytics import SPECS as ANALYTICS
+PROFILE_ENV.update({sid: 'VERDUGO_ANALYTICS_PYTHON' for sid in ANALYTICS})
+from .local_research import SPECS as RESEARCH, LANGUAGE, PROTOCOL
+PROFILE_ENV.update({sid: ('VERDUGO_LANGUAGE_PYTHON' if sid in LANGUAGE else
+                         'VERDUGO_PROTOCOL_PYTHON' if sid in PROTOCOL else 'VERDUGO_RESEARCH_PYTHON')
+                    for sid in RESEARCH})
+from .local_interop import PROFILES
+PROFILE_ENV.update({sid: 'VERDUGO_'+profile+'_PYTHON' for sid, profile in PROFILES.items()})
+from .local_knowledge import PROFILES as KNOWLEDGE_PROFILES
+PROFILE_ENV.update({sid: 'VERDUGO_'+profile+'_PYTHON' for sid, profile in KNOWLEDGE_PROFILES.items()})
 
+from .local_content import PROFILES as CONTENT_PROFILES
+PROFILE_ENV.update({sid: 'VERDUGO_'+profile+'_PYTHON' for sid,profile in CONTENT_PROFILES.items()})
+
+from .local_pycli import SPECS as PYCLI
+PROFILE_ENV.update({sid:'VERDUGO_PYCLI021_PYTHON' for sid in PYCLI})
+
+from .local_planning import PROFILES as PLANNING
+PROFILE_ENV.update({sid:'VERDUGO_'+profile+'_PYTHON' for sid,profile in PLANNING.items()})
+
+from .local_completion import PROFILES as COMPLETION
+PROFILE_ENV.update({sid: "VERDUGO_"+profile+"_PYTHON" for sid, profile in COMPLETION.items()})
+
+PROFILE_ENV['autogeo'] = 'VERDUGO_UTILITY021_PYTHON'
+PROFILE_ENV['sherlock'] = 'VERDUGO_SHERLOCK021_PYTHON'
+PROFILE_ENV['tinytroupe'] = 'VERDUGO_SOURCE021_PYTHON'
+PROFILE_ENV['kingfisher-collect'] = 'VERDUGO_FINALPY021_PYTHON'
 
 def interpreter(service):
     key = PROFILE_ENV.get(service)
