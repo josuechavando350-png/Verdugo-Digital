@@ -18,7 +18,7 @@ from verdugo import local_runtime, objectives, workflow
 
 
 def accept():
-    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','openmanus','servers')
+    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','openmanus','servers','monty','playwright-python')
     spec=json.loads((ROOT/'examples/executive666.synthetic.json').read_text())
     cfg=template('nexus')
     for sid in services:
@@ -41,12 +41,12 @@ def accept():
         with closing(engine()) as e:
             result=invoke(e,'verdugo_workflow',{'workflow':spec,'execute':True})
             assert result['state']=='succeeded',result
-            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory'}
+            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state'}
             r=result['steps']['check']['result']
             assert r['planned_contacts']==200 and r['planned_cost_minor']==0
             assert r['feasible_under_declared_limits'] and not r['external_execution_authorized']
             assert result['steps']['agno']['result']['budget_checked']
-            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory'),services):
+            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state'),services):
                 actual=result['steps'][step]['result']
                 assert actual['original_sdk']==sid and actual['llm_calls']==0
                 assert not actual['autonomous_agent']
@@ -64,7 +64,14 @@ def accept():
             assert result['steps']['memory']['result']['temporary_server_restart_verified']
             assert result['steps']['memory']['result']['sdk_graph_deleted']
             assert 'stage_0' not in '\n'.join(e.db.iterdump())
-            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==13
+            assert result['steps']['monty']['result']['planned_cost_minor']==0
+            assert result['steps']['monty']['result']['within_budget']
+            assert result['steps']['monty']['result']['native_artifact_receipt_verified']
+            assert result['steps']['cookie_state']['result']['retained_cookie_count']==2
+            assert result['steps']['cookie_state']['result']['fresh_context_isolated']
+            assert 'fixed-demo-value' not in '\n'.join(e.db.iterdump())
+            assert 'synthetic_0' not in '\n'.join(e.db.iterdump())
+            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==15
         with closing(engine()) as e, \
                 patch.object(local_runtime,'execute',side_effect=AssertionError('SDK re-executed')), \
                 patch.object(objectives,'simulate',side_effect=AssertionError('simulation re-executed')):
@@ -139,6 +146,26 @@ def accept():
             assert graph['entity_count']==1 and graph['matching_entity_count']==0
             assert graph['unique_relation_count']==0 and graph['matching_incident_relation_count']==0
             assert graph['sdk_graph_deleted'] and not graph['durable_agent_memory']
+            for key,budget,capacity,within_budget,within_capacity in [
+                ('over-budget',50,20,False,True),('over-capacity',100,5,True,False),
+                ('exact',60,10,True,True)]:
+                checked=e.execute({'service':'monty','operation':'budget.evaluate','key':'native-'+key,
+                    'params':dict(CASES['monty'],budget_minor=budget,capacity_contacts=capacity)},True)
+                assert checked['state']=='succeeded',checked
+                native=checked['result']['result']
+                assert native['planned_cost_minor']==60 and native['planned_contacts']==10
+                assert native['within_budget']==within_budget and native['within_capacity']==within_capacity
+                assert native['approvals_granted']==0 and not native['arbitrary_code_accepted']
+            cookie=CASES['playwright-python']['cookies'][0]
+            for key,last,expected in [('expired',dict(cookie,lifetime='expired'),0),
+                                      ('replaced',dict(cookie,secure=False,http_only=False),1)]:
+                checked=e.execute({'service':'playwright-python','operation':'cookies.check','key':'cookies-'+key,
+                    'params':{'dataset':'demo','cookies':[cookie,last]}},True)
+                assert checked['state']=='succeeded',checked
+                state=checked['result']['result']
+                assert state['retained_cookie_count']==expected and state['secure_cookie_count']==0
+                assert state['fresh_context_isolated'] and state['sdk_contexts_disposed']
+                assert state['http_requests_made']==0 and state['browsers_launched']==0
     assert not calls
     return {'schema':'verdugo.executive666.acceptance.v1','services':list(services),
             'original_sdks_executed':True,'mocked_sdks':False,'dataset':'demo',

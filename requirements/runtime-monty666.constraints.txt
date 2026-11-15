@@ -1,0 +1,4 @@
+# Original source-built client and runtime both declare version 1.6.0.
+# Their source commit is fixed in contracts-monty666.json, not by PyPI version.
+maturin==1.15.0
+typing_extensions==4.16.0

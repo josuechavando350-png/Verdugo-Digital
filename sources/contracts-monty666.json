@@ -1,0 +1,178 @@
+{
+  "schema": "verdugo.original-monty666.v1",
+  "id": "monty",
+  "repository": "pydantic/monty",
+  "commit": "a34e0f689cfa26f6c689fb96bd96d533cf92a926",
+  "archive_url": "https://codeload.github.com/pydantic/monty/tar.gz/a34e0f689cfa26f6c689fb96bd96d533cf92a926",
+  "archive_sha256": "abe28f031b98253ed39ad23066ccd9bb2b377a937b5b50f4b99fd276ffd017fb",
+  "version": "1.6.0",
+  "rust_version": "1.100.0",
+  "maturin_version": "1.15.0",
+  "operation": "budget.evaluate",
+  "license": "MIT",
+  "files": [
+    {
+      "path": "Cargo.lock",
+      "blob_sha": "2ce4d4b36af7203adadf19b4e1522ac3d3f26b9c",
+      "sha256": "b751293f50d066ad47d8c037cfceef349933ef81619eae92652b29685a349872",
+      "installed_path": null,
+      "reviewed": false
+    },
+    {
+      "path": "Cargo.toml",
+      "blob_sha": "b560328af28742c280aacb0f1642bf2c5edca73d",
+      "sha256": "8163f38cc12ce220c7cbf9e4b671aca3de637286cf56c1a95201143e05009845",
+      "installed_path": null,
+      "reviewed": true
+    },
+    {
+      "path": "LICENSE",
+      "blob_sha": "d30ac52dc1727d9b88cc1ce816a70ca66dc5df31",
+      "sha256": "5841db47ee6e1f0becafe2d19ca43c08cbc6d2c0952822ccf88cbbf2bd0749bd",
+      "installed_path": null,
+      "reviewed": true
+    },
+    {
+      "path": "crates/monty-python/Cargo.toml",
+      "blob_sha": "894f05fb5f2d6b954c9ea49e9b41d65ca7635b22",
+      "sha256": "0706cb2c536c033722909673cd32c55b7865dc397c08ee4a53cab64319372387",
+      "installed_path": null,
+      "reviewed": true
+    },
+    {
+      "path": "crates/monty-python/pyproject.toml",
+      "blob_sha": "36fc490475bbe9d9269bbe9fef641093a9d7c622",
+      "sha256": "9aaf91ac634c9f1439ee72786c498cf196176d2b890c1e500705076dc66f1552",
+      "installed_path": null,
+      "reviewed": true
+    },
+    {
+      "path": "crates/monty-python/python/pydantic_monty/__init__.py",
+      "blob_sha": "f85bd5354f4da664165f093e5148e4d7c0f0955e",
+      "sha256": "2a065aaae311acf8b56b6288b20cc000ad8091a24e976d95b7b5e336c84506d5",
+      "installed_path": "lib/python3.12/site-packages/pydantic_monty/__init__.py",
+      "reviewed": true
+    },
+    {
+      "path": "crates/monty-python/python/pydantic_monty/__main__.py",
+      "blob_sha": "008cba579e99dd6ff11b03a36f05dae1188f7523",
+      "sha256": "6e3db86f6ff9cd19f72eedde2fc4813851706f87536532d10941616b7693ff60",
+      "installed_path": "lib/python3.12/site-packages/pydantic_monty/__main__.py",
+      "reviewed": false
+    },
+    {
+      "path": "crates/monty-python/python/pydantic_monty/_binary.py",
+      "blob_sha": "a5bfb3fd4635198dc51a80714efae0ffb0949cf6",
+      "sha256": "a9c26d55ea34a001986116d5df9d4f00cfbc184e2f7793ebfb9e743ac88bec93",
+      "installed_path": "lib/python3.12/site-packages/pydantic_monty/_binary.py",
+      "reviewed": false
+    },
+    {
+      "path": "crates/monty-python/python/pydantic_monty/_cli.py",
+      "blob_sha": "1a07a67d3c183883932f02f4746f641e305dfd77",
+      "sha256": "27732d12e437a724b4d32738d6512dc9cf65ae9dc5ba10b6163fb125ac01c623",
+      "installed_path": "lib/python3.12/site-packages/pydantic_monty/_cli.py",
+      "reviewed": false
+    },
+    {
+      "path": "crates/monty-python/python/pydantic_monty/_monty.pyi",
+      "blob_sha": "44681e677aa487ec98d05439b29287b9388e2bbd",
+      "sha256": "aac4b600998301ce27279b04f97b716dddf9ad607b2f3452076bc91d901ae3f2",
+      "installed_path": "lib/python3.12/site-packages/pydantic_monty/_monty.pyi",
+      "reviewed": true
+    },
+    {
+      "path": "crates/monty-python/python/pydantic_monty/class_instance.py",
+      "blob_sha": "a4a1fafd40d0fe52f9b1852ff1d5da500d8d635f",
+      "sha256": "d86102ba4b547f4c68153db520a9ad990b957fca9666be06e3abb8be4a286316",
+      "installed_path": "lib/python3.12/site-packages/pydantic_monty/class_instance.py",
+      "reviewed": false
+    },
+    {
+      "path": "crates/monty-python/python/pydantic_monty/os_access.py",
+      "blob_sha": "75cf7c3ad2db235d352c835f509000518edfecfc",
+      "sha256": "3236ea7ff7af6b9813c0d886562baa737cc395ca3d5265f0c8d13c402cf50d5d",
+      "installed_path": "lib/python3.12/site-packages/pydantic_monty/os_access.py",
+      "reviewed": false
+    },
+    {
+      "path": "crates/monty-python/python/pydantic_monty/py.typed",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "lib/python3.12/site-packages/pydantic_monty/py.typed",
+      "reviewed": false
+    },
+    {
+      "path": "crates/monty-python/src/lib.rs",
+      "blob_sha": "06589265927da903a745101b113a0b6ef80cccf5",
+      "sha256": "f20597792e8785505a9fb6413982cb4b435c787194830befc92844816eeb48d9",
+      "installed_path": null,
+      "reviewed": true
+    },
+    {
+      "path": "crates/monty-python/src/limits.rs",
+      "blob_sha": "2cf8aae01d417da81e169fcc36eb3109155188bf",
+      "sha256": "677af79b19a862fc43ef3c0e56a55bf90e2d4bfd0a8be37b48020c8b722869b9",
+      "installed_path": null,
+      "reviewed": true
+    },
+    {
+      "path": "crates/monty-python/src/pool.rs",
+      "blob_sha": "d0c8a45a221453b7d2f6abd2d5345a97a4dbd0c6",
+      "sha256": "0fc6de44568cf4b5917fa60c2fa03b7c610492e6876664d2bb25efde782f4f7d",
+      "installed_path": null,
+      "reviewed": true
+    },
+    {
+      "path": "crates/monty-python/src/telemetry.rs",
+      "blob_sha": "b2014f81c00a9892a685158bbc6c1ff270dd3815",
+      "sha256": "99eacd6708f753e41533d71153eba563c37c3307bd73bdc1e69ff2a1575d59d5",
+      "installed_path": null,
+      "reviewed": true
+    },
+    {
+      "path": "crates/monty-runtime/Cargo.toml",
+      "blob_sha": "e1780fe29b270bda9555ba7058bca8803a583c20",
+      "sha256": "13a2efc4f74820713e8c9508d459a2ec3a642c51fd71620d6e29114d37dc6b0f",
+      "installed_path": null,
+      "reviewed": true
+    },
+    {
+      "path": "crates/monty-runtime/pyproject.toml",
+      "blob_sha": "73296a2cd8a4c4616bcd469c524798381e3939e1",
+      "sha256": "9c6a55030309b1f37d9ac072a2e32881b4b3dce5cee6302673295fc0a62ce71f",
+      "installed_path": null,
+      "reviewed": true
+    },
+    {
+      "path": "crates/monty-runtime/src/main.rs",
+      "blob_sha": "f864e1918da1f9ebcd9c10e5d9e2faa4cce9fd55",
+      "sha256": "702d67aeced807b2850d51b66aaba95507c1a156fbd47aa073356b5fb90c34a6",
+      "installed_path": null,
+      "reviewed": false
+    },
+    {
+      "path": "crates/monty-runtime/src/subprocess.rs",
+      "blob_sha": "b79ebdbb69c1c0817438c5c37546b13527a1bb6e",
+      "sha256": "5bb0eac1ec5cb1a1f70f596ba8667b9e7256abe47c69424c759ad508ce257fd9",
+      "installed_path": null,
+      "reviewed": true
+    }
+  ],
+  "native_build_provenance": "Explicit operator build from verified archive with Cargo.lock. Per-environment artifact receipt detects changes; it is not an independent attestation or proof of bit reproducibility.",
+  "scope": "One fixed first-party synthetic allocation program; no caller code, mounts, external callbacks, models or provider calls.",
+  "published_version_is_not_pin": {
+    "release_commit": "3f89dcbf82071896efb5e3ded507db4191e8d829",
+    "commits_between": 14
+  },
+  "live_verified": false,
+  "build_environment": {
+    "CARGO_BUILD_JOBS": "1",
+    "CARGO_PROFILE_RELEASE_LTO": "false",
+    "CARGO_PROFILE_RELEASE_CODEGEN_UNITS": "256",
+    "CARGO_PROFILE_RELEASE_OPT_LEVEL": "0",
+    "CARGO_PROFILE_RELEASE_DEBUG": "0",
+    "CARGO_INCREMENTAL": "0",
+    "MATURIN_PEP517_ARGS": "--locked"
+  }
+}

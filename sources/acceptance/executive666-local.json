@@ -11,7 +11,9 @@
     "unified-planning",
     "voltagent",
     "openmanus",
-    "servers"
+    "servers",
+    "monty",
+    "playwright-python"
   ],
   "original_sdks_executed": true,
   "mocked_sdks": false,
@@ -25,7 +27,7 @@
         "dataset": "demo",
         "distribution": "semantic-kernel",
         "external_provider_calls_made": false,
-        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5",
+        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -76,7 +78,7 @@
         "dataset": "demo",
         "distribution": "agno",
         "external_provider_calls_made": false,
-        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5",
+        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -131,7 +133,7 @@
         "dataset": "demo",
         "distribution": "griptape",
         "external_provider_calls_made": false,
-        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5",
+        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d",
         "ok": true,
         "operation": "objective.scenarios",
         "production_certified": false,
@@ -180,7 +182,7 @@
         "dataset": "demo",
         "distribution": "strands-agents",
         "external_provider_calls_made": false,
-        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5",
+        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d",
         "ok": true,
         "operation": "limits.parallel",
         "production_certified": false,
@@ -220,7 +222,7 @@
         "dataset": "demo",
         "distribution": "openmanus",
         "external_provider_calls_made": false,
-        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5",
+        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d",
         "ok": true,
         "operation": "stages.track",
         "production_certified": false,
@@ -261,7 +263,7 @@
         "dataset": "demo",
         "distribution": "mcp:@modelcontextprotocol/server-memory",
         "external_provider_calls_made": false,
-        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5",
+        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d",
         "ok": true,
         "operation": "graph.audit",
         "production_certified": false,
@@ -300,7 +302,7 @@
         "dataset": "demo",
         "distribution": "ag2",
         "external_provider_calls_made": false,
-        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5",
+        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d",
         "ok": true,
         "operation": "actions.check",
         "production_certified": false,
@@ -336,7 +338,7 @@
         "dataset": "demo",
         "distribution": "unified-planning",
         "external_provider_calls_made": false,
-        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5",
+        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d",
         "ok": true,
         "operation": "sequence.validate",
         "production_certified": false,
@@ -366,6 +368,51 @@
         },
         "service": "unified-planning",
         "version": "0.0.0"
+      },
+      "cookie_state": {
+        "commercial_success_probability": null,
+        "dataset": "demo",
+        "distribution": "playwright",
+        "external_provider_calls_made": false,
+        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d",
+        "ok": true,
+        "operation": "cookies.check",
+        "production_certified": false,
+        "result": {
+          "approvals_granted": 0,
+          "autonomous_agent": false,
+          "browser_security_certified": false,
+          "browsers_launched": 0,
+          "compiled_driver_artifacts_verified": true,
+          "dataset": "demo",
+          "discarded_or_replaced_count": 1,
+          "driver_source_commit": "8534271f0413bae6a455b7cf43b2637391bc614b",
+          "dry_run": true,
+          "external_calls_made": false,
+          "external_execution_authorized": false,
+          "fresh_context_isolated": true,
+          "http_only_cookie_count": 1,
+          "http_requests_made": 0,
+          "llm_calls": 0,
+          "nonsecure_same_site_none_count": 1,
+          "operator_approval_required": true,
+          "original_sdk": "playwright-python",
+          "raw_cookies_persisted": false,
+          "retained_cookie_count": 2,
+          "same_site_counts": {
+            "Lax": 0,
+            "None": 1,
+            "Strict": 1
+          },
+          "sdk_contexts_disposed": true,
+          "sdk_version": "1.65.1.dev12+g86a5f5a81010b1dbd155263e99782442b61d0cb2",
+          "secure_cookie_count": 1,
+          "source_commit": "86a5f5a81010b1dbd155263e99782442b61d0cb2",
+          "source_python_files_verified": 104,
+          "submitted_cookie_count": 3
+        },
+        "service": "playwright-python",
+        "version": "1.65.1.dev12+g86a5f5a81010b1dbd155263e99782442b61d0cb2"
       },
       "simulate": {
         "algorithm": "synthetic-funnel-v1",
@@ -408,6 +455,51 @@
         },
         "runs_reaching_target": 73,
         "uncertainty_scope": "Synthetic binomial variation conditional on fixed rates; excludes model misspecification and real-market change."
+      },
+      "monty": {
+        "ok": true,
+        "service": "monty",
+        "operation": "budget.evaluate",
+        "distribution": "pydantic-monty-client",
+        "version": "1.6.0",
+        "dataset": "demo",
+        "result": {
+          "planned_cost_minor": 0,
+          "planned_contacts": 200,
+          "within_budget": true,
+          "within_capacity": true,
+          "original_sdk": "monty",
+          "sdk_version": "1.6.0",
+          "source_commit": "a34e0f689cfa26f6c689fb96bd96d533cf92a926",
+          "original_python_files_verified": 8,
+          "fixed_program_sha256": "81a3624fb26da6b44c333e2303a43f3d433ac2eda4c97728d3f8d095e2eea00d",
+          "native_artifact_receipt_verified": true,
+          "reproducible_binary_build_proven": false,
+          "native_worker_processes": 1,
+          "type_check_enabled": true,
+          "resource_limits": {
+            "max_feed_duration_secs": 1.0,
+            "max_turn_duration_secs": 2.0,
+            "max_memory": 16777216,
+            "max_recursion_depth": 32,
+            "max_suspensions": 1,
+            "max_total_sleep_secs": 0.0
+          },
+          "arbitrary_code_accepted": false,
+          "dataset": "demo",
+          "dry_run": true,
+          "llm_calls": 0,
+          "autonomous_agent": false,
+          "external_calls_made": false,
+          "external_execution_authorized": false,
+          "operator_approval_required": true,
+          "approvals_granted": 0,
+          "business_outcome_proven": false
+        },
+        "external_provider_calls_made": false,
+        "production_certified": false,
+        "commercial_success_probability": null,
+        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d"
       },
       "measure": {
         "algorithm": "synthetic-funnel-v1",
@@ -468,7 +560,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5"
+        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d"
       },
       "review": {
         "ok": true,
@@ -499,7 +591,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5"
+        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d"
       },
       "measurement_review": {
         "ok": true,
@@ -531,7 +623,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5"
+        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d"
       }
     }
   },

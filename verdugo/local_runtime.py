@@ -16,7 +16,7 @@ import sys
 import tempfile
 
 from .common import VerdugoError, fields, identifier, integer, encode
-from . import local_pilot666, local_executive666, local_reasoning666, local_flow666, local_planning666, local_volt666, local_manus666, local_memory666, objectives
+from . import local_pilot666, local_executive666, local_reasoning666, local_flow666, local_planning666, local_volt666, local_manus666, local_memory666, local_monty666, local_browserstate666, objectives
 from . import local_extended, local_analytics, local_research, local_interop, local_knowledge, local_data, local_native, local_cli, local_content, local_pycli, local_planning, local_completion, local_source, local_r, local_database, local_native_tools, local_media, local_images, local_lastnode, local_owned_http, runtime_profile
 
 # Primary published distribution versions; upstream source pins are a separate
@@ -70,6 +70,8 @@ SPECS.update(local_planning666.SPECS)
 SPECS.update(local_volt666.SPECS)
 SPECS.update(local_manus666.SPECS)
 SPECS.update(local_memory666.SPECS)
+SPECS.update(local_monty666.SPECS)
+SPECS.update(local_browserstate666.SPECS)
 EXTRA.update(local_completion.EXTRA)
 EXTRA.update(local_planning.EXTRA)
 EXTRA.update(local_content.EXTRA)
@@ -84,6 +86,10 @@ def supports(service, operation):
 
 def installed(service):
     operation, distribution, expected = SPECS[service]
+    if service in local_browserstate666.SPECS:
+        return local_browserstate666.runtime_state(service)
+    if service in local_monty666.SPECS:
+        return local_monty666.runtime_state(service)
     if service in local_memory666.SPECS:
         return local_memory666.runtime_state(service)
     if service in local_volt666.SPECS:
@@ -188,6 +194,10 @@ def validate(service, operation, params):
         return local_reasoning666.validate(service, operation, params)
     if service in local_volt666.SPECS:
         return local_volt666.validate(service, operation, params)
+    if service in local_browserstate666.SPECS:
+        return local_browserstate666.validate(service, operation, params)
+    if service in local_monty666.SPECS:
+        return local_monty666.validate(service, operation, params)
     if service in local_memory666.SPECS:
         return local_memory666.validate(service, operation, params)
     if service in local_manus666.SPECS:
@@ -354,6 +364,8 @@ def implementation_digest():
                  Path(local_planning666.__file__), local_planning666.CONTRACT,
                  Path(local_volt666.__file__), local_volt666.CONTRACT, local_volt666.WORKER,
                  Path(local_manus666.__file__), local_manus666.CONTRACT,
+                 Path(local_monty666.__file__), local_monty666.CONTRACT,
+                 Path(local_browserstate666.__file__), local_browserstate666.CONTRACT, local_browserstate666.GUARD,
                  Path(local_memory666.__file__), local_memory666.CONTRACT, local_memory666.WORKER):
         h.update(path.read_bytes())
     for path in (Path(__file__), WORKER, RECIPES, Path(local_extended.__file__), Path(local_analytics.__file__), Path(local_research.__file__), Path(local_interop.__file__), Path(local_knowledge.__file__), Path(local_data.__file__), Path(local_native.__file__), local_native.WORKER, Path(local_cli.__file__), Path(local_content.__file__), Path(local_pycli.__file__), Path(local_planning.__file__), Path(local_completion.__file__), Path(local_source.__file__), Path(local_r.__file__), local_r.WORKER, local_r.CONTRACT, Path(local_database.__file__), Path(local_native_tools.__file__), local_native_tools.CONTRACT, Path(local_media.__file__), local_media.CONTRACT, Path(local_images.__file__), Path(local_lastnode.__file__), local_lastnode.CONTRACT, local_lastnode.GUARD, local_lastnode.MCP_WORKER, Path(local_owned_http.__file__), local_owned_http.WORKER, local_owned_http.PY_WORKER,
@@ -401,6 +413,8 @@ def execute(request, cfg):
                'LANGCHAIN_TRACING_V2': 'false', 'MLFLOW_ENABLE_ASYNC_LOGGING': 'false'}
         env.update(FEAST_USAGE='False', PYWIKIBOT_NO_USER_CONFIG='2',
                    HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1', TOKENIZERS_PARALLELISM='false')
+        if public['service'] in local_browserstate666.SPECS:
+            env['NODE_OPTIONS'] = '--require ' + str(local_browserstate666.GUARD)
         if public['service'] == 'langroid':
             env['TIKTOKEN_CACHE_DIR'] = str(local_reasoning666.tokenizer_directory())
         if public['service'] in local_memory666.SPECS:

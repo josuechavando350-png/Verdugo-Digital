@@ -314,6 +314,64 @@
         ],
         "query": "blocked"
       }
+    },
+    {
+      "id": "monty",
+      "service": "monty",
+      "operation": "budget.evaluate",
+      "params": {
+        "dataset": "demo",
+        "budget_minor": {
+          "$ref": "kernel.result.budget_minor"
+        },
+        "capacity_contacts": 300,
+        "actions": [
+          {
+            "contacts": {
+              "$ref": "check.result.planned_contacts"
+            },
+            "cost_per_contact_minor": 0
+          }
+        ]
+      },
+      "depends_on": [
+        "kernel",
+        "check"
+      ]
+    },
+    {
+      "id": "cookie_state",
+      "service": "playwright-python",
+      "operation": "cookies.check",
+      "params": {
+        "dataset": "demo",
+        "cookies": [
+          {
+            "slot": 0,
+            "secure": true,
+            "http_only": true,
+            "same_site": "Strict",
+            "lifetime": "session"
+          },
+          {
+            "slot": 1,
+            "secure": false,
+            "http_only": false,
+            "same_site": "None",
+            "lifetime": "session"
+          },
+          {
+            "slot": 2,
+            "secure": true,
+            "http_only": false,
+            "same_site": "Lax",
+            "lifetime": "expired"
+          }
+        ]
+      },
+      "depends_on": [
+        "memory"
+      ]
     }
   ]
 }

@@ -1,6 +1,6 @@
 # Piloto 666: avance parcial del lote 1
 
-Once de 183 piezas del primer lote tienen una operación nueva implementada. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
+Trece de 183 piezas del primer lote tienen una operación nueva implementada. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
 
 ## Operación delimitada
 
@@ -37,7 +37,7 @@ La aceptación usa exclusivamente fixtures sintéticos, habilita la revisión de
 
 ## Pendiente
 
-MetaGPT está bloqueado por su dependencia original ausente. OpenManus es la siguiente pieza por revisar. Faltan las demás piezas, el modelo local con licencia de pesos revisada, memoria, calibración, pruebas conjuntas de cada perfil y operación con información real autorizada. No se han desplegado servicios, publicado contenidos, enviado mensajes ni gastado presupuesto. `live_verified` sigue en cero. La cola de `registry-666.json` es el snapshot inmutable del registro; `docs/plan_conexion.json` y el inventario calculado reflejan las operaciones implementadas después.
+MetaGPT está bloqueado por su dependencia original ausente. DeerFlow, Open Deep Research y DBOS conservan bloqueos de dependencias bajo la política del repo; LiteLLM conserva un build fallido. Prefect es la siguiente pieza de la cola por revisar. Faltan las demás piezas, el modelo local con licencia de pesos revisada, memoria, calibración, pruebas conjuntas de cada perfil y operación con información real autorizada. No se han desplegado servicios, publicado contenidos, enviado mensajes ni gastado presupuesto. `live_verified` sigue en cero. La cola de `registry-666.json` es el snapshot inmutable del registro; `docs/plan_conexion.json` y el inventario calculado reflejan las operaciones implementadas después.
 
 ## Incremento ejecutivo: Agno y AG2
 
@@ -115,6 +115,29 @@ La entrada solo admite hasta 16 estados sintéticos, 64 pares de índices y una 
 
 LiteLLM permanece pendiente. Se intentó construir el archivo del commit fijado con maturin y luego con `CARGO_BUILD_JOBS=1`; ambos intentos terminaron con procesos Rust SIGKILL. La presión de recursos es una explicación plausible, no una causa del sistema operativo demostrada. No hay instalación ni operación validadas, y no se sustituyó por otra versión. Evidencia del build original en `sources/contracts-executive-blockers666.json`.
 
-El incremento de memoria pasó localmente el flujo conjunto de once SDK y trece pasos, con reanudación SQLite, aprobación del operador y ausencia del grafo crudo en la base. El checkpoint previo de diez SDK `9b95b92926382838f23ff771168a584f1a391385` está aceptado en los tres workflows. La aceptación CI del incremento de memoria aún debe observarse.
+El incremento de memoria pasó localmente el flujo conjunto de once SDK y trece pasos, con reanudación SQLite, aprobación del operador y ausencia del grafo crudo en la base. El checkpoint previo de diez SDK `9b95b92926382838f23ff771168a584f1a391385` está aceptado en los tres workflows. El incremento de memoria quedó aceptado en los tres workflows del commit `cdc6fb18f5584ff23736185fd8c3dcc802d3ac7c`; enlaces en PLAN_666.
 
 Las 773 pruebas unitarias y de contrato pasan en el incremento de memoria.
+
+## Monty y Playwright para Python: operaciones locales limitadas
+
+`monty / budget.evaluate` ejecuta una fórmula propia fija dentro del `Monty` y el proceso `monty` originales. Suma costes/contactos sintéticos y contrasta presupuesto/capacidad; no acepta código, imports, callbacks, montajes, rutas ni destinos. Activa comprobación de tipos y límites explícitos de tiempo, memoria, recursión y suspensiones. Los parámetros son únicamente números acotados y `dataset=demo`. Un diagnóstico favorable nunca concede aprobación.
+
+El commit `a34e0f689cfa26f6c689fb96bd96d533cf92a926` declara 1.6.0, pero tiene 14 commits posteriores al tag publicado de igual versión. Se compilaron cliente y ejecutable desde el archivo SHA256 fijado, con Rust 1.100.0, maturin 1.15.0 y el Cargo.lock original. El primer build terminó SIGKILL; el segundo pasó desactivando LTO y optimización, con un solo proceso de compilación y los flags registrados. No se modificó el código upstream. Los 21 archivos del contrato diferencian revisión de contenido y comprobación de hashes; ocho archivos Python instalados coinciden byte a byte. El recibo por perfil detecta cambios en los binarios compilados: **no es una certificación independiente ni prueba de compilación binaria reproducible**. No se presenta este build sin optimización como una medición de rendimiento.
+
+`playwright-python / cookies.check` usa `sync_playwright`, dos `APIRequestContext`, `storage_state` y `dispose` originales. Solo admite slots y flags sintéticos enumerados; los nombres, valores y dominio reservados son constantes internas. Comprueba eliminación de entradas caducadas, reemplazo por el mismo slot y aislamiento de un contexto nuevo. Guarda recuentos y flags de evidencia, nunca cookies crudas. No instala ni abre un navegador, no navega y no envía solicitudes HTTP. El comportamiento del almacén de cookies de APIRequestContext **no certifica la seguridad ni las restricciones de cookies de Chromium**.
+
+El cliente Python procede de `86a5f5a81010b1dbd155263e99782442b61d0cb2` y el driver del commit upstream `8534271f0413bae6a455b7cf43b2637391bc614b` exigido por `DRIVER_VERSION`. El identificador de desarrollo fija el SHA completo para evitar abreviaturas Git variables. El contrato verifica 104 archivos Python originales y 225 artefactos instalados. El Node 26.13.1 incluido coincide con el binario de la distribución oficial cuyo archivo SHA256 se verificó. La preparación omite scripts npm y descargas de navegadores; ejecuta los scripts de build originales. El guard Node bloquea APIs de red y procesos; CI añade aislamiento de red del sistema operativo.
+
+Preparación explícita con Python 3.12 en Linux x86_64, fuera de Engine:
+
+```sh
+python tests_runtime/install_monty666.py
+python tests_runtime/install_browserstate666.py
+```
+
+Perfiles: `VERDUGO_MONTY666_PYTHON=/tmp/verdugo-monty666-venv/bin/python` y `VERDUGO_BROWSERSTATE666_PYTHON=/tmp/verdugo-browserstate666-venv/bin/python`. El instalador Monty usa rustup para el toolchain fijado. El motor no instala dependencias.
+
+DBOS conserva estado pendiente: el `pyproject.toml` original exige `psycopg[binary]>=3.1`; el wheel Psycopg 3.3.9 inspeccionado contiene LGPL-3.0, fuera de la política permisiva de este repositorio. El LICENSE principal de DBOS sigue siendo MIT; no se reclasificó el registro ni se instaló el paquete enterprise. Los bytes y hashes de la dependencia se conservaron en `contracts-executive-blockers666.json`. Esta conclusión se limita al camino de instalación revisado.
+
+La aceptación conjunta local pasó con trece SDK originales y quince pasos, sin SDK simulados: tres casos de límites Monty, caducidad/reemplazo de cookies, contexto nuevo vacío, aprobación exacta y replay tras reiniciar SQLite. También se verificó que el valor y los nombres internos de cookies no aparecen en SQLite. Una preparación limpia con `install_browserstate666.py` reprodujo los 225 artefactos y ejecutó la operación por Engine. Las 780 pruebas unitarias y de contrato pasan. El namespace de red local no está disponible; CI aporta esa comprobación del sistema operativo y todavía debe observarse para este incremento.

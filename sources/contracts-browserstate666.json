@@ -1,0 +1,1081 @@
+{
+  "schema": "verdugo.original-browserstate666.v1",
+  "id": "playwright-python",
+  "repository": "microsoft/playwright-python",
+  "commit": "86a5f5a81010b1dbd155263e99782442b61d0cb2",
+  "version": "1.65.1.dev12+g86a5f5a81010b1dbd155263e99782442b61d0cb2",
+  "operation": "cookies.check",
+  "greenlet_version": "3.4.0",
+  "files": [
+    {
+      "path": "DRIVER_VERSION",
+      "blob_sha": "997f4dfc86d9bece99f177db6ed4c25b301c2172",
+      "sha256": "0a841a1ab80de9bdab12a15e42cd962b78e8eead1d0227c57f987b461dbde031",
+      "installed_path": null,
+      "reviewed": true
+    },
+    {
+      "path": "LICENSE",
+      "blob_sha": "4ace03ddb607e2b81b92c584c8d3630e8a333b1e",
+      "sha256": "7fab1461b41970ff376f1c9303a637076bfaaeb71cd12dd3a1c44aaf59a1a2b9",
+      "installed_path": null,
+      "reviewed": true
+    },
+    {
+      "path": "NODE_VERSION",
+      "blob_sha": "a2e8115a72f5caabe937810c73de1f7f637f7fe3",
+      "sha256": "5c293036fc0a61ad76e15d85f454c3c7cec157e181e035b69f95058a2c239144",
+      "installed_path": null,
+      "reviewed": true
+    },
+    {
+      "path": "playwright/__init__.py",
+      "blob_sha": "16593a9f252e82977bdd8313af0f235a3e8c6dbb",
+      "sha256": "06c3acdadd13e2813fcb95ad91d53ee3885c2b5f473beccc45a579d9ceead70b",
+      "installed_path": "lib/python3.12/site-packages/playwright/__init__.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/__main__.py",
+      "blob_sha": "62bcf09d85fe697797707b39f1b8ff8292cb7e0e",
+      "sha256": "695e581058cca3cb05920172c9fbb851235d4f6ba32e19522e2d73c76dd44649",
+      "installed_path": "lib/python3.12/site-packages/playwright/__main__.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/__init__.py",
+      "blob_sha": "a28dbb61d310f1249a215bd6bdda9e1bd562c2be",
+      "sha256": "4356b18d52758a584a0733be0b30db997c811225c0f9b65fc9b5a50d59b2bd47",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/__init__.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/__pyinstaller/__init__.py",
+      "blob_sha": "a6f9feba72702b3d4af4000e23222ec31b423803",
+      "sha256": "5a8c0cfeb2d84ed4287afdec24ffcec60d1ed827b92afdfbd82b2351ffae1c15",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/__pyinstaller/__init__.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/__pyinstaller/hook-playwright.async_api.py",
+      "blob_sha": "0300f0c0d0d040abfc774590506799811b026714",
+      "sha256": "d4a8c45554b3ba55e8102f03f576bab6ea4abfb70cdc60095471d504e34a1014",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/__pyinstaller/hook-playwright.async_api.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/__pyinstaller/hook-playwright.sync_api.py",
+      "blob_sha": "0300f0c0d0d040abfc774590506799811b026714",
+      "sha256": "d4a8c45554b3ba55e8102f03f576bab6ea4abfb70cdc60095471d504e34a1014",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/__pyinstaller/hook-playwright.sync_api.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/_api_classes.py",
+      "blob_sha": "09cc7041cc791cda2b4cabab89cedcea103ad450",
+      "sha256": "a9fe2ebf73e4ff1387594ae2bec144c4ff5fa338a0186fbe1b1aba2be2082860",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/_api_classes.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/_api_structures.py",
+      "blob_sha": "28a641a1681a04d92ee1b7b6f499f6a26ed7bf2b",
+      "sha256": "80e5db15405296ac5e47b093aff3a4137361bf86dc204b1c06b4d0ea681b755f",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/_api_structures.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/_assertions.py",
+      "blob_sha": "eaa356fde4939073c0cd78afe161909140bf00c3",
+      "sha256": "72f9ef9529c93b1a6e284395f1f71fa178ae9cd322647d6ca5fec31a6bee0a59",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/_assertions.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/_async_base.py",
+      "blob_sha": "a78220771969dce9b5483a2929180a1903277c79",
+      "sha256": "294d797a9520dc6adb22cedb25b1d3f5b327a74651e02dd01f1512d39730469e",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/_async_base.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/_driver.py",
+      "blob_sha": "f26f88cc2e7610712aad220dac8dafa7094e1f40",
+      "sha256": "08f148815c415f3049f2a21cf306bb9daa53169d41c47c155509542d5f7d5249",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/_driver.py",
+      "reviewed": true
+    },
+    {
+      "path": "playwright/_impl/_errors.py",
+      "blob_sha": "ced1211ffb7d432fe642c68bb615497ca76a7c53",
+      "sha256": "73809e7e33b5d6407fbaac046d94fbd72456182d9900626b13005f97f8838f2b",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/_errors.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/_form_data.py",
+      "blob_sha": "384806abd9eae68a995cb144f8a9a6ed5c4a6df4",
+      "sha256": "a9f8b8c6ba2509de30b84e9062338e31114de64de35bd204b24f3a7e429a0a0c",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/_form_data.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/_greenlets.py",
+      "blob_sha": "c5b3fd4dda939413db9b1acef4b68ec56f7813ba",
+      "sha256": "f28058fc67d568394ee840b27c46ccb44f4d6d7e940fc1aef273ab4d34d70919",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/_greenlets.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/_helper.py",
+      "blob_sha": "11fd17f8b14151d6b32b3155e0e2ed480c8b3fa8",
+      "sha256": "c169b2df04a33ad4b6ce5f35befa97335f9a4c95674c268b34565bf788a47793",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/_helper.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/_impl_to_api_mapping.py",
+      "blob_sha": "a44d2ff3b98c7051fb3cf95d2c39c0c446531e38",
+      "sha256": "d17c447572a3a178d0615dba83e28504ac5e36fdefc117c79468741ee71756d3",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/_impl_to_api_mapping.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/_map.py",
+      "blob_sha": "95c05f4451d7b77003acc36950714942e36f41fd",
+      "sha256": "606086b53edc29605a5ff0b22147dfc640e38c65089df790063aed9cb89bfaa7",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/_map.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/_protocol.py",
+      "blob_sha": "10503a5989b9cd59b7986b7f8e0ee2f26a88080a",
+      "sha256": "eb5055935e43553f413721abc0b68ae7c754c945de7f3b40f1c1488b834cd6fa",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/_protocol.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/_protocol_check.py",
+      "blob_sha": "1739381ea349cd71d7b2f11d50c3dce30312957f",
+      "sha256": "5b9995201b1bcd5474b21c17aa23c52a8d485fcd7d8a7a96d87f25e55f2e906f",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/_protocol_check.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/_signature.py",
+      "blob_sha": "adba677f2a45e7c13334f59d16fb82dd5d57aa1f",
+      "sha256": "5d61abeb8ca4fb32e09bf213efdfaeaf15db873d9dde1305b8ed62462b210c7d",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/_signature.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/_sync_base.py",
+      "blob_sha": "a6ca3e95b0992eafb4c9315510b520c3fb408d6c",
+      "sha256": "33dee6a005ef3c7026b6e5ec460733bfa689c3b358adcc969f5958a1b62ed587",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/_sync_base.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/artifact.py",
+      "blob_sha": "794717bc07ae0385ba878d77f709086fe801ed78",
+      "sha256": "29454595dfb6d00c47222ba6e94312242bea6b5961748d17fe3a49aab905eb79",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/artifact.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/assertions.py",
+      "blob_sha": "e156a411d8065a6d5647b009c9e9eaa11a61e24d",
+      "sha256": "3741770e7687bc19459077a56957ad0948e1c7a4711dac841c8611c460c33f8d",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/assertions.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/browser.py",
+      "blob_sha": "a843667c390de932877e6c27715e1e04b337fc4e",
+      "sha256": "f26b0fc35c72fe74178a7dfcb041ea1d733699c83f62e2a2b2a287128114ac10",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/browser.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/browser_context.py",
+      "blob_sha": "958ecdfb5e2cab1ed944c63195a63eb96fcb4834",
+      "sha256": "4e8f9d4be7f43c5ba58ee17fd04e0b4de64dde4c3580769d59992cfbd0196601",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/browser_context.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/browser_type.py",
+      "blob_sha": "1e32773b5e67c9e6907481612249b437ac6ef58f",
+      "sha256": "d8b91d46d980b8dad295c422787be5e96a510d272c151d903ed4e157df76ccc3",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/browser_type.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/cdp_session.py",
+      "blob_sha": "d3dc52b0966938a94a0ed34e889b3b5e5dec3e6b",
+      "sha256": "c403e90297d90b052f867e44fa922dd681d80b70125e91b7677441e27da4d131",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/cdp_session.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/channel_owner.py",
+      "blob_sha": "0412582aee3f96e53916e830c326eb99952b89bb",
+      "sha256": "36124e42b680eac3330b9ec4479faf707084bcdbcf6c7ea7cd40e75180bbe451",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/channel_owner.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/client_helper.py",
+      "blob_sha": "1532d1017453a66e48fe6ced41d2707958e64631",
+      "sha256": "bb23b77a83052da532249c8e8bbd015cd2c51622f88b0ede77059d8d629bdcb3",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/client_helper.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/client_instrumentation.py",
+      "blob_sha": "43abe02b5a69f7a067a99548697be109a1e1259c",
+      "sha256": "116ffaae974d2636ac5ee9b758e6acfaa1b79040da41e6a06de4de7e62bcd607",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/client_instrumentation.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/client_stack_trace.py",
+      "blob_sha": "a4ea51a868361d1142b52088493983a819c1b1fe",
+      "sha256": "98abaf3a8816e692ae419d8be8522c1baf74a065ab219a78f20bc05de7ea714d",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/client_stack_trace.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/clock.py",
+      "blob_sha": "c7502a3f926cea1f521b1ee841bd7c7fcaa56af8",
+      "sha256": "0f8b26a056fa6ca637ed79578686970961be416b4ece094109c9d60c460a93ad",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/clock.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/connect.py",
+      "blob_sha": "0c8f313e6f0eafb923f261d22266efd941fb4196",
+      "sha256": "c6b62727852c568ce5dedc3785f697661cd08084874501ca661585a1db3fbfd2",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/connect.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/connection.py",
+      "blob_sha": "6c387f9401403d7a0ac0a7aee602ca93a43b3346",
+      "sha256": "5f61761be7383c15095fe27c200c71d018589c47cc88a36d28160d160d90845b",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/connection.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/console_message.py",
+      "blob_sha": "c98d0d41377ad03db6ce1cea9a7e32221bfc7540",
+      "sha256": "702f4a0b6e0e596d8d3eb78d1fd936232bf3d84c19ade03a3990610794dcb934",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/console_message.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/credentials.py",
+      "blob_sha": "950cdf69f11a9f3869b4f32465ee79a9cb4e284b",
+      "sha256": "08c2b42cdcd8e2a2dc45b0fa0133f42335bb1294d3643ba26952f0a9ea6cf64a",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/credentials.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/debugger.py",
+      "blob_sha": "147d31509f1adb1f6cc9d9809b61332c8c54dbf9",
+      "sha256": "4e1423dfa128a9d79c363d9b5839c0c327e21eb087ea6006652993adb1bb523e",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/debugger.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/dialog.py",
+      "blob_sha": "f789ccc1bed77ccef23a2d55762cee12c727357e",
+      "sha256": "4682be830d45c7d6c527941b21f1d9264b8619343287e111f706acc42957dbba",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/dialog.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/disposable.py",
+      "blob_sha": "92d33422f1d1cbd7133c3268f72e9d80d7125793",
+      "sha256": "d8942e93cc92ce10649dc802933c51d15637694042a324f84cab4cab03798f35",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/disposable.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/download.py",
+      "blob_sha": "bc77b221764dbd05ec3bed2779a8cb3ea4cfd938",
+      "sha256": "9c629ab6e35de0b6a9c1b8d2ba8b81be90ffcee247460fa08bcf9f5dd37e92a8",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/download.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/element_handle.py",
+      "blob_sha": "516c49cda5978fe1b5ce615ecf6b01da28a037cd",
+      "sha256": "61cabd48c27f03d7cc2297995637c2b8eaa45786fc2187885852b288060e1b14",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/element_handle.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/errors.py",
+      "blob_sha": "c0e470eb5be68e64b0b7aa0d5fb3ab362115ce52",
+      "sha256": "fef5bd9793cbc211f759f289744b1ca7c64d837aa50430624b13ce275c2abb51",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/errors.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/event_context_manager.py",
+      "blob_sha": "2ce18c297f8a8f27cabbbebcbe3980be96ddeff9",
+      "sha256": "97cda06e14a1d118923e8b8f7bb08b7d612caf1cafb5696f40366fadc6ec4586",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/event_context_manager.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/event_emitter.py",
+      "blob_sha": "f09b69275c3e0868e6f5b80fe234e01b70170781",
+      "sha256": "281029208c581d51fb30b2a301511d36ec2b0158d4d00ca38dbcf2d6d358d50e",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/event_emitter.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/events.py",
+      "blob_sha": "61cfc09a9d18cb2ec570a70940221f97e55db9e0",
+      "sha256": "d87414c77effc482d65fad7364df7220e7b1c06c2a1e1e5ba520ebeefea36fc7",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/events.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/fetch.py",
+      "blob_sha": "0eb073d8ffc91858bbcad1731e84be63ab8fadb2",
+      "sha256": "4a244bfae88f5ab756a30e4236319942dd33e4956c425c97f4436e277a3eeef2",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/fetch.py",
+      "reviewed": true
+    },
+    {
+      "path": "playwright/_impl/file_chooser.py",
+      "blob_sha": "e87fff5a0d525364a3200f808a3eda9621b5a697",
+      "sha256": "3ba336955eb724c9a2b2603bbfb5bbb9e8f57ea1c0030e30726647d99724dac2",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/file_chooser.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/file_utils.py",
+      "blob_sha": "af2585e3acf35716f7f301f84df4dd52e36f425d",
+      "sha256": "208d9b110d6da07150dea9a037b9d2de151dbe0871955547af16f170ff7fb644",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/file_utils.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/frame.py",
+      "blob_sha": "d335258d3ce6638d9ffdfc1b1c9d9533a88f7263",
+      "sha256": "aa7d83a18d114a17ed1eded28b7f3b361d1b9bab2a852cdaca3dc66c5769c33e",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/frame.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/har_router.py",
+      "blob_sha": "02ece27dae641bd1a88b596dad6a9061d9d83f38",
+      "sha256": "beea32e4f711cf3896f639833b57df547fa5c8648e5dbed86c873218ad8445d0",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/har_router.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/input.py",
+      "blob_sha": "85881ee8faeeb512737f580ed5df6297848d2c48",
+      "sha256": "2691a98bd3d31e46f7b8ec41b027e0cf9f7ced5892db1a36091cd607b4252787",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/input.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/internal_structures.py",
+      "blob_sha": "b3baef46aabd2402a4901612a145877e82602104",
+      "sha256": "a9f15fd4bd6259a66987667e5ee3a30dda3f525b13161c59860227308fea3c1c",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/internal_structures.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/isomorphic/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/isomorphic/__init__.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/isomorphic/headers.py",
+      "blob_sha": "e83cb10b25b9593f22647492e810c0094ae67c68",
+      "sha256": "028ac2026e2d3fbbdbda81af0c270b3468d8a8c896a25bc192dc45227132c448",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/isomorphic/headers.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/isomorphic/locator_utils.py",
+      "blob_sha": "4752d0f7081537f7e4d1fae4a819cb9e07de01d6",
+      "sha256": "83f768d8197542cca3a3395cbf2f4254cfedd8ba30653261a50ab0324f4f258d",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/isomorphic/locator_utils.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/isomorphic/manual_promise.py",
+      "blob_sha": "b2040e48033e55c99313f30893e90d1c6ec3625f",
+      "sha256": "928d3f74f302da857dfe09e1b944f70b82999053614e3437b5b9ac61b010e0ce",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/isomorphic/manual_promise.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/isomorphic/mime_type.py",
+      "blob_sha": "0fa9080c25c376840975d66ddbf2ac9fdacac918",
+      "sha256": "67d6e25d686f87de11ecd01306a586dc92a41eb41d821283317c1218b48ce601",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/isomorphic/mime_type.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/isomorphic/string_utils.py",
+      "blob_sha": "fe36102d2a7729e34ce4d3e8f3b763c61e83d403",
+      "sha256": "5a227a505e87cccfb3e87ed33088809efd5712e80e5bce4b4b92da05703a3173",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/isomorphic/string_utils.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/isomorphic/time.py",
+      "blob_sha": "112f8889f53eb13c4ad9cf4bd657abfc8ab1c8a5",
+      "sha256": "1d382f07185fe68cec7f6bc54a7899eb5da9bd27ac1d1edc9ebb326b3612209c",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/isomorphic/time.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/isomorphic/trace_utils.py",
+      "blob_sha": "c3c00c53c0583ce3202171997fac4e5c851be8e9",
+      "sha256": "19f1dc16fb96e7d08482a5e9816296a38e025c1dee2d23572a7a3e74a7ad31be",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/isomorphic/trace_utils.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/isomorphic/url_match.py",
+      "blob_sha": "0469f3edec17fc813909b5c02ba223bf0a644b75",
+      "sha256": "1d0e512e6f9549853bc6ad49ffcaf717a001a9f84d7ba88b7eb2adf9872fb2a2",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/isomorphic/url_match.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/js_handle.py",
+      "blob_sha": "3e5009c937bc31682003b71070cfa366f497f35d",
+      "sha256": "5d2b064345768d651ff9a562b7270cf961f6accee1fd3dac2b24b9004ed9feb4",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/js_handle.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/json_pipe.py",
+      "blob_sha": "5fa0babbaaeae2f4beac1af503fde1608a9f2d0e",
+      "sha256": "057aeb0e53710785e27acff690fa597bfcef6216d64943dec0ade6a13517127c",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/json_pipe.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/local_utils.py",
+      "blob_sha": "8904437667e643e7deffc8ec0a7ec240db5676ea",
+      "sha256": "2a60118c4e87af304eec1c46d24a83733a4e30ee4f21ae21cd5c798a06c28fad",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/local_utils.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/locator.py",
+      "blob_sha": "c17406b3a51568a1d40689edbfafaf2108381bf3",
+      "sha256": "0f5f7a0f476db39a35c72c72e2a7afa0c3854a5dce88cc81b2f039634ad53249",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/locator.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/network.py",
+      "blob_sha": "e481d3e43e53818125f4b4cb808a586ea4e753f0",
+      "sha256": "93eab926ab4c8b3a773a990dfeae65db5b82c947307dd7388c555daf61341a9a",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/network.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/out_of_process.py",
+      "blob_sha": "212f878a5be2fb7fb63950f6b96c5ec9f9ebfe72",
+      "sha256": "28c53a415cec6c0b7bacfb3ce2c9a4010aaafb5cfb95c4945741442dae074661",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/out_of_process.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/page.py",
+      "blob_sha": "6e6bb55efd0ff45c7f6d667478b8e4c00e438839",
+      "sha256": "99fc813d5911936309cb91f588f62987782845c69c7cc5f5e93a3a87707fff1b",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/page.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/playwright.py",
+      "blob_sha": "6227c15714df87ad1a0bd23c93b1bf43e93f24e3",
+      "sha256": "08e1459a459212e24f496060fbc29ef561d3aa24dbc9d61618ab717bad1dae96",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/playwright.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/protocol/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/protocol/__init__.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/protocol/serializers.py",
+      "blob_sha": "bd7e23d924b981752997716f7e76bb8a4e7bc7c4",
+      "sha256": "5b4ff004a2244e5c5483b150e93637ff44f1be1bf4f16e24a06c3927d4d0146c",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/protocol/serializers.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/protocol/validator.py",
+      "blob_sha": "9fa10c900fe2ae375f2f442b5007643fff77bfe6",
+      "sha256": "2069574ec172ee1e0157b286e35f16dde5ef27594cd524189d0d818a650b1ad8",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/protocol/validator.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/protocol/validator_primitives.py",
+      "blob_sha": "c3403abbc981d3f44c8fc0b83a80437e452165a1",
+      "sha256": "09135138726550c0d92f075d3cc306f1358aa2c16bc289415e70df7367131fd4",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/protocol/validator_primitives.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/protocol_channels.py",
+      "blob_sha": "8de46b6c6a27dd485965808e2992a0efd0ac1a79",
+      "sha256": "96bb5cb64fcc1b9f9ad88fc56dbc0b64f3be52758ceb27ca3c434d253722855b",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/protocol_channels.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/protocol_types.py",
+      "blob_sha": "54053e0ad1591c15327b8c306940a298f84c63e8",
+      "sha256": "42805a4d91acc8bdf75b9f45fb44cdaa0f10c15d6fb05c0ee66ad90436095fd7",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/protocol_types.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/screencast.py",
+      "blob_sha": "c6594bc0d844a13b2f32ae3d95eaa2734aaf8fc6",
+      "sha256": "bd801dfe8008dc9150c30bd55fd42c9784228a88bba5bff8300c40e9a6f7fb3d",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/screencast.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/selectors.py",
+      "blob_sha": "851767de4774fbc965d1d1c86a3513409870e36a",
+      "sha256": "78cde4ebeeaf9c2b66bb3f928af69188ff13bb483b141f26d196cc29ffb8cfd4",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/selectors.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/stream.py",
+      "blob_sha": "b51b8e3f5397bd6b32cf0b3039245dc3f60dc227",
+      "sha256": "8f55afbbff6e9199d5fd66c2461845ea11f2c6374e55e53d30ba5c307b581aa3",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/stream.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/timeout_settings.py",
+      "blob_sha": "0552cf508601e071f2c0bc634db3457fd3626d84",
+      "sha256": "6fb483f9c368a49fd64db3fe7f6a3ec423e5b98809304f07fc36100424c917c9",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/timeout_settings.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/tracing.py",
+      "blob_sha": "8453bedf9df6b2dfadef6a87fc33e899df18a135",
+      "sha256": "b88dfc47d533946b35db755e100f9a53f74f13cc34b8e0c37f0be9164b6fc918",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/tracing.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/transport.py",
+      "blob_sha": "ad249807ecb29385d70abed09e1881b8c1293486",
+      "sha256": "3ca0214b2a7bce4b73f4f6757ce94c28289055ec3477f492b40a944c3fc50e58",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/transport.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/types.py",
+      "blob_sha": "fdac17f57af4fa84da887aa210a8662cc8338b55",
+      "sha256": "6ee945ca3fe08cd82f9a3a4e284af82544bd7d64f1bae2bc939003e41624d681",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/types.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/utils/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/utils/__init__.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/utils/crypto.py",
+      "blob_sha": "c7c6fc5d7370bb0cedc5da700642cc10ae73cf53",
+      "sha256": "b97e6cda3182dae5b2e89175013d34432a12be9ba1fd545caebcc989d082cf3f",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/utils/crypto.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/utils/debug.py",
+      "blob_sha": "2f648de12558f16f3a8908818fe8206a397a775b",
+      "sha256": "c28f0c4b2969b97974ecdc16abbfa5716066f523825eb31b248aed7b60a0dc0f",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/utils/debug.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/utils/debug_logger.py",
+      "blob_sha": "674ce25cfba7440acee857fe8dcfd8921d64e3c7",
+      "sha256": "4e0c40eedbf5199cfc2472ce8656e72e466759f32e0e97b5448ece736c094869",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/utils/debug_logger.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/utils/map.py",
+      "blob_sha": "89bfe6bd5ab2f081ecff8d97da61e8cc9099e8f9",
+      "sha256": "2d34bf8ff4fbedd30d32f3aae68221f88535623c732f9cd37a9107327bfcee35",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/utils/map.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/utils/stack_trace.py",
+      "blob_sha": "f04103baed3a024a1f07bd543bdd09bb375bf1d9",
+      "sha256": "65b54b8dd40acf3d1e09e4b7b7fd41b66d68549e0a11342686f44651a0312b45",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/utils/stack_trace.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/utils/tasks.py",
+      "blob_sha": "6d420d5d09e759ad804177cf16de122cf16e557a",
+      "sha256": "31087d7458bf49fd8b6113180ff4e340debe8d28297715fbef140e30a4eafd73",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/utils/tasks.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/utils/whatwg_url.py",
+      "blob_sha": "f33980af121a14b6de9359aa2b1cf35b52e50dd4",
+      "sha256": "120df34bd990f88f3e1d233a7bb7d0a87306b3df69b4e5c130ddde386a90e57a",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/utils/whatwg_url.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/utils/zones.py",
+      "blob_sha": "2bd85e6b7b1ff8206be27319d414475939d568ab",
+      "sha256": "0ee51c3f81627829113ad7ca0fd8c8fa1ccba693ee579ac09df06aa7ed8dcd6f",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/utils/zones.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/video.py",
+      "blob_sha": "7b84d0b36140a9c5ec48b30b3feb495072d87649",
+      "sha256": "329d0e97c20978bcb7e304a680d137b86a36830f21534e2fd500f30edd35e3ae",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/video.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/waiter.py",
+      "blob_sha": "0878dfe79f8b8cca210b8d69fae23ff7bc7be730",
+      "sha256": "2d3ad77a9fdefeb6934faa305b2cb66b60e09599df092a5b6b548ba8c11e05af",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/waiter.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/web_error.py",
+      "blob_sha": "66548c7d464a57dfb3d504ae23ff2ec14c370242",
+      "sha256": "ccd1c33aabec1814854bfa3142dbe3668cb068e1e3b6bc0729f68c21ec49b522",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/web_error.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/web_mcp.py",
+      "blob_sha": "f9082c8a3b804b3bb825384e1c280ce63090047d",
+      "sha256": "c861ee16679052668b711e385c28796391e6ec2496fcda802acc5eea2ca15266",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/web_mcp.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/web_storage.py",
+      "blob_sha": "9e2bacc9513f8fc068283ad3442d9f3a24ebfd17",
+      "sha256": "5ff5c5b74fd6c3ebe562965ee8e9e7bd5ec584c48deb0c20799d33034fcb0e0c",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/web_storage.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/worker.py",
+      "blob_sha": "2b13a909d69b3652e6e06747eb0dfa5bbe9062e1",
+      "sha256": "cb0c973c690638db62d890fa0c56969cb901b7e9ad7e32fdc252c4fc4dd9cbc4",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/worker.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/_impl/writable_stream.py",
+      "blob_sha": "2ea1a7ff948ac9ccfce6fcb055460042551eba76",
+      "sha256": "3810f9cb05b56e3c30bca345bc9e9a146583d5d6034bd8c11f62f68fc2eb90d8",
+      "installed_path": "lib/python3.12/site-packages/playwright/_impl/writable_stream.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/async_api/__init__.py",
+      "blob_sha": "9b996338d789764784f97c0dcfb3c91caedf3145",
+      "sha256": "b709a69e63a30945e2ed1cd1164c6e15fc0b89f871908727188b1e3636ab6727",
+      "installed_path": "lib/python3.12/site-packages/playwright/async_api/__init__.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/async_api/_context_manager.py",
+      "blob_sha": "7f66c51e739ee1a75eef673213168646bd442d63",
+      "sha256": "90146e4b3a726b419971344d8b7f76060d3b0e1521767937e2194c6a2c878be0",
+      "installed_path": "lib/python3.12/site-packages/playwright/async_api/_context_manager.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/async_api/_generated.py",
+      "blob_sha": "fdc48ed1d7eef67626fd5384d1d2ffd40460494e",
+      "sha256": "9203b882ae584ca838b8a1336a98aa1d03f36d789ad41ec96e0cf253b35995a0",
+      "installed_path": "lib/python3.12/site-packages/playwright/async_api/_generated.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/sync_api/__init__.py",
+      "blob_sha": "9c461454e2d59106a810cef6f4d9bfea5679ddb5",
+      "sha256": "9924ede8c3dbdd5abf5254b967897e283cc19256d1a54cd1aa13d5f2f4f2d6d5",
+      "installed_path": "lib/python3.12/site-packages/playwright/sync_api/__init__.py",
+      "reviewed": false
+    },
+    {
+      "path": "playwright/sync_api/_context_manager.py",
+      "blob_sha": "d2a1e15211654508edc97facd683beefd7d0cdd2",
+      "sha256": "4e6015e45c3815d98d5bfff77bfb92812463cfe28ce25d81a5852174b7a31bdb",
+      "installed_path": "lib/python3.12/site-packages/playwright/sync_api/_context_manager.py",
+      "reviewed": true
+    },
+    {
+      "path": "playwright/sync_api/_generated.py",
+      "blob_sha": "bf4d4df2fa7d6f022ed24362f7517147f03e81f4",
+      "sha256": "edeba63b915e3f7895b9ee3a1d22d8cc7d2f6026f6b8123a15019f687dc8b1af",
+      "installed_path": "lib/python3.12/site-packages/playwright/sync_api/_generated.py",
+      "reviewed": false
+    },
+    {
+      "path": "pyproject.toml",
+      "blob_sha": "e638b30ed44dda877199d8033c96f3628f0f3ee6",
+      "sha256": "5b2f5c7f64d5c68fe1f0e379835cd21394efc8c6d2a89619585f19a58572ce14",
+      "installed_path": null,
+      "reviewed": true
+    },
+    {
+      "path": "scripts/build_driver.py",
+      "blob_sha": "bdf171b75add49d1ace9bf96bc5555ff3ad8602d",
+      "sha256": "f448f48c504e37757b70f384b26523504dfabda468d13ef96d4dbc5efc0666c8",
+      "installed_path": null,
+      "reviewed": true
+    },
+    {
+      "path": "setup.py",
+      "blob_sha": "c1d589bf0e33d66499f24fb347f0f8a215f95904",
+      "sha256": "2ce2247f8bacbb0d3b2ff8ba6f421b6ab39f422693120033f181eb6173ebdc50",
+      "installed_path": null,
+      "reviewed": true
+    }
+  ],
+  "source_python_files_verified": 104,
+  "driver": {
+    "repository": "microsoft/playwright",
+    "commit": "8534271f0413bae6a455b7cf43b2637391bc614b",
+    "version": "1.66.0-next",
+    "files": [
+      {
+        "path": "LICENSE",
+        "blob_sha": "df112373eb2e23e459bf93ec412be1764dc5a38b",
+        "sha256": "45873d00a0dd243596deb4aa23b2493b3d1f0671921bf2538ea431d7380220eb",
+        "installed_path": null,
+        "reviewed": true
+      },
+      {
+        "path": "package.json",
+        "blob_sha": "de93f623b82b7c8e034cc2866c239271c1d97a0a",
+        "sha256": "532a4ceb6348fd7aac9cff35f2058db40787f92f41ce4f944f03ab8350101da2",
+        "installed_path": null,
+        "reviewed": true
+      },
+      {
+        "path": "package-lock.json",
+        "blob_sha": "f54fe33881a60dd5848054b6acb75156bc5d36c1",
+        "sha256": "c98695f7ca64f33615a88eb787ffa1ac26bec40c78b2058575c7f86f2a1323ce",
+        "installed_path": null,
+        "reviewed": false
+      },
+      {
+        "path": "packages/playwright-core/package.json",
+        "blob_sha": "87fdf56b0a063d85ca7a4606dba18ceaf9b49051",
+        "sha256": "df1a109e8cc811afdacf50930f45226b9641b5169e5a811b32aa7dd83e970e2b",
+        "installed_path": null,
+        "reviewed": true
+      },
+      {
+        "path": "packages/playwright-core/src/server/fetch.ts",
+        "blob_sha": "908993dded9784879c4165f979273cadd592acfe",
+        "sha256": "9703dcfcc61f61a6ea1b0e346359a0a6ce5b3413012429f3114d5265d230f1d4",
+        "installed_path": null,
+        "reviewed": true
+      },
+      {
+        "path": "packages/playwright-core/src/server/cookieStore.ts",
+        "blob_sha": "3f0d5273d5135f164f86d68b34b7dc1884b5ee8c",
+        "sha256": "dc76364b6e5107ac9b128022897c464d19f534430eca94fdb5da51d19416a714",
+        "installed_path": null,
+        "reviewed": true
+      },
+      {
+        "path": "utils/build/build.js",
+        "blob_sha": "2a8d24c64f2d8e0778e6b44a0b51dc31da3a8c41",
+        "sha256": "ad294e5e4ba51068c19440391b7a9733e7d1491b6c5fb7f0b10bc47bbbfd060e",
+        "installed_path": null,
+        "reviewed": true
+      }
+    ]
+  },
+  "node": {
+    "version": "26.13.1",
+    "archive_url": "https://nodejs.org/dist/v26.13.1/node-v26.13.1-linux-x64.tar.gz",
+    "archive_sha256": "518674de2b621728a5e4486f5fb3b7d2900bb3cc4aa97969edaa463db99f9778",
+    "binary_sha256": "d931c649850ffa7155b8ceffb400dc916ef325866e509cc52ae36e33e8fbb9a9",
+    "license_sha256": "8e603aa87c70d36e497004f0dec63111511cb61b7d65ace12e10ea791599286c"
+  },
+  "installed_artifacts": {
+    "lib/python3.12/site-packages/playwright/__init__.py": "06c3acdadd13e2813fcb95ad91d53ee3885c2b5f473beccc45a579d9ceead70b",
+    "lib/python3.12/site-packages/playwright/__main__.py": "695e581058cca3cb05920172c9fbb851235d4f6ba32e19522e2d73c76dd44649",
+    "lib/python3.12/site-packages/playwright/_impl/__init__.py": "4356b18d52758a584a0733be0b30db997c811225c0f9b65fc9b5a50d59b2bd47",
+    "lib/python3.12/site-packages/playwright/_impl/__pyinstaller/__init__.py": "5a8c0cfeb2d84ed4287afdec24ffcec60d1ed827b92afdfbd82b2351ffae1c15",
+    "lib/python3.12/site-packages/playwright/_impl/__pyinstaller/hook-playwright.async_api.py": "d4a8c45554b3ba55e8102f03f576bab6ea4abfb70cdc60095471d504e34a1014",
+    "lib/python3.12/site-packages/playwright/_impl/__pyinstaller/hook-playwright.sync_api.py": "d4a8c45554b3ba55e8102f03f576bab6ea4abfb70cdc60095471d504e34a1014",
+    "lib/python3.12/site-packages/playwright/_impl/_api_classes.py": "a9fe2ebf73e4ff1387594ae2bec144c4ff5fa338a0186fbe1b1aba2be2082860",
+    "lib/python3.12/site-packages/playwright/_impl/_api_structures.py": "80e5db15405296ac5e47b093aff3a4137361bf86dc204b1c06b4d0ea681b755f",
+    "lib/python3.12/site-packages/playwright/_impl/_assertions.py": "72f9ef9529c93b1a6e284395f1f71fa178ae9cd322647d6ca5fec31a6bee0a59",
+    "lib/python3.12/site-packages/playwright/_impl/_async_base.py": "294d797a9520dc6adb22cedb25b1d3f5b327a74651e02dd01f1512d39730469e",
+    "lib/python3.12/site-packages/playwright/_impl/_driver.py": "08f148815c415f3049f2a21cf306bb9daa53169d41c47c155509542d5f7d5249",
+    "lib/python3.12/site-packages/playwright/_impl/_errors.py": "73809e7e33b5d6407fbaac046d94fbd72456182d9900626b13005f97f8838f2b",
+    "lib/python3.12/site-packages/playwright/_impl/_form_data.py": "a9f8b8c6ba2509de30b84e9062338e31114de64de35bd204b24f3a7e429a0a0c",
+    "lib/python3.12/site-packages/playwright/_impl/_greenlets.py": "f28058fc67d568394ee840b27c46ccb44f4d6d7e940fc1aef273ab4d34d70919",
+    "lib/python3.12/site-packages/playwright/_impl/_helper.py": "c169b2df04a33ad4b6ce5f35befa97335f9a4c95674c268b34565bf788a47793",
+    "lib/python3.12/site-packages/playwright/_impl/_impl_to_api_mapping.py": "d17c447572a3a178d0615dba83e28504ac5e36fdefc117c79468741ee71756d3",
+    "lib/python3.12/site-packages/playwright/_impl/_map.py": "606086b53edc29605a5ff0b22147dfc640e38c65089df790063aed9cb89bfaa7",
+    "lib/python3.12/site-packages/playwright/_impl/_protocol.py": "eb5055935e43553f413721abc0b68ae7c754c945de7f3b40f1c1488b834cd6fa",
+    "lib/python3.12/site-packages/playwright/_impl/_protocol_check.py": "5b9995201b1bcd5474b21c17aa23c52a8d485fcd7d8a7a96d87f25e55f2e906f",
+    "lib/python3.12/site-packages/playwright/_impl/_signature.py": "5d61abeb8ca4fb32e09bf213efdfaeaf15db873d9dde1305b8ed62462b210c7d",
+    "lib/python3.12/site-packages/playwright/_impl/_sync_base.py": "33dee6a005ef3c7026b6e5ec460733bfa689c3b358adcc969f5958a1b62ed587",
+    "lib/python3.12/site-packages/playwright/_impl/artifact.py": "29454595dfb6d00c47222ba6e94312242bea6b5961748d17fe3a49aab905eb79",
+    "lib/python3.12/site-packages/playwright/_impl/assertions.py": "3741770e7687bc19459077a56957ad0948e1c7a4711dac841c8611c460c33f8d",
+    "lib/python3.12/site-packages/playwright/_impl/browser.py": "f26b0fc35c72fe74178a7dfcb041ea1d733699c83f62e2a2b2a287128114ac10",
+    "lib/python3.12/site-packages/playwright/_impl/browser_context.py": "4e8f9d4be7f43c5ba58ee17fd04e0b4de64dde4c3580769d59992cfbd0196601",
+    "lib/python3.12/site-packages/playwright/_impl/browser_type.py": "d8b91d46d980b8dad295c422787be5e96a510d272c151d903ed4e157df76ccc3",
+    "lib/python3.12/site-packages/playwright/_impl/cdp_session.py": "c403e90297d90b052f867e44fa922dd681d80b70125e91b7677441e27da4d131",
+    "lib/python3.12/site-packages/playwright/_impl/channel_owner.py": "36124e42b680eac3330b9ec4479faf707084bcdbcf6c7ea7cd40e75180bbe451",
+    "lib/python3.12/site-packages/playwright/_impl/client_helper.py": "bb23b77a83052da532249c8e8bbd015cd2c51622f88b0ede77059d8d629bdcb3",
+    "lib/python3.12/site-packages/playwright/_impl/client_instrumentation.py": "116ffaae974d2636ac5ee9b758e6acfaa1b79040da41e6a06de4de7e62bcd607",
+    "lib/python3.12/site-packages/playwright/_impl/client_stack_trace.py": "98abaf3a8816e692ae419d8be8522c1baf74a065ab219a78f20bc05de7ea714d",
+    "lib/python3.12/site-packages/playwright/_impl/clock.py": "0f8b26a056fa6ca637ed79578686970961be416b4ece094109c9d60c460a93ad",
+    "lib/python3.12/site-packages/playwright/_impl/connect.py": "c6b62727852c568ce5dedc3785f697661cd08084874501ca661585a1db3fbfd2",
+    "lib/python3.12/site-packages/playwright/_impl/connection.py": "5f61761be7383c15095fe27c200c71d018589c47cc88a36d28160d160d90845b",
+    "lib/python3.12/site-packages/playwright/_impl/console_message.py": "702f4a0b6e0e596d8d3eb78d1fd936232bf3d84c19ade03a3990610794dcb934",
+    "lib/python3.12/site-packages/playwright/_impl/credentials.py": "08c2b42cdcd8e2a2dc45b0fa0133f42335bb1294d3643ba26952f0a9ea6cf64a",
+    "lib/python3.12/site-packages/playwright/_impl/debugger.py": "4e1423dfa128a9d79c363d9b5839c0c327e21eb087ea6006652993adb1bb523e",
+    "lib/python3.12/site-packages/playwright/_impl/dialog.py": "4682be830d45c7d6c527941b21f1d9264b8619343287e111f706acc42957dbba",
+    "lib/python3.12/site-packages/playwright/_impl/disposable.py": "d8942e93cc92ce10649dc802933c51d15637694042a324f84cab4cab03798f35",
+    "lib/python3.12/site-packages/playwright/_impl/download.py": "9c629ab6e35de0b6a9c1b8d2ba8b81be90ffcee247460fa08bcf9f5dd37e92a8",
+    "lib/python3.12/site-packages/playwright/_impl/element_handle.py": "61cabd48c27f03d7cc2297995637c2b8eaa45786fc2187885852b288060e1b14",
+    "lib/python3.12/site-packages/playwright/_impl/errors.py": "fef5bd9793cbc211f759f289744b1ca7c64d837aa50430624b13ce275c2abb51",
+    "lib/python3.12/site-packages/playwright/_impl/event_context_manager.py": "97cda06e14a1d118923e8b8f7bb08b7d612caf1cafb5696f40366fadc6ec4586",
+    "lib/python3.12/site-packages/playwright/_impl/event_emitter.py": "281029208c581d51fb30b2a301511d36ec2b0158d4d00ca38dbcf2d6d358d50e",
+    "lib/python3.12/site-packages/playwright/_impl/events.py": "d87414c77effc482d65fad7364df7220e7b1c06c2a1e1e5ba520ebeefea36fc7",
+    "lib/python3.12/site-packages/playwright/_impl/fetch.py": "4a244bfae88f5ab756a30e4236319942dd33e4956c425c97f4436e277a3eeef2",
+    "lib/python3.12/site-packages/playwright/_impl/file_chooser.py": "3ba336955eb724c9a2b2603bbfb5bbb9e8f57ea1c0030e30726647d99724dac2",
+    "lib/python3.12/site-packages/playwright/_impl/file_utils.py": "208d9b110d6da07150dea9a037b9d2de151dbe0871955547af16f170ff7fb644",
+    "lib/python3.12/site-packages/playwright/_impl/frame.py": "aa7d83a18d114a17ed1eded28b7f3b361d1b9bab2a852cdaca3dc66c5769c33e",
+    "lib/python3.12/site-packages/playwright/_impl/har_router.py": "beea32e4f711cf3896f639833b57df547fa5c8648e5dbed86c873218ad8445d0",
+    "lib/python3.12/site-packages/playwright/_impl/input.py": "2691a98bd3d31e46f7b8ec41b027e0cf9f7ced5892db1a36091cd607b4252787",
+    "lib/python3.12/site-packages/playwright/_impl/internal_structures.py": "a9f15fd4bd6259a66987667e5ee3a30dda3f525b13161c59860227308fea3c1c",
+    "lib/python3.12/site-packages/playwright/_impl/isomorphic/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/python3.12/site-packages/playwright/_impl/isomorphic/headers.py": "028ac2026e2d3fbbdbda81af0c270b3468d8a8c896a25bc192dc45227132c448",
+    "lib/python3.12/site-packages/playwright/_impl/isomorphic/locator_utils.py": "83f768d8197542cca3a3395cbf2f4254cfedd8ba30653261a50ab0324f4f258d",
+    "lib/python3.12/site-packages/playwright/_impl/isomorphic/manual_promise.py": "928d3f74f302da857dfe09e1b944f70b82999053614e3437b5b9ac61b010e0ce",
+    "lib/python3.12/site-packages/playwright/_impl/isomorphic/mime_type.py": "67d6e25d686f87de11ecd01306a586dc92a41eb41d821283317c1218b48ce601",
+    "lib/python3.12/site-packages/playwright/_impl/isomorphic/string_utils.py": "5a227a505e87cccfb3e87ed33088809efd5712e80e5bce4b4b92da05703a3173",
+    "lib/python3.12/site-packages/playwright/_impl/isomorphic/time.py": "1d382f07185fe68cec7f6bc54a7899eb5da9bd27ac1d1edc9ebb326b3612209c",
+    "lib/python3.12/site-packages/playwright/_impl/isomorphic/trace_utils.py": "19f1dc16fb96e7d08482a5e9816296a38e025c1dee2d23572a7a3e74a7ad31be",
+    "lib/python3.12/site-packages/playwright/_impl/isomorphic/url_match.py": "1d0e512e6f9549853bc6ad49ffcaf717a001a9f84d7ba88b7eb2adf9872fb2a2",
+    "lib/python3.12/site-packages/playwright/_impl/js_handle.py": "5d2b064345768d651ff9a562b7270cf961f6accee1fd3dac2b24b9004ed9feb4",
+    "lib/python3.12/site-packages/playwright/_impl/json_pipe.py": "057aeb0e53710785e27acff690fa597bfcef6216d64943dec0ade6a13517127c",
+    "lib/python3.12/site-packages/playwright/_impl/local_utils.py": "2a60118c4e87af304eec1c46d24a83733a4e30ee4f21ae21cd5c798a06c28fad",
+    "lib/python3.12/site-packages/playwright/_impl/locator.py": "0f5f7a0f476db39a35c72c72e2a7afa0c3854a5dce88cc81b2f039634ad53249",
+    "lib/python3.12/site-packages/playwright/_impl/network.py": "93eab926ab4c8b3a773a990dfeae65db5b82c947307dd7388c555daf61341a9a",
+    "lib/python3.12/site-packages/playwright/_impl/out_of_process.py": "28c53a415cec6c0b7bacfb3ce2c9a4010aaafb5cfb95c4945741442dae074661",
+    "lib/python3.12/site-packages/playwright/_impl/page.py": "99fc813d5911936309cb91f588f62987782845c69c7cc5f5e93a3a87707fff1b",
+    "lib/python3.12/site-packages/playwright/_impl/playwright.py": "08e1459a459212e24f496060fbc29ef561d3aa24dbc9d61618ab717bad1dae96",
+    "lib/python3.12/site-packages/playwright/_impl/protocol/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/python3.12/site-packages/playwright/_impl/protocol/serializers.py": "5b4ff004a2244e5c5483b150e93637ff44f1be1bf4f16e24a06c3927d4d0146c",
+    "lib/python3.12/site-packages/playwright/_impl/protocol/validator.py": "2069574ec172ee1e0157b286e35f16dde5ef27594cd524189d0d818a650b1ad8",
+    "lib/python3.12/site-packages/playwright/_impl/protocol/validator_primitives.py": "09135138726550c0d92f075d3cc306f1358aa2c16bc289415e70df7367131fd4",
+    "lib/python3.12/site-packages/playwright/_impl/protocol_channels.py": "96bb5cb64fcc1b9f9ad88fc56dbc0b64f3be52758ceb27ca3c434d253722855b",
+    "lib/python3.12/site-packages/playwright/_impl/protocol_types.py": "42805a4d91acc8bdf75b9f45fb44cdaa0f10c15d6fb05c0ee66ad90436095fd7",
+    "lib/python3.12/site-packages/playwright/_impl/screencast.py": "bd801dfe8008dc9150c30bd55fd42c9784228a88bba5bff8300c40e9a6f7fb3d",
+    "lib/python3.12/site-packages/playwright/_impl/selectors.py": "78cde4ebeeaf9c2b66bb3f928af69188ff13bb483b141f26d196cc29ffb8cfd4",
+    "lib/python3.12/site-packages/playwright/_impl/stream.py": "8f55afbbff6e9199d5fd66c2461845ea11f2c6374e55e53d30ba5c307b581aa3",
+    "lib/python3.12/site-packages/playwright/_impl/timeout_settings.py": "6fb483f9c368a49fd64db3fe7f6a3ec423e5b98809304f07fc36100424c917c9",
+    "lib/python3.12/site-packages/playwright/_impl/tracing.py": "b88dfc47d533946b35db755e100f9a53f74f13cc34b8e0c37f0be9164b6fc918",
+    "lib/python3.12/site-packages/playwright/_impl/transport.py": "3ca0214b2a7bce4b73f4f6757ce94c28289055ec3477f492b40a944c3fc50e58",
+    "lib/python3.12/site-packages/playwright/_impl/types.py": "6ee945ca3fe08cd82f9a3a4e284af82544bd7d64f1bae2bc939003e41624d681",
+    "lib/python3.12/site-packages/playwright/_impl/utils/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/python3.12/site-packages/playwright/_impl/utils/crypto.py": "b97e6cda3182dae5b2e89175013d34432a12be9ba1fd545caebcc989d082cf3f",
+    "lib/python3.12/site-packages/playwright/_impl/utils/debug.py": "c28f0c4b2969b97974ecdc16abbfa5716066f523825eb31b248aed7b60a0dc0f",
+    "lib/python3.12/site-packages/playwright/_impl/utils/debug_logger.py": "4e0c40eedbf5199cfc2472ce8656e72e466759f32e0e97b5448ece736c094869",
+    "lib/python3.12/site-packages/playwright/_impl/utils/map.py": "2d34bf8ff4fbedd30d32f3aae68221f88535623c732f9cd37a9107327bfcee35",
+    "lib/python3.12/site-packages/playwright/_impl/utils/stack_trace.py": "65b54b8dd40acf3d1e09e4b7b7fd41b66d68549e0a11342686f44651a0312b45",
+    "lib/python3.12/site-packages/playwright/_impl/utils/tasks.py": "31087d7458bf49fd8b6113180ff4e340debe8d28297715fbef140e30a4eafd73",
+    "lib/python3.12/site-packages/playwright/_impl/utils/whatwg_url.py": "120df34bd990f88f3e1d233a7bb7d0a87306b3df69b4e5c130ddde386a90e57a",
+    "lib/python3.12/site-packages/playwright/_impl/utils/zones.py": "0ee51c3f81627829113ad7ca0fd8c8fa1ccba693ee579ac09df06aa7ed8dcd6f",
+    "lib/python3.12/site-packages/playwright/_impl/video.py": "329d0e97c20978bcb7e304a680d137b86a36830f21534e2fd500f30edd35e3ae",
+    "lib/python3.12/site-packages/playwright/_impl/waiter.py": "2d3ad77a9fdefeb6934faa305b2cb66b60e09599df092a5b6b548ba8c11e05af",
+    "lib/python3.12/site-packages/playwright/_impl/web_error.py": "ccd1c33aabec1814854bfa3142dbe3668cb068e1e3b6bc0729f68c21ec49b522",
+    "lib/python3.12/site-packages/playwright/_impl/web_mcp.py": "c861ee16679052668b711e385c28796391e6ec2496fcda802acc5eea2ca15266",
+    "lib/python3.12/site-packages/playwright/_impl/web_storage.py": "5ff5c5b74fd6c3ebe562965ee8e9e7bd5ec584c48deb0c20799d33034fcb0e0c",
+    "lib/python3.12/site-packages/playwright/_impl/worker.py": "cb0c973c690638db62d890fa0c56969cb901b7e9ad7e32fdc252c4fc4dd9cbc4",
+    "lib/python3.12/site-packages/playwright/_impl/writable_stream.py": "3810f9cb05b56e3c30bca345bc9e9a146583d5d6034bd8c11f62f68fc2eb90d8",
+    "lib/python3.12/site-packages/playwright/_repo_version.py": "c141141ead1e08f608506464d691b9e25849835d92e6be59cfae10f6a4dd8113",
+    "lib/python3.12/site-packages/playwright/async_api/__init__.py": "b709a69e63a30945e2ed1cd1164c6e15fc0b89f871908727188b1e3636ab6727",
+    "lib/python3.12/site-packages/playwright/async_api/_context_manager.py": "90146e4b3a726b419971344d8b7f76060d3b0e1521767937e2194c6a2c878be0",
+    "lib/python3.12/site-packages/playwright/async_api/_generated.py": "9203b882ae584ca838b8a1336a98aa1d03f36d789ad41ec96e0cf253b35995a0",
+    "lib/python3.12/site-packages/playwright/driver/LICENSE": "8e603aa87c70d36e497004f0dec63111511cb61b7d65ace12e10ea791599286c",
+    "lib/python3.12/site-packages/playwright/driver/README.md": "944105984c9d52512719e08b4ab39e6dd4366df251e287235e2e5b1b35c95535",
+    "lib/python3.12/site-packages/playwright/driver/node": "d931c649850ffa7155b8ceffb400dc916ef325866e509cc52ae36e33e8fbb9a9",
+    "lib/python3.12/site-packages/playwright/driver/package/LICENSE": "45873d00a0dd243596deb4aa23b2493b3d1f0671921bf2538ea431d7380220eb",
+    "lib/python3.12/site-packages/playwright/driver/package/NOTICE": "6d602191187b35b9b01d2cffa01c8469c2c8d9de8a96f1bf868e0f264f51c81d",
+    "lib/python3.12/site-packages/playwright/driver/package/README.md": "d16ff7f8e38fa1fc954f695ad551cdc118d9c9bdd5f3d83203901f4c317d7d7e",
+    "lib/python3.12/site-packages/playwright/driver/package/ThirdPartyNotices.txt": "a549d329bad8806fe279f0ecae0fc0270dec7e7c2dc8ec10f90e394f7c32b144",
+    "lib/python3.12/site-packages/playwright/driver/package/bin/install_media_pack.ps1": "bc20f049badf021e3a53bdb4156603caa5ef482c9a9a251f927605e676a44171",
+    "lib/python3.12/site-packages/playwright/driver/package/bin/install_webkit_wsl.ps1": "bc61beda37a808eef27d39ce684baa792f6d17737a25a432b1a84d3b591ab815",
+    "lib/python3.12/site-packages/playwright/driver/package/bin/reinstall_chrome_beta_linux.sh": "dc8c22b9dde76583cece2857575b88094299615f3136a3c598149710c45dee3a",
+    "lib/python3.12/site-packages/playwright/driver/package/bin/reinstall_chrome_beta_mac.sh": "a92eaeb4ebcf5633a4e9c981481e14c80764fc81b6fcbc0565398e50ff319433",
+    "lib/python3.12/site-packages/playwright/driver/package/bin/reinstall_chrome_beta_win.ps1": "b6d9e44742feafb98d5edc56fa20042949973cf30d141a1c5b4fb384096967c5",
+    "lib/python3.12/site-packages/playwright/driver/package/bin/reinstall_chrome_stable_linux.sh": "45efbc8101ff65243505cc3c23cafa2eb77a590f0151a6ce2d494c5291399308",
+    "lib/python3.12/site-packages/playwright/driver/package/bin/reinstall_chrome_stable_mac.sh": "bb43a96c192a6cc81524ade0264686fff7809c019a89f7db0a9849635879c3be",
+    "lib/python3.12/site-packages/playwright/driver/package/bin/reinstall_chrome_stable_win.ps1": "3d96c4e2f4ebbb3fad44cf3ba58d9cf90af1c9fb3073e3b27d45a74cf005515b",
+    "lib/python3.12/site-packages/playwright/driver/package/bin/reinstall_msedge_beta_linux.sh": "10b26f35dbc2000b94edf1172d803a29c5873a4eb8d523afbc687997b642767e",
+    "lib/python3.12/site-packages/playwright/driver/package/bin/reinstall_msedge_beta_mac.sh": "0036d738bc90d686100d81f328ba0003bf07863f5500b792c8da391d149750fa",
+    "lib/python3.12/site-packages/playwright/driver/package/bin/reinstall_msedge_beta_win.ps1": "b173c378a59f0cc38033cee702de1f44f09276c9b2270d1a650ebe66ee312433",
+    "lib/python3.12/site-packages/playwright/driver/package/bin/reinstall_msedge_dev_linux.sh": "00e4947e7a4f8339c6db09c87976d808583c07f9179e4aa7694d88614b82fe95",
+    "lib/python3.12/site-packages/playwright/driver/package/bin/reinstall_msedge_dev_mac.sh": "6f899e3b311f742c24ca37ff9e32298e8290514ffc14bf588cc51556a29da4c0",
+    "lib/python3.12/site-packages/playwright/driver/package/bin/reinstall_msedge_dev_win.ps1": "46f7f98c81cb0abe687d7f4a5afea9b897a38d2a6dd6f6662fbd847f7a22bd51",
+    "lib/python3.12/site-packages/playwright/driver/package/bin/reinstall_msedge_stable_linux.sh": "ec0a31a5f09c565e108473a1850895a4458ab00c713ac1de3aa2001912e4668f",
+    "lib/python3.12/site-packages/playwright/driver/package/bin/reinstall_msedge_stable_mac.sh": "3af1e893527ff2257aa2dbc3b259a053b92f45c3eadb13e38eba46e87902655d",
+    "lib/python3.12/site-packages/playwright/driver/package/bin/reinstall_msedge_stable_win.ps1": "40bb5fcbfcebbbe2ce43c6e736e7c5deefc5be03b6e9c6914423c06ec1f591be",
+    "lib/python3.12/site-packages/playwright/driver/package/browsers.json": "6fd4f204163603f6ac4703575ca867eaa0c2587591214e00eb47d4a066c3a5d9",
+    "lib/python3.12/site-packages/playwright/driver/package/cli.js": "7c46f799363eee3e0bb7a7d7c870a92316a1601bf6fda780b656df4209542aa9",
+    "lib/python3.12/site-packages/playwright/driver/package/index.d.ts": "7a8ec10b0834eb7183e4bfcd929838ac77583828e343211bb73676d1e47f6f01",
+    "lib/python3.12/site-packages/playwright/driver/package/index.js": "a58fb2cec4293e7dcf73c58a179898a4f3986666451a19da4e731fa3af63265b",
+    "lib/python3.12/site-packages/playwright/driver/package/index.mjs": "3d36e2132d3c8b62397d23f0bb4177336aaee503203ae2a2c90fbeb5bf3317dd",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/bootstrap.js": "39dd64cc9472275d1b25c170fefa2a98353bcca598b741788faac2e6e15fc737",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/coreBundle.js": "d1888afd85c58d4e4db52502216b92c23d60124337ba304601886be837100608",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/entry/cliDaemon.js": "062f256fb29a7bf91793a014b9c3f1f9cf2dc6b12e40a8a2ebba88a630ae16a0",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/entry/dashboardApp.js": "209962c6eaeef11629f226d6a2ab33ec7a2480754242b6e19590a9e6eb71d126",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/entry/mcp.js": "cc87dc0020cb41caebbf04f50e42bc7835b033a6d80e9c3f0a3d0b3dbdf341c7",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/entry/oopBrowserDownload.js": "87567cdbd67dd2f50bb232d47d3784701ece7c81e39c0287bb7d1b466b68cf06",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/package.js": "9f938e1d44a0dd231b1660ca62f7dae964859b79cbdc370b8542c5d375ca3c05",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/server/chromium/appIcon.png": "6ba994f05c5cf18e22d9b6bef9898fbdec6ad4d4d77f5187d0609cb42d72d01e",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/server/electron/loader.js": "2cc711f7809a4a41739e3b23b11e3d9b0b84be1b636400808db3f5263420e526",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/serverRegistry.js": "38025f08f335705b099b9f188bf45b5908a56a722825fe895b1e90f56d5595b6",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/serverRegistry.js.LICENSE": "3098a6efcbc11752cbdf6075fa65480f5470f78c8d981fab9c0796dc9a41cefe",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/cli-client/channelSessions.js": "c1c54c5ad64d0107b21312a91ce165489651646ac9dd88a2d9f47b12265b4f88",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/cli-client/cli.js": "3f9694e461ef0d6ebab068fdf3da98e1f3bce7cd4d2c32e667f2d0fb218c6472",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/cli-client/help.json": "d22c1cef870c407e3d7a2db02a2542bf7f60ff663cd2e739d80ae7d4be459708",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/cli-client/minimist.js": "9430489ebc06fd02231dccfe844516f743e812a9ac4fe8e6748a67718738851c",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/cli-client/output.js": "de5701d6dba77b3c77471c3e81ad901dfd1a9122d38f25f5c06fa1356dc002b6",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/cli-client/program.js": "89a4241a5574b573ade827ed786bca80ce98ee7c273c37d8559c9c617d2ccbed",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/cli-client/registry.js": "4976cd5b2b3a25572cc1a4b5f055a756dacd4cc1b19d48987ee3253428e759b8",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/cli-client/session.js": "872ab8c32e955b684d42964bdd4cbbb8f10b2a6312b8cbf32059d241e9792ba9",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/dashboard/appIcon.png": "38037bcf18c7f9b950da2e1a2d8800d38fb27637ccda293d38368a3704b67f18",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/skills/playwright-cli/SKILL.md": "1c4c34000f6102ee71fe91bf25351a221f7da37f48f2d556e1756f66e17d356f",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/skills/playwright-cli/references/element-attributes.md": "bf19aa4671e0a50a0fefa9c790f39124e803060eefe395042b723c29fcb7faa2",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/skills/playwright-cli/references/playwright-tests.md": "c5b0719fef2cfdff50bd744051b2f9afc119775db4b48e9b2882c1cf3886797c",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/skills/playwright-cli/references/pr-attachments.md": "24b118e74598be72e73e24fe223d295b9099c85b1860a7c8f6e5690c9038fa2a",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/skills/playwright-cli/references/request-mocking.md": "54e801c9663fc2b6d68ceb058cb1c360724c2499f42acc7852a68e83e5b5f37c",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/skills/playwright-cli/references/running-code.md": "eac97e0b77e723f8b1d7b64f276f92efa72f74453f45a805352d27ea1853a495",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/skills/playwright-cli/references/session-management.md": "2f4d953136cbfb998136095c064c38f4223ea049d6e13610e17db078dde8971c",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/skills/playwright-cli/references/storage-state.md": "71e90f774b5a7d61367f2336940f30be7c5693d43197b63d1154634b99ae5045",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/skills/playwright-cli/references/test-generation.md": "b9c5dda349a469b9abf9f10f3787135e6521f433f5743de399a164e14e76f7ce",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/skills/playwright-cli/references/tracing.md": "4e397e16e6bd92d8696cb815c4ee6dc4ce0be1da9e760e261a9c30b44c7857c7",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/skills/playwright-cli/references/video-recording.md": "1c800b897824cb54394c34265d8ebffdbb530adfc8d612c5d798b667a1799f48",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/skills/playwright-component-testing/SKILL.md": "60f57b31767d562c30cc5332081418c2945f4d9c998efa6e09191333654dd429",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/skills/playwright-component-testing/references/gallery-spec.md": "0ca25dde6112eb379f56eb618585b64dc2dfd13c2f7f956ac7eabbd76a68912b",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/skills/playwright-component-testing/references/migration.md": "bc3a336f7970bb7455fa5a38f937e45b35fb0c18d6c3b9f37916a4ff757b7acc",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/skills/playwright-component-testing/references/react.md": "54af9cc1cdb6d4ccdb8e811c0abb29b960d5c9304f4df7d1dcf9b8df3f973102",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/skills/playwright-component-testing/references/typing.md": "c511025b5c9b02d7f49034a5613c8b478193bf60c90ea6dddb3faf9c6985c82b",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/skills/playwright-component-testing/references/vue.md": "d1b129f126c700702a3c00ad8eb6c86898bc941c29a656c1191eb7230650bf8b",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/skills/playwright-trace/SKILL.md": "c76d28244c05a6474f6030213127cd62253208b06430ea2378576f0669db2c9a",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/utils/extension.js": "404ae19e57a7c7c5ed3e6ecf9df26a3fcf95867250732f954823078ccb879e63",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/tools/utils/socketConnection.js": "973c2bea70a1f1445f4673f99e9fa351e50a2ec9fd93d7381b2c41bb4de764dd",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/utilsBundle.js": "897440163be29ea4c73c6203ce2fc244aebb2916839d37b8591a94b72d929a0a",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/utilsBundle.js.LICENSE": "0b85cf59012e8a11c869ed21b61724e934f10222dfb29e95412bf0b8a8d341b1",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/dashboard/assets/codeMirrorModule--QdMvsKi.css": "20be824a82832b62cc04642d31da3c609fd280b23f1cdcb1e622c4f40aac5ab8",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/dashboard/assets/codeMirrorModule-D5SeAdMv.js": "e1d0184cfef64d586db5a8760def0fe21eac11d751e59aaa2bf9d45616faf669",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/dashboard/assets/codicon-DCmgc-ay.ttf": "0f1d5219934e96e83b8db162d60b4d8c09b5de1e7d38031cbafe4a3c0f2889c9",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/dashboard/assets/firefox-1bWoP6pv.svg": "3f3742d1e78c0db6c2d3531250f70c30675ee5310de32fa89befaf738c54efd0",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/dashboard/assets/firefox-beta-k3eOH_eK.svg": "7eab5ffdc25903ba33a7202f7fffa1999f119c7be45a39e9e703c118904f917a",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/dashboard/assets/firefox-nightly-Cp5nfeDT.svg": "f311c074b0fa999fcd6b73441301fb54ee87a48ff3bf05f318647928110476da",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/dashboard/assets/index-BnQkOdFO.css": "61e4f8a0250f9570461c644a44269170d20d7e0c09f8fb2cfc3f172ef1528d7a",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/dashboard/assets/index-C_gcIYdA.js": "cef8856224daffb1872d6510eaca5ef6e9dc4f24c8dcff24e9dc00d592d8b4d8",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/dashboard/assets/safari-na3_-uQk.svg": "80fd72ca5eb8545f1981277b31f4f92951d469d4efebd078e4086b676fe517dc",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/dashboard/index.html": "5648d7b798176f9ea70f1d644e0097f04a27403ca1ca32e247aaea20857bdb42",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/dashboard/playwright-logo.svg": "511524a1c145819303a18fb71870a4307c3e740f9e9722f7686a2b42b0995b6c",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/htmlReport/index.html": "ce7c098020a0eb9ce10edd416245ea6da50dfeaab18dfd0a2176979d22643be6",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/htmlReport/report.css": "d98a244bf950333ade383b109e97d396f970f650b20f2e5ef5ecc2740205dff7",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/htmlReport/report.js": "1b5c5d6a5a192d029bb78f9d4fb9b06daf3625a6ffb1d9f87ac10faf03132843",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/recorder/assets/codeMirrorModule--QdMvsKi.css": "20be824a82832b62cc04642d31da3c609fd280b23f1cdcb1e622c4f40aac5ab8",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/recorder/assets/codeMirrorModule-ClnuDfLq.js": "c9d222c4bf9a25448dba761fd72c3fd205b2a99a09649316476e3e912d6f887b",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/recorder/assets/codicon-DCmgc-ay.ttf": "0f1d5219934e96e83b8db162d60b4d8c09b5de1e7d38031cbafe4a3c0f2889c9",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/recorder/assets/index-BZpYJZ-P.css": "cc24563b96f286614b88f74da413e9984de263227971c4cdfabe1f73be095514",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/recorder/assets/index-BwOPSdeb.js": "94d99ae4c0e60394fba226160f02e59940eed2cef6e5bdb189719d3e51a09b45",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/recorder/index.html": "97f49b8d3a03d7ad4129bcbd1f7f3fb5a7a5dea1837b16b9a3c1baab075e42af",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/recorder/playwright-logo.svg": "6b0a4367bdeab10995bc239278f04c68c10e48adbec15e799e01909a0d66dcb9",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/assets/codeMirrorModule-DNqxPF-E.js": "53102e1a7795f44c51b4f4172f9493d94922892a1f5cefe31edf50278e0b89cd",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/assets/defaultSettingsView-BTtkk0ZB.js": "c358e0894cf54ee0d81975b6319a9eaedaa217996604e32acf6dcc14e7784c83",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/assets/rolldown-runtime-QTnfLwEv.js": "5db5ba82eef00d1dee7e86e663098c9427d01183a88d357437daff295aec3e75",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/assets/urlMatch-Cgl6axSs.js": "2d35d162cc21790c6adc218fbd1c3ef77865646b50f60157e04715f48974d182",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/assets/xtermModule-Cv6bi7od.js": "d9711a3d5b304fccf3252a2e6b7d471b5a9903ab61ae265a7afec9166e17991c",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/codeMirrorModule.-QdMvsKi.css": "20be824a82832b62cc04642d31da3c609fd280b23f1cdcb1e622c4f40aac5ab8",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/codicon.DCmgc-ay.ttf": "0f1d5219934e96e83b8db162d60b4d8c09b5de1e7d38031cbafe4a3c0f2889c9",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/defaultSettingsView.C8BeHuxd.css": "278101b68ab48ee6323a6afbf4e0e629324e10e96902a62a0875643a1bba3d94",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/index.B_TqY17P.css": "08a212fcacae1866f44f065654afcc4c7d03409c68c74b3315c5bda17a0ca003",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/index.DndNy5cE.js": "b4c040b8fa363bf20a2940311e2e308f6604b6e680e41b825d88912810247d6e",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/index.html": "d72ff33d4eb2a519e22e7ff16eab0ca8787a937e14e20c861ae51ec184c36f99",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/manifest.webmanifest": "d8540500603a32a39fe7e5a0375dc0f9ebafd11118e06a846db7efc608223ab9",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/playwright-logo.svg": "6b0a4367bdeab10995bc239278f04c68c10e48adbec15e799e01909a0d66dcb9",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/snapshot.-ChLTbql.js": "339b2b5c67ef769f60fe959f78a3cfa42b2b8833e30f19cd32bf5194efe833b6",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/snapshot.html": "7b889f89c715eadd359d10462e3d8b6292cc632a7a86de75b07e8fc9934d1972",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/sw.bundle.js": "1b2e386bdcbbc14606ca97c97cf5affc4a81403b3a227c6420ced3171b91f915",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/uiMode.CyMfwkXJ.css": "fb403cf0b07007bc1d771e29737f7408924da300e2fab8b289a3ef2e8fc08d7b",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/uiMode.html": "d0679c1418978a6c0046ce690cf15722383b8b532f06198eb1958e2bf008c953",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/uiMode.quHXzkRk.js": "9c39f05148b14bd39880abae837b0e9f319022cb46d12bdb09272ec6aa0d36d5",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/vite/traceViewer/xtermModule.kHJ-D0s7.css": "0dd60056134e6a2994a86b59a1e9789b9f04e92924da109aef8c923acaf08ce5",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/webp_codec.LICENSE": "995c7ee35aceb7666829b7a501ca89c0864e12b493c1174b155774ab1e03d831",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/webp_codec.wasm": "164cd9583a3e4d081f767d3b41ff0a730443dc7535fcc5caff83561463384b79",
+    "lib/python3.12/site-packages/playwright/driver/package/lib/xdg-open": "7d759d54f0d4ce1beeb34ee62c587985b5042374e8de237b0dcb8cd47aa698cf",
+    "lib/python3.12/site-packages/playwright/driver/package/package.json": "df1a109e8cc811afdacf50930f45226b9641b5169e5a811b32aa7dd83e970e2b",
+    "lib/python3.12/site-packages/playwright/driver/package/types/protocol.d.ts": "b554eac8994913f46c4b619458e088922f417d693c38730230fd071395977275",
+    "lib/python3.12/site-packages/playwright/driver/package/types/structs.d.ts": "c9b9179b7291c8562eb0fb781219ddbdcf36149ebd7bd355e5b4a553d6b60b81",
+    "lib/python3.12/site-packages/playwright/driver/package/types/types.d.ts": "4fa5cf9e56abec6ef6c3a666fbe3b3c66eda1a69bd1f343e5944158fe5c792b4",
+    "lib/python3.12/site-packages/playwright/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/python3.12/site-packages/playwright/sync_api/__init__.py": "9924ede8c3dbdd5abf5254b967897e283cc19256d1a54cd1aa13d5f2f4f2d6d5",
+    "lib/python3.12/site-packages/playwright/sync_api/_context_manager.py": "4e6015e45c3815d98d5bfff77bfb92812463cfe28ce25d81a5852174b7a31bdb",
+    "lib/python3.12/site-packages/playwright/sync_api/_generated.py": "edeba63b915e3f7895b9ee3a1d22d8cc7d2f6026f6b8123a15019f687dc8b1af"
+  },
+  "build_environment": {
+    "SETUPTOOLS_SCM_PRETEND_VERSION": "1.65.1.dev12+g86a5f5a81010b1dbd155263e99782442b61d0cb2",
+    "npm_config_ignore_scripts": "true",
+    "ELECTRON_SKIP_BINARY_DOWNLOAD": "1",
+    "PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD": "1"
+  },
+  "build_note": "Version derived from v1.65.0 plus 12 commits; full commit spelling fixed to avoid environment-dependent Git abbreviations. Only original setup.py and build_driver.py build the Python wheel and exact upstream driver.",
+  "scope": "APIRequestContext cookie state and isolation only. No browser binary, web navigation, HTTP request, caller cookie value, domain, path or secret.",
+  "live_verified": false
+}

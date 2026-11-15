@@ -4,15 +4,15 @@ Fecha: 15 de noviembre de 2026. Versión del motor: 0.21.0.
 
 | Estado | Cuántas |
 |---|---|
-| conectado | 243 |
+| conectado | 256 |
 | pieza_de_construccion | 56 |
-| pendiente | 1 |
+| pendiente | 354 |
 | excluido | 22 |
-| **Total** | 322 |
+| **Total** | 688 |
 
 > **Corrección v0.21.1 (revisión):** `google-ads` conserva su lectura con evidencia original añadida (`googleapis/googleapis@97f6460c35`: ruta REST `GET /v26/customers:listAccessibleCustomers` en `customer_service.proto`; encabezado `developer-token` en `google/ads/googleads/interceptors/metadata_interceptor.py` de google-ads-python). `meta-ads` vuelve a pendiente: los SDK oficiales de Meta (Python, Node, PHP, Java y Ruby) envían `access_token` en la URL y ninguno respalda el encabezado Bearer que usaba el contrato. Quedan 87 operaciones de la tanda, 25 contratos HTTP nuevos y 1 pendiente.
 
-**Pendientes: 0**, conservando la identificación de las cuatro tandas originales. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
+**Pendientes actuales: 354** (353 incorporaciones y `meta-ads`). Las secciones por versión conservan el historial de las tandas originales. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
 no se conectan al motor: se usan al construir la plataforma (fase aparte). Las 22 excluidas por licencia no se tocan.
 
 El estado de cada pieza lo calcula el código: `python -m verdugo connections`. Este plan en formato
@@ -240,3 +240,9 @@ CUA normaliza acciones sin ejecutarlas; TinyTroupe compara muestras sin simular 
 Microsandbox 0.7.15 ejecuta importación e inspección de imágenes de datos temporales, sin iniciar microVMs ni cloud. Landscape App ejecuta su validador original sobre proyectos suministrados; solo cambia la ruta del reporte a un directorio privado. Playwright MCP invoca browser_snapshot real mediante cliente y servidor originales sobre Chromium privado. Devuelve recuentos y niveles de encabezados y botones; no navega sitios externos. Su prueba original pasó en df413d1; la integración con Engine y el flujo final se exige en CI del commit vigente.
 
 SiteOne Crawler y Sherlock ejecutan algoritmos originales contra un servidor privado autenticado que contiene únicamente datos suministrados. No consultan sitios ni cuentas externas. El perfil network021 exige pruebas reales de procesos, proyección, casos negativos y replay en CI con loopback dentro de un namespace sin salida a Internet.
+
+## Incremento 666: Monty y estado de solicitudes de Playwright
+
+Trece de las 366 incorporaciones tienen ahora una operación local implementada. El lote 1 permanece en 13/183 y el lote 2 en 0/183. Monty ejecuta una fórmula propia fija con el intérprete nativo original; Playwright para Python revisa el estado de cookies sintéticas y aísla dos contextos originales, sin navegador ni HTTP. Sus perfiles independientes se construyen desde los commits del contrato. Las 780 pruebas y el flujo local de trece SDK/quince pasos pasan. CI del incremento nuevo permanece pendiente; el checkpoint anterior de once SDK está aceptado.
+
+DBOS sigue pendiente por la dependencia Psycopg LGPL-3.0 inspeccionada. No se cambió la licencia del registro ni se omitieron requisitos. El inventario calculado conserva 256 conectadas, 56 componentes, 354 pendientes y 22 excluidas. Detalles y límites en [PILOTO_666.md](PILOTO_666.md); evidencia original en los contratos Monty, browserstate y executive-blockers.

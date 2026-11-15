@@ -1,0 +1,9 @@
+# Original pyproject pins the first four build dependencies.
+setuptools==84.2.1
+setuptools-scm==10.3.4
+wheel==0.48.0
+auditwheel==6.7.0
+greenlet==3.4.0
+packaging==26.3
+pyelftools==0.33
+vcs-versioning==2.6.0

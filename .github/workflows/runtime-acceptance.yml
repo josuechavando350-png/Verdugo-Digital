@@ -12,7 +12,7 @@ concurrency:
 jobs:
   pilot666:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -47,6 +47,10 @@ jobs:
         run: |
           python tests_runtime/install_volt666.py
           python tests_runtime/install_memory666.py
+      - name: Build pinned native interpreter and Python request-state SDK
+        run: |
+          python tests_runtime/install_monty666.py
+          python tests_runtime/install_browserstate666.py
       - name: Original SDK, approval and restart with OS network isolation
         run: |
           sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
@@ -64,6 +68,8 @@ jobs:
             VERDUGO_STRANDS666_PYTHON=/tmp/verdugo-strands666-venv/bin/python \
             VERDUGO_PLANNING666_PYTHON=/tmp/verdugo-planning666-venv/bin/python \
             VERDUGO_MANUS666_PYTHON=/tmp/verdugo-manus666-venv/bin/python \
+            VERDUGO_MONTY666_PYTHON=/tmp/verdugo-monty666-venv/bin/python \
+            VERDUGO_BROWSERSTATE666_PYTHON=/tmp/verdugo-browserstate666-venv/bin/python \
             VERDUGO_MEMORY666_ROOT=/tmp/verdugo-memory666 \
             VERDUGO_VOLT666_ROOT=/tmp/verdugo-volt666 \
             /tmp/verdugo-kernel666-venv/bin/python tests_runtime/accept_executive666.py --out /tmp/executive666-execution-evidence.json
@@ -95,6 +101,10 @@ jobs:
             /tmp/memory666-resolved.txt
             /tmp/manus666-pip-report.json
             /tmp/manus666-resolved.txt
+            /tmp/monty666-pip-report.json
+            /tmp/monty666-resolved.txt
+            /tmp/browserstate666-pip-report.json
+            /tmp/browserstate666-resolved.txt
           retention-days: 3
           if-no-files-found: error
   baseline:

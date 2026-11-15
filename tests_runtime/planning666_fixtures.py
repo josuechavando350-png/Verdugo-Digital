@@ -25,6 +25,17 @@ def assert_result(test, sid, r):
         test.assertTrue(r['sequence_valid'])
         test.assertEqual(5, r['validated_transition_count'])
         test.assertFalse(r['operator_approval_verified'])
+    elif sid == 'monty':
+        test.assertEqual(60, r['planned_cost_minor'])
+        test.assertFalse(r['within_budget'])
+        test.assertTrue(r['within_capacity'])
+        test.assertTrue(r['type_check_enabled'])
+    elif sid == 'playwright-python':
+        test.assertEqual(2, r['retained_cookie_count'])
+        test.assertEqual(1, r['nonsecure_same_site_none_count'])
+        test.assertTrue(r['fresh_context_isolated'])
+        test.assertEqual(0, r['http_requests_made'])
+        test.assertEqual(0, r['browsers_launched'])
     elif sid == 'servers':
         test.assertEqual(3, r['entity_count'])
         test.assertEqual(2, r['unique_relation_count'])
@@ -46,3 +57,7 @@ def assert_result(test, sid, r):
 CASES["openmanus"] = {"dataset": "demo", "statuses": ["completed", "completed", "completed", "blocked", "not_started"]}
 
 CASES["servers"] = {"dataset":"demo", "statuses":["completed","blocked","not_started"], "edges":[[0,1],[2,1],[0,1]], "query":"blocked"}
+
+CASES['monty'] = {'dataset':'demo','budget_minor':50,'capacity_contacts':20,'actions':[{'contacts':10,'cost_per_contact_minor':6}]}
+
+CASES['playwright-python'] = {'dataset':'demo','cookies':[{'slot':0,'secure':True,'http_only':True,'same_site':'Strict','lifetime':'session'},{'slot':1,'secure':False,'http_only':False,'same_site':'None','lifetime':'session'},{'slot':2,'secure':True,'http_only':False,'same_site':'Lax','lifetime':'expired'}]}
