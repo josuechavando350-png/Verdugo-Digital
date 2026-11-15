@@ -9,6 +9,8 @@ import math
 
 
 def run(service, operation, p):
+    from .local_dispatch666 import SPECS as DISPATCH666, run as run_dispatch666
+    if service in DISPATCH666: return run_dispatch666(service, p)
     from .local_browserstate666 import SPECS as BROWSERSTATE666, run as run_browserstate666
     if service in BROWSERSTATE666: return run_browserstate666(service, p)
     from .local_monty666 import SPECS as MONTY666, run as run_monty666

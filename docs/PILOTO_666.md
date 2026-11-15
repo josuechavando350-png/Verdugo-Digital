@@ -1,6 +1,6 @@
 # Piloto 666: avance parcial del lote 1
 
-Trece de 183 piezas del primer lote tienen una operación nueva implementada. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
+Catorce de 183 piezas del primer lote tienen una operación nueva implementada. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
 
 ## Operación delimitada
 
@@ -37,7 +37,7 @@ La aceptación usa exclusivamente fixtures sintéticos, habilita la revisión de
 
 ## Pendiente
 
-MetaGPT está bloqueado por su dependencia original ausente. DeerFlow, Open Deep Research y DBOS conservan bloqueos de dependencias bajo la política del repo; LiteLLM conserva un build fallido. Prefect es la siguiente pieza de la cola por revisar. Faltan las demás piezas, el modelo local con licencia de pesos revisada, memoria, calibración, pruebas conjuntas de cada perfil y operación con información real autorizada. No se han desplegado servicios, publicado contenidos, enviado mensajes ni gastado presupuesto. `live_verified` sigue en cero. La cola de `registry-666.json` es el snapshot inmutable del registro; `docs/plan_conexion.json` y el inventario calculado reflejan las operaciones implementadas después.
+MetaGPT está bloqueado por su dependencia original ausente. DeerFlow, Open Deep Research, DBOS y Prefect conservan bloqueos de dependencias bajo la política del repo; LiteLLM conserva un build fallido. AgentKit es la siguiente pieza de la cola por revisar. Faltan las demás piezas, el modelo local con licencia de pesos revisada, memoria, calibración, pruebas conjuntas de cada perfil y operación con información real autorizada. No se han desplegado servicios, publicado contenidos, enviado mensajes ni gastado presupuesto. `live_verified` sigue en cero. La cola de `registry-666.json` es el snapshot inmutable del registro; `docs/plan_conexion.json` y el inventario calculado reflejan las operaciones implementadas después.
 
 ## Incremento ejecutivo: Agno y AG2
 
@@ -141,3 +141,18 @@ Perfiles: `VERDUGO_MONTY666_PYTHON=/tmp/verdugo-monty666-venv/bin/python` y `VER
 DBOS conserva estado pendiente: el `pyproject.toml` original exige `psycopg[binary]>=3.1`; el wheel Psycopg 3.3.9 inspeccionado contiene LGPL-3.0, fuera de la política permisiva de este repositorio. El LICENSE principal de DBOS sigue siendo MIT; no se reclasificó el registro ni se instaló el paquete enterprise. Los bytes y hashes de la dependencia se conservaron en `contracts-executive-blockers666.json`. Esta conclusión se limita al camino de instalación revisado.
 
 La aceptación conjunta local pasó con trece SDK originales y quince pasos, sin SDK simulados: tres casos de límites Monty, caducidad/reemplazo de cookies, contexto nuevo vacío, aprobación exacta y replay tras reiniciar SQLite. También se verificó que el valor y los nombres internos de cookies no aparecen en SQLite. Una preparación limpia con `install_browserstate666.py` reprodujo los 225 artefactos y ejecutó la operación por Engine. Las 780 pruebas unitarias y de contrato pasan. El namespace de red local no está disponible; CI aporta esa comprobación del sistema operativo y todavía debe observarse para este incremento.
+
+
+## Hatchet: borrador de política de despacho
+
+`hatchet / policy.compile` usa el SDK original 2.0.0a1, commit `ee6d34ecd0baf10908a1a621b9b5324721026f25`. `compute_task_parameters` combina valores por defecto y una sobreescritura explícita de reintentos. `ConcurrencyStrategy` y `StatusBasedIdempotencyConfig` producen protobuf, que se serializa y se decodifica antes de conservar únicamente valores permitidos y un digest.
+
+El código propio exige conciliación para estados `running` o `uncertain` y propone cero reintentos para cualquier escritura. Las lecturas fallidas admiten un borrador de hasta tres reintentos. Ningún resultado autoriza a ejecutarlos: `tasks_dispatched=0`, `retries_executed=0`, `approvals_granted=0`. No se crea cliente Hatchet, cola, servidor, proceso embedded, tarea ni comunicación. La retención y concurrencia propuestas no prueban que un servidor las esté haciendo cumplir.
+
+El archivo fuente SHA256 está fijado, 413 archivos concuerdan con blobs Git y los 411 módulos Python instalados se verifican antes de usar el SDK. Esto no significa auditoría semántica de todos los archivos; el contrato distingue lo leído de lo comprobado por hash. Preparación mediante `requirements/runtime-hatchet666.txt`, perfil `VERDUGO_HATCHET666_PYTHON`, fuera del motor. El núcleo MIT está documentado; no se habilitan extras ni servicios de pago.
+
+La aceptación local conjunta de catorce SDK y dieciséis pasos pasó con el perfil Playwright reconstruido desde cero, aprobación y reanudación SQLite sin repetir operaciones. Incluye cuatro casos adicionales de estado/tipo de operación en Hatchet. El incremento de trece SDK falló inicialmente en CI porque PEP 517 no encontraba el ejecutable `maturin` del venv; la corrección incorpora ese directorio al PATH y se comprobó generando metadatos desde el código original. La compilación completa y el aislamiento de red de CI deben observarse por commit.
+
+Prefect sigue pendiente: el wheel original `python-slugify==9.1.0` exige `text-unidecode>=1.3`; el wheel 1.3 ofrece GPL o Artistic, fuera de la lista permitida del repo. No se quitaron dependencias ni se aprobó una excepción. La conclusión se limita a la ruta de dependencias inspeccionada.
+
+El checkpoint de trece SDK `0bccfaa96d854e34ed11316c55f49907eda6849b` terminó con los tres workflows en `success`: compilación nativa y flujo conjunto con aislamiento de red incluidos. Esa evidencia no se extiende automáticamente a Hatchet; el nuevo incremento debe pasar su propia CI.

@@ -1,0 +1,2 @@
+-c runtime-hatchet666.constraints.txt
+hatchet-sdk @ https://codeload.github.com/hatchet-dev/hatchet/tar.gz/ee6d34ecd0baf10908a1a621b9b5324721026f25#subdirectory=sdks/python&sha256=267f4132b173dacd127812fe764a36b2a5cf9babcd6ce93f1d9201f35fcf22d8

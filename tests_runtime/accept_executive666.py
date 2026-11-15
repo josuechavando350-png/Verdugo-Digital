@@ -18,7 +18,7 @@ from verdugo import local_runtime, objectives, workflow
 
 
 def accept():
-    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','openmanus','servers','monty','playwright-python')
+    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','openmanus','servers','monty','playwright-python','hatchet')
     spec=json.loads((ROOT/'examples/executive666.synthetic.json').read_text())
     cfg=template('nexus')
     for sid in services:
@@ -41,12 +41,12 @@ def accept():
         with closing(engine()) as e:
             result=invoke(e,'verdugo_workflow',{'workflow':spec,'execute':True})
             assert result['state']=='succeeded',result
-            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state'}
+            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state','dispatch_policy'}
             r=result['steps']['check']['result']
             assert r['planned_contacts']==200 and r['planned_cost_minor']==0
             assert r['feasible_under_declared_limits'] and not r['external_execution_authorized']
             assert result['steps']['agno']['result']['budget_checked']
-            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state'),services):
+            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state','dispatch_policy'),services):
                 actual=result['steps'][step]['result']
                 assert actual['original_sdk']==sid and actual['llm_calls']==0
                 assert not actual['autonomous_agent']
@@ -71,7 +71,13 @@ def accept():
             assert result['steps']['cookie_state']['result']['fresh_context_isolated']
             assert 'fixed-demo-value' not in '\n'.join(e.db.iterdump())
             assert 'synthetic_0' not in '\n'.join(e.db.iterdump())
-            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==15
+            policy = result['steps']['dispatch_policy']['result']
+            assert policy['compiled_retries']==0 and policy['reconciliation_required']
+            assert policy['compiled_max_parallel']==2 and policy['protobuf_round_trip_verified']
+            assert policy['compiled_idempotency_method']=='STATUS'
+            assert policy['dispatch_policy_draft_only'] and not policy['server_policy_enforced']
+            assert policy['tasks_dispatched']==0 and policy['approvals_granted']==0
+            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==16
         with closing(engine()) as e, \
                 patch.object(local_runtime,'execute',side_effect=AssertionError('SDK re-executed')), \
                 patch.object(objectives,'simulate',side_effect=AssertionError('simulation re-executed')):
@@ -166,6 +172,21 @@ def accept():
                 assert state['retained_cookie_count']==expected and state['secure_cookie_count']==0
                 assert state['fresh_context_isolated'] and state['sdk_contexts_disposed']
                 assert state['http_requests_made']==0 and state['browsers_launched']==0
+            for kind, previous, expected in [('read','failed',3),('read','running',0),
+                                             ('read','uncertain',0),('write','failed',0)]:
+                params={'dataset':'demo','operation_kind':kind,'previous_state':previous,
+                        'max_parallel':4,'requested_retries':3,'timeout_seconds':5,
+                        'retention_seconds':60}
+                checked=e.execute({'service':'hatchet','operation':'policy.compile',
+                    'key':'policy-'+kind+'-'+previous,'params':params},True)
+                assert checked['state']=='succeeded',checked
+                policy=checked['result']['result']
+                assert policy['compiled_retries']==expected and policy['fallback_retention_ms']==60000
+                assert policy['compiled_execution_timeout_seconds']==5
+                assert policy['compiled_schedule_timeout_seconds']==120
+                assert policy['compiled_strategy']=='GROUP_ROUND_ROBIN'
+                assert policy['reconciliation_required']==(previous in ('running','uncertain'))
+                assert policy['retries_executed']==0 and not policy['external_execution_authorized']
     assert not calls
     return {'schema':'verdugo.executive666.acceptance.v1','services':list(services),
             'original_sdks_executed':True,'mocked_sdks':False,'dataset':'demo',

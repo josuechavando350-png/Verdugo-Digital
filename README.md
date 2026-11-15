@@ -9,7 +9,7 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 
 ## Hacia los 666
 
-El plan para llegar a 666 piezas libres (300 del catálogo + 50 del simulador + 150 del cerebro + 166 finales) está en [docs/PLAN_666.md](docs/PLAN_666.md), con las instrucciones por tanda en [docs/PROMPT_ASTRA_666.md](docs/PROMPT_ASTRA_666.md). El registro contiene 688 identidades distintas: 666 libres y 22 excluidas. Trece de las 366 incorporaciones tienen una operación local implementada; 353 siguen pendientes. La auditoría corrigió cinco alias duplicados y una licencia restringida; evidencia y cola de dos lotes de 183 en [docs/REGISTRO_666.md](docs/REGISTRO_666.md).
+El plan para llegar a 666 piezas libres (300 del catálogo + 50 del simulador + 150 del cerebro + 166 finales) está en [docs/PLAN_666.md](docs/PLAN_666.md), con las instrucciones por tanda en [docs/PROMPT_ASTRA_666.md](docs/PROMPT_ASTRA_666.md). El registro contiene 688 identidades distintas: 666 libres y 22 excluidas. Catorce de las 366 incorporaciones tienen una operación local implementada; 352 siguen pendientes. La auditoría corrigió cinco alias duplicados y una licencia restringida; evidencia y cola de dos lotes de 183 en [docs/REGISTRO_666.md](docs/REGISTRO_666.md).
 
 ## Estado del código
 
@@ -18,15 +18,15 @@ El plan para llegar a 666 piezas libres (300 del catálogo + 50 del simulador + 
 | Fuentes registradas y fijadas por commit | 688 (322 anteriores + 366 nuevas) |
 | Portafolio con licencia libre | 666 |
 | Excluidos por licencia (registrados, sin operar) | 22 |
-| Proyectos con una operación implementada | 275: 103 HTTP + 150 bibliotecas locales + 17 CLI + 2 MCP locales + 3 consultas/reglas de datos |
-| Conectados bajo la política de licencias | 256 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
+| Proyectos con una operación implementada | 276: 103 HTTP + 151 bibliotecas locales + 17 CLI + 2 MCP locales + 3 consultas/reglas de datos |
+| Conectados bajo la política de licencias | 257 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
 | Piezas de construcción (se usan al programar, no vía motor) | 56 |
-| Pendientes de conector | 354 (353 nuevas + `meta-ads`) |
+| Pendientes de conector | 353 (352 nuevas + `meta-ads`) |
 | Servicios de pago | 0 (Stripe, Twilio, Mercado Pago, E2B y Composio retirados) |
 | Operaciones HTTP existentes | 107, limitadas por proveedor |
-| Operaciones locales implementadas | 172; aceptación de ejecución real exigida por commit |
+| Operaciones locales implementadas | 173; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Flujo de 87 operaciones nuevas + métricas locales; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 780 pruebas locales; comprobar los tres workflows del commit vigente en CI |
+| Pruebas unitarias y de contrato | 783 pruebas locales; comprobar los tres workflows del commit vigente en CI |
 | Herramientas MCP | 25; product-status/product-run reutilizan el mismo motor |
 | Servicios productivos certificados | 0 |
 

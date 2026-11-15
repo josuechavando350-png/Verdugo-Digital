@@ -13,7 +13,8 @@
     "openmanus",
     "servers",
     "monty",
-    "playwright-python"
+    "playwright-python",
+    "hatchet"
   ],
   "original_sdks_executed": true,
   "mocked_sdks": false,
@@ -27,7 +28,7 @@
         "dataset": "demo",
         "distribution": "semantic-kernel",
         "external_provider_calls_made": false,
-        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d",
+        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -78,7 +79,7 @@
         "dataset": "demo",
         "distribution": "agno",
         "external_provider_calls_made": false,
-        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d",
+        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -133,7 +134,7 @@
         "dataset": "demo",
         "distribution": "griptape",
         "external_provider_calls_made": false,
-        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d",
+        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
         "ok": true,
         "operation": "objective.scenarios",
         "production_certified": false,
@@ -182,7 +183,7 @@
         "dataset": "demo",
         "distribution": "strands-agents",
         "external_provider_calls_made": false,
-        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d",
+        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
         "ok": true,
         "operation": "limits.parallel",
         "production_certified": false,
@@ -222,7 +223,7 @@
         "dataset": "demo",
         "distribution": "openmanus",
         "external_provider_calls_made": false,
-        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d",
+        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
         "ok": true,
         "operation": "stages.track",
         "production_certified": false,
@@ -263,7 +264,7 @@
         "dataset": "demo",
         "distribution": "mcp:@modelcontextprotocol/server-memory",
         "external_provider_calls_made": false,
-        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d",
+        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
         "ok": true,
         "operation": "graph.audit",
         "production_certified": false,
@@ -302,7 +303,7 @@
         "dataset": "demo",
         "distribution": "ag2",
         "external_provider_calls_made": false,
-        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d",
+        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
         "ok": true,
         "operation": "actions.check",
         "production_certified": false,
@@ -338,7 +339,7 @@
         "dataset": "demo",
         "distribution": "unified-planning",
         "external_provider_calls_made": false,
-        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d",
+        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
         "ok": true,
         "operation": "sequence.validate",
         "production_certified": false,
@@ -374,7 +375,7 @@
         "dataset": "demo",
         "distribution": "playwright",
         "external_provider_calls_made": false,
-        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d",
+        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
         "ok": true,
         "operation": "cookies.check",
         "production_certified": false,
@@ -413,6 +414,49 @@
         },
         "service": "playwright-python",
         "version": "1.65.1.dev12+g86a5f5a81010b1dbd155263e99782442b61d0cb2"
+      },
+      "dispatch_policy": {
+        "commercial_success_probability": null,
+        "dataset": "demo",
+        "distribution": "hatchet-sdk",
+        "external_provider_calls_made": false,
+        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
+        "ok": true,
+        "operation": "policy.compile",
+        "production_certified": false,
+        "result": {
+          "approvals_granted": 0,
+          "autonomous_agent": false,
+          "business_outcome_proven": false,
+          "compiled_execution_timeout_seconds": 30,
+          "compiled_idempotency_method": "STATUS",
+          "compiled_max_parallel": 2,
+          "compiled_retries": 0,
+          "compiled_schedule_timeout_seconds": 120,
+          "compiled_strategy": "GROUP_ROUND_ROBIN",
+          "dataset": "demo",
+          "dispatch_policy_draft_only": true,
+          "dry_run": true,
+          "external_calls_made": false,
+          "external_execution_authorized": false,
+          "fallback_retention_ms": 600000,
+          "llm_calls": 0,
+          "operator_approval_required": true,
+          "original_sdk": "hatchet",
+          "original_source_files_verified": 411,
+          "policy_digest": "88a7309fd59e9f1e7361273dc9d929fa415439167e3cc7918fad28346493463c",
+          "protobuf_round_trip_verified": true,
+          "recommendation": "reconcile_before_review",
+          "reconciliation_required": true,
+          "requested_retries": 3,
+          "retries_executed": 0,
+          "sdk_version": "2.0.0a1",
+          "server_policy_enforced": false,
+          "source_commit": "ee6d34ecd0baf10908a1a621b9b5324721026f25",
+          "tasks_dispatched": 0
+        },
+        "service": "hatchet",
+        "version": "2.0.0a1"
       },
       "simulate": {
         "algorithm": "synthetic-funnel-v1",
@@ -499,7 +543,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d"
+        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af"
       },
       "measure": {
         "algorithm": "synthetic-funnel-v1",
@@ -560,7 +604,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d"
+        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af"
       },
       "review": {
         "ok": true,
@@ -591,7 +635,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d"
+        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af"
       },
       "measurement_review": {
         "ok": true,
@@ -623,7 +667,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "56038d0817cc626e2a04e2bf86a25bf38632878fb96a07d17c029f83e56ac13d"
+        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af"
       }
     }
   },

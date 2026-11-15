@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 354,
+ "pending": 353,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -92,20 +92,6 @@
    "license": "Apache-2.0",
    "policy": "libre",
    "kind": "biblioteca",
-   "domain": "manos",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
-   "id": "hatchet",
-   "repository": "hatchet-dev/hatchet",
-   "commit": "ee6d34ecd0baf10908a1a621b9b5324721026f25",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "servicio",
    "domain": "manos",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
    "nota": null,
@@ -7734,6 +7720,12 @@
    "id": "playwright-python",
    "operation": "cookies.check",
    "scope": "Original Python SDK and pinned driver audit synthetic cookie flags and context isolation; no browser or HTTP requests",
+   "live_verified": false
+  },
+  {
+   "id": "hatchet",
+   "operation": "policy.compile",
+   "scope": "Original SDK task-default merging and protobuf policy serialization; draft only, no client, queue, dispatch or retries",
    "live_verified": false
   }
  ]

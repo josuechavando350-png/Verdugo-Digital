@@ -372,6 +372,23 @@
       "depends_on": [
         "memory"
       ]
+    },
+    {
+      "id": "dispatch_policy",
+      "service": "hatchet",
+      "operation": "policy.compile",
+      "depends_on": [
+        "stages"
+      ],
+      "params": {
+        "dataset": "demo",
+        "operation_kind": "write",
+        "previous_state": "uncertain",
+        "max_parallel": 2,
+        "requested_retries": 3,
+        "timeout_seconds": 30,
+        "retention_seconds": 600
+      }
     }
   ]
 }
