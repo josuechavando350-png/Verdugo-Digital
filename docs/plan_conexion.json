@@ -30,6 +30,20 @@
   },
   {
    "tanda": "666 / lote 1 / fase 1",
+   "id": "openmanus",
+   "repository": "FoundationAgents/OpenManus",
+   "commit": "3309bf4e416fb1c74b008f3e86494439a31bad53",
+   "license": "MIT",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "ejecutivo",
+   "que_hacer": "Resolver html2text GPL-3.0 obligatorio sin omitir dependencias ni cambiar la política.",
+   "nota": "Corrección de revisión: antes contado por prueba funcional; retirado del motor y de CI tras detectar licencia incompatible.",
+   "live_verified": false,
+   "evidence": "sources/contracts-executive-blockers666.json"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 1",
    "id": "deer-flow",
    "repository": "bytedance/deer-flow",
    "commit": "085b52b5f39a2dc6ca23f207584763bc17d3950b",
@@ -159,20 +173,6 @@
    "id": "ethics",
    "repository": "hendrycks/ethics",
    "commit": "fa022dbc62dc6736c2f3780ced6412cae97efb90",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "conciencia",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
-   "id": "interpret",
-   "repository": "interpretml/interpret",
-   "commit": "003136ef4c8beb24dd30a4b5626871b788be9acd",
    "license": "MIT",
    "policy": "libre",
    "kind": "biblioteca",
@@ -7643,12 +7643,6 @@
    "live_verified": false
   },
   {
-   "id": "openmanus",
-   "operation": "stages.track",
-   "scope": "Original fixed PlanningTool tracks and deletes five synthetic stages; no agents or sandbox",
-   "live_verified": false
-  },
-  {
    "id": "servers",
    "operation": "graph.audit",
    "scope": "Original MCP memory server over in-memory development transport; temporary graph, counts only",
@@ -7694,6 +7688,12 @@
    "id": "granite-guardian",
    "operation": "risk.assess",
    "scope": "Official quantized model and original template, local CPU inference on fixed synthetic budget claims; uncalibrated, no authorization",
+   "live_verified": false
+  },
+  {
+   "id": "interpret",
+   "operation": "prediction.explain",
+   "scope": "Original native EBM fit/predict/eval_terms on bounded synthetic rows; additive reconstruction, no causal or held-out accuracy claim",
    "live_verified": false
   }
  ]

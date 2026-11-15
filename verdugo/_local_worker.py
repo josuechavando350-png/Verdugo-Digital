@@ -36,9 +36,14 @@ def main():
     # No caller-selected modules can be imported.
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
     from verdugo.local_recipes import run
-    from verdugo import local_data, local_native, local_cli, local_source, local_r, local_database, local_native_tools, local_media, local_images, local_lastnode, local_owned_http, local_volt666, local_memory666, local_monty666, local_browserstate666, local_guardian666
+    from verdugo import local_data, local_native, local_cli, local_source, local_r, local_database, local_native_tools, local_media, local_images, local_lastnode, local_owned_http, local_volt666, local_memory666, local_monty666, local_browserstate666, local_guardian666, local_explain666
     dist = request['distribution']
-    if request['service'] in local_guardian666.SPECS:
+    if request['service'] in local_explain666.SPECS:
+        state = local_explain666.runtime_state(request['service'])
+        if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
+            raise ValueError('Interpret source build runtime changed')
+        version = state['installed']
+    elif request['service'] in local_guardian666.SPECS:
         state = local_guardian666.runtime_state(request['service'])
         if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
             raise ValueError('Local model runtime changed')

@@ -9,6 +9,8 @@ import math
 
 
 def run(service, operation, p):
+    from .local_explain666 import SPECS as EXPLAIN666, run as run_explain666
+    if service in EXPLAIN666: return run_explain666(service, p)
     from .local_guardian666 import SPECS as GUARDIAN666, run as run_guardian666
     if service in GUARDIAN666: return run_guardian666(service, p)
     from .local_toolaudit666 import SPECS as TOOLAUDIT666, run as run_toolaudit666
@@ -23,8 +25,6 @@ def run(service, operation, p):
     if service in MONTY666: return run_monty666(service, p)
     from .local_memory666 import SPECS as MEMORY666, run as run_memory666
     if service in MEMORY666: return run_memory666(service, p)
-    from .local_manus666 import SPECS as MANUS666, run as run_manus666
-    if service in MANUS666: return run_manus666(service, p)
     from .local_volt666 import SPECS as VOLT666, run as run_volt666
     if service in VOLT666: return run_volt666(service, p)
     from .local_planning666 import SPECS as PLANNING666, run as run_planning666

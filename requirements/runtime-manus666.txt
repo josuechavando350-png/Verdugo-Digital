@@ -1,3 +1,4 @@
+# REJECTED historical profile: mandatory html2text GPL-3.0. Not installed by current CI or supported by Engine.
 -c runtime-manus666.constraints.txt
 openmanus @ https://codeload.github.com/FoundationAgents/OpenManus/tar.gz/3309bf4e416fb1c74b008f3e86494439a31bad53#sha256=b74afdfadb4eb33343425205a72054e7c37c0663b9c5106e793fd2e250aa42dc
 torch @ https://download-r2.pytorch.org/whl/cpu/torch-2.9.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl#sha256=7417d8c565f219d3455654cb431c6d892a3eb40246055e14d645422de13b9ea1

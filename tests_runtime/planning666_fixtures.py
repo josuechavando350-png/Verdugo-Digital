@@ -44,17 +44,11 @@ def assert_result(test, sid, r):
         test.assertEqual(2, r['matching_incident_relation_count'])
         test.assertTrue(r['temporary_server_restart_verified'])
         test.assertTrue(r['sdk_graph_deleted'])
-    elif sid == 'openmanus':
-        test.assertEqual(1, r['status_counts']['blocked'])
-        test.assertEqual('simulate', r['first_incomplete_stage'])
-        test.assertTrue(r['sdk_plan_deleted'])
-        test.assertFalse(r['operator_approval_verified'])
     else:
         test.assertEqual(-3, r['difference_from_median'])
         test.assertEqual('review_shortfall', r['review_recommendation'])
         test.assertFalse(r['remote_telemetry_enabled'])
 
-CASES["openmanus"] = {"dataset": "demo", "statuses": ["completed", "completed", "completed", "blocked", "not_started"]}
 
 CASES["servers"] = {"dataset":"demo", "statuses":["completed","blocked","not_started"], "edges":[[0,1],[2,1],[0,1]], "query":"blocked"}
 

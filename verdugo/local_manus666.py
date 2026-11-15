@@ -1,12 +1,10 @@
 """Original OpenManus PlanningTool, limited to fixed synthetic stage tracking."""
-import asyncio
 import hashlib
 import io
 import json
 from pathlib import Path, PurePosixPath
 import sys
 import tarfile
-import tempfile
 
 from .common import VerdugoError, fields
 from .local_planning666 import STAGES
@@ -71,66 +69,6 @@ def extract_original(raw, record, destination):
 
 
 def run(service, p):
-    validate(service, SPECS[service][0], p)
-    raw, record = source_archive()
-    with tempfile.TemporaryDirectory(prefix='manus-original-') as tmp:
-        root = Path(tmp)
-        verified = extract_original(raw, record, root)
-        (root / 'config').mkdir()
-        (root / 'config/config.toml').write_text(EMPTY_CONFIG)
-        # The installed upstream wheel omits app.sandbox.core. Import the exact
-        # full original source instead, with config/logs inside this private job.
-        if 'app' in sys.modules:
-            raise VerdugoError('OpenManus source namespace was already loaded')
-        sys.path.insert(0, str(root))
-        try:
-            from app.tool.planning import PlanningTool
-            from app.sandbox.client import SANDBOX_CLIENT
-
-            async def track():
-                tool = PlanningTool()
-                created = await tool.execute(command='create', plan_id='synthetic',
-                    title='Fixed synthetic business process', steps=list(STAGES))
-                if created.error:
-                    raise ValueError('Original planning tool rejected fixed stages')
-                for index, status in enumerate(p['statuses']):
-                    marked = await tool.execute(command='mark_step', plan_id='synthetic',
-                                                step_index=index, step_status=status)
-                    if marked.error:
-                        raise ValueError('Original planning tool rejected fixed status')
-                plan = tool.plans['synthetic']
-                if plan['steps'] != list(STAGES) or plan['step_statuses'] != p['statuses']:
-                    raise ValueError('Original planning state was not retained')
-                # No sandbox is initialized by importing its lazy client.
-                if SANDBOX_CLIENT.sandbox is not None:
-                    raise ValueError('Unexpected sandbox initialization')
-                states = list(plan['step_statuses'])
-                deleted = await tool.execute(command='delete', plan_id='synthetic')
-                if deleted.error or tool.plans:
-                    raise ValueError('Original planning state was not cleared')
-                return states
-
-            states = asyncio.run(track())
-        finally:
-            sys.path.remove(str(root))
-        counts = {s: states.count(s) for s in STATUSES}
-        # This consistency diagnostic is our rule, not an upstream planner or
-        # an Engine authorization. Reported completion cannot grant approval.
-        completed_prefix = 0
-        for status in states:
-            if status != 'completed':
-                break
-            completed_prefix += 1
-        return {'stage_count': len(STAGES), 'status_counts': counts,
-                'synthetic_completed_prefix': completed_prefix,
-                'reported_out_of_order_completion': counts['completed'] > completed_prefix,
-                'synthetic_plan_complete': counts['completed'] == len(STAGES),
-                'first_incomplete_stage': STAGES[completed_prefix] if completed_prefix < len(STAGES) else None,
-                'original_sdk': service, 'sdk_version': SPECS[service][2],
-                'source_commit': record['commit'], 'original_source_files_verified': verified,
-                'dataset': 'demo', 'dry_run': True, 'llm_calls': 0,
-                'autonomous_agent': False, 'external_calls_made': False,
-                'external_execution_authorized': False, 'operator_approval_required': True,
-                'operator_approval_verified': False, 'approvals_granted': 0,
-                'sdk_plan_deleted': True, 'sdk_session_persistence': False,
-                'business_outcome_proven': False}
+    # Functional acceptance did not establish dependency-license compatibility.
+    # Original setup.py requires html2text GPL-3.0; do not import this SDK.
+    raise VerdugoError('OpenManus is pending: required html2text GPL-3.0 is outside project policy')

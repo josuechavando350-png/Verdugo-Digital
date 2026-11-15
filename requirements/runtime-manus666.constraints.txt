@@ -1,3 +1,4 @@
+# REJECTED historical profile: mandatory html2text GPL-3.0. Not installed by current CI or supported by Engine.
 # Resolved Python 3.12 CPU profile; original SDK source is pinned separately.
 aiofiles==24.1.0
 aiohappyeyeballs==2.7.1

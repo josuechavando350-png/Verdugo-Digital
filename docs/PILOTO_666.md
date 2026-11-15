@@ -88,7 +88,9 @@ El flujo conjunto pasó con **nueve SDK, once pasos y 766 pruebas unitarias**, i
 CI del commit `2b0b8dc594f403674330c9cd90ec964949d137ba` rechazó la versión de Strands: Git abrevió el mismo SHA con nueve caracteres en CI y ocho localmente. El código original coincidía, pero el requisito de versión exacta hizo fallar correctamente la aceptación. La compilación fija ahora `SETUPTOOLS_SCM_PRETEND_VERSION` al identificador completo de arriba; no relaja el control de módulos ni modifica el SDK. Esta variable se requiere al preparar manualmente el perfil y está fijada en el workflow de CI. El checkpoint corregido `1e12900b5c275345d5c27d6adda448c80896232d` pasó los tres workflows, incluido el piloto aislado por red; enlaces en PLAN_666. El fallo anterior permanece documentado.
 
 
-## OpenManus: seguimiento de etapas fijas
+## OpenManus (retirado del motor): seguimiento de etapas fijas
+
+**Corrección posterior:** esta integración fue retirada al comprobar `html2text` GPL-3.0 obligatorio en `setup.py`. El módulo falla antes de importar el SDK; CI ya no instala ese perfil. Lo siguiente conserva el alcance de la prueba histórica y no describe una operación disponible.
 
 `openmanus / stages.track` usa `PlanningTool` original para crear, marcar y borrar un plan efímero de cinco etapas: plan, límites, revisión del operador, simulación y medición. Acepta únicamente cinco estados de una enumeración fija sobre datos demo; conserva recuentos y diagnósticos de orden. Declarar una etapa completada no demuestra su ejecución ni concede aprobación en Engine. La detección de finalización fuera de orden es una regla propia, no razonamiento del SDK.
 
@@ -199,3 +201,18 @@ Cada worker nuevo verifica el SHA256 completo del modelo. Dentro del mismo proce
 La aceptación local pasó con **18 componentes, 20 pasos y 797 pruebas**, aprobación exacta, CLI/MCP, reinicio/replay SQLite, rechazo de contexto insuficiente y controles del modelo para 200/200 y 200/900 pesos, incluido un control repetido. Hay un modelo de lenguaje en esta aceptación. Un experimento previo con batch 32 produjo un falso positivo con etiqueta High; otro con repacking terminó con salida 137 después de imprimir una respuesta. Ambos se conservan en el contrato y no se cuentan como pruebas satisfactorias. Los controles elegidos no estiman precisión ni calibración; una respuesta favorable nunca concede autorización. El checkpoint de dieciséis componentes tiene sus tres workflows verdes; el incremento actual requiere su CI.
 
 ETHICS sigue pendiente: el aviso original apunta a pesos externos cuya licencia todavía no se ha verificado. Esto es evidencia incompleta, no una reclasificación de su código MIT ni una declaración de que los pesos sean privativos.
+
+
+## InterpretML y corrección del inventario
+
+`interpret / prediction.explain` usa `ExplainableBoostingRegressor.fit`, `predict` y `eval_terms` originales, commit `003136ef4c8beb24dd30a4b5626871b788be9acd`, versión 0.7.8 MIT. Acepta 8–32 filas de entrenamiento y 1–4 consultas numéricas sintéticas sobre contactos, gasto y clientes observados. El modelo tiene dos variables, cero interacciones, una bolsa, 16 rondas, semilla 666 y un solo proceso. Se entrena y descarta en el worker; no admite callbacks, modelos externos, archivos ni datos de clientes reales.
+
+El resultado conserva tamaños y contribuciones absolutas medias, y comprueba que intercepto más términos reconstruye `predict`. Esa igualdad es una propiedad técnica del modelo aditivo: no demuestra una explicación causal, buen pronóstico, calibración ni exactitud fuera de muestra. La aceptación ejercita datos variables y datos constantes en cero.
+
+El instalador explícito `tests_runtime/install_explain666.py` compila el `build.sh -release_64` original y el `npm run build-prod` original con Node 24.22.1 y lock de dependencias fijado. Copia los artefactos al wheel exactamente como exige `setup.py` para builds desde un checkout. Los 305 archivos fuente se cotejaron con Git; 82 módulos Python instalados coinciden. El contrato identifica qué contenido se leyó y qué solo se verificó por hash. El recibo vincula la biblioteca nativa y los dos artefactos de visualización; el worker rechaza candidatos alternativos del cargador. No se sirve la visualización ni se abre un navegador.
+
+La primera reconstrucción limpia terminó con salida 137 al compilar JavaScript mientras había otras cargas. Tras retirar cachés temporales y repetir por separado, el mismo instalador pasó sin alterar el fuente upstream. Los recibos no constituyen certificación independiente ni prueba de reproducibilidad binaria. Perfil del operador: `VERDUGO_INTERPRET666_PYTHON=/tmp/verdugo-interpret666/bin/python`.
+
+Al revisar el perfil anterior de OpenManus se detectó `html2text~=2024.2.26` obligatorio tanto en `setup.py` como en `requirements.txt`. Su COPYING GPL-3.0 coincide por SHA256 con la licencia ya leída de esa dependencia para Gorilla. Fue un error de la revisión anterior contarlo sin resolverlo. La corrección retira el adaptador del registro de operaciones y del flujo, bloquea su receta y preparación directa, elimina la instalación de CI y devuelve el proyecto a pendientes. La licencia MIT de OpenManus no se reclasifica; no se omitieron dependencias ni se habilitó una excepción. Se preservan commits, blobs, licencia y resultados históricos para explicar la corrección.
+
+La aceptación actual pasó con **18 componentes operativos y 20 pasos**, aprobación, CLI/MCP y replay SQLite; **803 pruebas** pasan. Incluye un modelo de lenguaje Guardian y un modelo aditivo efímero, ambos sin calibración comercial. InterpretML añade una operación y la retirada de OpenManus resta otra: el total no aumenta. La aceptación CI de este conjunto corregido debe observarse en su propio commit.

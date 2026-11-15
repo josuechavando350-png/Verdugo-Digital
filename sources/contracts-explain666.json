@@ -1,0 +1,2158 @@
+{
+  "schema": "verdugo.interpret666.source.v1",
+  "repository": "interpretml/interpret",
+  "commit": "003136ef4c8beb24dd30a4b5626871b788be9acd",
+  "version": "0.7.8",
+  "license": "MIT",
+  "archive_url": "https://codeload.github.com/interpretml/interpret/tar.gz/003136ef4c8beb24dd30a4b5626871b788be9acd",
+  "archive_sha256": "5b22ec3c844279e0a6b9d9237962f6b092d1f7d4ec1143852aa75ba1eb08454d",
+  "files": [
+    {
+      "path": "LICENSE",
+      "blob_sha": "0acb39fddf2bff8a936f243b99f3a45ed66d76b7",
+      "sha256": "eef953090d9648af300e3b97f51bf7e85a44fdb10fd4590c57171e570f954c6b",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "build.sh",
+      "blob_sha": "d0af8c2a25ce57dedd6cc391391c2b5ac429ef10",
+      "sha256": "13c206fc624bf69a3acb568ab095e31abf20822da2bbf1ea22d8183fff66c1eb",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "python/interpret-core/.flake8",
+      "blob_sha": "d3adc120266d63eea57069f0ebc011fb15d04172",
+      "sha256": "bacca3fc1111007d3615d600936266aecd46c5679ec023d70455ecd6cfdc78e0",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/.gitignore",
+      "blob_sha": "2a647530265ea52a62d36c71b9b13c3b6e518ef6",
+      "sha256": "475516c69426ffb6cf4b1147bbf32a141d7de191404aceed9cd73b7184a4a247",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/MANIFEST.in",
+      "blob_sha": "a6893dbf791bfce0760fdffd030156daf168f8db",
+      "sha256": "05a9dbc6224eb6c1dfe7d9e029a34c870ee1213e038d4b30c19d198aba0eb902",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret-core.pyproj",
+      "blob_sha": "81f61b71030eaa8bdbe80a7c5c6a23ce6ddea384",
+      "sha256": "fad628f660b00366dbbc2e82c85850a4c6cc77c24bc55a918aaba60e009b107e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/__init__.py",
+      "blob_sha": "00bb64ef60c78c9ab0e02a67766658c92a5ecac9",
+      "sha256": "3ed0f65b7cdfeea694ce63cee6f46669ed0f264d0f04138492727ba58ae4b76b",
+      "installed_path": "interpret/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/_version.py",
+      "blob_sha": "08393a06e40ea45809ed34a04acfad12ea123058",
+      "sha256": "86e3e14a0372cc30bf48691b6badf76a8ed7236d2a60a5b8d3076ecef6417db1",
+      "installed_path": "interpret/_version.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/blackbox/__init__.py",
+      "blob_sha": "9e59d1a6d317c03bea95852ccff934cd29764b4f",
+      "sha256": "01b761402a3001de03e15ddbf3fc60d095244ce60cfe7669e65dd15dd87f174c",
+      "installed_path": "interpret/blackbox/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/blackbox/_lime.py",
+      "blob_sha": "f76f4e4fba005e6bcbe4870a2d46481cd908fcb9",
+      "sha256": "7d709cf392e8fd4eb762baa762b363524005d38fbd4c6bed327451a123f44d29",
+      "installed_path": "interpret/blackbox/_lime.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/blackbox/_partialdependence.py",
+      "blob_sha": "f832f005466c0fc47b4485b847acb02c8149d706",
+      "sha256": "2c0f5bdc5daa667d3aa1c57ff26f4a39aeafe4f3347834a17b30547f3f4ec0cc",
+      "installed_path": "interpret/blackbox/_partialdependence.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/blackbox/_permutationimportance.py",
+      "blob_sha": "12c76317ca83bd84ca72a88cacf573c62a9975f2",
+      "sha256": "908641d5edc32684f75e514d84cbea7a90f464a95e3c767ac7aecbfee07929f6",
+      "installed_path": "interpret/blackbox/_permutationimportance.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/blackbox/_sensitivity.py",
+      "blob_sha": "52657fe23250039e0386683a666d526f63b4e193",
+      "sha256": "6c7c24457353d8097973a3c71d89cc054ade7c94c602e7ddd83d802cb651d1f2",
+      "installed_path": "interpret/blackbox/_sensitivity.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/blackbox/_shap.py",
+      "blob_sha": "da57d7ded6033239cbea3e783cd41c2d1b533474",
+      "sha256": "c22767190aaa88b8c2d5cf6c18a5c71d943088f670d5f28f71e26b9894bf9c5d",
+      "installed_path": "interpret/blackbox/_shap.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/core/__init__.py",
+      "blob_sha": "be9b0f7d26043f33f292265ca673cf4534ab5d38",
+      "sha256": "721c0d1388a653baf11734457d42b55a0e28470c92493980325fd876ea8fca12",
+      "installed_path": "interpret/core/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/core/_sklearn.py",
+      "blob_sha": "782c620566aefea19a08c49936837e696313c7f6",
+      "sha256": "b000397a0c5273df6240da48cf05a9c76d1a6225f4d89f60e004fd06b25751bd",
+      "installed_path": "interpret/core/_sklearn.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/core/base.py",
+      "blob_sha": "a51da2eeab4d32ec345641acb0980cfd8b379371",
+      "sha256": "502ecf147a88d6d42dc627bd6d1953e2c02852691978b5395b7824c82b39d4ce",
+      "installed_path": "interpret/core/base.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/core/templates.py",
+      "blob_sha": "0b9a30d86432ea94db5f7470fcf8b513e42acfe7",
+      "sha256": "eebf7aba521a4515379948c146c2c28784a721e35b0c4bcb9cf759ed75a2ebe7",
+      "installed_path": "interpret/core/templates.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/data/__init__.py",
+      "blob_sha": "fc6893b50a64778070284645aa33d9445521644a",
+      "sha256": "feede52412f5a795adf7dc973382f2a76c50869e3b2006369830080fc1095ded",
+      "installed_path": "interpret/data/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/data/_response.py",
+      "blob_sha": "cc2c83a3a6d834532600a99d737e567c47dabccd",
+      "sha256": "b360a144197ac6722e581e8148e00e6a23d906b9fe5e41cce31ccab98b8fb823",
+      "installed_path": "interpret/data/_response.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/develop.py",
+      "blob_sha": "240db64b9e772544329eabe8150a378e096d4fe2",
+      "sha256": "88f140480791bf3a0eccd27eff648379be01e4867ff279f21270732f3426ff28",
+      "installed_path": "interpret/develop.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/ext/__init__.py",
+      "blob_sha": "be9b0f7d26043f33f292265ca673cf4534ab5d38",
+      "sha256": "721c0d1388a653baf11734457d42b55a0e28470c92493980325fd876ea8fca12",
+      "installed_path": "interpret/ext/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/ext/blackbox/__init__.py",
+      "blob_sha": "eb962ae78d151bc9216dba9ab0cc8d7ebe1b06ef",
+      "sha256": "358393ee5c6d7977ccb8c9a80a94aa0e08d0eb3b1782c7d0fc7807d4324568d1",
+      "installed_path": "interpret/ext/blackbox/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/ext/data/__init__.py",
+      "blob_sha": "26c0742a35f3bf9b405eacc651bd884294dfa6f0",
+      "sha256": "0ed3f86ad81054ff983bf92e0c8f5657c8aa2418308b81834aef6578545ed1d7",
+      "installed_path": "interpret/ext/data/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/ext/examples.py",
+      "blob_sha": "d8b6e558060c2721c6d76e64f0ab8d990d4ee135",
+      "sha256": "b361d5c26966009473355ddb47b719c7b51f7df5d8ae7bc32a8a3307a2b96977",
+      "installed_path": "interpret/ext/examples.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/ext/extension.py",
+      "blob_sha": "11714f91fd9e96c7675d4eb399f243b2d2475bb4",
+      "sha256": "4c37ee76053c4d10a46d96c548421e3b60cacd76911467775d4fdd4c9d697297",
+      "installed_path": "interpret/ext/extension.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/ext/extension_utils.py",
+      "blob_sha": "fe902aa5fb3825f735d9f776522061c1e73bb645",
+      "sha256": "1708779f82e4841f3f73b213d0fedd083ace1f2d7661652be1ed8b2bb2e7f756",
+      "installed_path": "interpret/ext/extension_utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/ext/glassbox/__init__.py",
+      "blob_sha": "fd05be0b0a2ff34603732f720bdf16af76d213f5",
+      "sha256": "5a943f6e06892135d6fbb3afa2cc257c67379be84d60f62dcdce8e844a43bc84",
+      "installed_path": "interpret/ext/glassbox/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/ext/greybox/__init__.py",
+      "blob_sha": "a845771855c8ef633d262d9342163961f146f9fe",
+      "sha256": "2ffbb7050c7035231dcd0345ab860617725dd952bb56ad342c270283d097f82b",
+      "installed_path": "interpret/ext/greybox/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/ext/perf/__init__.py",
+      "blob_sha": "6f73994da83cfaddbfe0445215ef81583b13bbcf",
+      "sha256": "6e9d5f346d05310d5db5916a87f85f6efbfdc6f31bd3266783986544db26ad02",
+      "installed_path": "interpret/ext/perf/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/ext/provider/__init__.py",
+      "blob_sha": "84e7bc537db58ba88531f7ae29ca523b76771a8a",
+      "sha256": "b1b69d82e170a542334daac1bc4dec0bc2e654594553dfadb8a6cd15f54eacc4",
+      "installed_path": "interpret/ext/provider/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/__init__.py",
+      "blob_sha": "531e98f019d62433e41f4940e749f7f16222a52b",
+      "sha256": "ddf2d13c769b8d50b33f873ffc7cc8de674e15b1d8641cce183cba3b24428632",
+      "installed_path": "interpret/glassbox/__init__.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_aplr.py",
+      "blob_sha": "6ba282b1d9aaa726d872452d70f546aff6906bcf",
+      "sha256": "39284fe13463df25fa10085982bb51ad5652605e703ff9e38ff164225831a34d",
+      "installed_path": "interpret/glassbox/_aplr.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_decisiontree.py",
+      "blob_sha": "434eff751403b3c67ea3b1fc05c67bc50c1ccf55",
+      "sha256": "98f2fe4e6f2b11b9414f518149e984d1bb78bb2fb35e83296dae22fe9409f99c",
+      "installed_path": "interpret/glassbox/_decisiontree.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_ebm.py",
+      "blob_sha": "bb82843242e0c3282e250dd85b99038ebc6cd2e2",
+      "sha256": "b6cf6abec96fdc19b8556fe891b11c5f658a4e077098072784a9c7b969827921",
+      "installed_path": "interpret/glassbox/_ebm.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_ebm_core/__init__.py",
+      "blob_sha": "be9b0f7d26043f33f292265ca673cf4534ab5d38",
+      "sha256": "721c0d1388a653baf11734457d42b55a0e28470c92493980325fd876ea8fca12",
+      "installed_path": "interpret/glassbox/_ebm_core/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_ebm_core/_bin.py",
+      "blob_sha": "41bfd05d2f24de79526ad6767efd8c80f90b0d46",
+      "sha256": "740aaf5b5d3f3f8a79726d92b6137b0ab223032504caf2f148b3c9908119f6f6",
+      "installed_path": "interpret/glassbox/_ebm_core/_bin.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_ebm_core/_boost.py",
+      "blob_sha": "7f48cb03b67b7d8453a389716e126160c5470e0f",
+      "sha256": "b490cf167073cf766b548b755d0fb8008ec4ef9ec9603388f9fbd33d4845d341",
+      "installed_path": "interpret/glassbox/_ebm_core/_boost.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_ebm_core/_callbacks.py",
+      "blob_sha": "c7fb3591e056db6f34ed855d12eef9b49557f8df",
+      "sha256": "77c45ed9eb65c77bf6c93627f3bb34ae91ed2eb171eebfce455965a2ae134d67",
+      "installed_path": "interpret/glassbox/_ebm_core/_callbacks.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_ebm_core/_compressed_dataset.py",
+      "blob_sha": "7aa89e94c4d6963cb41cf57da73f5115d1748e35",
+      "sha256": "2631ff3c2e6102bd1a0866f8bd08598e0cb9fd2fe944bd093f000e78151b5f29",
+      "installed_path": "interpret/glassbox/_ebm_core/_compressed_dataset.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_ebm_core/_excel.py",
+      "blob_sha": "99d9b057fb9f2916b64987e48744cb4320a2abfc",
+      "sha256": "8fe3fa70ce1a5d9b5cd71319b9a4d31cff021e238e339e5d77057b73eb96e686",
+      "installed_path": "interpret/glassbox/_ebm_core/_excel.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_ebm_core/_json.py",
+      "blob_sha": "8731d9e921701cea48df6c4fbbc8831d82fae284",
+      "sha256": "76707b653d0da7c0f99e56b74ff99b52aa1ce97cdb1cd056d7d9bacce63b29a0",
+      "installed_path": "interpret/glassbox/_ebm_core/_json.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_ebm_core/_measure_interactions.py",
+      "blob_sha": "5dae6afa20e1f76dd70bba9ac990bc87795c4a1a",
+      "sha256": "7ed61c6d2eca4a3872557eba1cc43a2ff9bd3a8a903555e5c2d89d94f1b9ae66",
+      "installed_path": "interpret/glassbox/_ebm_core/_measure_interactions.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_ebm_core/_merge_ebms.py",
+      "blob_sha": "fcab58c5a91cefb7dead2cdb141c676a09df7687",
+      "sha256": "64cef13eaa287a7f92d87c47e1165c3619e56298c4914f34189be3b65ec64653",
+      "installed_path": "interpret/glassbox/_ebm_core/_merge_ebms.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_ebm_core/_multiclass.py",
+      "blob_sha": "3f919b0a9995081f97a1020611544fbd3003f15c",
+      "sha256": "87b86b123c1793623c543f238d24e5fa39098f1cb417159cbda8efe677ea14ed",
+      "installed_path": "interpret/glassbox/_ebm_core/_multiclass.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_ebm_core/_preprocessor.py",
+      "blob_sha": "6cba086f5b01fd8b981c5bcea594a8552101c63a",
+      "sha256": "285786367b8c03f6b77dd62865997b853007e9ad9a0f8bc655b34f2681b72973",
+      "installed_path": "interpret/glassbox/_ebm_core/_preprocessor.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_ebm_core/_rank_interactions.py",
+      "blob_sha": "dc2feff6088b7d53a1b78058ed25c1143fa45f3a",
+      "sha256": "3cf5f63455d0db45ca6d5aa742a838cb85c4f916eadf56f2be0188fbfa0bbd17",
+      "installed_path": "interpret/glassbox/_ebm_core/_rank_interactions.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_ebm_core/_research/__init__.py",
+      "blob_sha": "557695280329a83af823710a196dfc9b2847bca1",
+      "sha256": "e38dad31d63e54cf483ffb2aaf3b0b8b58cf2d47c36f8ba44d997b5c542976d6",
+      "installed_path": "interpret/glassbox/_ebm_core/_research/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_ebm_core/_research/_group_importance.py",
+      "blob_sha": "d95bcb4a14326ba8a9727b037519a2184ac9267c",
+      "sha256": "cf36cba2a43f34951b3de1dfeaa826167e835c57c45d23cc1b59c8d373270cd0",
+      "installed_path": "interpret/glassbox/_ebm_core/_research/_group_importance.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_ebm_core/_shared_dataset.py",
+      "blob_sha": "26a7089d08cf3f0103e3f2ce61b5bb3596fbbf0f",
+      "sha256": "8fb8dede48ae9276c89c659c10245fc3acd8223555bf252570f3a287e55be2ee",
+      "installed_path": "interpret/glassbox/_ebm_core/_shared_dataset.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_ebm_core/_tensor.py",
+      "blob_sha": "a18adbce9337420cb00b7917aae47f2a2c006720",
+      "sha256": "2482f2c03959d465b198772dfc3aefadd84bbe2af87b4e92c8b9cb53528bbf67",
+      "installed_path": "interpret/glassbox/_ebm_core/_tensor.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_ebm_core/_utils.py",
+      "blob_sha": "4842441ef7b6e3b1d93c4d2976d1b35a0a302650",
+      "sha256": "05122f665ce12464b064fcfc337e0204678166c3b289bc7d7f15b68938c90b25",
+      "installed_path": "interpret/glassbox/_ebm_core/_utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_linear.py",
+      "blob_sha": "087d8ba80592d3e063b212d11b5ac3eedef35069",
+      "sha256": "37a7e7612f47b2b7e6d0583fa9a924033f10c42f0581ce16261264d6b7ec87ca",
+      "installed_path": "interpret/glassbox/_linear.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/glassbox/_skoperules.py",
+      "blob_sha": "0a65e576589661d9adb536b57624aecf6934b1d8",
+      "sha256": "72284462fea3542f2aead8a8fb3e19db367d0dbdfccb34b65bce2f555fc790cd",
+      "installed_path": "interpret/glassbox/_skoperules.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/greybox/__init__.py",
+      "blob_sha": "1215abbd054523535c0d3fd0d58132b73902cba0",
+      "sha256": "cf376f1dab1c0637c96bf72beaa1566d01d422f4c899e537f2190944d9acb09c",
+      "installed_path": "interpret/greybox/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/greybox/_shaptree.py",
+      "blob_sha": "6c7433646ff1d113e7a4ae9f3780a2f4580a7579",
+      "sha256": "da7e20c9e6f8b28a0f88ef92d07345f80fec7dfa11918bf3d8ce8a5771a60400",
+      "installed_path": "interpret/greybox/_shaptree.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/greybox/_treeinterpreter.py",
+      "blob_sha": "944c78a8d1f7805e9a5667c0518a707c327657d4",
+      "sha256": "9be9225cdd0d37169e65caedb1a193da9c2709dcfc4232a58d257d1e6b74c001",
+      "installed_path": "interpret/greybox/_treeinterpreter.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/perf/__init__.py",
+      "blob_sha": "6e5ecd9f85ea8fc9196e48634ae75e5e4093cf75",
+      "sha256": "7c90a5a93f05ef662678f32cb22b90c84dcd24fc35b4416a1f840bb5b83183f8",
+      "installed_path": "interpret/perf/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/perf/_curve.py",
+      "blob_sha": "46bd255c3428f317c29c10a814e60c65b9171fdc",
+      "sha256": "a81b46c47db45b017dd2f3e1c70516e930a6126b951897bdaacb882c6fb00315",
+      "installed_path": "interpret/perf/_curve.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/perf/_regression.py",
+      "blob_sha": "8f8ed75e3b33e8dd45aa795f9deb4e642a896cdf",
+      "sha256": "609d1dbff9eecddc77ef23ecff3b4188caffc404d14e9370c9e47c2d51342d3e",
+      "installed_path": "interpret/perf/_regression.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/privacy/__init__.py",
+      "blob_sha": "48e84377f2bf97d742d9f95fe588b1728a45c7bd",
+      "sha256": "d9e95e1cf5fc6cbb9e23a44c34cf6a995460202fa2330b29128671fc6fc14445",
+      "installed_path": "interpret/privacy/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/privacy/_dpebm.py",
+      "blob_sha": "ed07219cfa1d127cf1a3c5bdef77d4add9c53ca0",
+      "sha256": "8792c06faea36a4d9dc84c8aea7abe2e94a3c6daeb05fa7fdfda0f2b68a436ca",
+      "installed_path": "interpret/privacy/_dpebm.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/provider/__init__.py",
+      "blob_sha": "2f991b712477a2a7bff84787a29d0c481de50bd1",
+      "sha256": "817e0afabf8348075bd24eb8b60e13079cf3d34f07ebff00ef09867e41579c6c",
+      "installed_path": "interpret/provider/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/provider/_environment.py",
+      "blob_sha": "ea1fb27a87dbbcc37bfa5817a8c1a5ff56bb30f0",
+      "sha256": "cf22673ded7549320fa30062f1573fbb0acf5a9efa37fc45bb58ea5a948e4251",
+      "installed_path": "interpret/provider/_environment.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/provider/_visualize.py",
+      "blob_sha": "e58ce721db6cf0c9b14abb6d7962dd21cddd5975",
+      "sha256": "8cfb9858e0587fedf78e0620eda405917f1739035691170a08c1b070472bf1c7",
+      "installed_path": "interpret/provider/_visualize.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/utils/_SPOTgreedy.py",
+      "blob_sha": "b46d979c3cc6a64838acc841dd3b53cb0b9714c2",
+      "sha256": "6420e893ea96516d290140b87ca3a5f6b7cb811ae2c9976c78e1e1417a36bc4b",
+      "installed_path": "interpret/utils/_SPOTgreedy.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/utils/__init__.py",
+      "blob_sha": "998f6763f43ff18874117753669d0852d0e04790",
+      "sha256": "af6c900fa2658697e77d5ef7df2f0f2538aef10dc0448c31bf063175016c9302",
+      "installed_path": "interpret/utils/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/utils/_clean_simple.py",
+      "blob_sha": "19cff85e464e3cc7cfe92387f0f7965e992de91f",
+      "sha256": "f2d0bc76ef1842fc7d11be9463e3f368df1f2ff62ae977aebc378c012c93df56",
+      "installed_path": "interpret/utils/_clean_simple.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/utils/_clean_x.py",
+      "blob_sha": "18c5390f7d253b347114abb2b94b41eb50d88a6f",
+      "sha256": "b1e414bc9610ab8a006ae43d299f60f91e8eb093558cd91a9c73d137b951a3ce",
+      "installed_path": "interpret/utils/_clean_x.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/utils/_explanation.py",
+      "blob_sha": "d85743838a7efd394f07fc6a7faf7250569ef068",
+      "sha256": "e550a3b2f586a939f8c92419d1b48e3b631dec9a53f883a0ef92169224be0985",
+      "installed_path": "interpret/utils/_explanation.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/utils/_histogram.py",
+      "blob_sha": "43a2522173f789bebc9a1dbac6fb25b61f73cac1",
+      "sha256": "6c0c4252c022abd65236f5fbbc2f87da4807c8b367afdfa6ecc357a07aa16276",
+      "installed_path": "interpret/utils/_histogram.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/utils/_link.py",
+      "blob_sha": "253ab2413ece1ecbbd3f53fd0956d1f589ca7f7c",
+      "sha256": "f99ff58aca3242c5ff821c1c92ace0e11736d7f8cb265702706e5fe4c3e361e7",
+      "installed_path": "interpret/utils/_link.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/utils/_measure_mem.py",
+      "blob_sha": "25f0536936b80abae2064cd62dfbfc84520c966b",
+      "sha256": "559d5eff04a546eb89086fb184964ead2a31d084d16e20809c79f1f925bc6b05",
+      "installed_path": "interpret/utils/_measure_mem.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/utils/_misc.py",
+      "blob_sha": "c24196e23241323cdb7cef7d67ab2632a5ef41fa",
+      "sha256": "93c83383d7e3adc6a69f5175cf6c809d2a3aebf73e0f8af7b7ea34ab9f52f0a0",
+      "installed_path": "interpret/utils/_misc.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/utils/_native.py",
+      "blob_sha": "f54d4911670fa4d6aff50e56b8f091cc2cb3fc3d",
+      "sha256": "41d6dd01e550683c08f3e1cae5023284f36598116d5ed36918d6b6ceb1711a5e",
+      "installed_path": "interpret/utils/_native.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "python/interpret-core/interpret/utils/_privacy.py",
+      "blob_sha": "a3392fc4bbee4f6bee5e3a1c5d84750f9f392369",
+      "sha256": "b0c4e072baf3ef790a4c594f69f5751b9344548915753d20380cea55b966397b",
+      "installed_path": "interpret/utils/_privacy.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/utils/_purify.py",
+      "blob_sha": "045161f5806279b8ca90f2a6a9bcda27a82929fa",
+      "sha256": "c18dbdfeee9e30cb56c9726c1c7d7bf27daa74edfa25d746e161c3005d6ec1ed",
+      "installed_path": "interpret/utils/_purify.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/utils/_seed.py",
+      "blob_sha": "8e7aaf7095fbd0d358c7cd8b5482138ec95483c2",
+      "sha256": "9c3a3031a4169db90c4ceb092692a21efe98cb0aa748d793afc44c308b55d35b",
+      "installed_path": "interpret/utils/_seed.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/utils/_shap_common.py",
+      "blob_sha": "ce72a11b521c4b58d38eda28065972d11cdddf1f",
+      "sha256": "f171a83bd30d4266e46eedffe8fb17fa110f0c7722135df25bae309150f7af9f",
+      "installed_path": "interpret/utils/_shap_common.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/utils/_synthetic.py",
+      "blob_sha": "65906cd060f7cc808d2cd283fe867ff94ce927ee",
+      "sha256": "39f28ef25aa975e01210d3e47f2a36c59597f0c0d6eea0fbf17f98fb77deea87",
+      "installed_path": "interpret/utils/_synthetic.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/utils/_unify_data.py",
+      "blob_sha": "c5b92b27d9cca115cfabed02d8d714ae6f9011bf",
+      "sha256": "48e86b13d51223a9b8b8ba15de466673ca4d1a3692f8b0bdff4a1fcb08e25460",
+      "installed_path": "interpret/utils/_unify_data.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/utils/_unify_predict.py",
+      "blob_sha": "553967fcb4e34377074cd55ac434e2c96a5cfb3b",
+      "sha256": "b2a16e8632dc19adcdfe9ae9034d15c12e11cf1f5005145c3f6c0c84d8372a29",
+      "installed_path": "interpret/utils/_unify_predict.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/visual/__init__.py",
+      "blob_sha": "be9b0f7d26043f33f292265ca673cf4534ab5d38",
+      "sha256": "721c0d1388a653baf11734457d42b55a0e28470c92493980325fd876ea8fca12",
+      "installed_path": "interpret/visual/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/visual/_inline.py",
+      "blob_sha": "10cf47552767e21aa03b886beb212dbc1e485fe0",
+      "sha256": "56346bb7c5ff1f2c6c549965e9c49b1261dece76d3c9caeb27592dd4b2c0f2c4",
+      "installed_path": "interpret/visual/_inline.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/visual/_interactive.py",
+      "blob_sha": "7c93ce34a3beb77ef246161b4ec7ac22fdd9e806",
+      "sha256": "2fd996a28d98b3038be471fd35d24f15ada66e7fb19adfe37a424d59d76d72f9",
+      "installed_path": "interpret/visual/_interactive.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/visual/_udash.py",
+      "blob_sha": "7f1489db4b797732245c0b15567f5d9c01017cbb",
+      "sha256": "fbc0bd58cf68542e65ae60ac108d89529adde967db2a135260323b2d98bd8d1b",
+      "installed_path": "interpret/visual/_udash.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/visual/assets/favicon.ico",
+      "blob_sha": "f77fa5b3d51c06ddfc5f1997d6982a09505d7053",
+      "sha256": "2a52561a55cd1b59dd5452b1814b1a70adf78df4b0c37101ce11cb437371b8c9",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/visual/assets/udash.css",
+      "blob_sha": "28504dab2a67b5f33152da6e8971bf7b1ef3f885",
+      "sha256": "ce7f0aa046bbc56baa29e8cb81a73f8e9ddf4c145b4acdadc2583871a936abbe",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/visual/assets/udash.js",
+      "blob_sha": "27f6e618c883eaab6c269e0e152db9ce6b77f3aa",
+      "sha256": "67fd5eea2637f994cf56c51c91b2a707128d7009e04057941f1bdf1596d06376",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/visual/dashboard.py",
+      "blob_sha": "61c2a7c73bb0a15a2ef101c119e6260522056091",
+      "sha256": "0853d4a6d15c9e5e2c33efbdf0f207861900cff6ea70e3a9251eb48e3739f5b6",
+      "installed_path": "interpret/visual/dashboard.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/interpret/visual/plot.py",
+      "blob_sha": "f96d8bb94b24b4f3694db1449716d12e9e43f508",
+      "sha256": "6b5e0d8a8c10495910d4a825a5f8d8f6edd48d82a541be2de5d08c5ce0b9abf4",
+      "installed_path": "interpret/visual/plot.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/pyproject.toml",
+      "blob_sha": "96d5156a8d13fec0c2ac37091472cef3bee7b3c3",
+      "sha256": "9945ab50eb43ab854899df77c3501055b57bc1155dede125e37c0329be2caaa7",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "python/interpret-core/pytest.ini",
+      "blob_sha": "298f364d1e05651bac255d82b5f628c59f17145d",
+      "sha256": "efaf6256074aa2c08f38df762e4fe5d21d692aeefa290c443bd191e1e8a86fd2",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/setup.py",
+      "blob_sha": "9e2f67425414b7c863edb7bf1787d514f0a85116",
+      "sha256": "ab983cdcb513a204bb4199bcb3e2399d2462ba522d3c6109dc990fbb23083ad2",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "python/interpret-core/tests/__init__.py",
+      "blob_sha": "be9b0f7d26043f33f292265ca673cf4534ab5d38",
+      "sha256": "721c0d1388a653baf11734457d42b55a0e28470c92493980325fd876ea8fca12",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/blackbox/__init__.py",
+      "blob_sha": "be9b0f7d26043f33f292265ca673cf4534ab5d38",
+      "sha256": "721c0d1388a653baf11734457d42b55a0e28470c92493980325fd876ea8fca12",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/blackbox/test_partialdependence.py",
+      "blob_sha": "11a89f4b6d0d9b955348727cf50bfa13c2917d4b",
+      "sha256": "fcbd75a460ae301971b26903d66422feab6ebf8712a67bbba5fb03ed6fc47bb3",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/blackbox/test_permutationimportance.py",
+      "blob_sha": "66ed6d3578c992c68ac1d6ab06efeba951b35b19",
+      "sha256": "280cc392955d5f868b8364a1b8e83743e3e65e0fbda747779ca809f3076335a3",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/blackbox/test_sensitivity.py",
+      "blob_sha": "dfa4b7976cfc28d4f8fedd82a5ca76d9c7b6670d",
+      "sha256": "4795cd3087e71e2d84cd9320d33d746876600bcbdd48d2a06dbc427f9a832d1b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/core/__init__.py",
+      "blob_sha": "be9b0f7d26043f33f292265ca673cf4534ab5d38",
+      "sha256": "721c0d1388a653baf11734457d42b55a0e28470c92493980325fd876ea8fca12",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/core/test_base.py",
+      "blob_sha": "2f2d22484fb817772228247d8a24118d1fbd11fc",
+      "sha256": "3878e181e162a41da00cf3d7a4c33e1d6f8aceccb3acf0973a1b8a0d9f99ce17",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/data/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/data/test_marginal_visualize.py",
+      "blob_sha": "b41b1d25e888e9b32ff2f2df553320adc7e23df7",
+      "sha256": "8cd7f71cfbd3646cdd51d7fdae1939f98681978cead7dbfa36acfc3c9a1cb472",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/ext/__init__.py",
+      "blob_sha": "be9b0f7d26043f33f292265ca673cf4534ab5d38",
+      "sha256": "721c0d1388a653baf11734457d42b55a0e28470c92493980325fd876ea8fca12",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/ext/test_examples.py",
+      "blob_sha": "6ed9cb4f6e958dbbd3b68fac8cac787051f082ff",
+      "sha256": "2c200a8fb9fdeb46089cbbca5145be25ed9effadcbfc8960b734720e76c96fcb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/glassbox/__init__.py",
+      "blob_sha": "be9b0f7d26043f33f292265ca673cf4534ab5d38",
+      "sha256": "721c0d1388a653baf11734457d42b55a0e28470c92493980325fd876ea8fca12",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/glassbox/ebm/__init__.py",
+      "blob_sha": "be9b0f7d26043f33f292265ca673cf4534ab5d38",
+      "sha256": "721c0d1388a653baf11734457d42b55a0e28470c92493980325fd876ea8fca12",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/glassbox/ebm/research/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/glassbox/ebm/research/test_group_importance.py",
+      "blob_sha": "5d91b57e7dc450a37afe5daea845ecc0bdb42cea",
+      "sha256": "f6a513cc6313cffb661e0f4a9a7484d0a9768d7cf7c645acd4c8c85cf2194124",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/glassbox/ebm/test_bin.py",
+      "blob_sha": "8fd5c27ec5fa33b666e38e227ff4fd844be4e93e",
+      "sha256": "b5c445e144164e0467442a5801e9f436efcaf5cec697211587e6bcfd6327ff50",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/glassbox/ebm/test_callback.py",
+      "blob_sha": "57f56be3e9450d4d97aa69ca95bdad6b29a75a87",
+      "sha256": "60e89fa732a11a73b25c25d0ed6176623202a0cd7da05fa05d5005157fd0bb10",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/glassbox/ebm/test_cox.py",
+      "blob_sha": "f6a9a9b74856a08087b356b6bbde38e17d8eba27",
+      "sha256": "591a68438e955e19ac981015433c34aa9008cb7d5d69d85d5de8284a2b3bbbe9",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/glassbox/ebm/test_ebm.py",
+      "blob_sha": "12eabd002c33f0e35f02f95c629808487abd8df8",
+      "sha256": "f235669837f7e2fc801e83c3bb9f08a1aeabfaefc5d221e8da9f747b35faa86c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/glassbox/ebm/test_ebm_exact.py",
+      "blob_sha": "2a73e232811d25740eee850d9bdec06f9c2c5b4d",
+      "sha256": "306d73e17c5e2d2e33f41158fabb9bc37be3a084f32da631bf626d28b118e5c6",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/glassbox/ebm/test_ebm_utils.py",
+      "blob_sha": "1ac417161f9d3ac9e57939c6d0fb64fffaa55ae5",
+      "sha256": "7ad0f3fb91eecc949da262ee5fee2e2892538a9059f0438017bfa18710437616",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/glassbox/ebm/test_merge_ebms.py",
+      "blob_sha": "22584a14b66390266d8080f430146e5ac4674a50",
+      "sha256": "75fa96d929051f270e53c1fdfaf962e54709921ea5d5bd4e933b85e0ba93eb02",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/glassbox/ebm/test_multiclass.py",
+      "blob_sha": "958af917c7c15e67c0ef24e9adea05c85098ad44",
+      "sha256": "a27ca59d51747fadf81b5f6940d4d274cea94b6c9d9a95a7732578bb4d8e15ff",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/glassbox/ebm/test_smoothing_rounds.py",
+      "blob_sha": "6d12fd747f5dcf37d89da8de41e02e61f4a37def",
+      "sha256": "3b9dcc87ab777d392bc629a39cf646fda0f261b31289ec77c77ab0f30437b200",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/glassbox/test_aplr.py",
+      "blob_sha": "0f4d488096bc721679dd54cb5dc4072bd961b7af",
+      "sha256": "c75df8ea3940ddbb2d959326bdc225c3725810fcbc90ce911ea6c933fd2a8402",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/glassbox/test_aplr_utils.py",
+      "blob_sha": "81ee235839541feefc5b55f9aeead1a2c5a375e6",
+      "sha256": "9c487dbc615a5a13c2c34ef8b84386ae24869dcefca2606d50ec5ef164eaddf2",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/glassbox/test_decisiontree.py",
+      "blob_sha": "3c0c7ec310a92667c6b192ee33e6e0edc3fa0c3c",
+      "sha256": "b38adc85793d024c2bcd464b2b7f66c7540e7998e41a4f3e82bae5b490e4ed6f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/glassbox/test_linear.py",
+      "blob_sha": "81e6960303ec2abf5324fa0cab49771844e1868a",
+      "sha256": "3938b950f78360aae40eb2636c8f851abd4cbc3abf928c18f979b91274a2c706",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/greybox/__init__.py",
+      "blob_sha": "be9b0f7d26043f33f292265ca673cf4534ab5d38",
+      "sha256": "721c0d1388a653baf11734457d42b55a0e28470c92493980325fd876ea8fca12",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/greybox/test_treeinterpreter.py",
+      "blob_sha": "f1288f0e65e2294ad791c25b46025b69675a3a1c",
+      "sha256": "34bd19800e50d2d7d209c2b7fb96c82b46e5b9a3230945e4ce1fd6af0e35f184",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/perf/__init__.py",
+      "blob_sha": "b677d525787f9544333eed4468b5e28f07aa54b9",
+      "sha256": "edc7ec3d13940dfb1f1cd6a86aec65788e2f00478533ebf85522186ef0c2f42d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/perf/test_curve.py",
+      "blob_sha": "65631ec2e694a9d93b6044d9df52ecf1b6a1e4dc",
+      "sha256": "206dce717ad49681afba73164f1d59dab3aa1750c6fb352089bb267ab83a2915",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/provider/__init__.py",
+      "blob_sha": "be9b0f7d26043f33f292265ca673cf4534ab5d38",
+      "sha256": "721c0d1388a653baf11734457d42b55a0e28470c92493980325fd876ea8fca12",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/provider/test_environment.py",
+      "blob_sha": "5369aef3cf909ea2f9721a8186382689faca4326",
+      "sha256": "d173b7468a0201df1cfda2f05ab1b4e1b7517d0bda04c2f6ddd6c8ec51290676",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/provider/test_providers.py",
+      "blob_sha": "560cf40c74fd89cefbd1a48ab8307836f87d2095",
+      "sha256": "780fb06f5ef30cca5f8463b7b9209682eace6af3dc53d92cb951fe351c8c30ba",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/test_develop.py",
+      "blob_sha": "b292186c84d4b5db61d12bcc91704c1e630fb2d9",
+      "sha256": "3e3c184d385ec3144a5b9de6260a7f4f200884b5a062c120fe05e3f7992498eb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/test_example_notebooks.py",
+      "blob_sha": "60f89cf17b637cf0dbeb1719bc25d7c568a59815",
+      "sha256": "3a98f3150158821ac5185be4d6dc8dc190d7d5b37388d87a05a3f7e96ef3728e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/test_ext.py",
+      "blob_sha": "c727157cbd4833046dd0de8a52fc80b5388befe2",
+      "sha256": "b4aebb1c814c7364720d1f012a6f9c51fe8974f480695f1e0c76c2edba66df66",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/test_extension_utils.py",
+      "blob_sha": "7b6c3dfce85ad806302b67855b043d33ad3d1e7e",
+      "sha256": "8ed4903a2e2219b1edb1c6b4441d49091ddcf86c96ab2ce8e0b3fa2eae267812",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/test_mli_interop.py",
+      "blob_sha": "85b8016643186af236c55d52f9c5c223a7a27426",
+      "sha256": "26a79c2152d4b9ace722ff39ccce7a74cb6a8bf5f4dc54a407bf4a4886f571c1",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/test_selenium.py",
+      "blob_sha": "acf6770edcc6e38e4d75083a1b1625ed1f90cc22",
+      "sha256": "2b7161bb458e46bb4d97737ce0fab1036d9269f7b28809bac37ab4947045df0c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/tutils.py",
+      "blob_sha": "afb88c9e1274e6b63710e36d68ab0b703e4352bf",
+      "sha256": "cf84bc8108d78c7a09521af17a37cde241dd940570818d213fa4a1149d4e0116",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/utils/__init__.py",
+      "blob_sha": "be9b0f7d26043f33f292265ca673cf4534ab5d38",
+      "sha256": "721c0d1388a653baf11734457d42b55a0e28470c92493980325fd876ea8fca12",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/utils/test_SPOTgreedy.py",
+      "blob_sha": "fdb541f563a1999d55a493dc2fd5b70ac1adfde6",
+      "sha256": "ee982c4e92309c24419479bb71f2207eaa71a74c9516aeae4293d4bff8e3bb6d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/utils/test_clean_simple.py",
+      "blob_sha": "4add36f6146579e54c932e73eaf8d879d4bfc1dd",
+      "sha256": "ca6178204bf4bc159e2eb0ad24c216291b9fb3bd36642b0b211272397fc6d4ca",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/utils/test_clean_x.py",
+      "blob_sha": "1af62625ae672bb22f3d0862d7979a072dedf98d",
+      "sha256": "9d57c6639b7887d0b42ab45f40793bbdda11a66b0434a3b5e2a95ef8198e15de",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/utils/test_compressed_dataset.py",
+      "blob_sha": "7785f034310abcf4fc34bc715964a64d841f5557",
+      "sha256": "6b9f0a5e1f744d287fa8257c6f522f0dab51f9553aca18967bceaefc9cdd53e8",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/utils/test_explanation.py",
+      "blob_sha": "05ff19af7be63eefc6ac3ee9d29b1d701070624d",
+      "sha256": "e5e378f785c0a98a4436d4d90991c6d6fda4bed020cf77e37fdeb74cfa3b02d6",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/utils/test_link.py",
+      "blob_sha": "640a6f2c54a8253ad13487436ef1e5dc09e0ea22",
+      "sha256": "7bbcef167fffb577e3d987d6ed625c58b8e675df5820da31875cb05fbda297ea",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/utils/test_measure_interactions.py",
+      "blob_sha": "712f3c8560951024b1e00cda0599f155332e16db",
+      "sha256": "1ed51cbb310cd6a5a8b4c6ae691bd9df1ce9708927f13099a7c00d64ad3ea3eb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/utils/test_native.py",
+      "blob_sha": "426741d7f4f0cfdfe0db0e309fd67daf36088d19",
+      "sha256": "3df8fd533284a3e12d47f0b825e7ad81ff7fbbe322bb4af40f8ed344e99fa5fe",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/utils/test_purify.py",
+      "blob_sha": "9d7729cab19691bbd6be1036cfcae3878d4c45c6",
+      "sha256": "cf4369059e6e0c7faaea2f4549842919c1083a165a314333ca672c2636ba8021",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/visual/__init__.py",
+      "blob_sha": "be9b0f7d26043f33f292265ca673cf4534ab5d38",
+      "sha256": "721c0d1388a653baf11734457d42b55a0e28470c92493980325fd876ea8fca12",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/visual/test_dashboard.py",
+      "blob_sha": "78b96f926f3b5b8908e9610fae80f223ad06909e",
+      "sha256": "0b7031cf92f3d9a54d01fc18ce4cc04000fb78609ee1e369a991b086610f1aec",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/visual/test_inline.py",
+      "blob_sha": "31d107820c1d281993bb56bb37f91ae4d23051a8",
+      "sha256": "c4da4e796569f8b750ee8290df65ef87bfcced6d80d2bf9fd320c06588079d6f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/visual/test_interactive.py",
+      "blob_sha": "a5133117f18ac6d3816128af3df71a97c3bf659b",
+      "sha256": "6b3623ac52b21a5caa43d3feadce1626e19ac1d9474a8ab102bb84e9001aa58b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "python/interpret-core/tests/visual/test_plot.py",
+      "blob_sha": "dd30902efaec9da4824a9d37469be0b2b28f7f26",
+      "sha256": "250a326942914037cbc17b298cef1f3899fc67d8602e93aabcd1b5fe6645e943",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/.clang-format",
+      "blob_sha": "7e874cb35ff800adb6b887d1d230d65f74222b68",
+      "sha256": "24f6d4de2858dea8056c1de0b01736e4b19875cc8c4158573ae2af8973ff6f47",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/ApplyTermUpdate.cpp",
+      "blob_sha": "dac160c963e81d218d81560d0fffd7569076608f",
+      "sha256": "6654928a576ee1002333eefdb7c0607ccc1c8140662c2cf7341fef02cb5ed3cb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/BoosterCore.cpp",
+      "blob_sha": "fcef7bd2c7c19103d70a9fba5343dee5f85628dc",
+      "sha256": "2cf5e268f087672b14614db640b48f31ebbb2c3a85a30d67b731b490757ef213",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/BoosterCore.hpp",
+      "blob_sha": "372cf747eb0ce12b86e92e64f239d37ea6838250",
+      "sha256": "f03d247e07bb46cf1cd606b2511641f7fd13139884cf70b54d06b17ec28e0a55",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/BoosterShell.cpp",
+      "blob_sha": "a09a8fe57256f9a84a9f6b3fd466565d7f66c5cc",
+      "sha256": "aafb685a9709045f239751e279ccad82bf0b8a2c863027cab753c11aae5db9f0",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/BoosterShell.hpp",
+      "blob_sha": "0b7e1d8d9269e97afc072416225c0cb3dd95ffb0",
+      "sha256": "dc2117fa2b375ce2d41137f7e8db6e2ecbb7cb1ea28aadfa5cef1a81eb1b2473",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/CODING_STYLE.md",
+      "blob_sha": "66bd785a8974655e145913b5e657ebb54f8844bf",
+      "sha256": "3277f8582aaeea2275a2027a8a9a30c8b262dad824cc2568a43498a5814e0f5d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/CalcInteractionStrength.cpp",
+      "blob_sha": "c674ba199bb90bb470fcfba3ac68969cfa0f13bc",
+      "sha256": "f1e1a6d110d83a316d4da1c0af73cf0fc2ff580c1b6007559830857416c9b247",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/ConvertAddBin.cpp",
+      "blob_sha": "9e781d68c662e8d523f01d49b39939433865ca15",
+      "sha256": "5b4f209cfea117e4e32b6fe9dede516566993888860baba8c9f77b2754788ac1",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/CutQuantile.cpp",
+      "blob_sha": "27b067c3d559e7129fa154e4d488f0548cec4104",
+      "sha256": "77176e0971d00c56c6424ef2075c09a4c0622f1e7b97c48c4cdd0df2d11a57de",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/CutUniform.cpp",
+      "blob_sha": "2cdce15947023d681a6c59f994d4defcf08ced5e",
+      "sha256": "2ae997dd5fc80acb44954c0080738dce0df5804aa22dc3c47420bbde4191132f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/CutWinsorized.cpp",
+      "blob_sha": "b2ac77f0afe315bf13a9ee109c7d08024f31ed86",
+      "sha256": "6384e0bf153e705b1bd687772560823ccbfe7c5d6b85a36fb97019bb5d44bb67",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/DataSetBoosting.cpp",
+      "blob_sha": "a80f9f824cc9d2b835c144b318c1c25379a2581c",
+      "sha256": "34dcc0f0a0255349d9a02acd3cff223b47d79337cdf979962f07ca55e4be300b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/DataSetBoosting.hpp",
+      "blob_sha": "b713dad362cbf789fe3e4d504c98caf8354297b5",
+      "sha256": "90b3ba034ccfcdd75ab084cc92122d529945484b23c830fa6d527a1ecad116ac",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/DataSetInnerBag.cpp",
+      "blob_sha": "8b9b97970f47d58926ab51bad8c57415b0367b82",
+      "sha256": "e4a842a3f2c2953e14eb2034e0bdda3beed78dfc4daf91b2ff8f0f5ebd359bff",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/DataSetInnerBag.hpp",
+      "blob_sha": "d28c5f148e34e553e96df2887d0923825209e898",
+      "sha256": "323c355b31ad70ebd751cdac3c95c0ad0f08fed00e2ce96530a04f4479219dbb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/DataSetInteraction.cpp",
+      "blob_sha": "778c4a7c3ee870a316260ad96bc29d7e7a5c80b5",
+      "sha256": "b54b5fc33a6ba18f2cc30712168569e637d55599e2b3534fa25a4f1e3472873b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/DataSetInteraction.hpp",
+      "blob_sha": "351b1c02fe5a26f9d3ffc35845cdbe0d90c45193",
+      "sha256": "ee02a2fc955710491624bfe2226a55839e497330764b77f004f27a2dc442031c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/DetermineLinkFunction.cpp",
+      "blob_sha": "83e4ba9331e66fc99bf96df447fad8c1277ca66f",
+      "sha256": "9229406425014df8f6add12e391539a727c3829a150fbb32aebd8a61e5cd31e5",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/Discretize.cpp",
+      "blob_sha": "6b978c77efb57fe88605343ce097ef11d4e8d849",
+      "sha256": "9aefe3132acf288d3758234d30c78164f3e8317efe459a5bc77d5c2f49c67a4e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/Feature.hpp",
+      "blob_sha": "8bc1af87f79060c470647e3036dbfaeff7605a70",
+      "sha256": "3446e7e2f36f18e596e7bd2972a26a77e046a96c25297576b6ffdbfb8082516e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/GaussianDistribution.hpp",
+      "blob_sha": "90a19103f501afd8be7ce5f74e513a9235698bc1",
+      "sha256": "7419f0b537ee9d73961e93bba8101f373b90ff34a09c51b22cfffe4e40792e4b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/GenerateTermUpdate.cpp",
+      "blob_sha": "0fefe674d5171d62efc2d6d345315c0a6bedf843",
+      "sha256": "9ab260dfc85b154daabf259b83d5fcf23366b8ba3bf77cedfd63d16822c96567",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/IMPORTANT.md",
+      "blob_sha": "557bbfcdc7a410cc903034c3b9c23f010c00a59c",
+      "sha256": "d010421de596a53a7c03ec7624c84672ee976ea8882a67da40b720aea002009d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/InitializeGradientsAndHessians.cpp",
+      "blob_sha": "b8e4aed550a94edc9a62135737d2ed501ea25902",
+      "sha256": "8e4f4d01f1c0f5a0847e6464fc667f3693d94457464f190b6ea2c2d36babb10a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/InteractionCore.cpp",
+      "blob_sha": "4646cbaf0354b55d9428ca8795b8164956afeadc",
+      "sha256": "e20e443f698bdb2a1f0d832955187440615090f94752031968d7a99e1d57d0fa",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/InteractionCore.hpp",
+      "blob_sha": "09e54e9022ab6fedb5e6e3f9c0f3cf1644dfea34",
+      "sha256": "ecc75012e9da55509f2c7b968d80fca6e26a3442688482d7dccc54e2685466aa",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/InteractionShell.cpp",
+      "blob_sha": "1aaa56eb548324b122c5dd08aaff17d2b6c2948f",
+      "sha256": "2fcb1bdf3a139a0622b41cd16620452a40407fd456b19b1315da3609b2571993",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/InteractionShell.hpp",
+      "blob_sha": "4d0913c09ebdb74fc0416776356e9673ef5170d8",
+      "sha256": "2c03c1cf3a4241ac490f53da8c3d58c6f285b2fdc1ae7dd0174c29665a2f46c2",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/PartitionMultiDimensionalCorner.cpp",
+      "blob_sha": "b8b284dcedda370aeed829e53c57e1b52c81dd19",
+      "sha256": "a03d11c076c42f4c05cde0d0877726bee20472833cb13feb7c40dd26cfb554e9",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/PartitionMultiDimensionalFull.cpp",
+      "blob_sha": "fc90a3e756f14fe2bbfff6621a40445facc35026",
+      "sha256": "d007827fa533870d11064891b2f70e5dccb2748c5328fc362a3c70f1b3b95f3d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/PartitionMultiDimensionalStraight.cpp",
+      "blob_sha": "eed9b427f7df0894a7d09ca5a9a2874391ae5de9",
+      "sha256": "0bbf64b1ba295b33acb3b669e0e34a097f71be2624aa29000fa4b43f17ba7c29",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/PartitionMultiDimensionalTree.cpp",
+      "blob_sha": "7b3fa7e14132cf50d89832761aa77ad81a7ca48d",
+      "sha256": "a557d8f05b0a8f15ae8fa2dd4d0cfa735ca302c665d14324d94e4b186d78e046",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/PartitionOneDimensionalBoosting.cpp",
+      "blob_sha": "08c128ab081733ac57b370cb716e7cfc10e43b73",
+      "sha256": "e7a08847859ac8c4024daa194b36e9ed2584c3de5c7dc3b1a622dc583d395451",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/PartitionRandomBoosting.cpp",
+      "blob_sha": "55728f643248d4d5115c916710075f7d91f03a94",
+      "sha256": "a23036b2877760cf02ab81979a92aa97a29dfd9dfbbb7ed6f8132485c1ecb598",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/Purify.cpp",
+      "blob_sha": "585196ca07418ec36bcede21fcd02ca2b40225ae",
+      "sha256": "d3279f71b7389cf010c31f2c7b36954c43c5842a5f03ebbb2bb7f086f0064fbd",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/RandomDeterministic.cpp",
+      "blob_sha": "28166afdfee5d2bd54d59312dc26e1a09e18263e",
+      "sha256": "5680eab6e9c1e09149f39442333fbd150df3ac68975b8ceda6ed1f63bfebe3b4",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/RandomDeterministic.hpp",
+      "blob_sha": "b7ff39fb91b9afce789ba7b9dcbb617a806507ee",
+      "sha256": "800f8186e107209fa319e0673bbdda275aa2f19314a30c6c3c8fc1e0207c1b9a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/RandomNondeterministic.hpp",
+      "blob_sha": "8168863687853d581fe594fe22cd8cbfa9b274d6",
+      "sha256": "49367d1d200d7c1dbd4afd0a3ebdcd75793d4c6ca8f931b7f580ae2c1afa3fbf",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/SplitPosition.hpp",
+      "blob_sha": "679ab5ba2adc268183d484379a867a720b09671b",
+      "sha256": "f55ef2937a96f9a6708ac1ed2595255d77838dd787da790ef25571c3588aac3c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/SubsetInnerBag.cpp",
+      "blob_sha": "084f1b5761bbdad448bbd85765b3a2e11d3a7201",
+      "sha256": "fba5de57cc02dcd784ee1996eb5fe105976e9376cb36ae24748ecabf9688f8f2",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/SubsetInnerBag.hpp",
+      "blob_sha": "6ccd7f1d0791109537da91c91f38748e205e48ea",
+      "sha256": "e7d1d5a06810992b36c5c5d40d49c3dad0540c65045e288f86a8eb47b68095ab",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/Tensor.cpp",
+      "blob_sha": "d48f1c402eabf0dcd8199041ebbe6ad6875ce1a3",
+      "sha256": "d056df920c847da101d5dc3aae0465cce85432ec007eb19dd614b0ca1cd4424b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/Tensor.hpp",
+      "blob_sha": "58a2e37e6ef3cc2acfba68b68d902cf20b63590e",
+      "sha256": "701d1946a72a1ef636f50c200bdf50c0dfb5c5b2d7771cc25e3e55e7f69ed679",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/TensorTotalsBuild.cpp",
+      "blob_sha": "7b40b18d33f31e16a94d5db0353d3d5fef788d49",
+      "sha256": "b96b3929d1be118a254c0a510377de19fc4fa3aec1abcbe41c3194b1d55ee4b9",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/TensorTotalsSum.hpp",
+      "blob_sha": "d320a9cc6706a28dff6a75495b863dad1999c944",
+      "sha256": "78efcb2786b5b8cb0a4ea652d55283b720d1698f219aaf41f9126544fe17ec5d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/Term.cpp",
+      "blob_sha": "0bfb8d7c38393bed18bfbaaff599c738b676d69a",
+      "sha256": "c9e326aec7e4798a272ebe44835e0ac3cbb8ec9b2c5f9ad0f370f424bf8b7ed4",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/Term.hpp",
+      "blob_sha": "4c18872a6917cc33c3c1c4f7cc8890f99bd60279",
+      "sha256": "43eac693dd1c3d109bd668073f6f556a216f9cb14416cb80aedc6a50947a9c13",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/TermInnerBag.cpp",
+      "blob_sha": "c9dc3048506fbea8214d810bf0c4c7b2f787c186",
+      "sha256": "69a3c15e0029ab77aa816218e01af08527ee40cce9b91b8cbaaba5b51d1ac11f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/TermInnerBag.hpp",
+      "blob_sha": "9ebc223801408bef8caabc7690d1ac72c6153bcb",
+      "sha256": "fbb7d81648e5a76582820fbaaa12d4de576f52983cdfdad459e739e8218ce4ca",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/Transpose.hpp",
+      "blob_sha": "bc5d42336ae4c9e7d73586ce3c611846392a358c",
+      "sha256": "9e877b461889357c419efef33c72572304d462ecce32221331188319c2667f0b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/TreeNode.hpp",
+      "blob_sha": "3390ff49f1550ff0d6e64d70fc2702bcb6c3fd2d",
+      "sha256": "6adaf7efe4c5c6bcda23f364d57524a83bea29987dbf6f72cff2965a8dada362",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/TreeNodeMulti.hpp",
+      "blob_sha": "1f9b0fe7b791b38957faad00e8ae816b84ed4e62",
+      "sha256": "570fbf97a0eda76fe307527168c86df633223fa60e267d27811bda7772c160bd",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/bridge/Bin.hpp",
+      "blob_sha": "337ce5755f4abc29c6a2cf2d44a3ae9b2bbe266c",
+      "sha256": "f96c9b5c92d51eda73d38f6eb0cde47bcf5e846f5a3bb884feb63a9d3abf7963",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/bridge/GradientPair.hpp",
+      "blob_sha": "55eb5c9f857afa0d281b022ebd0b016f9c662bfb",
+      "sha256": "f55c97c378c42598936568b294ca6bef80756c7168096579336ec6b300aaadb4",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/bridge/bridge.h",
+      "blob_sha": "19581f7ac7459586e4746bfe3b482d04c99b9321",
+      "sha256": "0148c4f6325fbb7b1da08ec59169f7915344fec9abcd7fc2e0c3bac75ba7cde8",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/bridge/bridge.hpp",
+      "blob_sha": "5e61122d6158a30a99b409bfded0e227578fbf4a",
+      "sha256": "dbeabcc4f567ac5e52b3b7bbeb4a464e790b53209bf94bdcbc2378a01df5cb8f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/bridge/common.hpp",
+      "blob_sha": "bbf8e84aa4dbdf2b0dededc6a9c6dd5729d52a63",
+      "sha256": "c6069238b39d7ae3181b87f7206add94ecf043fa6f5f95aeca7a7cb34a44f02d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/bridge/zones.h",
+      "blob_sha": "6e12de51c6f6c4bca3105c27a0db29173a700cc1",
+      "sha256": "27004abd7df379ca125337b49eb55278f3c2e36657206be723a7b1d43596adb2",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/BinSumsBoosting.hpp",
+      "blob_sha": "592d5c4f7ffbae0bf42ed97e624d6f94227501d4",
+      "sha256": "c6f3c053610b74c62deefc4de734769a73c512e4d1660836a3b42b9e0b324882",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/BinSumsInteraction.hpp",
+      "blob_sha": "f98ec08847ed6c9d2f6c3bb5786639e2c7c1d9db",
+      "sha256": "a7c7e96fdcf092999d714092a1a7b86785a4902bce735c44b91ef18ccd55acc6",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/Objective.hpp",
+      "blob_sha": "82352922e85cbe0f3e78afe70b9369e5dde90280",
+      "sha256": "28d7f682d540d421da83d79dcbb4a26b186bf91b5afc656b40d2101ca0019ee1",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/Registration.hpp",
+      "blob_sha": "2207adb07ea6d06cc35d2ce9346089a381a430e0",
+      "sha256": "607b0312d43da1a9355af383d58e040fce0a8099e0fbecd8ebe3135f77782018",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/approximate_math.hpp",
+      "blob_sha": "305f8aa8a82d0e378e78da8de68af7f26af1b9af",
+      "sha256": "4fa002ab7ad157c952ec43bab0d158d39e297dd4fc71b89bdebcf5766a4a5f5c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/avx2_ebm/avx2_32.cpp",
+      "blob_sha": "179b1b71444d2585c5b67265ddf5ce33fd44a225",
+      "sha256": "1d97159e6620ff86c755dc75808505ae4aaf6973891d866f9c7aff9cd3c68e8e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/avx2_ebm/avx2_ebm.vcxproj",
+      "blob_sha": "a90307553bca4f189ccce3263551f334702cbaca",
+      "sha256": "0619e3f5ecb382cc8c27c65751ccf24b9b20a990c14f499317c118f9f3667b19",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/avx2_ebm/avx2_ebm.vcxproj.filters",
+      "blob_sha": "ca12001ff0aa7bfc4d5c84422731641732f43b5c",
+      "sha256": "59ab0868c8f9d3c94637d5962e58489e3dc94ff6907081e14c1f4d181f61fafd",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/avx512f_ebm/avx512f_32.cpp",
+      "blob_sha": "e590e6f6170d415b1d20e2c3a384985ef8941b45",
+      "sha256": "6e3ff05d36ce783a2066f2401972ccc2d3f03184503194279432c0f4fdcb87ab",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/avx512f_ebm/avx512f_ebm.vcxproj",
+      "blob_sha": "0c8b82934baf44cb1dd94d878b36fcc2619ed5aa",
+      "sha256": "04f9fae857e3f9047b5cb7945fa125576f7c130832f1b77bc8addf8f83af34d2",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/avx512f_ebm/avx512f_ebm.vcxproj.filters",
+      "blob_sha": "88b123b6bd1dd2aba6d875ac6fda175e44dce8d1",
+      "sha256": "862e05d92e2ca3aa3b583286cce96751e17945e320dc2800b0ea13c555aab7a7",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/compute.hpp",
+      "blob_sha": "3d2b4e53434d85fa462a0d12ee31fc6f8f0c2ce4",
+      "sha256": "0fcb6922e18f2ba4fd8b77a8a0ce8a0cbc97b91ba6a195ee484bc7c5e2b74268",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/compute_wrapper.hpp",
+      "blob_sha": "7d58af9e79050c44ec561d742b881e165fb8fbca",
+      "sha256": "fd64ae6f1c654be51c16c5d82cb66b52e48a42c018b005f42ece6efc3440692e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/cpu_ebm/cpu_64.cpp",
+      "blob_sha": "4c5d846e97a7b6104525e5a1e03b968509283a58",
+      "sha256": "ebf3a021a789c36aafce7fee6d18ba425ad8ab45bf36d8fb7121e43ca140e1bf",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/cpu_ebm/cpu_ebm.vcxproj",
+      "blob_sha": "be031d17a89378fcfaf585739b083aee3b940b85",
+      "sha256": "94dee2561fd1421ff2ee018eb601b3d35e2ebc0d774582c027acb3f1869c7764",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/cpu_ebm/cpu_ebm.vcxproj.filters",
+      "blob_sha": "607d8f028bc66e0c75011631138550436dbab3c5",
+      "sha256": "346ebc912f16eba9b18db4662d7258ee642a204ccc5157296fabd33ce3b76390",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/cuda_ebm/cuda_32.cu",
+      "blob_sha": "acfab0d674e1cff153d704871c5b1ef5d13401cd",
+      "sha256": "c1add1b1ab20e82c855c9ec033c5320204963c073b069cff6d7243451836d245",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/cuda_ebm/cuda_ebm.vcxproj",
+      "blob_sha": "a2fe291efbeb230897b30a32c143a2c1760574fd",
+      "sha256": "ee8b4efeeb336ddaf1cce1f6b18e543b642617f265df3c8c71590ecf657910c6",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/cuda_ebm/cuda_ebm.vcxproj.filters",
+      "blob_sha": "6215286e5464f2271f12151288d8aae8d5002825",
+      "sha256": "973fa6771ab678543d085b857a0ba3054d336263815688d1d33678777635045a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/math.hpp",
+      "blob_sha": "6e8d1cf530f0c37b15d6d193fa337c51bd65b5fd",
+      "sha256": "0b53b887df9ab6b6996efe0d54c4906fdd9a423f77e1ddfd38b176062c41983d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/metrics/AucMetric.hpp",
+      "blob_sha": "ce3dfc286c2328f2bbdf0488551df15c631f710a",
+      "sha256": "72d216d0a1f7df9633afb6b67296df8fba37e4b19c583692d849c4a8ad2af457",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/objectives/CrossEntropyBinaryObjective.hpp",
+      "blob_sha": "37e2731facc2688f3b2dbd4c3d99c2f566ad816e",
+      "sha256": "276deced0bc5cb282caf5b4238a56ad6fbc055f8364a6a8af553e5348066823e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/objectives/CrossEntropyMulticlassMultitaskObjective.hpp",
+      "blob_sha": "ea30c325dabdeeab0a42fe2ed2a101331407b049",
+      "sha256": "5ea2d2f8df975a74879ab3f9da7a428256ef590e95bb21ed88446e6d460a2bb6",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/objectives/CrossEntropyMulticlassObjective.hpp",
+      "blob_sha": "6dc4c4e53a78235296dc8674e8b972899fed7ae3",
+      "sha256": "03222c9b3d269452c25fd64af870e1505528be1ab9ae9e46c1cd3aaade286aa4",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/objectives/ExampleRegressionObjective.hpp",
+      "blob_sha": "f2837a4f85f0b238ad5201170831fbdd4fff5be1",
+      "sha256": "a9047a44ab1e75464fdcd42622f99b87c24d3ab0476ecfebc90207219cb25af4",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/objectives/GammaRegressionObjective.hpp",
+      "blob_sha": "4d9ad8b6ccf5f0f28265de926b9575b1cfb16a76",
+      "sha256": "3de2c5e42d0d0b0c7bfe3a6c3c37a00f5eef1861ce91a72d8132f8e00f62d4b9",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/objectives/LogLossBinaryMultitaskObjective.hpp",
+      "blob_sha": "42c04ad8fab77d2cf1677728e478500fd7b0a2cc",
+      "sha256": "b8e6cecf3ae90df515e70fa89cd1525c07598d76f0a182f73fdcad722ec5ae1b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/objectives/LogLossBinaryObjective.hpp",
+      "blob_sha": "41016b27d9790a6ead2677915e852918dbbf1283",
+      "sha256": "ae3abf2cd0263d9753f8ae4d9048bb842f9693f0c781bf60cd57c06d25da8111",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/objectives/LogLossMulticlassObjective.hpp",
+      "blob_sha": "c84c27b052408020fa070a6522d07c7c55df1989",
+      "sha256": "ea5bfb48e4c48c7d04331225d8c2912be7735ed1954d5ad7b5981bf952e08f7a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/objectives/PinballRegressionObjective.hpp",
+      "blob_sha": "f910ebf4be9e3df8d0ebe13e2744c84626b48a95",
+      "sha256": "d446298154c5ffd5983874605343d40e076fcc68ac94ec7058c7ebec4c3476d8",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/objectives/PoissonRegressionObjective.hpp",
+      "blob_sha": "321f1170246307de2ecdff5d2cef030054c49282",
+      "sha256": "fba1d569b946da01355622ada482ff29475a459b98c4da30dc00c9519912d32a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/objectives/PseudoHuberRegressionObjective.hpp",
+      "blob_sha": "985cf740eb16651f545d7f6bae2c317ff3c6ddab",
+      "sha256": "56f154782e467971b5553e4e2a6b14f77532c9a99f3ee9527fb63830d5faaaad",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/objectives/RmseLogLinkRegressionObjective.hpp",
+      "blob_sha": "feb2acdca59f666671fd65bd242cb3465ca3a9a5",
+      "sha256": "aea7c67f3283ccd1d927066a50d26dded39b7b166f67eaad8928520d21a546f9",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/objectives/RmseRegressionMultitaskObjective.hpp",
+      "blob_sha": "a6625d6a8ebf2c6479678c0c8e943fdeed475c1d",
+      "sha256": "0364ccb69887fafd05f9a3c6508f8a1a40815f97d4dbfdf7811bf3d01ddc6dff",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/objectives/RmseRegressionObjective.hpp",
+      "blob_sha": "88b89d73e99851e5c4464f30a5f47163952242d1",
+      "sha256": "31111c62e68366c4ff4958418e52a7588bd2f131348b261d5be086144673810d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/objectives/SurvivalCoxObjective.hpp",
+      "blob_sha": "f0bea1bad288d81d84061f436e28dc21d5f75e30",
+      "sha256": "b1869f5aa5f3bd16451e8f39ef45ec90d56d270f931c87759eb4b309cfc75414",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/objectives/TweedieRegressionObjective.hpp",
+      "blob_sha": "78c990512a29378b27bed2de6b98974a9d378fff",
+      "sha256": "690f33db007acc6abc0fe515844b8f3b826a70b870d4ecb4eb84a1dbcab87b7d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/objectives/objective_registrations.hpp",
+      "blob_sha": "b1d74fd48b0f53aa4f99f7251ef33d0b3b733028",
+      "sha256": "5769af27866296ab3d40926589305b5fbc366ff7ab9d45dbb1d64426e7320090",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/registration_exceptions.hpp",
+      "blob_sha": "552e68418cdcd88c9eca3df32c17a10c17880104",
+      "sha256": "943af2e446f33c6d658e8ac710563d338fcf6bab0e8d3f235e741e900aca704f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute/zoned_bridge_cpp_functions.hpp",
+      "blob_sha": "0bd4c5eb5c3e57eaabe969326e01b9076e04da65",
+      "sha256": "85adf4fc585985029f3b2bca1ddc15494469a23ddf8a755c1fba053d6de78ce6",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/compute_accessors.cpp",
+      "blob_sha": "8e5214a58c4fde8f21e49889f291c49f49c77263",
+      "sha256": "bd96b830e380b4f92d76dfe1d404da34fc24528320d771bc5f11967fb2a2b5a7",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/dataset_shared.cpp",
+      "blob_sha": "0bacbaaffde85f01bc80ba2cf4cbbcf980390a2c",
+      "sha256": "c16ce9ec4c307153b9789afcdacb93b5559179e6f2278f0c3cc597008d5c4b69",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/dataset_shared.hpp",
+      "blob_sha": "28eda12287fb7b3b77e0eba37f61bee875546215",
+      "sha256": "2913cb5d50539a558e656e69aeff2cf2063674c8d30081453b80e969290eacbf",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/debug_ebm.cpp",
+      "blob_sha": "503654c2f4b22339172ff53e20ac40812b30112e",
+      "sha256": "0ce86e8efabdc1712314cdd432af8828520ce7e2eb151617dffd9368b6765116",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/ebm_internal.hpp",
+      "blob_sha": "c68a47e75365002ea1398d1f503c4b17ae2b3323",
+      "sha256": "b566dda615cae892bea8d2f8ab00b925d574e11f3b3207255a855537165f0fa6",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/ebm_stats.hpp",
+      "blob_sha": "ad68dec1d5311bc065444fa75239a6e9545caaaa",
+      "sha256": "fcb9618e5219e3ff441bc43ff2e5393e2d08b690d81a085ebd7817f6d9082b7e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/inc/libebm.h",
+      "blob_sha": "c03db9eedcf182aa9eb0c3bf8e5ff3df3be38da9",
+      "sha256": "8eae96ac55eb42851489cfdb6bade5bde37990b3163b6bd8d5fd917822c5df8f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/include_ordering.txt",
+      "blob_sha": "b6011fa4e1c8dc4b3b816813be798962a83302fd",
+      "sha256": "9c8a5ffdbfc176ebf14ada9eb1e7b6b2ca58c7e2e111fc57e62a5c43e35e71e6",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/interpret.sln",
+      "blob_sha": "2c419b000e7dd2554dec776903303e7fd237d90d",
+      "sha256": "0a851aff7e478f42501b89aa4ee931dac2a740ef41546894dc7f968a7ed48684",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/interpretable_numerics.cpp",
+      "blob_sha": "78382b48636013f7fb334cde29a7176b1057596d",
+      "sha256": "d3952319dd1c5f23f4d049a6dc1878352a113502116d3c9c2b5aa32a9d771466",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/libebm.vcxproj",
+      "blob_sha": "ee79838feadb358a7d8e6ff7710abdc12c8edcc1",
+      "sha256": "82186edb704106374c6fd42e3f4a53f59f045a177c2e219880fb57d561c62beb",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/libebm.vcxproj.filters",
+      "blob_sha": "68bbfd2a014a2bfbb9710e4d4eb16a095b63df78",
+      "sha256": "d1200b5a5269fcd233ea28314edb4e14c0d0b6b92e9ed232ef150d8b48d64ad8",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/libebm_exports.def",
+      "blob_sha": "678a2da0c6fff63e9fb8faedb8f7f534788c1c3d",
+      "sha256": "bcbc942f00eaf063d2ddbaeebfe959c7f8db1ed91b1b680c71c0de30ba864c04",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/libebm_exports.txt",
+      "blob_sha": "31500cbad4fe835dcdb8afd56005ce3411b135e3",
+      "sha256": "09c2a6131fd9ebef7ea4c9e34cdaf24294ff63a4538491c00c970caf81f0574f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/pch.hpp",
+      "blob_sha": "920e45cd1c3bb85fe0e7c9977f0e23ae693faec4",
+      "sha256": "902908069c5e9616d7b75ddad8bb38fada45fdfca1994292b0342e5d2780d404",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/random.cpp",
+      "blob_sha": "4f33b28e2eeee360bf668bca6af1a7ddaffa049b",
+      "sha256": "5149aa831814c29478c9cd816ad5a6b4d2edbf397626b4c4290fa0feb5eb9b35",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/sampling.cpp",
+      "blob_sha": "dc77fb8318770850fe89ccc3a46964b3171d4483",
+      "sha256": "4566f792916541e15d532de3d35b2b966ae77ce428df02957047eb756c87f42f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/special/pch.cpp",
+      "blob_sha": "da6994dd052097d4dd2d6426c8ebe8af0456ca34",
+      "sha256": "5cdc09851e70ea3820dadd5a030c0f70a762ae811eae61618e33087af5d2f6cc",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/special/windows_DllMain.cpp",
+      "blob_sha": "f7e6b673ee24aa242efea87242da78c817e49a52",
+      "sha256": "4db4d0ffa477f8a49492f5e044399658b3aa7846c9a73da851e42a8e5706d69b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/CutQuantileTest.cpp",
+      "blob_sha": "2a0ff1f80a8ef33ced8e1d0da5d39178a003f582",
+      "sha256": "66237a9c9b6f264c7562081b862b5bfe78f1ec1b5001708bdb94a4cee1b45181",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/CutUniformTest.cpp",
+      "blob_sha": "3af899cb15490b928035d008c5cf7ae54ea17f3e",
+      "sha256": "421e92b7e5f126dd7a5711380bd0587032739553b4a5ccd1f97c7361a2b75282",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/CutWinsorizedTest.cpp",
+      "blob_sha": "60ecba22413f8361ad8b5c13bd7ea0299f2ffd7e",
+      "sha256": "765d219e045dc627d109b99e034056ad2c11eba4ad5923ef84f2c363643f757e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/DiscretizeTest.cpp",
+      "blob_sha": "42d5b7c2335f7fbb6ccda7198383b11a44a6d81d",
+      "sha256": "617f2e013cb7951df3f008151905ef2dfa9229f9c6ecf9ce1efcad00b0f33283",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/PurifyTest.cpp",
+      "blob_sha": "2d6eea7bae1b014c968fee0022deaf0fdbae5726",
+      "sha256": "36626eb9d964fe529ddc23cde93dcf9a9feab0a211a1d903a6b474569a03475d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/RandomStreamTest.hpp",
+      "blob_sha": "93ed9a4c25761a763193b9f36d963b3ff5c0f5ae",
+      "sha256": "7fae2b16af8d55fe08fbad8c886a6a537a0dfcdbb2a19bc09b553fcf5ab6ed4d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/SuggestGraphBoundsTest.cpp",
+      "blob_sha": "04a944bfd493e95454804475517c4c54aef93f40",
+      "sha256": "89d8652b78c8df1e53148af97315a109bea69cc7606e3abe5de9529703297ea6",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/bit_packing_extremes.cpp",
+      "blob_sha": "d685b2a516aed390adb0fd7c0cf91fea1676000b",
+      "sha256": "ab72f15f2d968bebb340fe6b1834e735f5da652714a9a361d42e7be4113a856e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/boosting_unusual_inputs.cpp",
+      "blob_sha": "4cbd407b60bdc36b43230a18c8add953e3b4c501",
+      "sha256": "67e629a8ecf0ec1d3303036cceb711e3d597d6e0e221d27cbcbdeee3d632a567",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/cox_boosting_test.cpp",
+      "blob_sha": "c5fbfb90b3aede18fff076873f2bc4317ded58ee",
+      "sha256": "fbd9f805f35af5c4e2dbe05934917d79b6b667fc9f1cbd443951e2ca4f17ad1d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/dataset_shared_test.cpp",
+      "blob_sha": "32d968a171afa2713cac0fbfefd37e186fc9e16f",
+      "sha256": "4857e84bc1071fee02a16a9b1be369a44e94dd8ad7d476a071d953d0f322504a",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/interaction_unusual_inputs.cpp",
+      "blob_sha": "d5bdd067bc531339a1408b38ace5ba434202c8de",
+      "sha256": "08c9d5f0c6ad97d38f94ee871911c7ab00713dd64b339656324f7b49994f66c7",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/libebm_test.bat",
+      "blob_sha": "fb06455bedf05c9a0c87331bd422f7aecab7572a",
+      "sha256": "0199a55578219469233230894767d9b8dcbe5b8b7b15bd063bffe1f4fd133745",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/libebm_test.cpp",
+      "blob_sha": "91fbdeec21c02fd7be8616e94c5cdf5f722e3970",
+      "sha256": "1d2f2c274745789b0f0d932237bdfb9763144c8271e0d654ec23227d951b0a93",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/libebm_test.hpp",
+      "blob_sha": "cea2b2418261f11449cb1f83f8ed6902b4dc860b",
+      "sha256": "7ad3b0f63b3feec9de9dc0a3bd91a0d6f87d6d3d9bd1ae94adf9b3e1461d358b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/libebm_test.sh",
+      "blob_sha": "be2e5c5db633738e476f7dfe1e8698e66fd7a7c4",
+      "sha256": "c4127558757797ccd7af08b437638fc4f9978b336b24a57c6b259f2363f091a2",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/libebm_test.vcxproj",
+      "blob_sha": "3112ecf3eee293d5519f2363c6fcfab9dd49903b",
+      "sha256": "0ced27ab452fba7963b43b50ef0fa266752f636292b0bc30fbda09d684f45142",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/libebm_test.vcxproj.filters",
+      "blob_sha": "a22974883b249d9d51b754e59edbb36d9c40eb2b",
+      "sha256": "1dcab0d93f72e0a5035b7034c1c8c87147c2c1480cc50060e3b137d62152598e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/pch_test.cpp",
+      "blob_sha": "0cf997f1e3ec038363cbfcb65107ca1e01d0c794",
+      "sha256": "9c817da5a3ea5a2f4d5d92cfc9c46b79200f9f4bfd9e496c557a1c15aff537d8",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/pch_test.hpp",
+      "blob_sha": "3915281edd9dbbd164f3104e8781d17dc46b8362",
+      "sha256": "d7d1b7dc35a3a9bac7d0d57dd04c9fe875a90f379f2066f356a4045b5c90b37e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/random_test.cpp",
+      "blob_sha": "0851a1ef549c3e4adc5a9f65073c7af117882e76",
+      "sha256": "44e22e5927bb706edc1f9bb7abf3a7508377d9514e9afa982a26d799e0a591a0",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/tests/rehydrate_booster.cpp",
+      "blob_sha": "f51ed4c9bccd6143d06d9a58670db36e498a0302",
+      "sha256": "de3b9dd560a6e4b8bd845e559f73e965dd751a190b9c7f443c3e4d03490fbc53",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/unzoned/logging.cpp",
+      "blob_sha": "73a3c93a36961829fdcc5ee5844604e9e73dc371",
+      "sha256": "1b3af83958b4a0e8ac5215e95b9318a3ba1d248ca40569e237e2d46ce2f6aa8d",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/unzoned/logging.h",
+      "blob_sha": "59b589ce9602c2f696b8576442efd310e89ee54f",
+      "sha256": "91f452474f4b16dbdc64746bc34847de2388d36259e7dc928a55ab1aa70a8f80",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/unzoned/unzoned.cpp",
+      "blob_sha": "76936ba23efa7f5c493d8d3e6ed1873bee6d449f",
+      "sha256": "2f8908fc4c1e5d627c51f6bb04499f0c727578f1b86e602e434d7c6dafc6ada1",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/unzoned/unzoned.h",
+      "blob_sha": "fd95a556185b99fdaa34db98a5242cb4b1cb4ffd",
+      "sha256": "f28027cfe1ad0ed06b99b221f3c82c892835143db4a7dfa58704091ac943f1f1",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/libebm/vs_python_setup.txt",
+      "blob_sha": "ccde959a82316d017e4fb2b60c0c1c9fdf856da6",
+      "sha256": "89034c74ad0f864bd9713ad6d3bb76a9fddb670f5b1ddb87b149beb043074100",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/vis/.babelrc",
+      "blob_sha": "9da67dbe307e65a7c20b569ac0f20d47fa79678f",
+      "sha256": "c187b33dcf30b3f32f5dabe6b2c4102d392104fb8a60f09b566862ee317999dd",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/vis/.eslintrc.json",
+      "blob_sha": "24ff26c116cdadd27b29305335ab74eb1792fe80",
+      "sha256": "4ef13b4bcc8979810a1c4d9952a9159946c87c00193675f3abdb4ed1dd9cc44e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/vis/.gitignore",
+      "blob_sha": "1a993212da18ba90e05916bf7985ff3c54a1da95",
+      "sha256": "78e16163db7ad0be825799c4f5e38b190975264a573dc447da24088fdc2aad1f",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/vis/CONTRIBUTING.md",
+      "blob_sha": "6e3d463670ca504b00bcbcc7d11b14256e8bd6a1",
+      "sha256": "0020dac3f3d6f070b0e17505a94bd01e086d0b753610a987a5b0916287506221",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/vis/README.md",
+      "blob_sha": "825946d7d85fb04ad10287a74d7f5fb8b29d812b",
+      "sha256": "ffd09c81c04c65e8c8e0baae8183157617225166fd7ae779a4accc7e00c327d6",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/vis/package.json",
+      "blob_sha": "2259017a39f6f94355fe2a126ffdd68f46396633",
+      "sha256": "7b7087b343092a636945b39ecc634318930ec52193eb985d3a554428b1b4520e",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "shared/vis/src/index.js",
+      "blob_sha": "b6967aa98830414c2c1037cdc18cb9809d467677",
+      "sha256": "972a4d504fa4eaa724c70ca2899712b86650da4a6b2c8c5557b5a99f49f02f9e",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/vis/src/styles.scss",
+      "blob_sha": "faf68a0237c6e5f78a066b001946a02f11647624",
+      "sha256": "059e9755696513f6845762a1ae6cb4d5ac77ee266afd27fedc18b0520ec658ee",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "shared/vis/webpack.config.js",
+      "blob_sha": "9ca9bb8f00d4cce0adcc033a2c20f97fea262f2c",
+      "sha256": "d9ce48e42563b87cbf764002d27793d4747e5985b5456ca1debf8d9445c4cb46",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    }
+  ],
+  "npm_lock_sha256": "f49eed9dce513a6956f08de3bc3945e4bd5502f848f1075162ec5d83f3aebe87",
+  "node_version": "24.22.1",
+  "node_archive_sha256": "6c172a9ab6718f7b801fb5a7bd486af2ee5e32758086a04b84fcce2aa77095e6",
+  "runtime_versions": {
+    "interpret-core": "0.7.8",
+    "numpy": "2.5.4",
+    "joblib": "1.6.0",
+    "cloudpickle": "3.1.2"
+  },
+  "operation": "prediction.explain",
+  "scope": "Native ExplainableBoostingRegressor.fit/predict/eval_terms on bounded synthetic numeric rows. Verifies additive reconstruction; no causal or held-out accuracy claim.",
+  "build": "Original build.sh -release_64; original npm build-prod; manual library copying expressly required by original setup.py for source-checkout wheel builds; unchanged upstream Python."
+}

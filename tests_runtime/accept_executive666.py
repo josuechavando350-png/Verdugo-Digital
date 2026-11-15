@@ -18,7 +18,7 @@ from verdugo import local_runtime, objectives, workflow
 
 
 def accept():
-    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','openmanus','servers','monty','playwright-python','hatchet','invariant','pyrit','llama-cpp','granite-guardian')
+    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','servers','monty','playwright-python','hatchet','invariant','pyrit','llama-cpp','granite-guardian','interpret')
     spec=json.loads((ROOT/'examples/executive666.synthetic.json').read_text())
     cfg=template('nexus')
     for sid in services:
@@ -41,12 +41,12 @@ def accept():
         with closing(engine()) as e:
             result=invoke(e,'verdugo_workflow',{'workflow':spec,'execute':True})
             assert result['state']=='succeeded',result
-            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review'}
+            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation'}
             r=result['steps']['check']['result']
             assert r['planned_contacts']==200 and r['planned_cost_minor']==0
             assert r['feasible_under_declared_limits'] and not r['external_execution_authorized']
             assert result['steps']['agno']['result']['budget_checked']
-            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review'),services):
+            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation'),services):
                 actual=result['steps'][step]['result']
                 assert actual['original_sdk']==sid and actual['llm_calls']==(1 if sid=='granite-guardian' else 0)
                 assert not actual['autonomous_agent']
@@ -56,9 +56,6 @@ def accept():
             assert result['steps']['parallel']['result']['recommendation']=='request_operator_review'
             assert result['steps']['sequence']['result']['sequence_valid']
             assert result['steps']['measurement_review']['result']['review_recommendation']=='review_shortfall'
-            assert result['steps']['stages']['result']['status_counts']['blocked']==1
-            assert result['steps']['stages']['result']['first_incomplete_stage']=='simulate'
-            assert result['steps']['stages']['result']['sdk_plan_deleted']
             assert result['steps']['memory']['result']['matching_incident_relation_count']==2
             assert result['steps']['memory']['result']['duplicate_relations_skipped']==1
             assert result['steps']['memory']['result']['temporary_server_restart_verified']
@@ -102,6 +99,13 @@ def accept():
             assert not model['external_execution_authorized'] and model['approvals_granted']==0
             assert 'The synthetic plan has a budget' not in '\n'.join(e.db.iterdump())
             assert '<confidence>' not in '\n'.join(e.db.iterdump())
+            explanation=result['steps']['explanation']['result']
+            assert explanation['additive_reconstruction_verified']
+            assert explanation['feature_count']==2 and explanation['term_count']==2
+            assert explanation['training_row_count']==16 and explanation['query_row_count']==2
+            assert explanation['max_additive_reconstruction_error']<1e-12
+            assert not explanation['held_out_accuracy_measured'] and not explanation['causal_explanation_proven']
+            assert not explanation['model_persisted'] and explanation['approvals_granted']==0
             assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==20
         with closing(engine()) as e, \
                 patch.object(local_runtime,'execute',side_effect=AssertionError('SDK re-executed')), \
@@ -159,17 +163,6 @@ def accept():
             assert check['state']=='succeeded',check
             assert check['result']['result']['review_recommendation']=='review_before_execution'
             assert not check['result']['result']['external_execution_authorized']
-            for key, statuses, complete, disorder in [
-                ('complete',['completed']*5,True,False),
-                ('out-of-order',['not_started','completed','not_started','blocked','not_started'],False,True)]:
-                check=e.execute({'service':'openmanus','operation':'stages.track','key':'stages-'+key,
-                                 'params':{'dataset':'demo','statuses':statuses}},True)
-                assert check['state']=='succeeded',check
-                tracked=check['result']['result']
-                assert tracked['synthetic_plan_complete']==complete
-                assert tracked['reported_out_of_order_completion']==disorder
-                assert not tracked['operator_approval_verified'] and tracked['approvals_granted']==0
-                assert tracked['original_source_files_verified']==82 and tracked['sdk_plan_deleted']
             check=e.execute({'service':'servers','operation':'graph.audit','key':'memory-no-matches',
                              'params':{'dataset':'demo','statuses':['completed'],'edges':[],'query':'blocked'}},True)
             assert check['state']=='succeeded',check
@@ -265,13 +258,22 @@ def accept():
                 assert observed['agrees_with_synthetic_reference']
                 assert observed['llm_calls']==1 and not observed['probability_estimated']
                 assert observed['approvals_granted']==0
+            params={'dataset':'demo','training':[{'contacts':0,'spend_minor':0,'observed_clients':0} for _ in range(8)],
+                    'queries':[{'contacts':0,'spend_minor':0}]}
+            checked=e.execute({'service':'interpret','operation':'prediction.explain',
+                               'key':'explain-constant-data','params':params},True)
+            assert checked['state']=='succeeded',checked
+            explained=checked['result']['result']
+            assert explained['additive_reconstruction_verified']
+            assert explained['mean_absolute_contribution']=={'contacts':0.0,'spend_minor':0.0}
+            assert not explained['quality_calibrated']
     assert not calls
     return {'schema':'verdugo.executive666.acceptance.v1','services':list(services),
             'original_sdks_executed':True,'mocked_sdks':False,'dataset':'demo',
             'joint_workflow':result,'budget_rejection':data,'negative_process_cases':negative_process_cases,
             'approval_gate_verified':True,'sqlite_restart_replay_verified':True,
             'cli_mcp_shared_engine_verified':True,'live_verified':False,
-            'models_used':1,'selected_model_controls_passed':True,'model_accuracy_calibrated':False,'external_effects':0,'batch_1_complete':False,
+            'models_used':2,'language_models_used':1,'ephemeral_additive_models_used':1,'selected_model_controls_passed':True,'model_accuracy_calibrated':False,'external_effects':0,'batch_1_complete':False,
             'os_network_namespace':os.getenv('VERDUGO_OS_NETWORK_ISOLATED')=='1'}
 
 

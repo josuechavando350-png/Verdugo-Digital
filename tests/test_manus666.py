@@ -13,6 +13,14 @@ from verdugo.registry666 import read_registry
 
 
 class Manus666Tests(unittest.TestCase):
+    def test_discovered_dependency_blocks_engine_and_direct_recipe(self):
+        from verdugo import local_runtime, connections
+        self.assertNotIn('openmanus', local_runtime.SPECS)
+        self.assertEqual('pendiente', connections.summary('openmanus')['state'])
+        with patch.object(manus, 'source_archive', side_effect=AssertionError('SDK import attempted')):
+            with self.assertRaises(VerdugoError):
+                manus.run('openmanus', {'dataset':'demo','statuses':['completed']*5})
+
     def test_only_fixed_statuses_and_demo_data_enter_the_original_tool(self):
         base = {'dataset': 'demo', 'statuses': ['completed'] * 5}
         manus.validate('openmanus', 'stages.track', base)

@@ -29,7 +29,7 @@ jobs:
           /tmp/verdugo-kernel666-venv/bin/python -m pip install -r requirements/runtime-kernel666.txt --report /tmp/kernel666-pip-report.json
           /tmp/verdugo-kernel666-venv/bin/python -m pip check
           /tmp/verdugo-kernel666-venv/bin/python -m pip freeze > /tmp/kernel666-resolved.txt
-          for sdk in agno ag2 langroid griptape bee strands planning manus hatchet invariant; do
+          for sdk in agno ag2 langroid griptape bee strands planning hatchet invariant; do
             python -m venv --copies /tmp/verdugo-${sdk}666-venv
             chmod go-w /tmp/verdugo-${sdk}666-venv/bin/python*
             if [ "$sdk" = "strands" ]; then
@@ -42,7 +42,6 @@ jobs:
             /tmp/verdugo-${sdk}666-venv/bin/python -m pip freeze > /tmp/${sdk}666-resolved.txt
           done
           VERDUGO_LANGROID666_PYTHON=/tmp/verdugo-langroid666-venv/bin/python python tests_runtime/prepare_tokenizer666.py
-          /tmp/verdugo-manus666-venv/bin/python tests_runtime/prepare_manus666.py
       - name: Install pinned offline Node workflow profile
         run: |
           python tests_runtime/install_volt666.py
@@ -53,6 +52,7 @@ jobs:
           python tests_runtime/install_monty666.py
           python tests_runtime/install_browserstate666.py
           python tests_runtime/install_guardian666.py
+          python tests_runtime/install_explain666.py
       - name: Original SDK, approval and restart with OS network isolation
         run: |
           sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
@@ -69,8 +69,8 @@ jobs:
             VERDUGO_BEE666_PYTHON=/tmp/verdugo-bee666-venv/bin/python \
             VERDUGO_STRANDS666_PYTHON=/tmp/verdugo-strands666-venv/bin/python \
             VERDUGO_PLANNING666_PYTHON=/tmp/verdugo-planning666-venv/bin/python \
-            VERDUGO_MANUS666_PYTHON=/tmp/verdugo-manus666-venv/bin/python \
             VERDUGO_MONTY666_PYTHON=/tmp/verdugo-monty666-venv/bin/python \
+            VERDUGO_INTERPRET666_PYTHON=/tmp/verdugo-interpret666/bin/python \
             VERDUGO_GUARDIAN666_PYTHON=/tmp/verdugo-guardian666/bin/python \
             VERDUGO_PYRIT666_PYTHON=/tmp/verdugo-pyrit666/bin/python \
             VERDUGO_INVARIANT666_PYTHON=/tmp/verdugo-invariant666-venv/bin/python \
@@ -105,8 +105,6 @@ jobs:
             /tmp/planning666-resolved.txt
             /tmp/volt666-resolved.txt
             /tmp/memory666-resolved.txt
-            /tmp/manus666-pip-report.json
-            /tmp/manus666-resolved.txt
             /tmp/monty666-pip-report.json
             /tmp/hatchet666-pip-report.json
             /tmp/hatchet666-resolved.txt
@@ -114,6 +112,9 @@ jobs:
             /tmp/invariant666-resolved.txt
             /tmp/pyrit666-pip-report.json
             /tmp/pyrit666-resolved.txt
+            /tmp/interpret666-resolved.txt
+            /tmp/interpret666-build-receipt.json
+            /tmp/interpret666-pip-report.json
             /tmp/guardian666-resolved.txt
             /tmp/guardian666-build-receipt.json
             /tmp/monty666-resolved.txt
