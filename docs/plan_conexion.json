@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 345,
+ "pending": 343,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -296,20 +296,6 @@
   },
   {
    "tanda": "666 / lote 1 / fase 1",
-   "id": "tensorzero",
-   "repository": "tensorzero/tensorzero",
-   "commit": "62eb8f63e8ec62018d70420dbf1a8c5d1c026315",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "servicio",
-   "domain": "juicio",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": "Evaluación local/autohospedada; sin proveedores ni inferencia de pago.",
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
    "id": "trulens",
    "repository": "truera/trulens",
    "commit": "32f57106c7f897a05806107737c413e65665fe46",
@@ -330,20 +316,6 @@
    "license": "MIT",
    "policy": "libre",
    "kind": "biblioteca",
-   "domain": "juicio",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
-   "id": "opik",
-   "repository": "comet-ml/opik",
-   "commit": "5ea60d2633a022f0ddb31d2ec81ef21810e0fe52",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "servicio",
    "domain": "juicio",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
    "nota": null,
@@ -7699,6 +7671,36 @@
    "live_verified": false,
    "evidence": "sources/contracts-prefix666.json",
    "operation": "prefix.check"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 1",
+   "id": "tensorzero",
+   "repository": "tensorzero/tensorzero",
+   "commit": "62eb8f63e8ec62018d70420dbf1a8c5d1c026315",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "juicio",
+   "que_hacer": "HTTP read adapter implemented; original server execution and production validation pending.",
+   "nota": "Fixed first-page read with synthetic socket acceptance, projected counts and SQLite replay; no inference or evaluation execution.",
+   "live_verified": false,
+   "evidence": "sources/contracts-judgment-reads666.json",
+   "operation": "inferences.summary"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 1",
+   "id": "opik",
+   "repository": "comet-ml/opik",
+   "commit": "5ea60d2633a022f0ddb31d2ec81ef21810e0fe52",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "juicio",
+   "que_hacer": "HTTP read adapter implemented; original server execution and production validation pending.",
+   "nota": "Fixed first-page read with synthetic socket acceptance, projected counts and SQLite replay; no inference or evaluation execution.",
+   "live_verified": false,
+   "evidence": "sources/contracts-judgment-reads666.json",
+   "operation": "projects.summary"
   }
  ]
 }

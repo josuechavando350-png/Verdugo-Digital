@@ -1,0 +1,146 @@
+{
+  "schema": "verdugo.judgment-reads666.v1",
+  "records": [
+    {
+      "id": "tensorzero",
+      "repository": "tensorzero/tensorzero",
+      "commit": "62eb8f63e8ec62018d70420dbf1a8c5d1c026315",
+      "files": [
+        {
+          "path": "crates/gateway/src/routes/external.rs",
+          "git_blob_sha": "1040f2735dde7646f8796926f878a47420d61035",
+          "sha256": "f75e8773a66d64ecc20902329578aa6880db34601e1c199d8ce64f41baf01f0f",
+          "source_url": "https://github.com/tensorzero/tensorzero/blob/62eb8f63e8ec62018d70420dbf1a8c5d1c026315/crates/gateway/src/routes/external.rs",
+          "review_scope": "Selected route, authentication, request/response declarations and read implementation; hash covers the full file."
+        },
+        {
+          "path": "crates/gateway/src/router.rs",
+          "git_blob_sha": "c2f6d3c7bc6417989522c71072b5c77d05f6c768",
+          "sha256": "1b09f0da3bb7d5dbd260fa842ba64cc16f0030e91dadf936829e7d963345a323",
+          "source_url": "https://github.com/tensorzero/tensorzero/blob/62eb8f63e8ec62018d70420dbf1a8c5d1c026315/crates/gateway/src/router.rs",
+          "review_scope": "Selected route, authentication, request/response declarations and read implementation; hash covers the full file."
+        },
+        {
+          "path": "crates/tensorzero-auth/src/middleware.rs",
+          "git_blob_sha": "71ec7320b10409c3d5a50897c73e12234c70e243",
+          "sha256": "4ab93864995ae1b82fc21dcd8c5de9d5142ceb187f4766b3861fb05f901740a1",
+          "source_url": "https://github.com/tensorzero/tensorzero/blob/62eb8f63e8ec62018d70420dbf1a8c5d1c026315/crates/tensorzero-auth/src/middleware.rs",
+          "review_scope": "Selected route, authentication, request/response declarations and read implementation; hash covers the full file."
+        },
+        {
+          "path": "crates/tensorzero-core/src/endpoints/stored_inferences/v1/types.rs",
+          "git_blob_sha": "a174c720869427401e6b6d2be77af09f957461ab",
+          "sha256": "993e19bb34e55c597393c4f9b424556df00d2c1d4d75b476782b60844a00db42",
+          "source_url": "https://github.com/tensorzero/tensorzero/blob/62eb8f63e8ec62018d70420dbf1a8c5d1c026315/crates/tensorzero-core/src/endpoints/stored_inferences/v1/types.rs",
+          "review_scope": "Selected route, authentication, request/response declarations and read implementation; hash covers the full file."
+        },
+        {
+          "path": "crates/tensorzero-core/src/endpoints/stored_inferences/v1/get_inferences.rs",
+          "git_blob_sha": "0266e6765f65cc693a45794a5b8711ace24e5fb7",
+          "sha256": "d8d7542f8dade543d1ef92647f0d771bdf80e569c03addc56320b89821227c9a",
+          "source_url": "https://github.com/tensorzero/tensorzero/blob/62eb8f63e8ec62018d70420dbf1a8c5d1c026315/crates/tensorzero-core/src/endpoints/stored_inferences/v1/get_inferences.rs",
+          "review_scope": "Selected route, authentication, request/response declarations and read implementation; hash covers the full file."
+        },
+        {
+          "path": "crates/tensorzero-core/src/stored_inference.rs",
+          "git_blob_sha": "d7b74d27f5c368f9ffa9abe9ecc71142016b1351",
+          "sha256": "26070c0f0ec7ec649084dbd6b36e132b70e7bb74ffe1d1a72452b32b8f6c4263",
+          "source_url": "https://github.com/tensorzero/tensorzero/blob/62eb8f63e8ec62018d70420dbf1a8c5d1c026315/crates/tensorzero-core/src/stored_inference.rs",
+          "review_scope": "Selected route, authentication, request/response declarations and read implementation; hash covers the full file."
+        }
+      ],
+      "operation": "inferences.summary",
+      "live_verified": false,
+      "original_server_executed": false,
+      "cost": "No paid endpoint or model; operator supplies an already reviewed self-hosted instance. No provisioning.",
+      "limits": [
+        "Only first 100 records; no follow-up pagination",
+        "Original backend path exposed at configured origin; no caller URL or prefix",
+        "Dedicated instance for one company; no cross-workspace selection",
+        "Only projected counts persisted; no raw records",
+        "Synthetic contract/socket acceptance is not server or production certification"
+      ]
+    },
+    {
+      "id": "opik",
+      "repository": "comet-ml/opik",
+      "commit": "5ea60d2633a022f0ddb31d2ec81ef21810e0fe52",
+      "files": [
+        {
+          "path": "apps/opik-backend/src/main/java/com/comet/opik/api/resources/v1/priv/ProjectsResource.java",
+          "git_blob_sha": "ec873218b29fe9b16f51468e912e4b55061a95a0",
+          "sha256": "696d3080a9e260f5835ea1b6e85a00a701d721542e693c047135101405f0f717",
+          "source_url": "https://github.com/comet-ml/opik/blob/5ea60d2633a022f0ddb31d2ec81ef21810e0fe52/apps/opik-backend/src/main/java/com/comet/opik/api/resources/v1/priv/ProjectsResource.java",
+          "review_scope": "Selected route, authentication, request/response declarations and read implementation; hash covers the full file."
+        },
+        {
+          "path": "apps/opik-backend/src/main/java/com/comet/opik/api/Project.java",
+          "git_blob_sha": "d96bf1f4507ad7b0f255d438040de5f4cc0c84f3",
+          "sha256": "b8a549e637ba75b29b869228b70accdb2c63fe12d35f80fa4100b0294d573568",
+          "source_url": "https://github.com/comet-ml/opik/blob/5ea60d2633a022f0ddb31d2ec81ef21810e0fe52/apps/opik-backend/src/main/java/com/comet/opik/api/Project.java",
+          "review_scope": "Selected route, authentication, request/response declarations and read implementation; hash covers the full file."
+        },
+        {
+          "path": "apps/opik-backend/src/main/java/com/comet/opik/api/Page.java",
+          "git_blob_sha": "f6872b3be7b81babcd058377342c0b33d7a098df",
+          "sha256": "8520d0fc11f98e47390f45e1b75b00cb5276574a997fddccad5876e9727028bf",
+          "source_url": "https://github.com/comet-ml/opik/blob/5ea60d2633a022f0ddb31d2ec81ef21810e0fe52/apps/opik-backend/src/main/java/com/comet/opik/api/Page.java",
+          "review_scope": "Selected route, authentication, request/response declarations and read implementation; hash covers the full file."
+        },
+        {
+          "path": "apps/opik-backend/src/main/java/com/comet/opik/infrastructure/auth/AuthModule.java",
+          "git_blob_sha": "be5a122311026e5a20b81a4234c0d1d3a818f55c",
+          "sha256": "e87297a2cce6e344191ea83a2b26fa7d4c07d7d044de79df938f3dec128a1558",
+          "source_url": "https://github.com/comet-ml/opik/blob/5ea60d2633a022f0ddb31d2ec81ef21810e0fe52/apps/opik-backend/src/main/java/com/comet/opik/infrastructure/auth/AuthModule.java",
+          "review_scope": "Selected route, authentication, request/response declarations and read implementation; hash covers the full file."
+        },
+        {
+          "path": "apps/opik-backend/src/main/java/com/comet/opik/infrastructure/auth/AuthFilter.java",
+          "git_blob_sha": "31ac6d36403626b6761c212e48a48affb03395e2",
+          "sha256": "03cdc55a8921591399635dd5ba35c967ee779ba3c094a9818c28744a7c74ad6d",
+          "source_url": "https://github.com/comet-ml/opik/blob/5ea60d2633a022f0ddb31d2ec81ef21810e0fe52/apps/opik-backend/src/main/java/com/comet/opik/infrastructure/auth/AuthFilter.java",
+          "review_scope": "Selected route, authentication, request/response declarations and read implementation; hash covers the full file."
+        },
+        {
+          "path": "apps/opik-backend/src/main/java/com/comet/opik/infrastructure/auth/AuthService.java",
+          "git_blob_sha": "3e94cafd060d79edeeaacd458af43e539d565c08",
+          "sha256": "7f4582b8b653e7a2a4da2252ddeb48da648794b6f93f9ccb4c17a76240c32374",
+          "source_url": "https://github.com/comet-ml/opik/blob/5ea60d2633a022f0ddb31d2ec81ef21810e0fe52/apps/opik-backend/src/main/java/com/comet/opik/infrastructure/auth/AuthService.java",
+          "review_scope": "Selected route, authentication, request/response declarations and read implementation; hash covers the full file."
+        },
+        {
+          "path": "apps/opik-backend/src/main/java/com/comet/opik/infrastructure/auth/RequestContext.java",
+          "git_blob_sha": "ec91408546346cdb0ad715d3fdeb3524c34bed61",
+          "sha256": "1d8f201751a56210e00917fd40eccc0d953da206aba452b9072331fd186e2883",
+          "source_url": "https://github.com/comet-ml/opik/blob/5ea60d2633a022f0ddb31d2ec81ef21810e0fe52/apps/opik-backend/src/main/java/com/comet/opik/infrastructure/auth/RequestContext.java",
+          "review_scope": "Selected route, authentication, request/response declarations and read implementation; hash covers the full file."
+        },
+        {
+          "path": "apps/opik-backend/src/main/java/com/comet/opik/domain/ProjectService.java",
+          "git_blob_sha": "43f73ed44b47a83414123046d2a1bf6a4a76e491",
+          "sha256": "3329b5b31faffc083fb747a8016a99eae91886a00c66c48f5bd22c926da883fe",
+          "source_url": "https://github.com/comet-ml/opik/blob/5ea60d2633a022f0ddb31d2ec81ef21810e0fe52/apps/opik-backend/src/main/java/com/comet/opik/domain/ProjectService.java",
+          "review_scope": "Selected route, authentication, request/response declarations and read implementation; hash covers the full file."
+        },
+        {
+          "path": "apps/opik-backend/src/main/java/com/comet/opik/utils/WorkspaceUtils.java",
+          "git_blob_sha": "9a85795d3695422a8a98930e9b68b0f0b5fcc962",
+          "sha256": "2595aff10d5edbe773ad7997151186e2758283929e3c1c3d5c1baedc0b247843",
+          "source_url": "https://github.com/comet-ml/opik/blob/5ea60d2633a022f0ddb31d2ec81ef21810e0fe52/apps/opik-backend/src/main/java/com/comet/opik/utils/WorkspaceUtils.java",
+          "review_scope": "Selected route, authentication, request/response declarations and read implementation; hash covers the full file."
+        }
+      ],
+      "operation": "projects.summary",
+      "live_verified": false,
+      "original_server_executed": false,
+      "cost": "No paid endpoint or model; operator supplies an already reviewed self-hosted instance. No provisioning.",
+      "limits": [
+        "Only first 100 records; no follow-up pagination",
+        "Original backend path exposed at configured origin; no caller URL or prefix",
+        "Dedicated instance for one company; no cross-workspace selection",
+        "Only projected counts persisted; no raw records",
+        "Synthetic contract/socket acceptance is not server or production certification"
+      ]
+    }
+  ]
+}

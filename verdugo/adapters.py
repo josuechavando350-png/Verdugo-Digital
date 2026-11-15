@@ -4,7 +4,7 @@ import os
 import re
 from urllib.parse import urlencode, urlsplit
 from .common import VerdugoError, fields, text, integer, identifier, digest, encode
-from . import marketing_reads, service_reads, tanda1_reads, readiness_reads, operations_reads, platform_reads, completion_reads, public_reads
+from . import judgment_reads666, marketing_reads, service_reads, tanda1_reads, readiness_reads, operations_reads, platform_reads, completion_reads, public_reads
 
 # API-contract implementations; live compatibility is NOT established by this list.
 SPECS = {
@@ -53,6 +53,7 @@ SPECS = {
  'documenso': {'envelopes.list': ('GET', '/api/v2/envelope')},
 }
 SPECS.update(marketing_reads.SPECS)
+SPECS.update(judgment_reads666.SPECS)
 SPECS.update(service_reads.SPECS)
 SPECS.update(tanda1_reads.SPECS)
 SPECS.update(readiness_reads.SPECS)
@@ -98,7 +99,9 @@ def connection(service, cfg):
     if not token or len(token) > 8192 or any(not 33 <= ord(c) <= 126 for c in token):
         raise VerdugoError('Missing or invalid service credential: ' + env_name)
     headers = {'Accept': 'application/json', 'User-Agent': 'Verdugo-Digital/0.2'}
-    if service in completion_reads.SPECS:
+    if service in judgment_reads666.SPECS:
+        headers.update(judgment_reads666.authorization(service, cfg, token))
+    elif service in completion_reads.SPECS:
         headers.update(completion_reads.authorization(service, cfg, token))
     elif service in platform_reads.SPECS:
         headers.update(platform_reads.authorization(service, cfg, token))
@@ -166,6 +169,9 @@ def remote_id(result, path):
 
 
 def build(service, operation, params, cfg):
+    if service in judgment_reads666.SPECS:
+        origin, token, headers = connection(service, cfg)
+        return judgment_reads666.build(service, operation, params, cfg, origin, token, headers)
     if service in public_reads.SPECS:
         origin, token, headers = connection(service, cfg)
         return public_reads.build(service, operation, params, cfg, origin, token, headers)

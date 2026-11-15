@@ -45,8 +45,8 @@ class ProductTests(unittest.TestCase):
         with closing(self.engine()) as engine:
             r=product.overview(engine)
         self.assertEqual(688,len(r['services']))
-        self.assertEqual({'conectado':265,'pendiente':345,'pieza_de_construccion':56,'excluido':22},r['connection_states'])
-        self.assertEqual(67,r['bounded_observation_routes'])
+        self.assertEqual({'conectado':267,'pendiente':343,'pieza_de_construccion':56,'excluido':22},r['connection_states'])
+        self.assertEqual(69,r['bounded_observation_routes'])
         self.assertEqual(0,r['business']['reported_paid_clients'])
         self.assertFalse(r['external_calls_made']); self.assertFalse(self.calls)
 
@@ -85,6 +85,12 @@ class ProductTests(unittest.TestCase):
         from test_public_reads_v021 import configure as public_config, REPLIES as public_replies
         completion_config(config); public_config(config)
         combined.update(completions); combined.update(public_replies)
+        from test_judgment_reads666 import configured as judgment_config, REPLIES as judgment_replies
+        judgment = judgment_config()['tenants']['nexus']['services']
+        for sid in judgment_replies:
+            config['tenants']['nexus']['services'][sid] = judgment[sid]
+            env[judgment[sid]['token_env']] = TOKEN
+        combined.update(judgment_replies)
         routes = product.read_operations()
         for sid in routes:
             cfg = config['tenants']['nexus']['services'][sid]
@@ -100,14 +106,14 @@ class ProductTests(unittest.TestCase):
         with patch.dict(os.environ,env), closing(Engine(self.path,config,transport=transport)) as engine:
             r=product.observe(engine,request(services=list(routes)),True)
             self.assertEqual('succeeded',r['state'],r)
-            self.assertEqual(67,r['new_observations']); self.assertEqual(set(routes),set(calls))
-            self.assertEqual(68,engine.db.execute('SELECT count(*) FROM runs').fetchone()[0])
+            self.assertEqual(69,r['new_observations']); self.assertEqual(set(routes),set(calls))
+            self.assertEqual(70,engine.db.execute('SELECT count(*) FROM runs').fetchone()[0])
             dump='\n'.join(engine.db.iterdump())
             for sentinel in ('private-person@example.invalid','private@example.invalid','never-retain-this@example.invalid'):
                 self.assertNotIn(sentinel,dump)
         with patch.dict(os.environ,env), closing(Engine(self.path,config,transport=transport)) as engine:
-            self.assertEqual(67,product.observe(engine,request(services=list(routes)),True)['reused_observations'])
-        self.assertEqual(67,len(calls))
+            self.assertEqual(69,product.observe(engine,request(services=list(routes)),True)['reused_observations'])
+        self.assertEqual(69,len(calls))
 
     def test_configuration_failure_blocks_every_selected_service_before_any_effect(self):
         self.config['tenants']['nexus']['services']['seaweedfs']['proxy_auth_reviewed']=False

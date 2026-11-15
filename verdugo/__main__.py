@@ -105,6 +105,10 @@ def template(tenant):
     services['humanlayer'].update(api_surface='riptide_api')
     services['openhands'].update(api_surface='openhands_agent_server_1_62')
     services['krayin-crm'].update(session_cookie_name=None, account_scope_reviewed=False, admin_path='admin')
+    services['tensorzero'].update(api_surface='self_hosted', auth_mode='native_api_key_bearer',
+                                  native_auth_enforced_reviewed=False, dedicated_instance_reviewed=False)
+    services['opik'].update(api_surface='self_hosted', auth_mode='reviewed_proxy_bearer',
+                           proxy_auth_reviewed=False, dedicated_instance_reviewed=False)
     return {'tenants': {tenant: {'services': services, 'ingress': {}}}}
 
 
