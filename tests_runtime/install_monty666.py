@@ -55,7 +55,11 @@ def install(prefix):
         if not p.is_symlink(): p.chmod(0o755)
     subprocess.run([str(python), '-m', 'pip', 'install',
                     'maturin==' + record['maturin_version'], 'typing_extensions==4.16.0'], check=True)
-    env = dict(os.environ, RUSTUP_TOOLCHAIN=record['rust_version'], **record['build_environment'])
+    # PEP 517 invokes the maturin executable, not just its Python module.
+    # A venv interpreter selected by absolute path does not activate its bin dir.
+    env = dict(os.environ, RUSTUP_TOOLCHAIN=record['rust_version'],
+               PATH=str(prefix / 'bin') + os.pathsep + os.environ.get('PATH', ''),
+               **record['build_environment'])
     subprocess.run(['rustup', 'toolchain', 'install', record['rust_version'], '--profile', 'minimal'],
                    check=True, env=env)
     rust = subprocess.check_output(['rustc', '--version'], env=env, text=True).split()[1]
