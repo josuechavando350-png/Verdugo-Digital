@@ -1,0 +1,3 @@
+-c runtime-graph-forecast.constraints.txt
+forecasting-tools==0.3.7
+graphrag==3.3.0

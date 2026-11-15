@@ -1,0 +1,50 @@
+{
+  "version": "0.18.0",
+  "inspected": "2026-11-14",
+  "records": [
+    {
+      "id": "uptime-kuma",
+      "repository": "louislam/uptime-kuma",
+      "commit": "4f6661cfa83a06be0353d5536ef3d9ee0064f534",
+      "live_verified": false,
+      "files": [
+        {
+          "path": "server/routers/api-router.js",
+          "git_blob_sha": "23879bdb8898a778650e908ecea896f68681ef4c",
+          "source_url": "https://github.com/louislam/uptime-kuma/blob/4f6661cfa83a06be0353d5536ef3d9ee0064f534/server/routers/api-router.js"
+        },
+        {
+          "path": "server/auth.ts",
+          "git_blob_sha": "608675d02e225b912cadb99eba877379a55f7a4b",
+          "source_url": "https://github.com/louislam/uptime-kuma/blob/4f6661cfa83a06be0353d5536ef3d9ee0064f534/server/auth.ts"
+        }
+      ]
+    },
+    {
+      "id": "gotenberg",
+      "repository": "gotenberg/gotenberg",
+      "commit": "4d577e1467aaffa080b1e89d64ecb86c2fba4e98",
+      "live_verified": false,
+      "files": [
+        {
+          "path": "pkg/modules/api/api.go",
+          "git_blob_sha": "7b8d61a3b981f34531b9b30fd3eaa4d4773bcec7",
+          "source_url": "https://github.com/gotenberg/gotenberg/blob/4d577e1467aaffa080b1e89d64ecb86c2fba4e98/pkg/modules/api/api.go"
+        },
+        {
+          "path": "go.mod",
+          "git_blob_sha": "290e6b39784b5b6f43c6717c85114c1795ca1a61",
+          "source_url": "https://github.com/gotenberg/gotenberg/blob/4d577e1467aaffa080b1e89d64ecb86c2fba4e98/go.mod"
+        }
+      ]
+    }
+  ],
+  "schema_dependency": {
+    "repository": "alexliesenfeld/health",
+    "ref": "v0.8.1",
+    "path": "README.md",
+    "git_blob_sha": "c87bdcd87d0a4e841725dafe3427925e01c3b610",
+    "source_url": "https://github.com/alexliesenfeld/health/blob/v0.8.1/README.md",
+    "reason": "Gotenberg go.mod pins this health serializer"
+  }
+}

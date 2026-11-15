@@ -1,0 +1,17 @@
+{
+  "runtime": "Original Quarto 1.11.9 and Auto-Editor 31.9.0 Linux x86_64 releases",
+  "artifacts": [
+    {
+      "name": "quarto.tar.gz",
+      "url": "https://github.com/quarto-dev/quarto-cli/releases/download/v1.11.9/quarto-1.11.9-linux-amd64.tar.gz",
+      "sha256": "9d037baa3b38ffac7217edca1d2e53760b0fab4d5749220740a32056e03a1530"
+    },
+    {
+      "name": "auto-editor",
+      "url": "https://github.com/WyattBlue/auto-editor/releases/download/31.9.0/auto-editor-linux-x86_64",
+      "sha256": "5a921b1396ebf72e27d4bec106894782b739b30a908bd195d63a42e80524548e"
+    }
+  ],
+  "files_verified": 2601,
+  "scope": "Original CLI execution on supplied data; no code execution, remote media or publication"
+}

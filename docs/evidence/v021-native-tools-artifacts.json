@@ -1,0 +1,48 @@
+{
+  "runtime": "Eclipse Temurin 21.0.13+9 Linux amd64; GoAccess 1.7 Debian amd64",
+  "artifacts": [
+    {
+      "name": "java.tar.gz",
+      "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.13%2B9/OpenJDK21U-jdk_x64_linux_hotspot_21.0.13_9.tar.gz",
+      "sha256": "d7f5d5cf865a2902b70ff549b97586a7d3f234e016f041ab447ea740c7d66d1c"
+    },
+    {
+      "name": "arx.jar",
+      "url": "https://github.com/arx-deidentifier/arx/releases/download/v3.9.2/libarx-3.9.2.jar",
+      "sha256": "18040108e95ca7955d806bf32354b20601d664495653b8ee169d249f43f58d44"
+    },
+    {
+      "name": "openapi.jar",
+      "url": "https://repo.maven.apache.org/maven2/org/openapitools/openapi-generator-cli/7.27.0/openapi-generator-cli-7.27.0.jar",
+      "sha256": "db9c4b738727698748746144394cb7ee96512fe50166555baaeeca9311ee1dba"
+    },
+    {
+      "name": "webgraph.jar",
+      "url": "https://repo.maven.apache.org/maven2/it/unimi/dsi/webgraph/3.6.12/webgraph-3.6.12.jar",
+      "sha256": "8daddd3881aecc7095643936c9e16d825cbe0e431df507519e36df68d06444ef"
+    },
+    {
+      "name": "fastutil.jar",
+      "url": "https://repo.maven.apache.org/maven2/it/unimi/dsi/fastutil-core/8.5.19/fastutil-core-8.5.19.jar",
+      "sha256": "57ad7ac9f7aef23317446e996732236b18e1eaf07638c4325b6f464cf69c18ab"
+    },
+    {
+      "name": "goaccess.deb",
+      "url": "https://deb.debian.org/debian/pool/main/g/goaccess/goaccess_1.7-1_amd64.deb",
+      "sha256": "dff0257b8938861df93101e0d4466a145b54f6bfa1eb1e1cc161d721d6f25973"
+    },
+    {
+      "name": "maxmind.deb",
+      "url": "https://deb.debian.org/debian/pool/main/libm/libmaxminddb/libmaxminddb0_1.7.1-1_amd64.deb",
+      "sha256": "78f4bf04567160dc2f8704a0a766bbda9241b5cf8b3d557c9442c51dac803707"
+    }
+  ],
+  "files_verified": 114,
+  "operations": {
+    "openapi-generator": "spec.validate",
+    "cc-webgraph": "adjacency.merge",
+    "arx": "groups.anonymize",
+    "goaccess": "requests.summarize"
+  },
+  "scope": "Original programs executed locally on supplied data; not deployment"
+}

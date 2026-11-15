@@ -1,0 +1,6 @@
+-c runtime-content021.constraints.txt
+graphiti-core==0.31.2
+httpx==0.28.1
+openbb-core==2.0.1
+people-also-ask==0.0.6
+python-jobspy==1.4.1

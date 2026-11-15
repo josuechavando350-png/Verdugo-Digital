@@ -1,0 +1,46 @@
+{
+  "schema": "verdugo.source-api-evidence.v1",
+  "scope": "fixed local tool and dialogue compilation, without model calls or remote MCP servers",
+  "files": [
+    {
+      "service": "mcp-agent",
+      "repository": "lastmile-ai/mcp-agent",
+      "commit": "f62d849350816588b1c6294e7914bbe4d8b84072",
+      "path": "pyproject.toml",
+      "blob_sha": "c91b32c57db1af7a93e0d4fab0fb628583fb1ebf",
+      "url": "https://github.com/lastmile-ai/mcp-agent/blob/f62d849350816588b1c6294e7914bbe4d8b84072/pyproject.toml"
+    },
+    {
+      "service": "mcp-agent",
+      "repository": "lastmile-ai/mcp-agent",
+      "commit": "f62d849350816588b1c6294e7914bbe4d8b84072",
+      "path": "src/mcp_agent/agents/agent.py",
+      "blob_sha": "cf255ecfdf211d4ff325a4ee188b9c7e85049f19",
+      "url": "https://github.com/lastmile-ai/mcp-agent/blob/f62d849350816588b1c6294e7914bbe4d8b84072/src/mcp_agent/agents/agent.py"
+    },
+    {
+      "service": "mcp-agent",
+      "repository": "lastmile-ai/mcp-agent",
+      "commit": "f62d849350816588b1c6294e7914bbe4d8b84072",
+      "path": "src/mcp_agent/config.py",
+      "blob_sha": "5560844985ad3c973bfc704eb290eb98f5dbbd55",
+      "url": "https://github.com/lastmile-ai/mcp-agent/blob/f62d849350816588b1c6294e7914bbe4d8b84072/src/mcp_agent/config.py"
+    },
+    {
+      "service": "nemo-guardrails",
+      "repository": "NVIDIA-NeMo/Guardrails",
+      "commit": "5d7f4c1ca62fb6155066e6c581379d1a5ec11338",
+      "path": "pyproject.toml",
+      "blob_sha": "5b7d9937413d44f29132819b831562305cb7d869",
+      "url": "https://github.com/NVIDIA-NeMo/Guardrails/blob/5d7f4c1ca62fb6155066e6c581379d1a5ec11338/pyproject.toml"
+    },
+    {
+      "service": "nemo-guardrails",
+      "repository": "NVIDIA-NeMo/Guardrails",
+      "commit": "5d7f4c1ca62fb6155066e6c581379d1a5ec11338",
+      "path": "nemoguardrails/rails/llm/config.py",
+      "blob_sha": "da14650d5214eedba698820df921657813884844",
+      "url": "https://github.com/NVIDIA-NeMo/Guardrails/blob/5d7f4c1ca62fb6155066e6c581379d1a5ec11338/nemoguardrails/rails/llm/config.py"
+    }
+  ]
+}

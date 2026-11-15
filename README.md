@@ -2,7 +2,7 @@
 
 Núcleo comercial y de análisis para Nexus Bot Studio. Una sola entrada CLI/MCP,
 un motor de ejecución, flujos con dependencias, permisos locales, auditoría,
-idempotencia y estado SQLite. Versión de ingeniería **0.17.0**.
+idempotencia y estado SQLite. Versión de ingeniería **0.21.0**.
 
 **La integración operativa de los 300 proyectos NO está terminada.** Registrar
 fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
@@ -14,16 +14,16 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 | Fuentes registradas y fijadas por commit | 322 (100 núcleo + 222 de v0.14) |
 | Portafolio con licencia libre (política v0.14) | 300 |
 | Excluidos por licencia (registrados, sin operar) | 22 |
-| Proyectos con una operación implementada | 82: 63 HTTP + 19 de bibliotecas locales |
-| Conectados bajo la política de licencias | 63 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
+| Proyectos con una operación implementada | 262: 103 HTTP + 138 bibliotecas locales + 17 CLI + 1 MCP local + 3 consultas/reglas de datos |
+| Conectados bajo la política de licencias | 243 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
 | Piezas de construcción (se usan al programar, no vía motor) | 56 |
-| Pendientes de conector | 181 |
+| Pendientes de conector | 1 (`meta-ads`, ver corrección v0.21.1) |
 | Servicios de pago | 0 (Stripe, Twilio, Mercado Pago, E2B y Composio retirados) |
-| Operaciones HTTP existentes | 67, limitadas por proveedor |
-| Operaciones locales implementadas | 19; aceptación de ejecución real exigida por commit |
-| Flujos compuestos de aceptación | Dos de cinco pasos; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 456 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
-| Herramientas MCP | 23; las operaciones reutilizan execute/workflow existentes |
+| Operaciones HTTP existentes | 108, limitadas por proveedor |
+| Operaciones locales implementadas | 159; aceptación de ejecución real exigida por commit |
+| Flujos compuestos de aceptación | Flujo de 87 operaciones nuevas + métricas locales; persistencia y reanudación tras reiniciar Engine |
+| Pruebas unitarias y de contrato | 715 pruebas aprobadas en el checkpoint anterior; comprobar la suite vigente por commit en CI |
+| Herramientas MCP | 25; product-status/product-run reutilizan el mismo motor |
 | Servicios productivos certificados | 0 |
 
 Los tres workflows de aceptación son **Verdugo verification**, **Verdugo runtime
@@ -33,8 +33,75 @@ bibliotecas ni certifica un despliegue productivo. La aceptación usa datos sint
 
 ## Plan de lo que falta
 
-Las 181 piezas pendientes, en 4 tandas de 46, 50, 50 y 35, con las reglas para conectar cada una:
+Estado actual y alcance de las operaciones, con las identificaciones históricas de las tandas:
 [docs/PLAN_CONEXION.md](docs/PLAN_CONEXION.md) (y `docs/plan_conexion.json` para agentes).
+
+## Continuación v0.21: 88 operaciones adicionales
+
+> **Corrección v0.21.1 (revisión):** `google-ads` conserva su lectura con evidencia original añadida (`googleapis/googleapis@97f6460c35`: ruta REST `GET /v26/customers:listAccessibleCustomers` en `customer_service.proto`; encabezado `developer-token` en `google/ads/googleads/interceptors/metadata_interceptor.py` de google-ads-python). `meta-ads` vuelve a pendiente: los SDK oficiales de Meta (Python, Node, PHP, Java y Ruby) envían `access_token` en la URL y ninguno respalda el encabezado Bearer que usaba el contrato. Quedan 87 operaciones de la tanda, 25 contratos HTTP nuevos y 1 pendiente.
+
+La segunda tanda incorpora **88 operaciones implementadas, 0 pendientes de implementación**. La aceptación del commit vigente exige los tres workflows completos.
+Las últimas 68 incluyen 41 operaciones locales con código original, una comparación propia de reglas NAP originales y 26 lecturas HTTP.
+[Alcance, dependencias y evidencia del complemento](docs/ACEPTACION_COMPLEMENTO_V021.md).
+Los programas originales comparten Engine, product-run, auditoría y SQLite.
+Se agregan perfiles npm y CLI fijados; las operaciones siguen deshabilitadas por defecto.
+No se certifica una instalación productiva ni ejecución en Termux de estos binarios Linux.
+[Operaciones, dependencias y evidencia](docs/AMPLIACION_V021.md).
+
+## Continuación v0.20: primera ampliación de 87 operaciones
+
+76 operaciones de bibliotecas originales, dos consultas de datos originales fijados
+por commit y nueve contratos HTTP nuevos utilizan el mismo Engine, workflow y SQLite.
+`product-run` acepta análisis locales y referencias entre resultados, además de las
+42 observaciones HTTP acotadas disponibles. El máximo es 127 operaciones seleccionadas
+más la instantánea comercial: 128 pasos, con 32 KiB por operación y 1 MiB por manifiesto.
+
+Los SDK de agentes ejecutan una herramienta local fija; no invocan modelos ni crean
+agentes autónomos. Whisper calcula características de audio; no transcribe. Las nueve
+lecturas HTTP nuevas se prueban con servidores de respuestas sintéticas, sin certificar
+sus servidores originales. Todo permanece deshabilitado hasta la revisión del operador.
+[Operaciones, perfiles de dependencias y evidencia](docs/AMPLIACION_V020.md).
+
+## Continuación v0.19: una operación conjunta del producto
+
+- `product-status` reúne las 322 piezas, las operaciones disponibles y el estado comercial local.
+- `product-run` coordina hasta 33 consultas acotadas disponibles y una instantánea comercial
+  dentro del mismo Engine, workflow y SQLite. Revisa todas las conexiones seleccionadas
+  antes de comenzar. Un fallo detiene la ejecución y conserva la evidencia ya obtenida.
+- El informe identifica resultado nuevo/reutilizado, hora original, clave y huella por paso.
+  Reabrir el motor con el mismo ID recupera lo guardado; un ID nuevo solicita otra lectura.
+- Cuatro contratos nuevos: Apache Answer, Caddy, SeaweedFS y Dagster. Los tres últimos
+  requieren proxy autenticador revisado; todo sigue deshabilitado por defecto.
+- 36 pruebas nuevas; el flujo de 33 consultas usa respuestas sintéticas y el flujo HTTP
+  de seis servicios usa sockets locales. Caddy original tiene una aceptación separada
+  por commit en CI, detrás de un proxy de pruebas con autenticación comprobada.
+
+```sh
+python -m verdugo --state :memory: product-status
+python -m verdugo --config verdugo.local.json product-run @examples/product-observe.json
+python -m verdugo --config verdugo.local.json product-run @examples/product-observe.json --execute
+```
+
+El ejemplo requiere seis servicios configurados por el operador. No los instala ni
+aprueba: sin configuración devuelve `blocked` sin llamadas externas. Las operaciones
+restantes siguen disponibles mediante `workflow`. La revisión v0.19 dejó **175 conectores
+pendientes** (88 después de v0.20), no despliega un panel ni acredita ventas. [Alcance y pruebas](docs/PRODUCTO_V019.md).
+
+## Continuación v0.18: dos lecturas del mismo motor
+
+Se conserva la continuación v0.17 del plan de Claude y se implementan dos
+operaciones más de la primera tanda. **No son dos despliegues nuevos**:
+
+- `uptime-kuma / monitors.summary`: cuenta monitores habilitados y pausados con
+  su API nativa autenticada. Habilitado **no** significa que el sitio esté disponible.
+- `gotenberg / health.summary`: resume las comprobaciones de salud de la API,
+  solo detrás de un proxy autenticador revisado. No convierte documentos ni prueba PDFs.
+
+Comparten Engine, CLI/MCP, autenticación por empresa, flujo con dependencias,
+idempotencia y SQLite. Sus 26 pruebas de contrato y sockets locales usan respuestas
+sintéticas; ningún servidor upstream de estos dos fue instalado o certificado.
+Se mantienen deshabilitados, sin revisión de licencia ni permisos aprobados por defecto.
+[Fuentes fijadas, configuración y límites](docs/TANDA1_V018.md).
 
 ## Qué añade v0.17
 
@@ -248,9 +315,9 @@ Engine. SQLite y roles de proceso no constituyen IAM multiempresa hostil. Datos
 personales requieren cifrado, retención y respaldos privados. Las escrituras HTTP
 siguen requiriendo aprobación separada; no se reintentan resultados inciertos.
 
-**38 proyectos aún requieren código de integración.** Los adaptadores HTTP necesitan
-aceptación de versiones/ediciones/permisos por instancia; Qdrant y Meilisearch no
-validan los otros 41. No hay despliegue productivo, conexión automática de este
+**88 entradas siguen pendientes de conector.** Los adaptadores HTTP necesitan
+aceptación de versiones/ediciones/permisos por instancia; Las aceptaciones de Qdrant, Meilisearch y Caddy
+no validan los otros proveedores. No hay despliegue productivo, conexión automática de este
 chat al MCP, servicio 24/7, cobros reconciliados ni probabilidad comercial demostrada.
 No se activan campañas, contactos, compras ni infraestructura de pago al instalar.
 

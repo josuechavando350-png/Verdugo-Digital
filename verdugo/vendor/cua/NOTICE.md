@@ -1,0 +1,1 @@
+The upstream source and license are retained byte-for-byte in original.py and LICENSE. The executed adapted.py changes only the import namespace of the original types.py dataclasses; no desktop is started.

@@ -1,0 +1,252 @@
+{
+  "schema": "verdugo.http-source-contracts.v1",
+  "scope": "nine fixed HTTP reads; fixtures do not certify original servers",
+  "records": [
+    {
+      "id": "datahub",
+      "repository": "datahub-project/datahub",
+      "commit": "164ce58a867afb6ee6ceac64c1c7aa9b526c1841",
+      "live_verified": false,
+      "files": [
+        {
+          "path": "metadata-service/openapi-servlet/src/main/java/io/datahubproject/openapi/v1/entities/EntityCountsController.java",
+          "git_blob_sha": "4141108b2500776584e7a3d07f89d805f56aebc9",
+          "source_url": "https://github.com/datahub-project/datahub/blob/164ce58a867afb6ee6ceac64c1c7aa9b526c1841/metadata-service/openapi-servlet/src/main/java/io/datahubproject/openapi/v1/entities/EntityCountsController.java"
+        },
+        {
+          "path": "metadata-service/openapi-servlet/models/src/main/java/io/datahubproject/openapi/v1/models/entities/EntityTypeCountResponseDto.java",
+          "git_blob_sha": "21ab985cfb8cceb216dfef575b5393a1f239884e",
+          "source_url": "https://github.com/datahub-project/datahub/blob/164ce58a867afb6ee6ceac64c1c7aa9b526c1841/metadata-service/openapi-servlet/models/src/main/java/io/datahubproject/openapi/v1/models/entities/EntityTypeCountResponseDto.java"
+        },
+        {
+          "path": "metadata-service/auth-impl/src/main/java/com/datahub/authentication/authenticator/DataHubTokenAuthenticator.java",
+          "git_blob_sha": "c700ef274f4aba341e5b3efcf29e77334f3dd3f6",
+          "source_url": "https://github.com/datahub-project/datahub/blob/164ce58a867afb6ee6ceac64c1c7aa9b526c1841/metadata-service/auth-impl/src/main/java/com/datahub/authentication/authenticator/DataHubTokenAuthenticator.java"
+        }
+      ]
+    },
+    {
+      "id": "jitsu",
+      "repository": "jitsucom/jitsu",
+      "commit": "6c0d189a55c9e6c7b47d024d046e091ff1636565",
+      "live_verified": false,
+      "files": [
+        {
+          "path": "bulker/ingest/router.go",
+          "git_blob_sha": "e9fbf7ceb7f5bd0bf47c301e885990e7398e3318",
+          "source_url": "https://github.com/jitsucom/jitsu/blob/6c0d189a55c9e6c7b47d024d046e091ff1636565/bulker/ingest/router.go"
+        },
+        {
+          "path": "bulker/ingest/health_response_test.go",
+          "git_blob_sha": "76a43c55a5ca0c4f75271a00c3fbfd89229fd4f2",
+          "source_url": "https://github.com/jitsucom/jitsu/blob/6c0d189a55c9e6c7b47d024d046e091ff1636565/bulker/ingest/health_response_test.go"
+        }
+      ]
+    },
+    {
+      "id": "magentic-ui",
+      "repository": "microsoft/magentic-ui",
+      "commit": "d3c9d13c39288257286a66daabf7c5b5fb72ee69",
+      "live_verified": false,
+      "files": [
+        {
+          "path": "src/magentic_ui/backend/web/app.py",
+          "git_blob_sha": "aa38291ff37fa144c00425e9900600c55dc16859",
+          "source_url": "https://github.com/microsoft/magentic-ui/blob/d3c9d13c39288257286a66daabf7c5b5fb72ee69/src/magentic_ui/backend/web/app.py"
+        },
+        {
+          "path": "src/magentic_ui/backend/web/auth.py",
+          "git_blob_sha": "b65eed774ca48523751265f087e997151fa8aee6",
+          "source_url": "https://github.com/microsoft/magentic-ui/blob/d3c9d13c39288257286a66daabf7c5b5fb72ee69/src/magentic_ui/backend/web/auth.py"
+        },
+        {
+          "path": "src/magentic_ui/backend/web/routes/sessions.py",
+          "git_blob_sha": "197b83d5c97091ef37d08f212e9921624da6254a",
+          "source_url": "https://github.com/microsoft/magentic-ui/blob/d3c9d13c39288257286a66daabf7c5b5fb72ee69/src/magentic_ui/backend/web/routes/sessions.py"
+        }
+      ]
+    },
+    {
+      "id": "operately",
+      "repository": "operately/operately",
+      "commit": "9fa8692fb61cec13730fb4523daf57c29261be45",
+      "live_verified": false,
+      "files": [
+        {
+          "path": "app/lib/operately_web/api/companies/list.ex",
+          "git_blob_sha": "e6c373247957eaf680cd26594ef53d306c1e4407",
+          "source_url": "https://github.com/operately/operately/blob/9fa8692fb61cec13730fb4523daf57c29261be45/app/lib/operately_web/api/companies/list.ex"
+        },
+        {
+          "path": "app/lib/operately_web/api/serializers/company.ex",
+          "git_blob_sha": "6190cde62cbc0f42044cbbe5bd98b3453193dd62",
+          "source_url": "https://github.com/operately/operately/blob/9fa8692fb61cec13730fb4523daf57c29261be45/app/lib/operately_web/api/serializers/company.ex"
+        },
+        {
+          "path": "app/lib/operately_web/router.ex",
+          "git_blob_sha": "3142978f4c8f30fc3ea6ce34180a4dc3c2a9f316",
+          "source_url": "https://github.com/operately/operately/blob/9fa8692fb61cec13730fb4523daf57c29261be45/app/lib/operately_web/router.ex"
+        },
+        {
+          "path": "app/lib/operately_web/api/external.ex",
+          "git_blob_sha": "125e41fb92ae72f6af231275c3dbbb037a10eda3",
+          "source_url": "https://github.com/operately/operately/blob/9fa8692fb61cec13730fb4523daf57c29261be45/app/lib/operately_web/api/external.ex"
+        },
+        {
+          "path": "app/lib/operately_web/api/plugs/require_api_token.ex",
+          "git_blob_sha": "d0e006fcb5bb64226bc2e98e64fbf4637645a99a",
+          "source_url": "https://github.com/operately/operately/blob/9fa8692fb61cec13730fb4523daf57c29261be45/app/lib/operately_web/api/plugs/require_api_token.ex"
+        },
+        {
+          "path": "app/lib/turbo_connect/plugs/match.ex",
+          "git_blob_sha": "6f64ed50838ef237988ce3475a6718d47f9a35eb",
+          "source_url": "https://github.com/operately/operately/blob/9fa8692fb61cec13730fb4523daf57c29261be45/app/lib/turbo_connect/plugs/match.ex"
+        },
+        {
+          "path": "app/lib/turbo_connect/plugs/dispatch.ex",
+          "git_blob_sha": "2c79b3a8ad025c3c88db7cff0d2c01cea19ed5e4",
+          "source_url": "https://github.com/operately/operately/blob/9fa8692fb61cec13730fb4523daf57c29261be45/app/lib/turbo_connect/plugs/dispatch.ex"
+        },
+        {
+          "path": "app/lib/operately_web/api.ex",
+          "git_blob_sha": "737963661ff6b56a6e4c240f874cbb277b0187fa",
+          "source_url": "https://github.com/operately/operately/blob/9fa8692fb61cec13730fb4523daf57c29261be45/app/lib/operately_web/api.ex"
+        }
+      ]
+    },
+    {
+      "id": "signoz",
+      "repository": "SigNoz/signoz",
+      "commit": "ca7daf8ea974b879379101c7f7d8cb420da6acc7",
+      "live_verified": false,
+      "files": [
+        {
+          "path": "pkg/types/dashboardtypes/list_v2.go",
+          "git_blob_sha": "2f3d68884d3563bdd2169616641d13c3f8e8b3d2",
+          "source_url": "https://github.com/SigNoz/signoz/blob/ca7daf8ea974b879379101c7f7d8cb420da6acc7/pkg/types/dashboardtypes/list_v2.go"
+        },
+        {
+          "path": "pkg/http/render/render.go",
+          "git_blob_sha": "73d45223ee3fd8c4c6a3ffa2917b3fdcc3d6b929",
+          "source_url": "https://github.com/SigNoz/signoz/blob/ca7daf8ea974b879379101c7f7d8cb420da6acc7/pkg/http/render/render.go"
+        },
+        {
+          "path": "pkg/apiserver/signozapiserver/dashboard.go",
+          "git_blob_sha": "37c1e3eeb5d5d3f97bba97c04045b6788cff83df",
+          "source_url": "https://github.com/SigNoz/signoz/blob/ca7daf8ea974b879379101c7f7d8cb420da6acc7/pkg/apiserver/signozapiserver/dashboard.go"
+        },
+        {
+          "path": "pkg/identn/apikeyidentn/provider.go",
+          "git_blob_sha": "fae98e65a690345504f47fd94293f631a98d10d1",
+          "source_url": "https://github.com/SigNoz/signoz/blob/ca7daf8ea974b879379101c7f7d8cb420da6acc7/pkg/identn/apikeyidentn/provider.go"
+        },
+        {
+          "path": "pkg/identn/config.go",
+          "git_blob_sha": "8181c7d3ec50a8d1bceca796d9b9d88b1e6ec454",
+          "source_url": "https://github.com/SigNoz/signoz/blob/ca7daf8ea974b879379101c7f7d8cb420da6acc7/pkg/identn/config.go"
+        }
+      ]
+    },
+    {
+      "id": "bifrost",
+      "repository": "maximhq/bifrost",
+      "commit": "ff2e69f7f0143ab79c9de5258b90bd9c70cf347b",
+      "live_verified": false,
+      "files": [
+        {
+          "path": "docs/openapi/paths/management/providers.yaml",
+          "git_blob_sha": "e16b5abbd2cc87eebfa013266006686476cf7ca1",
+          "source_url": "https://github.com/maximhq/bifrost/blob/ff2e69f7f0143ab79c9de5258b90bd9c70cf347b/docs/openapi/paths/management/providers.yaml"
+        },
+        {
+          "path": "docs/openapi/schemas/management/providers.yaml",
+          "git_blob_sha": "fb631781eb9a0127239c3edd58cae77b92fca30d",
+          "source_url": "https://github.com/maximhq/bifrost/blob/ff2e69f7f0143ab79c9de5258b90bd9c70cf347b/docs/openapi/schemas/management/providers.yaml"
+        },
+        {
+          "path": "docs/openapi/openapi.yaml",
+          "git_blob_sha": "0f062caa2cd9a776f8ec9fe2e2c239b90e7577c6",
+          "source_url": "https://github.com/maximhq/bifrost/blob/ff2e69f7f0143ab79c9de5258b90bd9c70cf347b/docs/openapi/openapi.yaml"
+        }
+      ]
+    },
+    {
+      "id": "killbill",
+      "repository": "killbill/killbill",
+      "commit": "52e2f55f103baf0703ddee71e10a7036595fc851",
+      "live_verified": false,
+      "files": [
+        {
+          "path": "jaxrs/src/main/java/org/killbill/billing/jaxrs/resources/AccountResource.java",
+          "git_blob_sha": "bf6eacccf774039e5cfe0e5f88a565f7d06a29d4",
+          "source_url": "https://github.com/killbill/killbill/blob/52e2f55f103baf0703ddee71e10a7036595fc851/jaxrs/src/main/java/org/killbill/billing/jaxrs/resources/AccountResource.java"
+        },
+        {
+          "path": "jaxrs/src/main/java/org/killbill/billing/jaxrs/resources/JaxrsResource.java",
+          "git_blob_sha": "9665bc11a4a982891ae33a0ac1618ee93422e0de",
+          "source_url": "https://github.com/killbill/killbill/blob/52e2f55f103baf0703ddee71e10a7036595fc851/jaxrs/src/main/java/org/killbill/billing/jaxrs/resources/JaxrsResource.java"
+        },
+        {
+          "path": "jaxrs/src/main/java/org/killbill/billing/jaxrs/json/AccountJson.java",
+          "git_blob_sha": "713ca50ced902750d89222e4b75309c1d605e0cc",
+          "source_url": "https://github.com/killbill/killbill/blob/52e2f55f103baf0703ddee71e10a7036595fc851/jaxrs/src/main/java/org/killbill/billing/jaxrs/json/AccountJson.java"
+        }
+      ]
+    },
+    {
+      "id": "taguette",
+      "repository": "remram44/taguette",
+      "commit": "52fcdce95709375a4085cb10852bf7dd251ccb3d",
+      "live_verified": false,
+      "files": [
+        {
+          "path": "taguette/web/base.py",
+          "git_blob_sha": "0d11d2d10bb48fe0e2cfcc7b1e14c445c361ebe2",
+          "source_url": "https://github.com/remram44/taguette/blob/52fcdce95709375a4085cb10852bf7dd251ccb3d/taguette/web/base.py"
+        },
+        {
+          "path": "taguette/web/__init__.py",
+          "git_blob_sha": "7cfca65e69b49b9d1a40267645b8448c4362ea8a",
+          "source_url": "https://github.com/remram44/taguette/blob/52fcdce95709375a4085cb10852bf7dd251ccb3d/taguette/web/__init__.py"
+        },
+        {
+          "path": "taguette/web/api.py",
+          "git_blob_sha": "e9b8e5af4aecafc07f06f390804284fd9c816d7e",
+          "source_url": "https://github.com/remram44/taguette/blob/52fcdce95709375a4085cb10852bf7dd251ccb3d/taguette/web/api.py"
+        },
+        {
+          "path": "taguette/database/models.py",
+          "git_blob_sha": "5572f717e8bf1e38eaa80a3f6fa88f7e051c1393",
+          "source_url": "https://github.com/remram44/taguette/blob/52fcdce95709375a4085cb10852bf7dd251ccb3d/taguette/database/models.py"
+        }
+      ]
+    },
+    {
+      "id": "ckanapi",
+      "repository": "ckan/ckanapi",
+      "commit": "94b8c24a21a185c270a01bcbcfa72ff4e1b78b1c",
+      "live_verified": false,
+      "files": [
+        {
+          "path": "ckanapi/remoteckan.py",
+          "git_blob_sha": "fff111f196cf1c070c7911bcfe06babdcabc8bc7",
+          "source_url": "https://github.com/ckan/ckanapi/blob/94b8c24a21a185c270a01bcbcfa72ff4e1b78b1c/ckanapi/remoteckan.py"
+        },
+        {
+          "path": "ckanapi/common.py",
+          "git_blob_sha": "41e10b7d64dd5cb11249bc9a26c6d2e21d5da70c",
+          "source_url": "https://github.com/ckan/ckanapi/blob/94b8c24a21a185c270a01bcbcfa72ff4e1b78b1c/ckanapi/common.py"
+        }
+      ]
+    }
+  ],
+  "supplemental": [
+    {
+      "service": "ckanapi",
+      "repository": "ckan/ckan",
+      "commit": "8e7d8262435ad2131a09227867b910f12e46555a",
+      "path": "ckan/logic/action/get.py",
+      "blob_sha": "2189459b6b8a025b48d6d586e835fa50fdf602cd"
+    }
+  ]
+}

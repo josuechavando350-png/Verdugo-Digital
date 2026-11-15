@@ -4,7 +4,7 @@ from pathlib import Path
 import sys
 import tempfile
 from .adapters import SPECS
-from . import local_runtime
+from . import local_runtime, product
 from .catalog import catalog, graph
 from .common import VerdugoError, encode, identifier
 from .engine import Engine
@@ -62,6 +62,49 @@ def template(tenant):
     for sid in PROXY_ONLY:
         services[sid].update(auth_mode='reviewed_proxy_bearer', proxy_auth_reviewed=False)
     services['fides'].update(auth_mode='native_oauth_bearer')
+    services['uptime-kuma'].update(auth_mode='native_api_key_bearer', api_access_reviewed=False)
+    services['gotenberg'].update(auth_mode='reviewed_proxy_bearer', proxy_auth_reviewed=False)
+    from .operations_reads import PROXY_ONLY as OPERATIONS_PROXY_ONLY
+    for sid in OPERATIONS_PROXY_ONLY:
+        services[sid].update(auth_mode='reviewed_proxy_bearer', proxy_auth_reviewed=False)
+    services['apache-answer'].update(auth_mode='native_user_bearer')
+    from .platform_reads import AUTH_MODES, PROXY_ONLY as PLATFORM_PROXIES
+    for sid, mode in AUTH_MODES.items():
+        services[sid]['auth_mode'] = mode
+        if sid in PLATFORM_PROXIES: services[sid]['proxy_auth_reviewed'] = False
+    services['killbill']['proxy_tenant_binding_reviewed'] = False
+    for sid in ('datahub', 'bifrost'): services[sid]['native_auth_enforced_reviewed'] = False
+    services['magentic-ui'].update(user_id=None, user_scope_reviewed=False)
+    services['taguette'].update(project_id=None, document_id=None)
+    from .completion_reads import AUTH_MODES as COMPLETION_AUTH, PROXY_ONLY as COMPLETION_PROXIES
+    for sid, mode in COMPLETION_AUTH.items():
+        services[sid]['auth_mode'] = mode
+        if sid in COMPLETION_PROXIES:
+            services[sid]['proxy_auth_reviewed'] = False
+    services['anubis'].update(username=None, native_auth_enforced_reviewed=False)
+    services['google-ads'].update(base_url='https://googleads.googleapis.com',
+                                developer_token_env=None, oauth_scope_reviewed=False)
+    services['debezium'].update(connector_id=None, debezium_connector_reviewed=False)
+    services['otel-collector'].update(default_metrics_names_reviewed=False)
+    for sid in ('huginn', 'opengmb', 'livekit', 'webmention-io', 'datosmex'):
+        services[sid].update(account_scope_reviewed=False)
+    services['livekit'].update(api_key_env=None)
+    services['webmention-io'].update(base_url='https://webmention.io')
+    services['datosmex'].update(base_url='https://www.banxico.org.mx')
+    from .public_reads import ORIGINS as PUBLIC_ORIGINS
+    for sid, origin in PUBLIC_ORIGINS.items():
+        services[sid].update(base_url=origin, token_env=None, auth_mode='public_no_credentials', public_access_reviewed=False)
+    services['gdeltdoc'].update(query_terms=None)
+    services['wbgapi'].update(country=None, year=2024)
+    services['mcp-gsc'].update(base_url='https://www.googleapis.com', oauth_scope_reviewed=False)
+    services['praw'].update(base_url='https://oauth.reddit.com', oauth_scope_reviewed=False,
+                            free_api_access_reviewed=False, subreddit=None)
+    services['python-podcastindex'].update(base_url='https://api.podcastindex.org',
+                                          api_key_env=None, account_scope_reviewed=False)
+    services['letta'].update(api_surface='letta_code_app_server')
+    services['humanlayer'].update(api_surface='riptide_api')
+    services['openhands'].update(api_surface='openhands_agent_server_1_62')
+    services['krayin-crm'].update(session_cookie_name=None, account_scope_reviewed=False, admin_path='admin')
     return {'tenants': {tenant: {'services': services, 'ingress': {}}}}
 
 
@@ -76,10 +119,11 @@ def main(argv=None):
     for name in ('status', 'catalog', 'graph', 'mcp', 'demo', 'sources', 'runtime-check'): sub.add_parser(name)
     p = sub.add_parser('licenses'); p.add_argument('project_id', nargs='?')
     p = sub.add_parser('connections'); p.add_argument('project_id', nargs='?')
+    p = sub.add_parser('product-status'); p.add_argument('--dataset', choices=['real', 'demo'], default='real')
     p = sub.add_parser('init'); p.add_argument('--out', default='verdugo.local.json')
     p = sub.add_parser('source-inspect'); p.add_argument('project_id')
     p = sub.add_parser('events'); p.add_argument('--after', type=int, default=0)
-    for name in ('plan', 'run', 'workflow', 'bridge', 'readback', 'surface'):
+    for name in ('plan', 'run', 'workflow', 'bridge', 'readback', 'surface', 'product-run'):
         p = sub.add_parser(name); p.add_argument('input', help='JSON text or @path.json')
         if name != 'plan': p.add_argument('--execute', action='store_true')
     p = sub.add_parser('doctor'); p.add_argument('--probe-id', default='configuration-check')
@@ -144,6 +188,8 @@ def main(argv=None):
             return 0
         if args.cmd == 'mcp': serve(engine); return 0
         if args.cmd == 'status': result = engine.status()
+        elif args.cmd == 'product-status': result = product.overview(engine, args.dataset)
+        elif args.cmd == 'product-run': result = product.observe(engine, read_json(args.input), args.execute)
         elif args.cmd == 'events': result = engine.events(args.after)
         elif args.cmd == 'queue': result = jobs.overview(engine, args.limit)
         elif args.cmd == 'job': result = jobs.get(engine, args.job_id)

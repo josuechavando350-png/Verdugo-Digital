@@ -12,7 +12,7 @@ from pathlib import Path
 from .adapters import SPECS
 from .catalog import catalog
 from .common import VerdugoError
-from . import license_policy, local_runtime
+from . import license_policy, local_runtime, local_data, local_cli, local_pycli, local_native_tools, local_media, local_images, local_lastnode, local_owned_http
 
 PATH = Path(__file__).resolve().parents[1] / "sources" / "connections.json"
 KINDS = ('servicio', 'biblioteca', 'componente', 'cli', 'mcp', 'protocolo', 'datos', 'excluido')
@@ -45,9 +45,9 @@ def read_map(path=None):
             raise VerdugoError('Connection map does not match the catalogue')
         if (row['kind'] == 'excluido') != (policy[sid]['policy'] == 'excluido'):
             raise VerdugoError('Connection map disagrees with the license policy: ' + sid)
-        if sid in SPECS and row['kind'] not in ('servicio', 'excluido'):
+        if sid in SPECS and row['kind'] not in (('biblioteca',) if sid == 'ckanapi' else ('servicio', 'excluido')):
             raise VerdugoError('An HTTP adapter requires kind servicio: ' + sid)
-        if sid in local_runtime.SPECS and row['kind'] != 'biblioteca':
+        if sid in local_runtime.SPECS and row['kind'] != ('datos' if sid in local_data.SPECS else 'mcp' if sid in local_lastnode.MCP else 'cli' if sid in {*local_cli.SPECS, *local_pycli.SPECS, *local_native_tools.CLI, *local_media.SPECS, *local_images.SPECS, *local_lastnode.CLI, *local_owned_http.SPECS} else 'biblioteca'):
             raise VerdugoError('A local recipe requires kind biblioteca: ' + sid)
         table[sid] = row['kind']
     _CACHE[str(path)] = (table, kinds)
