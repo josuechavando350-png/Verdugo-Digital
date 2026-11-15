@@ -22,7 +22,7 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 | Operaciones HTTP existentes | 82, limitadas por proveedor |
 | Operaciones locales implementadas | 115; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Flujo de 87 operaciones nuevas + métricas locales; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 660 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
+| Pruebas unitarias y de contrato | 664 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
 | Herramientas MCP | 25; product-status/product-run reutilizan el mismo motor |
 | Servicios productivos certificados | 0 |
 

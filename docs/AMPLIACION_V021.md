@@ -81,3 +81,13 @@ un workflow no significa que haya aprobado.
 
 El perfil de binarios descrito es Linux x86_64. **No se ha probado en Android/Termux**.
 Tampoco se instaló un servicio permanente ni se acreditaron ingresos o clientes.
+
+## Integridad de la base Grype después de importar
+
+El cliente original verifica el SHA-256 fijado del archivo descargado. Su
+importación reconstruye índices y migra el esquema (Hydrater, db.go); por ello
+el SHA-256 físico de SQLite después de importar no se compara entre máquinas.
+Se verifica el estado con grype db status, el origen exacto y la versión de
+cliente del import.json. Después se fija el SHA-256 local resultante en el
+manifiesto. El runtime sigue recalculando ese SHA-256 y rechaza cambios posteriores.
+El manifiesto conserva también el hash del archivo original descargado.

@@ -129,6 +129,38 @@
       "path": "cmd/grype/cli/commands/db_import.go",
       "blob_sha": "587ce08e2811c92d535a5ac92ce93ea24ab2a652",
       "url": "https://github.com/anchore/grype/blob/cd1f23eb50dfb52647090158f453c7359172591f/cmd/grype/cli/commands/db_import.go"
+    },
+    {
+      "service": "grype",
+      "repository": "anchore/grype",
+      "commit": "cd1f23eb50dfb52647090158f453c7359172591f",
+      "path": "grype/db/v6/db.go",
+      "blob_sha": "15b0a157887bce6720ac45ad88eb8a84a913cec1",
+      "url": "https://github.com/anchore/grype/blob/cd1f23eb50dfb52647090158f453c7359172591f/grype/db/v6/db.go"
+    },
+    {
+      "service": "grype",
+      "repository": "anchore/grype",
+      "commit": "cd1f23eb50dfb52647090158f453c7359172591f",
+      "path": "grype/db/v6/installation/curator.go",
+      "blob_sha": "8b5542b1bbacc9dda80f1a0dababb57adbced035",
+      "url": "https://github.com/anchore/grype/blob/cd1f23eb50dfb52647090158f453c7359172591f/grype/db/v6/installation/curator.go"
+    },
+    {
+      "service": "grype",
+      "repository": "anchore/grype",
+      "commit": "cd1f23eb50dfb52647090158f453c7359172591f",
+      "path": "grype/db/v6/distribution/client.go",
+      "blob_sha": "92ec2e4afb7e833eba509fa7346e7ed131e74144",
+      "url": "https://github.com/anchore/grype/blob/cd1f23eb50dfb52647090158f453c7359172591f/grype/db/v6/distribution/client.go"
+    },
+    {
+      "service": "grype",
+      "repository": "anchore/grype",
+      "commit": "cd1f23eb50dfb52647090158f453c7359172591f",
+      "path": "cmd/grype/cli/commands/db_status.go",
+      "blob_sha": "af402e27aab1bce3f257c299ee434cb7d8aa06c5",
+      "url": "https://github.com/anchore/grype/blob/cd1f23eb50dfb52647090158f453c7359172591f/cmd/grype/cli/commands/db_status.go"
     }
   ]
 }
