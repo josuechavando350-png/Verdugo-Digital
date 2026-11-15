@@ -1,0 +1,156 @@
+{
+  "schema": "verdugo.knowledge-reads666.v1",
+  "records": [
+    {
+      "id": "ragflow",
+      "repository": "infiniflow/ragflow",
+      "commit": "f9a53a3779a12b5abb8a254ec9384c2af7fae4b4",
+      "license": "Apache-2.0",
+      "license_text_read": true,
+      "license_evidence": [
+        {
+          "repository": "infiniflow/ragflow",
+          "commit_sha": "f9a53a3779a12b5abb8a254ec9384c2af7fae4b4",
+          "path": "LICENSE",
+          "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "local_path": "sources/license-texts/c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.txt",
+          "source_url": "https://github.com/infiniflow/ragflow/blob/f9a53a3779a12b5abb8a254ec9384c2af7fae4b4/LICENSE"
+        }
+      ],
+      "operation": "datasets.summary",
+      "method": "GET",
+      "path": "/api/v1/datasets?page=1&page_size=100",
+      "authentication": "Authorization: Bearer API key, native AuthMiddleware and ResolveAPIToken; reviewed non-ee community build only",
+      "request": "Fixed first page, 100 items, no caller filters or identity selector",
+      "response": "code integer 0, data array of dataset objects including string id/name, total_datasets integer; only counts projected",
+      "scope": [
+        "Credential identity fixes tenant/user; permission checker restricts list query.",
+        "No document content retrieval, embeddings, model calls or ingestion.",
+        "Community billing.Get returns nil; no enterprise build or paid service used."
+      ],
+      "files": [
+        {
+          "path": "internal/router/router.go",
+          "git_blob_sha": "21a777742988bc2bb029d4e83e15f4f2c614dae2",
+          "sha256": "1145814e3cf2bee8038e6d7b2e37a1599d6307ac9719ffd4f359d3ee0d78bc33",
+          "source_url": "https://github.com/infiniflow/ragflow/blob/f9a53a3779a12b5abb8a254ec9384c2af7fae4b4/internal/router/router.go"
+        },
+        {
+          "path": "internal/handler/dataset.go",
+          "git_blob_sha": "13c4ff194909f65922e1b58625952a84f53444cd",
+          "sha256": "fe5f2195441719946470b61b6a3ee5589959cb5f868af44dd57a0aff270569e9",
+          "source_url": "https://github.com/infiniflow/ragflow/blob/f9a53a3779a12b5abb8a254ec9384c2af7fae4b4/internal/handler/dataset.go"
+        },
+        {
+          "path": "internal/handler/auth.go",
+          "git_blob_sha": "8934ac0e6d6e4cbd34b2850dc8de39c07ea4161b",
+          "sha256": "810fb5f8ffaafb6a6e4911f62b8fc59174adaf1e4f21a8cff3e159b6afdc96bc",
+          "source_url": "https://github.com/infiniflow/ragflow/blob/f9a53a3779a12b5abb8a254ec9384c2af7fae4b4/internal/handler/auth.go"
+        },
+        {
+          "path": "internal/service/user.go",
+          "git_blob_sha": "60b3286e3e93e8672ff8af8aa14bf726d9c582de",
+          "sha256": "7d9b3d368e5f6d576bb39e7145ae6d3ff0ded0d3550cfcb71a584036ae636a2d",
+          "source_url": "https://github.com/infiniflow/ragflow/blob/f9a53a3779a12b5abb8a254ec9384c2af7fae4b4/internal/service/user.go"
+        },
+        {
+          "path": "internal/service/dataset/crud.go",
+          "git_blob_sha": "bbe3c1132eb24ecd9682db5ec2c3150d8b34377f",
+          "sha256": "da154d6da21ff4674efcfef0a974c0f1977cc4fcff886593f4eb053195bd0a73",
+          "source_url": "https://github.com/infiniflow/ragflow/blob/f9a53a3779a12b5abb8a254ec9384c2af7fae4b4/internal/service/dataset/crud.go"
+        },
+        {
+          "path": "internal/common/pagination.go",
+          "git_blob_sha": "94724419cf4a7d712aa242436e6695ac8942fa8e",
+          "sha256": "837a3cf9f3150758fe39d7b326e8842b15ceaf1f0cb557306749931fe2c0eff4",
+          "source_url": "https://github.com/infiniflow/ragflow/blob/f9a53a3779a12b5abb8a254ec9384c2af7fae4b4/internal/common/pagination.go"
+        },
+        {
+          "path": "internal/common/error_code.go",
+          "git_blob_sha": "95a4a0c4b00fc0160290dc0c83e3246383a845f5",
+          "sha256": "5a565beed7c31cba3698f5668dbecc0c5a79ae7a12daa191c3e48cc5552fcaa6",
+          "source_url": "https://github.com/infiniflow/ragflow/blob/f9a53a3779a12b5abb8a254ec9384c2af7fae4b4/internal/common/error_code.go"
+        },
+        {
+          "path": "internal/service/billing/stub.go",
+          "git_blob_sha": "d510403e16ae997d991013f070f0c5ffae987059",
+          "sha256": "88763956419b27ce1c3b589e6b046133d06bc2c4394a1f5becdb26f321473f2b",
+          "source_url": "https://github.com/infiniflow/ragflow/blob/f9a53a3779a12b5abb8a254ec9384c2af7fae4b4/internal/service/billing/stub.go"
+        },
+        {
+          "path": "internal/router/stub.go",
+          "git_blob_sha": "58aff1a56c00c1ba8f608893bd4a00a8222d99f4",
+          "sha256": "c16888a0ee09ed5e31eb14f44ac547b667813a13eca6e374188ede9f46e90620",
+          "source_url": "https://github.com/infiniflow/ragflow/blob/f9a53a3779a12b5abb8a254ec9384c2af7fae4b4/internal/router/stub.go"
+        },
+        {
+          "path": "internal/service/dataset/utils.go",
+          "git_blob_sha": "db68054ceaf339456a0649300877054775cef5a6",
+          "sha256": "fe8d8e66f03f6f665d049ba0b236f96e0300bdbfe5ffe5c35237ca460f3618cb",
+          "source_url": "https://github.com/infiniflow/ragflow/blob/f9a53a3779a12b5abb8a254ec9384c2af7fae4b4/internal/service/dataset/utils.go"
+        }
+      ],
+      "original_server_executed": false,
+      "live_verified": false,
+      "production_certified": false
+    },
+    {
+      "id": "infinity",
+      "repository": "michaelfeil/infinity",
+      "commit": "f25b80850a7fc9736310496b64faf9903c01ac97",
+      "license": "MIT",
+      "license_text_read": true,
+      "license_evidence": [
+        {
+          "repository": "michaelfeil/infinity",
+          "commit_sha": "f25b80850a7fc9736310496b64faf9903c01ac97",
+          "path": "LICENSE",
+          "blob_sha": "8e63b3a597fa7d0f34c1379078b72311ac023dd5",
+          "sha256": "cd7e2c5857360e85f8b6d1867eed437e7c6b3498afd5d1bd7878bb3d2752c956",
+          "local_path": "sources/license-texts/cd7e2c5857360e85f8b6d1867eed437e7c6b3498afd5d1bd7878bb3d2752c956.txt",
+          "source_url": "https://github.com/michaelfeil/infinity/blob/f25b80850a7fc9736310496b64faf9903c01ac97/LICENSE"
+        }
+      ],
+      "operation": "models.summary",
+      "method": "GET",
+      "path": "/models",
+      "authentication": "Native HTTPBearer enabled by nonempty api_key, guarded route dependencies; API key and enforcement must be reviewed.",
+      "request": "Fixed root /models for original Python infinity_emb 0.0.80 surface; url_prefix must remain empty. No v3 native server or model selection supported.",
+      "response": "OpenAIModelInfo response_model adds object=list; each ModelInfo has id string, stats object, object=model and owned_by=infinity. Only model count survives.",
+      "scope": [
+        "Dedicated operator-reviewed instance. The handler inspects engine configuration and queue status; no embedding/reranking operation called.",
+        "No model weights downloaded or used by Verdugo. Model metadata is not a license review of weights, quality assessment or proof that inference succeeds."
+      ],
+      "files": [
+        {
+          "path": "libs/infinity_emb/infinity_emb/env.py",
+          "git_blob_sha": "48833e47366e2b1b718c3ad523463d7a33c555e8",
+          "sha256": "b0bc74f5a6b4d88c5f3d46d0545f92ed3a79a7c82dc6f40941dd1ca6150aa750",
+          "source_url": "https://github.com/michaelfeil/infinity/blob/f25b80850a7fc9736310496b64faf9903c01ac97/libs/infinity_emb/infinity_emb/env.py"
+        },
+        {
+          "path": "libs/infinity_emb/infinity_emb/fastapi_schemas/pymodels.py",
+          "git_blob_sha": "94c3c3d6a509de4cee9df259780d438904f7cf3d",
+          "sha256": "f10a5281ea942cac8cf3be66a479342e7fb55752c922f24949050b16ca14f97e",
+          "source_url": "https://github.com/michaelfeil/infinity/blob/f25b80850a7fc9736310496b64faf9903c01ac97/libs/infinity_emb/infinity_emb/fastapi_schemas/pymodels.py"
+        },
+        {
+          "path": "libs/infinity_emb/infinity_emb/infinity_server.py",
+          "git_blob_sha": "382cc6e8ec85961a35abfeda25b9e2e0c19c5420",
+          "sha256": "e44ddeae60563e2f02cb4740f9e3f8b3e4e5092721658c727ef2c9628a57d315",
+          "source_url": "https://github.com/michaelfeil/infinity/blob/f25b80850a7fc9736310496b64faf9903c01ac97/libs/infinity_emb/infinity_emb/infinity_server.py"
+        },
+        {
+          "path": "libs/infinity_emb/pyproject.toml",
+          "git_blob_sha": "3e670b67ca42f4fcdf5faebdd70b8ad546a785ca",
+          "sha256": "2e3eac7d46dab43c689ae9a890d89f3014a55677cffb26a5e352126ccb8e32ce",
+          "source_url": "https://github.com/michaelfeil/infinity/blob/f25b80850a7fc9736310496b64faf9903c01ac97/libs/infinity_emb/pyproject.toml"
+        }
+      ],
+      "original_server_executed": false,
+      "live_verified": false,
+      "production_certified": false
+    }
+  ]
+}

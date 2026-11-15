@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 338,
+ "pending": 334,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -444,9 +444,9 @@
    "kind": "biblioteca",
    "domain": "memoria",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "Original Python package requires NumPy, PyArrow >=16, Pydantic and lance-namespace; maturin Rust build and dependency closure remain to be prepared. No build was attempted and no upstream build failure is claimed.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/review-memory-next666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 2",
@@ -458,23 +458,9 @@
    "kind": "biblioteca",
    "domain": "memoria",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "The original Python build requires scikit-build-core, SWIG and NumPy; the CPU profile needs the native libraries and BLAS before the SWIG module. Native build and dependency review remain pending; no build failure observed.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 2",
-   "id": "usearch",
-   "repository": "unum-cloud/USearch",
-   "commit": "840374af1a1dd5d411826bc62fdfe5ef6e41e1de",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "memoria",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/review-memory-next666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 2",
@@ -486,23 +472,9 @@
    "kind": "biblioteca",
    "domain": "memoria",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "The original default package requires faiss-cpu, Torch and Transformers. setup.py also exposes a MINIMAL variant named txtai_minimal without runtime requirements; its usable original operations still need inspection. No unsupported claim that every profile requires Torch, and no SDK installed.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 2",
-   "id": "ragflow",
-   "repository": "infiniflow/ragflow",
-   "commit": "f9a53a3779a12b5abb8a254ec9384c2af7fae4b4",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "servicio",
-   "domain": "memoria",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/review-memory-next666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 2",
@@ -512,20 +484,6 @@
    "license": "MIT",
    "policy": "libre",
    "kind": "biblioteca",
-   "domain": "memoria",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 2",
-   "id": "infinity",
-   "repository": "michaelfeil/infinity",
-   "commit": "f25b80850a7fc9736310496b64faf9903c01ac97",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "servicio",
    "domain": "memoria",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
    "nota": null,
@@ -551,20 +509,6 @@
    "id": "ragatouille",
    "repository": "AnswerDotAI/RAGatouille",
    "commit": "e75b8a964a870dea886548f78da1900804749040",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "memoria",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 2",
-   "id": "rerankers",
-   "repository": "AnswerDotAI/rerankers",
-   "commit": "5b9cbb073335b0246bc33e939600f51f934c460d",
    "license": "Apache-2.0",
    "policy": "libre",
    "kind": "biblioteca",
@@ -7706,6 +7650,66 @@
    "live_verified": false,
    "evidence": "sources/contracts-vector-reads666.json",
    "operation": "collections.summary"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 2",
+   "id": "usearch",
+   "repository": "unum-cloud/USearch",
+   "commit": "840374af1a1dd5d411826bc62fdfe5ef6e41e1de",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "memoria",
+   "que_hacer": "Implementado: diagnóstico nativo CPU sobre casos sintéticos; instalación limpia y aceptación conjunta de 23 componentes aprobadas localmente, CI del incremento pendiente.",
+   "nota": "BF16, grafo y recorrido exhaustivo frente a distancias escalares independientes; sin embeddings ni modelos.",
+   "live_verified": false,
+   "evidence": "sources/contracts-usearch666.json",
+   "operation": "neighbors.check"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 2",
+   "id": "ragflow",
+   "repository": "infiniflow/ragflow",
+   "commit": "f9a53a3779a12b5abb8a254ec9384c2af7fae4b4",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "memoria",
+   "que_hacer": "Lectura de primera página, edición comunitaria con identidad fija; aceptación HTTP sintética.",
+   "nota": "Solo recuentos; sin servidor original ejecutado, ingesta ni modelos. Edición no-ee y autenticación revisadas obligatorias.",
+   "live_verified": false,
+   "evidence": "sources/contracts-knowledge-reads666.json",
+   "operation": "datasets.summary"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 2",
+   "id": "infinity",
+   "repository": "michaelfeil/infinity",
+   "commit": "f25b80850a7fc9736310496b64faf9903c01ac97",
+   "license": "MIT",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "memoria",
+   "que_hacer": "Inventario fijo /models del servidor Python v2, aceptación HTTP sintética; servidor original no ejecutado.",
+   "nota": "Autenticación Bearer nativa activada y revisada, instancia dedicada, prefijo vacío. Solo recuentos, sin embeddings ni modelos ejecutados.",
+   "live_verified": false,
+   "evidence": "sources/contracts-knowledge-reads666.json",
+   "operation": "models.summary"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 2",
+   "id": "rerankers",
+   "repository": "AnswerDotAI/rerankers",
+   "commit": "5b9cbb073335b0246bc33e939600f51f934c460d",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "memoria",
+   "que_hacer": "Ordenación original de resultados sintéticos y búsquedas por identificador; sin ejecutar un modelo de reranking.",
+   "nota": "Scores/ranks numéricos suministrados, empates estables y valores ausentes; sin texto privado ni modelos.",
+   "live_verified": false,
+   "evidence": "sources/contracts-ranking666.json",
+   "operation": "results.rank"
   }
  ]
 }

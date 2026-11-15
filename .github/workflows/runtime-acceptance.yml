@@ -12,7 +12,7 @@ concurrency:
 jobs:
   pilot666:
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -29,7 +29,7 @@ jobs:
           /tmp/verdugo-kernel666-venv/bin/python -m pip install -r requirements/runtime-kernel666.txt --report /tmp/kernel666-pip-report.json
           /tmp/verdugo-kernel666-venv/bin/python -m pip check
           /tmp/verdugo-kernel666-venv/bin/python -m pip freeze > /tmp/kernel666-resolved.txt
-          for sdk in agno ag2 langroid griptape bee strands planning hatchet invariant lens schema prefix; do
+          for sdk in agno ag2 langroid griptape bee strands planning hatchet invariant lens schema prefix ranking; do
             python -m venv --copies /tmp/verdugo-${sdk}666-venv
             chmod go-w /tmp/verdugo-${sdk}666-venv/bin/python*
             if [ "$sdk" = "strands" ]; then
@@ -54,6 +54,11 @@ jobs:
           python tests_runtime/install_guardian666.py
           python tests_runtime/install_explain666.py
           python tests_runtime/install_quant666.py
+          if ! command -v g++-14; then
+            sudo apt-get update
+            sudo apt-get install -y gcc-14 g++-14
+          fi
+          python tests_runtime/install_usearch666.py
       - name: Original SDK, approval and restart with OS network isolation
         run: |
           sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
@@ -71,6 +76,8 @@ jobs:
             VERDUGO_STRANDS666_PYTHON=/tmp/verdugo-strands666-venv/bin/python \
             VERDUGO_PLANNING666_PYTHON=/tmp/verdugo-planning666-venv/bin/python \
             VERDUGO_MONTY666_PYTHON=/tmp/verdugo-monty666-venv/bin/python \
+            VERDUGO_RANKING666_PYTHON=/tmp/verdugo-ranking666-venv/bin/python \
+            VERDUGO_USEARCH666_PYTHON=/tmp/verdugo-usearch666/bin/python \
             VERDUGO_PREFIX666_PYTHON=/tmp/verdugo-prefix666-venv/bin/python \
             VERDUGO_SCHEMA666_PYTHON=/tmp/verdugo-schema666-venv/bin/python \
             VERDUGO_QUANT666_PYTHON=/tmp/verdugo-bnb666/bin/python \
@@ -121,6 +128,11 @@ jobs:
             /tmp/prefix666-resolved.txt
             /tmp/schema666-pip-report.json
             /tmp/schema666-resolved.txt
+            /tmp/ranking666-pip-report.json
+            /tmp/ranking666-resolved.txt
+            /tmp/usearch666-pip-report.json
+            /tmp/usearch666-resolved.txt
+            /tmp/usearch666-build-receipt.json
             /tmp/bnb666-pip-report.json
             /tmp/bnb666-resolved.txt
             /tmp/bnb666-build-receipt.json

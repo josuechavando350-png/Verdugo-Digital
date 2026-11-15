@@ -9,6 +9,10 @@ import math
 
 
 def run(service, operation, p):
+    from .local_ranking666 import SPECS as RANKING666, run as run_ranking666
+    if service in RANKING666: return run_ranking666(service, p)
+    from .local_usearch666 import SPECS as USEARCH666, run as run_usearch666
+    if service in USEARCH666: return run_usearch666(service, p)
     from .local_prefix666 import SPECS as PREFIX666, run as run_prefix666
     if service in PREFIX666: return run_prefix666(service, p)
     from .local_schema666 import SPECS as SCHEMA666, run as run_schema666

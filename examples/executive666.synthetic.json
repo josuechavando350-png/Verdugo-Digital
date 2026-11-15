@@ -712,6 +712,37 @@
       "depends_on": [
         "schema_check"
       ]
+    },
+    {
+      "id": "neighbors_check",
+      "service": "usearch",
+      "operation": "neighbors.check",
+      "params": {
+        "dataset": "demo",
+        "case": "plane"
+      },
+      "depends_on": [
+        "prefix_check"
+      ]
+    },
+    {
+      "id": "ranked_results",
+      "service": "rerankers",
+      "operation": "results.rank",
+      "params": {
+        "dataset": "demo",
+        "mode": "score",
+        "values": [
+          2,
+          5,
+          5,
+          null
+        ],
+        "limit": 3
+      },
+      "depends_on": [
+        "neighbors_check"
+      ]
     }
   ]
 }

@@ -1,0 +1,300 @@
+{
+  "schema": "verdugo.ranking666.sources.v1",
+  "id": "rerankers",
+  "operation": "results.rank",
+  "repository": "AnswerDotAI/rerankers",
+  "commit": "5b9cbb073335b0246bc33e939600f51f934c460d",
+  "distribution": "rerankers",
+  "version": "0.10.0",
+  "license": "Apache-2.0",
+  "license_text_read": true,
+  "license_evidence": [
+    {
+      "repository": "AnswerDotAI/rerankers",
+      "commit_sha": "5b9cbb073335b0246bc33e939600f51f934c460d",
+      "path": "LICENSE",
+      "blob_sha": "724a43c8876d1c1689ff8611206a9ee7cd56b7d9",
+      "sha256": "0e8a53eea0a306525b334ba559fd6abe0ce194b1984d9b32dc7f788746cbf689",
+      "local_path": "sources/license-texts/0e8a53eea0a306525b334ba559fd6abe0ce194b1984d9b32dc7f788746cbf689.txt",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/LICENSE"
+    }
+  ],
+  "archive_sha256": "d339ac3290a4af45a4189dc7db2955de50214ed602fdd9b443b9ef325a059a7d",
+  "archive_url": "https://codeload.github.com/AnswerDotAI/rerankers/tar.gz/5b9cbb073335b0246bc33e939600f51f934c460d",
+  "files": [
+    {
+      "path": ".gitignore",
+      "blob_sha": "505af8bcd74901fd0b6273c56dec897957ba54a2",
+      "sha256": "8ca7b20153b85835f79fe91e4f9b0f73f556730eb08b0d46f66cbefa888999a8",
+      "installed_path": null,
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/.gitignore"
+    },
+    {
+      "path": "LICENSE",
+      "blob_sha": "724a43c8876d1c1689ff8611206a9ee7cd56b7d9",
+      "sha256": "0e8a53eea0a306525b334ba559fd6abe0ce194b1984d9b32dc7f788746cbf689",
+      "installed_path": null,
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/LICENSE"
+    },
+    {
+      "path": "README.md",
+      "blob_sha": "ff92f0ad79cd07b5a0806d38b1469f59e14b548c",
+      "sha256": "41e6602f1df198123980cac584aa9c426fb9bb42d674d5ad50b26b3fd8330f96",
+      "installed_path": null,
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/README.md"
+    },
+    {
+      "path": "apilist.txt",
+      "blob_sha": "cfd5a91c7b12a117d4290ae9cd608d7c9870be04",
+      "sha256": "4950c55d60f83fd008a57af4b1702a4058eb68be311e9bf8e2c302fee4724576",
+      "installed_path": null,
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/apilist.txt"
+    },
+    {
+      "path": "data/state_of_the_union.txt",
+      "blob_sha": "d50175de40e706f22f0243bb165a7770464a91c3",
+      "sha256": "1bde616ae3fa463f8dc0ce85b6729036f8028bd42511fc55d68189525fccb644",
+      "installed_path": null,
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/data/state_of_the_union.txt"
+    },
+    {
+      "path": "examples/langchain_integration.ipynb",
+      "blob_sha": "248f794feacb5503870f941d08f4ded948d5a7ce",
+      "sha256": "a1b70b06b230f51e2313c5f3599c2d50bccabd0dfa69553e76738033e52edd27",
+      "installed_path": null,
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/examples/langchain_integration.ipynb"
+    },
+    {
+      "path": "examples/overview.ipynb",
+      "blob_sha": "b575183559c6d0ef62e945bba2277b26f8abd664",
+      "sha256": "894e7d4c6631600b1e3c64810ce12c5362abe2c0a20fbc005b169ad33cff1b6f",
+      "installed_path": null,
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/examples/overview.ipynb"
+    },
+    {
+      "path": "examples/reranker_images.ipynb",
+      "blob_sha": "94213ab90615fc9b497e35077029fc16cf9de071",
+      "sha256": "ad44d5025ba3d8af6fd2ed0d7e012557087ecf13a29129ab3080ce8dcd8ad6b7",
+      "installed_path": null,
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/examples/reranker_images.ipynb"
+    },
+    {
+      "path": "pyproject.toml",
+      "blob_sha": "27aec87258b7d596d2f2b27eeba720f62c4e618b",
+      "sha256": "290f3a42266abd3da70ffd25cd375e89509d2ee64a8fabdb9b8e66fbc9297e96",
+      "installed_path": null,
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/pyproject.toml"
+    },
+    {
+      "path": "rerankers/__init__.py",
+      "blob_sha": "272d903e8616eeef4dc87d7e79b1009d079489f1",
+      "sha256": "7e61f45acb0880e1b64a50f9789c3bd6b457f2094f87a7ebe54e78275c63cb96",
+      "installed_path": "rerankers/__init__.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/__init__.py"
+    },
+    {
+      "path": "rerankers/documents.py",
+      "blob_sha": "81dc4d0d5f480b7437107203ae684370437a9227",
+      "sha256": "30cf464f7770883c266eff41b4e69b834f26b6219d08467889994bf6e056a75e",
+      "installed_path": "rerankers/documents.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/documents.py"
+    },
+    {
+      "path": "rerankers/integrations/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "rerankers/integrations/__init__.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/integrations/__init__.py"
+    },
+    {
+      "path": "rerankers/integrations/langchain.py",
+      "blob_sha": "b72937eb01a1bb3d7c3ad34a6eb2eef07fae6c15",
+      "sha256": "f22cd73ccddf61c267f731c3047a1fa96c4b1d5fc64f5a3cb84631c30ddb00c6",
+      "installed_path": "rerankers/integrations/langchain.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/integrations/langchain.py"
+    },
+    {
+      "path": "rerankers/models/__init__.py",
+      "blob_sha": "0b2be9be688f5b7b880db0770d1665aa294fd01c",
+      "sha256": "f076fc9f0b3d1f4ced6fdcf76a6db84f2f54e578a3f13a4fa079dd0590f6c662",
+      "installed_path": "rerankers/models/__init__.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/models/__init__.py"
+    },
+    {
+      "path": "rerankers/models/api_rankers.py",
+      "blob_sha": "6c622ed2615af2194dcfeaf04786ee615df7d045",
+      "sha256": "bd6c2baa6b1e1893da10ecdb88b8699a4cb069944ab130c3069078b71f0a527f",
+      "installed_path": "rerankers/models/api_rankers.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/models/api_rankers.py"
+    },
+    {
+      "path": "rerankers/models/colbert_ranker.py",
+      "blob_sha": "adf90a48d17c059fc1c1f2c42b35bcc147514c24",
+      "sha256": "b8b6d0e0e50e9eb3a9cae8a5d7802b9da4c16cab0cdb8c43cf78ca5a4fd8ed63",
+      "installed_path": "rerankers/models/colbert_ranker.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/models/colbert_ranker.py"
+    },
+    {
+      "path": "rerankers/models/flashrank_ranker.py",
+      "blob_sha": "8208bcb088d1a7c4263470d84ed5e559b3464cc2",
+      "sha256": "427cb8e5f63d8100d75734672f083038e474e2ac323e759d9666a2a078d19701",
+      "installed_path": "rerankers/models/flashrank_ranker.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/models/flashrank_ranker.py"
+    },
+    {
+      "path": "rerankers/models/llm_layerwise_ranker.py",
+      "blob_sha": "c6dbbbe8db2326f43e64810bff858c7bde795862",
+      "sha256": "5b4ce4643380fa51f1c1677de4dc59f2c0a5670808859f4ed568bfe8800e0894",
+      "installed_path": "rerankers/models/llm_layerwise_ranker.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/models/llm_layerwise_ranker.py"
+    },
+    {
+      "path": "rerankers/models/llm_relevance_filter.py",
+      "blob_sha": "371875103c6b503dc853434d77cc91683e02b033",
+      "sha256": "d5d4d988f058cdd975d4318de995ca06cc978b4a4f34f30608c00a83180abffe",
+      "installed_path": "rerankers/models/llm_relevance_filter.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/models/llm_relevance_filter.py"
+    },
+    {
+      "path": "rerankers/models/monovlm_ranker.py",
+      "blob_sha": "0e105a566edea179157a2daf8f6030c388e40c86",
+      "sha256": "aca83fddfa286dc0e9ecfd125bb20d41310620995d7584e5c17257cc50e789c1",
+      "installed_path": "rerankers/models/monovlm_ranker.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/models/monovlm_ranker.py"
+    },
+    {
+      "path": "rerankers/models/mxbai_v2.py",
+      "blob_sha": "c5d15c687596e2323e3e6d185f09a8c040aec232",
+      "sha256": "a207955d9a50d0c213ac447d81b8d84d4775b3e709f431b41886237f92d82dff",
+      "installed_path": "rerankers/models/mxbai_v2.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/models/mxbai_v2.py"
+    },
+    {
+      "path": "rerankers/models/pylate_ranker.py",
+      "blob_sha": "4adba2639a7a38bcca214db7eeefbd13a95219c1",
+      "sha256": "82f139909be195fb71c3506d83842fe0fe995422ab686fc7a0bb86a887e34bad",
+      "installed_path": "rerankers/models/pylate_ranker.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/models/pylate_ranker.py"
+    },
+    {
+      "path": "rerankers/models/ranker.py",
+      "blob_sha": "6c8f45a6defc03857deb97588760087368f3e648",
+      "sha256": "1cbbf763801d5ed8e045f92598b973a5dfb22f3c337f14b0b807ea56b77684de",
+      "installed_path": "rerankers/models/ranker.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/models/ranker.py"
+    },
+    {
+      "path": "rerankers/models/rankgpt_rankers.py",
+      "blob_sha": "0eb438d46fa22b401e2f9d1b31d6e0687ab17119",
+      "sha256": "1efba2154dfc7f729b4b906dbfe027c590fd591acc9fa7d1aafacfaddc30fbda",
+      "installed_path": "rerankers/models/rankgpt_rankers.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/models/rankgpt_rankers.py"
+    },
+    {
+      "path": "rerankers/models/rankllm_ranker.py",
+      "blob_sha": "d9512036b430ef550c3f73aad6d68db4c7066acd",
+      "sha256": "123fc7c145d63f0a448d62d47535650be763222d77575e1094730fa671e50fdd",
+      "installed_path": "rerankers/models/rankllm_ranker.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/models/rankllm_ranker.py"
+    },
+    {
+      "path": "rerankers/models/t5ranker.py",
+      "blob_sha": "f52225a28c05f27c7594c5f2fa745af86d325f7e",
+      "sha256": "94e55fc2e219a737fe2dd6c9bf9a2b31d0b221e8432dc402ec72a2a409e2a547",
+      "installed_path": "rerankers/models/t5ranker.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/models/t5ranker.py"
+    },
+    {
+      "path": "rerankers/models/transformer_ranker.py",
+      "blob_sha": "ec7f0a797c2a3aab986f5bc9107fe954ea3e53c0",
+      "sha256": "2db7a93b90189f26a4b33dbd3fe8ca0c4e70ef77df908d6b38b7bb18812e8c99",
+      "installed_path": "rerankers/models/transformer_ranker.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/models/transformer_ranker.py"
+    },
+    {
+      "path": "rerankers/models/upr.py",
+      "blob_sha": "42a89f578935eb5c478362a240a301a1b9b178f9",
+      "sha256": "ab2927dafe9be3a6009448f5222ecc7a6bffd3110e8a66ccec9d333ac89c2289",
+      "installed_path": "rerankers/models/upr.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/models/upr.py"
+    },
+    {
+      "path": "rerankers/reranker.py",
+      "blob_sha": "1328df27f124cc14a4154d2166a4307394cfde04",
+      "sha256": "aa4fb6dd359e03a6b8bac1b2241c6a3af790a0d27ba1d7f4c505f77e753e9d67",
+      "installed_path": "rerankers/reranker.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/reranker.py"
+    },
+    {
+      "path": "rerankers/results.py",
+      "blob_sha": "35f518d81d19dbfe65f72eee060c82fb23f3cb11",
+      "sha256": "dde54b912ce856f00a42fcd516758b7186436492553809d3ecd479eb16d5a7c7",
+      "installed_path": "rerankers/results.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/results.py"
+    },
+    {
+      "path": "rerankers/utils.py",
+      "blob_sha": "cf6aaaf7449c7abbcfae84fb3d1579d3e5298f4f",
+      "sha256": "aec9aeb44f176e6e6bcfedf8167ef51e34f1a2736a77783ed93d4cf0a11419e2",
+      "installed_path": "rerankers/utils.py",
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/rerankers/utils.py"
+    },
+    {
+      "path": "tests/consistency_notebooks/test_colbert.ipynb",
+      "blob_sha": "229b6b40ba83ecd97b3e757632b8b2e8a086855a",
+      "sha256": "0a2a769acfed3b27595bbe62e576391b9d04ac0c87abfc4be43cab8d8e700afe",
+      "installed_path": null,
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/tests/consistency_notebooks/test_colbert.ipynb"
+    },
+    {
+      "path": "tests/consistency_notebooks/test_crossenc.ipynb",
+      "blob_sha": "5c0f604d7cc6034637a81ad0b6084c5f6cfc258e",
+      "sha256": "9c9641bc64ac5c2555fa14e226d4a72e9af474e684ea627e42893683ad763397",
+      "installed_path": null,
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/tests/consistency_notebooks/test_crossenc.ipynb"
+    },
+    {
+      "path": "tests/consistency_notebooks/test_inranker.ipynb",
+      "blob_sha": "119bdb8ba91bbbe0eaae3bfc0782dd264972bfce",
+      "sha256": "1bcc9f9ddde39b5961ae02eaa510e82298c744faa623c88bc0ced74ac35460e5",
+      "installed_path": null,
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/tests/consistency_notebooks/test_inranker.ipynb"
+    },
+    {
+      "path": "tests/consistency_notebooks/test_t5.ipynb",
+      "blob_sha": "c7aa267ce0fa43f5698f3e610c628cbfd0266efe",
+      "sha256": "153d7c630be35bde9604b57bb893308d2f9fba2d8cd60a813440512a2c643600",
+      "installed_path": null,
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/tests/consistency_notebooks/test_t5.ipynb"
+    },
+    {
+      "path": "tests/test_crossenc.py",
+      "blob_sha": "b9292649a1db686426c53f3fb28164d044cd62b5",
+      "sha256": "11d8dd45c9fba5d23afdf8596b91a8a71d5d344679eba200b82b29f630b8d238",
+      "installed_path": null,
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/tests/test_crossenc.py"
+    },
+    {
+      "path": "tests/test_results.py",
+      "blob_sha": "e0d7debd85d5cba37f2e3712cc8c96370d6497f0",
+      "sha256": "2007baa64f634720c73a056fbaeac08cc3cdb85d5d27a2cf58906b5d344e342b",
+      "installed_path": null,
+      "source_url": "https://github.com/AnswerDotAI/rerankers/blob/5b9cbb073335b0246bc33e939600f51f934c460d/tests/test_results.py"
+    }
+  ],
+  "installed_source_count": 22,
+  "runtime_dependencies": [],
+  "operation_scope": [
+    "Original Result, Document and RankedResults.top_k plus lookup functions on fixed synthetic document labels and bounded numeric scores/ranks.",
+    "SDK native result ordering, including absent values and stable ties; compare with independent numeric reference.",
+    "No Reranker factory, model backend, paid provider, weights, inference, image paths or text input invoked."
+  ],
+  "limitations": [
+    "Existing scores/ranks are inputs, not scores computed by a reranker model.",
+    "No relevance, calibration, semantic ranking, corpus evaluation or commercial outcomes measured.",
+    "Optional backend imports follow the unmodified original package; their presence is not equivalent to initialization or execution."
+  ],
+  "original_sdk_executed": true,
+  "live_verified": false,
+  "production_certified": false
+}

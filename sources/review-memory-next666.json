@@ -210,6 +210,207 @@
       "runtime_executed": false,
       "live_verified": false,
       "counted_as_connected": false
+    },
+    {
+      "id": "lancedb",
+      "repository": "lancedb/lancedb",
+      "commit": "530d379fc4d3abbf8c4c8759f7d48804d2055677",
+      "status": "preparation_pending",
+      "note": "Original Python package requires NumPy, PyArrow >=16, Pydantic and lance-namespace; maturin Rust build and dependency closure remain to be prepared. No build was attempted and no upstream build failure is claimed.",
+      "files": [
+        {
+          "path": "python/pyproject.toml",
+          "git_blob_sha": "d464424c7aacc9c36c3dbfba7332b51fc6b2844d",
+          "sha256": "3236b371d2aa90bd3be7efc04a348c31003e8cdf2d5bea21aa31f1d63bc9a6f2",
+          "source_url": "https://github.com/lancedb/lancedb/blob/530d379fc4d3abbf8c4c8759f7d48804d2055677/python/pyproject.toml"
+        }
+      ],
+      "sdk_installed": false,
+      "runtime_executed": false,
+      "live_verified": false,
+      "counted_as_connected": false
+    },
+    {
+      "id": "faiss",
+      "repository": "facebookresearch/faiss",
+      "commit": "ebab8f784c1d177129602269d5ad966c525fbdcb",
+      "status": "preparation_pending",
+      "note": "The original Python build requires scikit-build-core, SWIG and NumPy; the CPU profile needs the native libraries and BLAS before the SWIG module. Native build and dependency review remain pending; no build failure observed.",
+      "files": [
+        {
+          "path": "pyproject.toml",
+          "git_blob_sha": "f2c43e6d0d925b846ae90f57b29ccad20be6a887",
+          "sha256": "7e685f029ff745e4d82c790079f7b3bc5f7b724b72529bd3777e8263cd107937",
+          "source_url": "https://github.com/facebookresearch/faiss/blob/ebab8f784c1d177129602269d5ad966c525fbdcb/pyproject.toml"
+        },
+        {
+          "path": "faiss/python/setup.py",
+          "git_blob_sha": "788f64e69d6a7757aac9f60981517d9d07f72e1d",
+          "sha256": "91f80946c0bc6fea7ecca5871e4e604c08625fa5f148ae6beb825cfb1e72b5f8",
+          "source_url": "https://github.com/facebookresearch/faiss/blob/ebab8f784c1d177129602269d5ad966c525fbdcb/faiss/python/setup.py"
+        }
+      ],
+      "sdk_installed": false,
+      "runtime_executed": false,
+      "live_verified": false,
+      "counted_as_connected": false
+    },
+    {
+      "id": "txtai",
+      "repository": "neuml/txtai",
+      "commit": "973512fc0d30250613f7571a7b6446101aa9b92e",
+      "status": "preparation_pending",
+      "note": "The original default package requires faiss-cpu, Torch and Transformers. setup.py also exposes a MINIMAL variant named txtai_minimal without runtime requirements; its usable original operations still need inspection. No unsupported claim that every profile requires Torch, and no SDK installed.",
+      "files": [
+        {
+          "path": "setup.py",
+          "git_blob_sha": "693f6ee18d97bb169ebaab17556422720fa8c75c",
+          "sha256": "49e5d7b67754b0a4c1ff4a403518e55c2fc76d290b71e3dd098b42aa41576be8",
+          "source_url": "https://github.com/neuml/txtai/blob/973512fc0d30250613f7571a7b6446101aa9b92e/setup.py"
+        }
+      ],
+      "sdk_installed": false,
+      "runtime_executed": false,
+      "live_verified": false,
+      "counted_as_connected": false
+    },
+    {
+      "id": "flagembedding",
+      "repository": "FlagOpen/FlagEmbedding",
+      "commit": "897baa67c0ffddbfccf4e6776ff55310d67809d4",
+      "status": "preparation_pending",
+      "note": "Original setup.py requires Torch, Transformers, datasets, Accelerate, sentence-transformers, PEFT, ir-datasets, SentencePiece and protobuf. Compatible CPU dependency closure and any selected weight licenses still require review; no SDK or weights installed, no build failure asserted.",
+      "files": [
+        {
+          "path": "setup.py",
+          "git_blob_sha": "a599fe49face7ea7e93bbf6a3462e1a13372a3c3",
+          "sha256": "7b380df7bdb769c2b99a720f9b2f339cbd3a007495352e5f86d3e91341e9f704",
+          "source_url": "https://github.com/FlagOpen/FlagEmbedding/blob/897baa67c0ffddbfccf4e6776ff55310d67809d4/setup.py"
+        }
+      ],
+      "sdk_installed": false,
+      "runtime_executed": false,
+      "live_verified": false,
+      "counted_as_connected": false
+    },
+    {
+      "id": "colbert",
+      "repository": "stanford-futuredata/ColBERT",
+      "commit": "cc4f3dc91c0b45d2d08c251d9d95178285c65f1c",
+      "status": "preparation_pending",
+      "note": "Original setup.py requires bitarray, datasets, Flask, GitPython, python-dotenv, ninja, SciPy, tqdm, Transformers and ujson. Torch and FAISS are optional extras in this manifest; operation-specific backend closure remains pending. No SDK or weights installed.",
+      "files": [
+        {
+          "path": "setup.py",
+          "git_blob_sha": "cd7aa30da508c2833567c6cd23874cc45ab86773",
+          "sha256": "b7e34bfd27ed7e86c0c0914f85ce008ea998de248bf0c1a643625db06093385d",
+          "source_url": "https://github.com/stanford-futuredata/ColBERT/blob/cc4f3dc91c0b45d2d08c251d9d95178285c65f1c/setup.py"
+        }
+      ],
+      "sdk_installed": false,
+      "runtime_executed": false,
+      "live_verified": false,
+      "counted_as_connected": false
+    },
+    {
+      "id": "ragatouille",
+      "repository": "AnswerDotAI/RAGatouille",
+      "commit": "e75b8a964a870dea886548f78da1900804749040",
+      "status": "preparation_pending",
+      "note": "Original pyproject.toml requires llama-index, faiss-cpu, langchain-core, ColBERT, LangChain, ONNX, srsly, voyager, Torch, kmeans-pytorch and sentence-transformers. CPU dependency closure, compatible runtime and any selected weights still need review. No SDK or model installed.",
+      "files": [
+        {
+          "path": "pyproject.toml",
+          "git_blob_sha": "afe70b05adab73bb8321693b1f75ef87f0cbf49d",
+          "sha256": "38d6be7118a37bb61f9a02fe2780d9cf12592ee365c0c63e0eaf0212c6a6f022",
+          "source_url": "https://github.com/AnswerDotAI/RAGatouille/blob/e75b8a964a870dea886548f78da1900804749040/pyproject.toml"
+        }
+      ],
+      "sdk_installed": false,
+      "runtime_executed": false,
+      "live_verified": false,
+      "counted_as_connected": false
+    },
+    {
+      "id": "bm25s",
+      "repository": "xhluca/bm25s",
+      "commit": "b335013d0172e8c2aabd1399d60146cc51768458",
+      "status": "preparation_pending",
+      "note": "Original setup.py requires NumPy only; SciPy is an optional index extra. The original default CSC backend is NumPy. Review of an exact NumPy artifact and its bundled licenses remains pending before installation; no unsupported assertion that SciPy is mandatory. No SDK installed or build failure asserted.",
+      "files": [
+        {
+          "path": "LICENSE",
+          "git_blob_sha": "7a0a000ba7fc0e5dcdaf653b8f38d4a898ef5479",
+          "sha256": "8c159b4c621a86c4695c83f42a00932b26183f6da8ab62b0865835594426c8ff",
+          "source_url": "https://github.com/xhluca/bm25s/blob/b335013d0172e8c2aabd1399d60146cc51768458/LICENSE"
+        },
+        {
+          "path": "bm25s/__init__.py",
+          "git_blob_sha": "f0af113beea1c6b3119f3f37e80300039a85acdb",
+          "sha256": "1a927200b2b99464a8efeb60c9d215e7373e103ea8ae2a3f8327811480b4bace",
+          "source_url": "https://github.com/xhluca/bm25s/blob/b335013d0172e8c2aabd1399d60146cc51768458/bm25s/__init__.py"
+        },
+        {
+          "path": "bm25s/scoring.py",
+          "git_blob_sha": "2ea2687c5fdce48e2f130f3f9ab1c58025849b75",
+          "sha256": "859c13bd8e346d0d585b6743aad010b9e9fcbe163b1b3d6f1d67a72e369e2318",
+          "source_url": "https://github.com/xhluca/bm25s/blob/b335013d0172e8c2aabd1399d60146cc51768458/bm25s/scoring.py"
+        },
+        {
+          "path": "bm25s/version.py",
+          "git_blob_sha": "597dd20334082c57655ffae53db6ae1fc16379f0",
+          "sha256": "21d6a693bae11195957f6574e9255aca5239709c1dc0c2e2aadd12cd8ecb17f4",
+          "source_url": "https://github.com/xhluca/bm25s/blob/b335013d0172e8c2aabd1399d60146cc51768458/bm25s/version.py"
+        },
+        {
+          "path": "setup.py",
+          "git_blob_sha": "447f072cb2e344a3f67688d095f737495866c2b0",
+          "sha256": "a9a92f87da3e8d01d37b7b7afb5b78b335e4f9b85932a1a120079e6e9b2a47ca",
+          "source_url": "https://github.com/xhluca/bm25s/blob/b335013d0172e8c2aabd1399d60146cc51768458/setup.py"
+        }
+      ],
+      "sdk_installed": false,
+      "runtime_executed": false,
+      "live_verified": false,
+      "counted_as_connected": false
+    },
+    {
+      "id": "tantivy",
+      "repository": "quickwit-oss/tantivy",
+      "commit": "2ad36b4fd0c00ded047b12295423250d8d4d713b",
+      "status": "preparation_pending",
+      "note": "Original Cargo manifest requires Rust 1.91, native workspace crates and multiple registry dependencies. A fixed dependency closure and source build remain pending; no Rust binary installed or upstream build failure claimed. Optional JIT is not required by the selected manifest defaults.",
+      "files": [
+        {
+          "path": "Cargo.toml",
+          "git_blob_sha": "67973a152187f6d1516e723d90cfdf6f6f8994b6",
+          "sha256": "797de81b245f00ddca606390b122cc72c51403649969a4d390579b3d9239d231",
+          "source_url": "https://github.com/quickwit-oss/tantivy/blob/2ad36b4fd0c00ded047b12295423250d8d4d713b/Cargo.toml"
+        }
+      ],
+      "sdk_installed": false,
+      "runtime_executed": false,
+      "live_verified": false,
+      "counted_as_connected": false
+    },
+    {
+      "id": "unstructured",
+      "repository": "Unstructured-IO/unstructured",
+      "commit": "ac932052e6e0ba3feab8a6e96b6d4480218e009f",
+      "status": "preparation_pending",
+      "note": "Original Python manifest requires certifi >=2026.10.19, spaCy, Numba, NumPy, unstructured-client and parser libraries even without document extras. CPU dependency closure and exact bundled license review remain pending. The optional PDF/image/cloud/ingest extras were not installed and no upstream build failure is asserted.",
+      "files": [
+        {
+          "path": "pyproject.toml",
+          "git_blob_sha": "eb7ece2bc0ab42089b1d65713be1c5991b778233",
+          "sha256": "41ebc51be6abdbd0dba6fc3bf8f48c38ed012750b8dd3ce60737e1c42a01b16f",
+          "source_url": "https://github.com/Unstructured-IO/unstructured/blob/ac932052e6e0ba3feab8a6e96b6d4480218e009f/pyproject.toml"
+        }
+      ],
+      "sdk_installed": false,
+      "runtime_executed": false,
+      "live_verified": false,
+      "counted_as_connected": false
     }
   ]
 }

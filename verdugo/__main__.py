@@ -121,6 +121,11 @@ def template(tenant):
                               proxy_auth_reviewed=False, dedicated_instance_reviewed=False)
     services['milvus'].update(api_surface='self_hosted', auth_mode='native_bearer',
                               native_auth_enforced_reviewed=False, dedicated_instance_reviewed=False)
+    services['ragflow'].update(api_surface='self_hosted_community', auth_mode='native_api_key_bearer',
+                               community_build_reviewed=False, native_auth_enforced_reviewed=False,
+                               dedicated_instance_reviewed=False)
+    services['infinity'].update(api_surface='self_hosted_python_v2', auth_mode='native_api_key_bearer',
+                                native_auth_enforced_reviewed=False, dedicated_instance_reviewed=False)
     return {'tenants': {tenant: {'services': services, 'ingress': {}}}}
 
 

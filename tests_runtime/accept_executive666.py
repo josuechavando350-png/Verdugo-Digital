@@ -18,7 +18,7 @@ from verdugo import local_runtime, objectives, workflow
 
 
 def accept():
-    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','servers','monty','playwright-python','hatchet','invariant','pyrit','llama-cpp','granite-guardian','interpret','transformerlens','bitsandbytes','guidance','lm-format-enforcer')
+    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','servers','monty','playwright-python','hatchet','invariant','pyrit','llama-cpp','granite-guardian','interpret','transformerlens','bitsandbytes','guidance','lm-format-enforcer','usearch','rerankers')
     spec=json.loads((ROOT/'examples/executive666.synthetic.json').read_text())
     cfg=template('nexus')
     for sid in services:
@@ -41,12 +41,12 @@ def accept():
         with closing(engine()) as e:
             result=invoke(e,'verdugo_workflow',{'workflow':spec,'execute':True})
             assert result['state']=='succeeded',result
-            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations','quantization','schema_check','prefix_check'}
+            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations','quantization','schema_check','prefix_check','neighbors_check','ranked_results'}
             r=result['steps']['check']['result']
             assert r['planned_contacts']==200 and r['planned_cost_minor']==0
             assert r['feasible_under_declared_limits'] and not r['external_execution_authorized']
             assert result['steps']['agno']['result']['budget_checked']
-            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations','quantization','schema_check','prefix_check'),services):
+            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations','quantization','schema_check','prefix_check','neighbors_check','ranked_results'),services):
                 actual=result['steps'][step]['result']
                 assert actual['original_sdk']==sid and actual['llm_calls']==(1 if sid=='granite-guardian' else 0)
                 assert not actual['autonomous_agent']
@@ -130,7 +130,16 @@ def accept():
             assert prefix['first_rejection_offsets']==[None,None,13]
             assert prefix['independent_finite_language_verified']
             assert not prefix['syntactic_validity_grants_permission']
-            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==24
+            neighbors=result['steps']['neighbors_check']['result']
+            assert neighbors['independent_scalar_reference_verified'] and neighbors['native_cpu_path_used']
+            assert neighbors['vectors_indexed']==5 and neighbors['graph_entries_reachable']==5
+            assert neighbors['walk_matches_checked']==9 and neighbors['scan_matches_checked']==9
+            assert neighbors['walk_distance_max_error']<1e-4 and not neighbors['corpus_recall_measured']
+            ranked=result['steps']['ranked_results']['result']
+            assert ranked['selected_indices']==[1,2,0] and ranked['missing_value_count']==1
+            assert ranked['independent_numeric_order_verified'] and not ranked['scores_computed_by_model']
+            assert ranked['model_backends_initialized']==0
+            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==26
         with closing(engine()) as e, \
                 patch.object(local_runtime,'execute',side_effect=AssertionError('SDK re-executed')), \
                 patch.object(objectives,'simulate',side_effect=AssertionError('simulation re-executed')):
@@ -323,6 +332,21 @@ def accept():
                     prefix=checked['result']['result']
                     assert prefix['complete_count']==(1 if decision!='execute' and mode=='dry_run' else 0)
                     assert prefix['viable_count']==(3 if decision!='execute' and mode=='dry_run' else 1)
+            for case, count in (('plane',5),('line',8)):
+                checked=e.execute({'service':'usearch','operation':'neighbors.check','key':'neighbors-'+case,
+                    'params':{'dataset':'demo','case':case}},True)
+                assert checked['state']=='succeeded',checked
+                neighbors=checked['result']['result']
+                assert neighbors['vectors_indexed']==count and neighbors['graph_entries_reachable']==count
+                assert neighbors['independent_scalar_reference_verified']
+                assert neighbors['scan_distance_max_error']<1e-4 and neighbors['walk_distance_max_error']<1e-4
+            for mode, values, expected in [('score',[-2,5,5,None],[1,2,0,None]), ('rank',[3,2,1,None],[2,1,0,None]), ('score',[None,None],[0,1]), ('rank',[None,None],[0,1])]:
+                checked=e.execute({'service':'rerankers','operation':'results.rank','key':'rank-'+mode+'-'+str(len(values)),
+                    'params':{'dataset':'demo','mode':mode,'values':values,'limit':len(values)}},True)
+                assert checked['state']=='succeeded',checked
+                ranked=checked['result']['result']
+                wanted=[i if i is not None else 3 for i in expected]
+                assert ranked['selected_indices']==wanted and ranked['independent_numeric_order_verified']
     assert not calls
     return {'schema':'verdugo.executive666.acceptance.v1','services':list(services),
             'original_sdks_executed':True,'mocked_sdks':False,'dataset':'demo',

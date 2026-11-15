@@ -1,6 +1,6 @@
 # Piloto 666: avance parcial del lote 1
 
-Diecinueve de 183 piezas del primer lote tienen una operación nueva implementada. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
+Treinta y tres de 183 piezas del primer lote tienen una operación nueva implementada: 24 locales y nueve lecturas HTTP con aceptación sintética. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
 
 ## Operación delimitada
 
@@ -255,3 +255,24 @@ Perfiles `VERDUGO_SCHEMA666_PYTHON` y `VERDUGO_PREFIX666_PYTHON`; requisitos en 
 La primera aceptación de Guidance detectó que un nombre de campo que contenía `authorization` era ocultado por el filtro de privacidad; se corrigió el nombre del diagnóstico y se repitió el flujo sin cambiar el filtro. Una comprobación adicional del ensayo usaba por error `ok` en vez del contrato `state == succeeded`; también se corrigió y se repitió la aceptación completa. La preparación de LM Format Enforcer también corrigió la captura de dependencias para invocar el Python del entorno, sin resolver el enlace al intérprete base. Los requisitos finales contienen únicamente sus ocho dependencias obligatorias resueltas.
 
 El checkpoint anterior de 20 componentes tiene sus tres workflows verdes, enlazados en PLAN_666. Los resultados del incremento de 22 se verifican en su propio commit. LLM Compressor y XGrammar conservan preparación pendiente con fuentes verificadas en `sources/review-runtime-next666.json`; no son adaptadores ni fallos de compilación demostrados. La revisión de BAML (posición 42) detectó `colored 2.2.0` MPL-2.0 en la ruta legacy `baml-py`, verificado contra el Cargo.lock original. La ruta nueva `baml_bridge` requiere revisión independiente; no se instaló ni compiló ninguna. La continuación queda en `lm-evaluation-harness`, posición 43: licencia MIT y empaquetado revisados, pero operación y dependencias aún pendientes. Torch es opcional en el extra `hf` de ese commit; no se instaló ni ejecutó ningún modelo. Los bloqueos anteriores siguen abiertos.
+
+
+## Vecinos sintéticos y recuentos de RAGFlow
+
+`usearch / neighbors.check` compila USearch 3.0.0rc1 desde `840374af1a1dd5d411826bc62fdfe5ef6e41e1de`, con NumKong, StringZilla, ForkUnion, SmashTable y yyjson fijados. Las licencias originales son Apache-2.0 y MIT. El núcleo Python original no declara dependencias runtime; las herramientas de construcción quedan en un entorno temporal separado. El perfil usa GCC 14, un proceso, CPU monoversionada, almacenamiento BF16 y el backend nativo; `USEARCH_BUILD_STUB` permanece desactivado.
+
+Dos casos fijos insertan cinco u ocho vectores efímeros. La búsqueda por grafo y el recorrido exhaustivo se comparan con `math.dist` independiente, incluyendo empates; también se comprueba la alcanzabilidad del grafo. Solo persisten cantidades, error numérico y controles. Esto no mide recall de un corpus, relevancia semántica ni rapidez. El recibo vincula el binario instalado, seis interfaces Python y seis archivos comprimidos de fuentes descargados por SHA256; no es atestación independiente ni demuestra builds idénticos bit a bit.
+
+La instalación limpia inicial recibió SIGKILL al compilar en `/tmp`, respaldado por memoria en el entorno local. La repetición desde disco completó el mismo código y opciones, con `pip check` aprobado. Preparación: `python tests_runtime/install_usearch666.py`; perfil del operador `VERDUGO_USEARCH666_PYTHON`. El flujo conjunto de 23 componentes y 25 pasos pasó localmente, con aprobación, CLI/MCP y replay tras reiniciar SQLite; los tres workflows del commit nuevo deben observarse por separado.
+
+`ragflow / datasets.summary` consulta `/api/v1/datasets?page=1&page_size=100` en el servidor comunitario original Go del commit fijado. La autenticación nativa enlaza usuario y tenant, y el checker de permisos filtra el inventario. La edición comunitaria devuelve `nil` para el servicio de facturación; no se activa enterprise. Solo se guardan tamaño de página y total declarado. Las pruebas HTTP son sintéticas, con CLI/MCP, privacidad, errores y reinicio; no se ejecutó el servidor RAGFlow.
+
+## Ordenación sintética y recuento de modelos
+
+`rerankers / results.rank` usa AnswerDotAI/rerankers `5b9cbb073335b0246bc33e939600f51f934c460d`, Apache-2.0, versión 0.10.0 sin dependencias runtime obligatorias. Acepta 1–16 enteros o valores ausentes y selecciona por score descendente o rank ascendente. No admite consultas, documentos, imágenes, modelos o proveedores externos. Los valores son suministrados por la prueba, no calculados por inferencia. `RankedResults.top_k` y las búsquedas por identificador se contrastan con ordenación independiente; los empates conservan orden. Se verifican 22 archivos originales instalados y la huella del entorno antes de planificar, ejecutar y reutilizar resultados. Perfil `VERDUGO_RANKING666_PYTHON`; preparación explícita con `requirements/runtime-ranking666.txt`.
+
+El primer flujo conjunto rechazó el worker porque el hash del intérprete dependía de si coincidía con `sys.executable`. Se corrigió para incorporar siempre el ejecutable y `pyvenv.cfg`. La aceptación posterior pasó con 24 componentes, 26 pasos y cuatro casos numéricos de Rerankers, además de aprobación, CLI/MCP y reinicio. No hubo llamadas a modelos ni efectos externos nuevos.
+
+`infinity / models.summary` usa michaelfeil/infinity `f25b80850a7fc9736310496b64faf9903c01ac97`, MIT. Se limita al servidor Python `infinity_emb` 0.0.80 y su `/models` sin prefijo adicional; no al backend nativo v3. Exige autenticación Bearer nativa configurada y revisión de instancia dedicada. Valida el contenedor OpenAIModelInfo y las filas ModelInfo, descarta identificadores/estadísticas y conserva solo cantidad de modelos. Los siete tests nuevos cubren rutas, autenticación, esquemas, límites, privacidad, HTTP real con respuestas sintéticas, CLI/MCP y replay. No se instaló el servidor original, no se consultó una instancia real y no se descargaron pesos.
+
+El conjunto pasa 879 pruebas locales y el paso del workflow que exige 76 observaciones. La CI del commit publicado se informa por separado; ningún lote se declara terminado.

@@ -1,0 +1,330 @@
+{
+  "schema": "verdugo.usearch666.sources.v1",
+  "id": "usearch",
+  "operation": "neighbors.check",
+  "repository": "unum-cloud/USearch",
+  "commit": "840374af1a1dd5d411826bc62fdfe5ef6e41e1de",
+  "distribution": "usearch",
+  "version": "3.0.0rc1",
+  "native_reported_version": "3.0.0",
+  "license": "Apache-2.0",
+  "python_version": "3.12",
+  "sources": [
+    {
+      "id": "usearch",
+      "repository": "unum-cloud/USearch",
+      "commit": "840374af1a1dd5d411826bc62fdfe5ef6e41e1de",
+      "archive_sha256": "e1dda9955bc1c548ac8519514151691202a9488d164c695540495d7f3fd31c55",
+      "files_verified": 554,
+      "archive_url": "https://codeload.github.com/unum-cloud/USearch/tar.gz/840374af1a1dd5d411826bc62fdfe5ef6e41e1de",
+      "license": "Apache-2.0",
+      "license_text_read": true,
+      "license_local_path": "sources/license-texts/c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.txt",
+      "files": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "source_url": "https://github.com/unum-cloud/USearch/blob/840374af1a1dd5d411826bc62fdfe5ef6e41e1de/LICENSE",
+          "installed_path": null
+        },
+        {
+          "path": "VERSION",
+          "blob_sha": "8443074c0f5f6df4e2482885d7cfd1a220ab9842",
+          "sha256": "9fbdc29eeb419100bd00dd882ffd8fbcbfd9a5dffec659f62e91eb6ba0358077",
+          "source_url": "https://github.com/unum-cloud/USearch/blob/840374af1a1dd5d411826bc62fdfe5ef6e41e1de/VERSION",
+          "installed_path": null
+        },
+        {
+          "path": "pyproject.toml",
+          "blob_sha": "aeefa59e5d68c63d87262fc407aa21a4aa038727",
+          "sha256": "42ca1222b59631f4296d9080fb0fade7559fed24e4ec4374ede83af38f479a62",
+          "source_url": "https://github.com/unum-cloud/USearch/blob/840374af1a1dd5d411826bc62fdfe5ef6e41e1de/pyproject.toml",
+          "installed_path": null
+        },
+        {
+          "path": ".gitmodules",
+          "blob_sha": "272455fdb50399901977e1a19ce2564da1b96ce7",
+          "sha256": "00b5235fd49112d6f255a96558028cbe04e1f6963ae099bc84d09dfe5fc8e524",
+          "source_url": "https://github.com/unum-cloud/USearch/blob/840374af1a1dd5d411826bc62fdfe5ef6e41e1de/.gitmodules",
+          "installed_path": null
+        },
+        {
+          "path": "CMakeLists.txt",
+          "blob_sha": "eae7bbfec41521ea3e317fe2372844f1fd5375d8",
+          "sha256": "605a92fd3db2f85d4c4c20fc4b45f51b8f4b841771202e2401d7cf8d012cc2e7",
+          "source_url": "https://github.com/unum-cloud/USearch/blob/840374af1a1dd5d411826bc62fdfe5ef6e41e1de/CMakeLists.txt",
+          "installed_path": null
+        },
+        {
+          "path": "cmake/usearch_siblings.cmake",
+          "blob_sha": "814a9cc3a9b14394139f03856891827df6a09948",
+          "sha256": "858cdcebd081bc01b34d3ecec9864104d37cf32670c0616343ebfaf7e2940f5e",
+          "source_url": "https://github.com/unum-cloud/USearch/blob/840374af1a1dd5d411826bc62fdfe5ef6e41e1de/cmake/usearch_siblings.cmake",
+          "installed_path": null
+        },
+        {
+          "path": "cmake/yyjson.cmake",
+          "blob_sha": "8d850d7656d74398b753ac73a37b8cd99a718354",
+          "sha256": "4679d768d86de619b7a5781950b38d158f376be99711263e8d62c6a5613c3a2c",
+          "source_url": "https://github.com/unum-cloud/USearch/blob/840374af1a1dd5d411826bc62fdfe5ef6e41e1de/cmake/yyjson.cmake",
+          "installed_path": null
+        },
+        {
+          "path": "python/CMakeLists.txt",
+          "blob_sha": "93c04f15dd99895f51bde62ba38eb773204aba8e",
+          "sha256": "ba875c98c3e83a6d442bcf6b54347749ca8fa3db567e99adf4ffd518582d3e8c",
+          "source_url": "https://github.com/unum-cloud/USearch/blob/840374af1a1dd5d411826bc62fdfe5ef6e41e1de/python/CMakeLists.txt",
+          "installed_path": null
+        },
+        {
+          "path": "python/dense_index.c",
+          "blob_sha": "2dcc4802afc512abdc3cf2ee153c1f26b2fcfd94",
+          "sha256": "b95ff361e8c9836ca077a76ecf03849483c5023264608e5ca4d04bb048b650e9",
+          "source_url": "https://github.com/unum-cloud/USearch/blob/840374af1a1dd5d411826bc62fdfe5ef6e41e1de/python/dense_index.c",
+          "installed_path": null
+        },
+        {
+          "path": "src/dense/ram_variants_monoversioned.cpp",
+          "blob_sha": "c4bb6400866b72620edfd225de7de2dcd116325c",
+          "sha256": "fb76694e1b1511153708065ca2857cfc2e55366d9b37701d019ed76001e2864b",
+          "source_url": "https://github.com/unum-cloud/USearch/blob/840374af1a1dd5d411826bc62fdfe5ef6e41e1de/src/dense/ram_variants_monoversioned.cpp",
+          "installed_path": null
+        },
+        {
+          "path": "include/usearch/dense/ram_metric.hpp",
+          "blob_sha": "f00de2896c3311e67acaff8852f6e321b2a8156c",
+          "sha256": "259c4236950375ebf4ffe446ce5e2631e7f676baa0185a2e1c76d94fa785209b",
+          "source_url": "https://github.com/unum-cloud/USearch/blob/840374af1a1dd5d411826bc62fdfe5ef6e41e1de/include/usearch/dense/ram_metric.hpp",
+          "installed_path": null
+        },
+        {
+          "path": "python/usearch/py.typed",
+          "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "source_url": "https://github.com/unum-cloud/USearch/blob/840374af1a1dd5d411826bc62fdfe5ef6e41e1de/python/usearch/py.typed",
+          "installed_path": "usearch/py.typed"
+        },
+        {
+          "path": "python/usearch/lib.pyi",
+          "blob_sha": "8288dff5b3c333160f0b4229d9361ea453ad731f",
+          "sha256": "9cad9863588d51949523736661c3bd1f7d45d01722756f5538cb0126f9565f9d",
+          "source_url": "https://github.com/unum-cloud/USearch/blob/840374af1a1dd5d411826bc62fdfe5ef6e41e1de/python/usearch/lib.pyi",
+          "installed_path": "usearch/lib.pyi"
+        },
+        {
+          "path": "python/usearch/keys.py",
+          "blob_sha": "25bb61ecd96c6ef1193f0d642bd8e9087209369d",
+          "sha256": "d8abca03954c8590241326c126ccd364d06d624ff4d4123b6b1fc4139ba3d374",
+          "source_url": "https://github.com/unum-cloud/USearch/blob/840374af1a1dd5d411826bc62fdfe5ef6e41e1de/python/usearch/keys.py",
+          "installed_path": "usearch/keys.py"
+        },
+        {
+          "path": "python/usearch/io.py",
+          "blob_sha": "669a8573976a82650ab388fac87c226fc951bab8",
+          "sha256": "5c2c6db2b13580a94e6d40c726b97fca1ff4967921fd04de3f30d2765f9d09db",
+          "source_url": "https://github.com/unum-cloud/USearch/blob/840374af1a1dd5d411826bc62fdfe5ef6e41e1de/python/usearch/io.py",
+          "installed_path": "usearch/io.py"
+        },
+        {
+          "path": "python/usearch/eval.py",
+          "blob_sha": "e8a9030c7ed822a5bf2019826f07810839ae21d0",
+          "sha256": "ab8078824cbbf2f141c6ebe1e9aa325f41726676a5bb48b94677ad4a94e689fa",
+          "source_url": "https://github.com/unum-cloud/USearch/blob/840374af1a1dd5d411826bc62fdfe5ef6e41e1de/python/usearch/eval.py",
+          "installed_path": "usearch/eval.py"
+        },
+        {
+          "path": "python/usearch/__init__.py",
+          "blob_sha": "593197574520167807d4a1e346e1606bb700b023",
+          "sha256": "fadebd7796d9f93c684c4c18600973f915c2a4d0761fb60aba9270889d4ca743",
+          "source_url": "https://github.com/unum-cloud/USearch/blob/840374af1a1dd5d411826bc62fdfe5ef6e41e1de/python/usearch/__init__.py",
+          "installed_path": "usearch/__init__.py"
+        }
+      ]
+    },
+    {
+      "id": "numkong",
+      "repository": "ashvardanian/NumKong",
+      "commit": "8870e51d68b11d5a713ce5d647df98d8960f542d",
+      "archive_sha256": "35d4da1154399b6be728c2f6a18eae2fdf649014f668f3e2ea29840bb4531c0a",
+      "files_verified": 790,
+      "archive_url": "https://codeload.github.com/ashvardanian/NumKong/tar.gz/8870e51d68b11d5a713ce5d647df98d8960f542d",
+      "license": "Apache-2.0",
+      "license_text_read": true,
+      "license_local_path": "sources/license-texts/c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.txt",
+      "files": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "source_url": "https://github.com/ashvardanian/NumKong/blob/8870e51d68b11d5a713ce5d647df98d8960f542d/LICENSE",
+          "installed_path": null
+        },
+        {
+          "path": "CMakeLists.txt",
+          "blob_sha": "c4fac511f610cd8d00dc07196e52fd24068e8bc8",
+          "sha256": "54efb1ab3cfe56cf9a739ef99ab75afec19fb18056408f86135f3828a88b839c",
+          "source_url": "https://github.com/ashvardanian/NumKong/blob/8870e51d68b11d5a713ce5d647df98d8960f542d/CMakeLists.txt",
+          "installed_path": null
+        }
+      ]
+    },
+    {
+      "id": "stringzilla",
+      "repository": "ashvardanian/StringZilla",
+      "commit": "ff22abca2e1f271f37bd8cb10174bc9dd37ed4e7",
+      "archive_sha256": "749750067abef84eb1b812fc9aeab03cd23b06bc6d000e311942825fbe9b2f94",
+      "files_verified": 609,
+      "archive_url": "https://codeload.github.com/ashvardanian/StringZilla/tar.gz/ff22abca2e1f271f37bd8cb10174bc9dd37ed4e7",
+      "license": "Apache-2.0",
+      "license_text_read": true,
+      "license_local_path": "sources/license-texts/c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.txt",
+      "files": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "source_url": "https://github.com/ashvardanian/StringZilla/blob/ff22abca2e1f271f37bd8cb10174bc9dd37ed4e7/LICENSE",
+          "installed_path": null
+        },
+        {
+          "path": "CMakeLists.txt",
+          "blob_sha": "0bc192aedce02ba43fb9e8537c3c7bf4e612a417",
+          "sha256": "d6c97191b616ed89f0c60d6b2434f8bfb984c853b6b5bd45f827d4dbe35a34e4",
+          "source_url": "https://github.com/ashvardanian/StringZilla/blob/ff22abca2e1f271f37bd8cb10174bc9dd37ed4e7/CMakeLists.txt",
+          "installed_path": null
+        }
+      ]
+    },
+    {
+      "id": "forkunion",
+      "repository": "ashvardanian/ForkUnion",
+      "commit": "ce67be6511ce8cfc4b139b3e7266ec0e5edc372c",
+      "archive_sha256": "c09f85f2f71fffb9caee0b3ad2bcfe35fa52d509134f6cf4e04640b26d2a6e1a",
+      "files_verified": 160,
+      "archive_url": "https://codeload.github.com/ashvardanian/ForkUnion/tar.gz/ce67be6511ce8cfc4b139b3e7266ec0e5edc372c",
+      "license": "Apache-2.0",
+      "license_text_read": true,
+      "license_local_path": "sources/license-texts/c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.txt",
+      "files": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "source_url": "https://github.com/ashvardanian/ForkUnion/blob/ce67be6511ce8cfc4b139b3e7266ec0e5edc372c/LICENSE",
+          "installed_path": null
+        },
+        {
+          "path": "CMakeLists.txt",
+          "blob_sha": "97160646da28591098a88ef64b5fd0ed9837bdc5",
+          "sha256": "33291d9d6005da5c70560050b8f111bcb77122c5f92a59171761e513d32032d1",
+          "source_url": "https://github.com/ashvardanian/ForkUnion/blob/ce67be6511ce8cfc4b139b3e7266ec0e5edc372c/CMakeLists.txt",
+          "installed_path": null
+        }
+      ]
+    },
+    {
+      "id": "smashtable",
+      "repository": "ashvardanian/SmashTable",
+      "commit": "30e349dcd1e582896386d959d4a36badce061787",
+      "archive_sha256": "f4d38f8e790faf284ff156c80594857d4c6068b0b5d7c2c3500ae1cf2a8b6ad2",
+      "files_verified": 159,
+      "archive_url": "https://codeload.github.com/ashvardanian/SmashTable/tar.gz/30e349dcd1e582896386d959d4a36badce061787",
+      "license": "Apache-2.0",
+      "license_text_read": true,
+      "license_local_path": "sources/license-texts/c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.txt",
+      "files": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "source_url": "https://github.com/ashvardanian/SmashTable/blob/30e349dcd1e582896386d959d4a36badce061787/LICENSE",
+          "installed_path": null
+        },
+        {
+          "path": "CMakeLists.txt",
+          "blob_sha": "b63415b559afeaee754e6e8aa321186f4e12a56b",
+          "sha256": "3760c0d50b4d3b12389af6d65c28941ce9f6438fccac1fdd0560b14d11001272",
+          "source_url": "https://github.com/ashvardanian/SmashTable/blob/30e349dcd1e582896386d959d4a36badce061787/CMakeLists.txt",
+          "installed_path": null
+        }
+      ]
+    },
+    {
+      "id": "yyjson",
+      "repository": "ibireme/yyjson",
+      "commit": "6447536015f3d600f3d65323b10976103b337ca7",
+      "archive_sha256": "13d53411c9d818836a2dc0b3f4be40c34ee4e0fcd21ff903e0aebbfd52e9e08d",
+      "files_verified": 899,
+      "archive_url": "https://codeload.github.com/ibireme/yyjson/tar.gz/6447536015f3d600f3d65323b10976103b337ca7",
+      "license": "MIT",
+      "license_text_read": true,
+      "license_local_path": "sources/license-texts/45e384d3d52c73cba3a64d6e6c25d47cd738cd8a55c30629e3201046eda62947.txt",
+      "files": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "a09bff355348932f9a1bd8c2e7417afb1ec0c943",
+          "sha256": "45e384d3d52c73cba3a64d6e6c25d47cd738cd8a55c30629e3201046eda62947",
+          "source_url": "https://github.com/ibireme/yyjson/blob/6447536015f3d600f3d65323b10976103b337ca7/LICENSE",
+          "installed_path": null
+        },
+        {
+          "path": "CMakeLists.txt",
+          "blob_sha": "294a038855974141d2468166d1354f3308703152",
+          "sha256": "08de5f8506ab672ea1955f6875ab4d6c7cb8614efb5630e2a7669b4d5e30437f",
+          "source_url": "https://github.com/ibireme/yyjson/blob/6447536015f3d600f3d65323b10976103b337ca7/CMakeLists.txt",
+          "installed_path": null
+        }
+      ]
+    }
+  ],
+  "build_tools": {
+    "cmake": "4.1.3",
+    "scikit-build-core": "1.1.2",
+    "packaging": "26.3",
+    "pathspec": "1.1.1"
+  },
+  "build_environment": {
+    "CC": "gcc-14",
+    "CXX": "g++-14",
+    "CMAKE_BUILD_PARALLEL_LEVEL": "1",
+    "CMAKE_GENERATOR": "Unix Makefiles",
+    "USEARCH_MULTIVERSIONED": "OFF",
+    "USEARCH_MARCH": ""
+  },
+  "cmake_options": {
+    "USEARCH_DENSE_DTYPES": "1",
+    "USEARCH_MULTIVERSIONED": "OFF",
+    "USEARCH_BUILD_STUB": "OFF",
+    "USEARCH_BUILD_PYTHON": "ON",
+    "USEARCH_MARCH": "",
+    "USEARCH_CUDA_ARCH": "",
+    "USEARCH_ROCM_ARCH": "",
+    "USEARCH_METAL_ARCH": "",
+    "CMAKE_CXX_FLAGS_RELEASE": "-O1 -DNDEBUG -g0",
+    "CMAKE_C_FLAGS_RELEASE": "-O1 -DNDEBUG -g0",
+    "FETCHCONTENT_FULLY_DISCONNECTED": "ON"
+  },
+  "operation_scope": [
+    "Original CPU native DenseIndex.init_ram/insert/search/health; BF16 storage with float32 CPython buffer input.",
+    "Two fixed synthetic datasets; graph WALK and exact SCAN checked independently against Python Euclidean distances.",
+    "Only numeric counts and diagnostics persisted, with no caller vectors, paths, callbacks or models."
+  ],
+  "limitations": [
+    "No real embeddings, corpus, model weights, production recall, semantic correctness or speed benchmark.",
+    "Optional eval/test dependencies are not used; the original core wheel declares no runtime dependencies.",
+    "Build tools are separate from the runtime. Source archives and selected source interfaces are pinned; the operator build receipt is not independent attestation or proof of bitwise reproducibility.",
+    "Original VERSION distribution is 3.0.0rc1; native __version__ reports 3.0.0.",
+    "Initial preparation failed before compiling because inherited CC=clang was absent; explicit GCC 14 build succeeded.",
+    "A clean build in the local memory-backed temporary filesystem was terminated by SIGKILL in the sequence translation unit; a disk-backed clean build succeeded with the same original source and build options. This does not establish an upstream defect."
+  ],
+  "yyjson_annotated_tag": {
+    "tag": "0.13.0",
+    "tag_object": "138b4a7e757426bbbaa11ca37f257ce8d8489007",
+    "commit": "6447536015f3d600f3d65323b10976103b337ca7"
+  },
+  "original_sdk_executed": true,
+  "mocked_sdk": false,
+  "live_verified": false,
+  "production_certified": false
+}
