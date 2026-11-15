@@ -1,13 +1,13 @@
 # Complemento v0.21 — evidencia y alcance
 
 Base: `a6809de201ba517846e19cf965194b21e6617050`, rama `feat/v0.21-final88`, PR #20.
-Se añaden **63 de las 68 integraciones pendientes**: 36 operaciones locales
+Se añaden **65 de las 68 integraciones pendientes**: 38 operaciones locales
 con código original, una comparación propia de reglas NAP originales y 26 contratos HTTP. Junto con las 20 anteriores de v0.21, son
-83 operaciones de esta tanda y **5 todavía pendientes**. No declarar terminada
+85 operaciones de esta tanda y **3 todavía pendientes**. No declarar terminada
 la tanda. No se modifica main ni se altera la política de licencias.
 
-Inventario actual: 322 entradas; 239 conectadas bajo la política, 56 componentes,
-5 pendientes y 22 excluidas. Hay 104 adaptadores HTTP (108 acciones) y 154
+Inventario actual: 322 entradas; 241 conectadas bajo la política, 56 componentes,
+3 pendientes y 22 excluidas. Hay 104 adaptadores HTTP (108 acciones) y 156
 operaciones locales; 19 adaptadores HTTP históricos siguen excluidos por licencia.
 
 ## Operaciones comprobadas y límites
@@ -82,13 +82,16 @@ operaciones locales; 19 adaptadores HTTP históricos siguen excluidos por licenc
 | `quarto` | `document.render` | Quarto 1.11.9 original convierte secciones de texto plano en HTML pasivo; sin ejecución de código, includes, red ni publicación. |
 | `auto-editor` | `audio.levels` | Auto-Editor 31.9.0 original mide amplitudes PCM mono suministradas, máximo un segundo; no edita ni transcribe audio. |
 
+| `microsandbox` | `image.inspect` | CLI original 0.7.15 importa e inspecciona una imagen Docker de textos suministrados; comprueba digest y tamaño nativos; sin VM, KVM, cloud ni caché persistente. |
+| `landscape-app` | `landscape.validate` | Validador original sobre metadatos de proyectos suministrados; conserva fallos; solo se adapta la ruta del archivo de errores; sin llamadas a GitHub ni verificación de repositorios. |
+
 ## Ejecución observada
 
-- Suite de núcleo y contratos: 712 pruebas aprobadas en CPython 3.12.
-- Las 36 operaciones locales originales y la comparación de reglas NAP participan en el flujo conjunto siguiente.
+- Suite de núcleo y contratos: 715 pruebas aprobadas en CPython 3.12.
+- Las 38 operaciones locales originales y la comparación de reglas NAP participan en el flujo conjunto siguiente.
   Vanna alimenta dbt mediante una referencia de workflow; los resultados persisten en SQLite.
-- Flujo conjunto de las 63 integraciones nuevas: 36 operaciones con código original
-  + una comparación de reglas NAP + 26 respuestas HTTP sintéticas + instantánea comercial, 64 pasos, 249.852 s.
+- Flujo conjunto de las 65 integraciones nuevas: 38 operaciones con código original
+  + una comparación de reglas NAP + 26 respuestas HTTP sintéticas + instantánea comercial, 66 pasos, 303.292 s.
   Cero llamadas HTTP o ejecuciones de worker durante el replay tras reinicio.
   [Evidencia local](evidence/v021-completion-local.json).
 - Ocho paquetes npm originales probados juntos, incluidos los cuatro anteriores;
@@ -166,3 +169,11 @@ El checkpoint de 57 `e4283187b145e8639f29d23bafff8481c616b821` aprobó [verifica
 `source021` pasó en 8.994 s con CUA, TinyTroupe, reglas NAP y Google Maps Scraper en el mismo producto, reinicio/replay, fallo del parser sin título y muestras de medias iguales. TinyTroupe usa NumPy 2.4.6/SciPy 1.15.3 fijados y `pip check`. CUA conserva archivos originales y licencia; solo cambia el import de tipos. TinyTroupe conserva su original y licencia; solo reemplaza el import del logger. Se verifica que esas sustituciones explican exactamente todos los bytes distintos. No se usan SDK ficticios ni módulos simulados. Maps compila `gmaps/entry.go` intacto con Go 1.26.11 y un puente propio de proyección. NAP compara campos exactos y devuelve solo IDs y campos discordantes; las instrucciones originales se verifican por Git SHA. [Evidencia de producto](evidence/v021-source021-local.json).
 
 `media021` pasó en 50.116 s con Quarto y Auto-Editor originales, flujo conjunto, reinicio/replay, silencio PCM y texto que intenta incluir archivos/código/enlaces/HTML. Quarto recibe Markdown escapado y formato HTML minimal fijo; Deno deniega red y se rechaza contenido activo. Auto-Editor recibe WAV generado de 800–8000 amplitudes a 8000 Hz, PCM 16 bits; la cuantización se refleja en los niveles. No se aceptan archivos, comandos, filtros, formatos o URLs del llamante. Se fijan 2601 archivos de las distribuciones originales, incluidos binarios y licencias. `VERDUGO_MEDIA_ROOT` elige el perfil preparado por el administrador. [Artefactos](evidence/v021-media-artifacts.json) y [resultados](evidence/v021-media021-local.json). Estos ejecutables son Linux x86_64; no se presume compatibilidad Termux.
+
+El checkpoint de 63, `8403d02405ea6a58f3e0080706bc3aa224e45513`, aprobó [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43679453741), [runtimes](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43679453649) y [servicios originales](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43679453654), incluidos source021 y media021. Su CI no sustituye la aceptación del nuevo checkpoint.
+
+`images021` pasó en 6.639 s: CLI Microsandbox 0.7.15 original, producto y replay. La imagen Docker se genera solo con nombres fijos y textos suministrados; no ejecuta comandos de huésped. El digest y tamaño que devuelve `msb image inspect` deben coincidir con el archivo importado. HOME/XDG y la caché son privados y temporales. Este host no tiene `/dev/kvm`; eso impide afirmar ejecución de VM, pero no bloquea esta función de imágenes. [Artefactos](evidence/v021-images-artifacts.json), [producto](evidence/v021-images021-local.json) y [fuentes](../sources/contracts-v021-last-originals.json).
+
+Landscape App pasó el producto/replay en 8.669 s y el caso de repositorio/fecha inválidos en 2.092 s. Se ejecutan validateLandscape.js, settings, actualTwitter, fatalErrors y yaml originales; reporter.js solo sustituye ambas rutas `/tmp/landscape.json` por `landscape-errors.json` en el directorio privado. La prueba verifica la adaptación byte por byte. Un preload propio bloquea red y procesos hijos, y el entorno no contiene claves de GitHub ni variables de notificación. Los textos del reporte original nunca se guardan en SQLite; solo recuentos y validez. [Resultado](evidence/v021-landscape-local.json).
+
+El perfil `lastnode021` incluye además una prueba experimental del servidor Playwright MCP 0.0.85 con cliente SDK 1.32.2 y Chromium 158.0.8127.18 original. Esa herramienta todavía no está registrada en Engine ni contabilizada. El host local rechaza AF_UNIX y Chromium falla antes de abrirse. CI debe ejecutar `browser_snapshot` real sobre contenido suministrado; no hay fallback, mock ni éxito por omisión. La descarga automática desde cdn.playwright.dev devolvió HTML de sitio no disponible: se usa el ZIP original de Chrome for Testing en storage.googleapis.com, fijado por SHA-256.

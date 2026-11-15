@@ -11,6 +11,8 @@ from verdugo.engine import Engine
 from fixtures import CASES
 from database_fixtures import CASES as DATABASE_CASES, assert_result as assert_database
 from native_tools_fixtures import CASES as TOOLS_CASES, assert_result as assert_tools
+from lastnode_fixtures import CASES as LASTNODE_CASES, assert_result as assert_lastnode
+from images_fixtures import CASES as IMAGES_CASES, assert_result as assert_images
 from media_fixtures import CASES as MEDIA_CASES, assert_result as assert_media
 from source_fixtures import CASES as SOURCE_CASES, assert_result as assert_source
 from r_fixtures import CASES as R_CASES, assert_result as assert_r
@@ -108,6 +110,10 @@ class RuntimeAcceptance(unittest.TestCase):
                         self.assertTrue(value['views'][0]['observations']['horizontal_overflow'])
                         self.assertFalse(value['views'][1]['observations']['horizontal_overflow'])
                         self.assertFalse(value['javascript_enabled'])
+                    if sid in LASTNODE_CASES:
+                        assert_lastnode(self,sid,value)
+                    if sid in IMAGES_CASES:
+                        assert_images(self,sid,value)
                     if sid in MEDIA_CASES:
                         assert_media(self,sid,value)
                     if sid in SOURCE_CASES:

@@ -1,0 +1,1 @@
+Original CNCF Landscape App source a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf. Only reporter.js is adapted: both /tmp/landscape.json literals become landscape-errors.json in the private job working directory. Validation algorithms are unchanged. The complete original reporter is retained. Original license retained.

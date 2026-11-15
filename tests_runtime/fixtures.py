@@ -79,3 +79,9 @@ CASES.update(SOURCE_CASES)
 
 from media_fixtures import CASES as MEDIA_CASES
 CASES.update(MEDIA_CASES)
+
+from images_fixtures import CASES as IMAGES_CASES
+CASES.update(IMAGES_CASES)
+
+from lastnode_fixtures import CASES as LASTNODE_CASES
+CASES.update(LASTNODE_CASES)

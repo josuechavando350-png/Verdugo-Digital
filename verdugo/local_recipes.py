@@ -9,6 +9,10 @@ import math
 
 
 def run(service, operation, p):
+    from .local_lastnode import SPECS as LASTNODE, run as run_lastnode
+    if service in LASTNODE: return run_lastnode(service, p)
+    from .local_images import SPECS as IMAGES, run as run_images
+    if service in IMAGES: return run_images(service, p)
     from .local_media import SPECS as MEDIA, run as run_media
     if service in MEDIA: return run_media(service, p)
     from .local_native_tools import SPECS as NATIVE_TOOLS, run as run_native_tools

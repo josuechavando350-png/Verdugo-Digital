@@ -36,9 +36,19 @@ def main():
     # No caller-selected modules can be imported.
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
     from verdugo.local_recipes import run
-    from verdugo import local_data, local_native, local_cli, local_source, local_r, local_database, local_native_tools, local_media
+    from verdugo import local_data, local_native, local_cli, local_source, local_r, local_database, local_native_tools, local_media, local_images, local_lastnode
     dist = request['distribution']
-    if request['service'] in local_media.SPECS:
+    if request['service'] in local_lastnode.SPECS:
+        state = local_lastnode.runtime_state(request['service'])
+        if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
+            raise ValueError('Native runtime changed')
+        version = state['installed']
+    elif request['service'] in local_images.SPECS:
+        state = local_images.runtime_state(request['service'])
+        if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
+            raise ValueError('Image runtime changed')
+        version = state['installed']
+    elif request['service'] in local_media.SPECS:
         state = local_media.runtime_state(request['service'])
         if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
             raise ValueError('Media runtime changed')

@@ -1,19 +1,7 @@
 {
  "generated": "2026-11-15",
- "pending": 5,
+ "pending": 3,
  "items": [
-  {
-   "tanda": "Tanda 1",
-   "id": "microsandbox",
-   "repository": "microsandbox/microsandbox",
-   "commit": "28bdced502513f46b2372dade590ba7e91466242",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "servicio",
-   "domain": "agents",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
-   "nota": "Su API es JSON-RPC por POST. Requiere un contrato POST de solo lectura fijo en código (mismo patrón que Plausible en marketing_reads)."
-  },
   {
    "tanda": "Tanda 1",
    "id": "playwright-mcp",
@@ -47,18 +35,6 @@
    "policy": "libre",
    "kind": "cli",
    "domain": "authority",
-   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
-   "nota": null
-  },
-  {
-   "tanda": "Tanda 3",
-   "id": "landscape-app",
-   "repository": "cncf/landscapeapp",
-   "commit": "a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "cli",
-   "domain": "strategy",
    "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
    "nota": null
   }
@@ -2627,6 +2603,38 @@
    "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
    "nota": "Operación acotada con programa original y datos suministrados; adaptación de imports declarada cuando aplica; no ejecución de agentes ni servicio productivo.",
    "operation": "experiments.compare",
+   "live_verified": false,
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "nota_previa": null
+  },
+  {
+   "tanda": "Tanda 1",
+   "id": "microsandbox",
+   "repository": "microsandbox/microsandbox",
+   "commit": "28bdced502513f46b2372dade590ba7e91466242",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "cli",
+   "domain": "agents",
+   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "nota": "CLI original 0.7.15 importa e inspecciona imagen de datos suministrados en caché temporal; no VM, KVM ni cloud.",
+   "operation": "image.inspect",
+   "live_verified": false,
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "nota_previa": "Su API es JSON-RPC por POST. Requiere un contrato POST de solo lectura fijo en código (mismo patrón que Plausible en marketing_reads)."
+  },
+  {
+   "tanda": "Tanda 3",
+   "id": "landscape-app",
+   "repository": "cncf/landscapeapp",
+   "commit": "a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "cli",
+   "domain": "strategy",
+   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
+   "nota": "Validador original de proyectos suministrados; solo se adapta ruta del reporte a directorio privado; no comunicaciones ni verificación de repositorios.",
+   "operation": "landscape.validate",
    "live_verified": false,
    "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
    "nota_previa": null

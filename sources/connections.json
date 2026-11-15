@@ -1113,7 +1113,7 @@
   {
    "number": 221,
    "id": "microsandbox",
-   "kind": "servicio"
+   "kind": "cli"
   },
   {
    "number": 222,
