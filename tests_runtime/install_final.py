@@ -73,12 +73,15 @@ def cli(selected):
     subprocess.run([go,'clean','-modcache'],env=dict(env,GOTOOLCHAIN='local'),check=True)
     shutil.rmtree(build)
     if 'grype' in selected:
-        archive=home/'db.tar.zst';download(DB_URL,archive,DB_SHA)
-        db=home/'grype-db/6';db.mkdir(parents=True)
-        entries=subprocess.check_output(['tar','--zstd','-tf',str(archive)],text=True).splitlines()
-        if any(p not in ('vulnerability.db','metadata.json','./vulnerability.db','./metadata.json') for p in entries):raise ValueError('Unexpected snapshot members')
-        subprocess.run([str(home/'bin/grype'),'db','import',str(archive)],env=dict(os.environ,GRYPE_DB_CACHE_DIR=str(home/'grype-db'),GRYPE_CHECK_FOR_APP_UPDATE='false'),check=True)
-        archive.unlink()
+        # Use the original client, including its documented checksum verification,
+        # downloader, archive handling and public database request headers.
+        source=DB_URL+'?checksum=sha256%3A'+DB_SHA
+        subprocess.run([str(home/'bin/grype'),'db','import',source],
+                       env=dict(os.environ,GRYPE_DB_CACHE_DIR=str(home/'grype-db'),
+                                GRYPE_CHECK_FOR_APP_UPDATE='false'),check=True)
+        db=home/'grype-db/6'
+        if digest(db/'vulnerability.db')!='822674a9d4f3cbeff8db3f8f1795f8ce8684e6ef2a3636a1cf4cba130e8fc96e':
+            raise ValueError('Imported vulnerability snapshot mismatch')
         manifest['binaries']['grype'].update(database_sha256=digest(db/'vulnerability.db'),database_source=DB_URL+'?checksum=sha256%3A'+DB_SHA)
     (home/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
 
