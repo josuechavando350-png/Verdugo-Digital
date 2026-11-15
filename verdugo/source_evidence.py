@@ -1,4 +1,4 @@
-"""Pinned, read-only upstream GitHub source evidence for the 322 catalogue entries.
+"""Pinned, read-only upstream GitHub source evidence for the 688 catalogue entries.
 
 A source commit is not a deployed service, a compatible API, a license grant,
 or a working integration. No remote source code is imported or executed here.
@@ -15,7 +15,7 @@ from . import license_policy
 
 PARTS = Path(__file__).resolve().parents[1] / "sources" / "parts"
 SHA = re.compile(r"^[0-9a-f]{40}$")
-REGISTERED = 322
+REGISTERED = 688
 PART_NAMES = [f"{n:02d}.json" for n in range(1, (REGISTERED + 9) // 10 + 1)]
 
 
@@ -27,10 +27,10 @@ def read_sources(directory=None):
     except OSError as exc:
         raise VerdugoError("Source evidence directory is unreadable") from exc
     if names != PART_NAMES:
-        raise VerdugoError("Source evidence requires exactly 33 numbered JSON parts")
+        raise VerdugoError("Source evidence requires exactly 69 numbered JSON parts")
     approved = catalog()
     if len(approved) != REGISTERED:
-        raise VerdugoError("Approved catalogue does not contain exactly 322 projects")
+        raise VerdugoError("Approved catalogue does not contain exactly 688 projects")
     records = []
     for part_number, name in enumerate(PART_NAMES):
         path = directory / name
@@ -56,6 +56,8 @@ def read_sources(directory=None):
                 raise VerdugoError("Source evidence requires a 40-hex commit pin")
             if row.get("license_review") != "pending":
                 raise VerdugoError("License review cannot be asserted by source pinning")
+            if row['number'] > 322 and row['commit_sha'] != license_policy.record(row['id'])['scanned_commit']:
+                raise VerdugoError("New source commit differs from the license evidence")
             records.append(row)
     if len({r["id"] for r in records}) != REGISTERED or len({r["repository"].casefold() for r in records}) != REGISTERED:
         raise VerdugoError("Source evidence contains duplicate projects")

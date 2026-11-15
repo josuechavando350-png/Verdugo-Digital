@@ -1,0 +1,82 @@
+[
+  {
+    "number": 481,
+    "id": "lm-evaluation-harness",
+    "repository": "EleutherAI/lm-evaluation-harness",
+    "commit_sha": "d6de81643928d653435c431bae19945d41d32520",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 482,
+    "id": "deepeval",
+    "repository": "confident-ai/deepeval",
+    "commit_sha": "34db63dd005ebc9a905c8ef4741ae0687c93c14c",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 483,
+    "id": "tensorzero",
+    "repository": "tensorzero/tensorzero",
+    "commit_sha": "62eb8f63e8ec62018d70420dbf1a8c5d1c026315",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 484,
+    "id": "trulens",
+    "repository": "truera/trulens",
+    "commit_sha": "32f57106c7f897a05806107737c413e65665fe46",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 485,
+    "id": "inspect-ai",
+    "repository": "UKGovernmentBEIS/inspect_ai",
+    "commit_sha": "ecbb07547dfaa61774b7b9994da23b33bf68338d",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 486,
+    "id": "opik",
+    "repository": "comet-ml/opik",
+    "commit_sha": "5ea60d2633a022f0ddb31d2ec81ef21810e0fe52",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 487,
+    "id": "giskard-oss",
+    "repository": "Giskard-AI/giskard-oss",
+    "commit_sha": "32fb9cf8e9344e9e2847bc22bdcf985a42f1e06c",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 488,
+    "id": "helm",
+    "repository": "stanford-crfm/helm",
+    "commit_sha": "63754d05db6f874e41a395880fb573890a13e791",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 489,
+    "id": "lighteval",
+    "repository": "huggingface/lighteval",
+    "commit_sha": "b97a6533bec22c4184b88526366fdf5d73d502c9",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 490,
+    "id": "openevals",
+    "repository": "langchain-ai/openevals",
+    "commit_sha": "7b51ba90e3eb7ae5069016ddf6ca39648d795223",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

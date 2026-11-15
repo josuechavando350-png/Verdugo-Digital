@@ -1,0 +1,82 @@
+[
+  {
+    "number": 661,
+    "id": "datafusion",
+    "repository": "apache/datafusion",
+    "commit_sha": "73e0b0339ea0b67b1389ad5e6c79cf6103b47a5e",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 662,
+    "id": "dask",
+    "repository": "dask/dask",
+    "commit_sha": "249a51a1db4261791b93b4ce04e67341729939c3",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 663,
+    "id": "modin",
+    "repository": "modin-project/modin",
+    "commit_sha": "7ca200b08597ed6ecfd2db2d08bd322f83c2cec1",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 664,
+    "id": "ray",
+    "repository": "ray-project/ray",
+    "commit_sha": "76d004dab6f68ee515f9472866aa41489ca7a7e9",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 665,
+    "id": "pandas",
+    "repository": "pandas-dev/pandas",
+    "commit_sha": "9b9be6d5b979cb984b765026158587c478a9a6f4",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 666,
+    "id": "numpy",
+    "repository": "numpy/numpy",
+    "commit_sha": "ebad7c7ca008d222d7fcf2ce18a0d3c253d1a107",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 667,
+    "id": "scipy",
+    "repository": "scipy/scipy",
+    "commit_sha": "a1ea3167fe271a2950bdc8878a403b2eda592fcb",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 668,
+    "id": "trino",
+    "repository": "trinodb/trino",
+    "commit_sha": "9fe067c64ca1eacd96fe7bcbdab26661d7c96be0",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 669,
+    "id": "spark",
+    "repository": "apache/spark",
+    "commit_sha": "7d71262a325a7e7a617bacfdd25cadf47df16a54",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 670,
+    "id": "cudf",
+    "repository": "NVIDIA/cudf",
+    "commit_sha": "26d20b66654c3594c553d99a9efddbfb94c1c7ee",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

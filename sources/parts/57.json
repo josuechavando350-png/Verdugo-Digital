@@ -1,0 +1,82 @@
+[
+  {
+    "number": 561,
+    "id": "iceberg-python",
+    "repository": "apache/iceberg-python",
+    "commit_sha": "fce81850a647d81db40c0a67bde13f87cc5afd30",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 562,
+    "id": "datatrove",
+    "repository": "huggingface/datatrove",
+    "commit_sha": "5484e67ab81daf66c689106054d5133910d731c2",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 563,
+    "id": "curator",
+    "repository": "NVIDIA-NeMo/Curator",
+    "commit_sha": "47c85695e4ae3cebb4cf37261592880adf6bbbe7",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 564,
+    "id": "synthetic-data-generator",
+    "repository": "argilla-io/synthetic-data-generator",
+    "commit_sha": "771d5d7885a7d38c6983ed8d68396a4937658583",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 565,
+    "id": "datasets",
+    "repository": "huggingface/datasets",
+    "commit_sha": "efc82474bc990f5872226dca56457536c9a880e9",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 566,
+    "id": "aif360",
+    "repository": "Trusted-AI/AIF360",
+    "commit_sha": "34877916b789e569edf5c0aac033403ca90f34b3",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 567,
+    "id": "fairlearn",
+    "repository": "fairlearn/fairlearn",
+    "commit_sha": "4b2aa83bddf0b0e7ae1202e787a6ec6050a24204",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 568,
+    "id": "adversarial-robustness-toolbox",
+    "repository": "Trusted-AI/adversarial-robustness-toolbox",
+    "commit_sha": "4de5d220631a2498d233ea4c76af477e020e4720",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 569,
+    "id": "captum",
+    "repository": "meta-pytorch/captum",
+    "commit_sha": "092cf14cd2a34c57574131de9f727f788011097a",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 570,
+    "id": "explainerdashboard",
+    "repository": "oegedijk/explainerdashboard",
+    "commit_sha": "678e695d87076c2506cac75f23f065a4b9283d91",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

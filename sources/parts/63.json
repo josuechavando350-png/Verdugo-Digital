@@ -1,0 +1,82 @@
+[
+  {
+    "number": 621,
+    "id": "manim",
+    "repository": "ManimCommunity/manim",
+    "commit_sha": "e8afc6398bc7ac4d4beaa2debd79325f9167d374",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 622,
+    "id": "motion-canvas",
+    "repository": "motion-canvas/motion-canvas",
+    "commit_sha": "7b91435c301d530351dcf5ebb91dd139c002e405",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 623,
+    "id": "moneyprinterturbo",
+    "repository": "harry0703/MoneyPrinterTurbo",
+    "commit_sha": "ce289ffb61a118779c56d6b4a34181905dbed2b9",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 624,
+    "id": "shortgpt",
+    "repository": "RayVentura/ShortGPT",
+    "commit_sha": "3df4e0f7a422bf7386565d498bf4521a2544c614",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 625,
+    "id": "mjml",
+    "repository": "mjmlio/mjml",
+    "commit_sha": "40ddfbb4c04e13dd9572aa0d5b1c58826a163289",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 626,
+    "id": "framework",
+    "repository": "maizzle/framework",
+    "commit_sha": "b07e9904ba0152d56d9cfbd5d2870b80140aedb6",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 627,
+    "id": "social-media-agent",
+    "repository": "langchain-ai/social-media-agent",
+    "commit_sha": "ec9d0ece32bfad999954e45b57f9325521c4e3d9",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 628,
+    "id": "ultravox",
+    "repository": "fixie-ai/ultravox",
+    "commit_sha": "69ddc63b2d72be5e9a86f818315da72cec55a876",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 629,
+    "id": "bolna",
+    "repository": "bolna-ai/bolna",
+    "commit_sha": "b0076c0a7041423a4354ded871622bb413967129",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 630,
+    "id": "py-webrtcvad",
+    "repository": "wiseman/py-webrtcvad",
+    "commit_sha": "e283ca41df3a84b0e87fb1f5cb9b21580a286b09",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "number": 651,
+    "id": "crawlee-python",
+    "repository": "apify/crawlee-python",
+    "commit_sha": "aa591bb51423a91e36092e1b2f32374ff3830dea",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 652,
+    "id": "scrapling",
+    "repository": "D4Vinci/Scrapling",
+    "commit_sha": "bb223f2f5fc8f743772751a5ce283ef7851ca6be",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 653,
+    "id": "reader",
+    "repository": "jina-ai/reader",
+    "commit_sha": "1574bfd380d249c86c82db4dace0d9c8fe17e2b1",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 654,
+    "id": "readability",
+    "repository": "mozilla/readability",
+    "commit_sha": "ab4027a8b37669745016869a37a504727992b2ba",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 655,
+    "id": "wikichat",
+    "repository": "stanford-oval/WikiChat",
+    "commit_sha": "803683b1139117d374801688af1d9d968e04a07b",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 656,
+    "id": "streamlit",
+    "repository": "streamlit/streamlit",
+    "commit_sha": "0c8cc186f0db90eda8836f231bd4c160e267d288",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 657,
+    "id": "gradio",
+    "repository": "gradio-app/gradio",
+    "commit_sha": "ec06278ed72e5eb73494a9d171ca851d553dc82a",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 658,
+    "id": "dash",
+    "repository": "plotly/dash",
+    "commit_sha": "5f771e11051c175ee2a581c8719b2f3143c3238c",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 659,
+    "id": "jupyterlab",
+    "repository": "jupyterlab/jupyterlab",
+    "commit_sha": "7e6057cff1ae5ac6e48c829b6d06d0e7aa3f11cb",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 660,
+    "id": "pg-duckdb",
+    "repository": "duckdb/pg_duckdb",
+    "commit_sha": "146dac0cace5f0646b046b0a1a3493b775b8a2cc",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

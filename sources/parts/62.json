@@ -1,0 +1,82 @@
+[
+  {
+    "number": 611,
+    "id": "chatterbox",
+    "repository": "resemble-ai/chatterbox",
+    "commit_sha": "ab55923c27757c90cfcc407baa57dc25a7d25217",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 612,
+    "id": "openvoice",
+    "repository": "myshell-ai/OpenVoice",
+    "commit_sha": "74a1d147b17a8c3092dd5430504bd83ef6c7eb23",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 613,
+    "id": "faster-whisper",
+    "repository": "SYSTRAN/faster-whisper",
+    "commit_sha": "6cb639e70786aea42b9233006ae60eaf07190bdb",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 614,
+    "id": "whisperx",
+    "repository": "m-bain/whisperX",
+    "commit_sha": "b904f02b7e1f26fd10fb04840d655ff27e88e464",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 615,
+    "id": "sherpa-onnx",
+    "repository": "k2-fsa/sherpa-onnx",
+    "commit_sha": "78022953788ff05f62f4a733c6268a5689efeb86",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 616,
+    "id": "vosk-api",
+    "repository": "alphacep/vosk-api",
+    "commit_sha": "4ab9821510b488efb7740094714a130bd3545e90",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 617,
+    "id": "argos-translate",
+    "repository": "argosopentech/argos-translate",
+    "commit_sha": "b4fecef2375b49e0ec28ac8973b0ba6f59c1488b",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 618,
+    "id": "flair",
+    "repository": "flairNLP/flair",
+    "commit_sha": "d4ea3777998ba67bfbe6b6b8359e024dcf673c3e",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 619,
+    "id": "tweetnlp",
+    "repository": "cardiffnlp/tweetnlp",
+    "commit_sha": "eb99c8f18565b2177c17d1daf37ad0a3eda90218",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 620,
+    "id": "moviepy",
+    "repository": "Zulko/moviepy",
+    "commit_sha": "211e4b15f6ce4f34a6a9efbfff40590e43a68f77",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

@@ -1,4 +1,4 @@
-"""v0.14: unified 322-entry catalogue and fail-closed license policy."""
+"""v0.14: unified 688-entry catalogue and fail-closed license policy."""
 import json
 import os
 from pathlib import Path
@@ -31,10 +31,10 @@ class CatalogueTests(unittest.TestCase):
     def test_catalogue_is_core_plus_expansion_without_duplicates(self):
         rows = catalog()
         self.assertEqual(100, CORE_COUNT)
-        self.assertEqual(322, len(rows))
-        self.assertEqual(list(range(1, 323)), [r['number'] for r in rows])
-        self.assertEqual(322, len({r['repository'].casefold() for r in rows}))
-        domains = {r['domain'] for r in rows[CORE_COUNT:]}
+        self.assertEqual(688, len(rows))
+        self.assertEqual(list(range(1, 689)), [r['number'] for r in rows])
+        self.assertEqual(688, len({r['repository'].casefold() for r in rows}))
+        domains = {r['domain'] for r in rows[CORE_COUNT:322]}
         self.assertEqual({'marketing', 'authority', 'strategy', 'agents', 'platform', 'dataengine'}, domains)
 
     def test_new_blocks_have_expected_sizes(self):
@@ -55,10 +55,10 @@ class CatalogueTests(unittest.TestCase):
 class PolicyEvidenceTests(unittest.TestCase):
     def test_exactly_300_allowed_and_22_excluded(self):
         value = summary()
-        self.assertEqual(322, value['registered'])
-        self.assertEqual(300, value['allowed'])
+        self.assertEqual(688, value['registered'])
+        self.assertEqual(666, value['allowed'])
         self.assertEqual(sorted(EXCLUDED), value['excluded'])
-        self.assertEqual(322, value['license_review_pending'])
+        self.assertEqual(688, value['license_review_pending'])
         self.assertFalse(value['legal_advice'])
 
     def test_no_copyleft_or_source_available_license_is_allowed(self):
@@ -97,7 +97,7 @@ class PolicyEvidenceTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             target = Path(temp) / 'licenses.json'
             target.write_text(json.dumps(original))
-            self.assertEqual(322, len(fresh_policy(target)))
+            self.assertEqual(688, len(fresh_policy(target)))
             for i, mutate in enumerate(mutations):
                 changed = json.loads(json.dumps(original))
                 mutate(changed)
@@ -160,13 +160,13 @@ class EngineGateTests(unittest.TestCase):
 
     def test_template_never_preapproves_exceptions(self):
         services = template('nexus')['tenants']['nexus']['services']
-        self.assertEqual(322, len(services))
+        self.assertEqual(688, len(services))
         self.assertFalse(any('license_policy_exception' in c for c in services.values()))
         self.assertFalse(any(c['enabled'] for c in services.values()))
 
     def test_status_reports_policy_per_integration(self):
         status = self.engine.status()
-        self.assertEqual(300, status['license_policy_allowed'])
+        self.assertEqual(666, status['license_policy_allowed'])
         self.assertEqual(22, status['license_policy_excluded'])
         self.assertEqual(243, status['adapters_usable_under_policy'])
         row = next(r for r in status['integrations'] if r['id'] == 'twenty')
@@ -179,7 +179,7 @@ class InterfaceTests(unittest.TestCase):
         tool = next(t for t in tool_definitions() if t['name'] == 'verdugo_license_policy')
         self.assertTrue(tool['annotations']['readOnlyHint'])
         self.assertEqual('excluido', invoke(None, 'verdugo_license_policy', {'project_id': 'n8n'})['policy'])
-        self.assertEqual(300, invoke(None, 'verdugo_license_policy', {})['allowed'])
+        self.assertEqual(666, invoke(None, 'verdugo_license_policy', {})['allowed'])
 
     def test_cli_does_not_create_state_or_touch_network(self):
         with tempfile.TemporaryDirectory() as temp:
@@ -191,7 +191,7 @@ class InterfaceTests(unittest.TestCase):
                 self.assertIsInstance(json.loads(proc.stdout), dict)
             self.assertFalse((Path(temp) / '.state').exists())
         with patch('socket.socket', side_effect=AssertionError('network attempted')):
-            self.assertEqual(300, summary()['allowed'])
+            self.assertEqual(666, summary()['allowed'])
 
 
 if __name__ == '__main__':

@@ -1,0 +1,82 @@
+[
+  {
+    "number": 571,
+    "id": "olmo",
+    "repository": "allenai/OLMo",
+    "commit_sha": "090253dac6688f2532509daa7aa2eb5fae50e956",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 572,
+    "id": "open-instruct",
+    "repository": "allenai/open-instruct",
+    "commit_sha": "28c1816664491493242d453c2c7280ee56e6c20a",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 573,
+    "id": "gpt-neox",
+    "repository": "EleutherAI/gpt-neox",
+    "commit_sha": "97bc4be320c2edefca2a4f4637116aa3ab1e9ae5",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 574,
+    "id": "mistral-inference",
+    "repository": "mistralai/mistral-inference",
+    "commit_sha": "9eaeb91c17450e09021b6065a1d5cc69876507c8",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 575,
+    "id": "qwen3-vl",
+    "repository": "QwenLM/Qwen3-VL",
+    "commit_sha": "96588727e44c78b25ba03ea03b8e12f7e64fd0da",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 576,
+    "id": "qwen-agent",
+    "repository": "QwenLM/Qwen-Agent",
+    "commit_sha": "31a4d36d123688581a9e9744427272b33ce940e0",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 577,
+    "id": "tiktoken",
+    "repository": "openai/tiktoken",
+    "commit_sha": "79dc2c0533685b893616c78160b5d9e40876e724",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 578,
+    "id": "accelerate",
+    "repository": "huggingface/accelerate",
+    "commit_sha": "0aca80e511a60b6735ec22dc1062b22f35c2fa15",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 579,
+    "id": "deepspeed",
+    "repository": "deepspeedai/DeepSpeed",
+    "commit_sha": "92661b29ff1e08e3b24a33053532d4b36526f9ed",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 580,
+    "id": "megatron-lm",
+    "repository": "NVIDIA/Megatron-LM",
+    "commit_sha": "0be53c791ffb70fe746bc0cdeaedb1409b1e23d9",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

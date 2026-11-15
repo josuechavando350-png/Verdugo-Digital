@@ -1,0 +1,82 @@
+[
+  {
+    "number": 341,
+    "id": "agentpy",
+    "repository": "jofmi/agentpy",
+    "commit_sha": "42f5d498677ceca311d56bcd0a65e37dafa5ddf6",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 342,
+    "id": "krabmaga",
+    "repository": "krABMaga/krABMaga",
+    "commit_sha": "35dbf744158d32d028b6b7ae420c31331ecb2038",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 343,
+    "id": "meltingpot",
+    "repository": "google-deepmind/meltingpot",
+    "commit_sha": "bc456f694a08dc6c4019fa9ca2fee1caaa2f4928",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 344,
+    "id": "pettingzoo",
+    "repository": "Farama-Foundation/PettingZoo",
+    "commit_sha": "e76778661962a4c3db45dafb494beb704b18e38b",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 345,
+    "id": "populationsim",
+    "repository": "ActivitySim/populationsim",
+    "commit_sha": "64449c8a0c345d654a1f30fa4cd237abea67656f",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 346,
+    "id": "activitysim",
+    "repository": "ActivitySim/activitysim",
+    "commit_sha": "4916024bd75400e856d142f487d0b61af5768ead",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 347,
+    "id": "mostlyai",
+    "repository": "mostly-ai/mostlyai",
+    "commit_sha": "70f7d712df54bf6501ab04a3a151c777f5c2f644",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 348,
+    "id": "mostlyai-engine",
+    "repository": "mostly-ai/mostlyai-engine",
+    "commit_sha": "b8b41737ec7f7c94b1c18e21dadfdcd0a91978e6",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 349,
+    "id": "synthcity",
+    "repository": "vanderschaarlab/synthcity",
+    "commit_sha": "23f322fe381326ed01c41b13d469a06e38cce545",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 350,
+    "id": "fg-data-synthetic",
+    "repository": "Data-Centric-AI-Community/fg-data-synthetic",
+    "commit_sha": "e78d4aa9f7dafef211b7f3fe2b9d758dcdf1e9b1",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

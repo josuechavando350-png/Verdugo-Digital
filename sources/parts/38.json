@@ -1,0 +1,82 @@
+[
+  {
+    "number": 371,
+    "id": "neuralforecast",
+    "repository": "Nixtla/neuralforecast",
+    "commit_sha": "5bcb26d86aa6523cec76d12b78a656a1754e7490",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 372,
+    "id": "orbit",
+    "repository": "uber/orbit",
+    "commit_sha": "d1f58a6a9e20764b25ee28773df5355512213dfa",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 373,
+    "id": "semantic-kernel",
+    "repository": "microsoft/semantic-kernel",
+    "commit_sha": "ff22ec32ed31096c98ad63376d4ecc9aefe0ff38",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 374,
+    "id": "agno",
+    "repository": "agno-agi/agno",
+    "commit_sha": "7c3b729667e66282f0d845adbd507ee07242c5eb",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 375,
+    "id": "ag2",
+    "repository": "ag2ai/ag2",
+    "commit_sha": "fb3061e061990ef2c81ea5a86984519b227cabee",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 376,
+    "id": "metagpt",
+    "repository": "FoundationAgents/MetaGPT",
+    "commit_sha": "11cdf466d042aece04fc6cfd13b28e1a70341b1f",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 377,
+    "id": "langroid",
+    "repository": "langroid/langroid",
+    "commit_sha": "be56d05c129ec169d9f2160489438300de8ae30d",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 378,
+    "id": "griptape",
+    "repository": "griptape-ai/griptape",
+    "commit_sha": "5f6fd2376a5ac082eb77732de09216ff14e748bf",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 379,
+    "id": "beeai-framework",
+    "repository": "i-am-bee/beeai-framework",
+    "commit_sha": "ba1a76e484c903e22c7ff71d63fc53afc33c9922",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 380,
+    "id": "harness-sdk",
+    "repository": "strands-agents/harness-sdk",
+    "commit_sha": "c8e1351a5a6218c8f5c2417534aedbd021882a76",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

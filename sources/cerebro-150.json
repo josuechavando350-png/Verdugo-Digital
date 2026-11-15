@@ -1,6 +1,6 @@
 {
  "name": "cerebro-150",
- "note": "Catálogo propuesto para el piloto (cerebro) de Verdugo. No forma parte de los 322 ni del motor. Licencia leída del archivo LICENSE en el commit fijado; sin servicios de pago.",
+ "note": "Propuesta histórica conciliada con sources/registry-666.json: registro no implica adaptación. Las sustituciones, alias, licencias y cola vigente de 183 + 183 constan en ese manifiesto.",
  "groups": {
   "ejecutivo": "Corteza ejecutiva: planea, reparte y coordina",
   "razonamiento": "Razonamiento profundo: pensar antes de actuar y corregirse",
@@ -23,7 +23,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "semantic-kernel"
   },
   {
    "number": 2,
@@ -33,7 +34,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "agno"
   },
   {
    "number": 3,
@@ -43,7 +45,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "ag2"
   },
   {
    "number": 4,
@@ -53,7 +56,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "metagpt"
   },
   {
    "number": 5,
@@ -63,7 +67,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "langroid"
   },
   {
    "number": 6,
@@ -73,7 +78,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "griptape"
   },
   {
    "number": 7,
@@ -83,7 +89,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "beeai-framework"
   },
   {
    "number": 8,
@@ -93,7 +100,8 @@
    "license_file": "LICENSE.APACHE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "harness-sdk"
   },
   {
    "number": 9,
@@ -103,7 +111,8 @@
    "license_file": "LICENCE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "voltagent"
   },
   {
    "number": 10,
@@ -113,7 +122,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "unified-planning"
   },
   {
    "number": 11,
@@ -123,7 +133,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "openmanus"
   },
   {
    "number": 12,
@@ -133,7 +144,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "deer-flow"
   },
   {
    "number": 13,
@@ -143,7 +155,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "open-deep-research"
   },
   {
    "number": 14,
@@ -153,8 +166,9 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre_nucleo",
-   "status": "propuesto",
-   "note": "No usar litellm/enterprise (licencia comercial aparte)."
+   "status": "registrado_sin_adaptador",
+   "note": "No usar litellm/enterprise (licencia comercial aparte).",
+   "registry_id": "litellm"
   },
   {
    "number": 15,
@@ -164,7 +178,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "tree-of-thought-llm"
   },
   {
    "number": 16,
@@ -174,7 +189,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "languageagenttreesearch"
   },
   {
    "number": 17,
@@ -184,7 +200,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "reflexion"
   },
   {
    "number": 18,
@@ -194,7 +211,8 @@
    "license_file": "LICENSE",
    "license_detected": "BSD-3-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "graph-of-thoughts"
   },
   {
    "number": 19,
@@ -204,7 +222,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "llm-reasoners"
   },
   {
    "number": 20,
@@ -214,7 +233,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "openr"
   },
   {
    "number": 21,
@@ -224,7 +244,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "textgrad"
   },
   {
    "number": 22,
@@ -234,7 +255,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "trace"
   },
   {
    "number": 23,
@@ -244,7 +266,8 @@
    "license_file": "LICENSE.md",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "adalflow"
   },
   {
    "number": 24,
@@ -254,7 +277,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "openevolve"
   },
   {
    "number": 25,
@@ -264,7 +288,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "promptwizard"
   },
   {
    "number": 26,
@@ -274,7 +299,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "evoagentx"
   },
   {
    "number": 27,
@@ -284,7 +310,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "mctx"
   },
   {
    "number": 28,
@@ -294,7 +321,8 @@
    "license_file": "LICENSE.txt",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "z3"
   },
   {
    "number": 29,
@@ -304,7 +332,8 @@
    "license_file": "LICENSE.md",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "clingo"
   },
   {
    "number": 30,
@@ -314,7 +343,8 @@
    "license_file": "LICENSE",
    "license_detected": "BSD-2-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "swipl-devel"
   },
   {
    "number": 31,
@@ -324,7 +354,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "scallop"
   },
   {
    "number": 32,
@@ -334,7 +365,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "problog"
   },
   {
    "number": 33,
@@ -344,7 +376,8 @@
    "license_file": "LICENSE.md",
    "license_detected": "BSD-2-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "pyreason"
   },
   {
    "number": 34,
@@ -354,7 +387,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "lean4"
   },
   {
    "number": 35,
@@ -364,7 +398,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "leandojo"
   },
   {
    "number": 36,
@@ -374,7 +409,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "egg"
   },
   {
    "number": 37,
@@ -384,7 +420,8 @@
    "license_file": "LICENSE",
    "license_detected": "BSD-3-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "sympy"
   },
   {
    "number": 38,
@@ -394,7 +431,8 @@
    "license_file": "LICENSE",
    "license_detected": "BSD-3-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "rdflib"
   },
   {
    "number": 39,
@@ -404,7 +442,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "jena"
   },
   {
    "number": 40,
@@ -414,7 +453,8 @@
    "license_file": "LICENSE-APACHE",
    "license_detected": "Apache-2.0+MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "oxigraph"
   },
   {
    "number": 41,
@@ -424,7 +464,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "memos"
   },
   {
    "number": 42,
@@ -434,7 +475,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "memoryos"
   },
   {
    "number": 43,
@@ -444,7 +486,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "lightrag"
   },
   {
    "number": 44,
@@ -454,7 +497,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "nano-graphrag"
   },
   {
    "number": 45,
@@ -464,7 +508,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "fast-graphrag"
   },
   {
    "number": 46,
@@ -474,7 +519,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "rag-anything"
   },
   {
    "number": 47,
@@ -484,7 +530,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "kag"
   },
   {
    "number": 48,
@@ -494,7 +541,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "llm-graph-builder"
   },
   {
    "number": 49,
@@ -504,7 +552,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "kernel-memory"
   },
   {
    "number": 50,
@@ -514,7 +563,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "chroma"
   },
   {
    "number": 51,
@@ -524,7 +574,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "milvus"
   },
   {
    "number": 52,
@@ -534,7 +585,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "lancedb"
   },
   {
    "number": 53,
@@ -544,7 +596,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "faiss"
   },
   {
    "number": 54,
@@ -554,7 +607,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "usearch"
   },
   {
    "number": 55,
@@ -564,7 +618,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "txtai"
   },
   {
    "number": 56,
@@ -574,7 +629,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "ragflow"
   },
   {
    "number": 57,
@@ -584,7 +640,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "flagembedding"
   },
   {
    "number": 58,
@@ -594,7 +651,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "infinity"
   },
   {
    "number": 59,
@@ -604,7 +662,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "colbert"
   },
   {
    "number": 60,
@@ -614,7 +673,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "ragatouille"
   },
   {
    "number": 61,
@@ -624,7 +684,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "rerankers"
   },
   {
    "number": 62,
@@ -634,7 +695,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "bm25s"
   },
   {
    "number": 63,
@@ -644,7 +706,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "tantivy"
   },
   {
    "number": 64,
@@ -654,7 +717,8 @@
    "license_file": "LICENSE.md",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "unstructured"
   },
   {
    "number": 65,
@@ -664,7 +728,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "rustworkx"
   },
   {
    "number": 66,
@@ -674,7 +739,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "botorch"
   },
   {
    "number": 67,
@@ -684,7 +750,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "gpytorch"
   },
   {
    "number": 68,
@@ -694,7 +761,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "emukit"
   },
   {
    "number": 69,
@@ -704,7 +772,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "vizier"
   },
   {
    "number": 70,
@@ -714,7 +783,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "nevergrad"
   },
   {
    "number": 71,
@@ -724,7 +794,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "pymoo"
   },
   {
    "number": 72,
@@ -734,7 +805,8 @@
    "license_file": "LICENSE.txt",
    "license_detected": "BSD-3-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "smac3"
   },
   {
    "number": 73,
@@ -744,7 +816,8 @@
    "license_file": "LICENSE.txt",
    "license_detected": "BSD-3-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "hyperopt"
   },
   {
    "number": 74,
@@ -754,7 +827,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "pulp"
   },
   {
    "number": 75,
@@ -764,7 +838,8 @@
    "license_file": "LICENSE.md",
    "license_detected": "BSD-3-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "pyomo"
   },
   {
    "number": 76,
@@ -774,7 +849,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "cvxpy"
   },
   {
    "number": 77,
@@ -784,7 +860,8 @@
    "license_file": "LICENSE.txt",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "highs"
   },
   {
    "number": 78,
@@ -794,8 +871,9 @@
    "license_file": "LICENSE.txt",
    "license_detected": "Apache-2.0",
    "policy": "libre_nucleo",
-   "status": "propuesto",
-   "note": "No usar la edición enterprise; solo el núcleo Apache-2.0."
+   "status": "registrado_sin_adaptador",
+   "note": "No usar la edición enterprise; solo el núcleo Apache-2.0.",
+   "registry_id": "timefold-solver"
   },
   {
    "number": 79,
@@ -805,7 +883,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "open-spiel"
   },
   {
    "number": 80,
@@ -815,7 +894,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "pgmpy"
   },
   {
    "number": 81,
@@ -825,7 +905,8 @@
    "license_file": "LICENSE.md",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "pyro"
   },
   {
    "number": 82,
@@ -835,7 +916,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "timesfm"
   },
   {
    "number": 83,
@@ -845,7 +927,8 @@
    "license_file": "LICENSE.txt",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "uni2ts"
   },
   {
    "number": 84,
@@ -855,7 +938,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "darts"
   },
   {
    "number": 85,
@@ -865,7 +949,8 @@
    "license_file": "LICENSE",
    "license_detected": "BSD-3-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "sktime"
   },
   {
    "number": 86,
@@ -875,7 +960,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "autogluon"
   },
   {
    "number": 87,
@@ -885,7 +971,8 @@
    "license_file": "LICENSE",
    "license_detected": "BSD-3-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "crepes"
   },
   {
    "number": 88,
@@ -895,7 +982,8 @@
    "license_file": "LICENSE.md",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "lm-polygraph"
   },
   {
    "number": 89,
@@ -905,7 +993,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "trustworthyai"
   },
   {
    "number": 90,
@@ -915,7 +1004,8 @@
    "license_file": "LICENSE.md",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "causaldiscoverytoolbox"
   },
   {
    "number": 91,
@@ -925,7 +1015,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "trl"
   },
   {
    "number": 92,
@@ -935,7 +1026,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "peft"
   },
   {
    "number": 93,
@@ -945,7 +1037,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "axolotl"
   },
   {
    "number": 94,
@@ -955,7 +1048,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "openrlhf"
   },
   {
    "number": 95,
@@ -965,7 +1059,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "verl"
   },
   {
    "number": 96,
@@ -975,7 +1070,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "llamafactory"
   },
   {
    "number": 97,
@@ -985,7 +1081,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "open-r1"
   },
   {
    "number": 98,
@@ -995,7 +1092,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "tinyzero"
   },
   {
    "number": 99,
@@ -1005,7 +1103,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "prime"
   },
   {
    "number": 100,
@@ -1015,7 +1114,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "skythought"
   },
   {
    "number": 101,
@@ -1025,7 +1125,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "prime-rl"
   },
   {
    "number": 102,
@@ -1035,7 +1136,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "rllm"
   },
   {
    "number": 103,
@@ -1045,7 +1147,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "agent-lightning"
   },
   {
    "number": 104,
@@ -1055,7 +1158,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "imitation"
   },
   {
    "number": 105,
@@ -1065,7 +1169,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "stable-baselines3"
   },
   {
    "number": 106,
@@ -1075,7 +1180,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "gymnasium"
   },
   {
    "number": 107,
@@ -1085,7 +1191,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "tianshou"
   },
   {
    "number": 108,
@@ -1095,7 +1202,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "rl"
   },
   {
    "number": 109,
@@ -1105,7 +1213,8 @@
    "license_file": "LICENSE.md",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "lm-evaluation-harness"
   },
   {
    "number": 110,
@@ -1115,7 +1224,8 @@
    "license_file": "LICENSE.md",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "deepeval"
   },
   {
    "number": 111,
@@ -1125,7 +1235,10 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "sustituido",
+   "registry_id": "tensorzero",
+   "correction_reason": "duplicate_repository_identity",
+   "replacement_repository": "tensorzero/tensorzero"
   },
   {
    "number": 112,
@@ -1135,7 +1248,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "trulens"
   },
   {
    "number": 113,
@@ -1145,7 +1259,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "inspect-ai"
   },
   {
    "number": 114,
@@ -1155,7 +1270,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "opik"
   },
   {
    "number": 115,
@@ -1165,7 +1281,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "giskard-oss"
   },
   {
    "number": 116,
@@ -1175,7 +1292,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "helm"
   },
   {
    "number": 117,
@@ -1185,7 +1303,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "lighteval"
   },
   {
    "number": 118,
@@ -1195,7 +1314,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "openevals"
   },
   {
    "number": 119,
@@ -1205,7 +1325,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "arena-hard-auto"
   },
   {
    "number": 120,
@@ -1215,7 +1336,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "agentbench"
   },
   {
    "number": 121,
@@ -1225,7 +1347,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "tau-bench"
   },
   {
    "number": 122,
@@ -1235,7 +1358,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "openlit"
   },
   {
    "number": 123,
@@ -1245,7 +1369,10 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "sustituido",
+   "registry_id": "scrubadub",
+   "correction_reason": "duplicate_repository_identity",
+   "replacement_repository": "LeapBeyond/scrubadub"
   },
   {
    "number": 124,
@@ -1255,7 +1382,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "invariant"
   },
   {
    "number": 125,
@@ -1265,7 +1393,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "garak"
   },
   {
    "number": 126,
@@ -1275,7 +1404,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "pyrit"
   },
   {
    "number": 127,
@@ -1285,7 +1415,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "granite-guardian"
   },
   {
    "number": 128,
@@ -1295,7 +1426,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "ethics"
   },
   {
    "number": 129,
@@ -1305,7 +1437,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "interpret"
   },
   {
    "number": 130,
@@ -1315,7 +1448,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "transformerlens"
   },
   {
    "number": 131,
@@ -1325,7 +1459,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "llama-cpp"
   },
   {
    "number": 132,
@@ -1335,7 +1470,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "sglang"
   },
   {
    "number": 133,
@@ -1345,7 +1481,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "mlc-llm"
   },
   {
    "number": 134,
@@ -1355,7 +1492,8 @@
    "license_file": "LICENSE-APACHE",
    "license_detected": "Apache-2.0+MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "candle"
   },
   {
    "number": 135,
@@ -1365,7 +1503,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "lmcache"
   },
   {
    "number": 136,
@@ -1375,7 +1514,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "tokenizers"
   },
   {
    "number": 137,
@@ -1385,7 +1525,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "llm-compressor"
   },
   {
    "number": 138,
@@ -1395,7 +1536,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "bitsandbytes"
   },
   {
    "number": 139,
@@ -1405,7 +1547,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "xgrammar"
   },
   {
    "number": 140,
@@ -1415,7 +1558,8 @@
    "license_file": "LICENSE.md",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "guidance"
   },
   {
    "number": 141,
@@ -1425,7 +1569,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "lm-format-enforcer"
   },
   {
    "number": 142,
@@ -1435,7 +1580,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "baml"
   },
   {
    "number": 143,
@@ -1445,7 +1591,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "servers"
   },
   {
    "number": 144,
@@ -1455,7 +1602,10 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "sustituido",
+   "registry_id": "monty",
+   "correction_reason": "duplicate_repository_identity",
+   "replacement_repository": "pydantic/monty"
   },
   {
    "number": 145,
@@ -1465,7 +1615,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "playwright-python"
   },
   {
    "number": 146,
@@ -1475,7 +1626,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "dbos-transact-py"
   },
   {
    "number": 147,
@@ -1485,7 +1637,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "prefect"
   },
   {
    "number": 148,
@@ -1495,7 +1648,8 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "hatchet"
   },
   {
    "number": 149,
@@ -1505,7 +1659,8 @@
    "license_file": "LICENSE.md",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "agent-kit"
   },
   {
    "number": 150,
@@ -1515,7 +1670,8 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "registrado_sin_adaptador",
+   "registry_id": "gorilla"
   }
  ]
 }

@@ -1,0 +1,82 @@
+[
+  {
+    "number": 451,
+    "id": "open-spiel",
+    "repository": "google-deepmind/open_spiel",
+    "commit_sha": "4956843d7375e29a4c986425c66f897d7ac15340",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 452,
+    "id": "pgmpy",
+    "repository": "pgmpy/pgmpy",
+    "commit_sha": "cf069b04a12d7858dcb659221128371909f78112",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 453,
+    "id": "pyro",
+    "repository": "pyro-ppl/pyro",
+    "commit_sha": "a31bc1784707268cd79df77ead4c7a47062f0193",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 454,
+    "id": "timesfm",
+    "repository": "google-research/timesfm",
+    "commit_sha": "918df02c9d366b2145bc5876135fa2131d3ed2a6",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 455,
+    "id": "uni2ts",
+    "repository": "SalesforceAIResearch/uni2ts",
+    "commit_sha": "cfd46d4510ed8896f263116f32928eede05b0a75",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 456,
+    "id": "darts",
+    "repository": "unit8co/darts",
+    "commit_sha": "e679f7bea284734b15961c9ee3c4e4fc3fcd7fd2",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 457,
+    "id": "sktime",
+    "repository": "sktime/sktime",
+    "commit_sha": "b5338e0b59de48fa5ace5c52c7007b1c2bc4801b",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 458,
+    "id": "autogluon",
+    "repository": "autogluon/autogluon",
+    "commit_sha": "3609e2c0fe7e38dd15d139b70cc10166f9f8babf",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 459,
+    "id": "crepes",
+    "repository": "henrikbostrom/crepes",
+    "commit_sha": "88a0dfacabb2fcbd918f0e3c3f0bf885422e70f4",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 460,
+    "id": "lm-polygraph",
+    "repository": "IINemo/lm-polygraph",
+    "commit_sha": "1b24f22d0cd426d3f89e7c98dc4b95115b6f3586",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

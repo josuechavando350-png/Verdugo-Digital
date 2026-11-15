@@ -1,0 +1,82 @@
+[
+  {
+    "number": 521,
+    "id": "agent-kit",
+    "repository": "inngest/agent-kit",
+    "commit_sha": "6c9802fd79471bd77c0072a2978f45720dc1ca99",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 522,
+    "id": "gorilla",
+    "repository": "ShishirPatil/gorilla",
+    "commit_sha": "6ea57973c7a6097fd7c5915698c54c17c5b1b6c8",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 523,
+    "id": "gluonts",
+    "repository": "awslabs/gluonts",
+    "commit_sha": "d60556ca71167a3ec1ea807b491dd982d1de2112",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 524,
+    "id": "pytorch-forecasting",
+    "repository": "sktime/pytorch-forecasting",
+    "commit_sha": "519f05dd975a74bb1de105a4c1b92a760ee95c96",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 525,
+    "id": "kats",
+    "repository": "facebookresearch/Kats",
+    "commit_sha": "38a32c91cdefd9a769cc3318e948ddece1f107e5",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 526,
+    "id": "tsfresh",
+    "repository": "blue-yonder/tsfresh",
+    "commit_sha": "6af3c0030b6c9f02c3862a20e00cce87c984aa5b",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 527,
+    "id": "merlion",
+    "repository": "salesforce/Merlion",
+    "commit_sha": "39507642dc3d7b8d04232e34e9f36b372cf4912d",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 528,
+    "id": "tslearn",
+    "repository": "tslearn-team/tslearn",
+    "commit_sha": "d848642f5c8219126a22b500a975611a38607f20",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 529,
+    "id": "moment",
+    "repository": "moment-timeseries-foundation-model/moment",
+    "commit_sha": "38f7310ad594100747ca2a8357e9c7ca7d323e0e",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 530,
+    "id": "lag-llama",
+    "repository": "time-series-foundation-models/lag-llama",
+    "commit_sha": "df7531a83a19b3c6a0222d703ca9bf59ef7a6ab9",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

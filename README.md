@@ -9,19 +9,19 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 
 ## Hacia los 666
 
-El plan para llegar a 666 piezas libres (300 del catálogo + 50 del simulador + 150 del cerebro + 166 finales) está en [docs/PLAN_666.md](docs/PLAN_666.md), con las instrucciones por tanda en [docs/PROMPT_ASTRA_666.md](docs/PROMPT_ASTRA_666.md). Las 366 piezas nuevas son catálogo propuesto: todavía no tienen adaptadores.
+El plan para llegar a 666 piezas libres (300 del catálogo + 50 del simulador + 150 del cerebro + 166 finales) está en [docs/PLAN_666.md](docs/PLAN_666.md), con las instrucciones por tanda en [docs/PROMPT_ASTRA_666.md](docs/PROMPT_ASTRA_666.md). El registro contiene 688 identidades distintas: 666 libres y 22 excluidas. Las 366 incorporaciones todavía no tienen adaptadores. La auditoría corrigió cinco alias duplicados y una licencia restringida; evidencia y cola de dos lotes de 183 en [docs/REGISTRO_666.md](docs/REGISTRO_666.md).
 
 ## Estado del código
 
 | Componente | Alcance |
 |---|---|
-| Fuentes registradas y fijadas por commit | 322 (100 núcleo + 222 de v0.14) |
-| Portafolio con licencia libre (política v0.14) | 300 |
+| Fuentes registradas y fijadas por commit | 688 (322 anteriores + 366 nuevas) |
+| Portafolio con licencia libre | 666 |
 | Excluidos por licencia (registrados, sin operar) | 22 |
 | Proyectos con una operación implementada | 262: 103 HTTP + 138 bibliotecas locales + 17 CLI + 1 MCP local + 3 consultas/reglas de datos |
 | Conectados bajo la política de licencias | 243 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
 | Piezas de construcción (se usan al programar, no vía motor) | 56 |
-| Pendientes de conector | 1 (`meta-ads`, ver corrección v0.21.1) |
+| Pendientes de conector | 367 (366 nuevas + `meta-ads`) |
 | Servicios de pago | 0 (Stripe, Twilio, Mercado Pago, E2B y Composio retirados) |
 | Operaciones HTTP existentes | 108, limitadas por proveedor |
 | Operaciones locales implementadas | 159; aceptación de ejecución real exigida por commit |
@@ -44,7 +44,7 @@ Estado actual y alcance de las operaciones, con las identificaciones históricas
 
 > **Corrección v0.21.1 (revisión):** `google-ads` conserva su lectura con evidencia original añadida (`googleapis/googleapis@97f6460c35`: ruta REST `GET /v26/customers:listAccessibleCustomers` en `customer_service.proto`; encabezado `developer-token` en `google/ads/googleads/interceptors/metadata_interceptor.py` de google-ads-python). `meta-ads` vuelve a pendiente: los SDK oficiales de Meta (Python, Node, PHP, Java y Ruby) envían `access_token` en la URL y ninguno respalda el encabezado Bearer que usaba el contrato. Quedan 87 operaciones de la tanda, 25 contratos HTTP nuevos y 1 pendiente.
 
-La segunda tanda incorpora **88 operaciones implementadas, 0 pendientes de implementación**. La aceptación del commit vigente exige los tres workflows completos.
+La segunda tanda histórica v0.21 incorpora **87 operaciones implementadas y `meta-ads` pendiente** después de la corrección v0.21.1. La aceptación del commit vigente exige los tres workflows completos.
 Las últimas 68 incluyen 41 operaciones locales con código original, una comparación propia de reglas NAP originales y 26 lecturas HTTP.
 [Alcance, dependencias y evidencia del complemento](docs/ACEPTACION_COMPLEMENTO_V021.md).
 Los programas originales comparten Engine, product-run, auditoría y SQLite.
@@ -319,7 +319,7 @@ Engine. SQLite y roles de proceso no constituyen IAM multiempresa hostil. Datos
 personales requieren cifrado, retención y respaldos privados. Las escrituras HTTP
 siguen requiriendo aprobación separada; no se reintentan resultados inciertos.
 
-**88 entradas siguen pendientes de conector.** Los adaptadores HTTP necesitan
+**367 entradas siguen pendientes de conector.** Los adaptadores HTTP necesitan
 aceptación de versiones/ediciones/permisos por instancia; Las aceptaciones de Qdrant, Meilisearch y Caddy
 no validan los otros proveedores. No hay despliegue productivo, conexión automática de este
 chat al MCP, servicio 24/7, cobros reconciliados ni probabilidad comercial demostrada.

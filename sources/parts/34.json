@@ -1,0 +1,82 @@
+[
+  {
+    "number": 331,
+    "id": "yulan-onesim",
+    "repository": "RUC-GSAI/YuLan-OneSim",
+    "commit_sha": "9829d722b528b733f8c8317315637071fa23b206",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 332,
+    "id": "yulan-rec",
+    "repository": "RUC-GSAI/YuLan-Rec",
+    "commit_sha": "fff935570079502d5a17509b0baf590becd1eaab",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 333,
+    "id": "agentverse",
+    "repository": "OpenBMB/AgentVerse",
+    "commit_sha": "f90c4bd9680fdd3bcff8c52c9170911a59b23478",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 334,
+    "id": "chatarena",
+    "repository": "Farama-Foundation/ChatArena",
+    "commit_sha": "a15802dd89c0d69165bb0b07e70c2bac5a7c4e36",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 335,
+    "id": "humanoidagents",
+    "repository": "HumanoidAgents/HumanoidAgents",
+    "commit_sha": "9718c674ea47bad9e7697611b1d9d557d3c2d8b7",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 336,
+    "id": "mesa-llm",
+    "repository": "mesa/mesa-llm",
+    "commit_sha": "27a1fd1a94657903c449316e97534e80f65c87b6",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 337,
+    "id": "mesa-frames",
+    "repository": "mesa/mesa-frames",
+    "commit_sha": "8abb26f51d3507940e41ee20e1d48ec5e71308f4",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 338,
+    "id": "mesa-geo",
+    "repository": "mesa/mesa-geo",
+    "commit_sha": "79f010ada8ed3a2d0e5672d6532c8cf7c4a9c40d",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 339,
+    "id": "agents-jl",
+    "repository": "JuliaDynamics/Agents.jl",
+    "commit_sha": "de88aae40ad264bbbde6b994ae8ed0469561a9b8",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 340,
+    "id": "repast4py",
+    "repository": "Repast/repast4py",
+    "commit_sha": "b91cb3263f4785b2a96b28e82536b12abdc05f87",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

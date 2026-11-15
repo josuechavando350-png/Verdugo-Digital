@@ -20,18 +20,20 @@ from pathlib import Path
 
 from .catalog import catalog
 from .common import VerdugoError
+from .registry666 import read_registry
 
 PATH = Path(__file__).resolve().parents[1] / "sources" / "licenses.json"
 POLICIES = ('libre', 'libre_nucleo', 'libre_condicionado', 'excluido')
 PERMISSIVE = {'MIT', 'Apache-2.0', 'Apache-2.0 OR MIT', 'Apache-2.0 AND MIT',
               'BSD-2-Clause', 'BSD-3-Clause', 'ISC', 'CC0-1.0', 'Unlicense',
-              'PostgreSQL', 'MIT AND BUSL-1.1'}
+              'PostgreSQL', 'MIT AND BUSL-1.1', 'MIT AND BSD-3-Clause',
+              'Apache-2.0 AND BSD-3-Clause'}
 EXCLUDED = frozenset({
     'twenty', 'frappe-crm', 'erpnext', 'odoo', 'mautic', 'listmonk',
     'easyappointments', 'formbricks', 'documenso', 'postiz', 'dub', 'comfyui',
     'remotion', 'n8n', 'nango', 'airbyte', 'plausible', 'matomo', 'metabase',
     'lago', 'unleash', 'grafana'})
-ALLOWED_TOTAL = 300
+ALLOWED_TOTAL = 666
 SHA = re.compile(r'^[0-9a-f]{40}$')
 _CACHE = {}
 
@@ -53,6 +55,7 @@ def read_policy(path=None):
     if not isinstance(records, list) or len(records) != len(approved):
         raise VerdugoError('License evidence must cover the whole catalogue')
     table = {}
+    expansion = {r['id']: r for r in read_registry()['records']}
     for row, expected in zip(records, approved):
         if not isinstance(row, dict) or row.get('number') != expected['number'] or \
                 row.get('id') != expected['id'] or row.get('repository') != expected['repository']:
@@ -68,9 +71,15 @@ def read_policy(path=None):
             raise VerdugoError('Non-permissive license marked as libre: ' + expected['id'])
         if 'license_review' in row or 'approved' in row:
             raise VerdugoError('License evidence cannot assert a legal review')
+        if expected['id'] in expansion:
+            source = expansion[expected['id']]
+            if (row['scanned_commit'], spdx, policy, row.get('license_files')) != \
+                    (source['commit_sha'], source['spdx'], source['policy'],
+                     [item['path'] for item in source['license_evidence']]):
+                raise VerdugoError('License policy differs from the original-file evidence')
         table[expected['id']] = row
     if sum(r['policy'] != 'excluido' for r in table.values()) != ALLOWED_TOTAL:
-        raise VerdugoError('Permissive portfolio must contain exactly 300 projects')
+        raise VerdugoError('Permissive portfolio must contain exactly 666 projects')
     _CACHE[key] = table
     return table
 

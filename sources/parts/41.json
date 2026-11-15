@@ -1,0 +1,82 @@
+[
+  {
+    "number": 401,
+    "id": "clingo",
+    "repository": "potassco/clingo",
+    "commit_sha": "f1d4b8e63a665898fddf4a620333eb0a1bfdebd9",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 402,
+    "id": "swipl-devel",
+    "repository": "SWI-Prolog/swipl-devel",
+    "commit_sha": "cf6960c295883b0b611e5e6dc73dacf74ec4ef7e",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 403,
+    "id": "scallop",
+    "repository": "scallop-lang/scallop",
+    "commit_sha": "668bfb6d45ce302fd4ffa7f29916baf3c7ce36ef",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 404,
+    "id": "problog",
+    "repository": "ML-KULeuven/problog",
+    "commit_sha": "a294fa24c3cfb4bae3a2acea3a128386113889f4",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 405,
+    "id": "pyreason",
+    "repository": "lab-v2/pyreason",
+    "commit_sha": "633e4074c2cd99c6cf06b835b12aa0f4d8f5cc08",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 406,
+    "id": "lean4",
+    "repository": "leanprover/lean4",
+    "commit_sha": "d3ba41854bd828a39f0f414fe4a7b37f43adfc95",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 407,
+    "id": "leandojo",
+    "repository": "lean-dojo/LeanDojo",
+    "commit_sha": "7a9f600b250a89a62e991c05ffe81ba033018e6e",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 408,
+    "id": "egg",
+    "repository": "egraphs-good/egg",
+    "commit_sha": "73975c9819efb4af2f3c6c1b44fa53f8c5742574",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 409,
+    "id": "sympy",
+    "repository": "sympy/sympy",
+    "commit_sha": "bad9365d788889cdf450cd9a24a734004b876e2b",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 410,
+    "id": "rdflib",
+    "repository": "RDFLib/rdflib",
+    "commit_sha": "114dd59d48fc75aea7fcb3276bd0f13e4f3103b4",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

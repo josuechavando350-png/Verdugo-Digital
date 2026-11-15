@@ -1,0 +1,82 @@
+[
+  {
+    "number": 641,
+    "id": "tiledesk",
+    "repository": "Tiledesk/tiledesk",
+    "commit_sha": "cbdca12c4ef1a61c21b99214bff595f48bd23d68",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 642,
+    "id": "imgproxy",
+    "repository": "imgproxy/imgproxy",
+    "commit_sha": "1c149cd01cfe88bcb42d93ef64c275cc9f05cc74",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 643,
+    "id": "ambrosia",
+    "repository": "MTSWebServices/Ambrosia",
+    "commit_sha": "c8462ee3ebd99ee9ba20e76028a92e229e682e9c",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 644,
+    "id": "confidence",
+    "repository": "spotify/confidence",
+    "commit_sha": "0f12dd39afd15c48baf24e9d28fcbe72a905bb53",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 645,
+    "id": "python-seo-analyzer",
+    "repository": "sethblack/python-seo-analyzer",
+    "commit_sha": "0a7518eda0e953f3982ee106bd5266675c3811e1",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 646,
+    "id": "serpbear",
+    "repository": "towfiqi/serpbear",
+    "commit_sha": "414ec8e441b1ae794ea7738c9e4c533a7c5e5dbc",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 647,
+    "id": "unlighthouse",
+    "repository": "harlan-zw/unlighthouse",
+    "commit_sha": "9a2147d6d98bbc750b7313f531856cc02322b23a",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 648,
+    "id": "flagsmith",
+    "repository": "Flagsmith/flagsmith",
+    "commit_sha": "910356deaa8102e065ef022a584d6b0c1dd8a7bf",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 649,
+    "id": "python-sdk",
+    "repository": "open-feature/python-sdk",
+    "commit_sha": "f5b7df9e9d4f3df7c2e532b0afbe399ad7c545a4",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 650,
+    "id": "scrapegraph-ai",
+    "repository": "ScrapeGraphAI/Scrapegraph-ai",
+    "commit_sha": "194055e203afce41ed4e70365dbc416bad756115",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

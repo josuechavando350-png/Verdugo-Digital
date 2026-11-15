@@ -1,0 +1,82 @@
+[
+  {
+    "number": 581,
+    "id": "jax",
+    "repository": "jax-ml/jax",
+    "commit_sha": "3be711dc5cd863c6c79de3a5fe8746bc2148ee91",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 582,
+    "id": "pytorch",
+    "repository": "pytorch/pytorch",
+    "commit_sha": "48f1cea6cf0a29cf83612fb05c11f183e06a3554",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 583,
+    "id": "dreamerv3",
+    "repository": "danijar/dreamerv3",
+    "commit_sha": "e01491fad6434b2245a3b8ca201dd7faedcc458c",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 584,
+    "id": "gptcache",
+    "repository": "zilliztech/GPTCache",
+    "commit_sha": "a74ac654473f7bf4109118e8576945161616e17a",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 585,
+    "id": "llmlingua",
+    "repository": "microsoft/LLMLingua",
+    "commit_sha": "01b9e9481d7395e1e83a48df4a062b11f6304325",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 586,
+    "id": "easyedit",
+    "repository": "zjunlp/EasyEdit",
+    "commit_sha": "5c519afb14e39c7f70bc5536ebd777a62d8493bf",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 587,
+    "id": "open-clip",
+    "repository": "mlfoundations/open_clip",
+    "commit_sha": "4cc208d3a44a2fb6d6435006a46f520d2ccc29b1",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 588,
+    "id": "hermes-function-calling",
+    "repository": "NousResearch/Hermes-Function-Calling",
+    "commit_sha": "ea3c4723e4cefdac760d483ccac6c8a428c95ab8",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 589,
+    "id": "prometheus-eval",
+    "repository": "prometheus-eval/prometheus-eval",
+    "commit_sha": "dcfb44272d5d0414832f5dbb8c2a05ebc2614234",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 590,
+    "id": "reward-bench",
+    "repository": "allenai/reward-bench",
+    "commit_sha": "59f6ff7005a9f9484727ca27f5383420875e5dbf",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

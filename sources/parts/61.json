@@ -1,0 +1,82 @@
+[
+  {
+    "number": 601,
+    "id": "text-embeddings-inference",
+    "repository": "huggingface/text-embeddings-inference",
+    "commit_sha": "da9a9ce190444ef4326e1fbab15d298f0a1016c7",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 602,
+    "id": "internvl",
+    "repository": "OpenGVLab/InternVL",
+    "commit_sha": "2410d1dbf208f0e799459aff9376e5747dbf41a2",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 603,
+    "id": "sam2",
+    "repository": "facebookresearch/sam2",
+    "commit_sha": "2b90b9f5ceec907a1c18123530e92e794ad901a4",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 604,
+    "id": "opencv",
+    "repository": "opencv/opencv",
+    "commit_sha": "205613a29728c2217049bdddbbe98322b485b34e",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 605,
+    "id": "supervision",
+    "repository": "roboflow/supervision",
+    "commit_sha": "5f9e21ef2d186da02a7fe65b20488337c04370b1",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 606,
+    "id": "diffusers",
+    "repository": "huggingface/diffusers",
+    "commit_sha": "43e30028af5120d8b0868cb6975b9fad39cc4fab",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 607,
+    "id": "open-sora",
+    "repository": "hpcaitech/Open-Sora",
+    "commit_sha": "7ad6a96a135feb81f755c84fb391818718f6beb2",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 608,
+    "id": "wan2-1",
+    "repository": "Wan-Video/Wan2.1",
+    "commit_sha": "9737cba9c1c3c4d04b33fcad41c111989865d315",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 609,
+    "id": "kokoro",
+    "repository": "hexgrad/kokoro",
+    "commit_sha": "dfb907a02bba8152ca444717ca5d78747ccb4bec",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 610,
+    "id": "dia",
+    "repository": "nari-labs/dia",
+    "commit_sha": "876125e461a03b157ec905b0fe8b57a0f8b9e7a0",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

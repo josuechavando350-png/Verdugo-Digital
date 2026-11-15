@@ -249,8 +249,8 @@ class ContractTests(unittest.TestCase):
 class ConnectionMapTests(unittest.TestCase):
     def test_states_are_computed_from_code(self):
         value = summary()
-        self.assertEqual(322, value['registered'])
-        self.assertEqual({'conectado': 243, 'pieza_de_construccion': 56, 'pendiente': 1, 'excluido': 22},
+        self.assertEqual(688, value['registered'])
+        self.assertEqual({'conectado': 243, 'pieza_de_construccion': 56, 'pendiente': 367, 'excluido': 22},
                          value['states'])
         self.assertEqual(0, value['live_verified'])
         for sid in service_reads.SPECS:

@@ -1,0 +1,82 @@
+[
+  {
+    "number": 591,
+    "id": "rlhf-reward-modeling",
+    "repository": "RLHFlow/RLHF-Reward-Modeling",
+    "commit_sha": "fc39179f5a9a4dd75047a4c0311672905b9d9a04",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 592,
+    "id": "openrlhf-m",
+    "repository": "OpenRLHF/OpenRLHF-M",
+    "commit_sha": "2bf6337181d36079fcd2151c741ec1c17a6383d0",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 593,
+    "id": "taskweaver",
+    "repository": "microsoft/TaskWeaver",
+    "commit_sha": "d44ddef23f90059fb17999d3095db4240e98f955",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 594,
+    "id": "ui-tars",
+    "repository": "bytedance/UI-TARS",
+    "commit_sha": "582f3a7ea5d285ee8ed9e2e84048d1ab01453c49",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 595,
+    "id": "paddleocr",
+    "repository": "PaddlePaddle/PaddleOCR",
+    "commit_sha": "dab3fe35379033fdcb2d0e9572fac0b36c9a9ebf",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 596,
+    "id": "tesseract",
+    "repository": "tesseract-ocr/tesseract",
+    "commit_sha": "2a9cb0dca6aaf89d26c2507ab69af079ec49ab9e",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 597,
+    "id": "web-llm",
+    "repository": "mlc-ai/web-llm",
+    "commit_sha": "e56c954a187590c404fc19dcf9942df4f002f661",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 598,
+    "id": "transformers-js",
+    "repository": "huggingface/transformers.js",
+    "commit_sha": "205e9c2511622724bf9751b35f2afb07f1dd3aa6",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 599,
+    "id": "ollama-python",
+    "repository": "ollama/ollama-python",
+    "commit_sha": "35d9667e84ebbd9d792826868d050027f75c1cc1",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 600,
+    "id": "setfit",
+    "repository": "huggingface/setfit",
+    "commit_sha": "d70dad84de757d30f03465d120e0d3fad2c725b0",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

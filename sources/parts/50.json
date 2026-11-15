@@ -1,0 +1,82 @@
+[
+  {
+    "number": 491,
+    "id": "arena-hard-auto",
+    "repository": "Arena-OSS/arena-hard-auto",
+    "commit_sha": "196f6b826783b3da7310e361a805fa36f0be83f3",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 492,
+    "id": "agentbench",
+    "repository": "THUDM/AgentBench",
+    "commit_sha": "d1e4a10db08c87075c78972e48ecc182be03e2d5",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 493,
+    "id": "tau-bench",
+    "repository": "sierra-research/tau-bench",
+    "commit_sha": "59a200c6d575d595120f1cb70fea53cef0632f6b",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 494,
+    "id": "openlit",
+    "repository": "openlit/openlit",
+    "commit_sha": "15f5be40331a713e50d96a7bc01ef1f875dce76e",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 495,
+    "id": "scrubadub",
+    "repository": "LeapBeyond/scrubadub",
+    "commit_sha": "53772cbef417da290d25c95373031f786ab3b5c6",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 496,
+    "id": "invariant",
+    "repository": "invariantlabs-ai/invariant",
+    "commit_sha": "2340fe2d9cd619f73d5b67fa05bf8a08c7cad515",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 497,
+    "id": "garak",
+    "repository": "NVIDIA/garak",
+    "commit_sha": "892779207cbc38f65a738ef9cbdfbc1e83aa0b55",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 498,
+    "id": "pyrit",
+    "repository": "Azure/PyRIT",
+    "commit_sha": "bec7cb5d6089481d75fb8df143793de3da6905f5",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 499,
+    "id": "granite-guardian",
+    "repository": "ibm-granite/granite-guardian",
+    "commit_sha": "0a4ec708fa916f3e9d7fc7e5b75dff836752f448",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 500,
+    "id": "ethics",
+    "repository": "hendrycks/ethics",
+    "commit_sha": "fa022dbc62dc6736c2f3780ced6412cae97efb90",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

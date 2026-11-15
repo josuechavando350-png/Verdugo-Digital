@@ -375,21 +375,21 @@ class CatalogueTruthTests(unittest.TestCase):
             with redirect_stdout(output):
                 code = main(['init', '--out', str(target)])
             self.assertEqual(0, code)
-            self.assertEqual(322, json.loads(output.getvalue())['registered'])
+            self.assertEqual(688, json.loads(output.getvalue())['registered'])
             cfg = json.loads(target.read_text())
-            self.assertEqual(322, len(cfg['tenants']['nexus']['services']))
+            self.assertEqual(688, len(cfg['tenants']['nexus']['services']))
             self.assertTrue(all(s['enabled'] is False for s in cfg['tenants']['nexus']['services'].values()))
 
     def test_connection_changes_are_code_derived_and_do_not_certify_production(self):
         report = connections.summary()
-        self.assertEqual({'conectado': 243, 'pendiente': 1, 'pieza_de_construccion': 56, 'excluido': 22}, report['states'])
+        self.assertEqual({'conectado': 243, 'pendiente': 367, 'pieza_de_construccion': 56, 'excluido': 22}, report['states'])
         self.assertEqual(0, report['live_verified'])
         with closing(Engine(':memory:')) as engine:
             status = engine.status()
         self.assertEqual(103, status['api_adapters_implemented'])
         self.assertEqual(107, status['api_actions_implemented'])
         self.assertEqual(262, status['total_adapters_implemented'])
-        self.assertEqual(60, status['projects_without_any_adapter'])
+        self.assertEqual(426, status['projects_without_any_adapter'])
 
 
 if __name__ == '__main__':

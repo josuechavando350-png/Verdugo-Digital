@@ -1,6 +1,6 @@
 {
  "name": "simulador-mercado",
- "note": "Catálogo propuesto; no forma parte de los 322 ni del motor. Licencias leídas del archivo LICENSE en el commit fijado.",
+ "note": "Propuesta histórica conciliada con sources/registry-666.json: registro no implica adaptación. Las sustituciones, alias, licencias y cola vigente de 183 + 183 constan en ese manifiesto.",
  "groups": {
   "personas_ia": "Clientes virtuales con IA y simulación social",
   "motor_agentes": "Motores de simulación con miles de agentes",
@@ -18,8 +18,9 @@
    "commit_sha": "15169db65cb00e9eadc126ecf19fe8aa6142e6f6",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "concordia"
   },
   {
    "number": 2,
@@ -28,8 +29,9 @@
    "commit_sha": "fced8869353f858de4ebe7b8f60321415f238fad",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "oasis"
   },
   {
    "number": 3,
@@ -38,8 +40,9 @@
    "commit_sha": "a4882a712a579ffb07f85f8d41748061d023460b",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "agentsociety"
   },
   {
    "number": 4,
@@ -48,8 +51,9 @@
    "commit_sha": "84a53e4c5ac26b7130f00031ece996462945c52f",
    "license_file": "LICENSE",
    "license_detected": "MIT",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "edsl"
   },
   {
    "number": 5,
@@ -58,8 +62,9 @@
    "commit_sha": "96854071ef4c2d79c93144c973c7820722d52bab",
    "license_file": "LICENSE",
    "license_detected": "MIT",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "genagents"
   },
   {
    "number": 6,
@@ -68,8 +73,9 @@
    "commit_sha": "fe05a71d3e4ed7d10bf68aa4eda6dd995ec070f4",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "generative-agents"
   },
   {
    "number": 7,
@@ -78,8 +84,9 @@
    "commit_sha": "1b2f7d8b824c7bc679017a091d9d45ba3dc3029e",
    "license_file": "LICENSE",
    "license_detected": "MIT",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "ai-town"
   },
   {
    "number": 8,
@@ -88,8 +95,9 @@
    "commit_sha": "a0aaafb440e570e5e61b7c44a44e5e417c545383",
    "license_file": "LICENSE",
    "license_detected": "MIT",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "sotopia"
   },
   {
    "number": 9,
@@ -98,8 +106,9 @@
    "commit_sha": "9829d722b528b733f8c8317315637071fa23b206",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "yulan-onesim"
   },
   {
    "number": 10,
@@ -108,8 +117,9 @@
    "commit_sha": "fff935570079502d5a17509b0baf590becd1eaab",
    "license_file": "LICENSE",
    "license_detected": "MIT",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "yulan-rec"
   },
   {
    "number": 11,
@@ -118,8 +128,9 @@
    "commit_sha": "f90c4bd9680fdd3bcff8c52c9170911a59b23478",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "agentverse"
   },
   {
    "number": 12,
@@ -128,8 +139,9 @@
    "commit_sha": "a15802dd89c0d69165bb0b07e70c2bac5a7c4e36",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "chatarena"
   },
   {
    "number": 13,
@@ -138,8 +150,9 @@
    "commit_sha": "9718c674ea47bad9e7697611b1d9d557d3c2d8b7",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "humanoidagents"
   },
   {
    "number": 14,
@@ -148,8 +161,9 @@
    "commit_sha": "27a1fd1a94657903c449316e97534e80f65c87b6",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "mesa-llm"
   },
   {
    "number": 15,
@@ -158,8 +172,9 @@
    "commit_sha": "8abb26f51d3507940e41ee20e1d48ec5e71308f4",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "mesa-frames"
   },
   {
    "number": 16,
@@ -168,8 +183,9 @@
    "commit_sha": "79f010ada8ed3a2d0e5672d6532c8cf7c4a9c40d",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "mesa-geo"
   },
   {
    "number": 17,
@@ -178,8 +194,9 @@
    "commit_sha": "de88aae40ad264bbbde6b994ae8ed0469561a9b8",
    "license_file": "LICENSE.md",
    "license_detected": "MIT",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "agents-jl"
   },
   {
    "number": 18,
@@ -188,8 +205,9 @@
    "commit_sha": "b91cb3263f4785b2a96b28e82536b12abdc05f87",
    "license_file": "LICENSE.txt",
    "license_detected": "BSD-3-Clause",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "repast4py"
   },
   {
    "number": 19,
@@ -198,8 +216,9 @@
    "commit_sha": "42f5d498677ceca311d56bcd0a65e37dafa5ddf6",
    "license_file": "LICENSE",
    "license_detected": "BSD-3-Clause",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "agentpy"
   },
   {
    "number": 20,
@@ -208,8 +227,9 @@
    "commit_sha": "35dbf744158d32d028b6b7ae420c31331ecb2038",
    "license_file": "LICENSE",
    "license_detected": "MIT",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "krabmaga"
   },
   {
    "number": 21,
@@ -218,8 +238,9 @@
    "commit_sha": "bc456f694a08dc6c4019fa9ca2fee1caaa2f4928",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "meltingpot"
   },
   {
    "number": 22,
@@ -228,8 +249,9 @@
    "commit_sha": "e76778661962a4c3db45dafb494beb704b18e38b",
    "license_file": "LICENSE",
    "license_detected": "MIT",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "pettingzoo"
   },
   {
    "number": 23,
@@ -238,8 +260,9 @@
    "commit_sha": "64449c8a0c345d654a1f30fa4cd237abea67656f",
    "license_file": "LICENSE.txt",
    "license_detected": "BSD-3-Clause",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "populationsim"
   },
   {
    "number": 24,
@@ -248,8 +271,9 @@
    "commit_sha": "4916024bd75400e856d142f487d0b61af5768ead",
    "license_file": "LICENSE.txt",
    "license_detected": "BSD-3-Clause",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "activitysim"
   },
   {
    "number": 25,
@@ -258,8 +282,9 @@
    "commit_sha": "70f7d712df54bf6501ab04a3a151c777f5c2f644",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "mostlyai"
   },
   {
    "number": 26,
@@ -268,8 +293,9 @@
    "commit_sha": "b8b41737ec7f7c94b1c18e21dadfdcd0a91978e6",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "mostlyai-engine"
   },
   {
    "number": 27,
@@ -278,8 +304,9 @@
    "commit_sha": "23f322fe381326ed01c41b13d469a06e38cce545",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "synthcity"
   },
   {
    "number": 28,
@@ -288,8 +315,9 @@
    "commit_sha": "e78d4aa9f7dafef211b7f3fe2b9d758dcdf1e9b1",
    "license_file": "LICENSE",
    "license_detected": "MIT",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "fg-data-synthetic"
   },
   {
    "number": 29,
@@ -298,8 +326,9 @@
    "commit_sha": "b969f618015d6313d03e109ad58aae2f8b12124d",
    "license_file": "LICENSE",
    "license_detected": "MIT",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "datasynthesizer"
   },
   {
    "number": 30,
@@ -308,8 +337,9 @@
    "commit_sha": "73f239643f9ea5abc877f685ce927e986302ac2d",
    "license_file": "LICENSE",
    "license_detected": "MIT",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "realtabformer"
   },
   {
    "number": 31,
@@ -318,8 +348,9 @@
    "commit_sha": "616b2e74b396fa1f9c7ab4412b9928eec849159a",
    "license_file": "LICENSE",
    "license_detected": "MIT",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "be-great"
   },
   {
    "number": 32,
@@ -328,8 +359,9 @@
    "commit_sha": "313fac85b1a2472dd88db1a31c2b754599f46476",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "distilabel"
   },
   {
    "number": 33,
@@ -338,8 +370,9 @@
    "commit_sha": "d935faeb6502eb66d2776c7d11d47bcfed172c0a",
    "license_file": "LICENSE.txt",
    "license_detected": "MIT",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "pyblp"
   },
   {
    "number": 34,
@@ -348,8 +381,9 @@
    "commit_sha": "48920673db8d8b56c3ef7db6ce46a906d0170154",
    "license_file": "LICENSE.md",
    "license_detected": "MIT",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "choice-learn"
   },
   {
    "number": 35,
@@ -358,8 +392,9 @@
    "commit_sha": "8d1063b5c371f09f5dd44f430b3be66455f2b785",
    "license_file": "LICENSE",
    "license_detected": "MIT",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "biogeme"
   },
   {
    "number": 36,
@@ -368,8 +403,9 @@
    "commit_sha": "32f3c9257b33e696aee0784655b0e786d1c2ea0e",
    "license_file": "LICENSE",
    "license_detected": "MIT",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "torch-choice"
   },
   {
    "number": 37,
@@ -378,8 +414,9 @@
    "commit_sha": "6df34cf87111da366923793ddba81a0b50e41242",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "recsim-ng"
   },
   {
    "number": 38,
@@ -388,8 +425,9 @@
    "commit_sha": "5c659ccf5724bc4863a1aa17ad42ba94ae69baa8",
    "license_file": "LICENSE",
    "license_detected": "BSD-2-Clause",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "ndlib"
   },
   {
    "number": 39,
@@ -398,8 +436,9 @@
    "commit_sha": "9e9d35dbbc511eeb34c720d70a52e6b118ea6106",
    "license_file": "license.txt",
    "license_detected": "MIT",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "mathematics-of-epidemics-on-networks"
   },
   {
    "number": 40,
@@ -408,8 +447,9 @@
    "commit_sha": "799e3243b03ae2571c6347bcc3d7b59b6464c8d5",
    "license_file": "LICENSE.txt",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "sbi"
   },
   {
    "number": 41,
@@ -418,8 +458,9 @@
    "commit_sha": "973c1a92c06c0887036e1efad6bc5916c48d0b9c",
    "license_file": "LICENSE.txt",
    "license_detected": "BSD-3-Clause",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "pyabc"
   },
   {
    "number": 42,
@@ -428,8 +469,9 @@
    "commit_sha": "065c0e49402902e2a46ed617e0844c0a8744c785",
    "license_file": "LICENSE",
    "license_detected": "BSD-3-Clause",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "elfi"
   },
   {
    "number": 43,
@@ -438,8 +480,9 @@
    "commit_sha": "e860bc694ec5cd79d631c82bf91d1bee29521f3a",
    "license_file": "LICENSE.md",
    "license_detected": "MIT",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "salib"
   },
   {
    "number": 44,
@@ -448,8 +491,9 @@
    "commit_sha": "1f6d1afca93646d238c56d216701d9cad0820dde",
    "license_file": "LICENSE",
    "license_detected": "MIT",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "balance"
   },
   {
    "number": 45,
@@ -458,8 +502,9 @@
    "commit_sha": "bc3904be4119596442d16593745fe4e2894297e9",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "pymc"
   },
   {
    "number": 46,
@@ -468,8 +513,9 @@
    "commit_sha": "3728ea15d04e17346f33899c761525524360090d",
    "license_file": "LICENSE.md",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "numpyro"
   },
   {
    "number": 47,
@@ -478,8 +524,9 @@
    "commit_sha": "f7aa5e5a0403fecbc561b50230ba4acc744995fc",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "arviz"
   },
   {
    "number": 48,
@@ -488,8 +535,9 @@
    "commit_sha": "c4fa86726b040ba7164b9396eb5849c90d271b37",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "causalpy"
   },
   {
    "number": 49,
@@ -498,8 +546,9 @@
    "commit_sha": "5bcb26d86aa6523cec76d12b78a656a1754e7490",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "neuralforecast"
   },
   {
    "number": 50,
@@ -508,8 +557,9 @@
    "commit_sha": "d1f58a6a9e20764b25ee28773df5355512213dfa",
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
-   "license_review": "read_from_license_file",
-   "status": "propuesto"
+   "license_review": "pending",
+   "status": "registrado_sin_adaptador",
+   "registry_id": "orbit"
   }
  ]
 }

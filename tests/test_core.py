@@ -106,9 +106,9 @@ class Base(unittest.TestCase):
 class CatalogTests(Base):
     def test_exact_322_unique(self):
         rows=catalog()
-        self.assertEqual(322,len(rows))
-        self.assertEqual(322,len({r['id'] for r in rows}))
-        self.assertEqual(322,len({r['repository'].casefold() for r in rows}))
+        self.assertEqual(688,len(rows))
+        self.assertEqual(688,len({r['id'] for r in rows}))
+        self.assertEqual(688,len({r['repository'].casefold() for r in rows}))
 
     def test_no_false_live_status(self):
         s=self.engine.status()
@@ -118,13 +118,13 @@ class CatalogTests(Base):
 
     def test_logical_graph_has_every_project(self):
         g=graph(SPECS)
-        self.assertEqual(323,len(g['nodes']))
-        self.assertEqual(322,len(g['edges']))
+        self.assertEqual(689,len(g['nodes']))
+        self.assertEqual(688,len(g['edges']))
         self.assertEqual(103,sum(e['kind']=='adapter' for e in g['edges']))
         self.assertFalse(any(e['live'] for e in g['edges']))
 
     def test_template_disabled(self):
-        self.assertEqual(322,len(template('nexus')['tenants']['nexus']['services']))
+        self.assertEqual(688,len(template('nexus')['tenants']['nexus']['services']))
         self.assertFalse(any(c['enabled'] for c in template('nexus')['tenants']['nexus']['services'].values()))
 
     def test_all_recipes_build(self):

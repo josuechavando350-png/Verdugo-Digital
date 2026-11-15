@@ -1,0 +1,82 @@
+[
+  {
+    "number": 441,
+    "id": "vizier",
+    "repository": "google/vizier",
+    "commit_sha": "4454dc19318e91876b0b40d6ebc11b965a09847c",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 442,
+    "id": "nevergrad",
+    "repository": "facebookresearch/nevergrad",
+    "commit_sha": "184513e135c9b951e7bc98bb1001792f09e46a3d",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 443,
+    "id": "pymoo",
+    "repository": "the-dual-space/pymoo",
+    "commit_sha": "07bb779fa07f3c1043c011c83483680e9845ec41",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 444,
+    "id": "smac3",
+    "repository": "automl/SMAC3",
+    "commit_sha": "841488796a82944b7c753c62eec3dfb74f72585e",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 445,
+    "id": "hyperopt",
+    "repository": "hyperopt/hyperopt",
+    "commit_sha": "9834314879c09c13e0b8e93eb678408ba46441a8",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 446,
+    "id": "pulp",
+    "repository": "coin-or/pulp",
+    "commit_sha": "06fb0309ef86a07162672f1a919f85b4f0213d30",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 447,
+    "id": "pyomo",
+    "repository": "Pyomo/pyomo",
+    "commit_sha": "4a83eef4d65799f02005ab39c10bcd5e98853d85",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 448,
+    "id": "cvxpy",
+    "repository": "cvxpy/cvxpy",
+    "commit_sha": "0fc467a64a66f5a0f3b7cc721779dca5f1b7ce6f",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 449,
+    "id": "highs",
+    "repository": "ERGO-Code/HiGHS",
+    "commit_sha": "f3f113d230429a8c0014b12ab0dd1a3847e58c55",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 450,
+    "id": "timefold-solver",
+    "repository": "TimefoldAI/timefold-solver",
+    "commit_sha": "857241c02c086bd9763947575a9b2bfe597a068e",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

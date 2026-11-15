@@ -1,0 +1,82 @@
+[
+  {
+    "number": 501,
+    "id": "interpret",
+    "repository": "interpretml/interpret",
+    "commit_sha": "003136ef4c8beb24dd30a4b5626871b788be9acd",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 502,
+    "id": "transformerlens",
+    "repository": "TransformerLensOrg/TransformerLens",
+    "commit_sha": "284e35b4ee2deea0924894c221a3be8ad519474d",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 503,
+    "id": "llama-cpp",
+    "repository": "ggml-org/llama.cpp",
+    "commit_sha": "6d3568e31d4e4b1e4db4acb8f6ceaad0084932f3",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 504,
+    "id": "sglang",
+    "repository": "sgl-project/sglang",
+    "commit_sha": "cb6a391c961fa71e7b560f9819b1fb3a478b8dde",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 505,
+    "id": "mlc-llm",
+    "repository": "mlc-ai/mlc-llm",
+    "commit_sha": "3b7663abb6962c1ac1be0337630321fd7bfcf9ff",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 506,
+    "id": "candle",
+    "repository": "huggingface/candle",
+    "commit_sha": "cfcbd7186d13271843ce7eb41d25659bd0835850",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 507,
+    "id": "lmcache",
+    "repository": "LMCache/LMCache",
+    "commit_sha": "bcafb031401d404a5dabae4853f5e23bf9e5685c",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 508,
+    "id": "tokenizers",
+    "repository": "huggingface/tokenizers",
+    "commit_sha": "39e28180be35af322d0abf08007d937641a5493b",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 509,
+    "id": "llm-compressor",
+    "repository": "vllm-project/llm-compressor",
+    "commit_sha": "f8a3abb5358765a1864783deb3e38d3e2452912a",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 510,
+    "id": "bitsandbytes",
+    "repository": "bitsandbytes-foundation/bitsandbytes",
+    "commit_sha": "a616886cacf86701514f0cb1d6be760f967481c0",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

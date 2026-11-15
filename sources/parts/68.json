@@ -1,0 +1,82 @@
+[
+  {
+    "number": 671,
+    "id": "geopandas",
+    "repository": "geopandas/geopandas",
+    "commit_sha": "f596bc16071809a3e86c550fb3a9158c9bae5292",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 672,
+    "id": "victoriametrics",
+    "repository": "VictoriaMetrics/VictoriaMetrics",
+    "commit_sha": "4c2457ded123442972ca39dcb1b61526d18d39a3",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 673,
+    "id": "kopia",
+    "repository": "kopia/kopia",
+    "commit_sha": "b6272a4ead04131cb09e3cfeb041f60410e97b05",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 674,
+    "id": "traefik",
+    "repository": "traefik/traefik",
+    "commit_sha": "36b2bd1bd4538dec67b2e7ca6eb395eae47396ee",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 675,
+    "id": "caprover",
+    "repository": "caprover/caprover",
+    "commit_sha": "fa842a89a40e28a8f9b701e650fc6eb52aeaba1c",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 676,
+    "id": "dokku",
+    "repository": "dokku/dokku",
+    "commit_sha": "b39ff6c3f92193f0b8c936a555eeaf8342a59b40",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 677,
+    "id": "bentoml",
+    "repository": "bentoml/BentoML",
+    "commit_sha": "942344be7860065736f9d615de517ef043db2665",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 678,
+    "id": "zenml",
+    "repository": "zenml-io/zenml",
+    "commit_sha": "f2a660acccd2d7e698f98f9dd9f396f5946ec931",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 679,
+    "id": "metaflow",
+    "repository": "Netflix/metaflow",
+    "commit_sha": "bda5e774de68e65ae6f829f6d9643e7c592412d7",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 680,
+    "id": "skypilot",
+    "repository": "skypilot-org/skypilot",
+    "commit_sha": "27991a01509691cd87133916be698a1cbde9d498",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

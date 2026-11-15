@@ -1,0 +1,82 @@
+[
+  {
+    "number": 421,
+    "id": "kernel-memory",
+    "repository": "dluc/kernel-memory",
+    "commit_sha": "8fc4e16f31257faa34c5e368f8e99b45df7e4049",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 422,
+    "id": "chroma",
+    "repository": "chroma-core/chroma",
+    "commit_sha": "1a3ac2c7c623adbd03ed2508dc27b98cdf26016d",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 423,
+    "id": "milvus",
+    "repository": "milvus-io/milvus",
+    "commit_sha": "efb4bc44e460c4fac2c196a6842cf5537f2e714d",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 424,
+    "id": "lancedb",
+    "repository": "lancedb/lancedb",
+    "commit_sha": "530d379fc4d3abbf8c4c8759f7d48804d2055677",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 425,
+    "id": "faiss",
+    "repository": "facebookresearch/faiss",
+    "commit_sha": "ebab8f784c1d177129602269d5ad966c525fbdcb",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 426,
+    "id": "usearch",
+    "repository": "unum-cloud/USearch",
+    "commit_sha": "840374af1a1dd5d411826bc62fdfe5ef6e41e1de",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 427,
+    "id": "txtai",
+    "repository": "neuml/txtai",
+    "commit_sha": "973512fc0d30250613f7571a7b6446101aa9b92e",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 428,
+    "id": "ragflow",
+    "repository": "infiniflow/ragflow",
+    "commit_sha": "f9a53a3779a12b5abb8a254ec9384c2af7fae4b4",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 429,
+    "id": "flagembedding",
+    "repository": "FlagOpen/FlagEmbedding",
+    "commit_sha": "897baa67c0ffddbfccf4e6776ff55310d67809d4",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 430,
+    "id": "infinity",
+    "repository": "michaelfeil/infinity",
+    "commit_sha": "f25b80850a7fc9736310496b64faf9903c01ac97",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

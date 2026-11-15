@@ -1,0 +1,82 @@
+[
+  {
+    "number": 381,
+    "id": "voltagent",
+    "repository": "VoltAgent/voltagent",
+    "commit_sha": "e9fc599f6059afcd88b34f2bfc50d0d1d6a0877c",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 382,
+    "id": "unified-planning",
+    "repository": "aiplan4eu/unified-planning",
+    "commit_sha": "ea8300995f516bbb633b306275adae457aa9864e",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 383,
+    "id": "openmanus",
+    "repository": "FoundationAgents/OpenManus",
+    "commit_sha": "3309bf4e416fb1c74b008f3e86494439a31bad53",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 384,
+    "id": "deer-flow",
+    "repository": "bytedance/deer-flow",
+    "commit_sha": "085b52b5f39a2dc6ca23f207584763bc17d3950b",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 385,
+    "id": "open-deep-research",
+    "repository": "langchain-ai/open_deep_research",
+    "commit_sha": "1b7d2e80db9faa586165c60e09096dbbfd483a64",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 386,
+    "id": "litellm",
+    "repository": "BerriAI/litellm",
+    "commit_sha": "9e3a82ff03702e36e2d9e88a3b93648e6f20b787",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 387,
+    "id": "tree-of-thought-llm",
+    "repository": "princeton-nlp/tree-of-thought-llm",
+    "commit_sha": "8050e67d0e3a0fddc424d7fa5801538722a4c4cc",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 388,
+    "id": "languageagenttreesearch",
+    "repository": "andyz245/LanguageAgentTreeSearch",
+    "commit_sha": "853d81614607dd27433faf17c7b0a7d660f95d22",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 389,
+    "id": "reflexion",
+    "repository": "noahshinn/reflexion",
+    "commit_sha": "218cf0ef1df84b05ce379dd4a8e47f17766733a0",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 390,
+    "id": "graph-of-thoughts",
+    "repository": "spcl/graph-of-thoughts",
+    "commit_sha": "3d9d9dbd8937d47a4441f681b8b40e3c5b054f16",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

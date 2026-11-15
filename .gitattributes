@@ -1,0 +1,3 @@
+# Exact upstream evidence: preserve original line endings and whitespace.
+# SHA256 and Git blob hashes are checked by registry666 and its tests.
+sources/license-texts/*.txt -text -diff

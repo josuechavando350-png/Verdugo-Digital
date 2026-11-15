@@ -1,4 +1,4 @@
-"""v0.15 connection map: how each of the 322 catalogue entries plugs into Verdugo.
+"""Connection map: how each of the 688 catalogue entries plugs into Verdugo.
 
 `kind` is a design classification stored in sources/connections.json.
 `state` is computed from code only: an entry is `conectado` exclusively when

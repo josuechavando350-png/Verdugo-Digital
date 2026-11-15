@@ -44,8 +44,8 @@ class ProductTests(unittest.TestCase):
     def test_overview_unifies_all_catalog_entries_and_commercial_state_without_network(self):
         with closing(self.engine()) as engine:
             r=product.overview(engine)
-        self.assertEqual(322,len(r['services']))
-        self.assertEqual({'conectado':243,'pendiente':1,'pieza_de_construccion':56,'excluido':22},r['connection_states'])
+        self.assertEqual(688,len(r['services']))
+        self.assertEqual({'conectado':243,'pendiente':367,'pieza_de_construccion':56,'excluido':22},r['connection_states'])
         self.assertEqual(67,r['bounded_observation_routes'])
         self.assertEqual(0,r['business']['reported_paid_clients'])
         self.assertFalse(r['external_calls_made']); self.assertFalse(self.calls)

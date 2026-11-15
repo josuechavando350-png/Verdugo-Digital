@@ -1,0 +1,82 @@
+[
+  {
+    "number": 631,
+    "id": "speech-to-speech",
+    "repository": "huggingface/speech-to-speech",
+    "commit_sha": "d1dc31deab44510188ffcd7edfc87203ed9077fb",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 632,
+    "id": "moshi",
+    "repository": "kyutai-labs/moshi",
+    "commit_sha": "e6a55d2722a65870ef52a6c9f6ecfc0e90f38362",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 633,
+    "id": "rasa",
+    "repository": "RasaHQ/rasa",
+    "commit_sha": "60a3cff9c08183760355b07bd60f5223d8916d6b",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 634,
+    "id": "botpress",
+    "repository": "botpress/botpress",
+    "commit_sha": "24b0ca1bb49e9f9acdc459b0b844f9edb2913405",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 635,
+    "id": "flowise",
+    "repository": "FlowiseAI/Flowise",
+    "commit_sha": "9291856d1ea4a4ceea9f8fef8ce14f4f6c81e8eb",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 636,
+    "id": "mixpost",
+    "repository": "inovector/mixpost",
+    "commit_sha": "df57648b866310446703f5294350552b62735df5",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 637,
+    "id": "kutt",
+    "repository": "thedevs-network/kutt",
+    "commit_sha": "029da42b2459693681886665589fd9512d6b473c",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 638,
+    "id": "yourls",
+    "repository": "YOURLS/YOURLS",
+    "commit_sha": "b5b94b944b945ff91963ca02d456e48034e1778c",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 639,
+    "id": "puck",
+    "repository": "puckeditor/puck",
+    "commit_sha": "ab5624ddcb0435cc9575b5154433be7aadf84809",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 640,
+    "id": "atomic-crm",
+    "repository": "marmelab/atomic-crm",
+    "commit_sha": "ae3e3b25ed38ed4a8c344fbd1bb2a883f8bc468a",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

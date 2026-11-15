@@ -85,7 +85,7 @@ class MCPTests(unittest.TestCase):
         self.handshake()
         out=self.s.handle({'jsonrpc':'2.0','id':2,'method':'tools/call','params':{'name':'verdugo_status','arguments':{}}})
         data=json.loads(out['result']['content'][0]['text'])
-        self.assertEqual(322,data['registered']);self.assertEqual(0,data['live_verified'])
+        self.assertEqual(688,data['registered']);self.assertEqual(0,data['live_verified'])
     def test_bad_json_does_not_pollute_stdout(self):
         out=io.StringIO();serve(self.engine,io.StringIO('{not-json}\n'),out)
         msg=json.loads(out.getvalue());self.assertEqual(-32700,msg['error']['code'])

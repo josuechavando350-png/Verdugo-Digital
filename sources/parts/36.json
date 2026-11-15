@@ -1,0 +1,82 @@
+[
+  {
+    "number": 351,
+    "id": "datasynthesizer",
+    "repository": "DataResponsibly/DataSynthesizer",
+    "commit_sha": "b969f618015d6313d03e109ad58aae2f8b12124d",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 352,
+    "id": "realtabformer",
+    "repository": "worldbank/REaLTabFormer",
+    "commit_sha": "73f239643f9ea5abc877f685ce927e986302ac2d",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 353,
+    "id": "be-great",
+    "repository": "tabularis-ai/be_great",
+    "commit_sha": "616b2e74b396fa1f9c7ab4412b9928eec849159a",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 354,
+    "id": "distilabel",
+    "repository": "argilla-io/distilabel",
+    "commit_sha": "313fac85b1a2472dd88db1a31c2b754599f46476",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 355,
+    "id": "pyblp",
+    "repository": "jeffgortmaker/pyblp",
+    "commit_sha": "d935faeb6502eb66d2776c7d11d47bcfed172c0a",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 356,
+    "id": "choice-learn",
+    "repository": "artefactory/choice-learn",
+    "commit_sha": "48920673db8d8b56c3ef7db6ce46a906d0170154",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 357,
+    "id": "biogeme",
+    "repository": "michelbierlaire/biogeme",
+    "commit_sha": "8d1063b5c371f09f5dd44f430b3be66455f2b785",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 358,
+    "id": "torch-choice",
+    "repository": "gsbDBI/torch-choice",
+    "commit_sha": "32f3c9257b33e696aee0784655b0e786d1c2ea0e",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 359,
+    "id": "recsim-ng",
+    "repository": "google-research/recsim_ng",
+    "commit_sha": "6df34cf87111da366923793ddba81a0b50e41242",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 360,
+    "id": "ndlib",
+    "repository": "GiulioRossetti/ndlib",
+    "commit_sha": "5c659ccf5724bc4863a1aa17ad42ba94ae69baa8",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

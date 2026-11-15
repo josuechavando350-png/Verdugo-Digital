@@ -1,0 +1,82 @@
+[
+  {
+    "number": 411,
+    "id": "jena",
+    "repository": "apache/jena",
+    "commit_sha": "d5b47b73e3e260bf1db62c776efb960bc758a93d",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 412,
+    "id": "oxigraph",
+    "repository": "oxigraph/oxigraph",
+    "commit_sha": "78734be853a4bec714ba09bbfad790e64f3a1150",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 413,
+    "id": "memos",
+    "repository": "MemTensor/MemOS",
+    "commit_sha": "3a16e5fe3048a209f722806f4123fa2e533588fd",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 414,
+    "id": "memoryos",
+    "repository": "BAI-LAB/MemoryOS",
+    "commit_sha": "587ed7755c7aed179965792830ff1b5ad9a6fa92",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 415,
+    "id": "lightrag",
+    "repository": "HKUDS/LightRAG",
+    "commit_sha": "c515065405929202c4068e66230f1a19069196ff",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 416,
+    "id": "nano-graphrag",
+    "repository": "gusye1234/nano-graphrag",
+    "commit_sha": "acb35c065614eb5a2f5f1be9a56b235f5a2e0a7a",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 417,
+    "id": "fast-graphrag",
+    "repository": "circlemind-ai/fast-graphrag",
+    "commit_sha": "23b3a1bef64338faf9f35c521a20465dbd09419f",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 418,
+    "id": "rag-anything",
+    "repository": "HKUDS/RAG-Anything",
+    "commit_sha": "eb7a670f724e59056b6a08f7016d753226a865ee",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 419,
+    "id": "kag",
+    "repository": "OpenSPG/KAG",
+    "commit_sha": "fdab15b3929d2ee40dfcdd388f90233096a6afc9",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 420,
+    "id": "llm-graph-builder",
+    "repository": "neo4j-labs/llm-graph-builder",
+    "commit_sha": "a728de68d8c75720081816d47b5900a84d93fdcf",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

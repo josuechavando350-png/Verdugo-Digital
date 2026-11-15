@@ -1,0 +1,66 @@
+[
+  {
+    "number": 681,
+    "id": "kserve",
+    "repository": "kserve/kserve",
+    "commit_sha": "4e6a58e2e9866b633d89984c8d36aee67eec3784",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 682,
+    "id": "pipelines",
+    "repository": "kubeflow/pipelines",
+    "commit_sha": "58bc6fb4a99ae381dd81b235af82033ade86d671",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 683,
+    "id": "ome",
+    "repository": "ome-projects/ome",
+    "commit_sha": "aa4a37174ed972b33129183ed16f4511896f7471",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 684,
+    "id": "openllmetry",
+    "repository": "traceloop/openllmetry",
+    "commit_sha": "e3d651a0c9f2f5f5019819df5b6320273fd65049",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 685,
+    "id": "helicone",
+    "repository": "Helicone/helicone",
+    "commit_sha": "cfddabd090807e435fa02ea1a62c4fe333b6278a",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 686,
+    "id": "vespa",
+    "repository": "vespa-engine/vespa",
+    "commit_sha": "1f5abdb0b5fcc524ac4df98959bae999a4d07d8d",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 687,
+    "id": "anything-llm",
+    "repository": "Mintplex-Labs/anything-llm",
+    "commit_sha": "4d09fa5f730698d39f1d783e47316744b260a700",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 688,
+    "id": "librechat",
+    "repository": "LibreChat-AI/LibreChat",
+    "commit_sha": "5473f91036bbe388cdcdd60f3ecac22e6138cf47",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

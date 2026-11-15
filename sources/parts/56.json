@@ -1,0 +1,82 @@
+[
+  {
+    "number": 551,
+    "id": "librecommender",
+    "repository": "massquantity/LibRecommender",
+    "commit_sha": "7463d9d084bfc6d4cf06dbfc834a255801304d2f",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 552,
+    "id": "merlin",
+    "repository": "NVIDIA-Merlin/Merlin",
+    "commit_sha": "37eee9a2952f201353005c612a8e0e965ba69aad",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 553,
+    "id": "pytorch-geometric",
+    "repository": "pyg-team/pytorch_geometric",
+    "commit_sha": "d1f2f8642387b6e0563d6aee227c39130746c738",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 554,
+    "id": "dgl",
+    "repository": "dmlc/dgl",
+    "commit_sha": "3d16000b4170fa741ed9e9667f22ba84d3493026",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 555,
+    "id": "cleanlab",
+    "repository": "cleanlab/cleanlab",
+    "commit_sha": "750625747de1b26d8530954f51f0530bd0b51d3c",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 556,
+    "id": "argilla",
+    "repository": "argilla-io/argilla",
+    "commit_sha": "5338519accb13ae422f8bf9c0642651c249c49af",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 557,
+    "id": "snorkel",
+    "repository": "snorkel-team/snorkel",
+    "commit_sha": "45824f9867228c6cb6c9fdc2afd2b7e5bb7fd0b3",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 558,
+    "id": "frictionless-py",
+    "repository": "frictionlessdata/frictionless-py",
+    "commit_sha": "c08fa29cb0708427ae65bb689ded8e2691078a82",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 559,
+    "id": "sqlmesh",
+    "repository": "SQLMesh/sqlmesh",
+    "commit_sha": "3df452cc9f47a435439cda087c3a419a1778b2b9",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 560,
+    "id": "delta-rs",
+    "repository": "delta-io/delta-rs",
+    "commit_sha": "f3b65a4130f312fc27a4b4e17183daa734b0316c",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "number": 531,
+    "id": "time-moe",
+    "repository": "Time-MoE/Time-MoE",
+    "commit_sha": "915bfda4c78a544d62a2bec6ab22948423059236",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 532,
+    "id": "time-series-library",
+    "repository": "thuml/Time-Series-Library",
+    "commit_sha": "4e938a1767106324dd753b2a44832bf870a0252e",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 533,
+    "id": "mlforecast",
+    "repository": "Nixtla/mlforecast",
+    "commit_sha": "48dc5702c4498165df434f836f2088eb53dac314",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 534,
+    "id": "hierarchicalforecast",
+    "repository": "Nixtla/hierarchicalforecast",
+    "commit_sha": "71b243ca54aff643c354b7e9e6bebd27384a9705",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 535,
+    "id": "xgboost",
+    "repository": "dmlc/xgboost",
+    "commit_sha": "293cad1a89ab749e3266e190c68118af2db09982",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 536,
+    "id": "lightgbm",
+    "repository": "lightgbm-org/LightGBM",
+    "commit_sha": "53350cd896c6fd76d2cc03354f452f18646830e9",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 537,
+    "id": "h2o-3",
+    "repository": "h2oai/h2o-3",
+    "commit_sha": "41c9f34af4825c940643733c59bc6344fabf1a84",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 538,
+    "id": "synapseml",
+    "repository": "microsoft/SynapseML",
+    "commit_sha": "45578f08e6bacf8475de0e92f1717e761d40f795",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 539,
+    "id": "mindshub",
+    "repository": "mindsdb/mindshub",
+    "commit_sha": "3f7d3c690295c52b64f512333c59465d20bce0b9",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 540,
+    "id": "pandas-ai",
+    "repository": "sinaptik-ai/pandas-ai",
+    "commit_sha": "bbbb771d31062d81f6fa19bafb40620d5cbe48f4",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

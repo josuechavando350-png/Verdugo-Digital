@@ -1,0 +1,82 @@
+[
+  {
+    "number": 391,
+    "id": "llm-reasoners",
+    "repository": "maitrix-org/llm-reasoners",
+    "commit_sha": "f94e5ac2cb9788c3d7d7dbf2173884ed4088e4b2",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 392,
+    "id": "openr",
+    "repository": "openreasoner/openr",
+    "commit_sha": "54ae004c69623ebb9a97b22211d6b236033a710d",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 393,
+    "id": "textgrad",
+    "repository": "zou-group/textgrad",
+    "commit_sha": "75e912e210864b61999781778cdf756d4468120f",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 394,
+    "id": "trace",
+    "repository": "microsoft/Trace",
+    "commit_sha": "8190d032e43ffe18943a8cad9ea9ee99e43d6773",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 395,
+    "id": "adalflow",
+    "repository": "SylphAI-Inc/AdalFlow",
+    "commit_sha": "12f3fa686bdaf01099db65d4c5b1c685513f7a65",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 396,
+    "id": "openevolve",
+    "repository": "algorithmicsuperintelligence/openevolve",
+    "commit_sha": "a19bfced9ea6277fa8e8b0d8f428af60be67804d",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 397,
+    "id": "promptwizard",
+    "repository": "microsoft/PromptWizard",
+    "commit_sha": "a1d43f876ef4468b0549a3ceff8bd691b80cd667",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 398,
+    "id": "evoagentx",
+    "repository": "ANative-Lab/EvoAgentX",
+    "commit_sha": "e3df900662443e94dd92141be5633b040a69a70a",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 399,
+    "id": "mctx",
+    "repository": "google-deepmind/mctx",
+    "commit_sha": "428bfb7e1c931715cd3d74f9c65e9991afd86df8",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 400,
+    "id": "z3",
+    "repository": "Z3Prover/z3",
+    "commit_sha": "f46b3c58e41c0f9531cbb7cbab243b8cd2a98250",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

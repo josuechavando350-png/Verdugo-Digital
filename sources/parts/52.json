@@ -1,0 +1,82 @@
+[
+  {
+    "number": 511,
+    "id": "xgrammar",
+    "repository": "mlc-ai/xgrammar",
+    "commit_sha": "1ec3f9904c0a3213d76c824683d6f8560ae43c89",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 512,
+    "id": "guidance",
+    "repository": "guidance-ai/guidance",
+    "commit_sha": "21b1d90dfbebff4b141df70c714c8af15aa5f4af",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 513,
+    "id": "lm-format-enforcer",
+    "repository": "noamgat/lm-format-enforcer",
+    "commit_sha": "817f944fcc8851917c40300a47f62d1defc3ffc3",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 514,
+    "id": "baml",
+    "repository": "BoundaryML/baml",
+    "commit_sha": "51df16c70a1356957f90de7fcbb6b0b208c27d71",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 515,
+    "id": "servers",
+    "repository": "modelcontextprotocol/servers",
+    "commit_sha": "e1dc4b18dbb948921da37f3d4224a628730b43b0",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 516,
+    "id": "monty",
+    "repository": "pydantic/monty",
+    "commit_sha": "a34e0f689cfa26f6c689fb96bd96d533cf92a926",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 517,
+    "id": "playwright-python",
+    "repository": "microsoft/playwright-python",
+    "commit_sha": "86a5f5a81010b1dbd155263e99782442b61d0cb2",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 518,
+    "id": "dbos-transact-py",
+    "repository": "dbos-inc/dbos-transact-py",
+    "commit_sha": "81aa7eea4e5b36a7aa5fce26a61cb4ff75712e9f",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 519,
+    "id": "prefect",
+    "repository": "PrefectHQ/prefect",
+    "commit_sha": "5460c3a8b23b1a70e810bf521a5433c71070a488",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 520,
+    "id": "hatchet",
+    "repository": "hatchet-dev/hatchet",
+    "commit_sha": "ee6d34ecd0baf10908a1a621b9b5324721026f25",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

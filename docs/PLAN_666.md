@@ -7,12 +7,20 @@ Fecha: 15 de noviembre de 2026. Base: `main` después de la v0.21.1.
 | Bloque | Piezas | Fuente | Estado hoy |
 |---|---|---|---|
 | Catálogo libre (cuerpo) | 300 | `sources/parts/*.json`, `sources/licenses.json` | 243 conectadas, 56 piezas de construcción, 1 pendiente (`meta-ads`) |
-| Simulador de mercado (bola de cristal) | 50 | `sources/simulador-mercado.json` | propuesto |
-| Cerebro (piloto) | 150 | `sources/cerebro-150.json` | propuesto |
-| Últimas 166 | 166 | `sources/final-166.json` | propuesto |
+| Simulador de mercado (bola de cristal) | 50 | `sources/simulador-mercado.json` | registrado; adaptador pendiente |
+| Cerebro (piloto) | 150 | `sources/cerebro-150.json` | registrado; adaptador pendiente |
+| Últimas 166 | 166 | `sources/final-166.json` | registrado; adaptador pendiente |
 | **Total libre** | **666** | | |
 
 Los 22 excluidos por licencia siguen registrados, pero no cuentan ni se operan.
+
+## Avance comprobado de esta continuación
+
+- **Tanda 0: registro implementado, aceptación CI pendiente.** 688 identidades GitHub distintas, 666 permitidas por política y 22 excluidas. Se conservan 69 partes: 68 de diez y una de ocho.
+- Cinco propuestas eran alias de proyectos ya registrados (Ragas, Presidio, FastMCP, Recommenders y Great Expectations). TEN Framework tiene restricciones adicionales: no se contó como Apache libre. Las seis sustituciones y su alcance constan en [REGISTRO_666.md](REGISTRO_666.md).
+- **Conectadas: 243; construcción: 56; pendientes: 367; certificadas en producción: 0.** Añadir evidencia al catálogo no añade adaptadores.
+- **Lote 1 (183): pendiente de integración. Lote 2 (183): pendiente de integración.** Orden completo, sin duplicados, en `sources/registry-666.json/work_queue`.
+- `meta-ads` sigue pendiente. No se instalaron modelos, lanzaron campañas ni desplegaron proveedores por este registro.
 
 ## Qué es el producto terminado
 
@@ -40,11 +48,11 @@ Un solo sistema que recibe un objetivo de negocio ("20 clientes este mes para es
 
 ## Orden de construcción
 
-Cada tanda es de **50 piezas por sesión** y termina con las pruebas, los tres workflows en verde y un PR encadenado. Las 366 piezas nuevas (50 + 150 + 166) más la pendiente suman 8 tandas.
+El plan original dividía el trabajo en tandas de hasta 50. La organización vigente usa dos lotes de 183, con pruebas, los tres workflows observados en verde y PR encadenados. Las fases funcionales originales se conservan abajo. Por instrucción del dueño del 15 de noviembre, la ejecución se agrupa en **dos lotes de 183**, en el orden explícito de `sources/registry-666.json/work_queue`. El registro (tanda 0) sigue siendo previo.
 
 | Tanda | Qué | Piezas | Criterio de terminado |
 |---|---|---|---|
-| 0 | Registro unificado: llevar el catálogo de 322 a 688 registros (666 libres + 22 excluidos) con commits fijados, política de licencias y mapa de conexión. Actualizar en AGENTS.md la regla de `sources/parts/` (hoy 33 archivos y 322 entradas) a la nueva cuenta. Sin adaptadores todavía. | 0 nuevas operaciones | `licenses` y `connections` reportan 688/666; pruebas actualizadas |
+| 0 | Registro unificado: llevar el catálogo de 322 a 688 registros (666 libres + 22 excluidos) con commits fijados, política de licencias y mapa de conexión. Regla actualizada a 69 archivos y 688 entradas en AGENTS.md. Sin adaptadores todavía. | 0 nuevas operaciones | `licenses` y `connections` reportan 688/666; pruebas actualizadas |
 | 1 | Esqueleto del piloto: objetivo → plan → aprobación → ejecución simulada → medición, con `ejecutivo`, `manos`, `juicio` y `conciencia`. Modelo local con `pensamiento`. | 50 | Un objetivo de prueba produce un plan, pide aprobación, corre en dry-run y queda en SQLite con replay |
 | 2 | Memoria y lógica: `memoria` y `logica`. El piloto recuerda clientes y campañas, y comprueba sus afirmaciones antes de reportarlas. | 50 | Consultas sobre datos sintéticos; afirmaciones verificadas o rechazadas |
 | 3 | Núcleo del simulador: población sintética, clientes virtuales y calibración (los 50 del simulador). | 50 | Simula una oferta sintética y reporta incertidumbre, no un número único |

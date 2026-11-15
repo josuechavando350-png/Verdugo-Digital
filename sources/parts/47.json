@@ -1,0 +1,82 @@
+[
+  {
+    "number": 461,
+    "id": "trustworthyai",
+    "repository": "huawei-noah/trustworthyAI",
+    "commit_sha": "8675af0bc532c7f138158ded62e8cf303e9af655",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 462,
+    "id": "causaldiscoverytoolbox",
+    "repository": "FenTechSolutions/CausalDiscoveryToolbox",
+    "commit_sha": "ff46dbca3d91f2dba30e6ae54986eea30c9b331f",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 463,
+    "id": "trl",
+    "repository": "huggingface/trl",
+    "commit_sha": "8ad18ec1b6493b85cf9fffbd87d376767ceb8611",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 464,
+    "id": "peft",
+    "repository": "huggingface/peft",
+    "commit_sha": "cd9aa480b1a0003fd6cac6ce234425a50cfaca8b",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 465,
+    "id": "axolotl",
+    "repository": "axolotl-ai-cloud/axolotl",
+    "commit_sha": "f2158ff1922b2bcf701854a17e47cc91ba26e7e9",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 466,
+    "id": "openrlhf",
+    "repository": "OpenRLHF/OpenRLHF",
+    "commit_sha": "26494490bc237f6c3af62dab6117e6bbb0a78dba",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 467,
+    "id": "verl",
+    "repository": "verl-project/verl",
+    "commit_sha": "6e7db96322d30a186dfed8d9cb82d5d8a50ad037",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 468,
+    "id": "llamafactory",
+    "repository": "hiyouga/LlamaFactory",
+    "commit_sha": "5f1f6ad537e69216e0604671223cc1eeecbb7ba6",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 469,
+    "id": "open-r1",
+    "repository": "huggingface/open-r1",
+    "commit_sha": "5b6ff22b3fb7aa069c54866e517f39dfc3160e09",
+    "source_status": "pinned",
+    "license_review": "pending"
+  },
+  {
+    "number": 470,
+    "id": "tinyzero",
+    "repository": "Jiayi-Pan/TinyZero",
+    "commit_sha": "95df88f2dcb05f33bd18da546531b52d0954c18b",
+    "source_status": "pinned",
+    "license_review": "pending"
+  }
+]

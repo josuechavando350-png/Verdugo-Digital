@@ -14,5 +14,69 @@
   "commit_sha": "15920096d4a165729c01f749e2bd97334b009519",
   "source_status": "pinned",
   "license_review": "pending"
+ },
+ {
+  "number": 323,
+  "id": "concordia",
+  "repository": "google-deepmind/concordia",
+  "commit_sha": "15169db65cb00e9eadc126ecf19fe8aa6142e6f6",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 324,
+  "id": "oasis",
+  "repository": "camel-ai/oasis",
+  "commit_sha": "fced8869353f858de4ebe7b8f60321415f238fad",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 325,
+  "id": "agentsociety",
+  "repository": "tsinghua-fib-lab/AgentSociety",
+  "commit_sha": "a4882a712a579ffb07f85f8d41748061d023460b",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 326,
+  "id": "edsl",
+  "repository": "expectedparrot/edsl",
+  "commit_sha": "84a53e4c5ac26b7130f00031ece996462945c52f",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 327,
+  "id": "genagents",
+  "repository": "StanfordHCI/genagents",
+  "commit_sha": "96854071ef4c2d79c93144c973c7820722d52bab",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 328,
+  "id": "generative-agents",
+  "repository": "joonspk-research/generative_agents",
+  "commit_sha": "fe05a71d3e4ed7d10bf68aa4eda6dd995ec070f4",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 329,
+  "id": "ai-town",
+  "repository": "a16z-infra/ai-town",
+  "commit_sha": "1b2f7d8b824c7bc679017a091d9d45ba3dc3029e",
+  "source_status": "pinned",
+  "license_review": "pending"
+ },
+ {
+  "number": 330,
+  "id": "sotopia",
+  "repository": "sotopia-lab/sotopia",
+  "commit_sha": "a0aaafb440e570e5e61b7c44a44e5e417c545383",
+  "source_status": "pinned",
+  "license_review": "pending"
  }
 ]
