@@ -790,7 +790,11 @@
     "usr/lib/R/library/utils/misc/exDIF.dif": "579b2dddbf45c87e793c95173b3fc89a5eee90c451fda75c7c9bfc541d956c74",
     "usr/lib/x86_64-linux-gnu/libicudata.so.72.1": "5f572a055d6410ab50fc45770d529109dcc4fe8888f3b2834f76730ff19ebf58",
     "usr/lib/x86_64-linux-gnu/libicui18n.so.72.1": "6ff8ea51aebfa7b77587a4ac3b691e894263e08a2e9d93b636f0d276e4dcaeb2",
-    "usr/lib/x86_64-linux-gnu/libicuuc.so.72.1": "6ae74e03d74c29774be16f877aeba4b8c347ea83d8cb43b730fd283e205b375e"
+    "usr/lib/x86_64-linux-gnu/libicuuc.so.72.1": "6ae74e03d74c29774be16f877aeba4b8c347ea83d8cb43b730fd283e205b375e",
+    "usr/lib/x86_64-linux-gnu/libgfortran.so.5.0.0": "59811b6f7cff9cc414fcca4f5c29deaed251d410a2384602f323cf011a845877",
+    "usr/lib/x86_64-linux-gnu/libquadmath.so.0.0.0": "8c3e12967a5e6dccb0dc2a2b92f415d76ab2b90bea645eb5ec8a01531d01cefb",
+    "usr/lib/x86_64-linux-gnu/blas/libblas.so.3.11.0": "8d5488a64515f34451bd893877d813c342efdd0e98962e16b21e25095cd1e2af",
+    "usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.11.0": "72db5f4e45b7d85c756f1dcba10220bc843239c2b40ffcdd7da5d3c728a0ccac"
   },
   "sources": {
     "pricesensitivitymeter": {

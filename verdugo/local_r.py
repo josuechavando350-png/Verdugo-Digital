@@ -113,7 +113,9 @@ def run(service, p):
     r_home = home / 'usr/lib/R'
     env = {'PATH': os.defpath, 'HOME': os.getcwd(), 'TMPDIR': os.getcwd(), 'LANG': 'C.UTF-8',
            'R_HOME': str(r_home), 'R_DEFAULT_PACKAGES': 'utils,stats,methods',
-           'LD_LIBRARY_PATH': str(r_home / 'lib') + ':' + str(home / 'usr/lib/x86_64-linux-gnu'),
+           'LD_LIBRARY_PATH': ':'.join(str(home / name) for name in (
+               'usr/lib/R/lib', 'usr/lib/x86_64-linux-gnu',
+               'usr/lib/x86_64-linux-gnu/blas', 'usr/lib/x86_64-linux-gnu/lapack')),
            'OMP_NUM_THREADS': '1', 'OPENBLAS_NUM_THREADS': '1'}
     with tempfile.TemporaryFile() as out, tempfile.TemporaryFile() as err:
         proc = subprocess.run([str(r_home / 'bin/exec/R'), '--vanilla', '--slave', '-f', str(WORKER),

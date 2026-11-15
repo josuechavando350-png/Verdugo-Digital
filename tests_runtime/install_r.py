@@ -14,6 +14,14 @@ ARTIFACTS = [
      'cfc8aafc639333d16d9019c7d498ced00fc3565b153682a9d9baa48b9eb96a38'),
     ('https://deb.debian.org/debian/pool/main/i/icu/libicu72_72.1-3+deb12u1_amd64.deb',
      'f7f6f99c6d7b025914df2447fc93e11d22c44c0c8bdd8b6f36691c9e7ddcef88'),
+    ('https://deb.debian.org/debian/pool/main/l/lapack/libblas3_3.11.0-2_amd64.deb',
+     '9aae8058b8d02b800bdafc5b340614df1442a2d2abbc2d351947c0fdd67aa08a'),
+    ('https://deb.debian.org/debian/pool/main/l/lapack/liblapack3_3.11.0-2_amd64.deb',
+     '4cb4ba9c36ee0242d91c8bcd69286db59a6a0c86f8c522b72f5eb0053e127d7d'),
+    ('https://deb.debian.org/debian/pool/main/g/gcc-12/libgfortran5_12.2.0-14+deb12u1_amd64.deb',
+     '63d38775d20c425c1f00914b52167ae0e3b4639facdb0aa734877279fb716fbb'),
+    ('https://deb.debian.org/debian/pool/main/g/gcc-12/libquadmath0_12.2.0-14+deb12u1_amd64.deb',
+     '3f0c9a4c730da2fdab001cae596625438598fd2996d29d888feeb4c1cdc9011f'),
 ]
 
 
@@ -43,7 +51,9 @@ def install():
     # native dependencies and package loading explicitly before acceptance.
     r_home = home / 'usr/lib/R'
     env = dict(os.environ, R_HOME=str(r_home),
-               LD_LIBRARY_PATH=str(r_home/'lib')+':'+str(home/'usr/lib/x86_64-linux-gnu'))
+               LD_LIBRARY_PATH=':'.join(str(home / name) for name in (
+                   'usr/lib/R/lib', 'usr/lib/x86_64-linux-gnu',
+                   'usr/lib/x86_64-linux-gnu/blas', 'usr/lib/x86_64-linux-gnu/lapack')))
     subprocess.run(['ldd', str(r_home/'bin/exec/R')], env=env, check=True)
     subprocess.run([str(r_home/'bin/exec/R'), '--vanilla', '--slave', '-e',
                     'stopifnot(as.character(getRversion()) == "4.2.2", requireNamespace("stats", quietly=TRUE), requireNamespace("methods", quietly=TRUE))'],
