@@ -151,6 +151,112 @@
       "original_server_executed": false,
       "live_verified": false,
       "production_certified": false
+    },
+    {
+      "id": "jena",
+      "repository": "apache/jena",
+      "commit": "d5b47b73e3e260bf1db62c776efb960bc758a93d",
+      "license": "Apache-2.0 with included BSD text",
+      "license_text_read": true,
+      "license_evidence": [
+        {
+          "repository": "apache/jena",
+          "commit_sha": "d5b47b73e3e260bf1db62c776efb960bc758a93d",
+          "path": "LICENSE",
+          "blob_sha": "2fc63f6366f9d5d8b6446e28ebe922599a7f1a09",
+          "sha256": "4a18f6460eb65e959207ab9dac6f7aac979cec6630fdd38fb49582c4a04ffb28",
+          "local_path": "sources/license-texts/4a18f6460eb65e959207ab9dac6f7aac979cec6630fdd38fb49582c4a04ffb28.txt",
+          "source_url": "https://github.com/apache/jena/blob/d5b47b73e3e260bf1db62c776efb960bc758a93d/LICENSE"
+        }
+      ],
+      "operation": "datasets.summary",
+      "method": "GET",
+      "path": "/$/server",
+      "authentication": "Original server-wide Jetty Basic authentication with password file and authenticated server policy; operator must explicitly verify that GET /$/server rejects anonymous access. Shiro default has an anonymous exception for this route and is not accepted as protection.",
+      "request": "Fixed root /$/server of Fuseki 6.3.0-SNAPSHOT admin module; dedicated instance and empty context path. ASCII username:password in one private environment credential; HTTP Basic Authorization. No query or dataset chosen by params.",
+      "response": "ActionServerStatus emits version, startDateTime, integer uptime, datasets; JsonDescription emits ds.name, ds.state bool, ds.services and srv.type/description/endpoints. Only counts survive; no names, endpoints, descriptions, version or timestamps retained.",
+      "scope": [
+        "The default anonymous status route is rejected by operator review gates. No automatic server reconfiguration, account creation or authorization is performed.",
+        "No SPARQL, RDF input, named graphs, inference, writes, model calls or dataset contents. Response snapshot reflects the dedicated server registry, not a complete export or correctness proof.",
+        "Original server and its Java dependency closure not installed or executed. HTTP acceptance uses synthetic socket responses."
+      ],
+      "files": [
+        {
+          "path": "pom.xml",
+          "git_blob_sha": "6df1c136ef670bb4d7a6de32feeed17a0bd0e23c",
+          "sha256": "c3748ba701126ea6f183e9e672aed7fe2c9e3b5c6a1947428ec3a856632ad71f",
+          "source_url": "https://github.com/apache/jena/blob/d5b47b73e3e260bf1db62c776efb960bc758a93d/pom.xml"
+        },
+        {
+          "path": "jena-fuseki2/jena-fuseki-main/src/main/java/org/apache/jena/fuseki/main/FusekiServer.java",
+          "git_blob_sha": "80ffb58f22e92a0fe8316c953acb3a39ada28dcd",
+          "sha256": "5c51ca628ac4c68aa46a958db612613f5b6e8f837679fda03e8d317c73da6ba5",
+          "source_url": "https://github.com/apache/jena/blob/d5b47b73e3e260bf1db62c776efb960bc758a93d/jena-fuseki2/jena-fuseki-main/src/main/java/org/apache/jena/fuseki/main/FusekiServer.java"
+        },
+        {
+          "path": "jena-fuseki2/jena-fuseki-main/src/main/java/org/apache/jena/fuseki/mod/admin/ActionServerStatus.java",
+          "git_blob_sha": "4c3a56ef4ea4fe9892f882f73d42d274fb18a7a2",
+          "sha256": "2fd2314e40909d2170bc9e9268d26bdb5d955076fe0385ac1c2879b5a45d91ca",
+          "source_url": "https://github.com/apache/jena/blob/d5b47b73e3e260bf1db62c776efb960bc758a93d/jena-fuseki2/jena-fuseki-main/src/main/java/org/apache/jena/fuseki/mod/admin/ActionServerStatus.java"
+        },
+        {
+          "path": "jena-fuseki2/jena-fuseki-core/src/main/java/org/apache/jena/fuseki/ctl/ActionCtl.java",
+          "git_blob_sha": "64925084d8a823602059c5c8cfa3a04a05f5912e",
+          "sha256": "46a17629b496fc2fcb2f1f1f5de195e4646776c9597aba1b07f3ac80216f7a2a",
+          "source_url": "https://github.com/apache/jena/blob/d5b47b73e3e260bf1db62c776efb960bc758a93d/jena-fuseki2/jena-fuseki-core/src/main/java/org/apache/jena/fuseki/ctl/ActionCtl.java"
+        },
+        {
+          "path": "jena-fuseki2/jena-fuseki-core/src/main/java/org/apache/jena/fuseki/ctl/JsonDescription.java",
+          "git_blob_sha": "5f76c1b0f459cc134919461341cc755ab24b4785",
+          "sha256": "e0c02dd4e6c5fa9d6e07a600ecee8a80149d05dfb87a56646d36ac0ce13c880b",
+          "source_url": "https://github.com/apache/jena/blob/d5b47b73e3e260bf1db62c776efb960bc758a93d/jena-fuseki2/jena-fuseki-core/src/main/java/org/apache/jena/fuseki/ctl/JsonDescription.java"
+        },
+        {
+          "path": "jena-fuseki2/jena-fuseki-core/src/main/java/org/apache/jena/fuseki/server/ServerConst.java",
+          "git_blob_sha": "aef816e022229e83828c3dc25bb539d015615c87",
+          "sha256": "42e7c448577200ea3fdfd6aba359faa09bd8572f3c8a3fc7eae2e93403f6eb3f",
+          "source_url": "https://github.com/apache/jena/blob/d5b47b73e3e260bf1db62c776efb960bc758a93d/jena-fuseki2/jena-fuseki-core/src/main/java/org/apache/jena/fuseki/server/ServerConst.java"
+        },
+        {
+          "path": "jena-fuseki2/jena-fuseki-main/src/main/java/org/apache/jena/fuseki/main/JettySecurityLib.java",
+          "git_blob_sha": "f13176b32553f0b70441033def83d6bf7f964fe9",
+          "sha256": "e0dd3ecbd8d04c39bba44052a5b9782ec857ff2adf55e5ea5783a4c1ff790cb0",
+          "source_url": "https://github.com/apache/jena/blob/d5b47b73e3e260bf1db62c776efb960bc758a93d/jena-fuseki2/jena-fuseki-main/src/main/java/org/apache/jena/fuseki/main/JettySecurityLib.java"
+        },
+        {
+          "path": "jena-fuseki2/jena-fuseki-main/src/main/java/org/apache/jena/fuseki/mod/admin/FMod_Admin.java",
+          "git_blob_sha": "81c3e4823824769f88105a9f19fe2439f4c70998",
+          "sha256": "ae4c3e77b520e4703b155d45014ee4881154fca6351addc5d5ee0e0332a53e9b",
+          "source_url": "https://github.com/apache/jena/blob/d5b47b73e3e260bf1db62c776efb960bc758a93d/jena-fuseki2/jena-fuseki-main/src/main/java/org/apache/jena/fuseki/mod/admin/FMod_Admin.java"
+        },
+        {
+          "path": "jena-fuseki2/jena-fuseki-core/src/main/java/org/apache/jena/fuseki/Fuseki.java",
+          "git_blob_sha": "43ae11308433f2e802361865e764f66e9d35f6e6",
+          "sha256": "c9d81f5f6b02c698aaddafad5730b0df037b4548523b45af4d783e82e3bedb5d",
+          "source_url": "https://github.com/apache/jena/blob/d5b47b73e3e260bf1db62c776efb960bc758a93d/jena-fuseki2/jena-fuseki-core/src/main/java/org/apache/jena/fuseki/Fuseki.java"
+        },
+        {
+          "path": "jena-fuseki2/jena-fuseki-core/src/main/java/org/apache/jena/fuseki/servlets/ServletProcessor.java",
+          "git_blob_sha": "67c438cc1b0301fdea857c52a36d22728f4aca29",
+          "sha256": "2fb358c7ce464f568e7f1128faf914c15df7507712aad7a4218aef4ce136cbd3",
+          "source_url": "https://github.com/apache/jena/blob/d5b47b73e3e260bf1db62c776efb960bc758a93d/jena-fuseki2/jena-fuseki-core/src/main/java/org/apache/jena/fuseki/servlets/ServletProcessor.java"
+        },
+        {
+          "path": "jena-fuseki2/jena-fuseki-main/src/main/java/org/apache/jena/fuseki/mod/shiro/FMod_Shiro.java",
+          "git_blob_sha": "3637fe8156e4d48c061ab977a6fcbaa5e741abe2",
+          "sha256": "33f1f8b4f157912d35bab98dc7a73da91228d44edd9371ae377d7cecb4db1cb9",
+          "source_url": "https://github.com/apache/jena/blob/d5b47b73e3e260bf1db62c776efb960bc758a93d/jena-fuseki2/jena-fuseki-main/src/main/java/org/apache/jena/fuseki/mod/shiro/FMod_Shiro.java"
+        },
+        {
+          "path": "jena-fuseki2/jena-fuseki-main/src/main/resources/org/apache/jena/fuseki/server/shiro.ini",
+          "git_blob_sha": "f3380ae7b105c0ad79fffe865baa5dcce848325d",
+          "sha256": "4a631ed38ace38e9d121a0fd0912c4206c74a096bfcb52e4354e96cce62ce931",
+          "source_url": "https://github.com/apache/jena/blob/d5b47b73e3e260bf1db62c776efb960bc758a93d/jena-fuseki2/jena-fuseki-main/src/main/resources/org/apache/jena/fuseki/server/shiro.ini"
+        }
+      ],
+      "original_server_executed": false,
+      "live_verified": false,
+      "production_certified": false
     }
   ]
 }

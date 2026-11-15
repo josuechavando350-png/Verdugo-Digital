@@ -1,0 +1,172 @@
+{
+  "schema": "verdugo.reasoning666.preparation-review.v1",
+  "records": [
+    {
+      "id": "tree-of-thought-llm",
+      "repository": "princeton-nlp/tree-of-thought-llm",
+      "commit": "8050e67d0e3a0fddc424d7fa5801538722a4c4cc",
+      "status": "preparation_pending",
+      "note": "Original pyproject loads pinned requirements.txt; BFS imports gpt from tot.models, which uses OpenAI ChatCompletion by default and permits an OPENAI_API_BASE override. A free original-compatible backend with reviewed weights and complete dependency closure has not been prepared. No paid backend, SDK or weights executed; no claim that a free backend is impossible.",
+      "files": [
+        {
+          "path": "setup.py",
+          "blob_sha": "2ecf87edfb07c916fddc4ed50dad4bfc415ff364",
+          "sha256": "e917d75e5af4db51a406cdc252d81bd09ccc07114f506e5c12b72205668bdc3d",
+          "source_url": "https://github.com/princeton-nlp/tree-of-thought-llm/blob/8050e67d0e3a0fddc424d7fa5801538722a4c4cc/setup.py"
+        },
+        {
+          "path": "requirements.txt",
+          "blob_sha": "10f2db986587974f5d16f117c131fac29824bb0c",
+          "sha256": "91cf87e0f74fecc73ac77b9ea123941700cea29afea30ee91864bf7830576f5a",
+          "source_url": "https://github.com/princeton-nlp/tree-of-thought-llm/blob/8050e67d0e3a0fddc424d7fa5801538722a4c4cc/requirements.txt"
+        },
+        {
+          "path": "pyproject.toml",
+          "blob_sha": "f6fb19e90ed725358358e30b88aff2aaa0c97f83",
+          "sha256": "403e7fa43f073ccb0074342921d53ff4fc5a20d3271ac2e5231ca81195333ce9",
+          "source_url": "https://github.com/princeton-nlp/tree-of-thought-llm/blob/8050e67d0e3a0fddc424d7fa5801538722a4c4cc/pyproject.toml"
+        },
+        {
+          "path": "src/tot/models.py",
+          "blob_sha": "709085fe304a5d5b8963146f32b82804ee53c533",
+          "sha256": "3398523f78b7a93f6d4970eceeacfe7110f711e1a79e15e551c03220ed0bd861",
+          "source_url": "https://github.com/princeton-nlp/tree-of-thought-llm/blob/8050e67d0e3a0fddc424d7fa5801538722a4c4cc/src/tot/models.py"
+        },
+        {
+          "path": "src/tot/methods/bfs.py",
+          "blob_sha": "4675bb90804c071d3ce0fb4155a246ed3621ddd5",
+          "sha256": "1fea761421857120e14e003c07411b5943fb5a87bf4b743691cf55f5e2d9a7b9",
+          "source_url": "https://github.com/princeton-nlp/tree-of-thought-llm/blob/8050e67d0e3a0fddc424d7fa5801538722a4c4cc/src/tot/methods/bfs.py"
+        }
+      ],
+      "sdk_installed": false,
+      "runtime_executed": false,
+      "counted_as_connected": false,
+      "live_verified": false
+    },
+    {
+      "id": "languageagenttreesearch",
+      "repository": "andyz245/LanguageAgentTreeSearch",
+      "commit": "853d81614607dd27433faf17c7b0a7d660f95d22",
+      "status": "preparation_pending",
+      "note": "The inspected hotpot profile uses OpenAI ChatCompletion and imports GPT2Tokenizer.from_pretrained at module import. Its OPENAI_API_BASE override exists. Review of a fully free backend, tokenizer artifacts and dependency closure remains pending; no SDK imported, tokenizers downloaded or provider contacted. This review does not cover every programming/webshop route.",
+      "files": [
+        {
+          "path": "setup.py",
+          "blob_sha": "6e3d1778ddb0adcd5799c48608bafe2898667fe9",
+          "sha256": "f7b2efc2755db94dd462264f2d8f4dde9f938a6d0184aec9d238c1da8fffa1e4",
+          "source_url": "https://github.com/andyz245/LanguageAgentTreeSearch/blob/853d81614607dd27433faf17c7b0a7d660f95d22/setup.py"
+        },
+        {
+          "path": "hotpot/requirements.txt",
+          "blob_sha": "d16ac48244a229ae5565d9c67147854b10fc00c2",
+          "sha256": "5687e1454b0362be34c94e4149e15a42e61edae95f6524ea42585a1aadeefee4",
+          "source_url": "https://github.com/andyz245/LanguageAgentTreeSearch/blob/853d81614607dd27433faf17c7b0a7d660f95d22/hotpot/requirements.txt"
+        },
+        {
+          "path": "hotpot/models.py",
+          "blob_sha": "e9ebe409206da69a5c1efa649605eaf4069b6251",
+          "sha256": "87fe1bd64c6e3b2e13f13e48497fa8e3f5919a8930804a50c93444bea485ed96",
+          "source_url": "https://github.com/andyz245/LanguageAgentTreeSearch/blob/853d81614607dd27433faf17c7b0a7d660f95d22/hotpot/models.py"
+        }
+      ],
+      "sdk_installed": false,
+      "runtime_executed": false,
+      "counted_as_connected": false,
+      "live_verified": false
+    },
+    {
+      "id": "reflexion",
+      "repository": "noahshinn/reflexion",
+      "commit": "218cf0ef1df84b05ce379dd4a8e47f17766733a0",
+      "status": "preparation_pending",
+      "note": "The inspected hotpotqa profile wraps LangChain OpenAI and ChatOpenAI and has historical dependency pins. A reviewed free runtime and bounded operation are not prepared. No installation or provider calls; other experiment directories are not characterized by this limited review.",
+      "files": [
+        {
+          "path": "hotpotqa_runs/requirements.txt",
+          "blob_sha": "0e3972d5ab846954eaf14866044650c01b25302d",
+          "sha256": "38af215e4d05801f7e2716d6757561980172855180ab349314b7a393b049fa79",
+          "source_url": "https://github.com/noahshinn/reflexion/blob/218cf0ef1df84b05ce379dd4a8e47f17766733a0/hotpotqa_runs/requirements.txt"
+        },
+        {
+          "path": "hotpotqa_runs/llm.py",
+          "blob_sha": "bdc62b5e38b009f3313cafe5e4748be84c864942",
+          "sha256": "7b8c8f8f4ed72c6afa6c0725f81de0252b65630f124dc0b9f29571012bbf8a33",
+          "source_url": "https://github.com/noahshinn/reflexion/blob/218cf0ef1df84b05ce379dd4a8e47f17766733a0/hotpotqa_runs/llm.py"
+        }
+      ],
+      "sdk_installed": false,
+      "runtime_executed": false,
+      "counted_as_connected": false,
+      "live_verified": false
+    },
+    {
+      "id": "graph-of-thoughts",
+      "repository": "spcl/graph-of-thoughts",
+      "commit": "3d9d9dbd8937d47a4441f681b8b40e3c5b054f16",
+      "status": "preparation_pending",
+      "note": "Original controller accepts AbstractLanguageModel. The inspected original local backend uses meta-llama model IDs, bitsandbytes quantization and trust_remote_code; weight licenses were not verified and no weights downloaded. A permitted bounded backend and full Python dependency closure remain pending; no claim that every custom backend must use those weights.",
+      "files": [
+        {
+          "path": "pyproject.toml",
+          "blob_sha": "ecbf97c524ed405115ad0100008b0afbe3fbf483",
+          "sha256": "9c868ae9aabdad4fb39d2e763466496c36a4b902b382a09e563f024b7cefbee3",
+          "source_url": "https://github.com/spcl/graph-of-thoughts/blob/3d9d9dbd8937d47a4441f681b8b40e3c5b054f16/pyproject.toml"
+        },
+        {
+          "path": "graph_of_thoughts/language_models/llamachat_hf.py",
+          "blob_sha": "cc413ab1b75f1e6f99772e34a8eb9ee0ba644011",
+          "sha256": "d50cdb757cd76059ef374f575f379aa84a201c4d0515cbd5ec879afe319a8ed8",
+          "source_url": "https://github.com/spcl/graph-of-thoughts/blob/3d9d9dbd8937d47a4441f681b8b40e3c5b054f16/graph_of_thoughts/language_models/llamachat_hf.py"
+        },
+        {
+          "path": "graph_of_thoughts/controller/controller.py",
+          "blob_sha": "821beac1b769587beec4df30e12c9cca77430173",
+          "sha256": "09439582951eca87fee6598d808a8d660b44572e8347671be91178f377228814",
+          "source_url": "https://github.com/spcl/graph-of-thoughts/blob/3d9d9dbd8937d47a4441f681b8b40e3c5b054f16/graph_of_thoughts/controller/controller.py"
+        }
+      ],
+      "sdk_installed": false,
+      "runtime_executed": false,
+      "counted_as_connected": false,
+      "live_verified": false
+    },
+    {
+      "id": "oxigraph",
+      "repository": "oxigraph/oxigraph",
+      "commit": "78734be853a4bec714ba09bbfad790e64f3a1150",
+      "status": "preparation_pending",
+      "note": "Original Python bindings require the Rust workspace, default RocksDB and the Linux rustls HTTP feature. Exact native dependency licenses and a bounded original operation remain unprepared. No build or SDK installation attempted; no blanket incompatibility claim.",
+      "files": [
+        {
+          "path": "Cargo.toml",
+          "blob_sha": "546d87f9f4410bd585cf65a89ee1183c2246f802",
+          "sha256": "e7c0b5f077193aa3206768c9c58daa807d70fa0b947ea36a7daf0086bfc38841",
+          "source_url": "https://github.com/oxigraph/oxigraph/blob/78734be853a4bec714ba09bbfad790e64f3a1150/Cargo.toml"
+        },
+        {
+          "path": "python/Cargo.toml",
+          "blob_sha": "f54a9a18e7de242a0ef50b68de61729275b3dccb",
+          "sha256": "e0dc5050e0cbcbfe3fcf041360c90e2ad7b4028274f75bf0f1a6554ac560b389",
+          "source_url": "https://github.com/oxigraph/oxigraph/blob/78734be853a4bec714ba09bbfad790e64f3a1150/python/Cargo.toml"
+        },
+        {
+          "path": "python/pyproject.toml",
+          "blob_sha": "b87f245af56f6225f7af20c881463acd64623744",
+          "sha256": "ea52e96a34dcbcaf6a810c890b4d8f35f5269bb5d0ac1ce5b2236b4cc9a7abd1",
+          "source_url": "https://github.com/oxigraph/oxigraph/blob/78734be853a4bec714ba09bbfad790e64f3a1150/python/pyproject.toml"
+        },
+        {
+          "path": "lib/oxigraph/Cargo.toml",
+          "blob_sha": "7e47b6e915f35ab9dd2448ad11fb1cd40f8bc10f",
+          "sha256": "79b8545e3a5a76db85f838219fe11bff5d33cc63a28d87e5dea884bf22d2f6b1",
+          "source_url": "https://github.com/oxigraph/oxigraph/blob/78734be853a4bec714ba09bbfad790e64f3a1150/lib/oxigraph/Cargo.toml"
+        }
+      ],
+      "sdk_installed": false,
+      "runtime_executed": false,
+      "counted_as_connected": false,
+      "live_verified": false
+    }
+  ]
+}

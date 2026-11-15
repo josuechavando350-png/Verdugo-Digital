@@ -18,7 +18,7 @@ from verdugo import local_runtime, objectives, workflow
 
 
 def accept():
-    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','servers','monty','playwright-python','hatchet','invariant','pyrit','llama-cpp','granite-guardian','interpret','transformerlens','bitsandbytes','guidance','lm-format-enforcer','usearch','rerankers')
+    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','servers','monty','playwright-python','hatchet','invariant','pyrit','llama-cpp','granite-guardian','interpret','transformerlens','bitsandbytes','guidance','lm-format-enforcer','usearch','rerankers','sympy','rdflib','z3')
     spec=json.loads((ROOT/'examples/executive666.synthetic.json').read_text())
     cfg=template('nexus')
     for sid in services:
@@ -41,12 +41,12 @@ def accept():
         with closing(engine()) as e:
             result=invoke(e,'verdugo_workflow',{'workflow':spec,'execute':True})
             assert result['state']=='succeeded',result
-            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations','quantization','schema_check','prefix_check','neighbors_check','ranked_results'}
+            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations','quantization','schema_check','prefix_check','neighbors_check','ranked_results','polynomial_check','reachability_check','constraints_check'}
             r=result['steps']['check']['result']
             assert r['planned_contacts']==200 and r['planned_cost_minor']==0
             assert r['feasible_under_declared_limits'] and not r['external_execution_authorized']
             assert result['steps']['agno']['result']['budget_checked']
-            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations','quantization','schema_check','prefix_check','neighbors_check','ranked_results'),services):
+            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations','quantization','schema_check','prefix_check','neighbors_check','ranked_results','polynomial_check','reachability_check','constraints_check'),services):
                 actual=result['steps'][step]['result']
                 assert actual['original_sdk']==sid and actual['llm_calls']==(1 if sid=='granite-guardian' else 0)
                 assert not actual['autonomous_agent']
@@ -139,7 +139,16 @@ def accept():
             assert ranked['selected_indices']==[1,2,0] and ranked['missing_value_count']==1
             assert ranked['independent_numeric_order_verified'] and not ranked['scores_computed_by_model']
             assert ranked['model_backends_initialized']==0
-            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==26
+            polynomial=result['steps']['polynomial_check']['result']
+            assert polynomial['evaluations']==[1,0,4] and polynomial['derivative_evaluations']==[-2,0,4]
+            assert polynomial['factor_multiplicities']==[2] and polynomial['independent_factor_product_verified']
+            graph=result['steps']['reachability_check']['result']
+            assert graph['reachable_indices']==[0,1,2] and graph['unique_edges']==3 and graph['duplicate_edges']==1
+            assert graph['independent_closure_verified'] and graph['remote_graphs_loaded']==0
+            constraints=result['steps']['constraints_check']['result']
+            assert constraints['verdict']=='sat' and constraints['native_witness_units']==[1,1,0]
+            assert constraints['feasible_assignments']==1 and constraints['finite_reference_verified']
+            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==29
         with closing(engine()) as e, \
                 patch.object(local_runtime,'execute',side_effect=AssertionError('SDK re-executed')), \
                 patch.object(objectives,'simulate',side_effect=AssertionError('simulation re-executed')):
@@ -347,6 +356,27 @@ def accept():
                 ranked=checked['result']['result']
                 wanted=[i if i is not None else 3 for i in expected]
                 assert ranked['selected_indices']==wanted and ranked['independent_numeric_order_verified']
+            for i,coefficients in enumerate([[0,0],[7],[0,1,0,-1],[-2,0,2],[1,0,0,0,0,1]]):
+                checked=e.execute({'service':'sympy','operation':'polynomial.check','key':'polynomial-'+str(i),
+                    'params':{'dataset':'demo','coefficients':coefficients,'points':[-2,0,1,3]}},True)
+                assert checked['state']=='succeeded',checked
+                checked=checked['result']['result']
+                assert checked['independent_evaluation_verified'] and checked['independent_factor_product_verified']
+                if coefficients==[0,0]: assert checked['degree'] is None and checked['evaluations']==[0]*4
+            for i,edges,start,wanted in [(0,[],3,[3]), (1,[[0,1],[0,2],[1,3],[2,3]],0,[0,1,2,3])]:
+                checked=e.execute({'service':'rdflib','operation':'reachability.check','key':'closure-'+str(i),
+                    'params':{'dataset':'demo','node_count':4,'edges':edges,'start':start}},True)
+                assert checked['state']=='succeeded',checked
+                assert checked['result']['result']['reachable_indices']==wanted
+                assert checked['result']['result']['independent_closure_verified']
+            for i,budget,units,yield_,expected,count in [(0,0,3,6,'unsat',0),(1,45,9,0,'sat',64),
+                                                       (2,45,9,33,'sat',1),(3,0,0,0,'sat',1)]:
+                checked=e.execute({'service':'z3','operation':'constraints.check','key':'native-constraints-'+str(i),
+                    'params':{'dataset':'demo','spend_limit':budget,'unit_limit':units,'minimum_yield':yield_}},True)
+                assert checked['state']=='succeeded',checked
+                native=checked['result']['result']
+                assert native['verdict']==expected and native['feasible_assignments']==count
+                assert native['finite_reference_verified'] and not native['real_world_claim_verified']
     assert not calls
     return {'schema':'verdugo.executive666.acceptance.v1','services':list(services),
             'original_sdks_executed':True,'mocked_sdks':False,'dataset':'demo',

@@ -1,6 +1,6 @@
 # Piloto 666: avance parcial del lote 1
 
-Treinta y tres de 183 piezas del primer lote tienen una operación nueva implementada: 24 locales y nueve lecturas HTTP con aceptación sintética. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
+Treinta y siete de 183 piezas del primer lote tienen una operación nueva implementada: 27 locales y diez lecturas HTTP con aceptación sintética. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
 
 ## Operación delimitada
 
@@ -276,3 +276,31 @@ El primer flujo conjunto rechazó el worker porque el hash del intérprete depen
 `infinity / models.summary` usa michaelfeil/infinity `f25b80850a7fc9736310496b64faf9903c01ac97`, MIT. Se limita al servidor Python `infinity_emb` 0.0.80 y su `/models` sin prefijo adicional; no al backend nativo v3. Exige autenticación Bearer nativa configurada y revisión de instancia dedicada. Valida el contenedor OpenAIModelInfo y las filas ModelInfo, descarta identificadores/estadísticas y conserva solo cantidad de modelos. Los siete tests nuevos cubren rutas, autenticación, esquemas, límites, privacidad, HTTP real con respuestas sintéticas, CLI/MCP y replay. No se instaló el servidor original, no se consultó una instancia real y no se descargaron pesos.
 
 El conjunto pasa 879 pruebas locales y el paso del workflow que exige 76 observaciones. La CI del commit publicado se informa por separado; ningún lote se declara terminado.
+
+
+## Álgebra y grafos sintéticos
+
+`sympy / polynomial.check` usa `sympy/sympy@bad9365d788889cdf450cd9a24a734004b876e2b`, BSD-3-Clause. Acepta hasta seis coeficientes enteros y ocho puntos enteros acotados; crea un `Poly` univariado sobre ZZ, deriva, evalúa y factoriza. La referencia independiente comprueba evaluación, derivada y producto de factores. No demuestra irreducibilidad de forma independiente ni permite expresiones, funciones, símbolos o dominios enviados por el usuario.
+
+La versión `1.15.0.dev3540+gbad9365d7` se obtuvo compilando el commit original con metadatos Git; etiqueta y commit constan en `sources/sympy-version666.json`. El instalador del archivo fuente usa esa misma versión explícita mediante la opción original de setuptools-scm. `sympy/release.py` es un archivo generado y se verifica por separado: no se presenta como copia literal del archivo Git. Los 1,572 módulos originales instalados y los 87 de `mpmath 1.3.0` se verifican por SHA256; también se conservaron las licencias incluidas.
+
+`rdflib / reachability.check` usa `RDFLib/rdflib@114dd59d48fc75aea7fcb3276bd0f13e4f3103b4`, BSD-3-Clause, versión `8.0.0a0`. Construye un `Memory` y un grafo de hasta ocho nodos y dieciséis aristas, con URN sintéticas fijas. Contrasta triples únicos y cierre transitivo con una referencia de adyacencia; el origen se incluye aunque esté aislado. No llama a `parse`, `query` ni almacenes remotos. Verifica 135 módulos originales y trece de `pyparsing 3.2.5`, MIT.
+
+Ambas operaciones usan `VERDUGO_SYMBOLIC666_PYTHON`; `python tests_runtime/install_symbolic666.py` prepara el perfil explícitamente, fuera del motor. Se comprobó una instalación limpia. Los resultados son números y recuentos sintéticos, sin documentos, modelos, causalidad ni resultados comerciales. Z3 se incorpora después de comprobar la ejecución nativa descrita debajo.
+
+
+## Factibilidad finita con Z3 original
+
+`z3 / constraints.check` usa `Z3Prover/z3@f46b3c58e41c0f9531cbb7cbab243b8cd2a98250`, MIT, versión nativa y Python `5.4.2.0`. El perfil compila el código original con GCC 14 y CMake 4.1.3, sin GMP ni bindings opcionales. Los primeros dos intentos recibieron SIGKILL; el tercero continuó con un proceso después de liberar almacenamiento temporal respaldado por memoria. Se conservó el mismo código y configuración `-O1 -DNDEBUG -g0`; no se sustituyó por un wheel ajeno al commit.
+
+El solver examina tres variables enteras de cero a tres, con costos y rendimientos sintéticos fijos y tres límites numéricos. Su resultado SAT/UNSAT y cualquier testigo se comprueban contra las 64 combinaciones enumeradas independientemente. Una respuesta desconocida falla; hay límites fijos de tiempo y recursos. No se aceptan SMT, expresiones, funciones ni opciones del solver desde parámetros; tampoco se prueba optimalidad o veracidad comercial.
+
+`python tests_runtime/install_logic666.py` prepara el perfil `VERDUGO_LOGIC666_PYTHON` fuera del motor. Verifica fuentes, opciones CMake, nueve módulos originales instalados y los archivos Python generados y bibliotecas nativas registrados por el build. El recibo detecta cambios posteriores y se vincula a aprobación/replay; no constituye atestación independiente ni prueba de reproducibilidad binaria. El pipeline reconstruye desde cero y amplía su límite a 120 minutos por la compilación nativa.
+
+## Inventario de Jena/Fuseki
+
+`jena / datasets.summary` consulta exclusivamente `GET /$/server` de `apache/jena@d5b47b73e3e260bf1db62c776efb960bc758a93d`, versión fuente 6.3.0-SNAPSHOT, Apache-2.0 con texto BSD incluido. `FMod_Admin`, `ActionServerStatus`, `JsonDescription` y las constantes originales respaldan la ruta y respuesta. Conserva recuentos de datasets, estados, servicios y endpoints; elimina nombres, descripciones, fechas y versión. No envía SPARQL ni inspecciona datos.
+
+La plantilla mantiene la integración desactivada. Exige `api_surface=self_hosted_fuseki_admin`, `auth_mode=native_basic`, instancia dedicada y las revisiones `native_auth_enforced_reviewed`, `dedicated_instance_reviewed` y `status_route_basic_auth_reviewed`. La credencial privada es un único `usuario:contraseña` ASCII; el encabezado Basic se construye internamente. La configuración Shiro original incluye `/$/server = anon`: debe comprobarse una protección Basic efectiva de esa ruta, por ejemplo mediante el mecanismo Jetty de autenticación para todo el servidor respaldado por el código. Una configuración predeterminada o solo una contraseña configurada sin proteger la ruta no satisface la revisión.
+
+Las siete pruebas usan respuestas sintéticas, sockets locales, CLI/MCP, SQLite y reinicio. Cubren respuestas inválidas, duplicados, límites, cambios de credencial/revisión y ausencia de datos privados persistidos. El servidor original y sus dependencias Java no se instalaron ni ejecutaron; `live_verified=false` y producción certificada continúa en cero.

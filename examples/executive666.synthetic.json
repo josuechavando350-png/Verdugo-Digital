@@ -743,6 +743,72 @@
       "depends_on": [
         "neighbors_check"
       ]
+    },
+    {
+      "id": "polynomial_check",
+      "service": "sympy",
+      "operation": "polynomial.check",
+      "params": {
+        "dataset": "demo",
+        "coefficients": [
+          1,
+          -2,
+          1
+        ],
+        "points": [
+          0,
+          1,
+          3
+        ]
+      },
+      "depends_on": [
+        "ranked_results"
+      ]
+    },
+    {
+      "id": "reachability_check",
+      "service": "rdflib",
+      "operation": "reachability.check",
+      "params": {
+        "dataset": "demo",
+        "node_count": 4,
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "start": 0
+      },
+      "depends_on": [
+        "polynomial_check"
+      ]
+    },
+    {
+      "id": "constraints_check",
+      "service": "z3",
+      "operation": "constraints.check",
+      "params": {
+        "dataset": "demo",
+        "spend_limit": 8,
+        "unit_limit": 3,
+        "minimum_yield": 6
+      },
+      "depends_on": [
+        "reachability_check"
+      ]
     }
   ]
 }

@@ -4392,7 +4392,7 @@
       "spdx": "Apache-2.0",
       "policy": "libre",
       "note": null,
-      "kind": "biblioteca",
+      "kind": "servicio",
       "license_evidence": [
         {
           "repository": "apache/jena",

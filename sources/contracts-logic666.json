@@ -1,0 +1,212 @@
+{
+  "schema": "verdugo.logic666.original-source.v1",
+  "repository": "Z3Prover/z3",
+  "commit": "f46b3c58e41c0f9531cbb7cbab243b8cd2a98250",
+  "archive_url": "https://codeload.github.com/Z3Prover/z3/tar.gz/f46b3c58e41c0f9531cbb7cbab243b8cd2a98250",
+  "archive_sha256": "b43e988960a70eca17c00d9c449ccae5801ef8ef68c8cf7ebbcd8ea66ac9c605",
+  "distribution": "z3-solver",
+  "distribution_version": "5.4.2.0",
+  "runtime_dependencies_python312": [],
+  "license": "MIT",
+  "license_text_read": true,
+  "files": [
+    {
+      "path": "LICENSE.txt",
+      "blob_sha": "cc90bed7477d0809f4309b718e920d411e1f3da8",
+      "sha256": "e617cad2ab9347e3129c2b171e87909332174e17961c5c3412d0799469111337",
+      "installed_path": null
+    },
+    {
+      "path": "CMakeLists.txt",
+      "blob_sha": "50fadac3f3a795a35651fe492187327075b71fea",
+      "sha256": "ea9f7beb51ad614b6291b49030ba074f9771a0ce13dede64466a9973fb54b7d4",
+      "installed_path": null
+    },
+    {
+      "path": "scripts/VERSION.txt",
+      "blob_sha": "a9109f6f588c4af2f4104315db279bdd63ccc647",
+      "sha256": "1c4c86fdb46f9d78adbc8e18f564728c2b4c8e2150d7189eaf2deaf3d63c307b",
+      "installed_path": null
+    },
+    {
+      "path": "src/api/python/setup.py",
+      "blob_sha": "0093e78ed278ea6f36db2826bbab352cf4cf7456",
+      "sha256": "a38c257035b95bf738411612ada9d61b4a452d7ad78528695940462a4692ff16",
+      "installed_path": null
+    },
+    {
+      "path": "src/api/python/pyproject.toml",
+      "blob_sha": "3d59010943396e2ffe4d539dddfd39be97f58273",
+      "sha256": "ca4ab6c34ace37025a801d58a695f9956025195bd6b8aecf9dae2a9c828d4e5d",
+      "installed_path": null
+    },
+    {
+      "path": "src/api/python/CMakeLists.txt",
+      "blob_sha": "b724a9fde19fb8a147ef1695ca0180fc73933031",
+      "sha256": "9d2fba0bf2664839cb17e764e1b39aa324c4ac4c9819940933c86c0b4e8dd741",
+      "installed_path": null
+    },
+    {
+      "path": "scripts/update_api.py",
+      "blob_sha": "d549882f298eb9d36b560a8a60790ce6b63bf809",
+      "sha256": "8926b74a2bf366e508e9951060af5bc9d48e62056e4971251fa3eb64a4f38416",
+      "installed_path": null
+    },
+    {
+      "path": "scripts/mk_consts_files.py",
+      "blob_sha": "7477023129bd79e4461653da34957498147adbcd",
+      "sha256": "198323b1aec30708534af85f824ebf74360ebf43899c2743e78de92b843f4a48",
+      "installed_path": null
+    },
+    {
+      "path": "scripts/mk_genfile_common.py",
+      "blob_sha": "df6c4ed4e4a9105404f856ac6e7e9175d645d3ac",
+      "sha256": "8ca56cd4354d71f3918e7545c53ddf1ad3f589666bc2dde2d20c2d1d90ea7da0",
+      "installed_path": null
+    },
+    {
+      "path": "cmake/compiler_lto.cmake",
+      "blob_sha": "c0667c6971978aa92fe140353acafdbb3411589b",
+      "sha256": "b927aa6f4748773e2987249ac7661308c04392277f5a9fa5e7508f99ff7b4cfb",
+      "installed_path": null
+    },
+    {
+      "path": "cmake/z3_add_component.cmake",
+      "blob_sha": "a3d0e88d3c500daf80098e47b88d342e4608772a",
+      "sha256": "11bfeebf2238977f92749ab65c744e99137afe36e3472ac867c7d0d211a696dc",
+      "installed_path": null
+    },
+    {
+      "path": "src/api/api_solver.cpp",
+      "blob_sha": "a40f082287e83f151e0eb89f1f04604f6c86b18c",
+      "sha256": "9eda05cdf104da706e5709510a1bd5f9d98cee3568634458b2bf507700dddeb5",
+      "installed_path": null
+    },
+    {
+      "path": "src/api/api_model.cpp",
+      "blob_sha": "500cbce37e1e67c69b2d9fb448a664a900ea059c",
+      "sha256": "efcbcaf6d83160c2b5ffde253f385a41a140c3edac1f69d01e9bf8d0e425e104",
+      "installed_path": null
+    },
+    {
+      "path": "src/api/z3_api.h",
+      "blob_sha": "8a602b3ebf6362a152291572cbb8883310976a14",
+      "sha256": "d00554cb1d449f8bfee43bf0890f584d3d85e28f9dab45475d3b3cbb2d838a59",
+      "installed_path": null
+    },
+    {
+      "path": "src/solver/solver.cpp",
+      "blob_sha": "8dd352579fad471522c7aa383b3aa55e6311b9dd",
+      "sha256": "8fffa01bb5bf915619844a2775f611cb317789ad0b54f96fea03e0e2b04296c4",
+      "installed_path": null
+    },
+    {
+      "path": "src/solver/solver.h",
+      "blob_sha": "556b8b27cb0c9b982a28a8dd62d1b5b2d9eb369a",
+      "sha256": "595249fe193909a22b39ae2ee4e0dca573daa99e25e37c76f702fb101e30c517",
+      "installed_path": null
+    },
+    {
+      "path": "src/smt/smt_solver.cpp",
+      "blob_sha": "58ca203e95716ff2b157ed340f982c85c394dbc2",
+      "sha256": "79927952129e707934dd60f1e0c02bbca3b6bcf38ff7aa261005997f7eb7d82e",
+      "installed_path": null
+    },
+    {
+      "path": "src/api/python/z3/__init__.py",
+      "blob_sha": "d345850ce48e40a1120612ebaf0ca7ce76196807",
+      "sha256": "54e1833c2df2ca01c33b487180f75580eab8364dc1800a259263b64310069bf3",
+      "installed_path": "z3/__init__.py"
+    },
+    {
+      "path": "src/api/python/z3/z3.py",
+      "blob_sha": "9fcc3b53a07e032e69e7888d92cf090dd9d873a4",
+      "sha256": "3c660d753a41ac5dbae8f6009fdab33c0f39a50212140294ddd5a7d62fe638e8",
+      "installed_path": "z3/z3.py"
+    },
+    {
+      "path": "src/api/python/z3/z3num.py",
+      "blob_sha": "dff0e8e1893d7da395d82eab7cd5fad61c15e5a2",
+      "sha256": "b099dee2352be581ef96fbedc183ac324f03002ee7cf71fbebf6aa1355cd4341",
+      "installed_path": "z3/z3num.py"
+    },
+    {
+      "path": "src/api/python/z3/z3poly.py",
+      "blob_sha": "9c6e217f8054a8bffa9d1deeaf182eee9b7e3707",
+      "sha256": "fd06029418e5899b300fe3b3a300d110c8e174e633cba8b751314f22a583394e",
+      "installed_path": "z3/z3poly.py"
+    },
+    {
+      "path": "src/api/python/z3/z3printer.py",
+      "blob_sha": "b5df2354ae32d5b4de29ca04e8d06d8461813369",
+      "sha256": "0962d30b9543e04f0bdd4636d91983973a604d6ab2b76a028300db37dfa0154e",
+      "installed_path": "z3/z3printer.py"
+    },
+    {
+      "path": "src/api/python/z3/z3rcf.py",
+      "blob_sha": "019e372e212036d45dc6a39b92507197510b9fb7",
+      "sha256": "504e0339b1bb06075c19ca52e51457716671218a2f2191d0c9754e0b75bede87",
+      "installed_path": "z3/z3rcf.py"
+    },
+    {
+      "path": "src/api/python/z3/z3regex.py",
+      "blob_sha": "ec2e9d66fd340d134b52633bcfd92f7e7d0afdd3",
+      "sha256": "4f64903cce356c6fb541041d9c50ce70c8d12a0824592611d87bd603290f83e4",
+      "installed_path": "z3/z3regex.py"
+    },
+    {
+      "path": "src/api/python/z3/z3types.py",
+      "blob_sha": "9244e37d978440c87eedfa34f2d305d7788603bc",
+      "sha256": "ba728354b4a9ee40bcfbd899f405d904bc4bb023e41807044c06c318548c3080",
+      "installed_path": "z3/z3types.py"
+    },
+    {
+      "path": "src/api/python/z3/z3util.py",
+      "blob_sha": "993abef587214abd377525eadcdcd2967437e1ca",
+      "sha256": "bd1b436749b0d7700100a6a49fd09f09975c025f156925fc8805ac99e6db50f8",
+      "installed_path": "z3/z3util.py"
+    }
+  ],
+  "original_source_files_verified": 4226,
+  "semantic_review_scope": [
+    "CMakeLists.txt",
+    "src/api/python/setup.py",
+    "src/api/python/CMakeLists.txt",
+    "src/api/python/z3/z3.py (selected Context/Int/Solver/Model methods)"
+  ],
+  "build_tools": {
+    "cmake": "4.1.3",
+    "setuptools": "80.9.0",
+    "wheel": "0.45.1"
+  },
+  "cmake_options": {
+    "CMAKE_BUILD_TYPE": "Release",
+    "CMAKE_CXX_FLAGS_RELEASE": "-O1 -DNDEBUG -g0",
+    "CMAKE_CXX_COMPILER": "/usr/bin/g++-14",
+    "Z3_USE_LIB_GMP": "OFF",
+    "Z3_BUILD_PYTHON_BINDINGS": "ON",
+    "Z3_INSTALL_PYTHON_BINDINGS": "OFF",
+    "Z3_BUILD_EXECUTABLE": "ON",
+    "Z3_BUILD_TEST_EXECUTABLES": "OFF",
+    "Z3_ENABLE_EXAMPLE_TARGETS": "OFF",
+    "Z3_LINK_TIME_OPTIMIZATION": "OFF",
+    "Z3_INCLUDE_GIT_HASH": "OFF",
+    "Z3_INCLUDE_GIT_DESCRIBE": "OFF",
+    "Z3_BUILD_DOCUMENTATION": "OFF",
+    "Z3_BUILD_DOTNET_BINDINGS": "OFF",
+    "Z3_BUILD_JAVA_BINDINGS": "OFF",
+    "BUILD_SHARED_LIBS": "ON"
+  },
+  "native_artifacts": [
+    "z3/lib/libz3.so",
+    "z3/lib/libz3.so.5.4"
+  ],
+  "generated_python": [
+    "z3/z3core.py",
+    "z3/z3consts.py"
+  ],
+  "native_execution_observed": true,
+  "live_verified": false,
+  "production_certified": false,
+  "acceptance_scope": "Five fixed synthetic integer portfolios compared with independent exhaustive enumeration; no user programs or real-world facts."
+}

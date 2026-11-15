@@ -45,8 +45,8 @@ class ProductTests(unittest.TestCase):
         with closing(self.engine()) as engine:
             r=product.overview(engine)
         self.assertEqual(688,len(r['services']))
-        self.assertEqual({'conectado':276,'pendiente':334,'pieza_de_construccion':56,'excluido':22},r['connection_states'])
-        self.assertEqual(76,r['bounded_observation_routes'])
+        self.assertEqual({'conectado':280,'pendiente':330,'pieza_de_construccion':56,'excluido':22},r['connection_states'])
+        self.assertEqual(77,r['bounded_observation_routes'])
         self.assertEqual(0,r['business']['reported_paid_clients'])
         self.assertFalse(r['external_calls_made']); self.assertFalse(self.calls)
 
@@ -108,13 +108,16 @@ class ProductTests(unittest.TestCase):
         from test_infinity_reads666 import configured as infinity_config, REPLY as infinity_reply
         config['tenants']['nexus']['services']['infinity'] = infinity_config()['tenants']['nexus']['services']['infinity']
         combined['infinity'] = infinity_reply
+        from test_jena_reads666 import configured as jena_config, REPLY as jena_reply, TOKEN as jena_token
+        config['tenants']['nexus']['services']['jena'] = jena_config()['tenants']['nexus']['services']['jena']
+        combined['jena'] = jena_reply
         routes = product.read_operations()
         for sid in routes:
             cfg = config['tenants']['nexus']['services'][sid]
             cfg.update(enabled=True,license_reviewed=True,version='synthetic-product-contract')
             if sid not in services and sid not in batch_replies and sid not in readiness and sid not in REPLIES:
                 if cfg.get('token_env'):
-                    env[cfg['token_env']] = VECTOR_TOKEN if sid in vector_replies else GHOST_KEY if sid=='ghost' else 'api_synthetic' if sid=='documenso' else TOKEN
+                    env[cfg['token_env']] = jena_token if sid=='jena' else VECTOR_TOKEN if sid in vector_replies else GHOST_KEY if sid=='ghost' else 'api_synthetic' if sid=='documenso' else TOKEN
         env.update(VERDUGO_COMPLETION_TOKEN=COMPLETION_TOKEN, VERDUGO_COMPLETION_DEVELOPER=DEVELOPER)
         calls=[]
         def transport(req,cfg):
@@ -123,14 +126,14 @@ class ProductTests(unittest.TestCase):
         with patch.dict(os.environ,env), closing(Engine(self.path,config,transport=transport)) as engine:
             r=product.observe(engine,request(services=list(routes)),True)
             self.assertEqual('succeeded',r['state'],r)
-            self.assertEqual(76,r['new_observations']); self.assertEqual(set(routes),set(calls))
-            self.assertEqual(77,engine.db.execute('SELECT count(*) FROM runs').fetchone()[0])
+            self.assertEqual(77,r['new_observations']); self.assertEqual(set(routes),set(calls))
+            self.assertEqual(78,engine.db.execute('SELECT count(*) FROM runs').fetchone()[0])
             dump='\n'.join(engine.db.iterdump())
             for sentinel in ('private-person@example.invalid','private@example.invalid','never-retain-this@example.invalid'):
                 self.assertNotIn(sentinel,dump)
         with patch.dict(os.environ,env), closing(Engine(self.path,config,transport=transport)) as engine:
-            self.assertEqual(76,product.observe(engine,request(services=list(routes)),True)['reused_observations'])
-        self.assertEqual(76,len(calls))
+            self.assertEqual(77,product.observe(engine,request(services=list(routes)),True)['reused_observations'])
+        self.assertEqual(77,len(calls))
 
     def test_configuration_failure_blocks_every_selected_service_before_any_effect(self):
         self.config['tenants']['nexus']['services']['seaweedfs']['proxy_auth_reviewed']=False

@@ -12,7 +12,7 @@ concurrency:
 jobs:
   pilot666:
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -59,6 +59,8 @@ jobs:
             sudo apt-get install -y gcc-14 g++-14
           fi
           python tests_runtime/install_usearch666.py
+          python tests_runtime/install_symbolic666.py
+          python tests_runtime/install_logic666.py
       - name: Original SDK, approval and restart with OS network isolation
         run: |
           sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
@@ -76,6 +78,8 @@ jobs:
             VERDUGO_STRANDS666_PYTHON=/tmp/verdugo-strands666-venv/bin/python \
             VERDUGO_PLANNING666_PYTHON=/tmp/verdugo-planning666-venv/bin/python \
             VERDUGO_MONTY666_PYTHON=/tmp/verdugo-monty666-venv/bin/python \
+            VERDUGO_LOGIC666_PYTHON=/tmp/verdugo-z3666/bin/python \
+            VERDUGO_SYMBOLIC666_PYTHON=/tmp/verdugo-symbolic666/bin/python \
             VERDUGO_RANKING666_PYTHON=/tmp/verdugo-ranking666-venv/bin/python \
             VERDUGO_USEARCH666_PYTHON=/tmp/verdugo-usearch666/bin/python \
             VERDUGO_PREFIX666_PYTHON=/tmp/verdugo-prefix666-venv/bin/python \
@@ -128,6 +132,11 @@ jobs:
             /tmp/prefix666-resolved.txt
             /tmp/schema666-pip-report.json
             /tmp/schema666-resolved.txt
+            /tmp/z3666-pip-report.json
+            /tmp/z3666-resolved.txt
+            /tmp/z3666-build-receipt.json
+            /tmp/symbolic666-pip-report.json
+            /tmp/symbolic666-resolved.txt
             /tmp/ranking666-pip-report.json
             /tmp/ranking666-resolved.txt
             /tmp/usearch666-pip-report.json

@@ -131,3 +131,8 @@ CASES['lm-format-enforcer'] = {'dataset': 'demo', 'cases': [{'decision': 'review
 CASES['usearch'] = {'dataset': 'demo', 'case': 'plane'}
 
 CASES['rerankers'] = {'dataset': 'demo', 'mode': 'score', 'values': [2, 5, 5, None], 'limit': 3}
+
+CASES['sympy'] = {'dataset':'demo','coefficients':[1,-2,1],'points':[0,1,3]}
+CASES['rdflib'] = {'dataset':'demo','node_count':4,'edges':[[0,1],[1,2],[2,0],[0,1]],'start':0}
+
+CASES['z3'] = {'dataset':'demo','spend_limit':8,'unit_limit':3,'minimum_yield':6}
