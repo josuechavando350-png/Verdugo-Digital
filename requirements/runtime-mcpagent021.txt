@@ -1,2 +1,3 @@
+-c runtime-mcpagent021.constraints.txt
 mcp-agent==0.2.6
 mcp==1.30.0
