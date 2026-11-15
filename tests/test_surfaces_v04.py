@@ -30,7 +30,7 @@ class SurfaceTests(Base):
         self.engine.transport=response
 
     def test_exact_inventory_and_read_only_new_recipes(self):
-        self.assertEqual(78,len(SPECS));self.assertEqual(82,sum(len(v) for v in SPECS.values()))
+        self.assertEqual(103,len(SPECS));self.assertEqual(107,sum(len(v) for v in SPECS.values()))
         for sid in surface.ROUTES:
             self.assertEqual(['GET'],[v[0] for v in SPECS[sid].values()])
         self.assertEqual(25,len(tool_definitions()))

@@ -161,3 +161,41 @@ jobs:
             /tmp/*-resolved.txt
           retention-days: 3
           if-no-files-found: warn
+  local-final:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [content021, entities021, pycli021, node, cli-security, cli-storage, planning021, utility021, browser021, storm021, dbt021, a2a021, research021, meridian021, causal021, r021, finalpy021, database021, tools021, source021, media021, images021, lastnode021, network021, closure021]
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements/runtime-*.txt
+      - name: Install original fixed profiles explicitly
+        run: python tests_runtime/install_final.py --group "${{ matrix.group }}"
+      - name: Run original programs with OS network isolation and restart
+        run: |
+          if [ "${{ matrix.group }}" = "network021" ] || [ "${{ matrix.group }}" = "closure021" ]; then
+            sudo unshare --net -- sh -c 'ip link set lo up; exec setpriv --reuid="$1" --regid="$2" --clear-groups -- env HOME="$3" python tests_runtime/accept_final.py --group "$4"' sh "$(id -u)" "$(id -g)" "$HOME" "${{ matrix.group }}"
+          else
+            sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
+              HOME="$HOME" python tests_runtime/accept_final.py --group "${{ matrix.group }}"
+          fi
+      - name: Persist scoped results and dependency evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: verdugo-final-${{ matrix.group }}-${{ github.sha }}
+          path: |
+            /tmp/*-execution-evidence.json
+            /tmp/*-product-evidence.json
+            /tmp/*-pip-report.json
+            /tmp/*-resolved.txt
+          retention-days: 3
+          if-no-files-found: warn

@@ -9,7 +9,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from verdugo import local_analytics, local_research, local_interop, local_knowledge, local_data, runtime_profile
 
 groups = {'expansion': [*local_analytics.SPECS, *local_research.SPECS], 'interop': list(local_interop.SPECS),
-          'knowledge': [*local_knowledge.SPECS, *local_data.SPECS]}
+          'knowledge': [*local_knowledge.SPECS, 'ipranges', 'the-great-gpt-firewall']}
 parser = argparse.ArgumentParser(); parser.add_argument('--group', choices=groups, default='expansion')
 args = parser.parse_args()
 selected = groups[args.group]

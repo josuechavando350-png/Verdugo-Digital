@@ -50,3 +50,41 @@ from knowledge_fixtures import CASES as KNOWLEDGE_CASES
 CASES.update(RESEARCH_CASES)
 CASES.update(INTEROP_CASES)
 CASES.update(KNOWLEDGE_CASES)
+
+from content_fixtures import CASES as CONTENT_CASES
+CASES.update(CONTENT_CASES)
+from native_fixtures import CASES as NATIVE_CASES
+CASES.update(NATIVE_CASES)
+
+from cli_fixtures import CASES as CLI_CASES
+CASES.update(CLI_CASES)
+
+from planning_fixtures import CASES as PLANNING_CASES
+CASES.update(PLANNING_CASES)
+
+from completion_fixtures import CASES as COMPLETION_CASES
+CASES.update(COMPLETION_CASES)
+
+from r_fixtures import CASES as R_CASES
+CASES.update(R_CASES)
+
+from database_fixtures import CASES as DATABASE_CASES
+CASES.update(DATABASE_CASES)
+
+from native_tools_fixtures import CASES as TOOLS_CASES
+CASES.update(TOOLS_CASES)
+
+from source_fixtures import CASES as SOURCE_CASES
+CASES.update(SOURCE_CASES)
+
+from media_fixtures import CASES as MEDIA_CASES
+CASES.update(MEDIA_CASES)
+
+from images_fixtures import CASES as IMAGES_CASES
+CASES.update(IMAGES_CASES)
+
+from lastnode_fixtures import CASES as LASTNODE_CASES
+CASES.update(LASTNODE_CASES)
+
+from owned_http_fixtures import CASES as OWNED_HTTP_CASES
+CASES.update(OWNED_HTTP_CASES)

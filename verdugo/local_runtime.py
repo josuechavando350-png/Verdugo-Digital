@@ -16,7 +16,7 @@ import sys
 import tempfile
 
 from .common import VerdugoError, fields, identifier, integer, encode
-from . import local_extended, local_analytics, local_research, local_interop, local_knowledge, local_data, runtime_profile
+from . import local_extended, local_analytics, local_research, local_interop, local_knowledge, local_data, local_native, local_cli, local_content, local_pycli, local_planning, local_completion, local_source, local_r, local_database, local_native_tools, local_media, local_images, local_lastnode, local_owned_http, runtime_profile
 
 # Primary published distribution versions; upstream source pins are a separate
 # provenance inventory and must not be confused with installed Python wheels.
@@ -47,6 +47,23 @@ EXTRA.update(local_interop.EXTRA)
 SPECS.update(local_knowledge.SPECS)
 EXTRA.update(local_knowledge.EXTRA)
 SPECS.update(local_data.SPECS)
+SPECS.update(local_native.SPECS)
+SPECS.update(local_cli.SPECS)
+SPECS.update(local_content.SPECS)
+SPECS.update(local_pycli.SPECS)
+SPECS.update(local_planning.SPECS)
+SPECS.update(local_source.SPECS)
+SPECS.update(local_r.SPECS)
+SPECS.update(local_database.SPECS)
+SPECS.update(local_native_tools.SPECS)
+SPECS.update(local_media.SPECS)
+SPECS.update(local_images.SPECS)
+SPECS.update(local_lastnode.SPECS)
+SPECS.update(local_owned_http.SPECS)
+SPECS.update(local_completion.SPECS)
+EXTRA.update(local_completion.EXTRA)
+EXTRA.update(local_planning.EXTRA)
+EXTRA.update(local_content.EXTRA)
 MAX_OUTPUT = 1024 * 1024
 WORKER = Path(__file__).with_name('_local_worker.py')
 RECIPES = Path(__file__).with_name('local_recipes.py')
@@ -58,6 +75,26 @@ def supports(service, operation):
 
 def installed(service):
     operation, distribution, expected = SPECS[service]
+    if service in local_owned_http.SPECS:
+        return local_owned_http.runtime_state(service)
+    if service in local_lastnode.SPECS:
+        return local_lastnode.runtime_state(service)
+    if service in local_images.SPECS:
+        return local_images.runtime_state(service)
+    if service in local_media.SPECS:
+        return local_media.runtime_state(service)
+    if service in local_native_tools.SPECS:
+        return local_native_tools.runtime_state(service)
+    if service in local_database.SPECS:
+        return local_database.runtime_state(service)
+    if service in local_r.SPECS:
+        return local_r.runtime_state(service)
+    if service in local_source.SPECS:
+        return local_source.runtime_state(service)
+    if service in local_cli.SPECS:
+        return local_cli.runtime_state(service)
+    if service in local_native.SPECS:
+        return local_native.runtime_state(service)
     if service in local_data.SPECS:
         try:
             local_data.source_bytes(service)
@@ -130,6 +167,34 @@ def labels(values, count, minimum_per_class=1):
 def validate(service, operation, params):
     if not supports(service, operation):
         raise VerdugoError('Local adapter/action not implemented')
+    if service in local_owned_http.SPECS:
+        return local_owned_http.validate(service, operation, params)
+    if service in local_lastnode.SPECS:
+        return local_lastnode.validate(service, operation, params)
+    if service in local_images.SPECS:
+        return local_images.validate(service, operation, params)
+    if service in local_media.SPECS:
+        return local_media.validate(service, operation, params)
+    if service in local_native_tools.SPECS:
+        return local_native_tools.validate(service, operation, params)
+    if service in local_database.SPECS:
+        return local_database.validate(service, operation, params)
+    if service in local_r.SPECS:
+        return local_r.validate(service, operation, params)
+    if service in local_source.SPECS:
+        return local_source.validate(service, operation, params)
+    if service in local_completion.SPECS:
+        return local_completion.validate(service, operation, params)
+    if service in local_planning.SPECS:
+        return local_planning.validate(service, operation, params)
+    if service in local_pycli.SPECS:
+        return local_pycli.validate(service, operation, params)
+    if service in local_content.SPECS:
+        return local_content.validate(service, operation, params)
+    if service in local_cli.SPECS:
+        return local_cli.validate(service, operation, params)
+    if service in local_native.SPECS:
+        return local_native.validate(service, operation, params)
     if service in local_extended.SPECS:
         return local_extended.validate(service, operation, params)
     if service in local_analytics.SPECS:
@@ -253,7 +318,7 @@ def preflight(service, operation, cfg):
 
 def implementation_digest():
     h = hashlib.sha256()
-    for path in (Path(__file__), WORKER, RECIPES, Path(local_extended.__file__), Path(local_analytics.__file__), Path(local_research.__file__), Path(local_interop.__file__), Path(local_knowledge.__file__), Path(local_data.__file__),
+    for path in (Path(__file__), WORKER, RECIPES, Path(local_extended.__file__), Path(local_analytics.__file__), Path(local_research.__file__), Path(local_interop.__file__), Path(local_knowledge.__file__), Path(local_data.__file__), Path(local_native.__file__), local_native.WORKER, Path(local_cli.__file__), Path(local_content.__file__), Path(local_pycli.__file__), Path(local_planning.__file__), Path(local_completion.__file__), Path(local_source.__file__), Path(local_r.__file__), local_r.WORKER, local_r.CONTRACT, Path(local_database.__file__), Path(local_native_tools.__file__), local_native_tools.CONTRACT, Path(local_media.__file__), local_media.CONTRACT, Path(local_images.__file__), Path(local_lastnode.__file__), local_lastnode.CONTRACT, local_lastnode.GUARD, local_lastnode.MCP_WORKER, Path(local_owned_http.__file__), local_owned_http.WORKER, local_owned_http.PY_WORKER,
                  Path(runtime_profile.__file__), runtime_profile.PROBE):
         h.update(path.name.encode())
         h.update(path.read_bytes())
@@ -288,6 +353,7 @@ def execute(request, cfg):
         env = {'PATH': os.defpath, 'HOME': work, 'TMPDIR': work, 'LANG': 'C.UTF-8',
                'OMP_NUM_THREADS': '1', 'OPENBLAS_NUM_THREADS': '1', 'MKL_NUM_THREADS': '1',
                'NUMEXPR_NUM_THREADS': '1', 'VECLIB_MAXIMUM_THREADS': '1',
+               'TF_NUM_INTRAOP_THREADS': '1', 'TF_NUM_INTEROP_THREADS': '1', 'CUDA_VISIBLE_DEVICES': '-1',
                'MALLOC_ARENA_MAX': '2', 'DO_NOT_TRACK': '1',
                'HAYSTACK_TELEMETRY_ENABLED': 'False', 'OTEL_SDK_DISABLED': 'true',
                'GX_ANALYTICS_ENABLED': 'False', 'GE_USAGE_STATS': 'False',
@@ -297,6 +363,25 @@ def execute(request, cfg):
                'LANGCHAIN_TRACING_V2': 'false', 'MLFLOW_ENABLE_ASYNC_LOGGING': 'false'}
         env.update(FEAST_USAGE='False', PYWIKIBOT_NO_USER_CONFIG='2',
                    HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1', TOKENIZERS_PARALLELISM='false')
+        if public['service'] in local_owned_http.SPECS:
+            env[local_owned_http.ENV] = str(local_owned_http.root())
+        if public['service'] in local_lastnode.SPECS:
+            env[local_lastnode.ENV] = str(local_lastnode.root())
+        if public['service'] in local_images.SPECS:
+            env[local_images.ENV] = str(local_images.root())
+        if public['service'] in local_media.SPECS:
+            env[local_media.ENV] = str(local_media.root())
+        if public['service'] in local_native_tools.SPECS:
+            env[local_native_tools.ENV] = str(local_native_tools.root())
+        if public['service'] in local_database.SPECS:
+            env[local_database.ENV] = str(local_database.root())
+            env[local_database.LOOPBACK_ENV] = '1' if local_database.loopback() else '0'
+        if public['service'] in local_r.SPECS:
+            env[local_r.ENV] = str(local_r.root())
+        if public['service'] in local_cli.SPECS:
+            env[local_cli.ENV] = str(local_cli.root())
+        if public['service'] in local_native.SPECS:
+            env[local_native.ENV] = str(local_native.root())
         if public['service'] == 'playwright':
             browser_dir = cfg.get('browser_path')
             if not isinstance(browser_dir, str) or not Path(browser_dir).is_absolute():

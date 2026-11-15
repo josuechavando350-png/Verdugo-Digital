@@ -1,0 +1,1 @@
+The upstream source and license are retained byte-for-byte in original.py and LICENSE. The executed adapted.py changes only the logging import to standard-library logging; numerical algorithms are unchanged and no simulated agents or LLMs are run.

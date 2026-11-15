@@ -1,0 +1,150 @@
+"""Explicit CI/admin setup only; never imported by Engine, CLI or MCP."""
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+import tarfile
+from urllib.request import urlopen
+
+ROOT=Path(__file__).resolve().parents[1]
+sys.path.insert(0,str(ROOT))
+from verdugo.local_cli import SPECS
+from install_expansion import install
+GROUPS={'closure021':['microsandbox','landscape-app','playwright-mcp','siteone-crawler','sherlock'],'network021':['siteone-crawler','sherlock'],'lastnode021':['landscape-app','playwright-mcp'],'images021':['microsandbox'],'media021':['quarto','auto-editor'],'source021':['cua','tinytroupe','local-seo-skills','google-maps-scraper'],'tools021':['openapi-generator','cc-webgraph','arx','goaccess'],'planning021':['mcp-agent','nemo-guardrails'],'content021':['graphiti','openbb','people-also-ask','jobspy'],
+        'entities021':['chronos','gliner'],'pycli021':['dvc','dnstwist'],
+        'finalpy021':['newsjack','kingfisher-collect'],
+        'database021':['valkey','postgres','pgvector','apache-age'],
+        'r021':['pricesensitivitymeter','robyn'],
+        'node':['geo-lint','site-md','seo-graph','structured-data-validator','slidev','lighthouse','promptfoo','log4brains'],
+        'utility021':['vanna','trendspyg','youtube-comment-downloader','comtradeapicall','c2pa','autogeo','cognee','claude-skills-c-level'],
+        'browser021':['browser-use'], 'storm021':['storm'], 'dbt021':['dbt'], 'a2a021':['a2a'],
+        'research021':['gpt-researcher'], 'meridian021':['meridian'], 'causal021':['tfcausalimpact'],
+        'cli-security':['syft','grype','gitleaks'],'cli-storage':['restic','sops','vale']}
+GO_SHA='9849f4e04ee35303714e34fbc3ac8ab44ea3e448a95aa182f91e3b9b79c710ec'
+NODE_SHA='6c172a9ab6718f7b801fb5a7bd486af2ee5e32758086a04b84fcce2aa77095e6'
+DB_SHA='762b01ba9c79e6a250bd73f11ef62fbf44539ee8e08e043d80df4aaad3afc2aa'
+DB_URL='https://grype.anchore.io/databases/v6/vulnerability-db_v6.1.10_2026-11-14T00:20:33Z_1794637165.tar.zst'
+
+def digest(path):
+    h=hashlib.sha256()
+    with path.open('rb') as f:
+        for block in iter(lambda:f.read(1024*1024),b''):h.update(block)
+    return h.hexdigest()
+
+def download(url,dest,sha):
+    with urlopen(url,timeout=90) as source,dest.open('wb') as target:shutil.copyfileobj(source,target)
+    if digest(dest)!=sha:raise ValueError('Downloaded artifact checksum mismatch')
+
+def grype_import_binding(home):
+    """Called after the original importer verifies the pinned archive checksum."""
+    source=DB_URL+'?checksum=sha256%3A'+DB_SHA
+    db=home/'grype-db/6'
+    metadata=json.loads((db/'import.json').read_text())
+    if metadata.get('source')!=source or metadata.get('client_version')!='v6.1.10':
+        raise ValueError('Imported database provenance mismatch')
+    if not isinstance(metadata.get('digest'),str) or not metadata['digest'].startswith('xxh64:'):
+        raise ValueError('Imported database integrity metadata missing')
+    return {'database_sha256':digest(db/'vulnerability.db'),
+            'database_source':source,'database_archive_sha256':DB_SHA}
+
+
+def node():
+    home=Path('/tmp/verdugo-node021');home.mkdir()
+    archive=home/'node.tar.xz'
+    download('https://nodejs.org/dist/v24.22.1/node-v24.22.1-linux-x64.tar.xz',archive,NODE_SHA)
+    with tarfile.open(archive) as tar:tar.extractall(home,filter='data')
+    native=home/'node-v24.22.1-linux-x64';(home/'bin').mkdir()
+    shutil.copy2(native/'bin/node',home/'bin/node');(home/'bin/node').chmod(0o755)
+    for source,dest in [('runtime-node.package.json','package.json'),('runtime-node.lock.json','package-lock.json')]:shutil.copy2(ROOT/'requirements'/source,home/dest)
+    env=dict(os.environ,PATH=str(home/'bin')+os.pathsep+os.defpath)
+    subprocess.run([str(home/'bin/node'),str(native/'lib/node_modules/npm/bin/npm-cli.js'),'ci','--ignore-scripts','--no-audit','--no-fund'],cwd=home,env=env,check=True)
+    shutil.rmtree(native);archive.unlink()
+
+def cli(selected):
+    home=Path('/tmp/verdugo-cli021');home.mkdir();(home/'bin').mkdir()
+    build=Path('/tmp/verdugo-cli-build021');build.mkdir();archive=build/'go.tar.gz'
+    download('https://go.dev/dl/go1.26.11.linux-amd64.tar.gz',archive,GO_SHA)
+    with tarfile.open(archive) as tar:tar.extractall(build,filter='data')
+    archive.unlink();go=str(build/'go/bin/go')
+    env=dict(os.environ,GOMAXPROCS='2',GOCACHE=str(build/'cache'),GOMODCACHE=str(build/'modules'),GOPATH=str(build/'gopath'))
+    repositories={'gitleaks':'gitleaks/gitleaks','restic':'restic/restic','syft':'anchore/syft','grype':'anchore/grype','sops':'getsops/sops','vale':'vale-cli/vale'}
+    manifest={'binaries':{}}
+    for sid in selected:
+        source=build/sid;source.mkdir()
+        subprocess.run(['git','init','-q'],cwd=source,check=True)
+        subprocess.run(['git','fetch','--depth=1','https://github.com/'+repositories[sid]+'.git',SPECS[sid][2]],cwd=source,check=True)
+        subprocess.run(['git','checkout','--detach','FETCH_HEAD'],cwd=source,check=True)
+        binary=home/'bin'/sid;package='.' if sid=='gitleaks' else './cmd/'+sid
+        subprocess.run([go,'build','-p','2','-trimpath','-o',str(binary),package],cwd=source,env=env,check=True)
+        provenance=subprocess.check_output([go,'version','-m',str(binary)],text=True)
+        if 'vcs.revision='+SPECS[sid][2] not in provenance or 'vcs.modified=false' not in provenance:raise ValueError('Dirty or unexpected original build')
+        binary.chmod(0o755);manifest['binaries'][sid]={'source_commit':SPECS[sid][2],'sha256':digest(binary)}
+    if 'sops' in selected:
+        subprocess.run([go,'install','-p','2','filippo.io/age/cmd/age-keygen@v1.3.1'],env=dict(env,GOBIN=str(home/'bin')),check=True)
+        manifest['binaries']['sops'].update(age_keygen_version='v1.3.1',age_keygen_sha256=digest(home/'bin/age-keygen'))
+    # Free build cache before unpacking the multi-gigabyte vulnerability snapshot.
+    # Go marks extracted module directories read-only. Its cleanup command
+    # handles permissions correctly for the unprivileged CI account.
+    subprocess.run([go,'clean','-modcache'],env=dict(env,GOTOOLCHAIN='local'),check=True)
+    shutil.rmtree(build)
+    if 'grype' in selected:
+        # Use the original client, including its documented checksum verification,
+        # downloader, archive handling and public database request headers.
+        source=DB_URL+'?checksum=sha256%3A'+DB_SHA
+        subprocess.run([str(home/'bin/grype'),'db','import',source],
+                       env=dict(os.environ,GRYPE_DB_CACHE_DIR=str(home/'grype-db'),
+                                GRYPE_CHECK_FOR_APP_UPDATE='false'),check=True)
+        db=home/'grype-db/6'
+        # Import hydrates indexes/schema. Bind the resulting local file rather
+        # than comparing its physical SQLite bytes across installations.
+        subprocess.run([str(home/'bin/grype'),'db','status','-o','json'],
+                       env=dict(os.environ,GRYPE_DB_CACHE_DIR=str(home/'grype-db'),
+                                GRYPE_CHECK_FOR_APP_UPDATE='false',GRYPE_DB_VALIDATE_AGE='false'),check=True)
+        manifest['binaries']['grype'].update(grype_import_binding(home))
+
+    (home/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
+
+if __name__=='__main__':
+    parser=argparse.ArgumentParser();parser.add_argument('--group',choices=GROUPS,required=True);args=parser.parse_args()
+    if args.group=='planning021':
+        for name in ('mcpagent021','rails021'):
+            install(name)
+            print('BEGIN_VERDUGO_FREEZE '+name,flush=True)
+            print(Path('/tmp/'+name+'-resolved.txt').read_text(),flush=True)
+            print('END_VERDUGO_FREEZE '+name,flush=True)
+    elif args.group=='closure021':
+        from install_images import install as install_images
+        from install_lastnode import install as install_lastnode
+        from install_owned_http import install as install_owned_http
+        install_images();install_lastnode();install_owned_http()
+    elif args.group=='network021':
+        from install_owned_http import install as install_owned_http
+        install_owned_http()
+    elif args.group=='lastnode021':
+        from install_lastnode import install as install_lastnode
+        install_lastnode()
+    elif args.group=='images021':
+        from install_images import install as install_images
+        install_images()
+    elif args.group=='media021':
+        from install_media import install as install_media
+        install_media()
+    elif args.group=='source021':
+        from install_source import install as install_source
+        install_source()
+    elif args.group=='tools021':
+        from install_native_tools import install as install_tools
+        install_tools()
+    elif args.group=='database021':
+        from install_database import install as install_database
+        install_database()
+    elif args.group=='r021':
+        from install_r import install as install_r
+        install_r()
+    elif args.group.endswith('021'):install(args.group)
+    elif args.group=='node':node()
+    else:cli(GROUPS[args.group])

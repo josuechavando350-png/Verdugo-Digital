@@ -26,7 +26,7 @@ def main():
     # Chromium needs bounded profile/shared-memory files larger than 2 MiB.
     # This is a per-file limit, NOT a total disk quota or a security sandbox.
     # JSON output remains capped at 1 MiB for every adapter.
-    file_budget = (128 if request['service'] in ('playwright', 'dlt', 'mlflow') else 16) * 1024 * 1024
+    file_budget = (128 if request['service'] in ('playwright', 'playwright-mcp', 'dlt', 'mlflow') else 16) * 1024 * 1024
     resource.setrlimit(resource.RLIMIT_FSIZE, (file_budget, file_budget))
     budget = int(request['timeout_seconds'])
     resource.setrlimit(resource.RLIMIT_CPU, (budget, budget + 1))
@@ -36,9 +36,59 @@ def main():
     # No caller-selected modules can be imported.
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
     from verdugo.local_recipes import run
-    from verdugo import local_data
+    from verdugo import local_data, local_native, local_cli, local_source, local_r, local_database, local_native_tools, local_media, local_images, local_lastnode, local_owned_http
     dist = request['distribution']
-    if request['service'] in local_data.SPECS:
+    if request['service'] in local_owned_http.SPECS:
+        state = local_owned_http.runtime_state(request['service'])
+        if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
+            raise ValueError('Owned HTTP runtime changed')
+        version = state['installed']
+    elif request['service'] in local_lastnode.SPECS:
+        state = local_lastnode.runtime_state(request['service'])
+        if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
+            raise ValueError('Native runtime changed')
+        version = state['installed']
+    elif request['service'] in local_images.SPECS:
+        state = local_images.runtime_state(request['service'])
+        if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
+            raise ValueError('Image runtime changed')
+        version = state['installed']
+    elif request['service'] in local_media.SPECS:
+        state = local_media.runtime_state(request['service'])
+        if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
+            raise ValueError('Media runtime changed')
+        version = state['installed']
+    elif request['service'] in local_native_tools.SPECS:
+        state = local_native_tools.runtime_state(request['service'])
+        if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
+            raise ValueError('Native-tools runtime changed')
+        version = state['installed']
+    elif request['service'] in local_database.SPECS:
+        state = local_database.runtime_state(request['service'])
+        if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
+            raise ValueError('Database runtime changed')
+        version = state['installed']
+    elif request['service'] in local_r.SPECS:
+        state = local_r.runtime_state(request['service'])
+        if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
+            raise ValueError('R runtime changed')
+        version = state['installed']
+    elif request['service'] in local_source.SPECS:
+        state = local_source.runtime_state(request['service'])
+        if not state['version_matches']:
+            raise ValueError('Pinned source runtime changed')
+        version = state['installed']
+    elif request['service'] in local_cli.SPECS:
+        state = local_cli.runtime_state(request['service'])
+        if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
+            raise ValueError('CLI runtime changed')
+        version = state['installed']
+    elif request['service'] in local_native.SPECS:
+        state = local_native.runtime_state(request['service'])
+        if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
+            raise ValueError('Native runtime changed')
+        version = state['installed']
+    elif request['service'] in local_data.SPECS:
         local_data.source_bytes(request['service'])
         version = local_data.SPECS[request['service']][2]
     else:

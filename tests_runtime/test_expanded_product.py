@@ -20,7 +20,7 @@ from platform_fixtures import configure, wire, EXPECTED
 from test_analytics_product import request_all as analytics_request
 from test_research_product import request_all as research_request
 
-GROUPS = {'interop': set(local_interop.SPECS), 'knowledge': set(local_knowledge.SPECS) | set(local_data.SPECS)}
+GROUPS = {'interop': set(local_interop.SPECS), 'knowledge': set(local_knowledge.SPECS) | {'ipranges','the-great-gpt-firewall'}}
 ALL = set(local_analytics.SPECS) | set(local_research.SPECS) | GROUPS['interop'] | GROUPS['knowledge']
 
 

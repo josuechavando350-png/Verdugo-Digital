@@ -9,6 +9,41 @@ import math
 
 
 def run(service, operation, p):
+    from .local_owned_http import SPECS as OWNED_HTTP, run as run_owned_http
+    if service in OWNED_HTTP: return run_owned_http(service, p)
+    from .local_lastnode import SPECS as LASTNODE, run as run_lastnode
+    if service in LASTNODE: return run_lastnode(service, p)
+    from .local_images import SPECS as IMAGES, run as run_images
+    if service in IMAGES: return run_images(service, p)
+    from .local_media import SPECS as MEDIA, run as run_media
+    if service in MEDIA: return run_media(service, p)
+    from .local_native_tools import SPECS as NATIVE_TOOLS, run as run_native_tools
+    if service in NATIVE_TOOLS: return run_native_tools(service, p)
+    from .local_database import SPECS as DATABASE, run as run_database
+    if service in DATABASE:
+        return run_database(service, p)
+    from .local_r import SPECS as R, run as run_r
+    if service in R:
+        return run_r(service, p)
+    from .local_source import SPECS as SOURCE, run as run_source
+    if service in SOURCE:
+        return run_source(service, p)
+    from .local_completion import SPECS as COMPLETION, run as run_completion
+    if service in COMPLETION:
+        return run_completion(service, p)
+    from .local_planning import SPECS as PLANNING, run as run_planning
+    if service in PLANNING: return run_planning(service, p)
+    from .local_pycli import SPECS as PYCLI, run as run_pycli
+    if service in PYCLI: return run_pycli(service, p)
+    from .local_content import SPECS as CONTENT, run as run_content
+    if service in CONTENT:
+        return run_content(service, p)
+    from .local_cli import SPECS as CLI, run as run_cli
+    if service in CLI:
+        return run_cli(service, p)
+    from .local_native import SPECS as NATIVE, run as run_native
+    if service in NATIVE:
+        return run_native(service, p)
     from .local_knowledge import SPECS as KNOWLEDGE, run as run_knowledge
     if service in KNOWLEDGE:
         return run_knowledge(service, p)

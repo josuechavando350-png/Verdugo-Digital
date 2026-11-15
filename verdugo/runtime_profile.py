@@ -30,6 +30,22 @@ PROFILE_ENV.update({sid: 'VERDUGO_'+profile+'_PYTHON' for sid, profile in PROFIL
 from .local_knowledge import PROFILES as KNOWLEDGE_PROFILES
 PROFILE_ENV.update({sid: 'VERDUGO_'+profile+'_PYTHON' for sid, profile in KNOWLEDGE_PROFILES.items()})
 
+from .local_content import PROFILES as CONTENT_PROFILES
+PROFILE_ENV.update({sid: 'VERDUGO_'+profile+'_PYTHON' for sid,profile in CONTENT_PROFILES.items()})
+
+from .local_pycli import SPECS as PYCLI
+PROFILE_ENV.update({sid:'VERDUGO_PYCLI021_PYTHON' for sid in PYCLI})
+
+from .local_planning import PROFILES as PLANNING
+PROFILE_ENV.update({sid:'VERDUGO_'+profile+'_PYTHON' for sid,profile in PLANNING.items()})
+
+from .local_completion import PROFILES as COMPLETION
+PROFILE_ENV.update({sid: "VERDUGO_"+profile+"_PYTHON" for sid, profile in COMPLETION.items()})
+
+PROFILE_ENV['autogeo'] = 'VERDUGO_UTILITY021_PYTHON'
+PROFILE_ENV['sherlock'] = 'VERDUGO_SHERLOCK021_PYTHON'
+PROFILE_ENV['tinytroupe'] = 'VERDUGO_SOURCE021_PYTHON'
+PROFILE_ENV['kingfisher-collect'] = 'VERDUGO_FINALPY021_PYTHON'
 
 def interpreter(service):
     key = PROFILE_ENV.get(service)

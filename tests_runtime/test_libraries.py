@@ -9,6 +9,19 @@ from verdugo import local_runtime
 from verdugo.__main__ import template
 from verdugo.engine import Engine
 from fixtures import CASES
+from database_fixtures import CASES as DATABASE_CASES, assert_result as assert_database
+from native_tools_fixtures import CASES as TOOLS_CASES, assert_result as assert_tools
+from owned_http_fixtures import CASES as OWNED_HTTP_CASES, assert_result as assert_owned_http
+from lastnode_fixtures import CASES as LASTNODE_CASES, assert_result as assert_lastnode
+from images_fixtures import CASES as IMAGES_CASES, assert_result as assert_images
+from media_fixtures import CASES as MEDIA_CASES, assert_result as assert_media
+from source_fixtures import CASES as SOURCE_CASES, assert_result as assert_source
+from r_fixtures import CASES as R_CASES, assert_result as assert_r
+from completion_fixtures import CASES as COMPLETION_CASES, assert_result as assert_completion
+from planning_fixtures import CASES as PLANNING_CASES, assert_result as assert_planning
+from cli_fixtures import CASES as CLI_CASES, assert_result as assert_cli
+from content_fixtures import CASES as CONTENT_CASES, assert_result as assert_content
+from native_fixtures import CASES as NATIVE_CASES, assert_result as assert_native
 from research_fixtures import CASES as RESEARCH_CASES, assert_result as assert_research
 from interop_fixtures import CASES as INTEROP_CASES, assert_result as assert_interop
 from knowledge_fixtures import CASES as KNOWLEDGE_CASES, assert_result as assert_knowledge
@@ -98,6 +111,32 @@ class RuntimeAcceptance(unittest.TestCase):
                         self.assertTrue(value['views'][0]['observations']['horizontal_overflow'])
                         self.assertFalse(value['views'][1]['observations']['horizontal_overflow'])
                         self.assertFalse(value['javascript_enabled'])
+                    if sid in OWNED_HTTP_CASES:
+                        assert_owned_http(self,sid,value)
+                    if sid in LASTNODE_CASES:
+                        assert_lastnode(self,sid,value)
+                    if sid in IMAGES_CASES:
+                        assert_images(self,sid,value)
+                    if sid in MEDIA_CASES:
+                        assert_media(self,sid,value)
+                    if sid in SOURCE_CASES:
+                        assert_source(self,sid,value)
+                    if sid in TOOLS_CASES:
+                        assert_tools(self,sid,value)
+                    if sid in DATABASE_CASES:
+                        assert_database(self,sid,value)
+                    if sid in R_CASES:
+                        assert_r(self,sid,value)
+                    if sid in COMPLETION_CASES:
+                        assert_completion(self, sid, value)
+                    if sid in PLANNING_CASES:
+                        assert_planning(self,sid,value)
+                    if sid in CLI_CASES:
+                        assert_cli(self,sid,value)
+                    if sid in CONTENT_CASES:
+                        assert_content(self,sid,value)
+                    if sid in NATIVE_CASES:
+                        assert_native(self,sid,value)
                     if sid in RESEARCH_CASES:
                         assert_research(self, sid, value)
                     if sid in INTEROP_CASES:
