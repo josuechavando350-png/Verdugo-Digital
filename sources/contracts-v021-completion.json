@@ -852,6 +852,112 @@
       ]
     },
     {
+      "id": "kingfisher-collect",
+      "catalog_commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+      "operation": "releases.inspect",
+      "distribution": "bundled-source:kingfisher-collect",
+      "executed_version": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "LICENSE",
+          "git_blob_sha": "7e2589eda30a1830f2e2486980633274fa82dca2",
+          "sha256": "c5837dd2d0338223cecd3e7f2e53d1d02e71496343b934cd8cdaeefba52a48d3",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/LICENSE"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "README.rst",
+          "git_blob_sha": "6f30981aa4d13962653eb474c3201fcbd09ef2ae",
+          "sha256": "17fa4b7f57753a0f6d3e829ad07f9a67556e399e023c1cb6058ec6ea35d4eb5c",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/README.rst"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "kingfisher_scrapy/__init__.py",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/kingfisher_scrapy/__init__.py"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "kingfisher_scrapy/items.py",
+          "git_blob_sha": "96ccb1319b2e0b736effc8231f5273e3a88eef7e",
+          "sha256": "b57df9b4cfcaef8498ab6add3d385148303ee73b13615b7287f5baf94e351142",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/kingfisher_scrapy/items.py"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "kingfisher_scrapy/pipelines.py",
+          "git_blob_sha": "6205192dc2959f53de536990af5d27af74d989e3",
+          "sha256": "e9ab6e15301976a1db03490219c5e0a4bb4e1f8a36dcddf7e5aaa9ea71b3cbf1",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/kingfisher_scrapy/pipelines.py"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "kingfisher_scrapy/responses.py",
+          "git_blob_sha": "f3c5ac2acc012a2f7bf10752ca9a60cb4420f310",
+          "sha256": "61fae270a40e6e26f04744932a7c284b0084f0a9a3afb81333ceb9d641ba9693",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/kingfisher_scrapy/responses.py"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "kingfisher_scrapy/util.py",
+          "git_blob_sha": "5597c73ed3f1ccb5974e32ec14713531c0882bfa",
+          "sha256": "707f16521a0eed153cd68b76c62315d8a57a68c43794ebb19e3cb5815a410048",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/kingfisher_scrapy/util.py"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "pyproject.toml",
+          "git_blob_sha": "8b0eed29087c017de5ebed8799c05f6b9ee674f5",
+          "sha256": "0e6e4f78a566b0071378ce5050b5afc846f7518ee0718ed8c501eae180b268e4",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/pyproject.toml"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "requirements.in",
+          "git_blob_sha": "272433aee37ec6c78e953270cedcb667db25a345",
+          "sha256": "fbd612863b4122a8ebb85b34d82567d10769004cf898fc07d5a7637c91459acf",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/requirements.in"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "requirements.txt",
+          "git_blob_sha": "d67e178d195b452357070cb9c66a9fcf5ae231ba",
+          "sha256": "5e3524f8b728ee9bd80cc43f85f31746260664e110b750558848b5aed8a20b8c",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/requirements.txt"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "requirements_base.txt",
+          "git_blob_sha": "46a8351f668cbf79c97df937d0c348c39aa7b3f3",
+          "sha256": "1b90e6019e6b1ad9e3b2e77793450c6a584d000ebe996c18d8fde14735cf11d7",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/requirements_base.txt"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "setup.py",
+          "git_blob_sha": "0cfa0f5fd8de9dbf6e88c1788cc8729082098632",
+          "sha256": "843d1c5b88e08dfe6740cad6b126ace2eaf25053b751534ce1ceca09b96fbf84",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/setup.py"
+        }
+      ]
+    },
+    {
       "id": "krayin-crm",
       "catalog_commit": "ed6deebfcb8c616eaf352c893a10a6d8e666fc6e",
       "operation": "dashboard.summary",
@@ -1148,6 +1254,64 @@
           "git_blob_sha": "ea24ff4b287f55b5e76461f6cc09506b4e9f7e3b",
           "sha256": "6917ed163f010621acb828f99e9dc88e8948fa9072e0c93546e679279449562a",
           "source_url": "https://github.com/meta/facebook-python-business-sdk/blob/b08e5c1d36a2adad3c4ede6578654c8eaca5f225/setup.py"
+        }
+      ]
+    },
+    {
+      "id": "newsjack",
+      "catalog_commit": "c2df3a0168083d620b9b36518aeca16a4eb72296",
+      "operation": "rewrite.compare",
+      "distribution": "bundled-source:newsjack",
+      "executed_version": "c2df3a0168083d620b9b36518aeca16a4eb72296",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "elvisun/newsjack",
+          "commit": "c2df3a0168083d620b9b36518aeca16a4eb72296",
+          "path": "LICENSE",
+          "git_blob_sha": "3114ffd1cb756dbc47941e2c100cc27cb10d274a",
+          "sha256": "a973d457a5ad23a36205ef48f88c5860680fed6a3d8fdc64df6f43cd0b3e413e",
+          "source_url": "https://github.com/elvisun/newsjack/blob/c2df3a0168083d620b9b36518aeca16a4eb72296/LICENSE"
+        },
+        {
+          "repository": "elvisun/newsjack",
+          "commit": "c2df3a0168083d620b9b36518aeca16a4eb72296",
+          "path": "README.md",
+          "git_blob_sha": "c96b2faa8a1891a063431b9b78c0dc2d7e823734",
+          "sha256": "25c64e2ef512a82294453dfb889ecc2aa61437afe553a3c0a65be929a1cd155f",
+          "source_url": "https://github.com/elvisun/newsjack/blob/c2df3a0168083d620b9b36518aeca16a4eb72296/README.md"
+        },
+        {
+          "repository": "elvisun/newsjack",
+          "commit": "c2df3a0168083d620b9b36518aeca16a4eb72296",
+          "path": "eval/ai-visibility-writing/fixtures/scoring-good.json",
+          "git_blob_sha": "110d3bc0de8060f047675561b797e952739b24ae",
+          "sha256": "43e4bde2dd51112fba995e939b13acbdc09fb6fa7ffc04f4a7646d32733d3d69",
+          "source_url": "https://github.com/elvisun/newsjack/blob/c2df3a0168083d620b9b36518aeca16a4eb72296/eval/ai-visibility-writing/fixtures/scoring-good.json"
+        },
+        {
+          "repository": "elvisun/newsjack",
+          "commit": "c2df3a0168083d620b9b36518aeca16a4eb72296",
+          "path": "eval/ai-visibility-writing/harness/score.py",
+          "git_blob_sha": "c93eb37d2eae5e4521dc794c8a48ef349bc15bb1",
+          "sha256": "ae1f71d236a0333fdb8bdaef335fbe10204a5528f6f6cf92ae081f9284362742",
+          "source_url": "https://github.com/elvisun/newsjack/blob/c2df3a0168083d620b9b36518aeca16a4eb72296/eval/ai-visibility-writing/harness/score.py"
+        },
+        {
+          "repository": "elvisun/newsjack",
+          "commit": "c2df3a0168083d620b9b36518aeca16a4eb72296",
+          "path": "eval/ai-visibility-writing/scripts/pilotlib.py",
+          "git_blob_sha": "0ac2920f636e45f0637c9ad8924c6fbaff57df0d",
+          "sha256": "134284b1c0d938d8a2c5b4fcab529303efa7f2fda0cdcd0bbc735556e07fd65b",
+          "source_url": "https://github.com/elvisun/newsjack/blob/c2df3a0168083d620b9b36518aeca16a4eb72296/eval/ai-visibility-writing/scripts/pilotlib.py"
+        },
+        {
+          "repository": "elvisun/newsjack",
+          "commit": "c2df3a0168083d620b9b36518aeca16a4eb72296",
+          "path": "package.json",
+          "git_blob_sha": "b5fed3bd5d1226e4331409c5ed18d677985dc81e",
+          "sha256": "da6a2c12af96e67b2a08dbe4d3982addd995521f10ada099cc2339eec27f168b",
+          "source_url": "https://github.com/elvisun/newsjack/blob/c2df3a0168083d620b9b36518aeca16a4eb72296/package.json"
         }
       ]
     },

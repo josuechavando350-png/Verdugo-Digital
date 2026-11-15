@@ -1,13 +1,13 @@
 # Complemento v0.21 — evidencia y alcance
 
 Base: `a6809de201ba517846e19cf965194b21e6617050`, rama `feat/v0.21-final88`, PR #20.
-Se añaden **41 de las 68 integraciones pendientes**: 17 operaciones locales
+Se añaden **47 de las 68 integraciones pendientes**: 23 operaciones locales
 originales y 24 contratos HTTP. Junto con las 20 anteriores de v0.21, son
-61 operaciones de esta tanda y **27 todavía pendientes**. No declarar terminada
+67 operaciones de esta tanda y **21 todavía pendientes**. No declarar terminada
 la tanda. No se modifica main ni se altera la política de licencias.
 
-Inventario actual: 322 entradas; 217 conectadas bajo la política, 56 componentes,
-27 pendientes y 22 excluidas. Hay 102 adaptadores HTTP (106 acciones) y 134
+Inventario actual: 322 entradas; 223 conectadas bajo la política, 56 componentes,
+21 pendientes y 22 excluidas. Hay 102 adaptadores HTTP (106 acciones) y 140
 operaciones locales; 19 adaptadores HTTP históricos siguen excluidos por licencia.
 
 ## Operaciones comprobadas y límites
@@ -56,23 +56,32 @@ operaciones locales; 19 adaptadores HTTP históricos siguen excluidos por licenc
 | `webmention-io` | `mentions.summary` | Primera página privada jf2; Bearer nativo soportado por el código; solo recuentos. |
 | `youtube-comment-downloader` | `comments.inspect` | Inspección original de renderers de comentarios suministrados; recuentos de likes/respuestas; no descarga vídeos. |
 
+| `promptfoo` | `response.check` | Aserción original contains-all sobre una respuesta suministrada, con proveedor local fijo; cero llamadas a modelos; no evalúa veracidad ni calidad semántica. |
+| `log4brains` | `decisions.inspect` | Parser original sobre decisiones suministradas convertidas en ADR temporales; cuenta estados; no consulta ni modifica un repositorio externo. |
+| `pricesensitivitymeter` | `prices.survey` | Van Westendorp no ponderado de 5–100 respuestas; puntos descriptivos de la encuesta, no precio óptimo de ingresos ni muestra representativa. |
+| `robyn` | `media.transform` | Adstock geométrico y saturación Hill originales en R; parámetros suministrados; no entrenamiento, causalidad ni optimización de presupuesto. |
+| `newsjack` | `rewrite.compare` | Comparador léxico original de cifras, fechas, citas, enlaces y entidades entre textos; no comprueba hechos ni equivalencia semántica. |
+| `kingfisher-collect` | `releases.inspect` | FileItem, Validate y Pluck originales para metadatos suministrados; deduplica archivo/número conservando el primero; no descarga ni valida el esquema OCDS completo. |
+
 ## Ejecución observada
 
-- Suite de núcleo y contratos: 690 pruebas aprobadas en CPython 3.12.
-- 17 operaciones locales originales en un único `product-run`, 18 pasos incluyendo
+- Suite de núcleo y contratos: 697 pruebas aprobadas en CPython 3.12.
+- 23 operaciones locales originales en un único `product-run`, 24 pasos incluyendo
   instantánea comercial; persistencia y replay después de cerrar/abrir SQLite.
   Vanna alimenta dbt mediante una referencia de workflow.
-- Flujo conjunto de las 41 integraciones nuevas: 17 operaciones locales originales
-  + 24 respuestas HTTP sintéticas + instantánea comercial, 42 pasos, 123.651 s.
+- Flujo conjunto de las 47 integraciones nuevas: 23 operaciones locales originales
+  + 24 respuestas HTTP sintéticas + instantánea comercial, 48 pasos, 170.148 s.
   Cero llamadas HTTP o ejecuciones de worker durante el replay tras reinicio.
   [Evidencia local](evidence/v021-completion-local.json).
-- Seis paquetes npm originales probados juntos, incluidos los cuatro anteriores;
+- Ocho paquetes npm originales probados juntos, incluidos los cuatro anteriores;
+  aceptación del grupo en 103.895 s. Cuatro casos negativos comprueban que Promptfoo
+  conserva fallos de aserción y trata plantillas y referencias de archivo como texto;
   HTML alimenta lint y SEO Graph alimenta el validador de breadcrumbs.
 - Los 24 contratos HTTP nuevos tienen transporte loopback y proyección comprobada;
   las 66 lecturas admisibles del producto se prueban juntas con respuestas sintéticas.
 - C2PA: PNG firmado de ejemplo, sin manifiesto, contenido alterado y manifiesto remoto.
   Un certificado de ejemplo no se convierte en autenticidad verificada.
-- Los ocho perfiles Python pasan `pip check`; dependencias exactas y npm lock fijados.
+- Los nueve perfiles Python pasan `pip check`; dependencias exactas y npm lock fijados.
   Los artefactos instalados se identifican por hashes en
   [evidencia de distribuciones](evidence/v021-completion-artifacts.json).
 
@@ -93,9 +102,9 @@ python tests_runtime/accept_final.py --group utility021
 ```
 
 Grupos nuevos: `utility021`, `browser021`, `storm021`, `dbt021`, `a2a021`,
-`research021`, `meridian021`, `causal021`; `node` añade Slidev y Lighthouse.
+`research021`, `meridian021`, `causal021`, `finalpy021`; `node` añade Slidev, Lighthouse, Promptfoo y Log4brains. `r021` prepara el intérprete R 4.2.2 original extraído de paquetes Debian fijados por SHA-256, sin scripts de instalación privilegiados. Se verifican 789 archivos de ese runtime y cada fuente original. Es un perfil Linux amd64, no una promesa de compatibilidad Android.
 Los perfiles se eligen mediante `VERDUGO_<PERFIL>_PYTHON`; npm usa
-`VERDUGO_NATIVE_ROOT`. No se permiten rutas, SQL, comandos, modelos, hosts ni
+`VERDUGO_NATIVE_ROOT` y R usa `VERDUGO_R_ROOT`. No se permiten rutas, SQL, comandos, modelos, hosts ni
 credenciales desde parámetros de una operación. Los perfiles deben ser confiables;
 los hooks Python no constituyen aislamiento de código nativo hostil. CI ejecuta
 las recetas como usuario sin privilegios y dentro de un namespace sin red.
@@ -114,8 +123,12 @@ dbt v1, C2PA Python, Temporal, LiveKit, PodcastIndex y Letta Code. El commit del
 catálogo es distinto de la versión de distribución ejecutada. Las 322 identidades
 originales y sus 33 archivos de fuentes permanecen intactos.
 
-Los tres módulos Python vendorizados conservan bytes y licencia originales; ambos
+Los cinco módulos Python vendorizados conservan bytes y licencia originales; ambos
 hashes se verifican antes de cargarlos. Las fuentes adicionales no se ejecutan
 al generar el inventario. Krayin usa rutas MIT del CRM y no su paquete REST sin
 licencia; Huginn sí expone agents.json y Webmention sí acepta Bearer según sus
 fuentes fijadas, corrigiendo notas anteriores del plan.
+
+Las fuentes R y sus licencias se describen en [contracts-v021-r.json](../sources/contracts-v021-r.json). Se cargan funciones originales concretas, sin instalar los paquetes R completos ni sus rutas de modelos, gráficos o encuestas ponderadas. El intérprete R es una dependencia, no una nueva entrada del catálogo.
+
+El checkpoint `7c38cb72bd5930a5c45821bc8b76ffaf01780ac8` aprobó los tres workflows: [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43670439952), [runtimes](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43670439947) y [servicios originales](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43670440002). Esos resultados corresponden al checkpoint de 41, y no sustituyen el CI del nuevo commit de 47.

@@ -9,6 +9,9 @@ import math
 
 
 def run(service, operation, p):
+    from .local_r import SPECS as R, run as run_r
+    if service in R:
+        return run_r(service, p)
     from .local_source import SPECS as SOURCE, run as run_source
     if service in SOURCE:
         return run_source(service, p)

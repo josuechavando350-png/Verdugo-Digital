@@ -26,7 +26,36 @@ const data = fs.readFileSync(0);
 if (data.length > 65536) throw new Error('Input budget');
 const {service, params:p} = JSON.parse(data);
 let result;
-if (service === 'lighthouse') {
+if (service === 'promptfoo') {
+  process.env.PROMPTFOO_DISABLE_TELEMETRY='1';process.env.PROMPTFOO_DISABLE_UPDATE='1';
+  process.env.PROMPTFOO_CONFIG_DIR=path.join(process.cwd(),'promptfoo');
+  const m=await load('promptfoo');
+  // This provider supplies caller-provided text. It never pretends to be a model.
+  const provider={id:()=> 'verdugo-supplied-response',callApi:async()=>({output:p.text,cost:0,tokenUsage:{total:0,prompt:0,completion:0}})};
+  const write=process.stdout.write;
+  process.stdout.write=()=>true;
+  try {
+    const evaluation=await m.evaluate({prompts:['Fixed offline supplied-response assertion'],providers:[provider],
+      tests:[{assert:[{type:'contains-all',value:p.required_terms}]}]}, {writeResults:false,cache:false});
+    const summary=await evaluation.toEvaluateSummary();
+    if(summary.stats.errors || summary.results.length!==1)throw new Error('Native evaluation failed');
+    const grade=summary.results[0].gradingResult;
+    if(typeof grade?.pass!=='boolean')throw new Error('Unexpected native grade');
+    result={passed:grade.pass, score:grade.score, required_terms:p.required_terms.length,
+      llm_calls:0,provider:'supplied_text',semantic_correctness_verified:false,scope:'original contains-all assertion; case-sensitive literal phrases'};
+  } finally {process.stdout.write=write;}
+} else if (service === 'log4brains') {
+  fs.mkdirSync('adrs');
+  fs.writeFileSync('.log4brains.yml','project:\n  name: Verdugo\n  tz: UTC\n  adrFolder: adrs\n  repository:\n    url: https://example.invalid/verdugo/repo\n    provider: generic\n    viewFileUriPattern: /blob/main/%path\n');
+  p.decisions.forEach((row,i)=>fs.writeFileSync(`adrs/20260101-decision-${i}.md`,
+    `# ${row.title}\n\n* Status: ${row.status}\n* Date: 2026-01-01\n\n## Context\n\nSupplied decision metadata only.\n`));
+  const m=await load('@log4brains/core');
+  const rows=await m.Log4brains.create(process.cwd()).searchAdrs();
+  if(rows.length!==p.decisions.length)throw new Error('Decision count mismatch');
+  const counts={};for(const row of rows){if(!['proposed','accepted'].includes(row.status))throw new Error('Unexpected status');counts[row.status]=(counts[row.status]??0)+1;}
+  result={decisions_in_input:rows.length,status_counts:counts,published:false,repository_modified:false,
+    scope:'original ADR parser over temporary supplied records; no actual decision approval'};
+} else if (service === 'lighthouse') {
   const {default:Description} = await load('lighthouse/core/audits/seo/meta-description.js');
   const audit = Description.audit({MetaElements:p.descriptions.map(content=>({name:'description',content}))});
   result = {audit_id:'meta-description', score:audit.score, descriptions_in_input:p.descriptions.length,

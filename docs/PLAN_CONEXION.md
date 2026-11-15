@@ -4,13 +4,13 @@ Fecha: 15 de noviembre de 2026. Versión del motor: 0.21.0.
 
 | Estado | Cuántas |
 |---|---|
-| conectado | 217 |
+| conectado | 223 |
 | pieza_de_construccion | 56 |
-| pendiente | 27 |
+| pendiente | 21 |
 | excluido | 22 |
 | **Total** | 322 |
 
-**Pendientes: 27**, conservando la identificación de las cuatro tandas originales. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
+**Pendientes: 21**, conservando la identificación de las cuatro tandas originales. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
 no se conectan al motor: se usan al construir la plataforma (fase aparte). Las 22 excluidas por licencia no se tocan.
 
 El estado de cada pieza lo calcula el código: `python -m verdugo connections`. Este plan en formato
@@ -263,3 +263,7 @@ no se sustituyen adaptadores por fichas de catálogo ni se certifica producción
 | `pricesensitivitymeter` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
 | `pgvector` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
 | `robyn` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
+
+## Segundo complemento v0.21: seis operaciones adicionales
+
+Se ejecutaron Promptfoo, Log4brains, PriceSensitivityMeter, Robyn, Newsjack y Kingfisher Collect con las funciones originales delimitadas. Quedan **21 pendientes**; el detalle vigente está en el JSON y [la evidencia de aceptación](ACEPTACION_COMPLEMENTO_V021.md). Las operaciones comparten Engine y SQLite y permanecen deshabilitadas por defecto.

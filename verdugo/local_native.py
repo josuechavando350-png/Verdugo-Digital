@@ -17,6 +17,8 @@ SPECS = {
     'structured-data-validator': ('breadcrumbs.validate', 'npm:@adobe/structured-data-validator', '1.7.1'),
     'slidev': ('slides.parse', 'npm:@slidev/parser', '53.1.0'),
     'lighthouse': ('description.audit', 'npm:lighthouse', '13.6.0'),
+    'promptfoo': ('response.check', 'npm:promptfoo', '0.125.1'),
+    'log4brains': ('decisions.inspect', 'npm:@log4brains/core', '1.1.0'),
 }
 WORKER = Path(__file__).with_name('_node_worker.mjs')
 ENV = 'VERDUGO_NATIVE_ROOT'
@@ -77,11 +79,28 @@ def validate(service, operation, p):
         raise VerdugoError('Unsupported fixed native operation')
     required = {'geo-lint': ('title', 'description', 'text'), 'site-md': ('html',),
                 'seo-graph': ('host', 'entries'), 'structured-data-validator': ('graph',), 'slidev': ('text',),
-                'lighthouse': ('descriptions',)}[service]
+                'lighthouse': ('descriptions',), 'promptfoo': ('text', 'required_terms'),
+                'log4brains': ('decisions',)}[service]
     fields(p, ('dataset', *required))
     if p['dataset'] not in ('demo', 'real'):
         raise VerdugoError('An explicit dataset is required')
-    if service == 'lighthouse':
+    if service == 'promptfoo':
+        string(p['text'], 8000)
+        if not isinstance(p['required_terms'], list) or not 1 <= len(p['required_terms']) <= 10:
+            raise VerdugoError('1..10 literal required phrases are supported')
+        for term in p['required_terms']:
+            if not isinstance(term, str) or not re.fullmatch(r'[\w .,!?-]{1,100}', term) or not term.strip():
+                raise VerdugoError('Plain required phrases only; no assertion templates or code')
+    elif service == 'log4brains':
+        if not isinstance(p['decisions'], list) or not 1 <= len(p['decisions']) <= 10:
+            raise VerdugoError('1..10 supplied decision records required')
+        for row in p['decisions']:
+            fields(row, ('title', 'status'))
+            if not isinstance(row['title'], str) or not re.fullmatch(r'[\w .,!?-]{1,160}', row['title']) or not row['title'].strip():
+                raise VerdugoError('A plain decision title is required')
+            if row['status'] not in ('proposed', 'accepted'):
+                raise VerdugoError('Only proposed and accepted input decisions are supported')
+    elif service == 'lighthouse':
         if not isinstance(p['descriptions'], list) or len(p['descriptions']) > 20:
             raise VerdugoError('At most 20 supplied meta descriptions are supported')
         for value in p['descriptions']:

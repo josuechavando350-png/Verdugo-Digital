@@ -388,7 +388,7 @@
   {
    "number": 76,
    "id": "promptfoo",
-   "kind": "cli"
+   "kind": "biblioteca"
   },
   {
    "number": 77,
@@ -1008,7 +1008,7 @@
   {
    "number": 200,
    "id": "log4brains",
-   "kind": "cli"
+   "kind": "biblioteca"
   },
   {
    "number": 201,

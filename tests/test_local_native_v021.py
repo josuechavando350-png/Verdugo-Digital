@@ -13,6 +13,15 @@ from native_fixtures import CASES
 
 
 class NativeContracts(unittest.TestCase):
+    def test_supplied_evaluation_and_decision_inputs_reject_templates(self):
+        for value in ('{{ file }}', 'file:///tmp/source', '${x}', 'x\nnew title', ''):
+            with self.subTest(value=value), self.assertRaises(VerdugoError):
+                local_native.validate('promptfoo','response.check',dict(CASES['promptfoo'],required_terms=[value]))
+            with self.assertRaises(VerdugoError):
+                local_native.validate('log4brains','decisions.inspect',dict(CASES['log4brains'],decisions=[{'title':value,'status':'accepted'}]))
+        with self.assertRaises(VerdugoError):
+            local_native.validate('log4brains','decisions.inspect',dict(CASES['log4brains'],decisions=[{'title':'One engine','status':'automatically approved'}]))
+
     def test_missing_runtime_is_unavailable_without_executing(self):
         with patch.dict(os.environ,{local_native.ENV:'/nonexistent/verdugo-native'}), patch('subprocess.run',side_effect=AssertionError('Executed')):
             for sid in CASES:self.assertFalse(local_native.runtime_state(sid)['version_matches'])

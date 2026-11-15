@@ -1,6 +1,6 @@
 {
   "schema": "verdugo.source-api-evidence.v1",
-  "scope": "six fixed original npm operations; no model or network calls",
+  "scope": "Eight fixed original npm operations; no model or network calls",
   "files": [
     {
       "service": "geo-lint",
@@ -145,6 +145,118 @@
       "path": "package.json",
       "blob_sha": "a07e9d731542e6a90e2178b864152acbb9e18328",
       "url": "https://github.com/GoogleChrome/lighthouse/blob/5313024aa05786138dfd38c6740ef354e20c3f92/package.json"
+    },
+    {
+      "service": "promptfoo",
+      "repository": "promptfoo/promptfoo",
+      "commit": "e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d",
+      "path": "README.md",
+      "blob_sha": "2a56017c2609e3a92d7d5539147c9c7e620a3420",
+      "url": "https://github.com/promptfoo/promptfoo/blob/e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d/README.md"
+    },
+    {
+      "service": "promptfoo",
+      "repository": "promptfoo/promptfoo",
+      "commit": "e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d",
+      "path": "package.json",
+      "blob_sha": "39a10f027d2f6905dd0e408ce15e9f6e1e4ebffa",
+      "url": "https://github.com/promptfoo/promptfoo/blob/e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d/package.json"
+    },
+    {
+      "service": "promptfoo",
+      "repository": "promptfoo/promptfoo",
+      "commit": "e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d",
+      "path": "src/assertions/contains.ts",
+      "blob_sha": "4f8849349d128c08719c8dafa6504e56ffeff0f0",
+      "url": "https://github.com/promptfoo/promptfoo/blob/e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d/src/assertions/contains.ts"
+    },
+    {
+      "service": "promptfoo",
+      "repository": "promptfoo/promptfoo",
+      "commit": "e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d",
+      "path": "src/index.ts",
+      "blob_sha": "259862e1032da53d25e2e3e977d427362e6f1e11",
+      "url": "https://github.com/promptfoo/promptfoo/blob/e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d/src/index.ts"
+    },
+    {
+      "service": "promptfoo",
+      "repository": "promptfoo/promptfoo",
+      "commit": "e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d",
+      "path": "src/providers/echo.ts",
+      "blob_sha": "d33d4915015efa2e784d08c74964dd3adfd58e8a",
+      "url": "https://github.com/promptfoo/promptfoo/blob/e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d/src/providers/echo.ts"
+    },
+    {
+      "service": "log4brains",
+      "repository": "thomvaill/log4brains",
+      "commit": "17e32021a8c5130386f17e921d4efa6da7709a66",
+      "path": "README.md",
+      "blob_sha": "fae9918071b3a88b75bcfdbc174c877d70a55391",
+      "url": "https://github.com/thomvaill/log4brains/blob/17e32021a8c5130386f17e921d4efa6da7709a66/README.md"
+    },
+    {
+      "service": "log4brains",
+      "repository": "thomvaill/log4brains",
+      "commit": "17e32021a8c5130386f17e921d4efa6da7709a66",
+      "path": "package.json",
+      "blob_sha": "75a9230c5745f38576e3ede02ca2d1b3d0f525ad",
+      "url": "https://github.com/thomvaill/log4brains/blob/17e32021a8c5130386f17e921d4efa6da7709a66/package.json"
+    },
+    {
+      "service": "log4brains",
+      "repository": "thomvaill/log4brains",
+      "commit": "17e32021a8c5130386f17e921d4efa6da7709a66",
+      "path": "packages/core/package.json",
+      "blob_sha": "c3574492d52d1ff006a7e8f0c5af66147a4d9593",
+      "url": "https://github.com/thomvaill/log4brains/blob/17e32021a8c5130386f17e921d4efa6da7709a66/packages/core/package.json"
+    },
+    {
+      "service": "log4brains",
+      "repository": "thomvaill/log4brains",
+      "commit": "17e32021a8c5130386f17e921d4efa6da7709a66",
+      "path": "packages/core/src/adr/domain/Adr.ts",
+      "blob_sha": "4963d127909cc567902390c53e54fb98f36951b1",
+      "url": "https://github.com/thomvaill/log4brains/blob/17e32021a8c5130386f17e921d4efa6da7709a66/packages/core/src/adr/domain/Adr.ts"
+    },
+    {
+      "service": "log4brains",
+      "repository": "thomvaill/log4brains",
+      "commit": "17e32021a8c5130386f17e921d4efa6da7709a66",
+      "path": "packages/core/src/adr/domain/MarkdownBody.ts",
+      "blob_sha": "5aa9e8ab8fa2be9bed309e25d856e21c929668ce",
+      "url": "https://github.com/thomvaill/log4brains/blob/17e32021a8c5130386f17e921d4efa6da7709a66/packages/core/src/adr/domain/MarkdownBody.ts"
+    },
+    {
+      "service": "log4brains",
+      "repository": "thomvaill/log4brains",
+      "commit": "17e32021a8c5130386f17e921d4efa6da7709a66",
+      "path": "packages/core/src/index.ts",
+      "blob_sha": "841190487d53d5b04a82aeabeb8425f1b19fdece",
+      "url": "https://github.com/thomvaill/log4brains/blob/17e32021a8c5130386f17e921d4efa6da7709a66/packages/core/src/index.ts"
+    },
+    {
+      "service": "log4brains",
+      "repository": "thomvaill/log4brains",
+      "commit": "17e32021a8c5130386f17e921d4efa6da7709a66",
+      "path": "packages/core/src/infrastructure/api/Log4brains.ts",
+      "blob_sha": "cba79c123d131314b45412e9e8534057cff8a5c1",
+      "url": "https://github.com/thomvaill/log4brains/blob/17e32021a8c5130386f17e921d4efa6da7709a66/packages/core/src/infrastructure/api/Log4brains.ts"
+    },
+    {
+      "service": "log4brains",
+      "repository": "thomvaill/log4brains",
+      "commit": "17e32021a8c5130386f17e921d4efa6da7709a66",
+      "path": "packages/core/src/infrastructure/config/index.ts",
+      "blob_sha": "fcac5002d04490cd50a57ee0db2ab048e3bdd811",
+      "url": "https://github.com/thomvaill/log4brains/blob/17e32021a8c5130386f17e921d4efa6da7709a66/packages/core/src/infrastructure/config/index.ts"
+    },
+    {
+      "service": "log4brains",
+      "repository": "thomvaill/log4brains",
+      "commit": "17e32021a8c5130386f17e921d4efa6da7709a66",
+      "path": "packages/core/src/infrastructure/config/schema.ts",
+      "blob_sha": "4e85ecbd58466cf3451236cb74586dd2769811d0",
+      "url": "https://github.com/thomvaill/log4brains/blob/17e32021a8c5130386f17e921d4efa6da7709a66/packages/core/src/infrastructure/config/schema.ts"
     }
   ]
 }

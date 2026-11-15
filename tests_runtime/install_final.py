@@ -16,7 +16,9 @@ from verdugo.local_cli import SPECS
 from install_expansion import install
 GROUPS={'planning021':['mcp-agent','nemo-guardrails'],'content021':['graphiti','openbb','people-also-ask','jobspy'],
         'entities021':['chronos','gliner'],'pycli021':['dvc','dnstwist'],
-        'node':['geo-lint','site-md','seo-graph','structured-data-validator','slidev','lighthouse'],
+        'finalpy021':['newsjack','kingfisher-collect'],
+        'r021':['pricesensitivitymeter','robyn'],
+        'node':['geo-lint','site-md','seo-graph','structured-data-validator','slidev','lighthouse','promptfoo','log4brains'],
         'utility021':['vanna','trendspyg','youtube-comment-downloader','comtradeapicall','c2pa','autogeo','cognee','claude-skills-c-level'],
         'browser021':['browser-use'], 'storm021':['storm'], 'dbt021':['dbt'], 'a2a021':['a2a'],
         'research021':['gpt-researcher'], 'meridian021':['meridian'], 'causal021':['tfcausalimpact'],
@@ -113,6 +115,9 @@ if __name__=='__main__':
             print('BEGIN_VERDUGO_FREEZE '+name,flush=True)
             print(Path('/tmp/'+name+'-resolved.txt').read_text(),flush=True)
             print('END_VERDUGO_FREEZE '+name,flush=True)
+    elif args.group=='r021':
+        from install_r import install as install_r
+        install_r()
     elif args.group.endswith('021'):install(args.group)
     elif args.group=='node':node()
     else:cli(GROUPS[args.group])

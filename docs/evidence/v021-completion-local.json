@@ -9,8 +9,14 @@
     "comtradeapicall",
     "dbt",
     "gpt-researcher",
+    "kingfisher-collect",
     "lighthouse",
+    "log4brains",
     "meridian",
+    "newsjack",
+    "pricesensitivitymeter",
+    "promptfoo",
+    "robyn",
     "slidev",
     "storm",
     "tfcausalimpact",
@@ -44,43 +50,11 @@
     "wbgapi",
     "webmention-io"
   ],
-  "steps": 42,
+  "steps": 48,
   "execution": "passed",
   "sqlite_restart": "passed",
   "replay_worker_calls": 0,
   "replay_http_calls": 0,
   "private_input_persisted": false,
-  "production_certified": false,
-  "base_commit": "a6809de201ba517846e19cf965194b21e6617050",
-  "observed_at": "2026-11-15",
-  "python": "3.12.14",
-  "elapsed_seconds": 123.651,
-  "local_implementation_sha256": "9ca67668d4ee33c3664ee1af4c5eb84a1b9fd1671c12e69890feae2719181dc6",
-  "os_network_namespace_verified": false,
-  "core_tests": {
-    "count": 690,
-    "passed": true,
-    "elapsed_seconds": 38.778
-  },
-  "native_node_group": {
-    "services": [
-      "geo-lint",
-      "site-md",
-      "seo-graph",
-      "structured-data-validator",
-      "slidev",
-      "lighthouse"
-    ],
-    "passed": true,
-    "elapsed_seconds": 17.921
-  },
-  "c2pa_negative": {
-    "passed": true,
-    "cases": [
-      "unsigned",
-      "tampered_ihdr",
-      "remote_manifest_rejected"
-    ]
-  },
-  "synthetic_http_loopback_count": 24
+  "production_certified": false
 }

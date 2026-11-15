@@ -1,4 +1,10 @@
 CASES = {
+    'newsjack': {'dataset':'demo', 'original':'A report recorded 10 orders in 2025.',
+                'rewrite':'A report recorded 20 orders in 2025.'},
+    'kingfisher-collect': {'dataset':'demo', 'records':[
+        {'file_id':'batch-a','number':1,'tender_status':'active'},
+        {'file_id':'batch-a','number':1,'tender_status':'complete'},
+        {'file_id':'batch-a','number':2,'tender_status':'planned'}]},
     'meridian': {'dataset':'demo','media':[0,10,0,0],'alpha':0.5,'max_lag':2,'half_saturation':5,'slope':1},
     'tfcausalimpact': {'dataset':'demo','control':[10+(i%5)*2+(i%3) for i in range(40)],
         'outcome':[3*(10+(i%5)*2+(i%3))+(i%4)*0.2+(8 if i>=30 else 0) for i in range(40)],
@@ -36,6 +42,18 @@ CASES.update({
 })
 
 def assert_result(test, sid, result):
+    if sid == 'newsjack':
+        test.assertFalse(result['hard_categories_unchanged'])
+        test.assertEqual(1,result['added_counts']['numbers'])
+        test.assertEqual(1,result['missing_counts']['numbers'])
+        test.assertFalse(result['facts_verified'])
+        return
+    if sid == 'kingfisher-collect':
+        test.assertEqual(3,result['input_file_items']);test.assertEqual(2,result['unique_file_items'])
+        test.assertEqual(1,result['duplicate_file_items'])
+        test.assertEqual({'active':1,'planned':1},result['tender_status_counts'])
+        test.assertFalse(result['records_fetched'])
+        return
     if sid == 'meridian':
         for expected, actual in zip([0,40/7,20/7,10/7], result['adstock']):test.assertAlmostEqual(expected,actual,places=5)
         for expected, actual in zip([0,8/15,4/11,2/9], result['saturation']):test.assertAlmostEqual(expected,actual,places=5)

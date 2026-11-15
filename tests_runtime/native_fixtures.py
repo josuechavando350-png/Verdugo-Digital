@@ -1,4 +1,6 @@
 CASES = {
+    'promptfoo': {'dataset':'demo','text':'solar energy report','required_terms':['solar','energy']},
+    'log4brains': {'dataset':'demo','decisions':[{'title':'One engine','status':'accepted'},{'title':'One product','status':'proposed'}]},
     'lighthouse': {'dataset':'demo','descriptions':['Solar energy report.']},
     'slidev': {'dataset':'demo','text':'# Overview\n\nOne product.\n\n---\n\n# Evidence\n\nVerified execution.\n<!-- Internal speaker note -->'},
     'geo-lint': {'dataset':'demo','title':'Report','description':'An example','text':'# Introduction\n\nShort report.'},
@@ -10,7 +12,12 @@ CASES = {
 
 
 def assert_result(test, sid, value):
-    if sid == 'lighthouse':
+    if sid == 'promptfoo':
+        test.assertTrue(value['passed']);test.assertEqual(1,value['score']);test.assertEqual(0,value['llm_calls'])
+    elif sid == 'log4brains':
+        test.assertEqual(2,value['decisions_in_input']);test.assertEqual({'accepted':1,'proposed':1},value['status_counts'])
+        test.assertFalse(value['repository_modified'])
+    elif sid == 'lighthouse':
         test.assertEqual(1, value['score']); test.assertFalse(value['performance_audited'])
     elif sid == 'slidev':
         test.assertEqual(2, value['count'])

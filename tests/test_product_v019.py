@@ -45,7 +45,7 @@ class ProductTests(unittest.TestCase):
         with closing(self.engine()) as engine:
             r=product.overview(engine)
         self.assertEqual(322,len(r['services']))
-        self.assertEqual({'conectado':217,'pendiente':27,'pieza_de_construccion':56,'excluido':22},r['connection_states'])
+        self.assertEqual({'conectado':223,'pendiente':21,'pieza_de_construccion':56,'excluido':22},r['connection_states'])
         self.assertEqual(66,r['bounded_observation_routes'])
         self.assertEqual(0,r['business']['reported_paid_clients'])
         self.assertFalse(r['external_calls_made']); self.assertFalse(self.calls)

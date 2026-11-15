@@ -16,7 +16,7 @@ import sys
 import tempfile
 
 from .common import VerdugoError, fields, identifier, integer, encode
-from . import local_extended, local_analytics, local_research, local_interop, local_knowledge, local_data, local_native, local_cli, local_content, local_pycli, local_planning, local_completion, local_source, runtime_profile
+from . import local_extended, local_analytics, local_research, local_interop, local_knowledge, local_data, local_native, local_cli, local_content, local_pycli, local_planning, local_completion, local_source, local_r, runtime_profile
 
 # Primary published distribution versions; upstream source pins are a separate
 # provenance inventory and must not be confused with installed Python wheels.
@@ -53,6 +53,7 @@ SPECS.update(local_content.SPECS)
 SPECS.update(local_pycli.SPECS)
 SPECS.update(local_planning.SPECS)
 SPECS.update(local_source.SPECS)
+SPECS.update(local_r.SPECS)
 SPECS.update(local_completion.SPECS)
 EXTRA.update(local_completion.EXTRA)
 EXTRA.update(local_planning.EXTRA)
@@ -68,6 +69,8 @@ def supports(service, operation):
 
 def installed(service):
     operation, distribution, expected = SPECS[service]
+    if service in local_r.SPECS:
+        return local_r.runtime_state(service)
     if service in local_source.SPECS:
         return local_source.runtime_state(service)
     if service in local_cli.SPECS:
@@ -146,6 +149,8 @@ def labels(values, count, minimum_per_class=1):
 def validate(service, operation, params):
     if not supports(service, operation):
         raise VerdugoError('Local adapter/action not implemented')
+    if service in local_r.SPECS:
+        return local_r.validate(service, operation, params)
     if service in local_source.SPECS:
         return local_source.validate(service, operation, params)
     if service in local_completion.SPECS:
@@ -283,7 +288,7 @@ def preflight(service, operation, cfg):
 
 def implementation_digest():
     h = hashlib.sha256()
-    for path in (Path(__file__), WORKER, RECIPES, Path(local_extended.__file__), Path(local_analytics.__file__), Path(local_research.__file__), Path(local_interop.__file__), Path(local_knowledge.__file__), Path(local_data.__file__), Path(local_native.__file__), local_native.WORKER, Path(local_cli.__file__), Path(local_content.__file__), Path(local_pycli.__file__), Path(local_planning.__file__), Path(local_completion.__file__), Path(local_source.__file__),
+    for path in (Path(__file__), WORKER, RECIPES, Path(local_extended.__file__), Path(local_analytics.__file__), Path(local_research.__file__), Path(local_interop.__file__), Path(local_knowledge.__file__), Path(local_data.__file__), Path(local_native.__file__), local_native.WORKER, Path(local_cli.__file__), Path(local_content.__file__), Path(local_pycli.__file__), Path(local_planning.__file__), Path(local_completion.__file__), Path(local_source.__file__), Path(local_r.__file__), local_r.WORKER, local_r.CONTRACT,
                  Path(runtime_profile.__file__), runtime_profile.PROBE):
         h.update(path.name.encode())
         h.update(path.read_bytes())
@@ -328,6 +333,8 @@ def execute(request, cfg):
                'LANGCHAIN_TRACING_V2': 'false', 'MLFLOW_ENABLE_ASYNC_LOGGING': 'false'}
         env.update(FEAST_USAGE='False', PYWIKIBOT_NO_USER_CONFIG='2',
                    HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1', TOKENIZERS_PARALLELISM='false')
+        if public['service'] in local_r.SPECS:
+            env[local_r.ENV] = str(local_r.root())
         if public['service'] in local_cli.SPECS:
             env[local_cli.ENV] = str(local_cli.root())
         if public['service'] in local_native.SPECS:
