@@ -11,6 +11,7 @@ selected=GROUPS[args.group]
 for sid in selected:
     key=runtime_profile.PROFILE_ENV.get(sid)
     if key:os.environ.setdefault(key,'/tmp/verdugo-'+key.removeprefix('VERDUGO_').removesuffix('_PYTHON').lower().replace('_','-')+'-venv/bin/python')
+os.environ.setdefault('VERDUGO_OWNED_HTTP_ROOT','/tmp/verdugo-owned-http021')
 os.environ.setdefault('VERDUGO_LASTNODE_ROOT','/tmp/verdugo-lastnode021')
 os.environ.setdefault('VERDUGO_IMAGES_ROOT','/tmp/verdugo-images021')
 os.environ.setdefault('VERDUGO_MEDIA_ROOT','/tmp/verdugo-media021')

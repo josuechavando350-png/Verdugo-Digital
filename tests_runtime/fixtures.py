@@ -85,3 +85,6 @@ CASES.update(IMAGES_CASES)
 
 from lastnode_fixtures import CASES as LASTNODE_CASES
 CASES.update(LASTNODE_CASES)
+
+from owned_http_fixtures import CASES as OWNED_HTTP_CASES
+CASES.update(OWNED_HTTP_CASES)

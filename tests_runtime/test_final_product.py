@@ -23,12 +23,13 @@ from r_fixtures import CASES as R_CASES, assert_result as assert_r
 from database_fixtures import CASES as DATABASE_CASES, assert_result as assert_database
 from native_tools_fixtures import CASES as TOOLS_CASES, assert_result as assert_tools
 
+from owned_http_fixtures import CASES as OWNED_HTTP_CASES, assert_result as assert_owned_http
 from lastnode_fixtures import CASES as LASTNODE_CASES, assert_result as assert_lastnode
 from images_fixtures import CASES as IMAGES_CASES, assert_result as assert_images
 from media_fixtures import CASES as MEDIA_CASES, assert_result as assert_media
 from source_fixtures import CASES as SOURCE_CASES, assert_result as assert_source
 
-CASES={**LASTNODE_CASES,**IMAGES_CASES,**MEDIA_CASES,**SOURCE_CASES,**TOOLS_CASES,**DATABASE_CASES,**R_CASES,**CLI,**CONTENT,**NATIVE,**PLANNING,**COMPLETION}
+CASES={**OWNED_HTTP_CASES,**LASTNODE_CASES,**IMAGES_CASES,**MEDIA_CASES,**SOURCE_CASES,**TOOLS_CASES,**DATABASE_CASES,**R_CASES,**CLI,**CONTENT,**NATIVE,**PLANNING,**COMPLETION}
 
 class FinalProduct(unittest.TestCase):
     def test_original_operations_compose_and_restart(self):
@@ -71,7 +72,8 @@ class FinalProduct(unittest.TestCase):
                 self.assertEqual('succeeded',first['state'],json.dumps(first))
                 for row in first['analyses']:
                     sid=row['service'];r=row['analysis']['result']
-                    if sid in LASTNODE_CASES: assert_lastnode(self,sid,r)
+                    if sid in OWNED_HTTP_CASES: assert_owned_http(self,sid,r)
+                    elif sid in LASTNODE_CASES: assert_lastnode(self,sid,r)
                     elif sid in IMAGES_CASES: assert_images(self,sid,r)
                     elif sid in MEDIA_CASES: assert_media(self,sid,r)
                     elif sid in SOURCE_CASES: assert_source(self,sid,r)

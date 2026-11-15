@@ -18,7 +18,10 @@ const esc=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&g
   const [ct,st]=InMemoryTransport.createLinkedPair();await server.connect(st);await client.connect(ct);
   try {
    const result=await client.callTool({name:'browser_snapshot',arguments:{}});
-   if(result.isError||!Array.isArray(result.content))throw Error('Original MCP tool failed');
+   if(result.isError||!Array.isArray(result.content)){
+    if(process.env.VERDUGO_MCP_PROBE==='1')process.stderr.write(JSON.stringify(result).slice(0,6000)+'\n');
+    throw Error('Original MCP tool failed');
+   }
    const text=result.content.filter(x=>x.type==='text').map(x=>x.text).join('\n');
    if(text.length>24000)throw Error('MCP output budget');
    const snapshot=text.match(/### Snapshot\s*\n```yaml\n([\s\S]*?)```/);

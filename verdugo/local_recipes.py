@@ -9,6 +9,8 @@ import math
 
 
 def run(service, operation, p):
+    from .local_owned_http import SPECS as OWNED_HTTP, run as run_owned_http
+    if service in OWNED_HTTP: return run_owned_http(service, p)
     from .local_lastnode import SPECS as LASTNODE, run as run_lastnode
     if service in LASTNODE: return run_lastnode(service, p)
     from .local_images import SPECS as IMAGES, run as run_images

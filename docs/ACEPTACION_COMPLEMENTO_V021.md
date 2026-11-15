@@ -1,13 +1,13 @@
 # Complemento v0.21 — evidencia y alcance
 
 Base: `a6809de201ba517846e19cf965194b21e6617050`, rama `feat/v0.21-final88`, PR #20.
-Se añaden **65 de las 68 integraciones pendientes**: 38 operaciones locales
+Se añaden **67 de las 68 integraciones pendientes**: 40 operaciones locales
 con código original, una comparación propia de reglas NAP originales y 26 contratos HTTP. Junto con las 20 anteriores de v0.21, son
-85 operaciones de esta tanda y **3 todavía pendientes**. No declarar terminada
+87 operaciones de esta tanda y **1 todavía pendiente**. No declarar terminada
 la tanda. No se modifica main ni se altera la política de licencias.
 
-Inventario actual: 322 entradas; 241 conectadas bajo la política, 56 componentes,
-3 pendientes y 22 excluidas. Hay 104 adaptadores HTTP (108 acciones) y 156
+Inventario actual: 322 entradas; 243 conectadas bajo la política, 56 componentes,
+1 pendiente y 22 excluidas. Hay 104 adaptadores HTTP (108 acciones) y 158
 operaciones locales; 19 adaptadores HTTP históricos siguen excluidos por licencia.
 
 ## Operaciones comprobadas y límites
@@ -84,6 +84,9 @@ operaciones locales; 19 adaptadores HTTP históricos siguen excluidos por licenc
 
 | `microsandbox` | `image.inspect` | CLI original 0.7.15 importa e inspecciona una imagen Docker de textos suministrados; comprueba digest y tamaño nativos; sin VM, KVM, cloud ni caché persistente. |
 | `landscape-app` | `landscape.validate` | Validador original sobre metadatos de proyectos suministrados; conserva fallos; solo se adapta la ruta del archivo de errores; sin llamadas a GitHub ni verificación de repositorios. |
+
+| `siteone-crawler` | `pages.crawl` | Crawler original 2.5.1.20260627 descubre enlaces en páginas generadas de datos suministrados, servidas en loopback privado; devuelve visitadas/404, no scores ni rastreo remoto. |
+| `sherlock` | `responses.classify` | Sherlock 0.16.2 clasifica respuestas suministradas por código HTTP o marcador literal a través de un servidor privado; no busca personas ni verifica cuentas reales. |
 
 ## Ejecución observada
 
@@ -177,3 +180,9 @@ El checkpoint de 63, `8403d02405ea6a58f3e0080706bc3aa224e45513`, aprobó [verifi
 Landscape App pasó el producto/replay en 8.669 s y el caso de repositorio/fecha inválidos en 2.092 s. Se ejecutan validateLandscape.js, settings, actualTwitter, fatalErrors y yaml originales; reporter.js solo sustituye ambas rutas `/tmp/landscape.json` por `landscape-errors.json` en el directorio privado. La prueba verifica la adaptación byte por byte. Un preload propio bloquea red y procesos hijos, y el entorno no contiene claves de GitHub ni variables de notificación. Los textos del reporte original nunca se guardan en SQLite; solo recuentos y validez. [Resultado](evidence/v021-landscape-local.json).
 
 El perfil `lastnode021` incluye además una prueba experimental del servidor Playwright MCP 0.0.85 con cliente SDK 1.32.2 y Chromium 158.0.8127.18 original. Esa herramienta todavía no está registrada en Engine ni contabilizada. El host local rechaza AF_UNIX y Chromium falla antes de abrirse. CI debe ejecutar `browser_snapshot` real sobre contenido suministrado; no hay fallback, mock ni éxito por omisión. La descarga automática desde cdn.playwright.dev devolvió HTML de sitio no disponible: se usa el ZIP original de Chrome for Testing en storage.googleapis.com, fijado por SHA-256.
+
+El grupo network021 pasó localmente 20 pruebas en 46.106 s (17 omitidas por pertenecer a otros perfiles). Incluye ambos programas originales a través de Engine, composición y replay, una página inalcanzable y una respuesta HTTP 200 que contiene el marcador de ausencia. Los únicos destinos son 127.0.0.1 y un puerto efímero generado; Host y credenciales efímeras se comprueban en el servidor. Las salidas proyectadas omiten URLs, cuerpos y credenciales. El padre cierra conexiones y servidor antes de devolver éxito. CI habilita solo loopback dentro del namespace sin red externa.
+
+La prueba inicial usó una compilación Node 24.22.1 distinta de la extraída del archivo oficial. El perfil final fija el SHA-256 e32e2d16081cf644f88392934288086e7662529d0d43277c34f7aad2207cfafb de ese archivo oficial; la aceptación posterior del perfil exacto debe observarse en CI. Durante la repetición local el entorno se desconectó; no se atribuye éxito a esa repetición ni a una nueva suite conjunta de 67. La última composición conjunta observada sigue siendo la de 65 y 66 pasos, conservada en evidencia.
+
+Microsandbox original pasó también en CI del checkpoint 5710826. Landscape App pasó sus pruebas originales en ese CI; el trabajo completo lastnode021 falló por la herramienta de Playwright MCP. Esa herramienta sigue sin registrarse en Engine y no se cuenta como terminada. Se añade diagnóstico exclusivamente para su prueba sintética, para corregir el fallo sin sustituir la ejecución real.

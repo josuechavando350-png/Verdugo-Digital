@@ -167,7 +167,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        group: [content021, entities021, pycli021, node, cli-security, cli-storage, planning021, utility021, browser021, storm021, dbt021, a2a021, research021, meridian021, causal021, r021, finalpy021, database021, tools021, source021, media021, images021, lastnode021]
+        group: [content021, entities021, pycli021, node, cli-security, cli-storage, planning021, utility021, browser021, storm021, dbt021, a2a021, research021, meridian021, causal021, r021, finalpy021, database021, tools021, source021, media021, images021, lastnode021, network021]
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -181,8 +181,12 @@ jobs:
         run: python tests_runtime/install_final.py --group "${{ matrix.group }}"
       - name: Run original programs with OS network isolation and restart
         run: |
-          sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
-            HOME="$HOME" python tests_runtime/accept_final.py --group "${{ matrix.group }}"
+          if [ "${{ matrix.group }}" = "network021" ]; then
+            sudo unshare --net -- sh -c 'ip link set lo up; exec setpriv --reuid="$1" --regid="$2" --clear-groups -- env HOME="$3" python tests_runtime/accept_final.py --group network021' sh "$(id -u)" "$(id -g)" "$HOME"
+          else
+            sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
+              HOME="$HOME" python tests_runtime/accept_final.py --group "${{ matrix.group }}"
+          fi
       - name: Persist scoped results and dependency evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

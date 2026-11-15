@@ -14,15 +14,15 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 | Fuentes registradas y fijadas por commit | 322 (100 núcleo + 222 de v0.14) |
 | Portafolio con licencia libre (política v0.14) | 300 |
 | Excluidos por licencia (registrados, sin operar) | 22 |
-| Proyectos con una operación implementada | 260: 104 HTTP + 138 bibliotecas locales + 15 CLI + 3 consultas/reglas de datos |
-| Conectados bajo la política de licencias | 241 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
+| Proyectos con una operación implementada | 262: 104 HTTP + 138 bibliotecas locales + 17 CLI + 3 consultas/reglas de datos |
+| Conectados bajo la política de licencias | 243 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
 | Piezas de construcción (se usan al programar, no vía motor) | 56 |
-| Pendientes de conector | 3 |
+| Pendientes de conector | 1 |
 | Servicios de pago | 0 (Stripe, Twilio, Mercado Pago, E2B y Composio retirados) |
 | Operaciones HTTP existentes | 108, limitadas por proveedor |
-| Operaciones locales implementadas | 156; aceptación de ejecución real exigida por commit |
+| Operaciones locales implementadas | 158; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Flujo de 87 operaciones nuevas + métricas locales; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 715 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
+| Pruebas unitarias y de contrato | 715 pruebas aprobadas en el checkpoint anterior; comprobar la suite vigente por commit en CI |
 | Herramientas MCP | 25; product-status/product-run reutilizan el mismo motor |
 | Servicios productivos certificados | 0 |
 
@@ -33,13 +33,13 @@ bibliotecas ni certifica un despliegue productivo. La aceptación usa datos sint
 
 ## Plan de lo que falta
 
-Las 3 piezas pendientes, conservando las identificaciones de las tandas originales, con las reglas para conectar cada una:
+La pieza pendiente, conservando las identificaciones de las tandas originales, con las reglas para conectar cada una:
 [docs/PLAN_CONEXION.md](docs/PLAN_CONEXION.md) (y `docs/plan_conexion.json` para agentes).
 
-## Continuación v0.21: 85 operaciones adicionales
+## Continuación v0.21: 87 operaciones adicionales
 
-Punto de control de la segunda tanda: **85 implementadas, 3 pendientes**.
-Las últimas 65 incluyen 38 operaciones locales con código original, una comparación propia de reglas NAP originales y 26 lecturas HTTP.
+Punto de control de la segunda tanda: **87 implementadas, 1 pendiente**.
+Las últimas 67 incluyen 40 operaciones locales con código original, una comparación propia de reglas NAP originales y 26 lecturas HTTP.
 [Alcance, dependencias y evidencia del complemento](docs/ACEPTACION_COMPLEMENTO_V021.md).
 Los programas originales comparten Engine, product-run, auditoría y SQLite.
 Se agregan perfiles npm y CLI fijados; las operaciones siguen deshabilitadas por defecto.

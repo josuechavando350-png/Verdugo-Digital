@@ -4,13 +4,13 @@ Fecha: 15 de noviembre de 2026. Versión del motor: 0.21.0.
 
 | Estado | Cuántas |
 |---|---|
-| conectado | 241 |
+| conectado | 243 |
 | pieza_de_construccion | 56 |
-| pendiente | 3 |
+| pendiente | 1 |
 | excluido | 22 |
 | **Total** | 322 |
 
-**Pendientes: 3**, conservando la identificación de las cuatro tandas originales. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
+**Pendientes: 1**, conservando la identificación de las cuatro tandas originales. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
 no se conectan al motor: se usan al construir la plataforma (fase aparte). Las 22 excluidas por licencia no se tocan.
 
 El estado de cada pieza lo calcula el código: `python -m verdugo connections`. Este plan en formato
@@ -229,16 +229,16 @@ que use el motor por su API/MCP. Esa fase se planea cuando las tandas de conecto
 
 ## Complemento v0.21 desde a6809de
 
-65 operaciones adicionales: 38 operaciones con programas originales, una comparación propia de reglas NAP originales y 26 contratos HTTP. Son 85 de las 88 de v0.21; tres siguen pendientes. [Alcance y evidencia](ACEPTACION_COMPLEMENTO_V021.md).
+67 operaciones adicionales: 40 operaciones con programas originales, una comparación propia de reglas NAP originales y 26 contratos HTTP. Son 87 de las 88 de v0.21; Playwright MCP sigue pendiente de integración y aceptación. [Alcance y evidencia](ACEPTACION_COMPLEMENTO_V021.md).
 
 Las listas anteriores conservan el plan histórico. La lista pendiente vigente es:
 
 | Pendiente | Trabajo restante |
 |---|---|
 | `playwright-mcp` | Ejecutar una herramienta MCP original delimitada y comprobar su resultado, no solo registrar el servidor. |
-| `siteone-crawler` | Rastreo original delimitado de contenido autorizado, con proyección y cierre del proceso. |
-| `sherlock` | Operación original delimitada con resultados comprobados; ninguna búsqueda de personas se inicia al preparar el perfil. |
 
 CUA normaliza acciones sin ejecutarlas; TinyTroupe compara muestras sin simular agentes. Sus únicas adaptaciones son imports documentados. Google Maps Scraper analiza cargas suministradas con su parser original sin consultar Google. Quarto renderiza texto plano y Auto-Editor mide amplitudes PCM sin editar audio. Local SEO Skills aporta reglas NAP, no un ejecutable upstream ni un servidor MCP. Todas las operaciones comparten Engine, workflows y SQLite.
 
 Microsandbox 0.7.15 ejecuta importación e inspección de imágenes de datos temporales, sin iniciar microVMs ni cloud. Landscape App ejecuta su validador original sobre proyectos suministrados; solo cambia la ruta del reporte a un directorio privado. Playwright MCP aún no cuenta como integrado: su prueba con navegador debe pasar en CI.
+
+SiteOne Crawler y Sherlock ejecutan algoritmos originales contra un servidor privado autenticado que contiene únicamente datos suministrados. No consultan sitios ni cuentas externas. El perfil network021 exige pruebas reales de procesos, proyección, casos negativos y replay en CI con loopback dentro de un namespace sin salida a Internet.

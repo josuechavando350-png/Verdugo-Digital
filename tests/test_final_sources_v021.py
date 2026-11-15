@@ -21,7 +21,7 @@ class FinalSources(unittest.TestCase):
                 self.assertRegex(source['git_blob_sha'],r'^[0-9a-f]{40}$')
                 self.assertRegex(source['sha256'],r'^[0-9a-f]{64}$')
         plan=json.loads((root/'docs/plan_conexion.json').read_text())
-        self.assertEqual(expected|{'lighthouse','slidev','promptfoo','log4brains','pricesensitivitymeter','robyn','valkey','postgres','pgvector','apache-age','arx','cc-webgraph','goaccess','openapi-generator','quarto','auto-editor','google-maps-scraper','local-seo-skills','microsandbox','landscape-app'},{r['id'] for r in plan['implemented_v021_completion']})
+        self.assertEqual(expected|{'lighthouse','slidev','promptfoo','log4brains','pricesensitivitymeter','robyn','valkey','postgres','pgvector','apache-age','arx','cc-webgraph','goaccess','openapi-generator','quarto','auto-editor','google-maps-scraper','local-seo-skills','microsandbox','landscape-app','siteone-crawler','sherlock'},{r['id'] for r in plan['implemented_v021_completion']})
 
     def test_every_new_operation_has_pinned_original_api_evidence(self):
         sources={r['id']:r for r in read_sources()}

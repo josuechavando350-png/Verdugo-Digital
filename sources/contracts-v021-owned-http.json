@@ -1,0 +1,38 @@
+{
+  "schema": "verdugo.source-api-evidence.v1",
+  "scope": "Original bounded crawler and response classifier; catalog commits distinct from fixed released distributions; no public account search or remote site crawl",
+  "files": [
+    {
+      "service": "sherlock",
+      "repository": "sherlock-project/sherlock",
+      "commit": "c588d7c8b476df9f9c84912a05d1430fb8cdcdae",
+      "path": "pyproject.toml",
+      "blob_sha": "3d1150fd84c974b13bc25c7fad9216c259abd186",
+      "url": "https://github.com/sherlock-project/sherlock/blob/c588d7c8b476df9f9c84912a05d1430fb8cdcdae/pyproject.toml"
+    },
+    {
+      "service": "sherlock",
+      "repository": "sherlock-project/sherlock",
+      "commit": "c588d7c8b476df9f9c84912a05d1430fb8cdcdae",
+      "path": "sherlock_project/notify.py",
+      "blob_sha": "fed32d56654cdd2b48e779fc4d163f123e61e96a",
+      "url": "https://github.com/sherlock-project/sherlock/blob/c588d7c8b476df9f9c84912a05d1430fb8cdcdae/sherlock_project/notify.py"
+    },
+    {
+      "service": "sherlock",
+      "repository": "sherlock-project/sherlock",
+      "commit": "c588d7c8b476df9f9c84912a05d1430fb8cdcdae",
+      "path": "sherlock_project/sherlock.py",
+      "blob_sha": "a9937ece1cb71579bbe74468bbc6bdcb4726ceb7",
+      "url": "https://github.com/sherlock-project/sherlock/blob/c588d7c8b476df9f9c84912a05d1430fb8cdcdae/sherlock_project/sherlock.py"
+    },
+    {
+      "service": "siteone-crawler",
+      "repository": "janreges/siteone-crawler",
+      "commit": "f3d967b190a77ff5f816b7ddab74c1a778d9dbaf",
+      "path": "README.md",
+      "blob_sha": "0d034dcc808af846267c93af7b9d43cb97e08db7",
+      "url": "https://github.com/janreges/siteone-crawler/blob/f3d967b190a77ff5f816b7ddab74c1a778d9dbaf/README.md"
+    }
+  ]
+}

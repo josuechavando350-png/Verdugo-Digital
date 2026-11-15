@@ -20,7 +20,7 @@ class LastNodeEdges(unittest.TestCase):
   # This host may forbid Unix sockets; CI must execute the real browser, not skip.
   home=local_lastnode.root();worker=Path(local_lastnode.__file__).with_name('_playwright_mcp_worker.cjs')
   with tempfile.TemporaryDirectory() as work:
-   env={'HOME':work,'TMPDIR':work,'PATH':os.defpath,'LANG':'C.UTF-8',local_lastnode.ENV:str(home)}
+   env={'HOME':work,'TMPDIR':work,'PATH':os.defpath,'LANG':'C.UTF-8','VERDUGO_MCP_PROBE':'1',local_lastnode.ENV:str(home)}
    p={'title':'Supplied document','headings':[{'level':1,'text':'Heading'},{'level':2,'text':'Detail'}],'buttons':['Book']}
    result=subprocess.run([str(home/'bin/node'),str(worker)],input=json.dumps(p),env=env,cwd=work,text=True,capture_output=True,timeout=60)
    self.assertEqual(0,result.returncode,result.stderr[-6000:]);r=json.loads(result.stdout);self.assertEqual(2,r['headings']);self.assertEqual([1,2],r['heading_levels']);self.assertEqual(1,r['buttons']);self.assertTrue(r['browser_started']);self.assertFalse(r['remote_page_fetched'])
