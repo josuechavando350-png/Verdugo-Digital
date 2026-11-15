@@ -1,0 +1,4 @@
+-c runtime-legacy-agents.constraints.txt
+crewai==1.15.41
+crewai-core==1.15.41
+guardrails-ai==0.11.0

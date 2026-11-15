@@ -1,0 +1,23 @@
+[
+  {
+    "file": "unsigned-test.png",
+    "sha256": "c5c635a1dbbec9a768c3bb4527dbaea62a1be05efcee17d66799cc07b673b29b",
+    "source_path": "sdk/tests/fixtures/libpng-test.png",
+    "source_commit": "0e92435c6d621c02c9bde2a8d82346295ed1f509",
+    "generated_with": null
+  },
+  {
+    "file": "remote-test.png",
+    "sha256": "8ffdf61c6497696b4a18f8e04b416c749f7ad67f4a1529862f50231db86d1411",
+    "source_path": "sdk/tests/fixtures/libpng-test_with_url.png",
+    "source_commit": "0e92435c6d621c02c9bde2a8d82346295ed1f509",
+    "generated_with": null
+  },
+  {
+    "file": "signed-test.png",
+    "sha256": "6167caa5aaeca15f6628f35b53f26df9e9c8bd2f547e592db278d618141f5943",
+    "source_path": null,
+    "source_commit": "0e92435c6d621c02c9bde2a8d82346295ed1f509",
+    "generated_with": "c2pa-python 0.39.0 / C2PA SDK 0.92.0; public upstream example es256 signing fixture; c2pa.created action; thumbnail disabled"
+  }
+]

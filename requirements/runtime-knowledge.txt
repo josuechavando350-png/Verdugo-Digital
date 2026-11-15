@@ -1,0 +1,5 @@
+-c runtime-knowledge.constraints.txt
+index-now-for-python==1.1.2
+langgraph-supervisor==0.0.31
+mem0ai==2.2.1
+waybackpy==3.0.6

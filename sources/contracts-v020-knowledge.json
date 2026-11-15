@@ -1,0 +1,86 @@
+{
+  "schema": "verdugo.source-api-evidence.v1",
+  "scope": "eight bounded library operations and two original bundled datasets",
+  "files": [
+    {
+      "service": "langgraph-supervisor",
+      "repository": "langchain-ai/langgraph-supervisor-py",
+      "commit": "88859b34017ac3569bbd4a3092c7e77593a0a960",
+      "path": "langgraph_supervisor/handoff.py",
+      "blob_sha": "ac70567281a502f8f1defb38c2bc1ce1e21e00e6",
+      "url": "https://github.com/langchain-ai/langgraph-supervisor-py/blob/88859b34017ac3569bbd4a3092c7e77593a0a960/langgraph_supervisor/handoff.py"
+    },
+    {
+      "service": "mem0",
+      "repository": "mem0ai/mem0",
+      "commit": "f1791daa86d469249c9b002f62644d58a1eb96a0",
+      "path": "mem0/memory/storage.py",
+      "blob_sha": "5bd5512436cc6f3cbd5ce03d10808d3e6eef067b",
+      "url": "https://github.com/mem0ai/mem0/blob/f1791daa86d469249c9b002f62644d58a1eb96a0/mem0/memory/storage.py"
+    },
+    {
+      "service": "pysd",
+      "repository": "SDXorg/pysd",
+      "commit": "8991d119e139029d4dec712d257cf5fcc3549b8f",
+      "path": "pysd/py_backend/lookups.py",
+      "blob_sha": "c852675002b6ebb855b8c082121d5bdf5cc1f627",
+      "url": "https://github.com/SDXorg/pysd/blob/8991d119e139029d4dec712d257cf5fcc3549b8f/pysd/py_backend/lookups.py"
+    },
+    {
+      "service": "pymc-marketing",
+      "repository": "pymc-labs/pymc-marketing",
+      "commit": "4b4fead2b899dbf1982d12aab3b0cb1dfbe635fb",
+      "path": "pymc_marketing/mmm/transformers.py",
+      "blob_sha": "4b1db168cc9eeecd883e51de2312a1a6de309bc1",
+      "url": "https://github.com/pymc-labs/pymc-marketing/blob/4b4fead2b899dbf1982d12aab3b0cb1dfbe635fb/pymc_marketing/mmm/transformers.py"
+    },
+    {
+      "service": "graphrag",
+      "repository": "microsoft/graphrag",
+      "commit": "34b2b67ae4601ad0b47bcd179fbe3f2a23aa0857",
+      "path": "packages/graphrag/graphrag/index/operations/cluster_graph.py",
+      "blob_sha": "d14db22aa726ac6837dc533390b623d6bbebaf8e",
+      "url": "https://github.com/microsoft/graphrag/blob/34b2b67ae4601ad0b47bcd179fbe3f2a23aa0857/packages/graphrag/graphrag/index/operations/cluster_graph.py"
+    },
+    {
+      "service": "forecasting-tools",
+      "repository": "Metaculus/forecasting-tools",
+      "commit": "bd7e6a65e7f01141af8cab411ff8f51f908f8061",
+      "path": "forecasting_tools/data_models/numeric_report.py",
+      "blob_sha": "b574fd1149b427cb0b41095c9b209d0fc4ab8986",
+      "url": "https://github.com/Metaculus/forecasting-tools/blob/bd7e6a65e7f01141af8cab411ff8f51f908f8061/forecasting_tools/data_models/numeric_report.py"
+    },
+    {
+      "service": "indexnow-for-python",
+      "repository": "jakob-bagterp/index-now-for-python",
+      "commit": "47e9f82412e95a55b2c177ca66d79786117349c6",
+      "path": "src/index_now/submit/sitemap/parse.py",
+      "blob_sha": "0e2b38880dc76c9c4b158d4105b3374cbe78f8b9",
+      "url": "https://github.com/jakob-bagterp/index-now-for-python/blob/47e9f82412e95a55b2c177ca66d79786117349c6/src/index_now/submit/sitemap/parse.py"
+    },
+    {
+      "service": "waybackpy",
+      "repository": "akamhy/waybackpy",
+      "commit": "3b3e78d901a600bb22943202c6a8981ca04a5e48",
+      "path": "waybackpy/cdx_snapshot.py",
+      "blob_sha": "c70e87bacca1b943bfa018dc37ba8e3e235f3039",
+      "url": "https://github.com/akamhy/waybackpy/blob/3b3e78d901a600bb22943202c6a8981ca04a5e48/waybackpy/cdx_snapshot.py"
+    },
+    {
+      "service": "ipranges",
+      "repository": "lord-alfred/ipranges",
+      "commit": "d4ea6c582a509538907480e641bcee6821746bc3",
+      "path": "googlebot/ipv4_merged.txt",
+      "blob_sha": "e7844f5449514bbd3c01399601a8590bb5e48d5a",
+      "url": "https://github.com/lord-alfred/ipranges/blob/d4ea6c582a509538907480e641bcee6821746bc3/googlebot/ipv4_merged.txt"
+    },
+    {
+      "service": "the-great-gpt-firewall",
+      "repository": "samber/the-great-gpt-firewall",
+      "commit": "60b2214d7b2cbd2c1b9d175afb31ad3024c085bb",
+      "path": "2026/2026-11.json",
+      "blob_sha": "f1bf68b108d7f860ac244606a5eeca3f0e678477",
+      "url": "https://github.com/samber/the-great-gpt-firewall/blob/60b2214d7b2cbd2c1b9d175afb31ad3024c085bb/2026/2026-11.json"
+    }
+  ]
+}

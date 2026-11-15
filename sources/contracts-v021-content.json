@@ -1,0 +1,134 @@
+{
+  "schema": "verdugo.source-api-evidence.v1",
+  "scope": "six fixed original library operations and two fixed CLI operations; no models or retrieval",
+  "files": [
+    {
+      "service": "chronos",
+      "repository": "amazon-science/chronos-forecasting",
+      "commit": "1224fafa91e1ecd6674f5204066b159e40b5e4a1",
+      "path": "pyproject.toml",
+      "blob_sha": "0b07bd2c2eb64c29a1dfc16170ec54cce9212b6b",
+      "url": "https://github.com/amazon-science/chronos-forecasting/blob/1224fafa91e1ecd6674f5204066b159e40b5e4a1/pyproject.toml"
+    },
+    {
+      "service": "chronos",
+      "repository": "amazon-science/chronos-forecasting",
+      "commit": "1224fafa91e1ecd6674f5204066b159e40b5e4a1",
+      "path": "src/chronos/chronos.py",
+      "blob_sha": "5540df301849aba9d44b084ee67f16fd27c6954e",
+      "url": "https://github.com/amazon-science/chronos-forecasting/blob/1224fafa91e1ecd6674f5204066b159e40b5e4a1/src/chronos/chronos.py"
+    },
+    {
+      "service": "gliner",
+      "repository": "urchade/GLiNER",
+      "commit": "beb41b3839267952d0f063c04dd6236e9fd93a38",
+      "path": "pyproject.toml",
+      "blob_sha": "25efa6c0862931ef8bf2ae91f3b403466ebbe5e2",
+      "url": "https://github.com/urchade/GLiNER/blob/beb41b3839267952d0f063c04dd6236e9fd93a38/pyproject.toml"
+    },
+    {
+      "service": "gliner",
+      "repository": "urchade/GLiNER",
+      "commit": "beb41b3839267952d0f063c04dd6236e9fd93a38",
+      "path": "gliner/evaluation/evaluator.py",
+      "blob_sha": "f1ca07d1d84c5dd7099dc3705e49f8538eec42ad",
+      "url": "https://github.com/urchade/GLiNER/blob/beb41b3839267952d0f063c04dd6236e9fd93a38/gliner/evaluation/evaluator.py"
+    },
+    {
+      "service": "graphiti",
+      "repository": "getzep/graphiti",
+      "commit": "3ed02527499d4eb3b2eb133d716898dc89d7cc99",
+      "path": "pyproject.toml",
+      "blob_sha": "932b5ef5a9602fceb80765ec638855b41048ce26",
+      "url": "https://github.com/getzep/graphiti/blob/3ed02527499d4eb3b2eb133d716898dc89d7cc99/pyproject.toml"
+    },
+    {
+      "service": "graphiti",
+      "repository": "getzep/graphiti",
+      "commit": "3ed02527499d4eb3b2eb133d716898dc89d7cc99",
+      "path": "graphiti_core/utils/content_chunking.py",
+      "blob_sha": "0aea471c21d5ea8aa689c591145645c990db4d6c",
+      "url": "https://github.com/getzep/graphiti/blob/3ed02527499d4eb3b2eb133d716898dc89d7cc99/graphiti_core/utils/content_chunking.py"
+    },
+    {
+      "service": "openbb",
+      "repository": "openbq-org/OpenBB",
+      "commit": "e43353a82815ff9ba56ad1b7ad47c32729dcf314",
+      "path": "openbb_platform/core/pyproject.toml",
+      "blob_sha": "9af4a1b25c4e9f6b423784bbdc59c925e4056926",
+      "url": "https://github.com/openbq-org/OpenBB/blob/e43353a82815ff9ba56ad1b7ad47c32729dcf314/openbb_platform/core/pyproject.toml"
+    },
+    {
+      "service": "openbb",
+      "repository": "openbq-org/OpenBB",
+      "commit": "e43353a82815ff9ba56ad1b7ad47c32729dcf314",
+      "path": "openbb_platform/core/openbb_core/provider/standard_models/equity_historical.py",
+      "blob_sha": "ac5591c9539699ba8f1264c6588c9c30b39624b4",
+      "url": "https://github.com/openbq-org/OpenBB/blob/e43353a82815ff9ba56ad1b7ad47c32729dcf314/openbb_platform/core/openbb_core/provider/standard_models/equity_historical.py"
+    },
+    {
+      "service": "people-also-ask",
+      "repository": "labsonmars/people_also_ask",
+      "commit": "21db28fb5a75d233bf18db381fab538791eee495",
+      "path": "setup.py",
+      "blob_sha": "0386ce5ea3962cb80cca5a7ad78a9647c58bf0c0",
+      "url": "https://github.com/labsonmars/people_also_ask/blob/21db28fb5a75d233bf18db381fab538791eee495/setup.py"
+    },
+    {
+      "service": "people-also-ask",
+      "repository": "labsonmars/people_also_ask",
+      "commit": "21db28fb5a75d233bf18db381fab538791eee495",
+      "path": "people_also_ask/parser.py",
+      "blob_sha": "ddd813837fa8a3bd041cc43bc37368ac3bfc2813",
+      "url": "https://github.com/labsonmars/people_also_ask/blob/21db28fb5a75d233bf18db381fab538791eee495/people_also_ask/parser.py"
+    },
+    {
+      "service": "jobspy",
+      "repository": "speedyapply/JobSpy",
+      "commit": "68b88d6909a2342ad75fbb945c4204a3a7ed6665",
+      "path": "pyproject.toml",
+      "blob_sha": "a1a29842a28b6927519ee8c68754df6e1d052863",
+      "url": "https://github.com/speedyapply/JobSpy/blob/68b88d6909a2342ad75fbb945c4204a3a7ed6665/pyproject.toml"
+    },
+    {
+      "service": "jobspy",
+      "repository": "speedyapply/JobSpy",
+      "commit": "68b88d6909a2342ad75fbb945c4204a3a7ed6665",
+      "path": "jobspy/util.py",
+      "blob_sha": "a476f83093478856e972f06f56e6e5199b91541e",
+      "url": "https://github.com/speedyapply/JobSpy/blob/68b88d6909a2342ad75fbb945c4204a3a7ed6665/jobspy/util.py"
+    },
+    {
+      "service": "dvc",
+      "repository": "treeverse/dvc",
+      "commit": "b59add99ee667f2b352cc1be337619f965fe3fea",
+      "path": "dvc/cli/__init__.py",
+      "blob_sha": "28654b4d47eb140b7b8b8b3e6d3e5e8e4f5ef7e6",
+      "url": "https://github.com/treeverse/dvc/blob/b59add99ee667f2b352cc1be337619f965fe3fea/dvc/cli/__init__.py"
+    },
+    {
+      "service": "dvc",
+      "repository": "treeverse/dvc",
+      "commit": "b59add99ee667f2b352cc1be337619f965fe3fea",
+      "path": "dvc/commands/add.py",
+      "blob_sha": "9f2a584b14b922413b6edb9670189cc668eff425",
+      "url": "https://github.com/treeverse/dvc/blob/b59add99ee667f2b352cc1be337619f965fe3fea/dvc/commands/add.py"
+    },
+    {
+      "service": "dvc",
+      "repository": "treeverse/dvc",
+      "commit": "b59add99ee667f2b352cc1be337619f965fe3fea",
+      "path": "dvc/commands/status.py",
+      "blob_sha": "46be9e253baf5308a7789c9de43acc6dd7a91ca6",
+      "url": "https://github.com/treeverse/dvc/blob/b59add99ee667f2b352cc1be337619f965fe3fea/dvc/commands/status.py"
+    },
+    {
+      "service": "dnstwist",
+      "repository": "elceef/dnstwist",
+      "commit": "341395377f40761fe4152f43fd18eea757b6069a",
+      "path": "dnstwist.py",
+      "blob_sha": "a05067743c599a32c12a5ffce13addedead3d443",
+      "url": "https://github.com/elceef/dnstwist/blob/341395377f40761fe4152f43fd18eea757b6069a/dnstwist.py"
+    }
+  ]
+}

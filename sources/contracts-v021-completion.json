@@ -1,0 +1,2604 @@
+{
+  "schema": "verdugo.completion-source-evidence.v1",
+  "observed_at": "2026-11-15",
+  "scope": "Pinned source inspection and distinct released runtimes; not proof of a live deployment. Catalog commits and executed package versions are separate.",
+  "records": [
+    {
+      "id": "a2a",
+      "catalog_commit": "4d7cda4b1754ed410e41bf3be7ad9ebc62afe3d3",
+      "operation": "tasks.snapshot",
+      "distribution": "a2a-sdk",
+      "executed_version": "1.3.0",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "a2aproject/A2A",
+          "commit": "4d7cda4b1754ed410e41bf3be7ad9ebc62afe3d3",
+          "path": "README.md",
+          "git_blob_sha": "d7c621c669e2c2961b9ecff27c79a466680e3084",
+          "sha256": "39b2b272aae3f729d75a0ed305724b3bbdd3c15f6ef88546a0c4f23575bb32aa",
+          "source_url": "https://github.com/a2aproject/A2A/blob/4d7cda4b1754ed410e41bf3be7ad9ebc62afe3d3/README.md"
+        }
+      ]
+    },
+    {
+      "id": "anubis",
+      "catalog_commit": "f197f9a6235d255000c7b654ac478354a6e4bd02",
+      "operation": "health.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "TecharoHQ/anubis",
+          "commit": "f197f9a6235d255000c7b654ac478354a6e4bd02",
+          "path": "README.md",
+          "git_blob_sha": "1b33c6fd1e8a5e1f2ca365c4add2bd63bc3d3129",
+          "sha256": "1e524f0af6f12b2e13f0fbde4174cf99e3565d052ee22f944f97c048bd726529",
+          "source_url": "https://github.com/TecharoHQ/anubis/blob/f197f9a6235d255000c7b654ac478354a6e4bd02/README.md"
+        },
+        {
+          "repository": "TecharoHQ/anubis",
+          "commit": "f197f9a6235d255000c7b654ac478354a6e4bd02",
+          "path": "cmd/anubis/main.go",
+          "git_blob_sha": "a34f91dcdfe739ed1637f72e4db5e366341a653e",
+          "sha256": "ac1956de87c343a89101692d51f3bf1552e5f620c2407055ffd5aebd282c5311",
+          "source_url": "https://github.com/TecharoHQ/anubis/blob/f197f9a6235d255000c7b654ac478354a6e4bd02/cmd/anubis/main.go"
+        },
+        {
+          "repository": "TecharoHQ/anubis",
+          "commit": "f197f9a6235d255000c7b654ac478354a6e4bd02",
+          "path": "internal/health.go",
+          "git_blob_sha": "e6339c8bf91c10f690e897f83299d8ee41d4b03c",
+          "sha256": "c4a10e209ef3b9bb0d1a54b573805e139444894d2e92621de698a5b5c2dcc32f",
+          "source_url": "https://github.com/TecharoHQ/anubis/blob/f197f9a6235d255000c7b654ac478354a6e4bd02/internal/health.go"
+        },
+        {
+          "repository": "TecharoHQ/anubis",
+          "commit": "f197f9a6235d255000c7b654ac478354a6e4bd02",
+          "path": "lib/anubis.go",
+          "git_blob_sha": "c182d45c790450e559e58b1890e3832ba234935f",
+          "sha256": "50ef5d49c2fffe7eaa8c9f3e6514f5c24b0f02331d72cc6d5442ff04437794ce",
+          "source_url": "https://github.com/TecharoHQ/anubis/blob/f197f9a6235d255000c7b654ac478354a6e4bd02/lib/anubis.go"
+        },
+        {
+          "repository": "TecharoHQ/anubis",
+          "commit": "f197f9a6235d255000c7b654ac478354a6e4bd02",
+          "path": "lib/metrics/metrics.go",
+          "git_blob_sha": "16e2b6f8f4fac7f1201c61674714b49fef67fc2d",
+          "sha256": "ce7891562cb4b102a0bf21c9be3c52cfb6dcaf19d35d5ae40c7242b3bcb4c37e",
+          "source_url": "https://github.com/TecharoHQ/anubis/blob/f197f9a6235d255000c7b654ac478354a6e4bd02/lib/metrics/metrics.go"
+        },
+        {
+          "repository": "TecharoHQ/anubis",
+          "commit": "f197f9a6235d255000c7b654ac478354a6e4bd02",
+          "path": "package.json",
+          "git_blob_sha": "241ee7273fdf87ba643d5f64633c95d3cc050dee",
+          "sha256": "0c1d8161e4fa3d02010095d64b9c1c896079ea224239169033b1db8fcb6a42de",
+          "source_url": "https://github.com/TecharoHQ/anubis/blob/f197f9a6235d255000c7b654ac478354a6e4bd02/package.json"
+        }
+      ]
+    },
+    {
+      "id": "autogeo",
+      "catalog_commit": "49456df236774ea24087c44f45e9e52005b8e6a4",
+      "operation": "citations.score",
+      "distribution": "bundled-source:autogeo",
+      "executed_version": "49456df236774ea24087c44f45e9e52005b8e6a4",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "cxcscmu/AutoGEO",
+          "commit": "49456df236774ea24087c44f45e9e52005b8e6a4",
+          "path": "LICENSE",
+          "git_blob_sha": "f6bc1a946c3a31cdc58ec037f73a5a6ca8cef0e1",
+          "sha256": "7db440f0a16ee1bb2b77726e9c693a6171667069c6ac1679efbb2c2fe41cf0b3",
+          "source_url": "https://github.com/cxcscmu/AutoGEO/blob/49456df236774ea24087c44f45e9e52005b8e6a4/LICENSE"
+        },
+        {
+          "repository": "cxcscmu/AutoGEO",
+          "commit": "49456df236774ea24087c44f45e9e52005b8e6a4",
+          "path": "README.md",
+          "git_blob_sha": "19c3dafd83cad247a654e3170f307f8a6d79e98f",
+          "sha256": "50ea70d8100bf24f267f8f1a356bb0ac9405f5ef0f1bad7a09dc5a788df1e200",
+          "source_url": "https://github.com/cxcscmu/AutoGEO/blob/49456df236774ea24087c44f45e9e52005b8e6a4/README.md"
+        },
+        {
+          "repository": "cxcscmu/AutoGEO",
+          "commit": "49456df236774ea24087c44f45e9e52005b8e6a4",
+          "path": "autogeo/evaluation/metrics/geo_score.py",
+          "git_blob_sha": "75d9837395111d3d02951a332c9d3b817cce2273",
+          "sha256": "3c12623f138dec50c1c905c92c09aef1f3fe9b0a219a6ff6ffaa404007711b9d",
+          "source_url": "https://github.com/cxcscmu/AutoGEO/blob/49456df236774ea24087c44f45e9e52005b8e6a4/autogeo/evaluation/metrics/geo_score.py"
+        },
+        {
+          "repository": "cxcscmu/AutoGEO",
+          "commit": "49456df236774ea24087c44f45e9e52005b8e6a4",
+          "path": "autogeo/evaluation/metrics/geu_score.py",
+          "git_blob_sha": "f1e07df9e1bd39dbef8136c48900f28781da5666",
+          "sha256": "e920f20f6dd9e2d08efa078c904043674f0fd9789e188b404e650d6cbd9b3612",
+          "source_url": "https://github.com/cxcscmu/AutoGEO/blob/49456df236774ea24087c44f45e9e52005b8e6a4/autogeo/evaluation/metrics/geu_score.py"
+        }
+      ]
+    },
+    {
+      "id": "browser-use",
+      "catalog_commit": "480d0bd508ce10dcf27a4716f2f87355a08e8372",
+      "operation": "domains.evaluate",
+      "distribution": "browser-use",
+      "executed_version": "1.0.4",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "browser-use/browser-use",
+          "commit": "480d0bd508ce10dcf27a4716f2f87355a08e8372",
+          "path": "README.md",
+          "git_blob_sha": "60105c6c31a64a536132608161a405250baeb273",
+          "sha256": "b9250891b34bbffbd98d8ea1201013af7edd2e28606b64641d313b117c8899f9",
+          "source_url": "https://github.com/browser-use/browser-use/blob/480d0bd508ce10dcf27a4716f2f87355a08e8372/README.md"
+        },
+        {
+          "repository": "browser-use/browser-use",
+          "commit": "480d0bd508ce10dcf27a4716f2f87355a08e8372",
+          "path": "browser_use/ax.py",
+          "git_blob_sha": "2e251ff379b6647307f1d268c7ae207570b15095",
+          "sha256": "94dae4a9f7bc8f5bae02e377e14df46c343277ff0313c13837873dc1b98188df",
+          "source_url": "https://github.com/browser-use/browser-use/blob/480d0bd508ce10dcf27a4716f2f87355a08e8372/browser_use/ax.py"
+        },
+        {
+          "repository": "browser-use/browser-use",
+          "commit": "480d0bd508ce10dcf27a4716f2f87355a08e8372",
+          "path": "browser_use/domains.py",
+          "git_blob_sha": "6b6f05182461d4a0a3dcf2c1b8212e81c02bcf3d",
+          "sha256": "b9143a0254a794f9f5c9024f55c04a9eb1cc45488a8c767550bd2a18d725affe",
+          "source_url": "https://github.com/browser-use/browser-use/blob/480d0bd508ce10dcf27a4716f2f87355a08e8372/browser_use/domains.py"
+        },
+        {
+          "repository": "browser-use/browser-use",
+          "commit": "480d0bd508ce10dcf27a4716f2f87355a08e8372",
+          "path": "pyproject.toml",
+          "git_blob_sha": "ac00d14d9c48263f93b5073c116b1302953cbe0b",
+          "sha256": "d4d6792934d1d24c0890659b783c1e57366ff7250d17b9f4834662514d57084c",
+          "source_url": "https://github.com/browser-use/browser-use/blob/480d0bd508ce10dcf27a4716f2f87355a08e8372/pyproject.toml"
+        }
+      ]
+    },
+    {
+      "id": "c2pa",
+      "catalog_commit": "0e92435c6d621c02c9bde2a8d82346295ed1f509",
+      "operation": "manifest.inspect",
+      "distribution": "c2pa-python",
+      "executed_version": "0.39.0",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "contentauth/c2pa-rs",
+          "commit": "0e92435c6d621c02c9bde2a8d82346295ed1f509",
+          "path": "LICENSE-APACHE",
+          "git_blob_sha": "758d439916bc780a7fa5c90aebc94863527f904d",
+          "sha256": "86bdd5dafab77451044b6fd6d2efab23e3410ce658eb097f04c04f4f54aed62f",
+          "source_url": "https://github.com/contentauth/c2pa-rs/blob/0e92435c6d621c02c9bde2a8d82346295ed1f509/LICENSE-APACHE"
+        },
+        {
+          "repository": "contentauth/c2pa-rs",
+          "commit": "0e92435c6d621c02c9bde2a8d82346295ed1f509",
+          "path": "LICENSE-MIT",
+          "git_blob_sha": "e1e3bd7e9efec69f22be9f88fb8c37f6649a99d3",
+          "sha256": "89375a50de90d2dcaa04406086da832ad452ebcaf6ab402ef3d51b8401a67c71",
+          "source_url": "https://github.com/contentauth/c2pa-rs/blob/0e92435c6d621c02c9bde2a8d82346295ed1f509/LICENSE-MIT"
+        },
+        {
+          "repository": "contentauth/c2pa-rs",
+          "commit": "0e92435c6d621c02c9bde2a8d82346295ed1f509",
+          "path": "README.md",
+          "git_blob_sha": "e649b5b51fe6ec9069869f2160a5107564158af3",
+          "sha256": "4e0ad6f5fa2ef357650e917d59f5f647441290e1170dc26f13729c6a4ed09d73",
+          "source_url": "https://github.com/contentauth/c2pa-rs/blob/0e92435c6d621c02c9bde2a8d82346295ed1f509/README.md"
+        }
+      ]
+    },
+    {
+      "id": "census",
+      "catalog_commit": "3da5a1068164c27f6e83815f5d28ec300e184fdf",
+      "operation": "tables.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "datamade/census",
+          "commit": "3da5a1068164c27f6e83815f5d28ec300e184fdf",
+          "path": "census/core.py",
+          "git_blob_sha": "2101e17cadd7ace6621c6154f60e5ad84dcdb137",
+          "sha256": "9c0186a89f6a79912f4a7b3517216349c20ae12f867158fe18f1d5ae5754a599",
+          "source_url": "https://github.com/datamade/census/blob/3da5a1068164c27f6e83815f5d28ec300e184fdf/census/core.py"
+        },
+        {
+          "repository": "datamade/census",
+          "commit": "3da5a1068164c27f6e83815f5d28ec300e184fdf",
+          "path": "pyproject.toml",
+          "git_blob_sha": "d984fdce760d5e180e8579533b0e34dee92ea540",
+          "sha256": "6544d31cf39cb7168eb1deb167226acaf87380a970d5f86fd269cc960a3b569e",
+          "source_url": "https://github.com/datamade/census/blob/3da5a1068164c27f6e83815f5d28ec300e184fdf/pyproject.toml"
+        },
+        {
+          "repository": "datamade/census",
+          "commit": "3da5a1068164c27f6e83815f5d28ec300e184fdf",
+          "path": "setup.py",
+          "git_blob_sha": "606849326a4002007fd42060b51e69a19c18675c",
+          "sha256": "843ac26c38a41abae578250bc0f9419194b320a0f67327d941037a4268f6cfe7",
+          "source_url": "https://github.com/datamade/census/blob/3da5a1068164c27f6e83815f5d28ec300e184fdf/setup.py"
+        }
+      ]
+    },
+    {
+      "id": "claude-skills-c-level",
+      "catalog_commit": "08cd8a9fc86cc370e2c0d448e8171fbcfdbc5a30",
+      "operation": "cashflow.scenario",
+      "distribution": "bundled-source:claude-skills-c-level",
+      "executed_version": "08cd8a9fc86cc370e2c0d448e8171fbcfdbc5a30",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "alirezarezvani/claude-skills",
+          "commit": "08cd8a9fc86cc370e2c0d448e8171fbcfdbc5a30",
+          "path": "LICENSE",
+          "git_blob_sha": "c3e30bcc287d6a1ebdb4ab29c10d344fd1053639",
+          "sha256": "a20126646f93d32a8989c3cf4772d59194f405034f7babe7daebeac22b8ab151",
+          "source_url": "https://github.com/alirezarezvani/claude-skills/blob/08cd8a9fc86cc370e2c0d448e8171fbcfdbc5a30/LICENSE"
+        },
+        {
+          "repository": "alirezarezvani/claude-skills",
+          "commit": "08cd8a9fc86cc370e2c0d448e8171fbcfdbc5a30",
+          "path": "README.md",
+          "git_blob_sha": "5e0f1970a415dd63423d8347e0a8ceeb75b50a11",
+          "sha256": "5d02b13a726f34a7e7c1aeee5b926074270447bfe4ea2350d6ed6c20029f502c",
+          "source_url": "https://github.com/alirezarezvani/claude-skills/blob/08cd8a9fc86cc370e2c0d448e8171fbcfdbc5a30/README.md"
+        },
+        {
+          "repository": "alirezarezvani/claude-skills",
+          "commit": "08cd8a9fc86cc370e2c0d448e8171fbcfdbc5a30",
+          "path": "c-level-advisor/skills/cfo-advisor/scripts/burn_rate_calculator.py",
+          "git_blob_sha": "6580a31bc0f269f893620a1fd41f283daf4747a6",
+          "sha256": "c1c8b1b648f53934925c1cd8583550d1ac6990f229d2d664fafd0cf1f23b5051",
+          "source_url": "https://github.com/alirezarezvani/claude-skills/blob/08cd8a9fc86cc370e2c0d448e8171fbcfdbc5a30/c-level-advisor/skills/cfo-advisor/scripts/burn_rate_calculator.py"
+        },
+        {
+          "repository": "alirezarezvani/claude-skills",
+          "commit": "08cd8a9fc86cc370e2c0d448e8171fbcfdbc5a30",
+          "path": "c-level-advisor/skills/cfo-advisor/scripts/unit_economics_analyzer.py",
+          "git_blob_sha": "4433f93607539bdacfd7c5af32e24ebf6d59faf0",
+          "sha256": "625315195f8ba7265223b87107df20b81b769055077d427f54cefbb625ec4336",
+          "source_url": "https://github.com/alirezarezvani/claude-skills/blob/08cd8a9fc86cc370e2c0d448e8171fbcfdbc5a30/c-level-advisor/skills/cfo-advisor/scripts/unit_economics_analyzer.py"
+        },
+        {
+          "repository": "alirezarezvani/claude-skills",
+          "commit": "08cd8a9fc86cc370e2c0d448e8171fbcfdbc5a30",
+          "path": "pyproject.toml",
+          "git_blob_sha": "f8bd2693992d67ba221ae8fb059e31686154316a",
+          "sha256": "b2424aceed3b941428d510a8221f0c15185919ce457e04e6027b59a3a7547552",
+          "source_url": "https://github.com/alirezarezvani/claude-skills/blob/08cd8a9fc86cc370e2c0d448e8171fbcfdbc5a30/pyproject.toml"
+        }
+      ]
+    },
+    {
+      "id": "cognee",
+      "catalog_commit": "4053f6cc5536757f26a3665eed95c50088e6dc0b",
+      "operation": "text.segment",
+      "distribution": "bundled-source:cognee",
+      "executed_version": "4053f6cc5536757f26a3665eed95c50088e6dc0b",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "topoteretes/cognee",
+          "commit": "4053f6cc5536757f26a3665eed95c50088e6dc0b",
+          "path": "LICENSE",
+          "git_blob_sha": "fd57f68790eb9919fc622902caf31f831f9c4e8f",
+          "sha256": "a471e34908f50c3f120e9a56f3c30cb34e133e4ede01a9cbd5ce718fc358ecd4",
+          "source_url": "https://github.com/topoteretes/cognee/blob/4053f6cc5536757f26a3665eed95c50088e6dc0b/LICENSE"
+        },
+        {
+          "repository": "topoteretes/cognee",
+          "commit": "4053f6cc5536757f26a3665eed95c50088e6dc0b",
+          "path": "README.md",
+          "git_blob_sha": "f59ba46b83f79864dd56bcfc95596b993c6ef8ca",
+          "sha256": "371945db13ce593ecb6298ad1188c57bfb1a6e89a8435f4bc421abfa427c09f2",
+          "source_url": "https://github.com/topoteretes/cognee/blob/4053f6cc5536757f26a3665eed95c50088e6dc0b/README.md"
+        },
+        {
+          "repository": "topoteretes/cognee",
+          "commit": "4053f6cc5536757f26a3665eed95c50088e6dc0b",
+          "path": "cognee/modules/chunking/text_chunker_with_overlap.py",
+          "git_blob_sha": "ce764239794d0a63832620e3d35d77e6b64d9416",
+          "sha256": "e3f24acd7ab635eef9911010e394b7ff449a1626c6e2262f210fe334c34b74ac",
+          "source_url": "https://github.com/topoteretes/cognee/blob/4053f6cc5536757f26a3665eed95c50088e6dc0b/cognee/modules/chunking/text_chunker_with_overlap.py"
+        },
+        {
+          "repository": "topoteretes/cognee",
+          "commit": "4053f6cc5536757f26a3665eed95c50088e6dc0b",
+          "path": "cognee/tasks/chunks/chunk_by_word.py",
+          "git_blob_sha": "71c19d0414b5394d8e8396f8e420d7ad1c48aa81",
+          "sha256": "a9aac48fa224281886c788ef2e3dd40f8d4dcdb640f9b5ce78a3a51f5f6cdfa6",
+          "source_url": "https://github.com/topoteretes/cognee/blob/4053f6cc5536757f26a3665eed95c50088e6dc0b/cognee/tasks/chunks/chunk_by_word.py"
+        },
+        {
+          "repository": "topoteretes/cognee",
+          "commit": "4053f6cc5536757f26a3665eed95c50088e6dc0b",
+          "path": "pyproject.toml",
+          "git_blob_sha": "925ae3ab0f9e039df3ab071547a0cc36939ab2ee",
+          "sha256": "8bcece4d7af10957319fe470b011b79a1eb4b1024e106e7869aecbad1c89252d",
+          "source_url": "https://github.com/topoteretes/cognee/blob/4053f6cc5536757f26a3665eed95c50088e6dc0b/pyproject.toml"
+        }
+      ]
+    },
+    {
+      "id": "comtradeapicall",
+      "catalog_commit": "d8b19588986405df8c3c94062bd73fd08b9110cd",
+      "operation": "groups.expand",
+      "distribution": "comtradeapicall",
+      "executed_version": "1.4.0",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "uncomtrade/comtradeapicall",
+          "commit": "d8b19588986405df8c3c94062bd73fd08b9110cd",
+          "path": "README.md",
+          "git_blob_sha": "cd638681af2183a67da45578596e81ab18e0c83e",
+          "sha256": "8ceff68967ce0ad97ac075afb5f5e89a4fe6ac48620c82557b68870a6b82762b",
+          "source_url": "https://github.com/uncomtrade/comtradeapicall/blob/d8b19588986405df8c3c94062bd73fd08b9110cd/README.md"
+        },
+        {
+          "repository": "uncomtrade/comtradeapicall",
+          "commit": "d8b19588986405df8c3c94062bd73fd08b9110cd",
+          "path": "pyproject.toml",
+          "git_blob_sha": "919dca050fbfb0f7de90b11d65657c4608f09f06",
+          "sha256": "ed909741a3a3f4207603de34c6ec493283962e46a8fab9212fb78c7882e7f298",
+          "source_url": "https://github.com/uncomtrade/comtradeapicall/blob/d8b19588986405df8c3c94062bd73fd08b9110cd/pyproject.toml"
+        },
+        {
+          "repository": "uncomtrade/comtradeapicall",
+          "commit": "d8b19588986405df8c3c94062bd73fd08b9110cd",
+          "path": "src/comtradeapicall/GroupCalc.py",
+          "git_blob_sha": "778b7f65acd78ba04e69b1ae4f9cb10f53ce04ff",
+          "sha256": "522f5912b2a3694d5efcaea0db0f684762e9f97190c5d16dfdfb998ba1388143",
+          "source_url": "https://github.com/uncomtrade/comtradeapicall/blob/d8b19588986405df8c3c94062bd73fd08b9110cd/src/comtradeapicall/GroupCalc.py"
+        },
+        {
+          "repository": "uncomtrade/comtradeapicall",
+          "commit": "d8b19588986405df8c3c94062bd73fd08b9110cd",
+          "path": "src/comtradeapicall/PreviewGet.py",
+          "git_blob_sha": "bac6c2f2d13de6cdd8b9c3e04e9c59fea2c56ede",
+          "sha256": "d114c439a7b81e6e316a2c839f6d356dc924c0603ee66ab1aa36c2de71a608cd",
+          "source_url": "https://github.com/uncomtrade/comtradeapicall/blob/d8b19588986405df8c3c94062bd73fd08b9110cd/src/comtradeapicall/PreviewGet.py"
+        }
+      ]
+    },
+    {
+      "id": "cua",
+      "catalog_commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+      "operation": "actions.normalize",
+      "distribution": "bundled-adapted-source:cua",
+      "executed_version": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "LICENSE.md",
+          "git_blob_sha": "b8b198ce3ebaa22c9f59588a80f9f1875d85b34a",
+          "sha256": "c0779290c1d4783169aa3dbfb55feb505e563ef8a004bbf55298ceffcfbda8d9",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/LICENSE.md"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "README.md",
+          "git_blob_sha": "2fd153f7bbd28e26c69dc67bd436393b0e6b6337",
+          "sha256": "282243b39800d67a63e1dd2bd2b6713231049dc8647dee6bb2f14d1b83c6591e",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/README.md"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "libs/cua-bench/LICENSE",
+          "git_blob_sha": "98422212249abb3877d0536dd43c684ea235cb5e",
+          "sha256": "8e58dea3ed074859ef7cdf74f9eb3b51189dc3cd62080a3200ae40411ccf1182",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/libs/cua-bench/LICENSE"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "libs/cua-bench/cua_bench/__init__.py",
+          "git_blob_sha": "0c3383257f1acf1a0b388cb8839c024d98a357b2",
+          "sha256": "729b4ef93dacff0920386731cee31b11c1358abb6f6e1a141807db3d076e44cd",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/libs/cua-bench/cua_bench/__init__.py"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "libs/cua-bench/cua_bench/actions.py",
+          "git_blob_sha": "2e4f166ba9f8e91cea9b197215dba68d481ec781",
+          "sha256": "b1a8055900863e20ae83271cc5634cc5e4a20619d4eb6e96bd6e291d510a2654",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/libs/cua-bench/cua_bench/actions.py"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "libs/cua-bench/cua_bench/types.py",
+          "git_blob_sha": "e2a1dfbe419faf7996a4778b68c412aebff55261",
+          "sha256": "5fade45cd623c45832ba0770c0ae0301522339dfc2387294f9e4016c5106b5d1",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/libs/cua-bench/cua_bench/types.py"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "libs/cua-bench/pyproject.toml",
+          "git_blob_sha": "2e4d085bf961b2e812e653a6b7f404f8c4a805c3",
+          "sha256": "1106a67602256729d229979a402fbae28b5eb5180f423d426f0b18ba4e241a1e",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/libs/cua-bench/pyproject.toml"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "libs/python/agent/cua_agent/types.py",
+          "git_blob_sha": "1a43e2ceaa95b5868e68182f514b666f32e7b3b0",
+          "sha256": "50776bfbc06921f54cbd30a100d5bd1c9b1d3af9568f20fcc0f1da0a34b71dd6",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/libs/python/agent/cua_agent/types.py"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "libs/python/agent/tests/test_uitars_coordinate_security.py",
+          "git_blob_sha": "559c4c474ed4c8c2242063cd13f11048a587464e",
+          "sha256": "c3db61270d4e8f1c5bf0df2c2be46214706b502e1faf359c92b49132703da061",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/libs/python/agent/tests/test_uitars_coordinate_security.py"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "package.json",
+          "git_blob_sha": "12c0f9146bb95995c40edc0ce8d15bce0bf0b868",
+          "sha256": "8bdf34b2cf5298ff3761bec91660b471c096ee541bb2b16b9bb730d8e8d65577",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/package.json"
+        },
+        {
+          "repository": "trycua/cua",
+          "commit": "c372e5fb2bae944974e903fbf117c61f4ced696e",
+          "path": "pyproject.toml",
+          "git_blob_sha": "238cae2d2180a1678b7f4da5efbe59881afd3a62",
+          "sha256": "0c2e6296ff2e6a5a0384373ed33d5df297c28ccadbc904baaa92c38c7cbc5982",
+          "source_url": "https://github.com/trycua/cua/blob/c372e5fb2bae944974e903fbf117c61f4ced696e/pyproject.toml"
+        }
+      ]
+    },
+    {
+      "id": "datosmex",
+      "catalog_commit": "4179265209ca8345cc2de533f82612a6ca45314f",
+      "operation": "fix.latest",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "andreslomeliv/DatosMex",
+          "commit": "4179265209ca8345cc2de533f82612a6ca45314f",
+          "path": "BANXICOpy/BANXICOpy/_banxico_general.py",
+          "git_blob_sha": "730c3dc4a34f6c24c12ac20d05308a466f951594",
+          "sha256": "ae295f048f0db9840890124f46a28de2ea431246bce81e8901d64afef0dca108",
+          "source_url": "https://github.com/andreslomeliv/DatosMex/blob/4179265209ca8345cc2de533f82612a6ca45314f/BANXICOpy/BANXICOpy/_banxico_general.py"
+        },
+        {
+          "repository": "andreslomeliv/DatosMex",
+          "commit": "4179265209ca8345cc2de533f82612a6ca45314f",
+          "path": "INEGIpy/INEGIpy/_indicadores.py",
+          "git_blob_sha": "e957eeae7badfbd0bb988646db28d582f7b0d5d2",
+          "sha256": "f26026d2534dcc149e2844110d63c0d6beaf79d00c28292606e27f70106dadb3",
+          "source_url": "https://github.com/andreslomeliv/DatosMex/blob/4179265209ca8345cc2de533f82612a6ca45314f/INEGIpy/INEGIpy/_indicadores.py"
+        },
+        {
+          "repository": "andreslomeliv/DatosMex",
+          "commit": "4179265209ca8345cc2de533f82612a6ca45314f",
+          "path": "README.md",
+          "git_blob_sha": "0787338c7497f0058f7558afdfa7e92131b468da",
+          "sha256": "a49b1faf430e799baf22c7ad2e634c9c4939e95d60291a7167349621f2ad2e60",
+          "source_url": "https://github.com/andreslomeliv/DatosMex/blob/4179265209ca8345cc2de533f82612a6ca45314f/README.md"
+        }
+      ]
+    },
+    {
+      "id": "dbt",
+      "catalog_commit": "3a3c73e46acb63bf09dbcb53ebaea1d7efdffe2e",
+      "operation": "campaigns.materialize",
+      "distribution": "dbt-core",
+      "executed_version": "1.12.7",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "dbt-labs/dbt",
+          "commit": "3a3c73e46acb63bf09dbcb53ebaea1d7efdffe2e",
+          "path": "README.md",
+          "git_blob_sha": "e879e4e705dedb1f227e0889473cb9c9afc2dc5d",
+          "sha256": "a003fe448ca06aebb748467227d2dc8b8be263173c6c070400efb95dfb9cb618",
+          "source_url": "https://github.com/dbt-labs/dbt/blob/3a3c73e46acb63bf09dbcb53ebaea1d7efdffe2e/README.md"
+        },
+        {
+          "repository": "dbt-labs/dbt",
+          "commit": "3a3c73e46acb63bf09dbcb53ebaea1d7efdffe2e",
+          "path": "pyproject.toml",
+          "git_blob_sha": "0f0539acf1e2c77dadcccb356d990c1a15201091",
+          "sha256": "1aaf0a5db85224692bd1f3f8e672d66a56c6982fca9d1b4bc27242fab85f1a1f",
+          "source_url": "https://github.com/dbt-labs/dbt/blob/3a3c73e46acb63bf09dbcb53ebaea1d7efdffe2e/pyproject.toml"
+        }
+      ]
+    },
+    {
+      "id": "debezium",
+      "catalog_commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+      "operation": "connector.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "README.md",
+          "git_blob_sha": "6bb1276d5f7a898980cc8623646555e59a86aaab",
+          "sha256": "d9511c0d89ce35636ec059c774b6b6798898d97f4e3f4758e2904c12d4b8a369",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/README.md"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "debezium-testing/debezium-testing-system/src/test/resources/database-resources/mongodb/sharded/deployment-config.yaml",
+          "git_blob_sha": "3ce76750a2a0f67cb922165e5faf683439a4a333",
+          "sha256": "b150ae798b0084b832d8a36dfdd7ce7b3baef3195fe980e56b63aece08182b1a",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/debezium-testing/debezium-testing-system/src/test/resources/database-resources/mongodb/sharded/deployment-config.yaml"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "debezium-testing/debezium-testing-system/src/test/resources/database-resources/mongodb/sharded/service-config.yaml",
+          "git_blob_sha": "f207e4ea3ea00fde2a3dcf3f45bbd14976790d2f",
+          "sha256": "3de7d49aff919126a19bfef904c91ebab7acc3124ca83eeec7c9139cb76159bd",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/debezium-testing/debezium-testing-system/src/test/resources/database-resources/mongodb/sharded/service-config.yaml"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/assemblies/tutorial/assembly-deploying-mysql-connector.adoc",
+          "git_blob_sha": "1291d798626834175fe37e98b3ae24077300374d",
+          "sha256": "868bee9f852d06749e033632b3c459794c530e9ab25abf93e095786bcdbea249",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/assemblies/tutorial/assembly-deploying-mysql-connector.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/con-connector-ifx-streams-deployment.adoc",
+          "git_blob_sha": "aba23ab07ab3f61e58d40ac5f99bff267ec77088",
+          "sha256": "226262a04683cae71b9dd1f62e671a58f191d6975c3cb392042855de92431c4d",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/con-connector-ifx-streams-deployment.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/con-connector-streams-deployment.adoc",
+          "git_blob_sha": "5f2b0a6906001b5090da7661b16aaa2d7308978d",
+          "sha256": "21732de3605e36b45a06749b520cc67d5c9cfe77e3d1086c1053d9c151cfef8a",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/con-connector-streams-deployment.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/proc-using-streams-to-deploy-a-debezium-db2-ifx-ora-pg-connector.adoc",
+          "git_blob_sha": "b24d3ed1994a555c4a91e8c1197da9e23c478edc",
+          "sha256": "4d4db340991701c1287181b657b9b71769ea54b976eb009346a52776c9b85f43",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/proc-using-streams-to-deploy-a-debezium-db2-ifx-ora-pg-connector.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/proc-using-streams-to-deploy-a-debezium-mongodb-connector.adoc",
+          "git_blob_sha": "a3ef90867ffaae7093604d14bb7a07cebb297044",
+          "sha256": "980a29a018fabef31a1d4a5a07b9883b537d108e8def1a9650826e6cdf21ffe2",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/proc-using-streams-to-deploy-a-debezium-mongodb-connector.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/proc-using-streams-to-deploy-a-debezium-mysql-sqlserver-connector.adoc",
+          "git_blob_sha": "fc14fbfccd3d4ef6cce45df2353c846159876bd1",
+          "sha256": "59338c9163f7de0bd03cadbc363a73e2d82581eca8f54eeb8341fe68cf879fbb",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/proc-using-streams-to-deploy-a-debezium-mysql-sqlserver-connector.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/proc-verifying-the-connector-deployment.adoc",
+          "git_blob_sha": "8e146b37ae683e197a98747ae687ac75377eff42",
+          "sha256": "0dafbbe6d715154b0eb290163c50b393085383693318c640121b975f361cd321",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/proc-verifying-the-connector-deployment.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-db2-connector-yaml.adoc",
+          "git_blob_sha": "b2cb3d8cc99442014d5d4dee01575de9c58d8d7e",
+          "sha256": "4cc12c920538e2ce33487bfc1509b6ebdd6152a896b5b003cd6aebe8bc70de14",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-db2-connector-yaml.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-db2-ifx-ora-connector-yaml.adoc",
+          "git_blob_sha": "77c41378f15955323b653a7a9a174ccee07b814c",
+          "sha256": "f0ebfb8cca3bed2ba955e128040f9137bf74bd9213fd805805451fae12a3ed87",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-db2-ifx-ora-connector-yaml.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-db2-kafka-connect-yaml.adoc",
+          "git_blob_sha": "6c4e4b50dc4e6861c2e718a4b6688b87d16a1c9b",
+          "sha256": "cd115640566282ac716d679a15356dbdcd3a7f68370c7669e17b7dc187cb26d1",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-db2-kafka-connect-yaml.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-db2-ora-connector-yaml.adoc",
+          "git_blob_sha": "77c41378f15955323b653a7a9a174ccee07b814c",
+          "sha256": "f0ebfb8cca3bed2ba955e128040f9137bf74bd9213fd805805451fae12a3ed87",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-db2-ora-connector-yaml.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-informix-connector-yaml.adoc",
+          "git_blob_sha": "029c9a527d7404887ac37b7662713c5ccc120937",
+          "sha256": "96390f76c9d7ec321a85ed6f4080a876adb7f90d875b6a0daecc37f7beafd510",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-informix-connector-yaml.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-informix-kafka-connect-yaml.adoc",
+          "git_blob_sha": "06b5a0556ed03c19f505612afb0bd5bcae80698b",
+          "sha256": "82e1bb07e1c672df8f6c7d339773cdd20095b3a5a92049818f3ae2e22c5aa559",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-informix-kafka-connect-yaml.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-mariadb-connector-yaml.adoc",
+          "git_blob_sha": "9c7ce7c006dda5ff8af8d836b14b75e6c2b76f88",
+          "sha256": "670952a9447b683e3808484c350698c880cd061507e9c657f9ece2b12470b316",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-mariadb-connector-yaml.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-mariadb-kafka-connect-yaml.adoc",
+          "git_blob_sha": "9a3af25098dcef3d8761c5ca21361aa56fd152ff",
+          "sha256": "6c5ebb24bd39ae8cf9455893fcdec8a169f6800d74f8eb73a527925da9f9d9f8",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-mariadb-kafka-connect-yaml.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-mongodb-kafka-connect-yaml.adoc",
+          "git_blob_sha": "9a3af25098dcef3d8761c5ca21361aa56fd152ff",
+          "sha256": "6c5ebb24bd39ae8cf9455893fcdec8a169f6800d74f8eb73a527925da9f9d9f8",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-mongodb-kafka-connect-yaml.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-mysql-connector-yaml.adoc",
+          "git_blob_sha": "1950a6f77cb7aac28dd13a8aeb93833413ba3c45",
+          "sha256": "5131b1724659fe4be81349e2369d65b84c7516de9c35b6fb46de5773fbcb6f7b",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-mysql-connector-yaml.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-mysql-kafka-connect-yaml.adoc",
+          "git_blob_sha": "9a3af25098dcef3d8761c5ca21361aa56fd152ff",
+          "sha256": "6c5ebb24bd39ae8cf9455893fcdec8a169f6800d74f8eb73a527925da9f9d9f8",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-mysql-kafka-connect-yaml.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-oracle-connector-yaml.adoc",
+          "git_blob_sha": "b2cb3d8cc99442014d5d4dee01575de9c58d8d7e",
+          "sha256": "4cc12c920538e2ce33487bfc1509b6ebdd6152a896b5b003cd6aebe8bc70de14",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-oracle-connector-yaml.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-oracle-kafka-connect-yaml.adoc",
+          "git_blob_sha": "f62365a890749a6f878c35be85f140d012412064",
+          "sha256": "2ebce4a79388441e4b0cf42e5e682a5c5a96e85f93e2005fa3c533f5a3f86b8c",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-oracle-kafka-connect-yaml.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-postgresql-connector-yaml.adoc",
+          "git_blob_sha": "6e7d5b03cc378f6136f0fa63c4137ac23c22865b",
+          "sha256": "71431e47d0ce8e1729650c77d0d0cf2c6859f30bd8d97b3673dd3170a3ad720a",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-postgresql-connector-yaml.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-postgresql-kafka-connect-yaml.adoc",
+          "git_blob_sha": "9a3af25098dcef3d8761c5ca21361aa56fd152ff",
+          "sha256": "6c5ebb24bd39ae8cf9455893fcdec8a169f6800d74f8eb73a527925da9f9d9f8",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-postgresql-kafka-connect-yaml.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-sqlserver-connector-yaml.adoc",
+          "git_blob_sha": "9851e1b23344e498d8ac0b2cbbe06b6c25b8349e",
+          "sha256": "70660f5dddf2a3b8db928e60af127513edcdbc77b9f22b30ba798ea123eabcc3",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-sqlserver-connector-yaml.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-sqlserver-kafka-connect-yaml.adoc",
+          "git_blob_sha": "9a3af25098dcef3d8761c5ca21361aa56fd152ff",
+          "sha256": "6c5ebb24bd39ae8cf9455893fcdec8a169f6800d74f8eb73a527925da9f9d9f8",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/ref-deploy-sqlserver-kafka-connect-yaml.adoc"
+        },
+        {
+          "repository": "debezium/debezium",
+          "commit": "a4c282ea70d3f913df699464f3e42f9ddb7eb03e",
+          "path": "documentation/modules/ROOT/partials/modules/all-connectors/shared-deploy-kafka-connect-yaml.adoc",
+          "git_blob_sha": "ec19e7574f7b0fe31f819f08c9b62447e1276d19",
+          "sha256": "d4252f953abf9cb890cd85e96ec027aefbf434e0e9f47cbb87bb4a6ecb9f6139",
+          "source_url": "https://github.com/debezium/debezium/blob/a4c282ea70d3f913df699464f3e42f9ddb7eb03e/documentation/modules/ROOT/partials/modules/all-connectors/shared-deploy-kafka-connect-yaml.adoc"
+        }
+      ]
+    },
+    {
+      "id": "gdeltdoc",
+      "catalog_commit": "41220163fbab99982e4dca3a05d25a95b49896d7",
+      "operation": "articles.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "alex9smith/gdelt-doc-api",
+          "commit": "41220163fbab99982e4dca3a05d25a95b49896d7",
+          "path": "README.md",
+          "git_blob_sha": "82c4ce4e1644ae1cd2b69b57a43f44f2618ee47a",
+          "sha256": "e0cd927d9ef695151149e66a24d47e329bd8dea6d220fac46189b06ad6dfab85",
+          "source_url": "https://github.com/alex9smith/gdelt-doc-api/blob/41220163fbab99982e4dca3a05d25a95b49896d7/README.md"
+        },
+        {
+          "repository": "alex9smith/gdelt-doc-api",
+          "commit": "41220163fbab99982e4dca3a05d25a95b49896d7",
+          "path": "gdeltdoc/api_client.py",
+          "git_blob_sha": "ba09a034a0e6afbb7a172947ca1e480d7f015411",
+          "sha256": "6eb6bac6cf1d1ae3aadb71f8f215c80fa21bb7a9e697edf42d04b50ec6664e9b",
+          "source_url": "https://github.com/alex9smith/gdelt-doc-api/blob/41220163fbab99982e4dca3a05d25a95b49896d7/gdeltdoc/api_client.py"
+        },
+        {
+          "repository": "alex9smith/gdelt-doc-api",
+          "commit": "41220163fbab99982e4dca3a05d25a95b49896d7",
+          "path": "gdeltdoc/filters.py",
+          "git_blob_sha": "b019518d0821573a8926102c74dcd7ba9e910fc5",
+          "sha256": "6b3183d911ab459d8170a34397af39664fdd8e394ccf1b5c462d14cc103e314d",
+          "source_url": "https://github.com/alex9smith/gdelt-doc-api/blob/41220163fbab99982e4dca3a05d25a95b49896d7/gdeltdoc/filters.py"
+        },
+        {
+          "repository": "alex9smith/gdelt-doc-api",
+          "commit": "41220163fbab99982e4dca3a05d25a95b49896d7",
+          "path": "setup.py",
+          "git_blob_sha": "735ca862bd4fbbf5a97fa50fd73af7f98cdda17d",
+          "sha256": "4c5aa24ecdb58f71d847dcdbdbc8860fc277796cd739eb4f5ae7a5e869d8dac1",
+          "source_url": "https://github.com/alex9smith/gdelt-doc-api/blob/41220163fbab99982e4dca3a05d25a95b49896d7/setup.py"
+        }
+      ]
+    },
+    {
+      "id": "google-ads",
+      "catalog_commit": "f253b400dc5924b731fcb42dbcd99e485200581e",
+      "operation": "accounts.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "googleads/google-ads-python",
+          "commit": "f253b400dc5924b731fcb42dbcd99e485200581e",
+          "path": "README.rst",
+          "git_blob_sha": "7253baa45a4233e024fdd0c2bbb32cf5acbfe1a7",
+          "sha256": "1c47b81c90f34e5a2de548958b5cee2466a5a30d732aae274db5fc6211ec3af6",
+          "source_url": "https://github.com/googleads/google-ads-python/blob/f253b400dc5924b731fcb42dbcd99e485200581e/README.rst"
+        },
+        {
+          "repository": "googleads/google-ads-python",
+          "commit": "f253b400dc5924b731fcb42dbcd99e485200581e",
+          "path": "examples/account_management/list_accessible_customers.py",
+          "git_blob_sha": "2d156ff2c4c0c28e3f4aa0cdefb23de2930add5d",
+          "sha256": "13ebd1b889eac65cbea7126c1f1f0bddb21d23c7d9bbdb8c92e9359ab67a101b",
+          "source_url": "https://github.com/googleads/google-ads-python/blob/f253b400dc5924b731fcb42dbcd99e485200581e/examples/account_management/list_accessible_customers.py"
+        },
+        {
+          "repository": "googleads/google-ads-python",
+          "commit": "f253b400dc5924b731fcb42dbcd99e485200581e",
+          "path": "pyproject.toml",
+          "git_blob_sha": "8512fe02c98686ae0ba88dd5b58e3b10d0173159",
+          "sha256": "1bff50437d45b8b4694640af447ef5d75a2dab6f06bd809b59a8f77416bb71cc",
+          "source_url": "https://github.com/googleads/google-ads-python/blob/f253b400dc5924b731fcb42dbcd99e485200581e/pyproject.toml"
+        },
+        {
+          "repository": "googleads/google-ads-python",
+          "commit": "f253b400dc5924b731fcb42dbcd99e485200581e",
+          "path": "google/ads/googleads/interceptors/metadata_interceptor.py",
+          "git_blob_sha": "daef6e73208518cd692b5e1501166bdf33deee72",
+          "sha256": "74d92e671ac83855377468ddd4b3b0525cd3e41334b29665f5b1940870004ead",
+          "source_url": "https://github.com/googleads/google-ads-python/blob/f253b400dc5924b731fcb42dbcd99e485200581e/google/ads/googleads/interceptors/metadata_interceptor.py"
+        }
+      ]
+    },
+    {
+      "id": "gpt-researcher",
+      "catalog_commit": "ddd4db36208d9c8e49f3b2436efda97baecb5433",
+      "operation": "passages.rank",
+      "distribution": "gpt-researcher",
+      "executed_version": "0.17.0",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "assafelovic/gpt-researcher",
+          "commit": "ddd4db36208d9c8e49f3b2436efda97baecb5433",
+          "path": "README.md",
+          "git_blob_sha": "216f0607963d84567cc0f09dbddbbced2834ad07",
+          "sha256": "56d6ed0327b47e8e0986ff08af8db3e1b46ab2edbb83ad2427c67888e8ef9fac",
+          "source_url": "https://github.com/assafelovic/gpt-researcher/blob/ddd4db36208d9c8e49f3b2436efda97baecb5433/README.md"
+        },
+        {
+          "repository": "assafelovic/gpt-researcher",
+          "commit": "ddd4db36208d9c8e49f3b2436efda97baecb5433",
+          "path": "gpt_researcher/actions/markdown_processing.py",
+          "git_blob_sha": "130af1fd8278339bd2b38ab7ebc96936434af9f5",
+          "sha256": "df5c4b243f96cd85a93030080987051a1faf9432bcb531a8b6e95a8185dcefa4",
+          "source_url": "https://github.com/assafelovic/gpt-researcher/blob/ddd4db36208d9c8e49f3b2436efda97baecb5433/gpt_researcher/actions/markdown_processing.py"
+        },
+        {
+          "repository": "assafelovic/gpt-researcher",
+          "commit": "ddd4db36208d9c8e49f3b2436efda97baecb5433",
+          "path": "gpt_researcher/context/lexical.py",
+          "git_blob_sha": "6fd6f36ff6b4a805b9b27d8acd9fe56df3e76727",
+          "sha256": "4477a17ae51316282532e64df90ca9b20414211677f598267ed1f11d5c13f3c8",
+          "source_url": "https://github.com/assafelovic/gpt-researcher/blob/ddd4db36208d9c8e49f3b2436efda97baecb5433/gpt_researcher/context/lexical.py"
+        },
+        {
+          "repository": "assafelovic/gpt-researcher",
+          "commit": "ddd4db36208d9c8e49f3b2436efda97baecb5433",
+          "path": "pyproject.toml",
+          "git_blob_sha": "11e741eee05e513cbb37e6ceb88126f9ef11d7a3",
+          "sha256": "945c7f12c3fe5efa732516974333c2862c0116c093712b376c48e08ba2ed7e3d",
+          "source_url": "https://github.com/assafelovic/gpt-researcher/blob/ddd4db36208d9c8e49f3b2436efda97baecb5433/pyproject.toml"
+        }
+      ]
+    },
+    {
+      "id": "huginn",
+      "catalog_commit": "639c050b2bf4e14ef9983012af99dfc1dc68b334",
+      "operation": "agents.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "huginn/huginn",
+          "commit": "639c050b2bf4e14ef9983012af99dfc1dc68b334",
+          "path": "README.md",
+          "git_blob_sha": "ee855c9c927adbc826c241a88a9879e9c1e0e1c4",
+          "sha256": "4c8214cc2d95edccdc5d426acc1bd33e353b78e2262d9d9d00abf3a53047cb1e",
+          "source_url": "https://github.com/huginn/huginn/blob/639c050b2bf4e14ef9983012af99dfc1dc68b334/README.md"
+        },
+        {
+          "repository": "huginn/huginn",
+          "commit": "639c050b2bf4e14ef9983012af99dfc1dc68b334",
+          "path": "app/controllers/agents_controller.rb",
+          "git_blob_sha": "4cf97fbbdcdd27fdf36f102b93a9beb8a31fb01c",
+          "sha256": "81d327ce89ae8f302fb2caba92afa44fdd83499e35be0b4ac8e8e7d8836b1c11",
+          "source_url": "https://github.com/huginn/huginn/blob/639c050b2bf4e14ef9983012af99dfc1dc68b334/app/controllers/agents_controller.rb"
+        },
+        {
+          "repository": "huginn/huginn",
+          "commit": "639c050b2bf4e14ef9983012af99dfc1dc68b334",
+          "path": "app/controllers/application_controller.rb",
+          "git_blob_sha": "04a6d91d280e790736ef9128da1d885b5726e777",
+          "sha256": "61c6e1ae48cd09c74f7c3f0f1962de8959a889b1ffbc0c9bee9714532a898aa2",
+          "source_url": "https://github.com/huginn/huginn/blob/639c050b2bf4e14ef9983012af99dfc1dc68b334/app/controllers/application_controller.rb"
+        },
+        {
+          "repository": "huginn/huginn",
+          "commit": "639c050b2bf4e14ef9983012af99dfc1dc68b334",
+          "path": "config/initializers/session_store.rb",
+          "git_blob_sha": "58b072af565aebdf9c4f7371913e9f318b052e07",
+          "sha256": "cba06d390c7eb28e1a276a0b83b82601deab48713211e24c0767273e76f436f9",
+          "source_url": "https://github.com/huginn/huginn/blob/639c050b2bf4e14ef9983012af99dfc1dc68b334/config/initializers/session_store.rb"
+        },
+        {
+          "repository": "huginn/huginn",
+          "commit": "639c050b2bf4e14ef9983012af99dfc1dc68b334",
+          "path": "config/routes.rb",
+          "git_blob_sha": "5899065b42ceb61ff7d3f1ecb2b1c44ee71fbc5a",
+          "sha256": "11d22d50d0be666a1d84dadbff56040ee0966e1e72e0034db6166f23fd45406c",
+          "source_url": "https://github.com/huginn/huginn/blob/639c050b2bf4e14ef9983012af99dfc1dc68b334/config/routes.rb"
+        },
+        {
+          "repository": "huginn/huginn",
+          "commit": "639c050b2bf4e14ef9983012af99dfc1dc68b334",
+          "path": "package.json",
+          "git_blob_sha": "1fa48f2d25213fff43b443b2f736912e5b63ae6f",
+          "sha256": "cd019bceeda0c2fbf2ed11bb0f740cc0198bca1f150086b4e179ad7f69abb224",
+          "source_url": "https://github.com/huginn/huginn/blob/639c050b2bf4e14ef9983012af99dfc1dc68b334/package.json"
+        }
+      ]
+    },
+    {
+      "id": "humanlayer",
+      "catalog_commit": "b7ad8e1d383ff0f5fbec7bdc30425e4a59d5f789",
+      "operation": "health.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "humanlayer/humanlayer",
+          "commit": "b7ad8e1d383ff0f5fbec7bdc30425e4a59d5f789",
+          "path": "README.md",
+          "git_blob_sha": "651f82cb4a090b075bd33ef17bf11cc2d14f31ec",
+          "sha256": "5f43b972c4a5c2473ad995ab970c46a520a87d1b81714bdf7cfd9593bebffc2a",
+          "source_url": "https://github.com/humanlayer/humanlayer/blob/b7ad8e1d383ff0f5fbec7bdc30425e4a59d5f789/README.md"
+        },
+        {
+          "repository": "humanlayer/humanlayer",
+          "commit": "b7ad8e1d383ff0f5fbec7bdc30425e4a59d5f789",
+          "path": "apps/riptide-api/src/app.ts",
+          "git_blob_sha": "870abb0c1b256ea0330d54c058813a59d164b77f",
+          "sha256": "20adee6c1a9ef2f7a565f783ca3c831b9640b03fb525aa0e498f7779fbf35bbe",
+          "source_url": "https://github.com/humanlayer/humanlayer/blob/b7ad8e1d383ff0f5fbec7bdc30425e4a59d5f789/apps/riptide-api/src/app.ts"
+        },
+        {
+          "repository": "humanlayer/humanlayer",
+          "commit": "b7ad8e1d383ff0f5fbec7bdc30425e4a59d5f789",
+          "path": "apps/riptide-api/src/index.ts",
+          "git_blob_sha": "d907edada2147d84dedef0b7c3bf20369794bf22",
+          "sha256": "5453cc0ca3d15c3621fc46cf50b2e98ff67a81cd4117c19ed289a97feefe61a9",
+          "source_url": "https://github.com/humanlayer/humanlayer/blob/b7ad8e1d383ff0f5fbec7bdc30425e4a59d5f789/apps/riptide-api/src/index.ts"
+        },
+        {
+          "repository": "humanlayer/humanlayer",
+          "commit": "b7ad8e1d383ff0f5fbec7bdc30425e4a59d5f789",
+          "path": "package.json",
+          "git_blob_sha": "bfdb3864c2b76c891e6d6e0f52439e10b9df4994",
+          "sha256": "9f271614df4ed60db4727825e2b37a28554b9e035adc79c13f4495f0cf6b4249",
+          "source_url": "https://github.com/humanlayer/humanlayer/blob/b7ad8e1d383ff0f5fbec7bdc30425e4a59d5f789/package.json"
+        }
+      ]
+    },
+    {
+      "id": "kingfisher-collect",
+      "catalog_commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+      "operation": "releases.inspect",
+      "distribution": "bundled-source:kingfisher-collect",
+      "executed_version": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "LICENSE",
+          "git_blob_sha": "7e2589eda30a1830f2e2486980633274fa82dca2",
+          "sha256": "c5837dd2d0338223cecd3e7f2e53d1d02e71496343b934cd8cdaeefba52a48d3",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/LICENSE"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "README.rst",
+          "git_blob_sha": "6f30981aa4d13962653eb474c3201fcbd09ef2ae",
+          "sha256": "17fa4b7f57753a0f6d3e829ad07f9a67556e399e023c1cb6058ec6ea35d4eb5c",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/README.rst"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "kingfisher_scrapy/__init__.py",
+          "git_blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/kingfisher_scrapy/__init__.py"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "kingfisher_scrapy/items.py",
+          "git_blob_sha": "96ccb1319b2e0b736effc8231f5273e3a88eef7e",
+          "sha256": "b57df9b4cfcaef8498ab6add3d385148303ee73b13615b7287f5baf94e351142",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/kingfisher_scrapy/items.py"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "kingfisher_scrapy/pipelines.py",
+          "git_blob_sha": "6205192dc2959f53de536990af5d27af74d989e3",
+          "sha256": "e9ab6e15301976a1db03490219c5e0a4bb4e1f8a36dcddf7e5aaa9ea71b3cbf1",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/kingfisher_scrapy/pipelines.py"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "kingfisher_scrapy/responses.py",
+          "git_blob_sha": "f3c5ac2acc012a2f7bf10752ca9a60cb4420f310",
+          "sha256": "61fae270a40e6e26f04744932a7c284b0084f0a9a3afb81333ceb9d641ba9693",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/kingfisher_scrapy/responses.py"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "kingfisher_scrapy/util.py",
+          "git_blob_sha": "5597c73ed3f1ccb5974e32ec14713531c0882bfa",
+          "sha256": "707f16521a0eed153cd68b76c62315d8a57a68c43794ebb19e3cb5815a410048",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/kingfisher_scrapy/util.py"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "pyproject.toml",
+          "git_blob_sha": "8b0eed29087c017de5ebed8799c05f6b9ee674f5",
+          "sha256": "0e6e4f78a566b0071378ce5050b5afc846f7518ee0718ed8c501eae180b268e4",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/pyproject.toml"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "requirements.in",
+          "git_blob_sha": "272433aee37ec6c78e953270cedcb667db25a345",
+          "sha256": "fbd612863b4122a8ebb85b34d82567d10769004cf898fc07d5a7637c91459acf",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/requirements.in"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "requirements.txt",
+          "git_blob_sha": "d67e178d195b452357070cb9c66a9fcf5ae231ba",
+          "sha256": "5e3524f8b728ee9bd80cc43f85f31746260664e110b750558848b5aed8a20b8c",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/requirements.txt"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "requirements_base.txt",
+          "git_blob_sha": "46a8351f668cbf79c97df937d0c348c39aa7b3f3",
+          "sha256": "1b90e6019e6b1ad9e3b2e77793450c6a584d000ebe996c18d8fde14735cf11d7",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/requirements_base.txt"
+        },
+        {
+          "repository": "open-contracting/kingfisher-collect",
+          "commit": "865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6",
+          "path": "setup.py",
+          "git_blob_sha": "0cfa0f5fd8de9dbf6e88c1788cc8729082098632",
+          "sha256": "843d1c5b88e08dfe6740cad6b126ace2eaf25053b751534ce1ceca09b96fbf84",
+          "source_url": "https://github.com/open-contracting/kingfisher-collect/blob/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6/setup.py"
+        }
+      ]
+    },
+    {
+      "id": "krayin-crm",
+      "catalog_commit": "ed6deebfcb8c616eaf352c893a10a6d8e666fc6e",
+      "operation": "dashboard.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "krayin/laravel-crm",
+          "commit": "ed6deebfcb8c616eaf352c893a10a6d8e666fc6e",
+          "path": "README.md",
+          "git_blob_sha": "a710fad50d9d90a613da7bae22449fcc9c9941e8",
+          "sha256": "7563abb35b18c205252503862c9bd2f5a623cfdad1105f7e744bab878486a074",
+          "source_url": "https://github.com/krayin/laravel-crm/blob/ed6deebfcb8c616eaf352c893a10a6d8e666fc6e/README.md"
+        },
+        {
+          "repository": "krayin/laravel-crm",
+          "commit": "ed6deebfcb8c616eaf352c893a10a6d8e666fc6e",
+          "path": "config/app.php",
+          "git_blob_sha": "e3e2057d13120b8923847181fcf5e55efe680a91",
+          "sha256": "f6c73940143c81f5f8776abadc34a486ed85b72e85d50399fdcb4b0c2a79ce05",
+          "source_url": "https://github.com/krayin/laravel-crm/blob/ed6deebfcb8c616eaf352c893a10a6d8e666fc6e/config/app.php"
+        },
+        {
+          "repository": "krayin/laravel-crm",
+          "commit": "ed6deebfcb8c616eaf352c893a10a6d8e666fc6e",
+          "path": "config/session.php",
+          "git_blob_sha": "4e0f66cda64c5f324c991d95992a5792523f043a",
+          "sha256": "eb8b7c294e078a424aa8d3267ef50b05c58b3d02816a1925b9856331e0c345b6",
+          "source_url": "https://github.com/krayin/laravel-crm/blob/ed6deebfcb8c616eaf352c893a10a6d8e666fc6e/config/session.php"
+        },
+        {
+          "repository": "krayin/laravel-crm",
+          "commit": "ed6deebfcb8c616eaf352c893a10a6d8e666fc6e",
+          "path": "package.json",
+          "git_blob_sha": "35d756f4800988d0d4574f4115f7514ad60e2514",
+          "sha256": "4fe60ca1baa3c8dd4c5cce7bd995021cd5c3ba3850097eb7e2a9671303d236c0",
+          "source_url": "https://github.com/krayin/laravel-crm/blob/ed6deebfcb8c616eaf352c893a10a6d8e666fc6e/package.json"
+        },
+        {
+          "repository": "krayin/laravel-crm",
+          "commit": "ed6deebfcb8c616eaf352c893a10a6d8e666fc6e",
+          "path": "packages/Webkul/Admin/src/Helpers/Dashboard.php",
+          "git_blob_sha": "74115af120a41a363d9ffff0915fbc1bed4ddc3e",
+          "sha256": "45f44b1295dce173477bd786c7abd95d87f78f6f8ac3697f139b22b7802c5985",
+          "source_url": "https://github.com/krayin/laravel-crm/blob/ed6deebfcb8c616eaf352c893a10a6d8e666fc6e/packages/Webkul/Admin/src/Helpers/Dashboard.php"
+        },
+        {
+          "repository": "krayin/laravel-crm",
+          "commit": "ed6deebfcb8c616eaf352c893a10a6d8e666fc6e",
+          "path": "packages/Webkul/Admin/src/Helpers/Reporting/AbstractReporting.php",
+          "git_blob_sha": "6498660476959ccd3359eb0706faaa2eff6533ab",
+          "sha256": "e160f81263489f29b3db7ad2c6b8acdc848bcd49854c001d0bc159482ba74868",
+          "source_url": "https://github.com/krayin/laravel-crm/blob/ed6deebfcb8c616eaf352c893a10a6d8e666fc6e/packages/Webkul/Admin/src/Helpers/Reporting/AbstractReporting.php"
+        },
+        {
+          "repository": "krayin/laravel-crm",
+          "commit": "ed6deebfcb8c616eaf352c893a10a6d8e666fc6e",
+          "path": "packages/Webkul/Admin/src/Helpers/Reporting/Lead.php",
+          "git_blob_sha": "7dd8ec9dda364e0128f55a5d99b6d39fdac0241a",
+          "sha256": "7d332361365ee683b3d7df4808567d6efc2a555ddf14a760ef9f22422afd257f",
+          "source_url": "https://github.com/krayin/laravel-crm/blob/ed6deebfcb8c616eaf352c893a10a6d8e666fc6e/packages/Webkul/Admin/src/Helpers/Reporting/Lead.php"
+        },
+        {
+          "repository": "krayin/laravel-crm",
+          "commit": "ed6deebfcb8c616eaf352c893a10a6d8e666fc6e",
+          "path": "packages/Webkul/Admin/src/Helpers/Reporting/Organization.php",
+          "git_blob_sha": "e566c0527196535159ba377e9d8574adf90ac7c9",
+          "sha256": "aea54f49fa33725f5ed68623871b9d2fdd8916449c3d95632e20148242e9d00c",
+          "source_url": "https://github.com/krayin/laravel-crm/blob/ed6deebfcb8c616eaf352c893a10a6d8e666fc6e/packages/Webkul/Admin/src/Helpers/Reporting/Organization.php"
+        },
+        {
+          "repository": "krayin/laravel-crm",
+          "commit": "ed6deebfcb8c616eaf352c893a10a6d8e666fc6e",
+          "path": "packages/Webkul/Admin/src/Helpers/Reporting/Person.php",
+          "git_blob_sha": "87c52ad1e0acc81d5c321c3c5956bb5ff8e7d9cf",
+          "sha256": "38217af68138cbd2927fbe330ea1dd470d09a15e78ac5fec877e9faf35fa53c9",
+          "source_url": "https://github.com/krayin/laravel-crm/blob/ed6deebfcb8c616eaf352c893a10a6d8e666fc6e/packages/Webkul/Admin/src/Helpers/Reporting/Person.php"
+        },
+        {
+          "repository": "krayin/laravel-crm",
+          "commit": "ed6deebfcb8c616eaf352c893a10a6d8e666fc6e",
+          "path": "packages/Webkul/Admin/src/Helpers/Reporting/Quote.php",
+          "git_blob_sha": "133f8b342646b4fc2aefce7406847b931f479fea",
+          "sha256": "f64e651d66fb02f183c9c688d0d0712173008e419e2d3b0798c5dd51bd909797",
+          "source_url": "https://github.com/krayin/laravel-crm/blob/ed6deebfcb8c616eaf352c893a10a6d8e666fc6e/packages/Webkul/Admin/src/Helpers/Reporting/Quote.php"
+        },
+        {
+          "repository": "krayin/laravel-crm",
+          "commit": "ed6deebfcb8c616eaf352c893a10a6d8e666fc6e",
+          "path": "packages/Webkul/Admin/src/Http/Controllers/DashboardController.php",
+          "git_blob_sha": "2f20dc02c5f8d723a1c7336dd3acf484799d1c4e",
+          "sha256": "f710fbf54d3ced78fa2b364c98a0e67ab470f39c707ba73f93835bbe60924216",
+          "source_url": "https://github.com/krayin/laravel-crm/blob/ed6deebfcb8c616eaf352c893a10a6d8e666fc6e/packages/Webkul/Admin/src/Http/Controllers/DashboardController.php"
+        },
+        {
+          "repository": "krayin/laravel-crm",
+          "commit": "ed6deebfcb8c616eaf352c893a10a6d8e666fc6e",
+          "path": "packages/Webkul/Admin/src/Providers/AdminServiceProvider.php",
+          "git_blob_sha": "1c1a401f0356942601c7206dd685d1632ad5cda9",
+          "sha256": "a6f877b4503285f302a93928bc202793a3ddf19553eb3c57313a9db2abcbeacf",
+          "source_url": "https://github.com/krayin/laravel-crm/blob/ed6deebfcb8c616eaf352c893a10a6d8e666fc6e/packages/Webkul/Admin/src/Providers/AdminServiceProvider.php"
+        },
+        {
+          "repository": "krayin/laravel-crm",
+          "commit": "ed6deebfcb8c616eaf352c893a10a6d8e666fc6e",
+          "path": "packages/Webkul/Admin/src/Routes/Admin/rest-routes.php",
+          "git_blob_sha": "453a989bce5bc23231149d2bfd3984b55f79457b",
+          "sha256": "04e0935bd508da4240bbb3815fc1f3c462e3339ef3a1c840508c1c363350ac1d",
+          "source_url": "https://github.com/krayin/laravel-crm/blob/ed6deebfcb8c616eaf352c893a10a6d8e666fc6e/packages/Webkul/Admin/src/Routes/Admin/rest-routes.php"
+        },
+        {
+          "repository": "krayin/laravel-crm",
+          "commit": "ed6deebfcb8c616eaf352c893a10a6d8e666fc6e",
+          "path": "packages/Webkul/Admin/src/Routes/Admin/web.php",
+          "git_blob_sha": "259e23faf5abad3e43c117103a23d62c5e52196e",
+          "sha256": "3a313a13fb0edcd18c97dea4ee060ff2231ca85ca649d79f40de35973d8a9612",
+          "source_url": "https://github.com/krayin/laravel-crm/blob/ed6deebfcb8c616eaf352c893a10a6d8e666fc6e/packages/Webkul/Admin/src/Routes/Admin/web.php"
+        }
+      ]
+    },
+    {
+      "id": "letta",
+      "catalog_commit": "8816d3a8516893bfdc0fa14bfb1235226012e295",
+      "operation": "health.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "letta-ai/letta",
+          "commit": "8816d3a8516893bfdc0fa14bfb1235226012e295",
+          "path": "README.md",
+          "git_blob_sha": "9a23cb4226d462b555ae75052e32370a7d82adee",
+          "sha256": "67ec50661bb95db1839101863f08eaaa3cae3f2cc804adb2250a058393e56417",
+          "source_url": "https://github.com/letta-ai/letta/blob/8816d3a8516893bfdc0fa14bfb1235226012e295/README.md"
+        }
+      ]
+    },
+    {
+      "id": "livekit",
+      "catalog_commit": "59753ba7d759621ffb256b8023ebf2ddf70ffa9a",
+      "operation": "rooms.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "livekit/agents",
+          "commit": "59753ba7d759621ffb256b8023ebf2ddf70ffa9a",
+          "path": "README.md",
+          "git_blob_sha": "f4c93c272707df3af964b95c47cb9d757be41f97",
+          "sha256": "003e4b6ee5a401945fa1542c41fa4cf7592e6cee873809426852a45a2018c604",
+          "source_url": "https://github.com/livekit/agents/blob/59753ba7d759621ffb256b8023ebf2ddf70ffa9a/README.md"
+        },
+        {
+          "repository": "livekit/agents",
+          "commit": "59753ba7d759621ffb256b8023ebf2ddf70ffa9a",
+          "path": "livekit-agents/pyproject.toml",
+          "git_blob_sha": "7a98a4d7921cfe9a8b2dd6b69406d30dec63b11f",
+          "sha256": "ff3873d3735f469383df352a68925802bf3f4c4fe5bde3fabd4e3ab65af5c2ea",
+          "source_url": "https://github.com/livekit/agents/blob/59753ba7d759621ffb256b8023ebf2ddf70ffa9a/livekit-agents/pyproject.toml"
+        },
+        {
+          "repository": "livekit/agents",
+          "commit": "59753ba7d759621ffb256b8023ebf2ddf70ffa9a",
+          "path": "pyproject.toml",
+          "git_blob_sha": "4754f7bf8cb856c7a9b294c78193f0d446e671ab",
+          "sha256": "f81561d666e5586008e8d587d85088d96b5ce7fed9a3cb6aff8d7d1a26a4b80d",
+          "source_url": "https://github.com/livekit/agents/blob/59753ba7d759621ffb256b8023ebf2ddf70ffa9a/pyproject.toml"
+        }
+      ]
+    },
+    {
+      "id": "mcp-gsc",
+      "catalog_commit": "45291df024c7873b2042c83d7add70ced7bb621f",
+      "operation": "sites.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "AminForou/mcp-gsc",
+          "commit": "45291df024c7873b2042c83d7add70ced7bb621f",
+          "path": "README.md",
+          "git_blob_sha": "cdcf0e7a890a4ef86c1f6ed5488b4a98196ea07c",
+          "sha256": "0361a6343817c201b2069b77f8c6c83974be941cb364ad98e1bfb669669e2f58",
+          "source_url": "https://github.com/AminForou/mcp-gsc/blob/45291df024c7873b2042c83d7add70ced7bb621f/README.md"
+        },
+        {
+          "repository": "AminForou/mcp-gsc",
+          "commit": "45291df024c7873b2042c83d7add70ced7bb621f",
+          "path": "gsc_server.py",
+          "git_blob_sha": "34252b495b7155d3c370bfde03d937022aa1a897",
+          "sha256": "ac1555717865c1c9329f907a0809493deaed4354de92b9d9ffc8abd12d1947b0",
+          "source_url": "https://github.com/AminForou/mcp-gsc/blob/45291df024c7873b2042c83d7add70ced7bb621f/gsc_server.py"
+        },
+        {
+          "repository": "AminForou/mcp-gsc",
+          "commit": "45291df024c7873b2042c83d7add70ced7bb621f",
+          "path": "pyproject.toml",
+          "git_blob_sha": "d806b71f70af255e1b626fd3d5d8f6a94cca561b",
+          "sha256": "4c3da382e1633eb39d0bd06e8792890f3e63af33468426cbf36d1c303eaa36cb",
+          "source_url": "https://github.com/AminForou/mcp-gsc/blob/45291df024c7873b2042c83d7add70ced7bb621f/pyproject.toml"
+        }
+      ]
+    },
+    {
+      "id": "meridian",
+      "catalog_commit": "f4ca39d406e1a86bd13d65fdf14166268044fd2d",
+      "operation": "media.transform",
+      "distribution": "google-meridian",
+      "executed_version": "2.2.0",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "google/meridian",
+          "commit": "f4ca39d406e1a86bd13d65fdf14166268044fd2d",
+          "path": "README.md",
+          "git_blob_sha": "a3f1a4dfa3f7640a5ef8c30fcff2ff6165da9be2",
+          "sha256": "01aaafa090ef534a32c470d6ca9e9a81a22b4f0203c57b545af04b6639086c90",
+          "source_url": "https://github.com/google/meridian/blob/f4ca39d406e1a86bd13d65fdf14166268044fd2d/README.md"
+        },
+        {
+          "repository": "google/meridian",
+          "commit": "f4ca39d406e1a86bd13d65fdf14166268044fd2d",
+          "path": "meridian/model/adstock_hill.py",
+          "git_blob_sha": "d2d3c2b24b36b23e43fab082f14741a30b01bc58",
+          "sha256": "99e57c8d7b2622bfb602c255d815d15dddac88af3b99239316bc0eb68796a9f4",
+          "source_url": "https://github.com/google/meridian/blob/f4ca39d406e1a86bd13d65fdf14166268044fd2d/meridian/model/adstock_hill.py"
+        },
+        {
+          "repository": "google/meridian",
+          "commit": "f4ca39d406e1a86bd13d65fdf14166268044fd2d",
+          "path": "pyproject.toml",
+          "git_blob_sha": "6596bb5be930dbda3348f622bf494cbf0380e725",
+          "sha256": "1b808997f2da47518ff0fd6332f7471dbb8dc3cd4294312183a03859b22ec656",
+          "source_url": "https://github.com/google/meridian/blob/f4ca39d406e1a86bd13d65fdf14166268044fd2d/pyproject.toml"
+        },
+        {
+          "repository": "google/meridian",
+          "commit": "f4ca39d406e1a86bd13d65fdf14166268044fd2d",
+          "path": "setup.py",
+          "git_blob_sha": "dde2fe211508815a0ad8f60706f1c63b05e11937",
+          "sha256": "9f19e43fad4e1b23d70c4d506ba2e29c723b895482a3a5b27e419db39fbf2256",
+          "source_url": "https://github.com/google/meridian/blob/f4ca39d406e1a86bd13d65fdf14166268044fd2d/setup.py"
+        }
+      ]
+    },
+    {
+      "id": "newsjack",
+      "catalog_commit": "c2df3a0168083d620b9b36518aeca16a4eb72296",
+      "operation": "rewrite.compare",
+      "distribution": "bundled-source:newsjack",
+      "executed_version": "c2df3a0168083d620b9b36518aeca16a4eb72296",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "elvisun/newsjack",
+          "commit": "c2df3a0168083d620b9b36518aeca16a4eb72296",
+          "path": "LICENSE",
+          "git_blob_sha": "3114ffd1cb756dbc47941e2c100cc27cb10d274a",
+          "sha256": "a973d457a5ad23a36205ef48f88c5860680fed6a3d8fdc64df6f43cd0b3e413e",
+          "source_url": "https://github.com/elvisun/newsjack/blob/c2df3a0168083d620b9b36518aeca16a4eb72296/LICENSE"
+        },
+        {
+          "repository": "elvisun/newsjack",
+          "commit": "c2df3a0168083d620b9b36518aeca16a4eb72296",
+          "path": "README.md",
+          "git_blob_sha": "c96b2faa8a1891a063431b9b78c0dc2d7e823734",
+          "sha256": "25c64e2ef512a82294453dfb889ecc2aa61437afe553a3c0a65be929a1cd155f",
+          "source_url": "https://github.com/elvisun/newsjack/blob/c2df3a0168083d620b9b36518aeca16a4eb72296/README.md"
+        },
+        {
+          "repository": "elvisun/newsjack",
+          "commit": "c2df3a0168083d620b9b36518aeca16a4eb72296",
+          "path": "eval/ai-visibility-writing/fixtures/scoring-good.json",
+          "git_blob_sha": "110d3bc0de8060f047675561b797e952739b24ae",
+          "sha256": "43e4bde2dd51112fba995e939b13acbdc09fb6fa7ffc04f4a7646d32733d3d69",
+          "source_url": "https://github.com/elvisun/newsjack/blob/c2df3a0168083d620b9b36518aeca16a4eb72296/eval/ai-visibility-writing/fixtures/scoring-good.json"
+        },
+        {
+          "repository": "elvisun/newsjack",
+          "commit": "c2df3a0168083d620b9b36518aeca16a4eb72296",
+          "path": "eval/ai-visibility-writing/harness/score.py",
+          "git_blob_sha": "c93eb37d2eae5e4521dc794c8a48ef349bc15bb1",
+          "sha256": "ae1f71d236a0333fdb8bdaef335fbe10204a5528f6f6cf92ae081f9284362742",
+          "source_url": "https://github.com/elvisun/newsjack/blob/c2df3a0168083d620b9b36518aeca16a4eb72296/eval/ai-visibility-writing/harness/score.py"
+        },
+        {
+          "repository": "elvisun/newsjack",
+          "commit": "c2df3a0168083d620b9b36518aeca16a4eb72296",
+          "path": "eval/ai-visibility-writing/scripts/pilotlib.py",
+          "git_blob_sha": "0ac2920f636e45f0637c9ad8924c6fbaff57df0d",
+          "sha256": "134284b1c0d938d8a2c5b4fcab529303efa7f2fda0cdcd0bbc735556e07fd65b",
+          "source_url": "https://github.com/elvisun/newsjack/blob/c2df3a0168083d620b9b36518aeca16a4eb72296/eval/ai-visibility-writing/scripts/pilotlib.py"
+        },
+        {
+          "repository": "elvisun/newsjack",
+          "commit": "c2df3a0168083d620b9b36518aeca16a4eb72296",
+          "path": "package.json",
+          "git_blob_sha": "b5fed3bd5d1226e4331409c5ed18d677985dc81e",
+          "sha256": "da6a2c12af96e67b2a08dbe4d3982addd995521f10ada099cc2339eec27f168b",
+          "source_url": "https://github.com/elvisun/newsjack/blob/c2df3a0168083d620b9b36518aeca16a4eb72296/package.json"
+        }
+      ]
+    },
+    {
+      "id": "nlweb",
+      "catalog_commit": "b423f15d9aeaa023ce75993ac9deed2354597043",
+      "operation": "health.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "microsoft/NLWeb",
+          "commit": "b423f15d9aeaa023ce75993ac9deed2354597043",
+          "path": "AskAgent/python/webserver/aiohttp_server.py",
+          "git_blob_sha": "b73c993e375b616756500293dc60e5e51db87ace",
+          "sha256": "167a66c5e55cb372e55fd0549ded98fae52d3436a361c0aa3359446d45cee9ad",
+          "source_url": "https://github.com/microsoft/NLWeb/blob/b423f15d9aeaa023ce75993ac9deed2354597043/AskAgent/python/webserver/aiohttp_server.py"
+        },
+        {
+          "repository": "microsoft/NLWeb",
+          "commit": "b423f15d9aeaa023ce75993ac9deed2354597043",
+          "path": "AskAgent/python/webserver/middleware/auth.py",
+          "git_blob_sha": "410923294c4384f72c01df03c1ab8f4261c17d80",
+          "sha256": "a238b4e29e35a962f1e7b6f02e3a68b2c40ae7f532ddfbcbf4d1aa1eff4022d8",
+          "source_url": "https://github.com/microsoft/NLWeb/blob/b423f15d9aeaa023ce75993ac9deed2354597043/AskAgent/python/webserver/middleware/auth.py"
+        },
+        {
+          "repository": "microsoft/NLWeb",
+          "commit": "b423f15d9aeaa023ce75993ac9deed2354597043",
+          "path": "AskAgent/python/webserver/routes/health.py",
+          "git_blob_sha": "5974e428f3ca9b564699d16ead23e80309ce133d",
+          "sha256": "d1372f56efa92eec2cb41651f312487c5cb9313d0115fd0adf28669f763a6d46",
+          "source_url": "https://github.com/microsoft/NLWeb/blob/b423f15d9aeaa023ce75993ac9deed2354597043/AskAgent/python/webserver/routes/health.py"
+        },
+        {
+          "repository": "microsoft/NLWeb",
+          "commit": "b423f15d9aeaa023ce75993ac9deed2354597043",
+          "path": "README.md",
+          "git_blob_sha": "873e5419ace6beeca0c4b24b38be753b151ce069",
+          "sha256": "8ffdf8038399204e6f8694ecbd977f3b33b01d3572b0fa663c77cf7cf2e3c93b",
+          "source_url": "https://github.com/microsoft/NLWeb/blob/b423f15d9aeaa023ce75993ac9deed2354597043/README.md"
+        }
+      ]
+    },
+    {
+      "id": "opengmb",
+      "catalog_commit": "8f399472e9d484cfcad77eef33b0da341e469577",
+      "operation": "actions.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "synectus/OpenGMB",
+          "commit": "8f399472e9d484cfcad77eef33b0da341e469577",
+          "path": "README.md",
+          "git_blob_sha": "ff148b5c5f5a6314a500addbb2e851317d58b01e",
+          "sha256": "ac544f3070c3d3f65c0028daf295e7b4f8748471fa430944f517378319d91da6",
+          "source_url": "https://github.com/synectus/OpenGMB/blob/8f399472e9d484cfcad77eef33b0da341e469577/README.md"
+        },
+        {
+          "repository": "synectus/OpenGMB",
+          "commit": "8f399472e9d484cfcad77eef33b0da341e469577",
+          "path": "apps/mcp/src/__snapshots__/rest-v1-contract.json",
+          "git_blob_sha": "7636637aac46dd41c2e616f456eb1896696e37ad",
+          "sha256": "b126374bcc6b1d78d6ddb5b1e0201dd2e8207e1336d196293d848f6200a55cb7",
+          "source_url": "https://github.com/synectus/OpenGMB/blob/8f399472e9d484cfcad77eef33b0da341e469577/apps/mcp/src/__snapshots__/rest-v1-contract.json"
+        },
+        {
+          "repository": "synectus/OpenGMB",
+          "commit": "8f399472e9d484cfcad77eef33b0da341e469577",
+          "path": "apps/mcp/src/rest.ts",
+          "git_blob_sha": "c364c573220b961333c6cdeab3eb7951fa636e37",
+          "sha256": "ae1855958ee33aa9819e29050154ca8b6c0da8485cb0b938026e85f76898b26f",
+          "source_url": "https://github.com/synectus/OpenGMB/blob/8f399472e9d484cfcad77eef33b0da341e469577/apps/mcp/src/rest.ts"
+        },
+        {
+          "repository": "synectus/OpenGMB",
+          "commit": "8f399472e9d484cfcad77eef33b0da341e469577",
+          "path": "apps/mcp/src/server.ts",
+          "git_blob_sha": "bc9c794bea6a3bbc64edcc1927de62b187b847c1",
+          "sha256": "0725cd20ef9609f1e20136a48ee3b9424d2b53967e7b4b26729ea836f4b40d2c",
+          "source_url": "https://github.com/synectus/OpenGMB/blob/8f399472e9d484cfcad77eef33b0da341e469577/apps/mcp/src/server.ts"
+        },
+        {
+          "repository": "synectus/OpenGMB",
+          "commit": "8f399472e9d484cfcad77eef33b0da341e469577",
+          "path": "apps/web/app/api/health/route.ts",
+          "git_blob_sha": "9adfdd9b036f91e827231b89630bdae26a2be463",
+          "sha256": "749558acb814a053184b08807887823627bf1f3a2aca1afee09b52ddf674a38b",
+          "source_url": "https://github.com/synectus/OpenGMB/blob/8f399472e9d484cfcad77eef33b0da341e469577/apps/web/app/api/health/route.ts"
+        },
+        {
+          "repository": "synectus/OpenGMB",
+          "commit": "8f399472e9d484cfcad77eef33b0da341e469577",
+          "path": "apps/web/app/api/v1/[...path]/route.ts",
+          "git_blob_sha": "9114a57f5a6430ff21539618fee2cd18a14b46a2",
+          "sha256": "3dca0df3ef743777a44922e5f2904425976027c36694e7d3727763ffef12a5de",
+          "source_url": "https://github.com/synectus/OpenGMB/blob/8f399472e9d484cfcad77eef33b0da341e469577/apps/web/app/api/v1/[...path]/route.ts"
+        },
+        {
+          "repository": "synectus/OpenGMB",
+          "commit": "8f399472e9d484cfcad77eef33b0da341e469577",
+          "path": "package.json",
+          "git_blob_sha": "891952a0734a1f668f8b772c5a2f04ab781dbd6e",
+          "sha256": "c214da6a6082c234838b5293b778ea972c5fb0782e9bf25650e76a23e1baa607",
+          "source_url": "https://github.com/synectus/OpenGMB/blob/8f399472e9d484cfcad77eef33b0da341e469577/package.json"
+        }
+      ]
+    },
+    {
+      "id": "openhands",
+      "catalog_commit": "685eb42ded117ba0321aa8c3019e6677e5474317",
+      "operation": "health.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "All-Hands-AI/OpenHands",
+          "commit": "685eb42ded117ba0321aa8c3019e6677e5474317",
+          "path": "README.md",
+          "git_blob_sha": "32c308ddc1d5a9e82c72ccbae497395ac403e11c",
+          "sha256": "eca2b7026190577215e9967cc6ba69ff6ed3219d05f2a48a01d4ab590fa6a38a",
+          "source_url": "https://github.com/All-Hands-AI/OpenHands/blob/685eb42ded117ba0321aa8c3019e6677e5474317/README.md"
+        },
+        {
+          "repository": "All-Hands-AI/OpenHands",
+          "commit": "685eb42ded117ba0321aa8c3019e6677e5474317",
+          "path": "package.json",
+          "git_blob_sha": "5382efb0f35ce4242a257d5e2a91cfbfbe9fe58d",
+          "sha256": "3886d5aa7e90b425b201b7712bc2b72e287a39a6bd1c7a7afef92b106f2bb47f",
+          "source_url": "https://github.com/All-Hands-AI/OpenHands/blob/685eb42ded117ba0321aa8c3019e6677e5474317/package.json"
+        },
+        {
+          "repository": "All-Hands-AI/OpenHands",
+          "commit": "685eb42ded117ba0321aa8c3019e6677e5474317",
+          "path": "src/api/backend-registry/auth.ts",
+          "git_blob_sha": "2d9fb3d1da7688e23becd03ee837f040f5d746e4",
+          "sha256": "6c0febb4b68bfd3621e6f5d7b3580bcbd9f562ce76ce282bbf19f6fbcd079658",
+          "source_url": "https://github.com/All-Hands-AI/OpenHands/blob/685eb42ded117ba0321aa8c3019e6677e5474317/src/api/backend-registry/auth.ts"
+        },
+        {
+          "repository": "All-Hands-AI/OpenHands",
+          "commit": "685eb42ded117ba0321aa8c3019e6677e5474317",
+          "path": "src/api/backend-registry/health-store.ts",
+          "git_blob_sha": "5b4a470b031447fd1f92830da6d3ceccb09a739c",
+          "sha256": "9419fc962eaf4aa940bfdd38bb81b4e9b7755e4aba4b3471c6c4e293e80f006a",
+          "source_url": "https://github.com/All-Hands-AI/OpenHands/blob/685eb42ded117ba0321aa8c3019e6677e5474317/src/api/backend-registry/health-store.ts"
+        }
+      ]
+    },
+    {
+      "id": "openprospector",
+      "catalog_commit": "dad0e778ff4e1438b69574ff9cbb7663a3bda6e6",
+      "operation": "readiness.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "clawnify/OpenProspector",
+          "commit": "dad0e778ff4e1438b69574ff9cbb7663a3bda6e6",
+          "path": "README.md",
+          "git_blob_sha": "2ab204c6c3fb10713a7760fd20ea9aa97be529d2",
+          "sha256": "d085d3176efbc0090b16b46c72c25e87d805853a0bdcef2c8206733ad2825187",
+          "source_url": "https://github.com/clawnify/OpenProspector/blob/dad0e778ff4e1438b69574ff9cbb7663a3bda6e6/README.md"
+        },
+        {
+          "repository": "clawnify/OpenProspector",
+          "commit": "dad0e778ff4e1438b69574ff9cbb7663a3bda6e6",
+          "path": "package.json",
+          "git_blob_sha": "4191d7364a74cea5679f9a389374ff38ebdb64e6",
+          "sha256": "ec9926184fe3012e1ce6f36394543a8ed69e25d65b9b34229ea1a4bed4bee2a6",
+          "source_url": "https://github.com/clawnify/OpenProspector/blob/dad0e778ff4e1438b69574ff9cbb7663a3bda6e6/package.json"
+        },
+        {
+          "repository": "clawnify/OpenProspector",
+          "commit": "dad0e778ff4e1438b69574ff9cbb7663a3bda6e6",
+          "path": "src/server/index.ts",
+          "git_blob_sha": "de4d117130aad03175083a285af0ca5b1f18577a",
+          "sha256": "93ffe8c2b23898a7c9742ebb74d40e0d073519c62f42628fb222312106392296",
+          "source_url": "https://github.com/clawnify/OpenProspector/blob/dad0e778ff4e1438b69574ff9cbb7663a3bda6e6/src/server/index.ts"
+        },
+        {
+          "repository": "clawnify/OpenProspector",
+          "commit": "dad0e778ff4e1438b69574ff9cbb7663a3bda6e6",
+          "path": "src/server/list-routes.ts",
+          "git_blob_sha": "a5d8d461f96f95ed98981a6307f5f2c5ee8a4184",
+          "sha256": "931268527fd65977ee93857b9695e7cc755a99baee9c748825b67ec2b9d357fd",
+          "source_url": "https://github.com/clawnify/OpenProspector/blob/dad0e778ff4e1438b69574ff9cbb7663a3bda6e6/src/server/list-routes.ts"
+        }
+      ]
+    },
+    {
+      "id": "openseo",
+      "catalog_commit": "12b525400539f980668d088ff7154236a2376e88",
+      "operation": "projects.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "duckduckdeploy/openseo",
+          "commit": "12b525400539f980668d088ff7154236a2376e88",
+          "path": "README.md",
+          "git_blob_sha": "dbd14af686a271998c3cb6b49084b13340364392",
+          "sha256": "fecf1c6b52b6fe44c6c7fbfdbd58680f48c07aad986a64bd5f16f0513dbe770c",
+          "source_url": "https://github.com/duckduckdeploy/openseo/blob/12b525400539f980668d088ff7154236a2376e88/README.md"
+        },
+        {
+          "repository": "duckduckdeploy/openseo",
+          "commit": "12b525400539f980668d088ff7154236a2376e88",
+          "path": "apps/api/src/app.ts",
+          "git_blob_sha": "56b7ebb0644bc4619389ee1ecfe687e56eff0e2b",
+          "sha256": "02a6e683e950b20eb618c19b40b80db01d9886c49bfaa3b98090e420769dc305",
+          "source_url": "https://github.com/duckduckdeploy/openseo/blob/12b525400539f980668d088ff7154236a2376e88/apps/api/src/app.ts"
+        },
+        {
+          "repository": "duckduckdeploy/openseo",
+          "commit": "12b525400539f980668d088ff7154236a2376e88",
+          "path": "apps/api/src/lib/auth.ts",
+          "git_blob_sha": "24f309c8b46e96b7ea4f614e316f7f8b14cae2ba",
+          "sha256": "384b1c9aeaaf1d5b8a35ea89fc4f389355c95216014074389ec137f49e419a09",
+          "source_url": "https://github.com/duckduckdeploy/openseo/blob/12b525400539f980668d088ff7154236a2376e88/apps/api/src/lib/auth.ts"
+        },
+        {
+          "repository": "duckduckdeploy/openseo",
+          "commit": "12b525400539f980668d088ff7154236a2376e88",
+          "path": "apps/api/src/lib/context.ts",
+          "git_blob_sha": "f1db8c75f7bbdfd5c31db76763b4b3a5ed67449b",
+          "sha256": "f339bf61f5a5560a95f508ae64540c5b5d9abaa5fe2e44d3c45c0e7cc3e4885e",
+          "source_url": "https://github.com/duckduckdeploy/openseo/blob/12b525400539f980668d088ff7154236a2376e88/apps/api/src/lib/context.ts"
+        },
+        {
+          "repository": "duckduckdeploy/openseo",
+          "commit": "12b525400539f980668d088ff7154236a2376e88",
+          "path": "apps/api/src/routes/projects.ts",
+          "git_blob_sha": "22457e0576db37de372b85917b2c871446d30a7a",
+          "sha256": "afe6df7f02e574b17a01e777cb533adeb499f5526cdcc7a6c3a72f3addfd6a49",
+          "source_url": "https://github.com/duckduckdeploy/openseo/blob/12b525400539f980668d088ff7154236a2376e88/apps/api/src/routes/projects.ts"
+        },
+        {
+          "repository": "duckduckdeploy/openseo",
+          "commit": "12b525400539f980668d088ff7154236a2376e88",
+          "path": "package.json",
+          "git_blob_sha": "3f6111416bd828e279984ebd1d061b6dda0121df",
+          "sha256": "f1bbe4122b6255881a83da28107bc540a180b97013c0769813659282a3ab5696",
+          "source_url": "https://github.com/duckduckdeploy/openseo/blob/12b525400539f980668d088ff7154236a2376e88/package.json"
+        }
+      ]
+    },
+    {
+      "id": "otel-collector",
+      "catalog_commit": "e366bb7fb49a67fd117332fff93795a0050744ff",
+      "operation": "metrics.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "open-telemetry/opentelemetry-collector",
+          "commit": "e366bb7fb49a67fd117332fff93795a0050744ff",
+          "path": "README.md",
+          "git_blob_sha": "2ade3ce4d965e1bf7c0d2b022ee04b0bcc25852b",
+          "sha256": "b64c26e3876adcf544f79b004710d7365fd75e1973af9540612183bffbc04f20",
+          "source_url": "https://github.com/open-telemetry/opentelemetry-collector/blob/e366bb7fb49a67fd117332fff93795a0050744ff/README.md"
+        },
+        {
+          "repository": "open-telemetry/opentelemetry-collector",
+          "commit": "e366bb7fb49a67fd117332fff93795a0050744ff",
+          "path": "service/internal/metadata/generated_telemetry.go",
+          "git_blob_sha": "381f25019bae41efe388e44e441efde6a565e49a",
+          "sha256": "dfa2f0cb62f81232473bc6e85ef38e59a3610ca9abef428028d237bea7cd3d11",
+          "source_url": "https://github.com/open-telemetry/opentelemetry-collector/blob/e366bb7fb49a67fd117332fff93795a0050744ff/service/internal/metadata/generated_telemetry.go"
+        },
+        {
+          "repository": "open-telemetry/opentelemetry-collector",
+          "commit": "e366bb7fb49a67fd117332fff93795a0050744ff",
+          "path": "service/internal/proctelemetry/process_telemetry.go",
+          "git_blob_sha": "af00d2b6234535345f287b186176db0420d70b99",
+          "sha256": "1b00a4d09da609e7cf6a121b64157b711005f7a70c75993fee22481a800a726a",
+          "source_url": "https://github.com/open-telemetry/opentelemetry-collector/blob/e366bb7fb49a67fd117332fff93795a0050744ff/service/internal/proctelemetry/process_telemetry.go"
+        },
+        {
+          "repository": "open-telemetry/opentelemetry-collector",
+          "commit": "e366bb7fb49a67fd117332fff93795a0050744ff",
+          "path": "service/metadata.yaml",
+          "git_blob_sha": "ee3dde384c92fefa0d1d4bd8f6723b67689593e8",
+          "sha256": "d81dad4aba9926fd7a1490be39a9d8aa3181a12549cea075aabbe4633272bb57",
+          "source_url": "https://github.com/open-telemetry/opentelemetry-collector/blob/e366bb7fb49a67fd117332fff93795a0050744ff/service/metadata.yaml"
+        },
+        {
+          "repository": "open-telemetry/opentelemetry-collector",
+          "commit": "e366bb7fb49a67fd117332fff93795a0050744ff",
+          "path": "service/telemetry/otelconftelemetry/config.go",
+          "git_blob_sha": "da847bc183d112b8d907a2f2e01596c8a1dd0333",
+          "sha256": "4bd22d2a3907e77087c85d19ba5bc7b9d8a77c069a54d59cb4b3307fc4d8c256",
+          "source_url": "https://github.com/open-telemetry/opentelemetry-collector/blob/e366bb7fb49a67fd117332fff93795a0050744ff/service/telemetry/otelconftelemetry/config.go"
+        },
+        {
+          "repository": "open-telemetry/opentelemetry-collector",
+          "commit": "e366bb7fb49a67fd117332fff93795a0050744ff",
+          "path": "service/telemetry/otelconftelemetry/factory.go",
+          "git_blob_sha": "88f48b8dd742d62806376f7e409a87f9e88a7436",
+          "sha256": "623d34f883ee5a4f519179f3052e61aa3c7ccf3966e42ee807d817c5f6324437",
+          "source_url": "https://github.com/open-telemetry/opentelemetry-collector/blob/e366bb7fb49a67fd117332fff93795a0050744ff/service/telemetry/otelconftelemetry/factory.go"
+        },
+        {
+          "repository": "open-telemetry/opentelemetry-collector",
+          "commit": "e366bb7fb49a67fd117332fff93795a0050744ff",
+          "path": "service/telemetry/otelconftelemetry/metrics.go",
+          "git_blob_sha": "79ff17aa369cdcf95ec0782d54cb676eb1ae91fb",
+          "sha256": "08464e0fd686cf757629a2144a8804b9637e7701abf5386532441fe5a5c0e5b1",
+          "source_url": "https://github.com/open-telemetry/opentelemetry-collector/blob/e366bb7fb49a67fd117332fff93795a0050744ff/service/telemetry/otelconftelemetry/metrics.go"
+        }
+      ]
+    },
+    {
+      "id": "postal",
+      "catalog_commit": "d96eddbadeda600595d6247486f9ceb8e99cbc15",
+      "operation": "health.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "postalserver/postal",
+          "commit": "d96eddbadeda600595d6247486f9ceb8e99cbc15",
+          "path": "README.md",
+          "git_blob_sha": "cd2cce9447c1414f160a11c4b843470315ba1e04",
+          "sha256": "cd12bd3c9dae6282fcad76a214c341a698ca3425a4070ede411de1d6dc157bf0",
+          "source_url": "https://github.com/postalserver/postal/blob/d96eddbadeda600595d6247486f9ceb8e99cbc15/README.md"
+        },
+        {
+          "repository": "postalserver/postal",
+          "commit": "d96eddbadeda600595d6247486f9ceb8e99cbc15",
+          "path": "app/util/health_server.rb",
+          "git_blob_sha": "54e7996ff05872c213e0808f68f705c5aa0591d1",
+          "sha256": "43d80d8c05088db1c37790a865711845d52b1f1b9d5cde5bcb3be511b3951c04",
+          "source_url": "https://github.com/postalserver/postal/blob/d96eddbadeda600595d6247486f9ceb8e99cbc15/app/util/health_server.rb"
+        },
+        {
+          "repository": "postalserver/postal",
+          "commit": "d96eddbadeda600595d6247486f9ceb8e99cbc15",
+          "path": "config/routes.rb",
+          "git_blob_sha": "9e948122090c17ced31f7df0a11ae02d32079f7a",
+          "sha256": "ea347df26a99d5004998c685b32a0f4df668fd3b5983d2c9d8b31d85b1d9bc31",
+          "source_url": "https://github.com/postalserver/postal/blob/d96eddbadeda600595d6247486f9ceb8e99cbc15/config/routes.rb"
+        }
+      ]
+    },
+    {
+      "id": "praw",
+      "catalog_commit": "4590cb5b0ad2f9afbab983d60d792fc3c74d1f45",
+      "operation": "posts.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "praw-dev/praw",
+          "commit": "4590cb5b0ad2f9afbab983d60d792fc3c74d1f45",
+          "path": "README.rst",
+          "git_blob_sha": "9142d2cba2efe742bcec79f824b4128a38d13495",
+          "sha256": "4a6ecd77dd1336113664344b29ce14f3b4de8ecfeb84b2a9333626bb1f67a07b",
+          "source_url": "https://github.com/praw-dev/praw/blob/4590cb5b0ad2f9afbab983d60d792fc3c74d1f45/README.rst"
+        },
+        {
+          "repository": "praw-dev/praw",
+          "commit": "4590cb5b0ad2f9afbab983d60d792fc3c74d1f45",
+          "path": "praw/endpoints.py",
+          "git_blob_sha": "5fe4de568f3bda0fec2c1c3e8f3c57d52f3354b9",
+          "sha256": "487c557e5289a432055ddbb5cc2d4793df63a2805fc66412e3cb0936b0d76299",
+          "source_url": "https://github.com/praw-dev/praw/blob/4590cb5b0ad2f9afbab983d60d792fc3c74d1f45/praw/endpoints.py"
+        },
+        {
+          "repository": "praw-dev/praw",
+          "commit": "4590cb5b0ad2f9afbab983d60d792fc3c74d1f45",
+          "path": "pyproject.toml",
+          "git_blob_sha": "2d33c8bd55dab9003c02e135b6673ec6979fe3d6",
+          "sha256": "73944f481e78cafdd123de64375066586fe1d2d9aa71e9a3372cfee1b4aa58f4",
+          "source_url": "https://github.com/praw-dev/praw/blob/4590cb5b0ad2f9afbab983d60d792fc3c74d1f45/pyproject.toml"
+        }
+      ]
+    },
+    {
+      "id": "python-podcastindex",
+      "catalog_commit": "63fdb84b76b5d65c99e9c92428af55cc51aff04e",
+      "operation": "index.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "piqosoft/python-podcastindex",
+          "commit": "63fdb84b76b5d65c99e9c92428af55cc51aff04e",
+          "path": "README.md",
+          "git_blob_sha": "b280b658195de7297a9dda8fe697c1b62ded5eb1",
+          "sha256": "ae72d760e600529498f0702551654590a5d618b694d8645a6c61cfaad093725b",
+          "source_url": "https://github.com/piqosoft/python-podcastindex/blob/63fdb84b76b5d65c99e9c92428af55cc51aff04e/README.md"
+        },
+        {
+          "repository": "piqosoft/python-podcastindex",
+          "commit": "63fdb84b76b5d65c99e9c92428af55cc51aff04e",
+          "path": "podcastindex/__init__.py",
+          "git_blob_sha": "4314bf5fbdb2738b036dd23de65920e994b917db",
+          "sha256": "4cbe6148f9b8ad08a86f962e4eeb06e0e4faca6fc7ee27069ba2baaa1d2754cf",
+          "source_url": "https://github.com/piqosoft/python-podcastindex/blob/63fdb84b76b5d65c99e9c92428af55cc51aff04e/podcastindex/__init__.py"
+        },
+        {
+          "repository": "piqosoft/python-podcastindex",
+          "commit": "63fdb84b76b5d65c99e9c92428af55cc51aff04e",
+          "path": "podcastindex/podcastindex.py",
+          "git_blob_sha": "8b88542861a52b0d46b9423f1ec15eef30b4e9e3",
+          "sha256": "d1a74a88597011749042978e0f6f0d10c263da44a4e2f8b7e9a2d4d3046401e8",
+          "source_url": "https://github.com/piqosoft/python-podcastindex/blob/63fdb84b76b5d65c99e9c92428af55cc51aff04e/podcastindex/podcastindex.py"
+        },
+        {
+          "repository": "piqosoft/python-podcastindex",
+          "commit": "63fdb84b76b5d65c99e9c92428af55cc51aff04e",
+          "path": "setup.py",
+          "git_blob_sha": "20993263551cb3f507febed6836cc1d34e458c88",
+          "sha256": "a3da096dc3f906a7a5f747c81e9c6dd6482127f48d0c8483324905ef43665e38",
+          "source_url": "https://github.com/piqosoft/python-podcastindex/blob/63fdb84b76b5d65c99e9c92428af55cc51aff04e/setup.py"
+        }
+      ]
+    },
+    {
+      "id": "storm",
+      "catalog_commit": "fb951af7744dab086e34962e9bc6fe878e145f83",
+      "operation": "citations.inspect",
+      "distribution": "knowledge-storm",
+      "executed_version": "1.1.1",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "stanford-oval/storm",
+          "commit": "fb951af7744dab086e34962e9bc6fe878e145f83",
+          "path": "README.md",
+          "git_blob_sha": "e0dba464b54fc82a16119dbee1d073f2404dfaae",
+          "sha256": "711016d02ae72a43ae96198ede47ee0b36ab10029b323a76eb2d3cd87413e2a2",
+          "source_url": "https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/README.md"
+        },
+        {
+          "repository": "stanford-oval/storm",
+          "commit": "fb951af7744dab086e34962e9bc6fe878e145f83",
+          "path": "knowledge_storm/dataclass.py",
+          "git_blob_sha": "80cae472e98ac155d61779d4eed0d552129b14f9",
+          "sha256": "4e53cac8fe1fc12766ef6e5c218798d14032d7758b9df37a11efacb41d0e0576",
+          "source_url": "https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/knowledge_storm/dataclass.py"
+        },
+        {
+          "repository": "stanford-oval/storm",
+          "commit": "fb951af7744dab086e34962e9bc6fe878e145f83",
+          "path": "knowledge_storm/utils.py",
+          "git_blob_sha": "4411b05e48e2fefd16722e395a8318da7296b5ef",
+          "sha256": "de70f1ab3857294e70cd82501693a431d83581697f471848217d27c406fab11b",
+          "source_url": "https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/knowledge_storm/utils.py"
+        },
+        {
+          "repository": "stanford-oval/storm",
+          "commit": "fb951af7744dab086e34962e9bc6fe878e145f83",
+          "path": "setup.py",
+          "git_blob_sha": "4f5d453cdc313d2d63bf50b69a753dfa55ac26b9",
+          "sha256": "269047658954b0857e8a8bb6c6bca0c15821731dfd471d336064b7c2520ff2c7",
+          "source_url": "https://github.com/stanford-oval/storm/blob/fb951af7744dab086e34962e9bc6fe878e145f83/setup.py"
+        }
+      ]
+    },
+    {
+      "id": "temporal",
+      "catalog_commit": "03ecd1d228d2b8d9d433da55785afc9aeeead918",
+      "operation": "namespaces.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "temporalio/temporal",
+          "commit": "03ecd1d228d2b8d9d433da55785afc9aeeead918",
+          "path": "README.md",
+          "git_blob_sha": "d89e30ebb9863ea82c9203e1e696170ea9484af9",
+          "sha256": "269838d3de5da90d4c2c0b45bf7fc745b384a5a05c0932582e923638e8994189",
+          "source_url": "https://github.com/temporalio/temporal/blob/03ecd1d228d2b8d9d433da55785afc9aeeead918/README.md"
+        },
+        {
+          "repository": "temporalio/temporal",
+          "commit": "03ecd1d228d2b8d9d433da55785afc9aeeead918",
+          "path": "go.mod",
+          "git_blob_sha": "a013ef821bbf8f59a589de9a5e29d39a36425a41",
+          "sha256": "0c932d9ac607831e9fd68684f1e6897626dc3cc7628c19cbee1d2f6f16a20941",
+          "source_url": "https://github.com/temporalio/temporal/blob/03ecd1d228d2b8d9d433da55785afc9aeeead918/go.mod"
+        },
+        {
+          "repository": "temporalio/temporal",
+          "commit": "03ecd1d228d2b8d9d433da55785afc9aeeead918",
+          "path": "service/frontend/http_api_server.go",
+          "git_blob_sha": "8d106dbd180716cef6740a46a4f4de9817cd9790",
+          "sha256": "0286a679f08ca6c1b3549a2fc0467e407bdda0022648c92c3263ea1a54104d72",
+          "source_url": "https://github.com/temporalio/temporal/blob/03ecd1d228d2b8d9d433da55785afc9aeeead918/service/frontend/http_api_server.go"
+        },
+        {
+          "repository": "temporalio/temporal",
+          "commit": "03ecd1d228d2b8d9d433da55785afc9aeeead918",
+          "path": "service/frontend/protojson_marshaler.go",
+          "git_blob_sha": "0a9503096db27d64db30165c44358de10a43d3f9",
+          "sha256": "0ef93d547ebbdaf2301f4fcad58c0255b330a17d6931380c79c6139792235ee4",
+          "source_url": "https://github.com/temporalio/temporal/blob/03ecd1d228d2b8d9d433da55785afc9aeeead918/service/frontend/protojson_marshaler.go"
+        }
+      ]
+    },
+    {
+      "id": "tfcausalimpact",
+      "catalog_commit": "99bd5fb866acb352daf1b58c17d8f711d0e1a9ec",
+      "operation": "impact.estimate",
+      "distribution": "tfcausalimpact",
+      "executed_version": "0.0.19",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "WillianFuks/tfcausalimpact",
+          "commit": "99bd5fb866acb352daf1b58c17d8f711d0e1a9ec",
+          "path": "README.md",
+          "git_blob_sha": "7fb880857f102f9db7eec06c233c6c2b66d3dbe2",
+          "sha256": "baceeb3206dfeb4ebf0b40cffdddd336c6ba6dd81fdf38d20978620dd8b628f9",
+          "source_url": "https://github.com/WillianFuks/tfcausalimpact/blob/99bd5fb866acb352daf1b58c17d8f711d0e1a9ec/README.md"
+        },
+        {
+          "repository": "WillianFuks/tfcausalimpact",
+          "commit": "99bd5fb866acb352daf1b58c17d8f711d0e1a9ec",
+          "path": "causalimpact/data.py",
+          "git_blob_sha": "45a3f01460a362d76d5f0adc4716a475b646f758",
+          "sha256": "009c22c63bbb9f88369eb4b8f625554399fcbe51506bf7cc04b138f7c85b2f8d",
+          "source_url": "https://github.com/WillianFuks/tfcausalimpact/blob/99bd5fb866acb352daf1b58c17d8f711d0e1a9ec/causalimpact/data.py"
+        },
+        {
+          "repository": "WillianFuks/tfcausalimpact",
+          "commit": "99bd5fb866acb352daf1b58c17d8f711d0e1a9ec",
+          "path": "causalimpact/main.py",
+          "git_blob_sha": "02db7b13d1b21128e58723ed06ba15fc3597786e",
+          "sha256": "e65f2203f2d1bda6f7dcf078a4078aa55e1e6396a503ca18d3c7d7d2634622ad",
+          "source_url": "https://github.com/WillianFuks/tfcausalimpact/blob/99bd5fb866acb352daf1b58c17d8f711d0e1a9ec/causalimpact/main.py"
+        },
+        {
+          "repository": "WillianFuks/tfcausalimpact",
+          "commit": "99bd5fb866acb352daf1b58c17d8f711d0e1a9ec",
+          "path": "causalimpact/model.py",
+          "git_blob_sha": "fd3277d7e9f152e95b79151ff83cb2f266804ba1",
+          "sha256": "66fa35fa5f0f52b16d8978f37fd1af086116511508f93a6e63f82abd6ff8bb5e",
+          "source_url": "https://github.com/WillianFuks/tfcausalimpact/blob/99bd5fb866acb352daf1b58c17d8f711d0e1a9ec/causalimpact/model.py"
+        },
+        {
+          "repository": "WillianFuks/tfcausalimpact",
+          "commit": "99bd5fb866acb352daf1b58c17d8f711d0e1a9ec",
+          "path": "setup.py",
+          "git_blob_sha": "ac4544dd1b8b13184cff37effd0a0319bdbd833c",
+          "sha256": "d45cd86ffe5c84aff09c90ab807d827a578ae8e64ead75fc0a75748040641609",
+          "source_url": "https://github.com/WillianFuks/tfcausalimpact/blob/99bd5fb866acb352daf1b58c17d8f711d0e1a9ec/setup.py"
+        }
+      ]
+    },
+    {
+      "id": "tinytroupe",
+      "catalog_commit": "7ce8be378a37ee73f9745d6781452712318afa04",
+      "operation": "experiments.compare",
+      "distribution": "bundled-adapted-source:tinytroupe",
+      "executed_version": "7ce8be378a37ee73f9745d6781452712318afa04",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "microsoft/TinyTroupe",
+          "commit": "7ce8be378a37ee73f9745d6781452712318afa04",
+          "path": "LICENSE",
+          "git_blob_sha": "9e841e7a26e4eb057b24511e7b92d42b257a80e5",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+          "source_url": "https://github.com/microsoft/TinyTroupe/blob/7ce8be378a37ee73f9745d6781452712318afa04/LICENSE"
+        },
+        {
+          "repository": "microsoft/TinyTroupe",
+          "commit": "7ce8be378a37ee73f9745d6781452712318afa04",
+          "path": "README.md",
+          "git_blob_sha": "b5b02517a598f758193b80afcdb20acc4ec9ffe4",
+          "sha256": "ec74ab62135d01df3d07c6e76f6b47ede43cbbd0635f5106193eb34dde0deca0",
+          "source_url": "https://github.com/microsoft/TinyTroupe/blob/7ce8be378a37ee73f9745d6781452712318afa04/README.md"
+        },
+        {
+          "repository": "microsoft/TinyTroupe",
+          "commit": "7ce8be378a37ee73f9745d6781452712318afa04",
+          "path": "pyproject.toml",
+          "git_blob_sha": "57c402186955da787c4eac12b480932973c5606e",
+          "sha256": "52b6605d61e8b97f8268b809a440bfd44ccbdd1541b0da64e0bd7e092c13438d",
+          "source_url": "https://github.com/microsoft/TinyTroupe/blob/7ce8be378a37ee73f9745d6781452712318afa04/pyproject.toml"
+        },
+        {
+          "repository": "microsoft/TinyTroupe",
+          "commit": "7ce8be378a37ee73f9745d6781452712318afa04",
+          "path": "tests/unit/test_statistical_tests.py",
+          "git_blob_sha": "60e9415750a6c6065487b5a2b0c8a89f03c40d7e",
+          "sha256": "9a6b2535efc28eacdcbfd109065ff26936a7190dbc40b4ee1adcc496b5b10ac4",
+          "source_url": "https://github.com/microsoft/TinyTroupe/blob/7ce8be378a37ee73f9745d6781452712318afa04/tests/unit/test_statistical_tests.py"
+        },
+        {
+          "repository": "microsoft/TinyTroupe",
+          "commit": "7ce8be378a37ee73f9745d6781452712318afa04",
+          "path": "tinytroupe/__init__.py",
+          "git_blob_sha": "852cc76e53bda12c26ec26c0e714fea1ae593d33",
+          "sha256": "087b89e00912bc44df27bf4959ee0866392a4714d2eb647a89cca7c10ad6a34b",
+          "source_url": "https://github.com/microsoft/TinyTroupe/blob/7ce8be378a37ee73f9745d6781452712318afa04/tinytroupe/__init__.py"
+        },
+        {
+          "repository": "microsoft/TinyTroupe",
+          "commit": "7ce8be378a37ee73f9745d6781452712318afa04",
+          "path": "tinytroupe/experimentation/__init__.py",
+          "git_blob_sha": "79dfbd070a758ae7b46452e17b0f8e97ba92371f",
+          "sha256": "c0ca39890f1e674affc2f68c3a0b6278dfc4567d1f5bc03a1684b5b2b1e7e6a8",
+          "source_url": "https://github.com/microsoft/TinyTroupe/blob/7ce8be378a37ee73f9745d6781452712318afa04/tinytroupe/experimentation/__init__.py"
+        },
+        {
+          "repository": "microsoft/TinyTroupe",
+          "commit": "7ce8be378a37ee73f9745d6781452712318afa04",
+          "path": "tinytroupe/experimentation/statistical_tests.py",
+          "git_blob_sha": "78f08232dc072667d514ec0e948ab80836d550d1",
+          "sha256": "4bd362683d8c36494f34a557dfb834f79dd3454718aabfc2ea88ffe36ff9a708",
+          "source_url": "https://github.com/microsoft/TinyTroupe/blob/7ce8be378a37ee73f9745d6781452712318afa04/tinytroupe/experimentation/statistical_tests.py"
+        }
+      ]
+    },
+    {
+      "id": "trendspyg",
+      "catalog_commit": "9f07b2573e7287df85df9202da206569024723e9",
+      "operation": "traffic.normalize",
+      "distribution": "trendspyg",
+      "executed_version": "1.9.0",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "flack0x/trendspyg",
+          "commit": "9f07b2573e7287df85df9202da206569024723e9",
+          "path": "README.md",
+          "git_blob_sha": "d04db1a6fee91478b251e4c87afdfef843f5e816",
+          "sha256": "23b2f8faa2b0f7739d1cf30821be57ec46f7b2186d57003314727e1d10ff1d28",
+          "source_url": "https://github.com/flack0x/trendspyg/blob/9f07b2573e7287df85df9202da206569024723e9/README.md"
+        },
+        {
+          "repository": "flack0x/trendspyg",
+          "commit": "9f07b2573e7287df85df9202da206569024723e9",
+          "path": "pyproject.toml",
+          "git_blob_sha": "482cbf767cf9efd3388d5d0a7d81ae54cf567032",
+          "sha256": "aa89d5854c1d06dc239afb7ce5e49f243c89f0ec312aff5b21e06a4c19c1b9f9",
+          "source_url": "https://github.com/flack0x/trendspyg/blob/9f07b2573e7287df85df9202da206569024723e9/pyproject.toml"
+        },
+        {
+          "repository": "flack0x/trendspyg",
+          "commit": "9f07b2573e7287df85df9202da206569024723e9",
+          "path": "trendspyg/utils.py",
+          "git_blob_sha": "28660b9ee49a14bdfc4aeb90a1d4b2feffbbd401",
+          "sha256": "d86614779d1a7de616b9065a97b17a0a2d5203a9b0d2393a9d4fd7074eaf1ee4",
+          "source_url": "https://github.com/flack0x/trendspyg/blob/9f07b2573e7287df85df9202da206569024723e9/trendspyg/utils.py"
+        }
+      ]
+    },
+    {
+      "id": "tusd",
+      "catalog_commit": "cec39980890809a9e7202872ec32f736f3b4a3f5",
+      "operation": "metrics.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "tus/tusd",
+          "commit": "cec39980890809a9e7202872ec32f736f3b4a3f5",
+          "path": "README.md",
+          "git_blob_sha": "8815a94a03f0eb5d19fea0c9cdf10ede105f3b15",
+          "sha256": "297cdb744604e534eb7669a84ec025a1b937cb216fba5c8897fda54ba55a2e15",
+          "source_url": "https://github.com/tus/tusd/blob/cec39980890809a9e7202872ec32f736f3b4a3f5/README.md"
+        },
+        {
+          "repository": "tus/tusd",
+          "commit": "cec39980890809a9e7202872ec32f736f3b4a3f5",
+          "path": "cmd/tusd/cli/flags.go",
+          "git_blob_sha": "9d74d232f6bc76ea07d713c136c56d6bc76ec686",
+          "sha256": "869914af747ca8a0b43a6ac23a0816ff1148fd50cd3cb8c34c88467574e8a01a",
+          "source_url": "https://github.com/tus/tusd/blob/cec39980890809a9e7202872ec32f736f3b4a3f5/cmd/tusd/cli/flags.go"
+        },
+        {
+          "repository": "tus/tusd",
+          "commit": "cec39980890809a9e7202872ec32f736f3b4a3f5",
+          "path": "cmd/tusd/cli/metrics.go",
+          "git_blob_sha": "e91bbe2377812e04078a59b03fe94dba598d5862",
+          "sha256": "65492b8eed0c44d0b9eda02291d0c6032d5363e06d7034c7c69f8b6b029f8c2f",
+          "source_url": "https://github.com/tus/tusd/blob/cec39980890809a9e7202872ec32f736f3b4a3f5/cmd/tusd/cli/metrics.go"
+        },
+        {
+          "repository": "tus/tusd",
+          "commit": "cec39980890809a9e7202872ec32f736f3b4a3f5",
+          "path": "cmd/tusd/cli/serve.go",
+          "git_blob_sha": "47ed517d6d477fb412a8ea6c92daadb1cbb3d417",
+          "sha256": "daf7bc6fdd3c2e126fbffc2e03d444283b330dd877e38e422035c6acc6a4312f",
+          "source_url": "https://github.com/tus/tusd/blob/cec39980890809a9e7202872ec32f736f3b4a3f5/cmd/tusd/cli/serve.go"
+        },
+        {
+          "repository": "tus/tusd",
+          "commit": "cec39980890809a9e7202872ec32f736f3b4a3f5",
+          "path": "pkg/handler/unrouted_handler.go",
+          "git_blob_sha": "d9289f97aedd0220670c49f76d3c85a4cc1e467c",
+          "sha256": "bc124f164bf6f55059ed24755da8af0691d2be08bd13d22eb9000eca1fb72d1a",
+          "source_url": "https://github.com/tus/tusd/blob/cec39980890809a9e7202872ec32f736f3b4a3f5/pkg/handler/unrouted_handler.go"
+        },
+        {
+          "repository": "tus/tusd",
+          "commit": "cec39980890809a9e7202872ec32f736f3b4a3f5",
+          "path": "pkg/prometheuscollector/prometheuscollector.go",
+          "git_blob_sha": "c4d06c789a52487e26275069895ee4cf36e4c815",
+          "sha256": "b1349e5672ba5c96c5294486a464597d7b4066671619846700708ea0c9151092",
+          "source_url": "https://github.com/tus/tusd/blob/cec39980890809a9e7202872ec32f736f3b4a3f5/pkg/prometheuscollector/prometheuscollector.go"
+        }
+      ]
+    },
+    {
+      "id": "vanna",
+      "catalog_commit": "365d0617c1a4567ffee1b19b40c27feb4206bfcf",
+      "operation": "campaigns.query",
+      "distribution": "vanna",
+      "executed_version": "2.0.2",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "vanna-ai/vanna",
+          "commit": "365d0617c1a4567ffee1b19b40c27feb4206bfcf",
+          "path": "README.md",
+          "git_blob_sha": "09eccf45687708c555717c91d1874d524f4f7ef6",
+          "sha256": "adcbeab09af809005f4f5ff0383890ae8bc3de26fbc49c0245d79a4cc40f6617",
+          "source_url": "https://github.com/vanna-ai/vanna/blob/365d0617c1a4567ffee1b19b40c27feb4206bfcf/README.md"
+        },
+        {
+          "repository": "vanna-ai/vanna",
+          "commit": "365d0617c1a4567ffee1b19b40c27feb4206bfcf",
+          "path": "pyproject.toml",
+          "git_blob_sha": "b2aa54e3c3c85523587e49681f498894be54125c",
+          "sha256": "1348f552e6c77762ca17843a228b0a81398df3b76a4879d2b976c30029ca223b",
+          "source_url": "https://github.com/vanna-ai/vanna/blob/365d0617c1a4567ffee1b19b40c27feb4206bfcf/pyproject.toml"
+        },
+        {
+          "repository": "vanna-ai/vanna",
+          "commit": "365d0617c1a4567ffee1b19b40c27feb4206bfcf",
+          "path": "src/vanna/integrations/sqlite/sql_runner.py",
+          "git_blob_sha": "034d4d109dc24b87367467ea6670edc4d5529dd6",
+          "sha256": "830dd109940121c871af4f9a6c16950f36e70a92745a224bca4152e448681ca6",
+          "source_url": "https://github.com/vanna-ai/vanna/blob/365d0617c1a4567ffee1b19b40c27feb4206bfcf/src/vanna/integrations/sqlite/sql_runner.py"
+        },
+        {
+          "repository": "vanna-ai/vanna",
+          "commit": "365d0617c1a4567ffee1b19b40c27feb4206bfcf",
+          "path": "src/vanna/legacy/base/base.py",
+          "git_blob_sha": "18916d196b6cc81e77486111320b567ea318b5d2",
+          "sha256": "b36e3e9a8b8213a322ef957d6c770d073a65c40cf68074966c7d7a0fcb3bfe82",
+          "source_url": "https://github.com/vanna-ai/vanna/blob/365d0617c1a4567ffee1b19b40c27feb4206bfcf/src/vanna/legacy/base/base.py"
+        }
+      ]
+    },
+    {
+      "id": "wbgapi",
+      "catalog_commit": "4d0d2c925a8dac359df5a2d9e82001ff6feeecda",
+      "operation": "population.read",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "tgherzog/wbgapi",
+          "commit": "4d0d2c925a8dac359df5a2d9e82001ff6feeecda",
+          "path": "README.md",
+          "git_blob_sha": "87990f1edcd789af98031d0a6b0e8f0f1331bdea",
+          "sha256": "3cb46a9d5309d752ec61a734c35e00b40e803d625af827bb9e1548f422e8d14f",
+          "source_url": "https://github.com/tgherzog/wbgapi/blob/4d0d2c925a8dac359df5a2d9e82001ff6feeecda/README.md"
+        },
+        {
+          "repository": "tgherzog/wbgapi",
+          "commit": "4d0d2c925a8dac359df5a2d9e82001ff6feeecda",
+          "path": "setup.py",
+          "git_blob_sha": "532357d2244ad861e77b2e99350d1e2a72173956",
+          "sha256": "a02bf828601cdf373a473a879d159ba7f452cb135687bdaed367c7738d375797",
+          "source_url": "https://github.com/tgherzog/wbgapi/blob/4d0d2c925a8dac359df5a2d9e82001ff6feeecda/setup.py"
+        },
+        {
+          "repository": "tgherzog/wbgapi",
+          "commit": "4d0d2c925a8dac359df5a2d9e82001ff6feeecda",
+          "path": "wbgapi/__init__.py",
+          "git_blob_sha": "d18085a43f07e30bb0bd048392bc9ac6efd754f9",
+          "sha256": "bd67a701d472915451ab9bd5569455f7109a3062229d953b63e5dfac473efb51",
+          "source_url": "https://github.com/tgherzog/wbgapi/blob/4d0d2c925a8dac359df5a2d9e82001ff6feeecda/wbgapi/__init__.py"
+        },
+        {
+          "repository": "tgherzog/wbgapi",
+          "commit": "4d0d2c925a8dac359df5a2d9e82001ff6feeecda",
+          "path": "wbgapi/data.py",
+          "git_blob_sha": "ca4fb2fe84fdc62432a1104b5a0063484ccd535f",
+          "sha256": "b9eb2e3e1eb1b16d8044b7dd927cdc038aa0945b5f6395f4ba9c01fc4a3e0182",
+          "source_url": "https://github.com/tgherzog/wbgapi/blob/4d0d2c925a8dac359df5a2d9e82001ff6feeecda/wbgapi/data.py"
+        },
+        {
+          "repository": "tgherzog/wbgapi",
+          "commit": "4d0d2c925a8dac359df5a2d9e82001ff6feeecda",
+          "path": "wbgapi/utils.py",
+          "git_blob_sha": "8a311a1f98e0ebd69ba66cee78b0f8630a00711f",
+          "sha256": "30191ec9976e4aa4cec17eddc79706fdde85d83d5211394e86de350f642753d0",
+          "source_url": "https://github.com/tgherzog/wbgapi/blob/4d0d2c925a8dac359df5a2d9e82001ff6feeecda/wbgapi/utils.py"
+        }
+      ]
+    },
+    {
+      "id": "webmention-io",
+      "catalog_commit": "9183deed829c2399e6cd7f594ab8f1d84492e86b",
+      "operation": "mentions.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "aaronpk/webmention.io",
+          "commit": "9183deed829c2399e6cd7f594ab8f1d84492e86b",
+          "path": "README.md",
+          "git_blob_sha": "632e838712277d45cbbdea401c6bf88f36300b2e",
+          "sha256": "24e47f8130b82c089de4b9fce1ee0dfb5633729d0c9c064ca20fac648cf02213",
+          "source_url": "https://github.com/aaronpk/webmention.io/blob/9183deed829c2399e6cd7f594ab8f1d84492e86b/README.md"
+        },
+        {
+          "repository": "aaronpk/webmention.io",
+          "commit": "9183deed829c2399e6cd7f594ab8f1d84492e86b",
+          "path": "src/Controllers/ApiController.php",
+          "git_blob_sha": "f379ffb915dc474a13829f77320df314d62950bb",
+          "sha256": "bab3edfe6997ec32d88ad2453d8deb50ca41c3b4597a730583542098936bc329",
+          "source_url": "https://github.com/aaronpk/webmention.io/blob/9183deed829c2399e6cd7f594ab8f1d84492e86b/src/Controllers/ApiController.php"
+        },
+        {
+          "repository": "aaronpk/webmention.io",
+          "commit": "9183deed829c2399e6cd7f594ab8f1d84492e86b",
+          "path": "templates/api.php",
+          "git_blob_sha": "acdfc46346a9010053731249716a3f3008f59773",
+          "sha256": "91114a90a54267f6801924411005083760c9828c31fd346e59310238f5cdef60",
+          "source_url": "https://github.com/aaronpk/webmention.io/blob/9183deed829c2399e6cd7f594ab8f1d84492e86b/templates/api.php"
+        },
+        {
+          "repository": "aaronpk/webmention.io",
+          "commit": "9183deed829c2399e6cd7f594ab8f1d84492e86b",
+          "path": "tests/Integration/ApiTest.php",
+          "git_blob_sha": "cef851e46a12dac9c8ed05cb0d6cf5a4d46cbe13",
+          "sha256": "0f1caad5657611768e47d15f7d3eb3c16b125c831f79ae7ca935e5ca6a7f8b88",
+          "source_url": "https://github.com/aaronpk/webmention.io/blob/9183deed829c2399e6cd7f594ab8f1d84492e86b/tests/Integration/ApiTest.php"
+        }
+      ]
+    },
+    {
+      "id": "youtube-comment-downloader",
+      "catalog_commit": "3f557bc8023d9e3ab9edda93bcd516ca2b33d3c1",
+      "operation": "comments.inspect",
+      "distribution": "youtube-comment-downloader",
+      "executed_version": "0.1.84",
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "egbertbouman/youtube-comment-downloader",
+          "commit": "3f557bc8023d9e3ab9edda93bcd516ca2b33d3c1",
+          "path": "README.md",
+          "git_blob_sha": "9e6e154d96de90aff293656068172c8ab0ffa419",
+          "sha256": "a42dd504e85056f123e706e1ae104c0a6ab782104f8ecaa873fdb89a7d3450fb",
+          "source_url": "https://github.com/egbertbouman/youtube-comment-downloader/blob/3f557bc8023d9e3ab9edda93bcd516ca2b33d3c1/README.md"
+        },
+        {
+          "repository": "egbertbouman/youtube-comment-downloader",
+          "commit": "3f557bc8023d9e3ab9edda93bcd516ca2b33d3c1",
+          "path": "pyproject.toml",
+          "git_blob_sha": "9787c3bdf008a57ae3cb2e27a8261eb3f134ff73",
+          "sha256": "4a017048064bf853e9f8ac4a774af07985c633c8bdd164a7ceb2438c350c2e54",
+          "source_url": "https://github.com/egbertbouman/youtube-comment-downloader/blob/3f557bc8023d9e3ab9edda93bcd516ca2b33d3c1/pyproject.toml"
+        },
+        {
+          "repository": "egbertbouman/youtube-comment-downloader",
+          "commit": "3f557bc8023d9e3ab9edda93bcd516ca2b33d3c1",
+          "path": "setup.py",
+          "git_blob_sha": "606849326a4002007fd42060b51e69a19c18675c",
+          "sha256": "843ac26c38a41abae578250bc0f9419194b320a0f67327d941037a4268f6cfe7",
+          "source_url": "https://github.com/egbertbouman/youtube-comment-downloader/blob/3f557bc8023d9e3ab9edda93bcd516ca2b33d3c1/setup.py"
+        },
+        {
+          "repository": "egbertbouman/youtube-comment-downloader",
+          "commit": "3f557bc8023d9e3ab9edda93bcd516ca2b33d3c1",
+          "path": "youtube_comment_downloader/downloader.py",
+          "git_blob_sha": "d34e9ad570ba6e5e12585757b95a8191735e6545",
+          "sha256": "ef1dd6bc8b3a37135fce2b637b05885953280a6d5b19e2c64dd25f09b58a3592",
+          "source_url": "https://github.com/egbertbouman/youtube-comment-downloader/blob/3f557bc8023d9e3ab9edda93bcd516ca2b33d3c1/youtube_comment_downloader/downloader.py"
+        }
+      ]
+    }
+  ],
+  "supplementary_sources": [
+    {
+      "repository": "a2aproject/a2a-python",
+      "commit": "0d9dafb92328144384eca58a6e8ab80cb8f7d445",
+      "path": "LICENSE",
+      "git_blob_sha": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "source_url": "https://github.com/a2aproject/a2a-python/blob/0d9dafb92328144384eca58a6e8ab80cb8f7d445/LICENSE"
+    },
+    {
+      "repository": "a2aproject/a2a-python",
+      "commit": "0d9dafb92328144384eca58a6e8ab80cb8f7d445",
+      "path": "src/a2a/server/tasks/inmemory_task_store.py",
+      "git_blob_sha": "e264fe73a14b10516c1d365eb4b59ee9a2ad47cb",
+      "sha256": "73622f0b86384fb730987569ebf7e6e770427318fe758dfa36b6721c5e673e9a",
+      "source_url": "https://github.com/a2aproject/a2a-python/blob/0d9dafb92328144384eca58a6e8ab80cb8f7d445/src/a2a/server/tasks/inmemory_task_store.py"
+    },
+    {
+      "repository": "a2aproject/a2a-python",
+      "commit": "0d9dafb92328144384eca58a6e8ab80cb8f7d445",
+      "path": "src/a2a/server/tasks/task_store.py",
+      "git_blob_sha": "25e4838d12202c7ecc8d905d3e7a55e19d3d410b",
+      "sha256": "e274b94337d23ff6cfe63276fb945589aef1dd99bd1c80849648e7d55437d729",
+      "source_url": "https://github.com/a2aproject/a2a-python/blob/0d9dafb92328144384eca58a6e8ab80cb8f7d445/src/a2a/server/tasks/task_store.py"
+    },
+    {
+      "repository": "contentauth/c2pa-python",
+      "commit": "d74e331b845f8c65009984b2c5e58a4700abebec",
+      "path": "LICENSE-APACHE",
+      "git_blob_sha": "758d439916bc780a7fa5c90aebc94863527f904d",
+      "sha256": "86bdd5dafab77451044b6fd6d2efab23e3410ce658eb097f04c04f4f54aed62f",
+      "source_url": "https://github.com/contentauth/c2pa-python/blob/d74e331b845f8c65009984b2c5e58a4700abebec/LICENSE-APACHE"
+    },
+    {
+      "repository": "contentauth/c2pa-python",
+      "commit": "d74e331b845f8c65009984b2c5e58a4700abebec",
+      "path": "LICENSE-MIT",
+      "git_blob_sha": "e1e3bd7e9efec69f22be9f88fb8c37f6649a99d3",
+      "sha256": "89375a50de90d2dcaa04406086da832ad452ebcaf6ab402ef3d51b8401a67c71",
+      "source_url": "https://github.com/contentauth/c2pa-python/blob/d74e331b845f8c65009984b2c5e58a4700abebec/LICENSE-MIT"
+    },
+    {
+      "repository": "contentauth/c2pa-python",
+      "commit": "d74e331b845f8c65009984b2c5e58a4700abebec",
+      "path": "docs/context-settings.md",
+      "git_blob_sha": "627923ceb5712f0737f5b34b43a32e0128ed3c1a",
+      "sha256": "0285eb6e96ae2bb1da4658fb5a28ed332e6e1bacf2082ea1c331c15afb98215a",
+      "source_url": "https://github.com/contentauth/c2pa-python/blob/d74e331b845f8c65009984b2c5e58a4700abebec/docs/context-settings.md"
+    },
+    {
+      "repository": "dbt-labs/dbt",
+      "commit": "bd46c78d600c8518b5b24be7338c035887054d40",
+      "path": "LICENSE",
+      "git_blob_sha": "cfd50c7346c4662aa944b0a8aadda1ad96592e79",
+      "sha256": "ce8d7ccf9bae736bd3fb9f7b1ca5b50d29a4537fc8b7d0342246e84cbcc50a6b",
+      "source_url": "https://github.com/dbt-labs/dbt/blob/bd46c78d600c8518b5b24be7338c035887054d40/LICENSE"
+    },
+    {
+      "repository": "dbt-labs/dbt",
+      "commit": "bd46c78d600c8518b5b24be7338c035887054d40",
+      "path": "core/dbt/cli/main.py",
+      "git_blob_sha": "53329742057f8183db66f112e0eba2b9231c0fe6",
+      "sha256": "bc8262ed14390c8a5d02d91a731cea839ce594ca95eccf46ce0153f7b221cf51",
+      "source_url": "https://github.com/dbt-labs/dbt/blob/bd46c78d600c8518b5b24be7338c035887054d40/core/dbt/cli/main.py"
+    },
+    {
+      "repository": "dbt-labs/dbt",
+      "commit": "bd46c78d600c8518b5b24be7338c035887054d40",
+      "path": "core/dbt/task/build.py",
+      "git_blob_sha": "0ea7173ded1fd6ed55980dc3c2d1fa467637fbd3",
+      "sha256": "cd7a7fa4571055c9a7c9e915e5f7919d2f59617580711b79576c11dc14e07563",
+      "source_url": "https://github.com/dbt-labs/dbt/blob/bd46c78d600c8518b5b24be7338c035887054d40/core/dbt/task/build.py"
+    },
+    {
+      "repository": "letta-ai/letta-code",
+      "commit": "3329815b63e20a34fd0af4479ad0a556ad502b8a",
+      "path": "LICENSE",
+      "git_blob_sha": "e72f5de5dd5610ee3fee7feb791ebff246cc931e",
+      "sha256": "036e78b9d7dd33ae5b378fdda973b4aad7901c8d8371a0ae40fae1f6659a89d0",
+      "source_url": "https://github.com/letta-ai/letta-code/blob/3329815b63e20a34fd0af4479ad0a556ad502b8a/LICENSE"
+    },
+    {
+      "repository": "letta-ai/letta-code",
+      "commit": "3329815b63e20a34fd0af4479ad0a556ad502b8a",
+      "path": "src/backend/api/health.ts",
+      "git_blob_sha": "0ae9d90caf4a726f1960b83d81839b0f280ec559",
+      "sha256": "3d8e9e9a964bd5d5d23a15e188592695a5362dd20e09bcbd85acf367ce80a406",
+      "source_url": "https://github.com/letta-ai/letta-code/blob/3329815b63e20a34fd0af4479ad0a556ad502b8a/src/backend/api/health.ts"
+    },
+    {
+      "repository": "letta-ai/letta-code",
+      "commit": "3329815b63e20a34fd0af4479ad0a556ad502b8a",
+      "path": "src/backend/index.ts",
+      "git_blob_sha": "64225ad5029c0e97bce09924abf3fcba17c5b4f5",
+      "sha256": "0b2e771eaa3322aaa41c184879e0cd305ac949c40b76649016d37a4a65e07916",
+      "source_url": "https://github.com/letta-ai/letta-code/blob/3329815b63e20a34fd0af4479ad0a556ad502b8a/src/backend/index.ts"
+    },
+    {
+      "repository": "letta-ai/letta-code",
+      "commit": "3329815b63e20a34fd0af4479ad0a556ad502b8a",
+      "path": "src/cli/subcommands/server.ts",
+      "git_blob_sha": "5ad42df495753dfd4bb18e72468532211acbe655",
+      "sha256": "1e1c57f5b2ba31009691c7b7e8825b96d55ce33a129eb2b1ba9921746f8f11b5",
+      "source_url": "https://github.com/letta-ai/letta-code/blob/3329815b63e20a34fd0af4479ad0a556ad502b8a/src/cli/subcommands/server.ts"
+    },
+    {
+      "repository": "letta-ai/letta-code",
+      "commit": "3329815b63e20a34fd0af4479ad0a556ad502b8a",
+      "path": "src/websocket/app-server-auth.ts",
+      "git_blob_sha": "ea18befd8f2b490f507b053b34aa0325f4fda79c",
+      "sha256": "7d6b3a3a0c70742c90a33e5c805c891d729651c6c356829cbb7dfd19d68f799a",
+      "source_url": "https://github.com/letta-ai/letta-code/blob/3329815b63e20a34fd0af4479ad0a556ad502b8a/src/websocket/app-server-auth.ts"
+    },
+    {
+      "repository": "letta-ai/letta-code",
+      "commit": "3329815b63e20a34fd0af4479ad0a556ad502b8a",
+      "path": "src/websocket/app-server.ts",
+      "git_blob_sha": "d871fd7b83c8028eeb52e6646601d7bbeb58cf25",
+      "sha256": "7335425510264a5edf0d286a0c29813f02961bc115c05bb759ece7f9599352c2",
+      "source_url": "https://github.com/letta-ai/letta-code/blob/3329815b63e20a34fd0af4479ad0a556ad502b8a/src/websocket/app-server.ts"
+    },
+    {
+      "repository": "livekit/python-sdks",
+      "commit": "9576941317df7f1d5c35567c7003f513b5717888",
+      "path": "livekit-api/livekit/api/access_token.py",
+      "git_blob_sha": "22498380e7c63cfb29cbb9ff014987f19e3b1320",
+      "sha256": "364849f12ed2a1c4ed29439a0796b80155d86927a546a5797d74a73e218f8bdf",
+      "source_url": "https://github.com/livekit/python-sdks/blob/9576941317df7f1d5c35567c7003f513b5717888/livekit-api/livekit/api/access_token.py"
+    },
+    {
+      "repository": "livekit/python-sdks",
+      "commit": "9576941317df7f1d5c35567c7003f513b5717888",
+      "path": "livekit-api/livekit/api/room_service.py",
+      "git_blob_sha": "7981c364be7b089702e6b99dad97ab97f8a1c83f",
+      "sha256": "3189d10094852f4fdae0f7ec527dfb08f98bb3873afa69dd2a8d38946e50bcf2",
+      "source_url": "https://github.com/livekit/python-sdks/blob/9576941317df7f1d5c35567c7003f513b5717888/livekit-api/livekit/api/room_service.py"
+    },
+    {
+      "repository": "OpenHands/software-agent-sdk",
+      "commit": "504a88cab0fb48ee5226238ad7b8f1d865fa84a8",
+      "path": "LICENSE",
+      "git_blob_sha": "b0bd86a6335a564bd3766666bebbf014fd6a8013",
+      "sha256": "14a9b631c658eee682c6c2973525fbdf808c3457176bc47513052c559cc5ce86",
+      "source_url": "https://github.com/OpenHands/software-agent-sdk/blob/504a88cab0fb48ee5226238ad7b8f1d865fa84a8/LICENSE"
+    },
+    {
+      "repository": "OpenHands/software-agent-sdk",
+      "commit": "504a88cab0fb48ee5226238ad7b8f1d865fa84a8",
+      "path": "openhands-agent-server/openhands/agent_server/api.py",
+      "git_blob_sha": "59d66352edd74e856386c89f362c74045a8a2fe8",
+      "sha256": "8b8647463a2c85f52d63681d7f46bb8995a775e9135a110f50d71d4815ff3901",
+      "source_url": "https://github.com/OpenHands/software-agent-sdk/blob/504a88cab0fb48ee5226238ad7b8f1d865fa84a8/openhands-agent-server/openhands/agent_server/api.py"
+    },
+    {
+      "repository": "OpenHands/software-agent-sdk",
+      "commit": "504a88cab0fb48ee5226238ad7b8f1d865fa84a8",
+      "path": "openhands-agent-server/openhands/agent_server/dependencies.py",
+      "git_blob_sha": "d2a69c2474d7548a6aeda0d4398109d963e3b757",
+      "sha256": "f5f513621df584fe56920c133c137598eb2c81cdd7521e281a914ceff46d5a15",
+      "source_url": "https://github.com/OpenHands/software-agent-sdk/blob/504a88cab0fb48ee5226238ad7b8f1d865fa84a8/openhands-agent-server/openhands/agent_server/dependencies.py"
+    },
+    {
+      "repository": "OpenHands/software-agent-sdk",
+      "commit": "504a88cab0fb48ee5226238ad7b8f1d865fa84a8",
+      "path": "openhands-agent-server/openhands/agent_server/middleware.py",
+      "git_blob_sha": "d2c4edec9742fd8c287ef4e258acad33340bdb5a",
+      "sha256": "59980d01f3965b8f64411e131e90854aad2b43d62664a0f93e91cb86f46ffd14",
+      "source_url": "https://github.com/OpenHands/software-agent-sdk/blob/504a88cab0fb48ee5226238ad7b8f1d865fa84a8/openhands-agent-server/openhands/agent_server/middleware.py"
+    },
+    {
+      "repository": "OpenHands/software-agent-sdk",
+      "commit": "504a88cab0fb48ee5226238ad7b8f1d865fa84a8",
+      "path": "openhands-agent-server/openhands/agent_server/server_details_router.py",
+      "git_blob_sha": "c293a4b8db031e52b8c8cd0d64410cfc55f26e5a",
+      "sha256": "2878f452207b56f25e37d3332b08658a447e1bc8c36ff2cc57d0aa4fbaa1f34d",
+      "source_url": "https://github.com/OpenHands/software-agent-sdk/blob/504a88cab0fb48ee5226238ad7b8f1d865fa84a8/openhands-agent-server/openhands/agent_server/server_details_router.py"
+    },
+    {
+      "repository": "OpenHands/software-agent-sdk",
+      "commit": "504a88cab0fb48ee5226238ad7b8f1d865fa84a8",
+      "path": "tests/agent_server/test_api_authentication.py",
+      "git_blob_sha": "7c56cc64da1046ae2ae76b89d70b0ee98482e984",
+      "sha256": "b46e4946b6132fb5d103ccdbcc441284e998d4db814d3e62767ef788ab93f2b8",
+      "source_url": "https://github.com/OpenHands/software-agent-sdk/blob/504a88cab0fb48ee5226238ad7b8f1d865fa84a8/tests/agent_server/test_api_authentication.py"
+    },
+    {
+      "repository": "podcastindex-org/docs-api",
+      "commit": "caf2697be05746b47200bb8cc1ea93d1ec3d7c3d",
+      "path": "api_src/components/properties/stats.yaml",
+      "git_blob_sha": "5e593c06d2a9cd409ffe3b0f3ac73666f19a2d2e",
+      "sha256": "1503c6c97754cd14c3c331205b0d01db132b17ced181c738ba5be90c9aa51166",
+      "source_url": "https://github.com/podcastindex-org/docs-api/blob/caf2697be05746b47200bb8cc1ea93d1ec3d7c3d/api_src/components/properties/stats.yaml"
+    },
+    {
+      "repository": "podcastindex-org/docs-api",
+      "commit": "caf2697be05746b47200bb8cc1ea93d1ec3d7c3d",
+      "path": "api_src/components/properties/status.yaml",
+      "git_blob_sha": "1ce9dd2a263eb69ab511e0c89f1a1557591be33f",
+      "sha256": "07e0f091d4235b783bc3ab74b692f0b523fd00737e0c1726afda3c5298438786",
+      "source_url": "https://github.com/podcastindex-org/docs-api/blob/caf2697be05746b47200bb8cc1ea93d1ec3d7c3d/api_src/components/properties/status.yaml"
+    },
+    {
+      "repository": "podcastindex-org/docs-api",
+      "commit": "caf2697be05746b47200bb8cc1ea93d1ec3d7c3d",
+      "path": "api_src/components/responses/stats_current.yaml",
+      "git_blob_sha": "2de6acce7566bf55e3fe196ba2713e18076ed7b6",
+      "sha256": "7ef6f4378c0cd9958fcde684cf352ee24920de42b55602918b4b0b0e5c2a7296",
+      "source_url": "https://github.com/podcastindex-org/docs-api/blob/caf2697be05746b47200bb8cc1ea93d1ec3d7c3d/api_src/components/responses/stats_current.yaml"
+    },
+    {
+      "repository": "podcastindex-org/docs-api",
+      "commit": "caf2697be05746b47200bb8cc1ea93d1ec3d7c3d",
+      "path": "api_src/components/securitySchemes/API-Key.yaml",
+      "git_blob_sha": "9b51627787564e391e98cd823b8baaf42d00e544",
+      "sha256": "339a4dbdd079ce1c672084ca1edc8182f6d1e128124ba3af25fb23cf680ffcbd",
+      "source_url": "https://github.com/podcastindex-org/docs-api/blob/caf2697be05746b47200bb8cc1ea93d1ec3d7c3d/api_src/components/securitySchemes/API-Key.yaml"
+    },
+    {
+      "repository": "podcastindex-org/docs-api",
+      "commit": "caf2697be05746b47200bb8cc1ea93d1ec3d7c3d",
+      "path": "api_src/components/securitySchemes/Authorization.yaml",
+      "git_blob_sha": "a5c423f3afe78c0e63f8c3d0c3b977cbc0dfed6c",
+      "sha256": "1416f3a917ed0aff28abf9b601ab761aa46a07617dc2ecb76d5196c5640fafbc",
+      "source_url": "https://github.com/podcastindex-org/docs-api/blob/caf2697be05746b47200bb8cc1ea93d1ec3d7c3d/api_src/components/securitySchemes/Authorization.yaml"
+    },
+    {
+      "repository": "podcastindex-org/docs-api",
+      "commit": "caf2697be05746b47200bb8cc1ea93d1ec3d7c3d",
+      "path": "api_src/components/securitySchemes/Date.yaml",
+      "git_blob_sha": "b5c10530da0db3d5a1cb45f913ab7151e8fd7852",
+      "sha256": "db7856b08f0c29477a3bc2d3e2c53ef2e34d16037d8bc63176c19cd729bcb347",
+      "source_url": "https://github.com/podcastindex-org/docs-api/blob/caf2697be05746b47200bb8cc1ea93d1ec3d7c3d/api_src/components/securitySchemes/Date.yaml"
+    },
+    {
+      "repository": "podcastindex-org/docs-api",
+      "commit": "caf2697be05746b47200bb8cc1ea93d1ec3d7c3d",
+      "path": "api_src/paths/stats/current.yaml",
+      "git_blob_sha": "fb64b0aad9a8d96e62b090ab45d96291302ca9eb",
+      "sha256": "b967428050f02009c917b446044ae56a1f2d69d4508814495dbfb39ef3423368",
+      "source_url": "https://github.com/podcastindex-org/docs-api/blob/caf2697be05746b47200bb8cc1ea93d1ec3d7c3d/api_src/paths/stats/current.yaml"
+    },
+    {
+      "repository": "podcastindex-org/docs-api",
+      "commit": "caf2697be05746b47200bb8cc1ea93d1ec3d7c3d",
+      "path": "api_src/root.yaml",
+      "git_blob_sha": "a76b7240c9880934a86de12282dde1cdaecf2c4c",
+      "sha256": "1965f8260a94eda066a0f31d814067a936af5769f341930e9f8dd328d6b91335",
+      "source_url": "https://github.com/podcastindex-org/docs-api/blob/caf2697be05746b47200bb8cc1ea93d1ec3d7c3d/api_src/root.yaml"
+    },
+    {
+      "repository": "temporalio/api-go",
+      "commit": "a25ff4a2e7f88373feb9940809b5511881c35cc5",
+      "path": "namespace/v1/message.pb.go",
+      "git_blob_sha": "fbafeefdf6baf5e4d8755acf58dcda3bf0c1f8e4",
+      "sha256": "41c1b68dfb81f9bd9b8aaf1dd75094feeab0164511637e2e285b1cb6b028402b",
+      "source_url": "https://github.com/temporalio/api-go/blob/a25ff4a2e7f88373feb9940809b5511881c35cc5/namespace/v1/message.pb.go",
+      "tag": "v1.64.3"
+    },
+    {
+      "repository": "temporalio/api-go",
+      "commit": "a25ff4a2e7f88373feb9940809b5511881c35cc5",
+      "path": "temporalproto/json_marshal.go",
+      "git_blob_sha": "2ff14a2f9a27a5e87afd94085eb412aeea1df962",
+      "sha256": "f009759d407ad6fef862680e598987e73481dde92659782bdcb65261e36e6e29",
+      "source_url": "https://github.com/temporalio/api-go/blob/a25ff4a2e7f88373feb9940809b5511881c35cc5/temporalproto/json_marshal.go",
+      "tag": "v1.64.3"
+    },
+    {
+      "repository": "temporalio/api-go",
+      "commit": "a25ff4a2e7f88373feb9940809b5511881c35cc5",
+      "path": "workflowservice/v1/request_response.pb.go",
+      "git_blob_sha": "9f46f2e8c6510662d249acef1965ca9c07c406ee",
+      "sha256": "842d45128b776a2fb48415a6b2f62440dbd240e180814dfee49927eab619b36d",
+      "source_url": "https://github.com/temporalio/api-go/blob/a25ff4a2e7f88373feb9940809b5511881c35cc5/workflowservice/v1/request_response.pb.go",
+      "tag": "v1.64.3"
+    },
+    {
+      "repository": "temporalio/api-go",
+      "commit": "a25ff4a2e7f88373feb9940809b5511881c35cc5",
+      "path": "workflowservice/v1/service.pb.gw.go",
+      "git_blob_sha": "0b553accec44159b7b2970056a116ca935f1cd8a",
+      "sha256": "bea36d35bf0297bc1f8f9993c8e70d3b86f65e66a0428217749679876272ab04",
+      "source_url": "https://github.com/temporalio/api-go/blob/a25ff4a2e7f88373feb9940809b5511881c35cc5/workflowservice/v1/service.pb.gw.go",
+      "tag": "v1.64.3"
+    },
+    {
+      "repository": "googleapis/googleapis",
+      "commit": "97f6460c3558c1435d7fd001a9251f8df058ae2f",
+      "path": "google/ads/googleads/v26/services/customer_service.proto",
+      "git_blob_sha": "d8b4dba283b512ea71d00bb47e2c6980f2c01bbd",
+      "sha256": "0cca59c738498fb0010f39f437d29eaff5dbe7577aae4bcdd011ae445795e685",
+      "source_url": "https://github.com/googleapis/googleapis/blob/97f6460c3558c1435d7fd001a9251f8df058ae2f/google/ads/googleads/v26/services/customer_service.proto"
+    }
+  ],
+  "external_specifications": [
+    {
+      "url": "https://www.banxico.org.mx/SieAPIRest/service/v2/api-docs",
+      "sha256": "413c5d3c52a69ca2c52f778b1b089b68e4f58b4631867f09756d0fc5716a36d5",
+      "contract": "Bmx-Token header; SF43718 latest observation"
+    }
+  ]
+}
