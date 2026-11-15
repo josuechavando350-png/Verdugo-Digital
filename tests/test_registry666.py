@@ -47,15 +47,15 @@ class Registry666Tests(unittest.TestCase):
         self.assertEqual(sim, {r['id'] for r in q if r['phase'] == 3})
 
     def test_registration_does_not_create_operational_connections(self):
-        self.assertEqual({'conectado': 244, 'pieza_de_construccion': 56,
-                          'pendiente': 366, 'excluido': 22}, connections.summary()['states'])
+        self.assertEqual({'conectado': 246, 'pieza_de_construccion': 56,
+                          'pendiente': 364, 'excluido': 22}, connections.summary()['states'])
         self.assertEqual(666, license_policy.summary()['allowed'])
         for r in self.document['records']:
             with self.subTest(project=r['id']):
                 state = connections.summary(r['id'])
-                self.assertEqual('conectado' if r['id'] == 'semantic-kernel' else 'pendiente', state['state'])
+                self.assertEqual('conectado' if r['id'] in ('semantic-kernel', 'agno', 'ag2') else 'pendiente', state['state'])
                 self.assertEqual([], state['http_actions'])
-                self.assertEqual(['objective.plan'] if r['id'] == 'semantic-kernel' else [], state['local_actions'])
+                self.assertEqual({'semantic-kernel':['objective.plan'], 'agno':['objective.plan'], 'ag2':['actions.check']}.get(r['id'], []), state['local_actions'])
                 self.assertFalse(state['live_verified'])
 
     def test_unimplemented_projects_fail_even_when_configuration_is_enabled(self):

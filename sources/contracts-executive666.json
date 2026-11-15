@@ -1,0 +1,104 @@
+{
+  "scope": "Fixed SDK function/workflow execution; no model, provider or autonomy",
+  "records": [
+    {
+      "id": "agno",
+      "repository": "agno-agi/agno",
+      "commit": "7c3b729667e66282f0d845adbd507ee07242c5eb",
+      "distribution": "agno",
+      "version": "3.2.0",
+      "archive_sha256": "4cb6850f6a3fe970eec7b647118978fa89f32c76ef148011e2d82060f570328d",
+      "files": [
+        {
+          "path": "libs/agno/pyproject.toml",
+          "blob_sha": "733237656e84750d3891103939a98b82adbe8313",
+          "sha256": "d5cb20de926e42ce5cb492e55f2ba288910abb72ef414d0fa31e5223b2b94ebf",
+          "installed_path": null,
+          "source_url": "https://github.com/agno-agi/agno/blob/7c3b729667e66282f0d845adbd507ee07242c5eb/libs/agno/pyproject.toml"
+        },
+        {
+          "path": "libs/agno/agno/workflow/step.py",
+          "blob_sha": "27e6e2814f4f239c609a4abb4ecdfce960af87f6",
+          "sha256": "292a2bf9de3350cde9454c660abd1918205247d1a4024dafeeab3bdeaa25b0e5",
+          "installed_path": "agno/workflow/step.py",
+          "source_url": "https://github.com/agno-agi/agno/blob/7c3b729667e66282f0d845adbd507ee07242c5eb/libs/agno/agno/workflow/step.py"
+        },
+        {
+          "path": "libs/agno/agno/workflow/types.py",
+          "blob_sha": "bc22d877c34eff7c6fb5549a1d4c2ae8e8b2aa1f",
+          "sha256": "a0fa2962639924e484b80428e8d3723f638f89a4b8a589c0225b928eaea2733e",
+          "installed_path": "agno/workflow/types.py",
+          "source_url": "https://github.com/agno-agi/agno/blob/7c3b729667e66282f0d845adbd507ee07242c5eb/libs/agno/agno/workflow/types.py"
+        },
+        {
+          "path": "libs/agno/agno/workflow/workflow.py",
+          "blob_sha": "de5acc6e70366c6454096a2d456265f716064338",
+          "sha256": "b3e2cd245d92000218ce2820e5ccb3ba0cc68ac9f2b8426e73fe66d553cbc519",
+          "installed_path": "agno/workflow/workflow.py",
+          "source_url": "https://github.com/agno-agi/agno/blob/7c3b729667e66282f0d845adbd507ee07242c5eb/libs/agno/agno/workflow/workflow.py"
+        }
+      ],
+      "live_verified": false
+    },
+    {
+      "id": "ag2",
+      "repository": "ag2ai/ag2",
+      "commit": "fb3061e061990ef2c81ea5a86984519b227cabee",
+      "distribution": "ag2",
+      "version": "1.3.1",
+      "archive_sha256": "5961bc356abf140b255970949ccfb86a8e9dd69f31b22854a20e8821201b8de2",
+      "files": [
+        {
+          "path": "pyproject.toml",
+          "blob_sha": "b784fe51cc7cd9c23609fe03ac7f030588790bd1",
+          "sha256": "ae28f2df5b35d770a69d24f67e90aeba768165d9f6769a977db9b537121f6f4e",
+          "installed_path": null,
+          "source_url": "https://github.com/ag2ai/ag2/blob/fb3061e061990ef2c81ea5a86984519b227cabee/pyproject.toml"
+        },
+        {
+          "path": "ag2/tools/final/function_tool.py",
+          "blob_sha": "ced45b0b65189fe7713bc9b008831138aa154cd2",
+          "sha256": "faed7fa17e524aee56ee2fe37381acf7ffdf07befff13e5ba3982b7960e2d910",
+          "installed_path": "ag2/tools/final/function_tool.py",
+          "source_url": "https://github.com/ag2ai/ag2/blob/fb3061e061990ef2c81ea5a86984519b227cabee/ag2/tools/final/function_tool.py"
+        },
+        {
+          "path": "ag2/context.py",
+          "blob_sha": "c902ed2048757ce4d9078caeebf383374ffd36ad",
+          "sha256": "0143f9c517b16656f9d15bd6a2ca62aa076695f5f5ca1895c766b92e2d181fe8",
+          "installed_path": "ag2/context.py",
+          "source_url": "https://github.com/ag2ai/ag2/blob/fb3061e061990ef2c81ea5a86984519b227cabee/ag2/context.py"
+        },
+        {
+          "path": "ag2/annotations.py",
+          "blob_sha": "d859a2109c6df0e1a5d4c7f81ed1a85b205c5be8",
+          "sha256": "7e3ce8631d8cb8ee1835effd10959b12fe10b455e4401477aefbd148cb758346",
+          "installed_path": "ag2/annotations.py",
+          "source_url": "https://github.com/ag2ai/ag2/blob/fb3061e061990ef2c81ea5a86984519b227cabee/ag2/annotations.py"
+        },
+        {
+          "path": "ag2/events/tool_events.py",
+          "blob_sha": "07fac8d663bd86f771e2425c195106aa78864132",
+          "sha256": "445c7adbe166e73c2a5c61c7c6878b7b591a47e34a08d684fabf8cc5c44341b6",
+          "installed_path": "ag2/events/tool_events.py",
+          "source_url": "https://github.com/ag2ai/ag2/blob/fb3061e061990ef2c81ea5a86984519b227cabee/ag2/events/tool_events.py"
+        },
+        {
+          "path": "ag2/stream.py",
+          "blob_sha": "297189afbc191b3fbe61461655d520631177f3f3",
+          "sha256": "40b4303da740a4ba43d6bbd6d837bfae4fb380fa8ade3136e409b5446fec78bb",
+          "installed_path": "ag2/stream.py",
+          "source_url": "https://github.com/ag2ai/ag2/blob/fb3061e061990ef2c81ea5a86984519b227cabee/ag2/stream.py"
+        },
+        {
+          "path": "ag2/events/input_events.py",
+          "blob_sha": "0d7a4339bc86c15f815fb7386bb4718f5e6fa620",
+          "sha256": "6a2ee24dd7dbce71f6d469c167eaf1e4ad8676680614c4f7605d1915b8f2d09f",
+          "installed_path": "ag2/events/input_events.py",
+          "source_url": "https://github.com/ag2ai/ag2/blob/fb3061e061990ef2c81ea5a86984519b227cabee/ag2/events/input_events.py"
+        }
+      ],
+      "live_verified": false
+    }
+  ]
+}

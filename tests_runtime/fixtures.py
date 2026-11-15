@@ -95,3 +95,6 @@ CASES['semantic-kernel'] = {'dataset': 'demo', 'goal': {
     'budget_minor': 0, 'currency': 'MXN', 'channels': [
         {'channel': 'referral', 'contacts_available': 300, 'cost_per_contact_minor': 0,
          'history_contacts': 200, 'history_clients': 20}]}}
+
+from executive666_fixtures import CASES as EXECUTIVE666_CASES
+CASES.update(EXECUTIVE666_CASES)

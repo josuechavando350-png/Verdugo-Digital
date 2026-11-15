@@ -1,6 +1,6 @@
 # Piloto 666: avance parcial del lote 1
 
-Una de 183 piezas del primer lote tiene una operación nueva implementada. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
+Tres de 183 piezas del primer lote tienen una operación nueva implementada. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
 
 ## Operación delimitada
 
@@ -37,4 +37,15 @@ La aceptación usa exclusivamente fixtures sintéticos, habilita la revisión de
 
 ## Pendiente
 
-Agno es la siguiente pieza de la cola. Faltan las demás piezas, el modelo local con licencia de pesos revisada, memoria, calibración, pruebas conjuntas de cada perfil y operación con información real autorizada. No se han desplegado servicios, publicado contenidos, enviado mensajes ni gastado presupuesto. `live_verified` sigue en cero. La cola de `registry-666.json` es el snapshot inmutable del registro; `docs/plan_conexion.json` y el inventario calculado reflejan las operaciones implementadas después.
+MetaGPT es la siguiente pieza de la cola. Faltan las demás piezas, el modelo local con licencia de pesos revisada, memoria, calibración, pruebas conjuntas de cada perfil y operación con información real autorizada. No se han desplegado servicios, publicado contenidos, enviado mensajes ni gastado presupuesto. `live_verified` sigue en cero. La cola de `registry-666.json` es el snapshot inmutable del registro; `docs/plan_conexion.json` y el inventario calculado reflejan las operaciones implementadas después.
+
+## Incremento ejecutivo: Agno y AG2
+
+| SDK | Operación | Alcance probado | Lo que no prueba |
+|---|---|---|---|
+| Agno 3.2.0 | `objective.plan` | Dos pasos originales `Workflow`/`Step`: heurística fija y comprobación de presupuesto, con telemetría desactivada | Razonamiento o selección autónoma de herramientas |
+| AG2 1.3.1 | `actions.check` | Una `FunctionTool` original revisa costos y exposición de acciones sintéticas, usando `MemoryStream` efímero | Aprobación del operador o ejecución de esas acciones |
+
+`examples/executive666.synthetic.json` compone los tres SDK con referencias de resultados y conserva la aprobación y medición del mismo motor. El flujo conjunto original pasó localmente, incluido el rechazo de un presupuesto insuficiente y replay después de cerrar SQLite. Las 750 pruebas unitarias pasaron. La aceptación CI del incremento se observa por separado.
+
+`requirements/runtime-agno666.txt` y `runtime-ag2666.txt` construyen desde archivos del commit exacto con SHA256; sus constraints fijan dependencias. `sources/contracts-executive666.json` vincula las funciones revisadas a archivos y blobs originales. Cada invocación comprueba los módulos revisados de su instalación. Ningún modelo, extra comercial ni servicio está configurado. Los tres planes usan la misma matemática propia: no son estimaciones independientes ni una votación de agentes.

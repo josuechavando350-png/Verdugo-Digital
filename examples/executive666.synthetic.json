@@ -1,0 +1,119 @@
+{
+  "id": "executive666-demo",
+  "steps": [
+    {
+      "id": "kernel",
+      "service": "semantic-kernel",
+      "operation": "objective.plan",
+      "params": {
+        "goal": {
+          "dataset": "demo",
+          "target_clients": 20,
+          "horizon_days": 30,
+          "budget_minor": 0,
+          "currency": "MXN",
+          "channels": [
+            {
+              "channel": "referral",
+              "contacts_available": 300,
+              "cost_per_contact_minor": 0,
+              "history_contacts": 200,
+              "history_clients": 20
+            }
+          ]
+        },
+        "dataset": "demo"
+      }
+    },
+    {
+      "id": "agno",
+      "service": "agno",
+      "operation": "objective.plan",
+      "params": {
+        "goal": {
+          "dataset": "demo",
+          "target_clients": 20,
+          "horizon_days": 30,
+          "budget_minor": 0,
+          "currency": "MXN",
+          "channels": [
+            {
+              "channel": "referral",
+              "contacts_available": 300,
+              "cost_per_contact_minor": 0,
+              "history_contacts": 200,
+              "history_clients": 20
+            }
+          ]
+        },
+        "dataset": "demo"
+      }
+    },
+    {
+      "id": "check",
+      "service": "ag2",
+      "operation": "actions.check",
+      "params": {
+        "dataset": "demo",
+        "currency": "MXN",
+        "budget_minor": {
+          "$ref": "kernel.result.budget_minor"
+        },
+        "actions": [
+          {
+            "channel": "referral",
+            "contacts": {
+              "$ref": "agno.result.planned_contacts"
+            },
+            "cost_per_contact_minor": 0
+          }
+        ]
+      },
+      "depends_on": [
+        "kernel",
+        "agno"
+      ]
+    },
+    {
+      "id": "simulate",
+      "service": "core",
+      "operation": "objective.simulate",
+      "params": {
+        "goal": {
+          "dataset": "demo",
+          "target_clients": 20,
+          "horizon_days": 30,
+          "budget_minor": 0,
+          "currency": "MXN",
+          "channels": [
+            {
+              "channel": "referral",
+              "contacts_available": 300,
+              "cost_per_contact_minor": 0,
+              "history_contacts": 200,
+              "history_clients": 20
+            }
+          ]
+        },
+        "seed": 666
+      },
+      "depends_on": [
+        "check"
+      ]
+    },
+    {
+      "id": "measure",
+      "service": "core",
+      "operation": "objective.measure",
+      "params": {
+        "simulation_key": "executive666-demo-simulate",
+        "observed_contacts": 200,
+        "observed_clients": 17,
+        "dataset": "demo"
+      },
+      "depends_on": [
+        "simulate"
+      ]
+    }
+  ]
+}

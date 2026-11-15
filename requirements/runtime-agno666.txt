@@ -1,0 +1,2 @@
+-c runtime-agno666.constraints.txt
+agno @ https://codeload.github.com/agno-agi/agno/tar.gz/7c3b729667e66282f0d845adbd507ee07242c5eb#sha256=4cb6850f6a3fe970eec7b647118978fa89f32c76ef148011e2d82060f570328d&subdirectory=libs/agno

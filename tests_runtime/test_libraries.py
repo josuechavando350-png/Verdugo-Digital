@@ -9,6 +9,7 @@ from verdugo import local_runtime
 from verdugo.__main__ import template
 from verdugo.engine import Engine
 from fixtures import CASES
+from executive666_fixtures import CASES as EXECUTIVE666_CASES, assert_result as assert_executive666
 from database_fixtures import CASES as DATABASE_CASES, assert_result as assert_database
 from native_tools_fixtures import CASES as TOOLS_CASES, assert_result as assert_tools
 from owned_http_fixtures import CASES as OWNED_HTTP_CASES, assert_result as assert_owned_http
@@ -62,7 +63,9 @@ class RuntimeAcceptance(unittest.TestCase):
                     self.assertIsNone(data['commercial_success_probability'])
                     self.assertEqual(local_runtime.SPECS[sid][2],data['version'])
                     value=data['result']
-                    if sid=='semantic-kernel':
+                    if sid in EXECUTIVE666_CASES:
+                        assert_executive666(self, sid, value)
+                    elif sid=='semantic-kernel':
                         self.assertEqual('semantic-kernel', value['original_sdk'])
                         self.assertEqual(200, value['planned_contacts'])
                         self.assertEqual(0, value['llm_calls'])

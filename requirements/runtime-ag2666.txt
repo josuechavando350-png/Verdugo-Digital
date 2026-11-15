@@ -1,0 +1,2 @@
+-c runtime-ag2666.constraints.txt
+ag2 @ https://codeload.github.com/ag2ai/ag2/tar.gz/fb3061e061990ef2c81ea5a86984519b227cabee#sha256=5961bc356abf140b255970949ccfb86a8e9dd69f31b22854a20e8821201b8de2
