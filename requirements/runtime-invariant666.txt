@@ -1,0 +1,3 @@
+-c runtime-invariant666.constraints.txt
+invariant-ai @ https://codeload.github.com/invariantlabs-ai/invariant/tar.gz/2340fe2d9cd619f73d5b67fa05bf8a08c7cad515#sha256=65e8b9077120a9a74a19a5fb1f217476df7426d1447c1bd84013320c3eaa49c9
+invariant-sdk @ https://codeload.github.com/invariantlabs-ai/invariant-sdk/tar.gz/bda28da6e3aa88caf1f06459b11949c3a2acc458#subdirectory=python&sha256=543c1f0dc6405ab50150cbe2627194639794b465d8622b17f533f3a67faf717d

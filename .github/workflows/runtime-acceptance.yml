@@ -29,7 +29,7 @@ jobs:
           /tmp/verdugo-kernel666-venv/bin/python -m pip install -r requirements/runtime-kernel666.txt --report /tmp/kernel666-pip-report.json
           /tmp/verdugo-kernel666-venv/bin/python -m pip check
           /tmp/verdugo-kernel666-venv/bin/python -m pip freeze > /tmp/kernel666-resolved.txt
-          for sdk in agno ag2 langroid griptape bee strands planning manus hatchet; do
+          for sdk in agno ag2 langroid griptape bee strands planning manus hatchet invariant; do
             python -m venv --copies /tmp/verdugo-${sdk}666-venv
             chmod go-w /tmp/verdugo-${sdk}666-venv/bin/python*
             if [ "$sdk" = "strands" ]; then
@@ -69,6 +69,7 @@ jobs:
             VERDUGO_PLANNING666_PYTHON=/tmp/verdugo-planning666-venv/bin/python \
             VERDUGO_MANUS666_PYTHON=/tmp/verdugo-manus666-venv/bin/python \
             VERDUGO_MONTY666_PYTHON=/tmp/verdugo-monty666-venv/bin/python \
+            VERDUGO_INVARIANT666_PYTHON=/tmp/verdugo-invariant666-venv/bin/python \
             VERDUGO_HATCHET666_PYTHON=/tmp/verdugo-hatchet666-venv/bin/python \
             VERDUGO_BROWSERSTATE666_PYTHON=/tmp/verdugo-browserstate666-venv/bin/python \
             VERDUGO_MEMORY666_ROOT=/tmp/verdugo-memory666 \
@@ -105,6 +106,8 @@ jobs:
             /tmp/monty666-pip-report.json
             /tmp/hatchet666-pip-report.json
             /tmp/hatchet666-resolved.txt
+            /tmp/invariant666-pip-report.json
+            /tmp/invariant666-resolved.txt
             /tmp/monty666-resolved.txt
             /tmp/browserstate666-pip-report.json
             /tmp/browserstate666-resolved.txt

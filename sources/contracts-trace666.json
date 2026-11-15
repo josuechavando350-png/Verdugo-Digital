@@ -1,0 +1,808 @@
+{
+  "schema": "verdugo.trace666.sources.v1",
+  "id": "invariant",
+  "operation": "trace.check",
+  "sources": [
+    {
+      "repo": "invariantlabs-ai/invariant",
+      "commit": "2340fe2d9cd619f73d5b67fa05bf8a08c7cad515",
+      "distribution": "invariant-ai",
+      "version": "0.3.5",
+      "archive_url": "https://codeload.github.com/invariantlabs-ai/invariant/tar.gz/2340fe2d9cd619f73d5b67fa05bf8a08c7cad515",
+      "archive_sha256": "65e8b9077120a9a74a19a5fb1f217476df7426d1447c1bd84013320c3eaa49c9",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "d52abd5e8ea48a32e177502544a6c30dc6b86fe2",
+          "sha256": "90154031b70befefac025106f493124530e13c608b876cc1418b5f65ba945f14",
+          "installed_path": null,
+          "implementation_reviewed": true
+        },
+        {
+          "path": "invariant/__init__.py",
+          "blob_sha": "cda779ba53d6d9660ce5728bcdc1991e991aa5e4",
+          "sha256": "8ec8d6b5787dc8f5f1e07ad5bd496c96199c35833f8e51b526ab8618f3d1ab28",
+          "installed_path": "invariant/__init__.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/__main__.py",
+          "blob_sha": "e1ae8678ac5f89bac93adca3fa464ca935ca79df",
+          "sha256": "404b6efe805f649fd7b185a60633ad5544deb097807d92d4ad07037a26d96159",
+          "installed_path": "invariant/__main__.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/__init__.py",
+          "blob_sha": "abf9a904cde3ed5ebf552a93ba313e6ff7a2f3ef",
+          "sha256": "88194830901e4c29c4580e8686342426c6b44a74d03e084828b49595b7d7b7a3",
+          "installed_path": "invariant/analyzer/__init__.py",
+          "implementation_reviewed": true
+        },
+        {
+          "path": "invariant/analyzer/base_policy.py",
+          "blob_sha": "60d889d8e879a4fa6fd789c8ee3af617653000ed",
+          "sha256": "7459353ff4a298a8b407ba7d0113ffb8b5909511ac80440c5f5a495be19704a5",
+          "installed_path": "invariant/analyzer/base_policy.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/examples/agent_bugs/traceset.py",
+          "blob_sha": "ce0dfdd0ad3f4d5ffd1af05e107d6cb77ef219e7",
+          "sha256": "ebc978cd9177ffd1f61b21e200f85578bbc3d95a667dccecb06db1363948899a",
+          "installed_path": "invariant/analyzer/examples/agent_bugs/traceset.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/examples/agent_flan/run.py",
+          "blob_sha": "0ad40c2556a886bab7dbac11167a31de9f6e76f9",
+          "sha256": "698170a9ea926b7ec2dff7a784829244427cdfc49350417f81026bdb9cd3ac8f",
+          "installed_path": "invariant/analyzer/examples/agent_flan/run.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/examples/openai_agent_example.py",
+          "blob_sha": "84a66eef49ab76e8f03aa90599817b3bb9e8a187",
+          "sha256": "220a38c9c6fb3c10be5af65e5caf1df24a263ec11d75242d10b920d11ac758cd",
+          "installed_path": "invariant/analyzer/examples/openai_agent_example.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/examples/traces_example.py",
+          "blob_sha": "4c19507bc356c87157167add9b863f8a3fd407ed",
+          "sha256": "212eebe5d6fb0771db7a3ab8a7092fc022f4eba528009c853bc28b5adbcf9e6f",
+          "installed_path": "invariant/analyzer/examples/traces_example.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/extras.py",
+          "blob_sha": "baa631d9268a9dbb1f00dbb079b1b5c0748e89a5",
+          "sha256": "0ef7480e8cb2528d564de2a9aa9ebad14247cd940f7422a627c187f026e367da",
+          "installed_path": "invariant/analyzer/extras.py",
+          "implementation_reviewed": true
+        },
+        {
+          "path": "invariant/analyzer/language/ast.py",
+          "blob_sha": "1fe571156399902b0478210dfedbb9f0baa56eeb",
+          "sha256": "65ee0a93aa41e6a856b6be83626439d3da89b28fa2d2a89ba68529d565802a4d",
+          "installed_path": "invariant/analyzer/language/ast.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/language/linking.py",
+          "blob_sha": "2e52de445cbd85589a365e5c371e2ccee24d166a",
+          "sha256": "63c676f71beb8ddc7db4dac6f82fa445c45769b9887d10fa8787d3205612ad5d",
+          "installed_path": "invariant/analyzer/language/linking.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/language/optimizer.py",
+          "blob_sha": "e0c09b9f9238179fc37b55fe44547b17d475ec45",
+          "sha256": "4b8dc97b507b5b6806f898add6adcd33779896fee6607f9092b2fb336b6022d7",
+          "installed_path": "invariant/analyzer/language/optimizer.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/language/parser.py",
+          "blob_sha": "3fafc55c716b57fd5918e92805cc35d476ddeb0b",
+          "sha256": "bd806f387197717ecd514172b885e8cd6a9a451e579b149ef4c0ca78ee27e903",
+          "installed_path": "invariant/analyzer/language/parser.py",
+          "implementation_reviewed": true
+        },
+        {
+          "path": "invariant/analyzer/language/scope.py",
+          "blob_sha": "96df2b83f2af080c2ecf26398f5238285ca52940",
+          "sha256": "78160e863189aa8fa52925686929fa31bf41ae336c049823bf4a8a18e783620e",
+          "installed_path": "invariant/analyzer/language/scope.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/language/types.py",
+          "blob_sha": "e354ba695b2d857cc4bcb4d0275a5aa197288192",
+          "sha256": "5f815184f96a644cea3132f36cb3dad9d78ce96b733e4e725655565bd4611ed7",
+          "installed_path": "invariant/analyzer/language/types.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/language/typing.py",
+          "blob_sha": "599e48760e9a61ae44bd1e3048ed9ba3c6d0add7",
+          "sha256": "73036f315c744f445e9d474e2fdb9f0d2c6fc86bdd55a569567560f3485ee64d",
+          "installed_path": "invariant/analyzer/language/typing.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/monitor.py",
+          "blob_sha": "cd1534b390cbbf77cdd9c31de3442abfbe376b9e",
+          "sha256": "5f2aae13f502aeab340cd7a9dd3e80761282d9f8bb389c7c61676d3041f85627",
+          "installed_path": "invariant/analyzer/monitor.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/policy.py",
+          "blob_sha": "2ddafe47d29f7656450a81b0eb0ce5b517b7763d",
+          "sha256": "2367bd6d52e90213b725ada5cb16528fe1355f9ee0ecf9d5622f4332b4531cd9",
+          "installed_path": "invariant/analyzer/policy.py",
+          "implementation_reviewed": true
+        },
+        {
+          "path": "invariant/analyzer/remote_policy.py",
+          "blob_sha": "3655b1db2aa9a8f20b3545e1c21e0c0c32f730e9",
+          "sha256": "3b36b83570bc71dcca77e9c70799224370e3be5877a315227080d38c5d79f199",
+          "installed_path": "invariant/analyzer/remote_policy.py",
+          "implementation_reviewed": true
+        },
+        {
+          "path": "invariant/analyzer/result.py",
+          "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "installed_path": "invariant/analyzer/result.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/__init__.py",
+          "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "installed_path": "invariant/analyzer/runtime/__init__.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/evaluation.py",
+          "blob_sha": "a750a02b06b8a5d5797ce34a6e5304fdb9e2a43d",
+          "sha256": "de341979e2c73fe88ed27b98bd0e81fb5ba28a1166d75e535cb92638f4c21ff2",
+          "installed_path": "invariant/analyzer/runtime/evaluation.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/evaluation_context.py",
+          "blob_sha": "ef75c530945b03c573d8b24882d5cdffa96bf6e4",
+          "sha256": "d783c8583bf640a901fcba498916ac97c6979dbfeeab329564e6973ceaa2e2e8",
+          "installed_path": "invariant/analyzer/runtime/evaluation_context.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/function_cache.py",
+          "blob_sha": "679806046d4934e9788393aa0f1fe4f50bc63021",
+          "sha256": "c15ca622c03702576e38cb76b8f12c45eadb20ee1a1224bf24f4c185824d3e97",
+          "installed_path": "invariant/analyzer/runtime/function_cache.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/functions.py",
+          "blob_sha": "5a054c80287c41f46363df64792e8742b332a843",
+          "sha256": "365d97ccbf0ea5d6dbd27aa04fd345ed0046721ad56e974d9ea28d7f336a6b81",
+          "installed_path": "invariant/analyzer/runtime/functions.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/input.py",
+          "blob_sha": "85a4efc7f22b430dd713989a92b18efa70224870",
+          "sha256": "9bc4e1c8f02d1af68c8da8ae54de0e5904c72bd8c762d7671d5c0209f1add760",
+          "installed_path": "invariant/analyzer/runtime/input.py",
+          "implementation_reviewed": true
+        },
+        {
+          "path": "invariant/analyzer/runtime/interface/primitives.py",
+          "blob_sha": "10d8b8282a9abc8deaccac9670da61ce449cc87a",
+          "sha256": "e05f19db062c308ff316fe8551ba20d1ff688cba502c23b56c41aecde31ac5bf",
+          "installed_path": "invariant/analyzer/runtime/interface/primitives.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/nodes.py",
+          "blob_sha": "f6598094da16feb9d3967238c4d0b1cd85d9277c",
+          "sha256": "4320bff64b76245f6447944b48f2945237674abe996894ef0d5412b1ef69ca8c",
+          "installed_path": "invariant/analyzer/runtime/nodes.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/patterns.py",
+          "blob_sha": "762fa9a54cfb4eed477bf7cd631666267bc25562",
+          "sha256": "521d3b6e3b78d1f6246efbab2d31830097139de544fac50db2c3af24c8df3695",
+          "installed_path": "invariant/analyzer/runtime/patterns.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/quantifier.py",
+          "blob_sha": "6d1d594260ab7fe841f50b0c2f408ec43ba4fd86",
+          "sha256": "04f40fcd359d5f85eae92f0b1fdd46cb2d9beaf74246ec34d4d88474fdc7f867",
+          "installed_path": "invariant/analyzer/runtime/quantifier.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/range.py",
+          "blob_sha": "3b8c834f3f7ef296d846a9f69c45bc2f6668a771",
+          "sha256": "015c431bccd0f4fe1af8c88df498203361caf87d98cd03d328351d6c1a95e25f",
+          "installed_path": "invariant/analyzer/runtime/range.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/rule.py",
+          "blob_sha": "154c127d4b8d65a5660a3aa3bb97a3565531c05d",
+          "sha256": "18f2ba4e7bf98c1df16d859483e505e773ca21f7e895b3b5b86f9f9af32234aa",
+          "installed_path": "invariant/analyzer/runtime/rule.py",
+          "implementation_reviewed": true
+        },
+        {
+          "path": "invariant/analyzer/runtime/runtime_errors.py",
+          "blob_sha": "7b1197cb7a1c591e050288b775e257301ffd37ca",
+          "sha256": "54c6e963b85cfa73d1e568f55c25d5cf72104a08eb3a4c46a265011d08f40591",
+          "installed_path": "invariant/analyzer/runtime/runtime_errors.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/span.py",
+          "blob_sha": "7461838402f601d6f89285d7a081c57ab0bc05a2",
+          "sha256": "f0e32bfb1d01df25190dbfd2b3490fc4bf7223e84fe96df4911696cb92bf8158",
+          "installed_path": "invariant/analyzer/runtime/span.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/symbol_table.py",
+          "blob_sha": "f32c50e05810720579b98b57b1eb6c6597485499",
+          "sha256": "35e3bd05a72f3137b50a0da111f9b832343c90a6353b8507a53a785ecf76c784",
+          "installed_path": "invariant/analyzer/runtime/symbol_table.py",
+          "implementation_reviewed": true
+        },
+        {
+          "path": "invariant/analyzer/runtime/utils/base.py",
+          "blob_sha": "f2ba8a33b2c995110d83e2c623e78cd3f6848bd2",
+          "sha256": "a408e6f3646d89af0b041148a8e7525b6f8d2266492211b75927ce773783f21e",
+          "installed_path": "invariant/analyzer/runtime/utils/base.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/utils/batching.py",
+          "blob_sha": "5d263fe00263272b3544977bf01901870bef8719",
+          "sha256": "bc24a83cb0486c2ecc1db4f3f97e3496ea6a71bdf539a8c86ab382da95efe7e7",
+          "installed_path": "invariant/analyzer/runtime/utils/batching.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/utils/code.py",
+          "blob_sha": "d3b04ba636edd52be3b5ca58519ccb3a45fc71e0",
+          "sha256": "63553120827a6f8dbca59a03e11cef9f7df2bb7690e6030685b1174cf9ab0793",
+          "installed_path": "invariant/analyzer/runtime/utils/code.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/utils/copyright/copyright.py",
+          "blob_sha": "c0bb345837ba5c0daadbb1f58faf0492bd32ad61",
+          "sha256": "807152efed0ff937a6f02cf8477238600cace09a4940e7e9ead67af890ce83ab",
+          "installed_path": "invariant/analyzer/runtime/utils/copyright/copyright.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/utils/copyright/software_licenses.py",
+          "blob_sha": "dbb0bae88bd41175ea6214dd5b503622ba923b0c",
+          "sha256": "4308924f4a9105861ca1929adb22b2d29fefb50e79e75c7bd51731c0f6ca5161",
+          "installed_path": "invariant/analyzer/runtime/utils/copyright/software_licenses.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/utils/invariant_attributes.py",
+          "blob_sha": "67949b9fc5651cf17ea987a1637fc17c238bde03",
+          "sha256": "3afc57c194cb5242232d9ace7705b74ec8863f3658912960899509ef778573fd",
+          "installed_path": "invariant/analyzer/runtime/utils/invariant_attributes.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/utils/moderation.py",
+          "blob_sha": "53546e9eac441b3ea4b9c16a4e495bf7941e1057",
+          "sha256": "cb52dec0e2b37b26320f8f47c0c3eba5e82ba8cdd49118f6528d54af11bff1d2",
+          "installed_path": "invariant/analyzer/runtime/utils/moderation.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/utils/ocr.py",
+          "blob_sha": "128253aeac928d5345f5df158b4a99fd63d122d5",
+          "sha256": "cece4e7c1d81d31ded58bc31702637799c67958371648d2af31a7648eaa82de9",
+          "installed_path": "invariant/analyzer/runtime/utils/ocr.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/utils/pii.py",
+          "blob_sha": "0ded769043e7e3e8126560bfb668c30fa8f01814",
+          "sha256": "c3a9278a4417bb89ba6e0daaf3fd02d29dfa5a322a6aac488c39771236509980",
+          "installed_path": "invariant/analyzer/runtime/utils/pii.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/utils/prompt_injections.py",
+          "blob_sha": "96f9b58450adbc898af367dd0290bd37962999bf",
+          "sha256": "787fdbd12bc5a7dcbe9e492217afb4a422c5e3b4ee2e266a425344207dcc380f",
+          "installed_path": "invariant/analyzer/runtime/utils/prompt_injections.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/utils/secrets.py",
+          "blob_sha": "669ff1138f657a56acf9929981e020be66e4dd03",
+          "sha256": "3fd21cb03fa80378dabf2de7b5d26531889103c4a45cd1b9d524101d04963247",
+          "installed_path": "invariant/analyzer/runtime/utils/secrets.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/runtime/utils/sentence_similarity.py",
+          "blob_sha": "572ec3004126096a8d7d7e3948fad67d1eb2033a",
+          "sha256": "0f5099a9f596e13d5f085408bc628055cde69057b39e277f8cf102fe2b77eb61",
+          "installed_path": "invariant/analyzer/runtime/utils/sentence_similarity.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/__init__.py",
+          "blob_sha": "259e6f10017dcf4d3585d3e6add9cbc003cc51b3",
+          "sha256": "8910cea7d8d36e4e3890b7be494bff2467700c7e12d58e8debe3407e556cb030",
+          "installed_path": "invariant/analyzer/stdlib/invariant/__init__.py",
+          "implementation_reviewed": true
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/access_control.py",
+          "blob_sha": "190ffee196b188217ff2717da9651c7db5bcd9ce",
+          "sha256": "6f42e30a95aacc5ce23d8c744c7234df99164b8f78ab915b9d78a83919aa1e0a",
+          "installed_path": "invariant/analyzer/stdlib/invariant/access_control.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/builtins.py",
+          "blob_sha": "428b4ed48eb90948624e52d737b70956d8bbcd48",
+          "sha256": "461d8529b258c60129140363809bae8ad2294e71afadcffd9040666dd900e21a",
+          "installed_path": "invariant/analyzer/stdlib/invariant/builtins.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/detectors/__init__.py",
+          "blob_sha": "a390c87324b0cdd8fb253d523efd76b15634e62a",
+          "sha256": "aa8a05de70fd2262346743292d6fa7aa0699b4c933a1180723e5a2dc63ecbcf6",
+          "installed_path": "invariant/analyzer/stdlib/invariant/detectors/__init__.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/detectors/code.py",
+          "blob_sha": "1f5d86f1dd895b76c03486071d82f8de01fab8f7",
+          "sha256": "0695741e25cfbffb7b36cfb43cfce0423d5067331041bcd3bbddffd25774918b",
+          "installed_path": "invariant/analyzer/stdlib/invariant/detectors/code.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/detectors/copyright.py",
+          "blob_sha": "a0ce2ca113b2da7717eb88855457b18655461b50",
+          "sha256": "ee9a854172ee7b835dd3da9b1808a4431baac4248c90495743864ce22d0dc519",
+          "installed_path": "invariant/analyzer/stdlib/invariant/detectors/copyright.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/detectors/fuzzy_matching.py",
+          "blob_sha": "988456079f02858d6553ae070555e38aa0aa8aae",
+          "sha256": "c8430ecd42455ff34e12fce54f873ee5f0f7e8fb371225ae4c76f3e9d035c06d",
+          "installed_path": "invariant/analyzer/stdlib/invariant/detectors/fuzzy_matching.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/detectors/moderation.py",
+          "blob_sha": "3b5d2fccb30da785559121ce074b46bc1869227c",
+          "sha256": "ec970adcd672a967e13b23192350e5c2835657d90fde4ac057d34503a3affe2c",
+          "installed_path": "invariant/analyzer/stdlib/invariant/detectors/moderation.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/detectors/pii.py",
+          "blob_sha": "03d4ef41fe72d5f142f22c0eec4f9074691d173d",
+          "sha256": "00c7121a9aa9bfe4c4162721ec7157af15b117d76c25a2a0a00c2de2f43e3869",
+          "installed_path": "invariant/analyzer/stdlib/invariant/detectors/pii.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/detectors/prompt_injection.py",
+          "blob_sha": "49994849a9e3a04638f3cab70cd372b162504a21",
+          "sha256": "22a68066b0c114b086b57c0e03dd61001eac3953d2869abd283b29901ae64cd9",
+          "installed_path": "invariant/analyzer/stdlib/invariant/detectors/prompt_injection.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/detectors/secrets.py",
+          "blob_sha": "e615a037fd53a7fa1f420c268dd8e52ec807ec7a",
+          "sha256": "a5f3fc4bb9f4f5c6f8b1ee0dbe58be6d7071de9ae641c3c6e4d5cf4144184cc8",
+          "installed_path": "invariant/analyzer/stdlib/invariant/detectors/secrets.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/detectors/sentence_similarity.py",
+          "blob_sha": "72c74159f24cadb85715477351bc408a2729e4bd",
+          "sha256": "01fc133919767e527a3048cca45c8d6409f65df6860dbde1d2f9c69028565e09",
+          "installed_path": "invariant/analyzer/stdlib/invariant/detectors/sentence_similarity.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/errors.py",
+          "blob_sha": "e62244a74f75aef0fd4833089983a9e56736d0d1",
+          "sha256": "0f32a1a519ae3659b6c47e790b07da1fd199ffa2b8e947b372969d580dd60a9f",
+          "installed_path": "invariant/analyzer/stdlib/invariant/errors.py",
+          "implementation_reviewed": true
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/files.py",
+          "blob_sha": "7632c96789af1465d6c21aaa89e194c91ec0a614",
+          "sha256": "d51a4352c4efd09d6018b7be95819cede13f64f1b5d9ca745d4930114137ba4c",
+          "installed_path": "invariant/analyzer/stdlib/invariant/files.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/llm.py",
+          "blob_sha": "2622b13735924338d9957c08226d8f85a03511f1",
+          "sha256": "7f40450d37c2b5dd60a530311f0f939c32a359e1542d9f727e18fd03d4141bf3",
+          "installed_path": "invariant/analyzer/stdlib/invariant/llm.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/message.py",
+          "blob_sha": "f8c0b2eef49bcc17d22c990b743bece86afc171b",
+          "sha256": "4e613426b693f33f0caa5a44cfebc0e688de2a669f37e8771b747ff787c95bda",
+          "installed_path": "invariant/analyzer/stdlib/invariant/message.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/nodes.py",
+          "blob_sha": "162fe801d3f1c4838d4d689d6354176c08a14a47",
+          "sha256": "8cd3c20e65c8cb502fd957dcf2ea0ac3d4d46303fbfde11bf36b639461d47a40",
+          "installed_path": "invariant/analyzer/stdlib/invariant/nodes.py",
+          "implementation_reviewed": true
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/parsers/__init__.py",
+          "blob_sha": "8fe5ada739884ad3f0d404e9741d0094d275b5ad",
+          "sha256": "f183340833a7b87632d8817ee9da7587c3a316e6a22f0767c4cbbdc6e518c4b9",
+          "installed_path": "invariant/analyzer/stdlib/invariant/parsers/__init__.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/parsers/html.py",
+          "blob_sha": "29310377ea5bca9287148cacfda2a3d521ee52c0",
+          "sha256": "4033eeafec2a93d07df63390840115a2fd64b5c8a3f9b1b0c48fe478f75651fe",
+          "installed_path": "invariant/analyzer/stdlib/invariant/parsers/html.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/parsers/ocr.py",
+          "blob_sha": "b32e76953cb76bac83e090557f00ce50a60e1d57",
+          "sha256": "3ed23ba52bf72a920ec26308d4a7a9b47143f2f3c72464070fdc70eb6b80a95a",
+          "installed_path": "invariant/analyzer/stdlib/invariant/parsers/ocr.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/stdlib/invariant/quantifiers.py",
+          "blob_sha": "8ae09ee0083915ca91901161a5f7f3fcbc030b1c",
+          "sha256": "f5ffffb58fdd583c41378c6668edd1b1d6e00b9995415ee6d2eb8ea8103cc159",
+          "installed_path": "invariant/analyzer/stdlib/invariant/quantifiers.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/analyzer/traces.py",
+          "blob_sha": "956e6837d69b3866e7adff321c58ad3238c1060d",
+          "sha256": "0b0ecb09bd3c5fb0fb22d0ea67e240f9b89763f6936b11d78c457d524451b360",
+          "installed_path": "invariant/analyzer/traces.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/explorer/launch.py",
+          "blob_sha": "fc4b055cc1b0b7a2232027c1fb2a424cd56a2642",
+          "sha256": "4a42d365882a844fe395d6125e572d5e08621522b448cf08ac0e718d981945a6",
+          "installed_path": "invariant/explorer/launch.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/custom_checker_project/checker.py",
+          "blob_sha": "e3885ab8cdc270236a255fc593f022b163127494",
+          "sha256": "28e27d76d82e4603c7fc153c8e687e2c2a718df8e606e945a04908c43ac36465",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_builtins.py",
+          "blob_sha": "a14779b0f7f955452a2730678fcb1508e1d4b5e8",
+          "sha256": "d043404950c77d9b3e03578700dbdb314e1be243c0d6d3d39da6b75711cfbf81",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_chunked.py",
+          "blob_sha": "33a498a92f37c57bd0d43b319dde74948e8f8362",
+          "sha256": "36695535a35f6a6f633936452d597d18043fa26582ca00107550d4bb4cf598a1",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_constants.py",
+          "blob_sha": "618411f8b624a36291b158c5eb7ed01d53050c0d",
+          "sha256": "faf79f4105c9207fefe3d690ffe88e64fd6d10f668b1fe5bcc6156318869ae6d",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_derived_variables.py",
+          "blob_sha": "968977293ce79c0de606dd0afc9da36acc584cae",
+          "sha256": "9c7181c86bacdcbbecac620ad6801b8209afbad83c366538efc6ed906b99bf24",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_flow.py",
+          "blob_sha": "46b0cef37fb5bb1e836f0967141e9aa931a2c66e",
+          "sha256": "f12e73f0501b1cbc2071c94ccad9c679d278bec8a2988feaededde97f8a597b2",
+          "installed_path": null,
+          "implementation_reviewed": true
+        },
+        {
+          "path": "invariant/tests/analyzer/test_guarding.py",
+          "blob_sha": "1cf1a666d9f69054b2a40bfb7222e30573b2d2a8",
+          "sha256": "39e3883d0f457d93d2035bc1e1217913cf7fc46dc909f7eb52c700e00dcdfe6c",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_html_parsing.py",
+          "blob_sha": "589a97f21c3674c114928d24213721a855bec2c4",
+          "sha256": "d4d2a898a9e366bc3dc9d970f89aec60a55a2707beee8a58f18f902e2736eeca",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_images.py",
+          "blob_sha": "0cd232e306e00c53c9dd0d08b07b1862650857a2",
+          "sha256": "cfd46f2b98b72447f22ed6520fbf7e3311e9ef7abf5b73a7609a4191aa6efc83",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_input.py",
+          "blob_sha": "955fff5d00d03ef2292ef21a454979493f0fd3e3",
+          "sha256": "4570df2f0dc90bf88d4d0f68acb4891bf2fb9cc370de7990fd4e6feae77d5a6f",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_list_comprehensions.py",
+          "blob_sha": "f4a4284c42ad2be01cb792975cd4612971438651",
+          "sha256": "3ffe996161b23fafe0da76e0fb0e7bd84318bcf3542419699b3fa57a97a792e1",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_monitor.py",
+          "blob_sha": "736f9eda02fc68263dddc3c943f9631ff9533773",
+          "sha256": "3187d79f82e6c91314c32abaff9fe0d370c7f730a40046e9ce134237b5ed7891",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_parser.py",
+          "blob_sha": "2347c68bd5bc18f0a221f3814a9ea7355a28372a",
+          "sha256": "2e61887909c7ae6120b4abbaddeb0fb6e0e3b835932932bc5a0f8c05b6641247",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_parser_errors.py",
+          "blob_sha": "f209db6aee351fe301322feab2e866a1067412ba",
+          "sha256": "174bf6a3f79ac2d8c1e39545bac1e45f4678ea40630be478f9777c124209c493",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_parser_semantic_patterns.py",
+          "blob_sha": "c98dc7baf7afed4eafc6a9524b426e2736acbd09",
+          "sha256": "8eb33f302eec5f659ea868b9d535f2ab05326b73bae88b7ae2dc0a21f97bf816",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_policy_parameters.py",
+          "blob_sha": "60a0bbb7912e38bd9ee64d089bb6f8bcdc764cbf",
+          "sha256": "e0b3b39016a0c379aff4673927f2580f055f50aaadef484c2af89c5e85af8a8e",
+          "installed_path": null,
+          "implementation_reviewed": true
+        },
+        {
+          "path": "invariant/tests/analyzer/test_predicates.py",
+          "blob_sha": "fce57e55a115c0ebf5af6ddf3ff743e944110d87",
+          "sha256": "f7af34f960ffef861b56a9739edc7186aa16e56a1e72dde198fb9df2a6eea4f7",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_quantifiers.py",
+          "blob_sha": "5f700582550cb6265d8ab12b542a413852a81483",
+          "sha256": "76d3814f5adef62afc7bfc5282bf42effaffa63612a9805c8ce6a0cfe5abfd2e",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_ranges.py",
+          "blob_sha": "5cd5b9d1f10ae3f0bfc9cfae39cf3f8ddb494056",
+          "sha256": "d5a1ba2539882511f507a7cd1c899b4ad0d4dbf5b855daee46cf9800bdb1eefb",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_readme_examples.py",
+          "blob_sha": "db5fe600bb00bda6c79eb9119fdcd0cab3d518c9",
+          "sha256": "c8f2acd0f4e1c6b16c6fe7d7153ad17a276884092ed7ecacfcd39142e3ce1395",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_semantic_patterns.py",
+          "blob_sha": "77622e22afc65bcadd04be5592ea7db9d5131f98",
+          "sha256": "aa757a18db62178792e0ba150ca6ca275bdfd94925ee7f8c01f4f9049bd2c1f0",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_stdlib_functions.py",
+          "blob_sha": "e622668818d4dab2e8f0624afae2f4a2cc02d9bf",
+          "sha256": "f4afa8dbf54038923ff4f74718039677c8cfae3b4d0ee63646c75a98b36ce55f",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_ternary_operator.py",
+          "blob_sha": "6f6999b4009bad404ff9e939b317c7df816a7789",
+          "sha256": "863e1cd47a6c3eab585b730d9744cb096176a5b937d6e8400a2512667c549fef",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_tools.py",
+          "blob_sha": "bbe3550c32623dee9a28ab7c8a8e810b6af3bb95",
+          "sha256": "19dae5fd3952d4157810c11173c4234bd2f47539911496f365663035cd5f7375",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/test_utils.py",
+          "blob_sha": "8595005f020f916028c1a0a4e6f7f8da4189be81",
+          "sha256": "aae1e2909cff7382eaf3b29c6df3971d74bcc929b899d188904e49c03d23bf75",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/analyzer/utils.py",
+          "blob_sha": "e75a3fb45a8718dfc7668100e00b316d54632e21",
+          "sha256": "c7fb5c37f7e8e5833322eeea1d70a4d59eccbcf70158c60185b607f1642f6bbd",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "invariant/tests/conftest.py",
+          "blob_sha": "4aa2d6e86068bd09b5925c813a743c86fdb76353",
+          "sha256": "348021b0af6d8c80e18f0f85115b460cd478232297da62f5f05887587dd5b57a",
+          "installed_path": null,
+          "implementation_reviewed": false
+        },
+        {
+          "path": "pyproject.toml",
+          "blob_sha": "e1317d1e2cfb17a579d6c903669925d76c9b20c4",
+          "sha256": "7a16bd7a2b5761c3e5ecface9a344a301a575d68678585166467ed3d3a1aedfd",
+          "installed_path": null,
+          "implementation_reviewed": true
+        }
+      ]
+    },
+    {
+      "repo": "invariantlabs-ai/invariant-sdk",
+      "commit": "bda28da6e3aa88caf1f06459b11949c3a2acc458",
+      "distribution": "invariant-sdk",
+      "version": "0.0.11",
+      "archive_url": "https://codeload.github.com/invariantlabs-ai/invariant-sdk/tar.gz/bda28da6e3aa88caf1f06459b11949c3a2acc458",
+      "archive_sha256": "543c1f0dc6405ab50150cbe2627194639794b465d8622b17f533f3a67faf717d",
+      "license": "Apache-2.0",
+      "files": [
+        {
+          "path": "LICENSE",
+          "blob_sha": "d52abd5e8ea48a32e177502544a6c30dc6b86fe2",
+          "sha256": "90154031b70befefac025106f493124530e13c608b876cc1418b5f65ba945f14",
+          "installed_path": null,
+          "implementation_reviewed": true
+        },
+        {
+          "path": "python/invariant_sdk/__init__.py",
+          "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "installed_path": "invariant_sdk/__init__.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "python/invariant_sdk/async_client.py",
+          "blob_sha": "2fd7b62c7ee1a6b799d347a38bb355541d6dc5d5",
+          "sha256": "dbba86cdad987dfb85719d2c3ddf239e1fb9f091a05bd03ad1dcc5256dd2558c",
+          "installed_path": "invariant_sdk/async_client.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "python/invariant_sdk/base_client.py",
+          "blob_sha": "2e728eeb8357e478499cad8032fdd44238e0ebfa",
+          "sha256": "7c944dbf7d5b8a8f9ed935a01892197309f2c1df67ba458972d206a2b05a0517",
+          "installed_path": "invariant_sdk/base_client.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "python/invariant_sdk/client.py",
+          "blob_sha": "4e464292baddbf0a2ce13b0b4b63d16549851536",
+          "sha256": "00b404dc566c89cd32cacd2bae8822d12d6106f68894a310903c1a8d7e58aaca",
+          "installed_path": "invariant_sdk/client.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "python/invariant_sdk/types/annotations.py",
+          "blob_sha": "47fa1b18d1b44f75302a5ab027ec8c1e8f9f7bc3",
+          "sha256": "df01db16b0c9916f6dc384f745d552403c3b367e6a9d3d1930a13a26680bb801",
+          "installed_path": "invariant_sdk/types/annotations.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "python/invariant_sdk/types/append_messages.py",
+          "blob_sha": "4ce2dddbf889ead793673ec738ec0e7b6e54bc76",
+          "sha256": "4043e9abfdbd98944379e8eaa031426509ff1aa0151cea073e94c4de16b11a3c",
+          "installed_path": "invariant_sdk/types/append_messages.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "python/invariant_sdk/types/exceptions.py",
+          "blob_sha": "c77f50e56d4e757248e7c376f011bb1960b60743",
+          "sha256": "30d90ad1c9d6d2d97b14d78ac89c5e5cbab12b07649b87963a9260f638f780d1",
+          "installed_path": "invariant_sdk/types/exceptions.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "python/invariant_sdk/types/push_traces.py",
+          "blob_sha": "3046266f341f134d22343716e1e89bed84c40439",
+          "sha256": "297a965d2059eaf5542b8de16bba3cd9d55661151702fac3c71c2db5f78f6ce6",
+          "installed_path": "invariant_sdk/types/push_traces.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "python/invariant_sdk/types/update_dataset_metadata.py",
+          "blob_sha": "e3c8d9741b2e785cd75b7c98cb1a04388587add4",
+          "sha256": "9ee2f919079888d29889d0ba2e2d92b9589b4bfc5987dedf7c07f4308071e5a8",
+          "installed_path": "invariant_sdk/types/update_dataset_metadata.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "python/invariant_sdk/utils.py",
+          "blob_sha": "7986b800e25e40f1768a87f3b228e35858f6c934",
+          "sha256": "981642b95df737705affe418f3a2020be49ed0f65ad92d7abff428891918cb85",
+          "installed_path": "invariant_sdk/utils.py",
+          "implementation_reviewed": false
+        },
+        {
+          "path": "python/pyproject.toml",
+          "blob_sha": "eaece569570a11cabedb577ef32dd6f05d886d9b",
+          "sha256": "ad07b6e269f0388302329a948494ebdd0625b30426b6bcbb971f824dfedaaa3a",
+          "installed_path": null,
+          "implementation_reviewed": true
+        }
+      ]
+    }
+  ],
+  "scope": "Three fixed synthetic local policy rules; temporal pattern is not taint proof. No remote client, LLM, arbitrary policy or actual tool execution.",
+  "dependency_note": "invariant-sdk 0.0.11 built from official pinned Apache source: PyPI omits license and one source file differs from this commit. Source hashes are integrity checks, not full semantic audit."
+}

@@ -18,7 +18,7 @@ from verdugo import local_runtime, objectives, workflow
 
 
 def accept():
-    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','openmanus','servers','monty','playwright-python','hatchet')
+    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','openmanus','servers','monty','playwright-python','hatchet','invariant')
     spec=json.loads((ROOT/'examples/executive666.synthetic.json').read_text())
     cfg=template('nexus')
     for sid in services:
@@ -41,12 +41,12 @@ def accept():
         with closing(engine()) as e:
             result=invoke(e,'verdugo_workflow',{'workflow':spec,'execute':True})
             assert result['state']=='succeeded',result
-            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state','dispatch_policy'}
+            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state','dispatch_policy','trace_policy'}
             r=result['steps']['check']['result']
             assert r['planned_contacts']==200 and r['planned_cost_minor']==0
             assert r['feasible_under_declared_limits'] and not r['external_execution_authorized']
             assert result['steps']['agno']['result']['budget_checked']
-            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state','dispatch_policy'),services):
+            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state','dispatch_policy','trace_policy'),services):
                 actual=result['steps'][step]['result']
                 assert actual['original_sdk']==sid and actual['llm_calls']==0
                 assert not actual['autonomous_agent']
@@ -77,7 +77,13 @@ def accept():
             assert policy['compiled_idempotency_method']=='STATUS'
             assert policy['dispatch_policy_draft_only'] and not policy['server_policy_enforced']
             assert policy['tasks_dispatched']==0 and policy['approvals_granted']==0
-            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==16
+            trace = result['steps']['trace_policy']['result']
+            assert trace['rule_match_counts']=={'review_missing':1,'reconcile_first':1,'private_before_send':1}
+            assert trace['rule_match_count']==3 and trace['matches_require_review']
+            assert trace['tool_calls_executed']==0 and trace['approvals_granted']==0
+            assert trace['ordered_pattern_only'] and not trace['data_leak_proven']
+            assert 'fixed_trace_0' not in '\n'.join(e.db.iterdump())
+            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==17
         with closing(engine()) as e, \
                 patch.object(local_runtime,'execute',side_effect=AssertionError('SDK re-executed')), \
                 patch.object(objectives,'simulate',side_effect=AssertionError('simulation re-executed')):
@@ -187,6 +193,27 @@ def accept():
                 assert policy['compiled_strategy']=='GROUP_ROUND_ROBIN'
                 assert policy['reconciliation_required']==(previous in ('running','uncertain'))
                 assert policy['retries_executed']==0 and not policy['external_execution_authorized']
+            # Original parser/evaluator, including reversed ordering, false
+            # hypothetical review, uncertain retry and multiple ordered pairs.
+            trace_cases = [
+                (['read_public','send'], 'failed', True, (0,0,0)),
+                (['send','read_private'], 'failed', True, (0,0,0)),
+                (['read_private','send'], 'failed', True, (0,0,1)),
+                (['send'], 'failed', False, (1,0,0)),
+                (['send'], 'running', True, (0,1,0)),
+                (['send'], 'uncertain', True, (0,1,0)),
+                (['read_private','draft','read_private','send','send'], 'failed', True, (0,0,4))]
+            for index, (kinds, previous, reviewed, expected) in enumerate(trace_cases):
+                checked=e.execute({'service':'invariant','operation':'trace.check',
+                    'key':'trace-case-'+str(index),'params':{'dataset':'demo','events':[
+                        {'kind':kind,'previous_state':previous,'hypothetical_review':reviewed}
+                        for kind in kinds]}},True)
+                assert checked['state']=='succeeded',checked
+                trace=checked['result']['result']
+                assert tuple(trace['rule_match_counts'][rule] for rule in
+                    ('review_missing','reconcile_first','private_before_send'))==expected,trace
+                assert trace['rule_match_count']==sum(expected)
+                assert trace['approvals_granted']==0 and not trace['external_execution_authorized']
     assert not calls
     return {'schema':'verdugo.executive666.acceptance.v1','services':list(services),
             'original_sdks_executed':True,'mocked_sdks':False,'dataset':'demo',

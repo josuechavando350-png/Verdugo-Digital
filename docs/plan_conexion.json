@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 353,
+ "pending": 352,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -137,20 +137,6 @@
    "domain": "conciencia",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
    "nota": "Detección local de PII; no garantiza anonimización completa.",
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
-   "id": "invariant",
-   "repository": "invariantlabs-ai/invariant",
-   "commit": "2340fe2d9cd619f73d5b67fa05bf8a08c7cad515",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "conciencia",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
    "live_verified": false,
    "evidence": "sources/registry-666.json"
   },
@@ -7726,6 +7712,12 @@
    "id": "hatchet",
    "operation": "policy.compile",
    "scope": "Original SDK task-default merging and protobuf policy serialization; draft only, no client, queue, dispatch or retries",
+   "live_verified": false
+  },
+  {
+   "id": "invariant",
+   "operation": "trace.check",
+   "scope": "Original LocalPolicy parser and evaluator over three fixed synthetic trace rules; ordered pattern only, no execution or authorization",
    "live_verified": false
   }
  ]

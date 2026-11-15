@@ -1,6 +1,6 @@
 # Piloto 666: avance parcial del lote 1
 
-Catorce de 183 piezas del primer lote tienen una operación nueva implementada. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
+Quince de 183 piezas del primer lote tienen una operación nueva implementada. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
 
 ## Operación delimitada
 
@@ -156,3 +156,16 @@ La aceptación local conjunta de catorce SDK y dieciséis pasos pasó con el per
 Prefect sigue pendiente: el wheel original `python-slugify==9.1.0` exige `text-unidecode>=1.3`; el wheel 1.3 ofrece GPL o Artistic, fuera de la lista permitida del repo. No se quitaron dependencias ni se aprobó una excepción. La conclusión se limita a la ruta de dependencias inspeccionada.
 
 El checkpoint de trece SDK `0bccfaa96d854e34ed11316c55f49907eda6849b` terminó con los tres workflows en `success`: compilación nativa y flujo conjunto con aislamiento de red incluidos. Esa evidencia no se extiende automáticamente a Hatchet; el nuevo incremento debe pasar su propia CI.
+
+
+## Invariant: análisis local de trazas sintéticas
+
+`invariant / trace.check` ejecuta `LocalPolicy.from_string` y `analyze` del commit `2340fe2d9cd619f73d5b67fa05bf8a08c7cad515`. Tres reglas fijas detectan envío sin revisión hipotética, envío con un estado previo incierto/en curso y lectura privada anterior al envío. La entrada admite hasta doce eventos con enums y booleanos; nunca acepta código de políticas, argumentos de herramientas, mensajes privados ni destinos. Se guardan recuentos y un digest de política, no trazas ni rangos.
+
+El tercer patrón solo describe orden temporal: no demuestra causalidad ni filtración de datos. Un resultado sin coincidencias tampoco aprueba la acción. `LocalPolicy` elige explícitamente el motor local; no se usa el cliente remoto, ningún modelo ni detectores que requieren pesos. Cero llamadas de herramientas y cero autorizaciones.
+
+El núcleo `invariant-ai==0.3.5` y su dependencia obligatoria `invariant-sdk==0.0.11` se construyen desde commits oficiales con archivos SHA256 fijados. El wheel publicado del segundo omite la licencia y un archivo difiere del commit inspeccionado: se instaló el fuente Apache original `bda28da6e3aa88caf1f06459b11949c3a2acc458`, sin omitir dependencias. `contracts-trace666.json` registra 111 archivos con blobs Git; 80 archivos instalados se verifican antes de cada análisis. El marcador de revisión distingue lectura parcial de comprobación de bytes.
+
+La aceptación conjunta incluye quince SDK, diecisiete pasos, aprobación y replay CLI/MCP/SQLite. Siete casos adicionales prueban ausencia de alertas, orden inverso, revisión ausente, conciliación y multiplicidad de pares. Las 786 pruebas unitarias pasaron localmente. El checkpoint anterior de catorce SDK tiene sus tres workflows verdes; el incremento actual se valida por separado en CI.
+
+AgentKit sigue pendiente: cinco archivos del mapa de fuentes npm no equivalen al commit fijado; con Inngest 3.54.0, el build original `tsc && tsup` falla por tipos incompatibles y `ctx` ausente. La versión de desarrollo 3.43.1 declara una advertencia crítica y no se conservó como alternativa. Gorilla/BFCL exige `html2text` GPL-3.0; Scrubadub exige `python-stdnum` LGPL-2.1. La evidencia original y los textos de licencia están en `contracts-executive-blockers666.json`; el bloqueo se limita a las rutas inspeccionadas. También se corrigió allí el blob de `pyproject.toml` de Prefect para eliminar un salto de línea añadido al guardar la evidencia.

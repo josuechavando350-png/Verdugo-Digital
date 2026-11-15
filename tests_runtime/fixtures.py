@@ -108,3 +108,5 @@ CASES.update(PLANNING666_CASES)
 CASES['hatchet'] = {'dataset':'demo','operation_kind':'write','previous_state':'uncertain',
                     'max_parallel':2,'requested_retries':3,'timeout_seconds':30,
                     'retention_seconds':600}
+
+CASES['invariant'] = {'dataset': 'demo', 'events': [{'kind': 'read_private', 'previous_state': 'failed', 'hypothetical_review': True}, {'kind': 'send', 'previous_state': 'uncertain', 'hypothetical_review': False}]}

@@ -389,6 +389,29 @@
         "timeout_seconds": 30,
         "retention_seconds": 600
       }
+    },
+    {
+      "id": "trace_policy",
+      "service": "invariant",
+      "operation": "trace.check",
+      "depends_on": [
+        "dispatch_policy"
+      ],
+      "params": {
+        "dataset": "demo",
+        "events": [
+          {
+            "kind": "read_private",
+            "previous_state": "failed",
+            "hypothetical_review": true
+          },
+          {
+            "kind": "send",
+            "previous_state": "uncertain",
+            "hypothetical_review": false
+          }
+        ]
+      }
     }
   ]
 }

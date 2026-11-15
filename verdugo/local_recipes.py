@@ -9,6 +9,8 @@ import math
 
 
 def run(service, operation, p):
+    from .local_trace666 import SPECS as TRACE666, run as run_trace666
+    if service in TRACE666: return run_trace666(service, p)
     from .local_dispatch666 import SPECS as DISPATCH666, run as run_dispatch666
     if service in DISPATCH666: return run_dispatch666(service, p)
     from .local_browserstate666 import SPECS as BROWSERSTATE666, run as run_browserstate666

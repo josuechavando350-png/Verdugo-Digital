@@ -14,7 +14,8 @@
     "servers",
     "monty",
     "playwright-python",
-    "hatchet"
+    "hatchet",
+    "invariant"
   ],
   "original_sdks_executed": true,
   "mocked_sdks": false,
@@ -28,7 +29,7 @@
         "dataset": "demo",
         "distribution": "semantic-kernel",
         "external_provider_calls_made": false,
-        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
+        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -79,7 +80,7 @@
         "dataset": "demo",
         "distribution": "agno",
         "external_provider_calls_made": false,
-        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
+        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -134,7 +135,7 @@
         "dataset": "demo",
         "distribution": "griptape",
         "external_provider_calls_made": false,
-        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
+        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
         "ok": true,
         "operation": "objective.scenarios",
         "production_certified": false,
@@ -183,7 +184,7 @@
         "dataset": "demo",
         "distribution": "strands-agents",
         "external_provider_calls_made": false,
-        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
+        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
         "ok": true,
         "operation": "limits.parallel",
         "production_certified": false,
@@ -223,7 +224,7 @@
         "dataset": "demo",
         "distribution": "openmanus",
         "external_provider_calls_made": false,
-        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
+        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
         "ok": true,
         "operation": "stages.track",
         "production_certified": false,
@@ -264,7 +265,7 @@
         "dataset": "demo",
         "distribution": "mcp:@modelcontextprotocol/server-memory",
         "external_provider_calls_made": false,
-        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
+        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
         "ok": true,
         "operation": "graph.audit",
         "production_certified": false,
@@ -303,7 +304,7 @@
         "dataset": "demo",
         "distribution": "ag2",
         "external_provider_calls_made": false,
-        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
+        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
         "ok": true,
         "operation": "actions.check",
         "production_certified": false,
@@ -339,7 +340,7 @@
         "dataset": "demo",
         "distribution": "unified-planning",
         "external_provider_calls_made": false,
-        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
+        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
         "ok": true,
         "operation": "sequence.validate",
         "production_certified": false,
@@ -375,7 +376,7 @@
         "dataset": "demo",
         "distribution": "playwright",
         "external_provider_calls_made": false,
-        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
+        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
         "ok": true,
         "operation": "cookies.check",
         "production_certified": false,
@@ -420,7 +421,7 @@
         "dataset": "demo",
         "distribution": "hatchet-sdk",
         "external_provider_calls_made": false,
-        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af",
+        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
         "ok": true,
         "operation": "policy.compile",
         "production_certified": false,
@@ -543,7 +544,51 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af"
+        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae"
+      },
+      "trace_policy": {
+        "ok": true,
+        "service": "invariant",
+        "operation": "trace.check",
+        "distribution": "invariant-ai",
+        "version": "0.3.5",
+        "dataset": "demo",
+        "result": {
+          "source_commit": "2340fe2d9cd619f73d5b67fa05bf8a08c7cad515",
+          "original_source_files_verified": 80,
+          "source_files_by_distribution": {
+            "invariant-ai": 70,
+            "invariant-sdk": 10
+          },
+          "synthetic_event_count": 2,
+          "rule_match_count": 3,
+          "rule_match_counts": {
+            "review_missing": 1,
+            "reconcile_first": 1,
+            "private_before_send": 1
+          },
+          "fixed_policy_sha256": "8a59d1b2e2bda3010909a58d378f55591026eca006409769f86ad028a19d8804",
+          "matches_require_review": true,
+          "rules_evaluated": 3,
+          "ordered_pattern_only": true,
+          "data_leak_proven": false,
+          "tool_calls_executed": 0,
+          "approvals_granted": 0,
+          "original_sdk": "invariant",
+          "sdk_version": "0.3.5",
+          "dataset": "demo",
+          "dry_run": true,
+          "llm_calls": 0,
+          "autonomous_agent": false,
+          "external_calls_made": false,
+          "external_execution_authorized": false,
+          "operator_approval_required": true,
+          "business_outcome_proven": false
+        },
+        "external_provider_calls_made": false,
+        "production_certified": false,
+        "commercial_success_probability": null,
+        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae"
       },
       "measure": {
         "algorithm": "synthetic-funnel-v1",
@@ -604,7 +649,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af"
+        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae"
       },
       "review": {
         "ok": true,
@@ -635,7 +680,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af"
+        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae"
       },
       "measurement_review": {
         "ok": true,
@@ -667,7 +712,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "f871b042d932e42a3e83c5d6fc07d97eefba27d7dcb60e66a065e9be4f42b7af"
+        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae"
       }
     }
   },
