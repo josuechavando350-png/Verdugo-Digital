@@ -17,6 +17,8 @@ El campo `integration_audit` de `product-status` verifica identidades y pertenen
 
 La continuación vigente está dividida en **Lote A 0/164 · Lote B 0/163**. La pertenencia exacta figura en `sources/resume-666.json/rebatch`, sin recontar las 39 incorporaciones anteriores. Se aprobaron únicamente Zlib, Boost Software License 1.0 (`BSL-1.0`) y Unicode-3.0; la reevaluación de candidatos conserva los límites de revisión y no añade adaptadores. Tokenizers continúa bloqueado por MPL-2.0.
 
+BM25S tiene un candidato local aún sin publicar: el entorno quedó inaccesible durante su validación final. No se suma a los 282 adaptadores. [Punto de recuperación](docs/RECUPERACION_BM25S_666.md). Rustworkx sigue pendiente por la dependencia obligatoria `priority-queue` (LGPL/MPL); aprobar Zlib no resuelve ese bloqueo.
+
 ## Estado del código
 
 | Componente | Alcance |
@@ -32,7 +34,7 @@ La continuación vigente está dividida en **Lote A 0/164 · Lote B 0/163**. La 
 | Operaciones HTTP existentes | 118, limitadas por proveedor |
 | Operaciones locales implementadas | 187; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Flujo de 87 operaciones nuevas + métricas locales; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 920 pruebas locales; comprobar los tres workflows del commit vigente en CI |
+| Pruebas unitarias y de contrato | 921 pruebas aprobadas en `baseline` de `713e4c0d`; comprobar los tres workflows del commit vigente en CI |
 | Herramientas MCP | 25; product-status/product-run reutilizan el mismo motor |
 | Servicios productivos certificados | 0 |
 

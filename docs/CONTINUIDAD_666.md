@@ -12,6 +12,14 @@ Rama `feat/666-pilot`, PR #25 en borrador sobre `feat/666-registry` (PR #24). El
 
 Por decisión del dueño se aprobaron Zlib, BSL-1.0 (Boost, no Business Source) y Unicode-3.0. La reevaluación con hashes está en `sources/review-license-decision666.json`. Esos bloqueos concretos de BM25S, Rustworkx, Clingo y Candle dejan de aplicar; el cierre completo y aceptación siguen pendientes. La revisión ampliada de Candle encontró `target-lexicon 0.13.6` (`Apache-2.0 WITH LLVM-exception`) en las dependencias de build del perfil fijado; esa expresión tampoco se aprobó. Evidencia original y árbol activo en `sources/review-candle-dependencies666.json`. La revisión nativa de Clingo comprobó nueve archivos fuente comprimidos y sus licencias raíz, y conserva pendiente el alcance del aviso GPL con excepción de los analizadores Bison (`sources/review-clingo-dependencies666.json`); no se compiló ni se reclasificó el proyecto completo. Tokenizers mantiene el bloqueo MPL-2.0. Pasan 921 pruebas locales; consultar CI del commit vigente antes de conectar más piezas.
 
+## Checkpoint de recuperación
+
+La revisión adicional de **Rustworkx** confirma que su núcleo requiere `priority-queue 2.7.0`, con `LGPL-3.0-or-later OR MPL-2.0`; ninguna opción está aprobada. El perfil Python también requiere `target-lexicon 0.13.5` a través de PyO3, con `Apache-2.0 WITH LLVM-exception`. Los nueve archivos originales de manifiestos, lock y licencias conservan commit, blob SHA y SHA256 en `sources/review-rustworkx-dependencies666.json`. El núcleo sigue pendiente; no se sustituyeron dependencias ni se añadió una excepción. Para Egg, el hallazgo anterior de `foldhash` Zlib queda resuelto por la misma decisión; aún faltan resolución completa, build y aceptación.
+
+El entorno de ejecución quedó inaccesible durante la validación final de BM25S. **El candidato no está publicado ni contado**; no se recuperaron los resultados finales de su suite y build limpio. Antes de seguir, leer [RECUPERACION_BM25S_666.md](RECUPERACION_BM25S_666.md), preservar cualquier diff local que reaparezca y conciliarlo con el head remoto. Este checkpoint mantiene A 0/164, B 0/163 y 282/56/328.
+
+En `713e4c0d`, verificación y servicios aprobaron; runtime seguía en curso a las 22:45 UTC, con `baseline` aprobado y `pilot666` pendiente. Cada commit posterior requiere su propia CI; consultar el estado vivo en [PLAN_666.md](PLAN_666.md) y la descripción de PR #25.
+
 ## Estado recuperado anterior
 
 La conversación anterior publicó `1dc6bd7a116a6ebdb8dbc55732993ebf4efe25a8`,

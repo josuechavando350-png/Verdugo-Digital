@@ -45,8 +45,8 @@
       "id": "rustworkx",
       "repository": "Qiskit/rustworkx",
       "commit": "e32b4d3342834a78efd9b5144393e6c28ac1b137",
-      "status": "pending_dependency_closure_and_acceptance",
-      "note": "Owner approved Zlib on 2026-11-15: the original Cargo.lock foldhash 0.1.5 license is now allowed. Full active dependency closure, source build, bounded contract and runtime acceptance remain pending.",
+      "status": "blocked_unapproved_mandatory_dependency",
+      "note": "Owner-approved Zlib resolves foldhash 0.1.5. The original Rust core still unconditionally requires priority-queue 2.7.0 (LGPL-3.0-or-later OR MPL-2.0); neither option is allowed. The Python package additionally requires pyo3-build-config 0.29.3 -> target-lexicon 0.13.5 (Apache-2.0 WITH LLVM-exception), outside the literal allowlist. Original manifests, lock, license texts and blob/SHA256 evidence are in sources/review-rustworkx-dependencies666.json. No new build or connection; other dependency closure remains unverified.",
       "root_license_evidence": [
         {
           "repository": "Qiskit/rustworkx",
@@ -72,7 +72,8 @@
       "source_review": "sources/review-logic-next666.json",
       "counted_as_connected": false,
       "live_verified": false,
-      "source_review_sha256": "4112bf9584ea0f7c10b541ce695b25054e002a929c04c769d93e6b3a9d80a5f1"
+      "source_review_sha256": "cd60233782c70205ea5ee669d4d834e0cd1da9cf614031ece6649c4f76610f77",
+      "additional_dependency_review": "sources/review-rustworkx-dependencies666.json"
     },
     {
       "id": "clingo",
@@ -114,7 +115,7 @@
       "source_review": "sources/review-logic-next666.json",
       "counted_as_connected": false,
       "live_verified": false,
-      "source_review_sha256": "4112bf9584ea0f7c10b541ce695b25054e002a929c04c769d93e6b3a9d80a5f1",
+      "source_review_sha256": "cd60233782c70205ea5ee669d4d834e0cd1da9cf614031ece6649c4f76610f77",
       "additional_review": "sources/review-clingo-dependencies666.json"
     },
     {
