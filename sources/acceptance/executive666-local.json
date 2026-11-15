@@ -15,7 +15,8 @@
     "monty",
     "playwright-python",
     "hatchet",
-    "invariant"
+    "invariant",
+    "pyrit"
   ],
   "original_sdks_executed": true,
   "mocked_sdks": false,
@@ -29,7 +30,7 @@
         "dataset": "demo",
         "distribution": "semantic-kernel",
         "external_provider_calls_made": false,
-        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
+        "implementation_sha256": "33703ffb6bfabc845804c3e8af1a2edcba9a1ffd3540c8465627d64964e54e34",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -80,7 +81,7 @@
         "dataset": "demo",
         "distribution": "agno",
         "external_provider_calls_made": false,
-        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
+        "implementation_sha256": "33703ffb6bfabc845804c3e8af1a2edcba9a1ffd3540c8465627d64964e54e34",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -135,7 +136,7 @@
         "dataset": "demo",
         "distribution": "griptape",
         "external_provider_calls_made": false,
-        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
+        "implementation_sha256": "33703ffb6bfabc845804c3e8af1a2edcba9a1ffd3540c8465627d64964e54e34",
         "ok": true,
         "operation": "objective.scenarios",
         "production_certified": false,
@@ -184,7 +185,7 @@
         "dataset": "demo",
         "distribution": "strands-agents",
         "external_provider_calls_made": false,
-        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
+        "implementation_sha256": "33703ffb6bfabc845804c3e8af1a2edcba9a1ffd3540c8465627d64964e54e34",
         "ok": true,
         "operation": "limits.parallel",
         "production_certified": false,
@@ -224,7 +225,7 @@
         "dataset": "demo",
         "distribution": "openmanus",
         "external_provider_calls_made": false,
-        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
+        "implementation_sha256": "33703ffb6bfabc845804c3e8af1a2edcba9a1ffd3540c8465627d64964e54e34",
         "ok": true,
         "operation": "stages.track",
         "production_certified": false,
@@ -265,7 +266,7 @@
         "dataset": "demo",
         "distribution": "mcp:@modelcontextprotocol/server-memory",
         "external_provider_calls_made": false,
-        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
+        "implementation_sha256": "33703ffb6bfabc845804c3e8af1a2edcba9a1ffd3540c8465627d64964e54e34",
         "ok": true,
         "operation": "graph.audit",
         "production_certified": false,
@@ -304,7 +305,7 @@
         "dataset": "demo",
         "distribution": "ag2",
         "external_provider_calls_made": false,
-        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
+        "implementation_sha256": "33703ffb6bfabc845804c3e8af1a2edcba9a1ffd3540c8465627d64964e54e34",
         "ok": true,
         "operation": "actions.check",
         "production_certified": false,
@@ -340,7 +341,7 @@
         "dataset": "demo",
         "distribution": "unified-planning",
         "external_provider_calls_made": false,
-        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
+        "implementation_sha256": "33703ffb6bfabc845804c3e8af1a2edcba9a1ffd3540c8465627d64964e54e34",
         "ok": true,
         "operation": "sequence.validate",
         "production_certified": false,
@@ -376,7 +377,7 @@
         "dataset": "demo",
         "distribution": "playwright",
         "external_provider_calls_made": false,
-        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
+        "implementation_sha256": "33703ffb6bfabc845804c3e8af1a2edcba9a1ffd3540c8465627d64964e54e34",
         "ok": true,
         "operation": "cookies.check",
         "production_certified": false,
@@ -421,7 +422,7 @@
         "dataset": "demo",
         "distribution": "hatchet-sdk",
         "external_provider_calls_made": false,
-        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae",
+        "implementation_sha256": "33703ffb6bfabc845804c3e8af1a2edcba9a1ffd3540c8465627d64964e54e34",
         "ok": true,
         "operation": "policy.compile",
         "production_certified": false,
@@ -544,7 +545,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae"
+        "implementation_sha256": "33703ffb6bfabc845804c3e8af1a2edcba9a1ffd3540c8465627d64964e54e34"
       },
       "trace_policy": {
         "ok": true,
@@ -588,7 +589,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae"
+        "implementation_sha256": "33703ffb6bfabc845804c3e8af1a2edcba9a1ffd3540c8465627d64964e54e34"
       },
       "measure": {
         "algorithm": "synthetic-funnel-v1",
@@ -605,6 +606,42 @@
         "real_revenue_verified": false,
         "calibrated_to_real_market": false,
         "external_calls_made": false
+      },
+      "tool_audit": {
+        "ok": true,
+        "service": "pyrit",
+        "operation": "tools.audit",
+        "distribution": "pyrit",
+        "version": "1.3.0.dev0",
+        "dataset": "demo",
+        "result": {
+          "source_commit": "c91ba04c127d56229f3559c8a6146506844bc45c",
+          "original_source_files_verified": 946,
+          "upstream_build_provenance_verified": true,
+          "synthetic_call_count": 3,
+          "synthetic_piece_count": 6,
+          "message_links_valid": true,
+          "recorded_invoked_tool_kind_count": 1,
+          "recorded_only": true,
+          "absence_proves_nonexecution": false,
+          "successful_completion_proven": false,
+          "tool_calls_executed": 0,
+          "original_sdk": "pyrit",
+          "sdk_version": "1.3.0.dev0",
+          "dataset": "demo",
+          "dry_run": true,
+          "llm_calls": 0,
+          "autonomous_agent": false,
+          "external_calls_made": false,
+          "external_execution_authorized": false,
+          "operator_approval_required": true,
+          "approvals_granted": 0,
+          "business_outcome_proven": false
+        },
+        "external_provider_calls_made": false,
+        "production_certified": false,
+        "commercial_success_probability": null,
+        "implementation_sha256": "33703ffb6bfabc845804c3e8af1a2edcba9a1ffd3540c8465627d64964e54e34"
       },
       "claims": {
         "ok": true,
@@ -649,7 +686,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae"
+        "implementation_sha256": "33703ffb6bfabc845804c3e8af1a2edcba9a1ffd3540c8465627d64964e54e34"
       },
       "review": {
         "ok": true,
@@ -680,7 +717,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae"
+        "implementation_sha256": "33703ffb6bfabc845804c3e8af1a2edcba9a1ffd3540c8465627d64964e54e34"
       },
       "measurement_review": {
         "ok": true,
@@ -712,7 +749,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "13f0c2aaf707dd4b5d34ac1cb381632bd08119d72133f3a3813dd025a5f07aae"
+        "implementation_sha256": "33703ffb6bfabc845804c3e8af1a2edcba9a1ffd3540c8465627d64964e54e34"
       }
     }
   },

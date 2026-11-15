@@ -507,7 +507,7 @@ openlit|openlit/openlit|juicio
 scrubadub|LeapBeyond/scrubadub|conciencia
 invariant|invariantlabs-ai/invariant|conciencia
 garak|NVIDIA/garak|conciencia
-pyrit|Azure/PyRIT|conciencia
+pyrit|microsoft/PyRIT|conciencia
 granite-guardian|ibm-granite/granite-guardian|conciencia
 ethics|hendrycks/ethics|conciencia
 interpret|interpretml/interpret|conciencia

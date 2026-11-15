@@ -47,6 +47,7 @@ jobs:
         run: |
           python tests_runtime/install_volt666.py
           python tests_runtime/install_memory666.py
+          python tests_runtime/install_pyrit666.py
       - name: Build pinned native interpreter and Python request-state SDK
         run: |
           python tests_runtime/install_monty666.py
@@ -69,6 +70,7 @@ jobs:
             VERDUGO_PLANNING666_PYTHON=/tmp/verdugo-planning666-venv/bin/python \
             VERDUGO_MANUS666_PYTHON=/tmp/verdugo-manus666-venv/bin/python \
             VERDUGO_MONTY666_PYTHON=/tmp/verdugo-monty666-venv/bin/python \
+            VERDUGO_PYRIT666_PYTHON=/tmp/verdugo-pyrit666/bin/python \
             VERDUGO_INVARIANT666_PYTHON=/tmp/verdugo-invariant666-venv/bin/python \
             VERDUGO_HATCHET666_PYTHON=/tmp/verdugo-hatchet666-venv/bin/python \
             VERDUGO_BROWSERSTATE666_PYTHON=/tmp/verdugo-browserstate666-venv/bin/python \
@@ -108,6 +110,8 @@ jobs:
             /tmp/hatchet666-resolved.txt
             /tmp/invariant666-pip-report.json
             /tmp/invariant666-resolved.txt
+            /tmp/pyrit666-pip-report.json
+            /tmp/pyrit666-resolved.txt
             /tmp/monty666-resolved.txt
             /tmp/browserstate666-pip-report.json
             /tmp/browserstate666-resolved.txt

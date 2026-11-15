@@ -6462,12 +6462,12 @@
   {
    "number": 498,
    "id": "pyrit",
-   "repository": "Azure/PyRIT",
+   "repository": "microsoft/PyRIT",
    "origin": "cerebro-150",
    "spdx": "MIT",
    "policy": "libre",
    "note": null,
-   "scanned_commit": "bec7cb5d6089481d75fb8df143793de3da6905f5",
+   "scanned_commit": "c91ba04c127d56229f3559c8a6146506844bc45c",
    "license_files": [
     "LICENSE"
    ]

@@ -110,3 +110,5 @@ CASES['hatchet'] = {'dataset':'demo','operation_kind':'write','previous_state':'
                     'retention_seconds':600}
 
 CASES['invariant'] = {'dataset': 'demo', 'events': [{'kind': 'read_private', 'previous_state': 'failed', 'hypothetical_review': True}, {'kind': 'send', 'previous_state': 'uncertain', 'hypothetical_review': False}]}
+
+CASES['pyrit'] = {'dataset': 'demo', 'calls': [{'tool': 'draft', 'format': 'chat', 'outcome': 'invoked', 'simulated': False}, {'tool': 'send', 'format': 'responses', 'outcome': 'not_invoked', 'simulated': False}, {'tool': 'plan', 'format': 'chat', 'outcome': 'invoked', 'simulated': True}]}

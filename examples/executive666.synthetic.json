@@ -412,6 +412,37 @@
           }
         ]
       }
+    },
+    {
+      "id": "tool_audit",
+      "service": "pyrit",
+      "operation": "tools.audit",
+      "depends_on": [
+        "trace_policy"
+      ],
+      "params": {
+        "dataset": "demo",
+        "calls": [
+          {
+            "tool": "draft",
+            "format": "chat",
+            "outcome": "invoked",
+            "simulated": false
+          },
+          {
+            "tool": "send",
+            "format": "responses",
+            "outcome": "not_invoked",
+            "simulated": false
+          },
+          {
+            "tool": "plan",
+            "format": "chat",
+            "outcome": "invoked",
+            "simulated": true
+          }
+        ]
+      }
     }
   ]
 }

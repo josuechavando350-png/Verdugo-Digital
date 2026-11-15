@@ -1,0 +1,2 @@
+-c runtime-pyrit666.constraints.txt
+pyrit @ https://codeload.github.com/microsoft/PyRIT/tar.gz/c91ba04c127d56229f3559c8a6146506844bc45c#sha256=7cee949cf4e28c6def5d1b36cd7f46a498f3a0daf556083983ed07940f3c88e5

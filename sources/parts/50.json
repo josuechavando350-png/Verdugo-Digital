@@ -58,8 +58,8 @@
   {
     "number": 498,
     "id": "pyrit",
-    "repository": "Azure/PyRIT",
-    "commit_sha": "bec7cb5d6089481d75fb8df143793de3da6905f5",
+    "repository": "microsoft/PyRIT",
+    "commit_sha": "c91ba04c127d56229f3559c8a6146506844bc45c",
     "source_status": "pinned",
     "license_review": "pending"
   },

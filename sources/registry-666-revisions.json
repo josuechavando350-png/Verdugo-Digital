@@ -1,0 +1,46 @@
+{
+  "schema": "verdugo.registry666.revisions.v1",
+  "revisions": [
+    {
+      "id": "pyrit",
+      "reason": "Official old repository README announces migration; old fixed commit contains no Python implementation. Identity count and work-queue position unchanged.",
+      "previous": {
+        "number": 498,
+        "id": "pyrit",
+        "repository": "Azure/PyRIT",
+        "repository_id": 1191146757,
+        "proposed_repository": "Azure/PyRIT",
+        "origin": "cerebro-150",
+        "proposal_number": 126,
+        "group": "conciencia",
+        "commit_sha": "bec7cb5d6089481d75fb8df143793de3da6905f5",
+        "spdx": "MIT",
+        "policy": "libre",
+        "note": null,
+        "kind": "biblioteca",
+        "license_evidence": [
+          {
+            "repository": "Azure/PyRIT",
+            "commit_sha": "bec7cb5d6089481d75fb8df143793de3da6905f5",
+            "path": "LICENSE",
+            "blob_sha": "9e841e7a26e4eb057b24511e7b92d42b257a80e5",
+            "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+            "local_path": "sources/license-texts/c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383.txt",
+            "source_url": "https://github.com/Azure/PyRIT/blob/bec7cb5d6089481d75fb8df143793de3da6905f5/LICENSE"
+          }
+        ]
+      },
+      "current_repository": "microsoft/PyRIT",
+      "current_repository_id": 730753909,
+      "current_commit": "c91ba04c127d56229f3559c8a6146506844bc45c",
+      "announcement": {
+        "repository": "Azure/PyRIT",
+        "commit": "bec7cb5d6089481d75fb8df143793de3da6905f5",
+        "path": "README.md",
+        "blob_sha": "dd941a879bfdd049a3f310efcd848e4637489bf1",
+        "sha256": "9a74554ac18ebae4f174c4c65cece673cc57a0c099b9df5555a8d26937953907",
+        "text": "<p align=\"center\"><img src=\"./doc/roakey.png\" width=\"150\"></p>\n\n# Python Risk Identification Tool for generative AI (PyRIT)\n\nThe Python Risk Identification Tool for generative AI (PyRIT) is an open source\nframework built to empower security professionals and engineers to proactively\nidentify risks in generative AI systems.\n\n> [!WARNING]\n> PyRIT has moved! Please see [https://github.com/microsoft/PyRIT](https://github.com/microsoft/PyRIT)!"
+      }
+    }
+  ]
+}

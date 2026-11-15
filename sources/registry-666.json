@@ -6653,26 +6653,26 @@
     {
       "number": 498,
       "id": "pyrit",
-      "repository": "Azure/PyRIT",
-      "repository_id": 1191146757,
+      "repository": "microsoft/PyRIT",
+      "repository_id": 730753909,
       "proposed_repository": "Azure/PyRIT",
       "origin": "cerebro-150",
       "proposal_number": 126,
       "group": "conciencia",
-      "commit_sha": "bec7cb5d6089481d75fb8df143793de3da6905f5",
+      "commit_sha": "c91ba04c127d56229f3559c8a6146506844bc45c",
       "spdx": "MIT",
       "policy": "libre",
-      "note": null,
+      "note": "Official README in the old Azure repository redirects to microsoft/PyRIT; source revision recorded separately.",
       "kind": "biblioteca",
       "license_evidence": [
         {
-          "repository": "Azure/PyRIT",
-          "commit_sha": "bec7cb5d6089481d75fb8df143793de3da6905f5",
+          "repository": "microsoft/PyRIT",
+          "commit_sha": "c91ba04c127d56229f3559c8a6146506844bc45c",
           "path": "LICENSE",
-          "blob_sha": "9e841e7a26e4eb057b24511e7b92d42b257a80e5",
-          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
-          "local_path": "sources/license-texts/c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383.txt",
-          "source_url": "https://github.com/Azure/PyRIT/blob/bec7cb5d6089481d75fb8df143793de3da6905f5/LICENSE"
+          "blob_sha": "b2f52a2bad4e27e2d9c68a755abb74cb8943f2fa",
+          "sha256": "7c77a44a8acd9b41fdc209864a8016b3d430b5d0e09309818d5b7444336df744",
+          "local_path": "sources/license-texts/7c77a44a8acd9b41fdc209864a8016b3d430b5d0e09309818d5b7444336df744.txt",
+          "source_url": "https://github.com/microsoft/PyRIT/blob/c91ba04c127d56229f3559c8a6146506844bc45c/LICENSE"
         }
       ]
     },

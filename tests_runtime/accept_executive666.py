@@ -18,7 +18,7 @@ from verdugo import local_runtime, objectives, workflow
 
 
 def accept():
-    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','openmanus','servers','monty','playwright-python','hatchet','invariant')
+    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','openmanus','servers','monty','playwright-python','hatchet','invariant','pyrit')
     spec=json.loads((ROOT/'examples/executive666.synthetic.json').read_text())
     cfg=template('nexus')
     for sid in services:
@@ -41,12 +41,12 @@ def accept():
         with closing(engine()) as e:
             result=invoke(e,'verdugo_workflow',{'workflow':spec,'execute':True})
             assert result['state']=='succeeded',result
-            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state','dispatch_policy','trace_policy'}
+            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit'}
             r=result['steps']['check']['result']
             assert r['planned_contacts']==200 and r['planned_cost_minor']==0
             assert r['feasible_under_declared_limits'] and not r['external_execution_authorized']
             assert result['steps']['agno']['result']['budget_checked']
-            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state','dispatch_policy','trace_policy'),services):
+            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit'),services):
                 actual=result['steps'][step]['result']
                 assert actual['original_sdk']==sid and actual['llm_calls']==0
                 assert not actual['autonomous_agent']
@@ -83,7 +83,15 @@ def accept():
             assert trace['tool_calls_executed']==0 and trace['approvals_granted']==0
             assert trace['ordered_pattern_only'] and not trace['data_leak_proven']
             assert 'fixed_trace_0' not in '\n'.join(e.db.iterdump())
-            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==17
+            tool_audit = result['steps']['tool_audit']['result']
+            assert tool_audit['message_links_valid']
+            assert tool_audit['recorded_invoked_tool_kind_count']==1
+            assert tool_audit['synthetic_piece_count']==6
+            assert tool_audit['tool_calls_executed']==0 and tool_audit['approvals_granted']==0
+            assert not tool_audit['absence_proves_nonexecution']
+            assert not tool_audit['successful_completion_proven']
+            assert 'fixed_pyrit_call_' not in '\n'.join(e.db.iterdump())
+            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==18
         with closing(engine()) as e, \
                 patch.object(local_runtime,'execute',side_effect=AssertionError('SDK re-executed')), \
                 patch.object(objectives,'simulate',side_effect=AssertionError('simulation re-executed')):
@@ -214,6 +222,21 @@ def accept():
                     ('review_missing','reconcile_first','private_before_send'))==expected,trace
                 assert trace['rule_match_count']==sum(expected)
                 assert trace['approvals_granted']==0 and not trace['external_execution_authorized']
+            for index, (fmt, outcome, simulated, valid, matches) in enumerate([
+                ('chat','invoked',False,True,1), ('responses','invoked',False,True,1),
+                ('chat','invoked',True,True,0), ('chat','missing',False,True,0),
+                ('responses','not_invoked',False,True,0),
+                ('responses','out_of_order',False,False,0),
+                ('chat','duplicate_output',False,False,0),
+                ('responses','unmatched_output',False,False,0)]):
+                checked=e.execute({'service':'pyrit','operation':'tools.audit',
+                    'key':'tool-audit-'+str(index),'params':{'dataset':'demo','calls':[
+                        {'tool':'draft','format':fmt,'outcome':outcome,'simulated':simulated}]}},True)
+                assert checked['state']=='succeeded',checked
+                audited=checked['result']['result']
+                assert audited['message_links_valid']==valid
+                assert audited['recorded_invoked_tool_kind_count']==matches
+                assert audited['tool_calls_executed']==0 and audited['approvals_granted']==0
     assert not calls
     return {'schema':'verdugo.executive666.acceptance.v1','services':list(services),
             'original_sdks_executed':True,'mocked_sdks':False,'dataset':'demo',

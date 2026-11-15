@@ -85,3 +85,8 @@ se enviaron mensajes, se crearon campañas ni se aprovisionó infraestructura.
 Los tres workflows deben observarse en el commit del PR antes de declarar
 terminada la aceptación de la tanda 0. Una suite unitaria aprobada no sustituye
 la aceptación de ejecución real ni demuestra un producto 24/7.
+
+
+## Revisiones posteriores de identidad
+
+La cola conserva sus posiciones y el estado del checkpoint de registro. Cuando una fuente oficial anuncia una migración, `sources/registry-666-revisions.json` conserva el registro anterior y el aviso original con blob/hash. PyRIT migra de `Azure/PyRIT` a `microsoft/PyRIT` sin añadir otra identidad; la licencia y el commit del destino se comprueban de nuevo. El inventario operativo se consulta en `docs/plan_conexion.json` y en el motor.
