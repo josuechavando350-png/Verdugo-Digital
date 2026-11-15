@@ -79,7 +79,8 @@ def tool_definitions():
 def invoke(engine, name, args):
     spec = next((s for s in TOOLS if s[0] == name), None)
     if not spec: raise VerdugoError('Unknown tool')
-    fields(args, spec[3], set(spec[2])-set(spec[3]))
+    fields(args, spec[3], set(spec[2])-set(spec[3]),
+           max_bytes=workflow.MAX_MANIFEST_BYTES if name in ('verdugo_product_run', 'verdugo_workflow') else 32768)
     if name == 'verdugo_product_status': return product.overview(engine, args.get('dataset', 'real'))
     if name == 'verdugo_product_run': return product.observe(engine, args['request'], args.get('execute', False))
     if name == 'verdugo_source_evidence': return source_evidence.report(args.get('project_id'))
@@ -139,7 +140,8 @@ class Session:
         elif method == 'tools/list': result = {'tools': tool_definitions()}
         elif method == 'tools/call':
             try:
-                fields(params, ('name',), ('arguments', '_meta'))
+                fields(params, ('name',), ('arguments', '_meta'),
+                       max_bytes=workflow.MAX_MANIFEST_BYTES if params.get('name') in ('verdugo_product_run', 'verdugo_workflow') else 32768)
                 output = invoke(self.engine, params['name'], params.get('arguments', {}))
                 result = {'content': [{'type': 'text', 'text': encode(output)}],
                           'isError': isinstance(output, dict) and output.get('state') in

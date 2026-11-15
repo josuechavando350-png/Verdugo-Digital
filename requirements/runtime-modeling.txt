@@ -1,0 +1,3 @@
+-c runtime-modeling.constraints.txt
+pymc-marketing==1.4.0
+pysd==3.14.3

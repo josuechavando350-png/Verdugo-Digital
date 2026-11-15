@@ -1,0 +1,104 @@
+{
+  "scope": "Original image CLI and landscape validator; catalog commit distinct from released runtime; no VM or external communications",
+  "files": [
+    {
+      "service": "microsandbox",
+      "repository": "microsandbox/microsandbox",
+      "commit": "28bdced502513f46b2372dade590ba7e91466242",
+      "path": "README.md",
+      "blob_sha": "4b47e664bd7152fbf5e3ecff8cd73ffea840ded9",
+      "sha256": "2bd59f2c9503207dc36f89ecbc3f5075c3016239b585ac542a27032c4b20bf05",
+      "url": "https://github.com/microsandbox/microsandbox/blob/28bdced502513f46b2372dade590ba7e91466242/README.md"
+    },
+    {
+      "service": "microsandbox",
+      "repository": "microsandbox/microsandbox",
+      "commit": "28bdced502513f46b2372dade590ba7e91466242",
+      "path": "docs/cli/image-commands.mdx",
+      "blob_sha": "f2c4de1c3ea13ba8e7e2e7f3597ce52364742bd9",
+      "sha256": "eae94ce93ec8f61e1cc6382f2c7021f0e1501afe716382f5275fc96407394caf",
+      "url": "https://github.com/microsandbox/microsandbox/blob/28bdced502513f46b2372dade590ba7e91466242/docs/cli/image-commands.mdx"
+    },
+    {
+      "service": "microsandbox",
+      "repository": "microsandbox/microsandbox",
+      "commit": "28bdced502513f46b2372dade590ba7e91466242",
+      "path": "crates/cli/lib/commands/image.rs",
+      "blob_sha": "a438cb109faf767158ad749e3134698b2fb26db5",
+      "sha256": "8098c8c82a06d17f37dff1e73eddfb7602a12bc27efbdadac46c95d7522528c1",
+      "url": "https://github.com/microsandbox/microsandbox/blob/28bdced502513f46b2372dade590ba7e91466242/crates/cli/lib/commands/image.rs"
+    },
+    {
+      "service": "microsandbox",
+      "repository": "microsandbox/microsandbox",
+      "commit": "28bdced502513f46b2372dade590ba7e91466242",
+      "path": "sdk/python/src/image.rs",
+      "blob_sha": "0a23ea60d626beb7f934e35c4c18a734fd7e0e58",
+      "sha256": "584c4de25aede41b483102337400d3754f934f091a670081f4828e65c887d39f",
+      "url": "https://github.com/microsandbox/microsandbox/blob/28bdced502513f46b2372dade590ba7e91466242/sdk/python/src/image.rs"
+    },
+    {
+      "service": "landscape-app",
+      "repository": "cncf/landscapeapp",
+      "commit": "a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf",
+      "path": "LICENSE",
+      "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "url": "https://github.com/cncf/landscapeapp/blob/a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf/LICENSE"
+    },
+    {
+      "service": "landscape-app",
+      "repository": "cncf/landscapeapp",
+      "commit": "a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf",
+      "path": "tools/validateLandscape.js",
+      "blob_sha": "e1010acb99a3c2644669eebd244e14357b07470e",
+      "sha256": "b14e0bcb00977c8c42c87e99f95898faf447dbcfe7d6de103b01321bf622e1e2",
+      "url": "https://github.com/cncf/landscapeapp/blob/a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf/tools/validateLandscape.js"
+    },
+    {
+      "service": "landscape-app",
+      "repository": "cncf/landscapeapp",
+      "commit": "a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf",
+      "path": "tools/settings.js",
+      "blob_sha": "bd0b56a2dbe2ae087991e299aecc9f3f65f9b741",
+      "sha256": "83892e22c0a4b1525dc3a81b3ea65304f693d15c48f455de90d7ca937ab4bb2b",
+      "url": "https://github.com/cncf/landscapeapp/blob/a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf/tools/settings.js"
+    },
+    {
+      "service": "landscape-app",
+      "repository": "cncf/landscapeapp",
+      "commit": "a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf",
+      "path": "tools/actualTwitter.js",
+      "blob_sha": "fbd0f9607d8dc10b8ba231d7f484fc9a0e3fdb2f",
+      "sha256": "35f7ff75c5e8d53526e12499beefca8b8577ec628208e0e3fd9a833306010f21",
+      "url": "https://github.com/cncf/landscapeapp/blob/a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf/tools/actualTwitter.js"
+    },
+    {
+      "service": "landscape-app",
+      "repository": "cncf/landscapeapp",
+      "commit": "a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf",
+      "path": "tools/fatalErrors.js",
+      "blob_sha": "9bbb6570fd53d1aa66d979cd3dd8fd43345c4a1f",
+      "sha256": "e7f30439293f1a681633b525e37b701ea4b81905530d54162f5b373958690bfb",
+      "url": "https://github.com/cncf/landscapeapp/blob/a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf/tools/fatalErrors.js"
+    },
+    {
+      "service": "landscape-app",
+      "repository": "cncf/landscapeapp",
+      "commit": "a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf",
+      "path": "tools/reporter.js",
+      "blob_sha": "e603fe11b2df672bc0282d07f3bf62d48208bdf1",
+      "sha256": "e4d4733a35f149e1c7e2181443dd9c78e44dcd77de379cb0368be76c21b678e8",
+      "url": "https://github.com/cncf/landscapeapp/blob/a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf/tools/reporter.js"
+    },
+    {
+      "service": "landscape-app",
+      "repository": "cncf/landscapeapp",
+      "commit": "a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf",
+      "path": "tools/yaml.js",
+      "blob_sha": "6549ec1ab8d90fceee4f4c503de6f3b0adc51914",
+      "sha256": "04046fded6170cd85e329aa48cad397ff12b3a3d32efe1f841e4e69651378056",
+      "url": "https://github.com/cncf/landscapeapp/blob/a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf/tools/yaml.js"
+    }
+  ]
+}

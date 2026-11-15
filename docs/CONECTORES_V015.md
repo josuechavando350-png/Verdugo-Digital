@@ -1,3 +1,7 @@
+> Estado v0.21: 217 conectadas, 27 pendientes, 56 piezas de construcción y 22 excluidas.
+> 148 operaciones locales (136 bibliotecas, 10 CLI, 2 datos) y 104 adaptadores HTTP.
+> Las secciones siguientes conservan el detalle histórico.
+
 # Verdugo Digital v0.15–v0.16 — 16 conectores nuevos de solo lectura (solo servicios gratuitos)
 
 Cada ruta, encabezado de autenticación y forma de respuesta se tomó del **código fuente o
@@ -61,7 +65,7 @@ Los conectores nuevos son de consulta de metadatos, no despliegues productivos.
 
 ## Continuación v0.18 (sin modificar contratos anteriores)
 
-El mapa vigente es **69 conectadas, 175 pendientes, 56 piezas y 22 excluidas**,
+En v0.18 el mapa era **65 conectadas, 179 pendientes, 56 piezas y 22 excluidas**,
 con 322 entradas invariables. Se añaden dos consultas implementadas en
 `verdugo/readiness_reads.py`, usando los mismos despachadores y Engine:
 `uptime-kuma.monitors.summary` y `gotenberg.health.summary`.
@@ -70,3 +74,8 @@ No se afirma ninguna instalación upstream nueva ni actividad comercial real.
 
 La continuación v0.19 agrega cuatro contratos y la operación conjunta del producto;
 ver [PRODUCTO_V019.md](PRODUCTO_V019.md).
+
+La continuación v0.20 añade 87 operaciones: 76 de bibliotecas, dos consultas de datos
+y nueve contratos HTTP. El mapa vigente es **156 conectadas, 88 pendientes, 56 piezas
+y 22 excluidas**. Las nuevas lecturas están en `verdugo/platform_reads.py`; los contratos
+y límites de las 87 operaciones se documentan en [AMPLIACION_V020.md](AMPLIACION_V020.md).

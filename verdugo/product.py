@@ -7,7 +7,7 @@ the observation report. Other operations remain available via workflow.
 import time
 
 from . import (commercial, connections, license_policy, local_runtime,
-               marketing_reads, operations_reads, read_contracts, readiness_reads,
+               marketing_reads, operations_reads, platform_reads, completion_reads, public_reads, read_contracts, readiness_reads,
                reconciliation, service_reads, tanda1_reads, workflow)
 from .adapters import SPECS, service_config
 from .common import VerdugoError, fields, identifier
@@ -16,7 +16,7 @@ from .common import VerdugoError, fields, identifier
 def read_operations():
     candidates = {sid: op for sid, (op, _) in read_contracts.METADATA_SCHEMAS.items()}
     candidates['growthbook'] = 'settings.read'
-    for module in (marketing_reads, service_reads, tanda1_reads, readiness_reads, operations_reads):
+    for module in (marketing_reads, service_reads, tanda1_reads, readiness_reads, operations_reads, platform_reads, completion_reads, public_reads):
         candidates.update({sid: next(iter(ops)) for sid, ops in module.SPECS.items()})
     policy = license_policy.read_policy()
     # The existing Airbyte contract addresses paid Cloud only. It cannot enter
@@ -41,7 +41,7 @@ def overview(engine, dataset='real'):
     return {'name': 'Verdugo Digital', 'state': 'observed_local', 'tenant': engine.tenant,
             'observed_at': time.time(), 'connection_states': state['states'],
             'registered': state['registered'], 'services': rows,
-            'bounded_observation_routes': len(routes), 'business': business,
+            'bounded_observation_routes': len(routes), 'local_analysis_routes': len(local_runtime.SPECS), 'business': business,
             'reconciliation_required': len(pending['items']),
             'reconciliation_list_truncated': len(pending['items']) == pending['limit'],
             'external_calls_made': False, 'live_verified': 0,
@@ -49,7 +49,7 @@ def overview(engine, dataset='real'):
 
 
 def observe(engine, request, execute=False):
-    fields(request, ('id', 'services', 'dataset', 'currency'))
+    fields(request, ('id', 'services', 'dataset', 'currency'), ('analyses',), max_bytes=workflow.MAX_MANIFEST_BYTES)
     if type(execute) is not bool:
         raise VerdugoError('execute must be boolean')
     if execute and engine.role != 'operator':
@@ -58,24 +58,58 @@ def observe(engine, request, execute=False):
     if len(rid) > 42:
         raise VerdugoError('Product run ID exceeds 42 characters')
     selected = request['services']
+    analyses = request.get('analyses', [])
     routes = read_operations()
-    if (not isinstance(selected, list) or not 1 <= len(selected) <= 49
+    if (not isinstance(selected, list) or len(selected) >= workflow.MAX_STEPS
             or any(not isinstance(s, str) or s not in routes for s in selected)
             or len(set(selected)) != len(selected)):
         raise VerdugoError('Select distinct implemented, policy-allowed bounded observation services')
+    if not isinstance(analyses, list) or not 1 <= len(selected)+len(analyses) < workflow.MAX_STEPS:
+        raise VerdugoError('Select 1..127 observations or local analyses')
     metrics = {'dataset': request['dataset'], 'currency': request['currency']}
     engine.validate_core('metrics.summary', metrics)
     selected = sorted(selected)
     spec = {'id': 'product-' + rid, 'steps': [
         {'id': sid, 'service': sid, 'operation': routes[sid], 'params': {}}
         for sid in selected]}
+    policy = license_policy.read_policy()
+    analysis_steps = []
+    for task in analyses:
+        fields(task, ('id', 'service', 'params'), ('depends_on',))
+        key = identifier(task['id'])
+        sid = task['service']
+        if len(key) > 30 or not isinstance(sid, str) or sid not in local_runtime.SPECS or policy[sid]['policy'] == 'excluido':
+            raise VerdugoError('Select a bounded policy-allowed local analytical operation')
+        if not isinstance(task['params'], dict) or task['params'].get('dataset') != request['dataset']:
+            raise VerdugoError('Every analysis must use the explicit product dataset')
+        if 'currency' in task['params'] and task['params']['currency'] != request['currency']:
+            raise VerdugoError('Analysis currency must match the product run')
+        analysis_steps.append({'id': 'analysis-'+key, 'service': sid,
+            'operation': local_runtime.SPECS[sid][0], 'params': task['params'],
+            'depends_on': task.get('depends_on', [])})
+    analysis_steps.sort(key=lambda s: s['id'])
+    spec['steps'].extend(analysis_steps)
     spec['steps'].append({'id': 'business', 'service': 'core', 'operation': 'metrics.summary',
-                          'params': metrics, 'depends_on': selected})
+                          'params': metrics, 'depends_on': selected+[s['id'] for s in analysis_steps]})
+    # Validate the entire DAG even when a provider is not configured. Structural
+    # errors must not become an apparently acceptable partial selection.
+    ids = [s['id'] for s in spec['steps']]
+    if len(set(ids)) != len(ids):
+        raise VerdugoError('Duplicate product analysis ID')
+    for step in analysis_steps:
+        deps = step['depends_on']
+        if not isinstance(deps, list) or any(not isinstance(d, str) or d not in ids[:-1] for d in deps):
+            raise VerdugoError('Invalid product analysis dependencies')
+        if not set(workflow.references(step['params'])) <= set(deps):
+            raise VerdugoError('Analysis references need an explicit dependency')
     # Prepare every selected contract before creating a manifest or sending the
     # first request. Never silently omit an unavailable service from the report.
     blocked = []
     for step in spec['steps']:
         try:
+            if list(workflow.references(step['params'])):
+                engine.preflight(step['service'], step['operation'])
+                continue
             prepared, _, _ = engine.prepare({'service': step['service'], 'operation': step['operation'],
                                               'params': step['params'], 'key': spec['id']+'-'+step['id']})
             if prepared['mutates']:
@@ -102,9 +136,21 @@ def observe(engine, request, execute=False):
             row['observation'] = result['steps'][sid]
         rows.append(row)
     succeeded = [r for r in rows if r['state'] == 'succeeded']
+    analysis_rows = []
+    for step in analysis_steps:
+        eid = step['id']
+        evidence = result['evidence'].get(eid)
+        row = {'id': eid, 'service': step['service'], 'operation': step['operation'],
+               'state': evidence['state'] if evidence else 'not_started', 'evidence': evidence}
+        if eid in result['steps']:
+            row['analysis'] = result['steps'][eid]
+        analysis_rows.append(row)
+    finished_analyses = [r for r in analysis_rows if r['state'] == 'succeeded']
     return {'name': 'Verdugo Digital', 'state': result['state'], 'id': rid,
             'workflow_id': spec['id'], 'tenant': engine.tenant,
-            'services': rows, 'failed_step': result.get('step'),
+            'services': rows, 'analyses': analysis_rows, 'failed_step': result.get('step'),
+            'new_analyses': sum(not r['evidence']['replayed'] for r in finished_analyses),
+            'reused_analyses': sum(r['evidence']['replayed'] for r in finished_analyses),
             'new_observations': sum(not r['evidence']['replayed'] for r in succeeded),
             'reused_observations': sum(r['evidence']['replayed'] for r in succeeded),
             'business_snapshot': result['steps'].get('business'),

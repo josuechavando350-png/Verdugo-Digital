@@ -1,0 +1,146 @@
+{
+  "python": "3.12.14",
+  "platform": "Linux x86_64",
+  "packages": [
+    {
+      "service": "vanna",
+      "distribution": "vanna",
+      "version": "2.0.2",
+      "artifact_url": "https://files.pythonhosted.org/packages/bf/80/29ac542e8efe1d93fc99b25c870794673b22aeeb404060fd190e92aaf359/vanna-2.0.2-py3-none-any.whl",
+      "sha256": "d54f039572b0bcc520859ba99b7a587bdf96eebafc0c77c28fe44c0962550553"
+    },
+    {
+      "service": "trendspyg",
+      "distribution": "trendspyg",
+      "version": "1.9.0",
+      "artifact_url": "https://files.pythonhosted.org/packages/20/5a/b359882e44c8daa7829bd7723a1499c671cc5d85928640d245da1c223d0c/trendspyg-1.9.0-py3-none-any.whl",
+      "sha256": "959871d044f6e34b7bd235fe064129bd19307145c03b77ff90db769a8af101dc"
+    },
+    {
+      "service": "youtube-comment-downloader",
+      "distribution": "youtube-comment-downloader",
+      "version": "0.1.84",
+      "artifact_url": "https://files.pythonhosted.org/packages/f9/db/96eb0d15d1863befe07b93322a9e824bce2b699275e7ca5bd88086d7bc7d/youtube_comment_downloader-0.1.84-py3-none-any.whl",
+      "sha256": "b3e3897758fc810c99c098781802005666fe110dfe9e78473968ce1fabb1761f"
+    },
+    {
+      "service": "comtradeapicall",
+      "distribution": "comtradeapicall",
+      "version": "1.4.0",
+      "artifact_url": "https://files.pythonhosted.org/packages/d6/fc/c5d0c04cb72f99cd02225b7d8c5d1183d8d8ccd6366222c4c3af9ac23123/comtradeapicall-1.4.0-py3-none-any.whl",
+      "sha256": "b72f8854e54d9622ddaff123b711cce0a989e1b011ecec886a160238d2af8fa1"
+    },
+    {
+      "service": "browser-use",
+      "distribution": "browser-use",
+      "version": "1.0.4",
+      "artifact_url": "https://files.pythonhosted.org/packages/92/60/4cdc5aee11e7abd18e160de1a960f74a277afacc2bf8d6e790e3d881a44a/browser_use-1.0.4-py3-none-any.whl",
+      "sha256": "7d8d804f518fdd600fb39baae75f60415c43de3b4713a37a0a78da192387e556"
+    },
+    {
+      "service": "storm",
+      "distribution": "knowledge-storm",
+      "version": "1.1.1",
+      "artifact_url": "https://files.pythonhosted.org/packages/8b/6d/93a022aec812f3d6e32aa9ef96cb54c4803ca5f27edaf694f80d1605a134/knowledge_storm-1.1.1-py3-none-any.whl",
+      "sha256": "85e9ca115463bfe0731620d7b95b630b7509ba3b665e6e02d90b7fb7baef13d2"
+    },
+    {
+      "service": "dbt",
+      "distribution": "dbt-core",
+      "version": "1.12.7",
+      "artifact_url": "https://files.pythonhosted.org/packages/c7/5f/2ceb60ea344a8ac40e99a97fbaeac673c9c2add926a02541969bd415595a/dbt_core-1.12.7-py3-none-any.whl",
+      "sha256": "9e83a113858310b09bc3af336f1cf1afe2f49c115d86a46f89473ab0e81b9c01"
+    },
+    {
+      "service": "c2pa",
+      "distribution": "c2pa-python",
+      "version": "0.39.0",
+      "artifact_url": "https://files.pythonhosted.org/packages/8f/ed/6b5eb048831f14c45a8b80e0d1def4c761668fcb8f64ec44ea74a56c6902/c2pa_python-0.39.0-py3-none-manylinux_2_28_x86_64.whl",
+      "sha256": "eed28b6bd96a2fb7de151ecc4578334fab121610ef9571227801c794448d7c7c"
+    },
+    {
+      "service": "a2a",
+      "distribution": "a2a-sdk",
+      "version": "1.3.0",
+      "artifact_url": "https://files.pythonhosted.org/packages/a8/c8/262490a338e07b269ed80f9b26d101532f7af4585238a9973a5f223ff3f4/a2a_sdk-1.3.0-py3-none-any.whl",
+      "sha256": "b94a73b5dc7ff1afe5f11d324480f83386a64d02b8a6b719baf013595284cc6c"
+    },
+    {
+      "service": "gpt-researcher",
+      "distribution": "gpt-researcher",
+      "version": "0.17.0",
+      "artifact_url": "https://files.pythonhosted.org/packages/f4/14/c04d3bff4057d8dbddd3bc28f930c0cc41800a05bdeb4f174dff187d1389/gpt_researcher-0.17.0-py3-none-any.whl",
+      "sha256": "01a230e487b24c36810fedf6f02555fb410cc6f46a1288c9940a42333ca2be7c"
+    },
+    {
+      "service": "meridian",
+      "distribution": "google-meridian",
+      "version": "2.2.0",
+      "artifact_url": "https://files.pythonhosted.org/packages/6e/3b/1ed73efb1303ee319004bafda681fea37cdb37d69a30fe83c5edd097143b/google_meridian-2.2.0-py3-none-any.whl",
+      "sha256": "61929cd80a4fbebfa4c9aadeb513948a5c707b61a5cb523346da7b6f40458295"
+    },
+    {
+      "service": "tfcausalimpact",
+      "distribution": "tfcausalimpact",
+      "version": "0.0.19",
+      "artifact_url": "https://files.pythonhosted.org/packages/8b/2a/d2b4273ba8f34bf68abf8df4e53a59de1054251d90c5a61fefbf1ee1de40/tfcausalimpact-0.0.19-py3-none-any.whl",
+      "sha256": "e924f4b8062c24cd773c8f1163db0a5933e06911cdb11c588358308d29014c25"
+    },
+    {
+      "service": "slidev",
+      "distribution": "npm:@slidev/parser",
+      "version": "53.1.0",
+      "artifact_url": "https://registry.npmjs.org/@slidev/parser/-/parser-53.1.0.tgz",
+      "integrity": "sha512-eFtWCBs1Pf/s0qVpO4YqDLYhmvrylh8WeSiIEWjtp4ZnYPhViS67qXyHZhE7cTIkpBhNx1lk34+aEp3h3HsxBA=="
+    },
+    {
+      "service": "lighthouse",
+      "distribution": "npm:lighthouse",
+      "version": "13.6.0",
+      "artifact_url": "https://registry.npmjs.org/lighthouse/-/lighthouse-13.6.0.tgz",
+      "integrity": "sha512-2/HUPUpQyGm01VEgYCUjSlNZY7Zkhk1v3QI4c7UTbnaoRB7HF0qYMPzzaiidNf5iqw5wnmtm9LpGawKKqCfLmg=="
+    }
+  ],
+  "profiles": {
+    "utility021": {
+      "pip_check": "passed",
+      "constraint_file": "requirements/runtime-utility021.constraints.txt",
+      "sha256": "9c65e0cd7078a25351cf7081e6e6bbe41d120f59a9ec715906df3fde1a78dd84"
+    },
+    "browser021": {
+      "pip_check": "passed",
+      "constraint_file": "requirements/runtime-browser021.constraints.txt",
+      "sha256": "bb39d9b89186b2d3c028fbd0232a7e4565272cbaaa97ea8e0c2049f579879f93"
+    },
+    "storm021": {
+      "pip_check": "passed",
+      "constraint_file": "requirements/runtime-storm021.constraints.txt",
+      "sha256": "49a9df5463602706a8e089450673749a1f6b731307203f602d7d3996856db53b"
+    },
+    "dbt021": {
+      "pip_check": "passed",
+      "constraint_file": "requirements/runtime-dbt021.constraints.txt",
+      "sha256": "693b7c4f86b0f212894a030ec32909d32cf7490822f1d081636339223130c95e"
+    },
+    "a2a021": {
+      "pip_check": "passed",
+      "constraint_file": "requirements/runtime-a2a021.constraints.txt",
+      "sha256": "bc161f40bb6eefa96081ca0b217ca5e55b9e5c86f82aabc9d147f2faa450f35e"
+    },
+    "research021": {
+      "pip_check": "passed",
+      "constraint_file": "requirements/runtime-research021.constraints.txt",
+      "sha256": "f8c0d52ca73f57493c4452d62c4b904c3716a89b4dd913cb5d06bd0f3818a611"
+    },
+    "meridian021": {
+      "pip_check": "passed",
+      "constraint_file": "requirements/runtime-meridian021.constraints.txt",
+      "sha256": "b78d4eb4b9ed0f00f073571965465b9fdbaf31b1dd36c49fa6bae1ce17d0c9d8"
+    },
+    "causal021": {
+      "pip_check": "passed",
+      "constraint_file": "requirements/runtime-causal021.constraints.txt",
+      "sha256": "2f374a4aee3049a6490740b42894990d4d274101bf42c13800181fc1da98259a"
+    }
+  }
+}

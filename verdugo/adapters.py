@@ -4,7 +4,7 @@ import os
 import re
 from urllib.parse import urlencode, urlsplit
 from .common import VerdugoError, fields, text, integer, identifier, digest, encode
-from . import marketing_reads, service_reads, tanda1_reads, readiness_reads, operations_reads
+from . import marketing_reads, service_reads, tanda1_reads, readiness_reads, operations_reads, platform_reads, completion_reads, public_reads
 
 # API-contract implementations; live compatibility is NOT established by this list.
 SPECS = {
@@ -57,6 +57,9 @@ SPECS.update(service_reads.SPECS)
 SPECS.update(tanda1_reads.SPECS)
 SPECS.update(readiness_reads.SPECS)
 SPECS.update(operations_reads.SPECS)
+SPECS.update(platform_reads.SPECS)
+SPECS.update(completion_reads.SPECS)
+SPECS.update(public_reads.SPECS)
 HEADERS = {'qdrant': 'api-key', 'metabase': 'X-API-Key',
            'shlink': 'X-Api-Key', 'n8n': 'X-N8N-API-KEY',
            'changedetection': 'x-api-key', 'formbricks': 'x-api-key'}
@@ -86,6 +89,8 @@ def validate_origin(cfg):
 def connection(service, cfg):
     """Validate destination/auth independently of workflow-dependent parameters."""
     origin = validate_origin(cfg)
+    if service in public_reads.SPECS:
+        return public_reads.connection(service, cfg, origin)
     env_name = cfg.get('token_env', '')
     if not isinstance(env_name, str) or not re.fullmatch(r'VERDUGO_[A-Z0-9_]+', env_name):
         raise VerdugoError('A VERDUGO_* secret environment reference is required')
@@ -93,7 +98,11 @@ def connection(service, cfg):
     if not token or len(token) > 8192 or any(not 33 <= ord(c) <= 126 for c in token):
         raise VerdugoError('Missing or invalid service credential: ' + env_name)
     headers = {'Accept': 'application/json', 'User-Agent': 'Verdugo-Digital/0.2'}
-    if service in marketing_reads.SPECS:
+    if service in completion_reads.SPECS:
+        headers.update(completion_reads.authorization(service, cfg, token))
+    elif service in platform_reads.SPECS:
+        headers.update(platform_reads.authorization(service, cfg, token))
+    elif service in marketing_reads.SPECS:
         headers.update(marketing_reads.authorization(service, cfg, token))
     elif service in service_reads.SPECS:
         headers.update(service_reads.authorization(service, cfg, token))
@@ -157,6 +166,15 @@ def remote_id(result, path):
 
 
 def build(service, operation, params, cfg):
+    if service in public_reads.SPECS:
+        origin, token, headers = connection(service, cfg)
+        return public_reads.build(service, operation, params, cfg, origin, token, headers)
+    if service in completion_reads.SPECS:
+        origin, token, headers = connection(service, cfg)
+        return completion_reads.build(service, operation, params, cfg, origin, token, headers)
+    if service in platform_reads.SPECS:
+        origin, token, headers = connection(service, cfg)
+        return platform_reads.build(service, operation, params, cfg, origin, token, headers)
     if service in operations_reads.SPECS:
         origin, token, headers = connection(service, cfg)
         return operations_reads.build(service, operation, params, cfg, origin, token, headers)

@@ -1,0 +1,238 @@
+{
+  "schema": "verdugo.local-acceptance.v1",
+  "date": "2026-11-15",
+  "baseline": "38752542fb452033e8100ddcb008a0a9e3bedb5e",
+  "second_batch_total": 88,
+  "new_implemented": 18,
+  "remaining": 70,
+  "cli": {
+    "schema": "verdugo.runtime-acceptance.v1",
+    "required_services": [
+      "gitleaks",
+      "restic",
+      "syft",
+      "grype",
+      "sops",
+      "vale",
+      "dvc",
+      "dnstwist"
+    ],
+    "checks": [
+      {
+        "service": "gitleaks",
+        "operation": "text.scan",
+        "distribution": "cli:gitleaks",
+        "version": "5f6ec56cfa6f8c67648d863582c7ae2f206d5c1c",
+        "implementation_sha256": "8c52cef05df66216aa5e76ad04d4c5bb085461fa68e2d4352c1358b7629308b9",
+        "engine_execution": "passed",
+        "result_assertions": "passed",
+        "idempotent_replay": "passed",
+        "dataset": "demo",
+        "production_certified": false
+      },
+      {
+        "service": "restic",
+        "operation": "archive.verify",
+        "distribution": "cli:restic",
+        "version": "c734245fd3ae9bcac8ab3aaafb4482d4b5d0ae92",
+        "implementation_sha256": "8c52cef05df66216aa5e76ad04d4c5bb085461fa68e2d4352c1358b7629308b9",
+        "engine_execution": "passed",
+        "result_assertions": "passed",
+        "idempotent_replay": "passed",
+        "dataset": "demo",
+        "production_certified": false
+      },
+      {
+        "service": "syft",
+        "operation": "packages.inventory",
+        "distribution": "cli:syft",
+        "version": "a0c0d3890a9d79421c403e8fcadec50a2e55bf21",
+        "implementation_sha256": "8c52cef05df66216aa5e76ad04d4c5bb085461fa68e2d4352c1358b7629308b9",
+        "engine_execution": "passed",
+        "result_assertions": "passed",
+        "idempotent_replay": "passed",
+        "dataset": "demo",
+        "production_certified": false
+      },
+      {
+        "service": "grype",
+        "operation": "packages.audit",
+        "distribution": "cli:grype",
+        "version": "cd1f23eb50dfb52647090158f453c7359172591f",
+        "implementation_sha256": "8c52cef05df66216aa5e76ad04d4c5bb085461fa68e2d4352c1358b7629308b9",
+        "engine_execution": "passed",
+        "result_assertions": "passed",
+        "idempotent_replay": "passed",
+        "dataset": "demo",
+        "production_certified": false
+      },
+      {
+        "service": "sops",
+        "operation": "encryption.verify",
+        "distribution": "cli:sops",
+        "version": "9aa10f12bcd82400b7eb73331dd7a87a93bb17f7",
+        "implementation_sha256": "8c52cef05df66216aa5e76ad04d4c5bb085461fa68e2d4352c1358b7629308b9",
+        "engine_execution": "passed",
+        "result_assertions": "passed",
+        "idempotent_replay": "passed",
+        "dataset": "demo",
+        "production_certified": false
+      },
+      {
+        "service": "vale",
+        "operation": "prose.lint",
+        "distribution": "cli:vale",
+        "version": "4ce91ef208b37f9ac2894766e8cd7b33ffe3baed",
+        "implementation_sha256": "8c52cef05df66216aa5e76ad04d4c5bb085461fa68e2d4352c1358b7629308b9",
+        "engine_execution": "passed",
+        "result_assertions": "passed",
+        "idempotent_replay": "passed",
+        "dataset": "demo",
+        "production_certified": false
+      },
+      {
+        "service": "dvc",
+        "operation": "data.roundtrip",
+        "distribution": "dvc",
+        "version": "3.67.1",
+        "implementation_sha256": "8c52cef05df66216aa5e76ad04d4c5bb085461fa68e2d4352c1358b7629308b9",
+        "engine_execution": "passed",
+        "result_assertions": "passed",
+        "idempotent_replay": "passed",
+        "dataset": "demo",
+        "production_certified": false
+      },
+      {
+        "service": "dnstwist",
+        "operation": "domain.variants",
+        "distribution": "dnstwist",
+        "version": "20250130",
+        "implementation_sha256": "8c52cef05df66216aa5e76ad04d4c5bb085461fa68e2d4352c1358b7629308b9",
+        "engine_execution": "passed",
+        "result_assertions": "passed",
+        "idempotent_replay": "passed",
+        "dataset": "demo",
+        "production_certified": false
+      }
+    ],
+    "certifies_production": false
+  },
+  "content": {
+    "schema": "verdugo.runtime-acceptance.v1",
+    "required_services": [
+      "chronos",
+      "gliner",
+      "graphiti",
+      "openbb",
+      "people-also-ask",
+      "jobspy"
+    ],
+    "checks": [
+      {
+        "service": "chronos",
+        "operation": "series.quantize",
+        "distribution": "chronos-forecasting",
+        "version": "2.3.2",
+        "implementation_sha256": "d1a1f370be44dd9b6a7aaf72852407d51de3528ae97f5ccaeda6e795031b36b1",
+        "engine_execution": "passed",
+        "result_assertions": "passed",
+        "idempotent_replay": "passed",
+        "dataset": "demo",
+        "production_certified": false
+      },
+      {
+        "service": "gliner",
+        "operation": "entities.evaluate",
+        "distribution": "gliner",
+        "version": "0.2.30",
+        "implementation_sha256": "d1a1f370be44dd9b6a7aaf72852407d51de3528ae97f5ccaeda6e795031b36b1",
+        "engine_execution": "passed",
+        "result_assertions": "passed",
+        "idempotent_replay": "passed",
+        "dataset": "demo",
+        "production_certified": false
+      },
+      {
+        "service": "graphiti",
+        "operation": "pairs.batch",
+        "distribution": "graphiti-core",
+        "version": "0.31.2",
+        "implementation_sha256": "d1a1f370be44dd9b6a7aaf72852407d51de3528ae97f5ccaeda6e795031b36b1",
+        "engine_execution": "passed",
+        "result_assertions": "passed",
+        "idempotent_replay": "passed",
+        "dataset": "demo",
+        "production_certified": false
+      },
+      {
+        "service": "openbb",
+        "operation": "prices.validate",
+        "distribution": "openbb-core",
+        "version": "2.0.1",
+        "implementation_sha256": "d1a1f370be44dd9b6a7aaf72852407d51de3528ae97f5ccaeda6e795031b36b1",
+        "engine_execution": "passed",
+        "result_assertions": "passed",
+        "idempotent_replay": "passed",
+        "dataset": "demo",
+        "production_certified": false
+      },
+      {
+        "service": "people-also-ask",
+        "operation": "questions.extract",
+        "distribution": "people-also-ask",
+        "version": "0.0.6",
+        "implementation_sha256": "d1a1f370be44dd9b6a7aaf72852407d51de3528ae97f5ccaeda6e795031b36b1",
+        "engine_execution": "passed",
+        "result_assertions": "passed",
+        "idempotent_replay": "passed",
+        "dataset": "demo",
+        "production_certified": false
+      },
+      {
+        "service": "jobspy",
+        "operation": "description.clean",
+        "distribution": "python-jobspy",
+        "version": "1.4.1",
+        "implementation_sha256": "d1a1f370be44dd9b6a7aaf72852407d51de3528ae97f5ccaeda6e795031b36b1",
+        "engine_execution": "passed",
+        "result_assertions": "passed",
+        "idempotent_replay": "passed",
+        "dataset": "demo",
+        "production_certified": false
+      }
+    ],
+    "certifies_production": false
+  },
+  "product": {
+    "services": [
+      "chronos",
+      "dnstwist",
+      "dvc",
+      "geo-lint",
+      "gitleaks",
+      "gliner",
+      "graphiti",
+      "grype",
+      "jobspy",
+      "openbb",
+      "people-also-ask",
+      "restic",
+      "seo-graph",
+      "site-md",
+      "sops",
+      "structured-data-validator",
+      "syft",
+      "vale"
+    ],
+    "steps": 19,
+    "execution": "passed",
+    "sqlite_restart": "passed",
+    "replay_worker_calls": 0,
+    "private_input_persisted": false,
+    "production_certified": false
+  },
+  "product_seconds": 156.402,
+  "npm_originals": "four operations verified in joined product",
+  "production_certified": false,
+  "phone_tested": false
+}

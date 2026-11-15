@@ -1,0 +1,26 @@
+{
+  "schema": "verdugo.runtime-acceptance-summary.v1",
+  "commit": "07008ae2439ccf4954c233d56755ec334bc9fb0a",
+  "run_id": 43660592157,
+  "job_id": 132648865511,
+  "services": [
+    "mcp-agent",
+    "nemo-guardrails"
+  ],
+  "original_distributions": {
+    "mcp-agent": "0.2.6",
+    "mcp": "1.30.0",
+    "nemoguardrails": "0.24.1"
+  },
+  "engine_execution": "passed",
+  "product_composition": "passed",
+  "sqlite_restart": "passed",
+  "replay_worker_calls": 0,
+  "elapsed_seconds": 10.031,
+  "unit_verification_run": 43660592163,
+  "unit_tests": 667,
+  "termux_simulation": "passed",
+  "sqlite_leak_check": "passed",
+  "production_certified": false,
+  "phone_execution": false
+}

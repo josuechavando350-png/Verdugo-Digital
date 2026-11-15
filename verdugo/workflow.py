@@ -1,5 +1,8 @@
 """Bounded sequential DAG executor; deterministic references, no eval or shell."""
-from .common import VerdugoError, fields, identifier, digest
+from .common import sanitize, VerdugoError, fields, identifier, digest
+
+MAX_STEPS = 128
+MAX_MANIFEST_BYTES = 1024*1024
 
 
 def references(value):
@@ -31,11 +34,11 @@ def resolve(value, results):
 
 
 def order(spec, engine):
-    fields(spec, ('id', 'steps'))
+    fields(spec, ('id', 'steps'), max_bytes=MAX_MANIFEST_BYTES)
     identifier(spec['id'])
     if len(spec['id']) > 50: raise VerdugoError('Workflow ID exceeds 50 characters')
-    if not isinstance(spec['steps'], list) or not 1 <= len(spec['steps']) <= 50:
-        raise VerdugoError('Workflow needs 1..50 steps')
+    if not isinstance(spec['steps'], list) or not 1 <= len(spec['steps']) <= MAX_STEPS:
+        raise VerdugoError('Workflow needs 1..128 steps')
     nodes = {}
     for step in spec['steps']:
         fields(step, ('id', 'service', 'operation', 'params'), ('depends_on',))
@@ -82,7 +85,7 @@ def run(engine, spec, execute=False, include_evidence=False):
             plans.append(engine.plan({'service': step['service'], 'operation': step['operation'],
                 'params': step['params'], 'key': spec['id'] + '-' + step['id']}))
     if not execute:
-        return {'state': 'planned', 'id': spec['id'], 'ordered_steps': steps, 'action_plans': plans,
+        return {'state': 'planned', 'id': spec['id'], 'ordered_steps': sanitize(steps), 'action_plans': plans,
                 'approval_batch': [{'key': p['key'], 'fingerprint': p['fingerprint']} for p in plans if p['requires_approval']],
                 'external_calls_made': False,
                 'note': 'Dependent values and per-action approvals are checked at execution.'}

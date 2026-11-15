@@ -46,9 +46,21 @@ class Base(unittest.TestCase):
             self.config['tenants']['nexus']['services'][sid]['proxy_auth_reviewed'] = True  # synthetic fixtures only
         self.config['tenants']['nexus']['services']['uptime-kuma']['api_access_reviewed'] = True  # synthetic only
         self.config['tenants']['nexus']['services']['gotenberg']['proxy_auth_reviewed'] = True  # synthetic only
+        from verdugo.platform_reads import PROXY_ONLY as PLATFORM_PROXIES
+        services = self.config['tenants']['nexus']['services']
+        for sid in PLATFORM_PROXIES: services[sid]['proxy_auth_reviewed'] = True
+        services['killbill']['proxy_tenant_binding_reviewed'] = True
+        for sid in ('datahub', 'bifrost'): services[sid]['native_auth_enforced_reviewed'] = True
+        services['magentic-ui'].update(user_id='demo-user', user_scope_reviewed=True)
+        services['taguette'].update(project_id=1, document_id=2)
+        from test_completion_reads_v021 import configure as completion_config
+        from test_public_reads_v021 import configure as public_config
+        completion_config(self.config); public_config(self.config)
         self.config['tenants']['other'] = copy.deepcopy(self.config['tenants']['nexus'])
         self.env = patch.dict(os.environ, {c['token_env']: ('api_synthetic-key-not-real' if c['token_env'].endswith('_DOCUMENSO_TOKEN') else 'a'*24+':'+'b'*64 if c['token_env'].endswith('_GHOST_TOKEN') else SECRET) for c in
-            self.config['tenants']['nexus']['services'].values() if 'token_env' in c})
+            self.config['tenants']['nexus']['services'].values() if c.get('token_env')} | {
+                'VERDUGO_COMPLETION_TOKEN': 'oseo_private_test_credential',
+                'VERDUGO_COMPLETION_DEVELOPER': 'private_test_developer_credential'})
         self.env.start()
         self.calls = []
         def transport(req, cfg):
@@ -100,7 +112,7 @@ class CatalogTests(Base):
 
     def test_no_false_live_status(self):
         s=self.engine.status()
-        self.assertEqual(69,s['api_adapters_implemented'])
+        self.assertEqual(103,s['api_adapters_implemented'])
         self.assertEqual(0,s['live_verified'])
         self.assertFalse(any(r['live_verified'] for r in s['integrations']))
 
@@ -108,7 +120,7 @@ class CatalogTests(Base):
         g=graph(SPECS)
         self.assertEqual(323,len(g['nodes']))
         self.assertEqual(322,len(g['edges']))
-        self.assertEqual(69,sum(e['kind']=='adapter' for e in g['edges']))
+        self.assertEqual(103,sum(e['kind']=='adapter' for e in g['edges']))
         self.assertFalse(any(e['live'] for e in g['edges']))
 
     def test_template_disabled(self):
@@ -123,7 +135,9 @@ class CatalogTests(Base):
                             else {'query':'up'} if sid=='prometheus'
                             else {'remote_id':'42'} if op.endswith('.get') else {})
                     req=build(sid,op,params,self.config['tenants']['nexus']['services'][sid])
-                    origin = FIXED_ORIGINS.get(sid, 'https://example.invalid')
+                    COMPLETION_ORIGINS = {'google-ads':'https://googleads.googleapis.com','meta-ads':'https://graph.facebook.com','webmention-io':'https://webmention.io','datosmex':'https://www.banxico.org.mx','mcp-gsc':'https://www.googleapis.com','praw':'https://oauth.reddit.com','python-podcastindex':'https://api.podcastindex.org'}
+                    from verdugo.public_reads import ORIGINS as PUBLIC_ORIGINS
+                    origin = (FIXED_ORIGINS | COMPLETION_ORIGINS | PUBLIC_ORIGINS).get(sid, 'https://example.invalid')
                     self.assertTrue(req['public']['url'].startswith(origin + '/'))
                     self.assertNotIn(SECRET,json.dumps(req['public']))
 

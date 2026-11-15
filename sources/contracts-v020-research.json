@@ -1,0 +1,231 @@
+{
+  "schema": "verdugo.source-api-evidence.v1",
+  "scope": "bounded operations; wheel distributions validated separately",
+  "files": [
+    {
+      "service": "advertools",
+      "repository": "eliasdabbas/advertools",
+      "catalog_repository": "eliasdabbas/advertools",
+      "commit": "59dc2be7a98ab3bab2a711efacd5023f8ecffa14",
+      "path": "advertools/extract.py",
+      "blob_sha": "499408432ab4bb133b0ffacf74b506bb8bce43c3",
+      "url": "https://github.com/eliasdabbas/advertools/blob/59dc2be7a98ab3bab2a711efacd5023f8ecffa14/advertools/extract.py"
+    },
+    {
+      "service": "pywikibot",
+      "repository": "wikimedia/pywikibot",
+      "catalog_repository": "wikimedia/pywikibot",
+      "commit": "b8ccec48b3c26211cd498e27a5ca6eb071627cb1",
+      "path": "pywikibot/textlib.py",
+      "blob_sha": "05f1c45e8feb79cd0f15e1f758670173c6be1226",
+      "url": "https://github.com/wikimedia/pywikibot/blob/b8ccec48b3c26211cd498e27a5ca6eb071627cb1/pywikibot/textlib.py"
+    },
+    {
+      "service": "splink",
+      "repository": "moj-analytical-services/splink",
+      "catalog_repository": "moj-analytical-services/splink",
+      "commit": "f319070e56c5b3666ec512811ac1820070f6f2e5",
+      "path": "splink/internals/linker.py",
+      "blob_sha": "4d744576439dd840cbc15c437cdfc5cea6c57efb",
+      "url": "https://github.com/moj-analytical-services/splink/blob/f319070e56c5b3666ec512811ac1820070f6f2e5/splink/internals/linker.py"
+    },
+    {
+      "service": "feast",
+      "repository": "feast-dev/feast",
+      "catalog_repository": "feast-dev/feast",
+      "commit": "108c96704daa72015d8f447a5d503de964c45b3f",
+      "path": "sdk/python/feast/feature_store.py",
+      "blob_sha": "2df79b9c7c08b23de4fd2be5edf25616c39a74ca",
+      "url": "https://github.com/feast-dev/feast/blob/108c96704daa72015d8f447a5d503de964c45b3f/sdk/python/feast/feature_store.py"
+    },
+    {
+      "service": "openlineage",
+      "repository": "OpenLineage/OpenLineage",
+      "catalog_repository": "OpenLineage/OpenLineage",
+      "commit": "c41626e99af0a02ad95a2805979167ad948ecb7b",
+      "path": "client/python/src/openlineage/client/generated/base.py",
+      "blob_sha": "a46e507bd2cbe126df2b48f38ddb7d19d7cb12d4",
+      "url": "https://github.com/OpenLineage/OpenLineage/blob/c41626e99af0a02ad95a2805979167ad948ecb7b/client/python/src/openlineage/client/generated/base.py"
+    },
+    {
+      "service": "causalml",
+      "repository": "uber/causalml",
+      "catalog_repository": "uber/causalml",
+      "commit": "d59bb520fc78410c01c443bad0ac57ea972844b8",
+      "path": "causalml/inference/meta/slearner.py",
+      "blob_sha": "36005ed64927a275a62c359c035c2640cbb3724f",
+      "url": "https://github.com/uber/causalml/blob/d59bb520fc78410c01c443bad0ac57ea972844b8/causalml/inference/meta/slearner.py"
+    },
+    {
+      "service": "ydata-profiling",
+      "repository": "Data-Centric-AI-Community/fg-data-profiling",
+      "catalog_repository": "ydataai/ydata-profiling",
+      "commit": "7f43aac68b2539bfe8f487f315aeaf44e965d29a",
+      "path": "src/data_profiling/profile_report.py",
+      "blob_sha": "de16972ce6f22d0df37a9ecb996b6afeff6c7589",
+      "url": "https://github.com/Data-Centric-AI-Community/fg-data-profiling/blob/7f43aac68b2539bfe8f487f315aeaf44e965d29a/src/data_profiling/profile_report.py"
+    },
+    {
+      "service": "opendp",
+      "repository": "opendp/opendp",
+      "catalog_repository": "opendp/opendp",
+      "commit": "11887ec1aa392f9f1cc08a37cf938962babac7a1",
+      "path": "python/src/opendp/mod.py",
+      "blob_sha": "c708c7d0896ca783e9a6e69f503d8387cd503470",
+      "url": "https://github.com/opendp/opendp/blob/11887ec1aa392f9f1cc08a37cf938962babac7a1/python/src/opendp/mod.py"
+    },
+    {
+      "service": "flaml",
+      "repository": "microsoft/FLAML",
+      "catalog_repository": "microsoft/FLAML",
+      "commit": "46bce0ce989aae0271e68e5daac5b8a9b0522b87",
+      "path": "flaml/automl/automl.py",
+      "blob_sha": "b05f98b24dd5665f67507f5b649d8eb962f2e1f4",
+      "url": "https://github.com/microsoft/FLAML/blob/46bce0ce989aae0271e68e5daac5b8a9b0522b87/flaml/automl/automl.py"
+    },
+    {
+      "service": "recommenders",
+      "repository": "recommenders-team/recommenders",
+      "catalog_repository": "recommenders-team/recommenders",
+      "commit": "cc47866b0599721f8544d1cc850a5a1db091acb3",
+      "path": "recommenders/evaluation/python_evaluation.py",
+      "blob_sha": "1c2a9337d777f53dfd4fa78b328480dc186d2c3e",
+      "url": "https://github.com/recommenders-team/recommenders/blob/cc47866b0599721f8544d1cc850a5a1db091acb3/recommenders/evaluation/python_evaluation.py"
+    },
+    {
+      "service": "vowpal",
+      "repository": "VowpalWabbit/vowpal_wabbit",
+      "catalog_repository": "VowpalWabbit/vowpal_wabbit",
+      "commit": "00196b35f63bcb8a6d66966e2b4cf67d6a2bd335",
+      "path": "python/vowpalwabbit/pyvw.py",
+      "blob_sha": "c45a934aff2b942245e1b035988473b071131204",
+      "url": "https://github.com/VowpalWabbit/vowpal_wabbit/blob/00196b35f63bcb8a6d66966e2b4cf67d6a2bd335/python/vowpalwabbit/pyvw.py"
+    },
+    {
+      "service": "py-ecomplexity",
+      "repository": "harvard-growth-lab/py-ecomplexity",
+      "catalog_repository": "cid-harvard/py-ecomplexity",
+      "commit": "d22c0f7fcad4cf629415895dd17afc5685108274",
+      "path": "ecomplexity/ecomplexity.py",
+      "blob_sha": "bf9f6014aa8efeb008602f294c243da90488b97d",
+      "url": "https://github.com/harvard-growth-lab/py-ecomplexity/blob/d22c0f7fcad4cf629415895dd17afc5685108274/ecomplexity/ecomplexity.py"
+    },
+    {
+      "service": "osmnx",
+      "repository": "gboeing/osmnx",
+      "catalog_repository": "gboeing/osmnx",
+      "commit": "5f3b46f048f9f0a693702cea5f29f2eaad840204",
+      "path": "osmnx/routing.py",
+      "blob_sha": "e16ad41562d4caabcbe73835aaabae51e4cf3d4d",
+      "url": "https://github.com/gboeing/osmnx/blob/5f3b46f048f9f0a693702cea5f29f2eaad840204/osmnx/routing.py"
+    },
+    {
+      "service": "mesa",
+      "repository": "mesa/mesa",
+      "catalog_repository": "projectmesa/mesa",
+      "commit": "2d9b25177627f38fb43c4273ac2bdd03b95f01cb",
+      "path": "mesa/model.py",
+      "blob_sha": "5b550a6e9752f2b87cd927d81896e077281e514a",
+      "url": "https://github.com/mesa/mesa/blob/2d9b25177627f38fb43c4273ac2bdd03b95f01cb/mesa/model.py"
+    },
+    {
+      "service": "mesa",
+      "repository": "mesa/mesa",
+      "catalog_repository": "projectmesa/mesa",
+      "commit": "2d9b25177627f38fb43c4273ac2bdd03b95f01cb",
+      "path": "mesa/agent.py",
+      "blob_sha": "cdcffbcb0fe6c3914f012894582c965ae6fc055e",
+      "url": "https://github.com/mesa/mesa/blob/2d9b25177627f38fb43c4273ac2bdd03b95f01cb/mesa/agent.py"
+    },
+    {
+      "service": "langchain",
+      "repository": "langchain-ai/langchain",
+      "catalog_repository": "langchain-ai/langchain",
+      "commit": "ea17e48f0a4336c920394fd029de99f1568b4c38",
+      "path": "libs/text-splitters/langchain_text_splitters/character.py",
+      "blob_sha": "8d97aef76fea034414a4bef458d494e8f432d01e",
+      "url": "https://github.com/langchain-ai/langchain/blob/ea17e48f0a4336c920394fd029de99f1568b4c38/libs/text-splitters/langchain_text_splitters/character.py"
+    },
+    {
+      "service": "pydantic-ai",
+      "repository": "pydantic/pydantic-ai",
+      "catalog_repository": "pydantic/pydantic-ai",
+      "commit": "21b2f46740f95a260bd492385c4638094015ec06",
+      "path": "pydantic_ai_slim/pydantic_ai/messages.py",
+      "blob_sha": "59f18fe80d70af6c6e39badc4bce860a91ab5b26",
+      "url": "https://github.com/pydantic/pydantic-ai/blob/21b2f46740f95a260bd492385c4638094015ec06/pydantic_ai_slim/pydantic_ai/messages.py"
+    },
+    {
+      "service": "dspy",
+      "repository": "stanfordnlp/dspy",
+      "catalog_repository": "stanfordnlp/dspy",
+      "commit": "398396012371a95471c8e7be24a70e6660e87aa4",
+      "path": "dspy/evaluate/metrics.py",
+      "blob_sha": "e7f7b0d3942a039eb312d644eee25b34423e7675",
+      "url": "https://github.com/stanfordnlp/dspy/blob/398396012371a95471c8e7be24a70e6660e87aa4/dspy/evaluate/metrics.py"
+    },
+    {
+      "service": "docling",
+      "repository": "docling-project/docling",
+      "catalog_repository": "docling-project/docling",
+      "commit": "a7760abf0ca53321a3fb5ae9b1a65b584bb743b9",
+      "path": "docling/document_converter.py",
+      "blob_sha": "55ffb227baae3a399986ee372dcf765208a1ab48",
+      "url": "https://github.com/docling-project/docling/blob/a7760abf0ca53321a3fb5ae9b1a65b584bb743b9/docling/document_converter.py"
+    },
+    {
+      "service": "pipecat",
+      "repository": "pipecat-ai/pipecat",
+      "catalog_repository": "pipecat-ai/pipecat",
+      "commit": "d5dd211c15055a78431a391188e0748edd4b2661",
+      "path": "src/pipecat/audio/utils.py",
+      "blob_sha": "d05815c1f2627020dcde1c1ca410275b43195d63",
+      "url": "https://github.com/pipecat-ai/pipecat/blob/d5dd211c15055a78431a391188e0748edd4b2661/src/pipecat/audio/utils.py"
+    },
+    {
+      "service": "whisper",
+      "repository": "openai/whisper",
+      "catalog_repository": "openai/whisper",
+      "commit": "86098128c0b4f24f0e2aa2994de830614b474227",
+      "path": "whisper/audio.py",
+      "blob_sha": "826250f372c9234e13b8f06a24373d9fa7ceeca0",
+      "url": "https://github.com/openai/whisper/blob/86098128c0b4f24f0e2aa2994de830614b474227/whisper/audio.py"
+    },
+    {
+      "service": "financetoolkit",
+      "repository": "JerBouma/FinanceToolkit",
+      "catalog_repository": "JerBouma/FinanceToolkit",
+      "commit": "375f820d8f84e90e2f42f5d413ed67056cbd4256",
+      "path": "financetoolkit/ratios/liquidity_model.py",
+      "blob_sha": "8f128797eef357179c0bca48b2b62b3c19bde571",
+      "url": "https://github.com/JerBouma/FinanceToolkit/blob/375f820d8f84e90e2f42f5d413ed67056cbd4256/financetoolkit/ratios/liquidity_model.py"
+    },
+    {
+      "service": "a2a-python",
+      "repository": "a2aproject/a2a-python",
+      "catalog_repository": "a2aproject/a2a-python",
+      "commit": "09c93473a77d0a18be8429ad71958211b736a8c0",
+      "path": "src/a2a/compat/v0_3/types.py",
+      "blob_sha": "918a06b5e7725abf3ea189406cf89a692479b018",
+      "url": "https://github.com/a2aproject/a2a-python/blob/09c93473a77d0a18be8429ad71958211b736a8c0/src/a2a/compat/v0_3/types.py"
+    },
+    {
+      "service": "mcp-python-sdk",
+      "repository": "modelcontextprotocol/python-sdk",
+      "catalog_repository": "modelcontextprotocol/python-sdk",
+      "commit": "77001c96f9507be0f4d009b83210a384a5e08bda",
+      "path": "src/mcp-types/mcp_types/_types.py",
+      "blob_sha": "c00eb8e0615826f4df3e4a3e6d620982493fc668",
+      "url": "https://github.com/modelcontextprotocol/python-sdk/blob/77001c96f9507be0f4d009b83210a384a5e08bda/src/mcp-types/mcp_types/_types.py"
+    },
+    {
+      "service": "iceberg",
+      "repository": "apache/iceberg-python",
+      "ref": "pyiceberg-0.12.0",
+      "path": "pyiceberg/catalog/sql.py",
+      "blob_sha": "abe31194b8d4cff7b4fd8954058e4a0db7adcd5f",
+      "url": "https://github.com/apache/iceberg-python/blob/pyiceberg-0.12.0/pyiceberg/catalog/sql.py",
+      "scope": "official Python implementation; the catalog source pin addresses Apache Iceberg Java separately"
+    }
+  ]
+}
