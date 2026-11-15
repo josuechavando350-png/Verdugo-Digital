@@ -76,6 +76,35 @@ def template(tenant):
     for sid in ('datahub', 'bifrost'): services[sid]['native_auth_enforced_reviewed'] = False
     services['magentic-ui'].update(user_id=None, user_scope_reviewed=False)
     services['taguette'].update(project_id=None, document_id=None)
+    from .completion_reads import AUTH_MODES as COMPLETION_AUTH, PROXY_ONLY as COMPLETION_PROXIES
+    for sid, mode in COMPLETION_AUTH.items():
+        services[sid]['auth_mode'] = mode
+        if sid in COMPLETION_PROXIES:
+            services[sid]['proxy_auth_reviewed'] = False
+    services['anubis'].update(username=None, native_auth_enforced_reviewed=False)
+    services['google-ads'].update(base_url='https://googleads.googleapis.com',
+                                developer_token_env=None, oauth_scope_reviewed=False)
+    services['meta-ads'].update(base_url='https://graph.facebook.com', oauth_scope_reviewed=False)
+    services['debezium'].update(connector_id=None, debezium_connector_reviewed=False)
+    services['otel-collector'].update(default_metrics_names_reviewed=False)
+    for sid in ('huginn', 'opengmb', 'livekit', 'webmention-io', 'datosmex'):
+        services[sid].update(account_scope_reviewed=False)
+    services['livekit'].update(api_key_env=None)
+    services['webmention-io'].update(base_url='https://webmention.io')
+    services['datosmex'].update(base_url='https://www.banxico.org.mx')
+    from .public_reads import ORIGINS as PUBLIC_ORIGINS
+    for sid, origin in PUBLIC_ORIGINS.items():
+        services[sid].update(base_url=origin, token_env=None, auth_mode='public_no_credentials', public_access_reviewed=False)
+    services['gdeltdoc'].update(query_terms=None)
+    services['wbgapi'].update(country=None, year=2024)
+    services['mcp-gsc'].update(base_url='https://www.googleapis.com', oauth_scope_reviewed=False)
+    services['praw'].update(base_url='https://oauth.reddit.com', oauth_scope_reviewed=False,
+                            free_api_access_reviewed=False, subreddit=None)
+    services['python-podcastindex'].update(base_url='https://api.podcastindex.org',
+                                          api_key_env=None, account_scope_reviewed=False)
+    services['letta'].update(api_surface='letta_code_app_server')
+    services['humanlayer'].update(api_surface='riptide_api')
+    services['krayin-crm'].update(session_cookie_name=None, account_scope_reviewed=False, admin_path='admin')
     return {'tenants': {tenant: {'services': services, 'ingress': {}}}}
 
 

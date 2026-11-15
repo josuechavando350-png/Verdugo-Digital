@@ -9,6 +9,12 @@ import math
 
 
 def run(service, operation, p):
+    from .local_source import SPECS as SOURCE, run as run_source
+    if service in SOURCE:
+        return run_source(service, p)
+    from .local_completion import SPECS as COMPLETION, run as run_completion
+    if service in COMPLETION:
+        return run_completion(service, p)
     from .local_planning import SPECS as PLANNING, run as run_planning
     if service in PLANNING: return run_planning(service, p)
     from .local_pycli import SPECS as PYCLI, run as run_pycli

@@ -153,7 +153,7 @@
   {
    "number": 29,
    "id": "lighthouse",
-   "kind": "cli"
+   "kind": "biblioteca"
   },
   {
    "number": 30,
@@ -228,7 +228,7 @@
   {
    "number": 44,
    "id": "dbt",
-   "kind": "cli"
+   "kind": "biblioteca"
   },
   {
    "number": 45,
@@ -513,7 +513,7 @@
   {
    "number": 101,
    "id": "openprospector",
-   "kind": "biblioteca"
+   "kind": "servicio"
   },
   {
    "number": 102,
@@ -528,12 +528,12 @@
   {
    "number": 104,
    "id": "openseo",
-   "kind": "biblioteca"
+   "kind": "servicio"
   },
   {
    "number": 105,
    "id": "mcp-gsc",
-   "kind": "mcp"
+   "kind": "servicio"
   },
   {
    "number": 106,
@@ -558,7 +558,7 @@
   {
    "number": 110,
    "id": "opengmb",
-   "kind": "mcp"
+   "kind": "servicio"
   },
   {
    "number": 111,
@@ -638,7 +638,7 @@
   {
    "number": 126,
    "id": "nlweb",
-   "kind": "mcp"
+   "kind": "servicio"
   },
   {
    "number": 127,
@@ -723,7 +723,7 @@
   {
    "number": 143,
    "id": "gdeltdoc",
-   "kind": "biblioteca"
+   "kind": "servicio"
   },
   {
    "number": 144,
@@ -733,12 +733,12 @@
   {
    "number": 145,
    "id": "python-podcastindex",
-   "kind": "biblioteca"
+   "kind": "servicio"
   },
   {
    "number": 146,
    "id": "praw",
-   "kind": "biblioteca"
+   "kind": "servicio"
   },
   {
    "number": 147,
@@ -798,7 +798,7 @@
   {
    "number": 158,
    "id": "slidev",
-   "kind": "cli"
+   "kind": "biblioteca"
   },
   {
    "number": 159,
@@ -823,7 +823,7 @@
   {
    "number": 163,
    "id": "a2a",
-   "kind": "protocolo"
+   "kind": "biblioteca"
   },
   {
    "number": 164,
@@ -833,7 +833,7 @@
   {
    "number": 165,
    "id": "claude-skills-c-level",
-   "kind": "mcp"
+   "kind": "biblioteca"
   },
   {
    "number": 166,
@@ -873,12 +873,12 @@
   {
    "number": 173,
    "id": "datosmex",
-   "kind": "biblioteca"
+   "kind": "servicio"
   },
   {
    "number": 174,
    "id": "wbgapi",
-   "kind": "biblioteca"
+   "kind": "servicio"
   },
   {
    "number": 175,
@@ -1163,7 +1163,7 @@
   {
    "number": 231,
    "id": "humanlayer",
-   "kind": "biblioteca"
+   "kind": "servicio"
   },
   {
    "number": 232,

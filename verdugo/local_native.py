@@ -15,6 +15,8 @@ SPECS = {
     'site-md': ('html.markdown', 'npm:site-md', '0.2.6'),
     'seo-graph': ('breadcrumbs.build', 'npm:@jdevalk/seo-graph-core', '0.7.0'),
     'structured-data-validator': ('breadcrumbs.validate', 'npm:@adobe/structured-data-validator', '1.7.1'),
+    'slidev': ('slides.parse', 'npm:@slidev/parser', '53.1.0'),
+    'lighthouse': ('description.audit', 'npm:lighthouse', '13.6.0'),
 }
 WORKER = Path(__file__).with_name('_node_worker.mjs')
 ENV = 'VERDUGO_NATIVE_ROOT'
@@ -74,11 +76,22 @@ def validate(service, operation, p):
     if service not in SPECS or operation != SPECS[service][0]:
         raise VerdugoError('Unsupported fixed native operation')
     required = {'geo-lint': ('title', 'description', 'text'), 'site-md': ('html',),
-                'seo-graph': ('host', 'entries'), 'structured-data-validator': ('graph',)}[service]
+                'seo-graph': ('host', 'entries'), 'structured-data-validator': ('graph',), 'slidev': ('text',),
+                'lighthouse': ('descriptions',)}[service]
     fields(p, ('dataset', *required))
     if p['dataset'] not in ('demo', 'real'):
         raise VerdugoError('An explicit dataset is required')
-    if service == 'site-md':
+    if service == 'lighthouse':
+        if not isinstance(p['descriptions'], list) or len(p['descriptions']) > 20:
+            raise VerdugoError('At most 20 supplied meta descriptions are supported')
+        for value in p['descriptions']:
+            if not isinstance(value, str) or len(value) > 1000:
+                raise VerdugoError('Bounded description strings required')
+    elif service == 'slidev':
+        string(p['text'], 16000)
+        # The core parser does not load files or compile Vue. YAML parsing is
+        # explicitly disabled as well; supplied content is text only.
+    elif service == 'site-md':
         base('trafilatura', 'html.extract', p)
     elif service == 'geo-lint':
         string(p['title'], 500); string(p['description'], 1000); string(p['text'], 16000)

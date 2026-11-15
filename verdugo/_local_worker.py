@@ -36,9 +36,14 @@ def main():
     # No caller-selected modules can be imported.
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
     from verdugo.local_recipes import run
-    from verdugo import local_data, local_native, local_cli
+    from verdugo import local_data, local_native, local_cli, local_source
     dist = request['distribution']
-    if request['service'] in local_cli.SPECS:
+    if request['service'] in local_source.SPECS:
+        state = local_source.runtime_state(request['service'])
+        if not state['version_matches']:
+            raise ValueError('Pinned source runtime changed')
+        version = state['installed']
+    elif request['service'] in local_cli.SPECS:
         state = local_cli.runtime_state(request['service'])
         if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
             raise ValueError('CLI runtime changed')

@@ -39,6 +39,11 @@ PROFILE_ENV.update({sid:'VERDUGO_PYCLI021_PYTHON' for sid in PYCLI})
 from .local_planning import PROFILES as PLANNING
 PROFILE_ENV.update({sid:'VERDUGO_'+profile+'_PYTHON' for sid,profile in PLANNING.items()})
 
+from .local_completion import PROFILES as COMPLETION
+PROFILE_ENV.update({sid: "VERDUGO_"+profile+"_PYTHON" for sid, profile in COMPLETION.items()})
+
+PROFILE_ENV['autogeo'] = 'VERDUGO_UTILITY021_PYTHON'
+
 def interpreter(service):
     key = PROFILE_ENV.get(service)
     value = os.environ.get(key) if key else None

@@ -16,7 +16,10 @@ from verdugo.local_cli import SPECS
 from install_expansion import install
 GROUPS={'planning021':['mcp-agent','nemo-guardrails'],'content021':['graphiti','openbb','people-also-ask','jobspy'],
         'entities021':['chronos','gliner'],'pycli021':['dvc','dnstwist'],
-        'node':['geo-lint','site-md','seo-graph','structured-data-validator'],
+        'node':['geo-lint','site-md','seo-graph','structured-data-validator','slidev','lighthouse'],
+        'utility021':['vanna','trendspyg','youtube-comment-downloader','comtradeapicall','c2pa','autogeo','cognee','claude-skills-c-level'],
+        'browser021':['browser-use'], 'storm021':['storm'], 'dbt021':['dbt'], 'a2a021':['a2a'],
+        'research021':['gpt-researcher'], 'meridian021':['meridian'], 'causal021':['tfcausalimpact'],
         'cli-security':['syft','grype','gitleaks'],'cli-storage':['restic','sops','vale']}
 GO_SHA='9849f4e04ee35303714e34fbc3ac8ab44ea3e448a95aa182f91e3b9b79c710ec'
 NODE_SHA='6c172a9ab6718f7b801fb5a7bd486af2ee5e32758086a04b84fcce2aa77095e6'

@@ -26,7 +26,19 @@ const data = fs.readFileSync(0);
 if (data.length > 65536) throw new Error('Input budget');
 const {service, params:p} = JSON.parse(data);
 let result;
-if (service === 'site-md') {
+if (service === 'lighthouse') {
+  const {default:Description} = await load('lighthouse/core/audits/seo/meta-description.js');
+  const audit = Description.audit({MetaElements:p.descriptions.map(content=>({name:'description',content}))});
+  result = {audit_id:'meta-description', score:audit.score, descriptions_in_input:p.descriptions.length,
+    scope:'Lighthouse original meta-description audit over supplied artifacts; first description only',
+    browser_launched:false, page_fetched:false, performance_audited:false, search_ranking_verified:false};
+} else if (service === 'slidev') {
+  const m = await load('@slidev/parser');
+  const parsed = await m.parse(p.text, 'supplied.md', [], {noParseYAML:true});
+  if (parsed.slides.length > 100) throw new Error('Slide budget exceeded');
+  result = {slides:parsed.slides.map(s=>({title:s.title??null, content:s.content, notes:s.note??null})),
+    count:parsed.slides.length, rendered:false, published:false, external_resources_loaded:false};
+} else if (service === 'site-md') {
   const m = await load('site-md');
   result = {...m.convertHtmlToMarkdown(p.html, {url:'https://example.invalid/'}), fetched:false};
 } else if (service === 'geo-lint') {

@@ -1,6 +1,6 @@
 {
   "schema": "verdugo.source-api-evidence.v1",
-  "scope": "four fixed original npm operations; no model or network calls",
+  "scope": "six fixed original npm operations; no model or network calls",
   "files": [
     {
       "service": "geo-lint",
@@ -105,6 +105,46 @@
       "path": "package.json",
       "blob_sha": "844bfdc7abe60279c4111bc3ce480c6c00bc22af",
       "url": "https://github.com/adobe/structured-data-validator/blob/6918b52651d6f4c5dae612859e2e395de5a1910e/package.json"
+    },
+    {
+      "service": "slidev",
+      "repository": "slidevjs/slidev",
+      "commit": "437f139ccd4c8482a193b217922e7800a5b3baec",
+      "path": "packages/parser/src/core.ts",
+      "blob_sha": "a022911dcd7a38e5f9207544aecea27dfbf7aeb4",
+      "url": "https://github.com/slidevjs/slidev/blob/437f139ccd4c8482a193b217922e7800a5b3baec/packages/parser/src/core.ts"
+    },
+    {
+      "service": "slidev",
+      "repository": "slidevjs/slidev",
+      "commit": "437f139ccd4c8482a193b217922e7800a5b3baec",
+      "path": "packages/parser/src/index.ts",
+      "blob_sha": "46d458ad7fd8ff3be1a1fc05b22b13b5a43cdab4",
+      "url": "https://github.com/slidevjs/slidev/blob/437f139ccd4c8482a193b217922e7800a5b3baec/packages/parser/src/index.ts"
+    },
+    {
+      "service": "slidev",
+      "repository": "slidevjs/slidev",
+      "commit": "437f139ccd4c8482a193b217922e7800a5b3baec",
+      "path": "packages/parser/package.json",
+      "blob_sha": "6e6ff5cd7ffe76b2b37e97a3f9df7183a7d0a82f",
+      "url": "https://github.com/slidevjs/slidev/blob/437f139ccd4c8482a193b217922e7800a5b3baec/packages/parser/package.json"
+    },
+    {
+      "service": "lighthouse",
+      "repository": "GoogleChrome/lighthouse",
+      "commit": "5313024aa05786138dfd38c6740ef354e20c3f92",
+      "path": "core/audits/seo/meta-description.js",
+      "blob_sha": "a46fa098508e359db3f7ec001646da953ac1d3d0",
+      "url": "https://github.com/GoogleChrome/lighthouse/blob/5313024aa05786138dfd38c6740ef354e20c3f92/core/audits/seo/meta-description.js"
+    },
+    {
+      "service": "lighthouse",
+      "repository": "GoogleChrome/lighthouse",
+      "commit": "5313024aa05786138dfd38c6740ef354e20c3f92",
+      "path": "package.json",
+      "blob_sha": "a07e9d731542e6a90e2178b864152acbb9e18328",
+      "url": "https://github.com/GoogleChrome/lighthouse/blob/5313024aa05786138dfd38c6740ef354e20c3f92/package.json"
     }
   ]
 }

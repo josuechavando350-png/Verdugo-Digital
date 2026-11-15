@@ -4,13 +4,13 @@ Fecha: 15 de noviembre de 2026. Versión del motor: 0.21.0.
 
 | Estado | Cuántas |
 |---|---|
-| conectado | 176 |
+| conectado | 217 |
 | pieza_de_construccion | 56 |
-| pendiente | 68 |
+| pendiente | 27 |
 | excluido | 22 |
 | **Total** | 322 |
 
-**Pendientes: 68**, conservando la identificación de las cuatro tandas originales. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
+**Pendientes: 27**, conservando la identificación de las cuatro tandas originales. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
 no se conectan al motor: se usan al construir la plataforma (fase aparte). Las 22 excluidas por licencia no se tocan.
 
 El estado de cada pieza lo calcula el código: `python -m verdugo connections`. Este plan en formato
@@ -226,3 +226,40 @@ programas originales y replay en el mismo Engine.
 Las 56 piezas de construcción se conectan programando la plataforma de Verdugo (panel web y app móvil)
 que use el motor por su API/MCP. Esa fase se planea cuando las tandas de conectores avancen.
 
+
+## Complemento v0.21 desde a6809de
+
+41 operaciones adicionales: 17 ejecuciones locales originales y 24 contratos HTTP.
+61 de las 88 de v0.21 están implementadas; 27 siguen pendientes.
+[Alcance y evidencia](ACEPTACION_COMPLEMENTO_V021.md). El estado es derivado del código;
+no se sustituyen adaptadores por fichas de catálogo ni se certifica producción.
+
+| Pendiente | Trabajo restante |
+|---|---|
+| `microsandbox` | Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback. |
+| `openhands` | Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback. |
+| `valkey` | Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback. |
+| `postgres` | Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback. |
+| `local-seo-skills` | Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos. |
+| `playwright-mcp` | Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos. |
+| `kingfisher-collect` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
+| `cc-webgraph` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
+| `newsjack` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
+| `cua` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
+| `siteone-crawler` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
+| `goaccess` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
+| `sherlock` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
+| `google-maps-scraper` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
+| `quarto` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
+| `auto-editor` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
+| `landscape-app` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
+| `log4brains` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
+| `openapi-generator` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
+| `promptfoo` | Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía). |
+| `apache-age` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
+| `arx` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
+| `tinytroupe` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
+| `census` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
+| `pricesensitivitymeter` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
+| `pgvector` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |
+| `robyn` | Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime. |

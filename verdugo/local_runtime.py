@@ -16,7 +16,7 @@ import sys
 import tempfile
 
 from .common import VerdugoError, fields, identifier, integer, encode
-from . import local_extended, local_analytics, local_research, local_interop, local_knowledge, local_data, local_native, local_cli, local_content, local_pycli, local_planning, runtime_profile
+from . import local_extended, local_analytics, local_research, local_interop, local_knowledge, local_data, local_native, local_cli, local_content, local_pycli, local_planning, local_completion, local_source, runtime_profile
 
 # Primary published distribution versions; upstream source pins are a separate
 # provenance inventory and must not be confused with installed Python wheels.
@@ -52,6 +52,9 @@ SPECS.update(local_cli.SPECS)
 SPECS.update(local_content.SPECS)
 SPECS.update(local_pycli.SPECS)
 SPECS.update(local_planning.SPECS)
+SPECS.update(local_source.SPECS)
+SPECS.update(local_completion.SPECS)
+EXTRA.update(local_completion.EXTRA)
 EXTRA.update(local_planning.EXTRA)
 EXTRA.update(local_content.EXTRA)
 MAX_OUTPUT = 1024 * 1024
@@ -65,6 +68,8 @@ def supports(service, operation):
 
 def installed(service):
     operation, distribution, expected = SPECS[service]
+    if service in local_source.SPECS:
+        return local_source.runtime_state(service)
     if service in local_cli.SPECS:
         return local_cli.runtime_state(service)
     if service in local_native.SPECS:
@@ -141,6 +146,10 @@ def labels(values, count, minimum_per_class=1):
 def validate(service, operation, params):
     if not supports(service, operation):
         raise VerdugoError('Local adapter/action not implemented')
+    if service in local_source.SPECS:
+        return local_source.validate(service, operation, params)
+    if service in local_completion.SPECS:
+        return local_completion.validate(service, operation, params)
     if service in local_planning.SPECS:
         return local_planning.validate(service, operation, params)
     if service in local_pycli.SPECS:
@@ -274,7 +283,7 @@ def preflight(service, operation, cfg):
 
 def implementation_digest():
     h = hashlib.sha256()
-    for path in (Path(__file__), WORKER, RECIPES, Path(local_extended.__file__), Path(local_analytics.__file__), Path(local_research.__file__), Path(local_interop.__file__), Path(local_knowledge.__file__), Path(local_data.__file__), Path(local_native.__file__), local_native.WORKER, Path(local_cli.__file__), Path(local_content.__file__), Path(local_pycli.__file__), Path(local_planning.__file__),
+    for path in (Path(__file__), WORKER, RECIPES, Path(local_extended.__file__), Path(local_analytics.__file__), Path(local_research.__file__), Path(local_interop.__file__), Path(local_knowledge.__file__), Path(local_data.__file__), Path(local_native.__file__), local_native.WORKER, Path(local_cli.__file__), Path(local_content.__file__), Path(local_pycli.__file__), Path(local_planning.__file__), Path(local_completion.__file__), Path(local_source.__file__),
                  Path(runtime_profile.__file__), runtime_profile.PROBE):
         h.update(path.name.encode())
         h.update(path.read_bytes())
@@ -309,6 +318,7 @@ def execute(request, cfg):
         env = {'PATH': os.defpath, 'HOME': work, 'TMPDIR': work, 'LANG': 'C.UTF-8',
                'OMP_NUM_THREADS': '1', 'OPENBLAS_NUM_THREADS': '1', 'MKL_NUM_THREADS': '1',
                'NUMEXPR_NUM_THREADS': '1', 'VECLIB_MAXIMUM_THREADS': '1',
+               'TF_NUM_INTRAOP_THREADS': '1', 'TF_NUM_INTEROP_THREADS': '1', 'CUDA_VISIBLE_DEVICES': '-1',
                'MALLOC_ARENA_MAX': '2', 'DO_NOT_TRACK': '1',
                'HAYSTACK_TELEMETRY_ENABLED': 'False', 'OTEL_SDK_DISABLED': 'true',
                'GX_ANALYTICS_ENABLED': 'False', 'GE_USAGE_STATS': 'False',

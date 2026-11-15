@@ -1,0 +1,2 @@
+-c runtime-research021.constraints.txt
+gpt-researcher==0.17.0

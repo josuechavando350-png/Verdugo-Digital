@@ -9,6 +9,7 @@ from verdugo import local_runtime
 from verdugo.__main__ import template
 from verdugo.engine import Engine
 from fixtures import CASES
+from completion_fixtures import CASES as COMPLETION_CASES, assert_result as assert_completion
 from planning_fixtures import CASES as PLANNING_CASES, assert_result as assert_planning
 from cli_fixtures import CASES as CLI_CASES, assert_result as assert_cli
 from content_fixtures import CASES as CONTENT_CASES, assert_result as assert_content
@@ -102,6 +103,8 @@ class RuntimeAcceptance(unittest.TestCase):
                         self.assertTrue(value['views'][0]['observations']['horizontal_overflow'])
                         self.assertFalse(value['views'][1]['observations']['horizontal_overflow'])
                         self.assertFalse(value['javascript_enabled'])
+                    if sid in COMPLETION_CASES:
+                        assert_completion(self, sid, value)
                     if sid in PLANNING_CASES:
                         assert_planning(self,sid,value)
                     if sid in CLI_CASES:

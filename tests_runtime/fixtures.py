@@ -61,3 +61,6 @@ CASES.update(CLI_CASES)
 
 from planning_fixtures import CASES as PLANNING_CASES
 CASES.update(PLANNING_CASES)
+
+from completion_fixtures import CASES as COMPLETION_CASES
+CASES.update(COMPLETION_CASES)

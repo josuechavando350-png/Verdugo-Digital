@@ -1,0 +1,4 @@
+-c runtime-dbt021.constraints.txt
+dbt-core==1.12.7
+dbt-duckdb==1.11.1
+duckdb==2.0.0
