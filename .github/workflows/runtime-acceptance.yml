@@ -42,6 +42,7 @@ jobs:
             /tmp/verdugo-${sdk}666-venv/bin/python -m pip freeze > /tmp/${sdk}666-resolved.txt
           done
           VERDUGO_LANGROID666_PYTHON=/tmp/verdugo-langroid666-venv/bin/python python tests_runtime/prepare_tokenizer666.py
+          python tests_runtime/accept_task_source666.py --prepare-source /tmp/verdugo-kag-source666
       - name: Install pinned offline Node workflow profile
         run: |
           python tests_runtime/install_volt666.py
@@ -65,6 +66,10 @@ jobs:
           python tests_runtime/install_logic666.py
       - name: Original SDK, approval and restart with OS network isolation
         run: |
+          sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
+            HOME="$HOME" VERDUGO_OS_NETWORK_ISOLATED=1 \
+            /tmp/verdugo-langroid666-venv/bin/python tests_runtime/accept_task_source666.py \
+            --source-root /tmp/verdugo-kag-source666 --out /tmp/kag-original-boundary-evidence.json
           sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
             HOME="$HOME" VERDUGO_OS_NETWORK_ISOLATED=1 \
             VERDUGO_KERNEL666_PYTHON=/tmp/verdugo-kernel666-venv/bin/python \
@@ -105,6 +110,7 @@ jobs:
           name: verdugo-pilot666-${{ github.sha }}
           path: |
             /tmp/pilot666-execution-evidence.json
+            /tmp/kag-original-boundary-evidence.json
             /tmp/kernel666-pip-report.json
             /tmp/kernel666-resolved.txt
             /tmp/executive666-execution-evidence.json

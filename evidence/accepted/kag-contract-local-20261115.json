@@ -1,0 +1,30 @@
+{
+  "schema": "verdugo.kag-local-contract-evidence.v1",
+  "scope": "working tree based on 7049582f6219fef7b0f8797916d684a5f9a71f9f; exact file hashes below",
+  "files": {
+    "verdugo/task_reads666.py": "bb143c6d067c5bb06d19e7ad44e91b31e7775b72fc387f76ece33124ea204852",
+    "sources/contracts-task-reads666.json": "cad32cf2e82c669c21393528c57d6254cebc83315be9827c86263ec354d89c7a",
+    "tests/test_task_reads666.py": "18de36a5733b0bd119464b6637a2b2be0425407e6b883801121019e333c03856",
+    "tests/test_product_v019.py": "c8abdb0662833e930dbd5b03b128412311cdf1dd708d8fff23008c66e44fc28e"
+  },
+  "unit_and_contract_tests_passed": 915,
+  "new_kag_test_methods": 11,
+  "shared_product_synthetic_http_observations": 78,
+  "shared_product_total_steps": 79,
+  "loopback_http_mcp_cli_sqlite_restart_tested": true,
+  "private_task_and_result_not_retained": true,
+  "registered_github_identities": 688,
+  "distinct_commit_pins": 688,
+  "same_commit_groups": 0,
+  "semantic_duplicates_certified_absent": false,
+  "new_implemented": 39,
+  "implemented_under_root_policy": 282,
+  "construction_components": 56,
+  "pending_adapters": 328,
+  "original_full_kag_server_executed": false,
+  "source_boundary_probe": "evidence/accepted/kag-original-boundary-local-20261115.json",
+  "deployment_certified": false,
+  "live_verified": false,
+  "all_666_integrated": false,
+  "license_policy_expanded": false
+}

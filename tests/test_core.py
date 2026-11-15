@@ -63,6 +63,9 @@ class Base(unittest.TestCase):
         services['ragflow'].update(community_build_reviewed=True, dedicated_instance_reviewed=True,
                                    native_auth_enforced_reviewed=True)  # synthetic only
         services['jena'].update(dedicated_instance_reviewed=True, native_auth_enforced_reviewed=True, status_route_basic_auth_reviewed=True)  # synthetic only
+        services['kag'].update(proxy_auth_reviewed=True, proxy_strips_credentials_reviewed=True,
+                               dedicated_instance_reviewed=True, task_scope_reviewed=True,
+                               task_id_env='VERDUGO_TEST_KAG_TASK_ID')  # synthetic only
         services['infinity'].update(dedicated_instance_reviewed=True, native_auth_enforced_reviewed=True)  # synthetic only
         services['magentic-ui'].update(user_id='demo-user', user_scope_reviewed=True)
         services['taguette'].update(project_id=1, document_id=2)
@@ -72,6 +75,7 @@ class Base(unittest.TestCase):
         self.config['tenants']['other'] = copy.deepcopy(self.config['tenants']['nexus'])
         self.env = patch.dict(os.environ, {c['token_env']: ('synthetic-user:'+SECRET if c['token_env'].endswith('_JENA_TOKEN') else 'api_synthetic-key-not-real' if c['token_env'].endswith('_DOCUMENSO_TOKEN') else 'a'*24+':'+'b'*64 if c['token_env'].endswith('_GHOST_TOKEN') else SECRET) for c in
             self.config['tenants']['nexus']['services'].values() if c.get('token_env')} | {
+                'VERDUGO_TEST_KAG_TASK_ID': 'a6c437f3-71f8-45d7-95fe-218d9ee24567',
                 'VERDUGO_COMPLETION_TOKEN': 'oseo_private_test_credential',
                 'VERDUGO_COMPLETION_DEVELOPER': 'private_test_developer_credential'})
         self.env.start()
@@ -125,7 +129,7 @@ class CatalogTests(Base):
 
     def test_no_false_live_status(self):
         s=self.engine.status()
-        self.assertEqual(113,s['api_adapters_implemented'])
+        self.assertEqual(114,s['api_adapters_implemented'])
         self.assertEqual(0,s['live_verified'])
         self.assertFalse(any(r['live_verified'] for r in s['integrations']))
 
@@ -133,7 +137,7 @@ class CatalogTests(Base):
         g=graph(SPECS)
         self.assertEqual(689,len(g['nodes']))
         self.assertEqual(688,len(g['edges']))
-        self.assertEqual(113,sum(e['kind']=='adapter' for e in g['edges']))
+        self.assertEqual(114,sum(e['kind']=='adapter' for e in g['edges']))
         self.assertFalse(any(e['live'] for e in g['edges']))
 
     def test_template_disabled(self):

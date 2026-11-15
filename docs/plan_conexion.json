@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 329,
+ "pending": 328,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -403,20 +403,6 @@
    "domain": "memoria",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
    "nota": "Original pyproject.toml requires lightrag-hku <1.5 and MinerU core >=3.4.1,<4 on Python <3.14. The marker omits MinerU on Python 3.14; no claim that every profile requires it. A compatible parser, exact dependency licenses and any used model-weight licenses remain pending. No SDK or model installed.",
-   "live_verified": false,
-   "evidence": "sources/review-memory-next666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 2",
-   "id": "kag",
-   "repository": "OpenSPG/KAG",
-   "commit": "fdab15b3929d2ee40dfcdd388f90233096a6afc9",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "memoria",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": "Original main_server.py exposes POST /process with task.cmd submit or query. Only this entrypoint was reviewed: its task schema, result retention and authentication boundary still need verification. No executable contract was added from this partial evidence.",
    "live_verified": false,
    "evidence": "sources/review-memory-next666.json"
   },
@@ -7715,6 +7701,21 @@
    "live_verified": false,
    "evidence": "sources/contracts-content666.json",
    "operation": "content.reconcile"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 2",
+   "id": "kag",
+   "repository": "OpenSPG/KAG",
+   "commit": "fdab15b3929d2ee40dfcdd388f90233096a6afc9",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "memoria",
+   "que_hacer": "Consulta fija del estado de una tarea existente en KAG Solver Server.",
+   "nota": "POST cmd=query detrás de proxy autenticador revisado; ID privado, correlación de respuesta y proyección de recuentos. No envío de tareas ni servidor original certificado.",
+   "live_verified": false,
+   "evidence": "sources/contracts-task-reads666.json",
+   "operation": "task.summary"
   }
  ]
 }

@@ -18,13 +18,13 @@ a un punto anterior. Se retomó ese árbol sin perder sus fuentes ni pruebas.
 | Identidades GitHub distintas registradas | 688 |
 | Permitidas por el criterio de licencia raíz | 666 |
 | Excluidas por licencia raíz | 22 |
-| Adaptadores implementados dentro del criterio raíz | 281 |
+| Adaptadores implementados dentro del criterio raíz | 282 |
 | Piezas de construcción | 56 |
-| Pendientes de adaptador | 329 |
-| Nuevas incorporaciones implementadas | 38 de 366 |
-| Lote original 1 | 38 de 183 |
+| Pendientes de adaptador | 328 |
+| Nuevas incorporaciones implementadas | 39 de 366 |
+| Lote original 1 | 39 de 183 |
 | Lote original 2 | 0 de 183 |
-| Continuación de 80 | 16 implementadas, 64 pendientes |
+| Continuación de 80 | 17 implementadas, 63 pendientes |
 | Continuación de 81 | 0 implementadas, 81 pendientes |
 | Servicios certificados en producción | 0 |
 
@@ -78,7 +78,7 @@ local no se presenta como CI aprobado.
 
 Leer `AGENTS.md`, `docs/PLAN_666.md` y `sources/resume-666.json`. Consultar
 `product-status` para el estado calculado y comprobar el head de PR #25 antes
-de modificarlo. Los otros 64 candidatos del sublote de 80 siguen pendientes;
+de modificarlo. Los otros 63 candidatos del sublote de 80 siguen pendientes;
 sus revisiones acotadas están enlazadas en el informe. Un candidato bloqueado
 no se convierte en terminado por añadir una explicación o un nombre distinto.
 
@@ -99,3 +99,11 @@ las 904 pruebas y el control de cierres SQLite, pero falló después en
 299/389/280. Se actualizan a 300/388/281 y el mapa a 281/56/329/22.
 La ejecución fallida permanece en el historial; el commit corregido necesita
 su propia observación de CI.
+
+## Continuación KAG
+
+Se implementó `kag / task.summary` sin cambiar la lista de licencias. Son 39 incorporaciones: 28 locales y 11 lecturas HTTP. Pasaron 915 pruebas y el flujo de 78 observaciones HTTP sintéticas del producto, con reinicio/replay. Los cinco casos con módulos originales de solicitud y caché no equivalen a ejecutar el servidor KAG completo. La operación, las restricciones de autenticación, la privacidad y los límites están en [KAG_666.md](KAG_666.md).
+
+Egg y SWI-Prolog recibieron revisión adicional acotada; sus hallazgos están en `sources/review-logic-next666.json`. La decisión sobre ampliar licencias permanece pendiente; no se aplicó ninguna excepción. Las nuevas pruebas CI deben observarse en su propio commit.
+
+El control adicional de fuentes comprobó 688 commits fijados distintos, sin grupos con el mismo commit. Esto complementa la identidad GitHub; no certifica que dos árboles con historias distintas o dos capacidades no se solapen. Evidencia del incremento: `evidence/accepted/kag-contract-local-20261115.json`.

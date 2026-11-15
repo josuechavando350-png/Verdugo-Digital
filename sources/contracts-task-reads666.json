@@ -1,0 +1,70 @@
+{
+  "schema": "verdugo.task-reads666.v1",
+  "records": [
+    {
+      "id": "kag",
+      "repository": "OpenSPG/KAG",
+      "commit": "fdab15b3929d2ee40dfcdd388f90233096a6afc9",
+      "license": "Apache-2.0",
+      "license_text_read": true,
+      "license_evidence": [
+        {
+          "repository": "OpenSPG/KAG",
+          "commit_sha": "fdab15b3929d2ee40dfcdd388f90233096a6afc9",
+          "path": "LICENSE",
+          "blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "local_path": "sources/license-texts/c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4.txt",
+          "source_url": "https://github.com/OpenSPG/KAG/blob/fdab15b3929d2ee40dfcdd388f90233096a6afc9/LICENSE"
+        }
+      ],
+      "files": [
+        {
+          "path": "kag/solver/server/main_server.py",
+          "git_blob_sha": "0816819af007d0518203f69e9bc0d8b9e9df8b2d",
+          "sha256": "08beaf89fb6b8d601a38e0a9354e7f11ff1fb031fd2ab81414292935ca49bb70",
+          "source_url": "https://github.com/OpenSPG/KAG/blob/fdab15b3929d2ee40dfcdd388f90233096a6afc9/kag/solver/server/main_server.py"
+        },
+        {
+          "path": "kag/solver/server/asyn_task_manager.py",
+          "git_blob_sha": "069c4e8992aaeb11593e0b7bf64091aba9deef6f",
+          "sha256": "9d44fff07f7aeb286828f0b091a4614e859152b8af5cb809d1909916bcd9dded",
+          "source_url": "https://github.com/OpenSPG/KAG/blob/fdab15b3929d2ee40dfcdd388f90233096a6afc9/kag/solver/server/asyn_task_manager.py"
+        },
+        {
+          "path": "kag/solver/server/model/task_req.py",
+          "git_blob_sha": "0a48bd3b7db472560af08f476ae0c4c2b5c3d71a",
+          "sha256": "ed000e7d3866c7f86db3de870b27844bebf938caf4d5259276f0443a5c727e64",
+          "source_url": "https://github.com/OpenSPG/KAG/blob/fdab15b3929d2ee40dfcdd388f90233096a6afc9/kag/solver/server/model/task_req.py"
+        },
+        {
+          "path": "LICENSE",
+          "git_blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "source_url": "https://github.com/OpenSPG/KAG/blob/fdab15b3929d2ee40dfcdd388f90233096a6afc9/LICENSE"
+        }
+      ],
+      "operation": "task.summary",
+      "method": "POST",
+      "route": "/process",
+      "original_request": {
+        "features": {
+          "in_string": "JSON-encoded TaskReq with cmd=query, configured UUID4 req_id, app_id=0, project_id=0, req=\"{}\", config=\"{}\""
+        }
+      },
+      "authentication": "Original FastAPI route has no authentication. Dedicated tenant instance behind an operator-reviewed authenticating proxy that strips credentials is required. No native Bearer capability is claimed.",
+      "query_semantics": "sync_task cmd=query calls get_task_result; it reads TTLCache and does not submit work. get_task_result returns failed for missing or expired IDs, indistinguishable at status level from actual failed work. The cached result is opaque and never retained. The response task ID must match a digest of the configured private request ID.",
+      "privacy": "Private UUID4 reference from VERDUGO_* environment; only a cryptographic binding enters plans. One strict task query serializer. No caller-selected task, query, endpoint, callback, model or submit command.",
+      "limitations": [
+        "No task submission, model inference or polling scheduler",
+        "Completed status does not certify result quality or commercial success",
+        "Missing, expired and failed work are not distinguished",
+        "No original full KAG server or dependency closure has been executed or certified",
+        "The instance can evict or expire results; SQLite replay reports the earlier observation, not a fresh query"
+      ],
+      "original_server_executed": false,
+      "live_verified": false,
+      "production_certified": false
+    }
+  ]
+}

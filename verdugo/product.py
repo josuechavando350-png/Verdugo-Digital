@@ -7,7 +7,7 @@ the observation report. Other operations remain available via workflow.
 import time
 
 from . import (integration_audit, commercial, connections, license_policy, local_runtime,
-               knowledge_reads666, vector_reads666, memory_reads666, judgment_reads666, marketing_reads, operations_reads, platform_reads, completion_reads, public_reads, read_contracts, readiness_reads,
+               task_reads666, knowledge_reads666, vector_reads666, memory_reads666, judgment_reads666, marketing_reads, operations_reads, platform_reads, completion_reads, public_reads, read_contracts, readiness_reads,
                reconciliation, service_reads, tanda1_reads, workflow)
 from .adapters import SPECS, service_config
 from .common import VerdugoError, fields, identifier
@@ -16,7 +16,7 @@ from .common import VerdugoError, fields, identifier
 def read_operations():
     candidates = {sid: op for sid, (op, _) in read_contracts.METADATA_SCHEMAS.items()}
     candidates['growthbook'] = 'settings.read'
-    for module in (knowledge_reads666, vector_reads666, memory_reads666, judgment_reads666, marketing_reads, service_reads, tanda1_reads, readiness_reads, operations_reads, platform_reads, completion_reads, public_reads):
+    for module in (task_reads666, knowledge_reads666, vector_reads666, memory_reads666, judgment_reads666, marketing_reads, service_reads, tanda1_reads, readiness_reads, operations_reads, platform_reads, completion_reads, public_reads):
         candidates.update({sid: next(iter(ops)) for sid, ops in module.SPECS.items()})
     policy = license_policy.read_policy()
     # The existing Airbyte contract addresses paid Cloud only. It cannot enter

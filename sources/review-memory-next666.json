@@ -96,8 +96,8 @@
       "id": "kag",
       "repository": "OpenSPG/KAG",
       "commit": "fdab15b3929d2ee40dfcdd388f90233096a6afc9",
-      "status": "contract_review_pending",
-      "note": "Original main_server.py exposes POST /process with task.cmd submit or query. Only this entrypoint was reviewed: its task schema, result retention and authentication boundary still need verification. No executable contract was added from this partial evidence.",
+      "status": "bounded_http_task_query_implemented",
+      "note": "A bounded existing-task query was implemented from main_server.py, TaskReq/FeatureRequest and AsyncTaskManager at the pinned commit. Exact nested JSON schema, cmd=query, response task binding and count-only projection are documented in sources/contracts-task-reads666.json. A dedicated instance and reviewed credential-stripping authenticating proxy are mandatory. Original full KAG server, dependencies, model weights and native execution remain unverified; loopback responses are synthetic.",
       "files": [
         {
           "path": "kag/solver/server/main_server.py",
@@ -109,7 +109,7 @@
       "sdk_installed": false,
       "runtime_executed": false,
       "live_verified": false,
-      "counted_as_connected": false
+      "counted_as_connected": true
     },
     {
       "id": "giskard-oss",

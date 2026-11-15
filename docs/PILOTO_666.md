@@ -1,6 +1,6 @@
 # Piloto 666: avance parcial del lote 1
 
-Treinta y ocho de 183 piezas del primer lote tienen una operación nueva implementada: 28 locales y diez lecturas HTTP con aceptación sintética. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
+Treinta y nueve de 183 piezas del primer lote tienen una operación nueva implementada: 28 locales y once lecturas HTTP con aceptación sintética. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
 
 ## Operación delimitada
 
@@ -313,3 +313,7 @@ Las siete pruebas usan respuestas sintéticas, sockets locales, CLI/MCP, SQLite 
 Preparación: `python tests_runtime/install_content666.py`. Perfil: `VERDUGO_CONTENT666_PYTHON=/tmp/verdugo-content666/bin/python`. Aceptación: `python tests_runtime/accept_content666.py --out /tmp/content666-evidence.json`. El instalador exige un destino nuevo; la huella verifica los 277 archivos instalados, el intérprete, la configuración y la ausencia de paquetes o módulos adicionales. El mismo servicio participa en `product-run`, MCP y el flujo conjunto del piloto.
 
 En el flujo conjunto, `content_reconcile` recibe mediante referencias los contactos y clientes de la etapa `measure`. No vuelve a introducir esas mediciones a mano. La aceptación independiente del componente y sus límites se conserva en `evidence/accepted/content666-local-20261115.json`.
+
+## KAG: consulta de una tarea existente
+
+`kag / task.summary` entra al mismo Engine, doctor y product-run. Se conserva únicamente el estado resumido de la tarea configurada por el operador; no admite enviar tareas, elegir modelos ni consultas de texto. El identificador queda fuera de planes, CLI/MCP y SQLite. El contrato HTTP se prueba con sockets sintéticos; dos módulos originales de solicitud y caché pasan cinco casos adicionales, sin ejecutar el servidor o solver completo. [Alcance y preparación](KAG_666.md).

@@ -1,0 +1,27 @@
+{
+  "schema": "verdugo.kag-original-boundary-probe.v1",
+  "source_commit": "fdab15b3929d2ee40dfcdd388f90233096a6afc9",
+  "contract_sha256": "cad32cf2e82c669c21393528c57d6254cebc83315be9827c86263ec354d89c7a",
+  "probe_sha256": "27deefb3cd40c17d5b11d1a43061145b017b9e42de25c8bae0916778f3a29f17",
+  "original_request_model_validated": true,
+  "original_task_cache_cases_passed": [
+    "running",
+    "completed",
+    "failed",
+    "missing_is_ambiguous_failed",
+    "expired_is_ambiguous_failed"
+  ],
+  "test_profile_dependencies": {
+    "pydantic": "2.14.3",
+    "cachetools": "8.0.0"
+  },
+  "tasks_submitted": 0,
+  "models_called": 0,
+  "provider_network_calls": 0,
+  "original_full_server_executed": false,
+  "http_dispatch_executed": false,
+  "dependency_closure_certified": false,
+  "live_verified": false,
+  "os_network_isolated": false,
+  "note": "Only two original source modules with synthetic cache data; HTTP/CLI/MCP/replay are tested separately."
+}

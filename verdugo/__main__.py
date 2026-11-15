@@ -124,6 +124,9 @@ def template(tenant):
     services['ragflow'].update(api_surface='self_hosted_community', auth_mode='native_api_key_bearer',
                                community_build_reviewed=False, native_auth_enforced_reviewed=False,
                                dedicated_instance_reviewed=False)
+    services['kag'].update(api_surface='self_hosted_solver_server', auth_mode='reviewed_proxy_bearer',
+                           proxy_auth_reviewed=False, proxy_strips_credentials_reviewed=False,
+                           dedicated_instance_reviewed=False, task_scope_reviewed=False, task_id_env=None)
     services['jena'].update(api_surface='self_hosted_fuseki_admin', auth_mode='native_basic',
                             native_auth_enforced_reviewed=False, dedicated_instance_reviewed=False,
                             status_route_basic_auth_reviewed=False)
