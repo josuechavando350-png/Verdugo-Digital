@@ -246,7 +246,7 @@ class ReadinessWireTests(unittest.TestCase):
                 try: self.wfile.write(body)
                 except (BrokenPipeError, ConnectionResetError): pass
             def do_POST(self):
-                owner.calls.append(('WRITE', self.path, None)); self.send_response(406); self.end_headers()
+                owner.calls.append(('WRITE', self.path, None)); self.send_response(405); self.end_headers()
         self.server = HTTPServer(('127.0.0.1', 0), Handler)
         self.thread = threading.Thread(target=self.server.serve_forever, daemon=True); self.thread.start()
         for tenant in self.config['tenants'].values():
@@ -328,17 +328,17 @@ class ReadinessInventoryTests(unittest.TestCase):
                 self.assertIn('/blob/'+item['commit']+'/', source['source_url'])
         plan = json.loads((root/'docs/plan_conexion.json').read_text())
         self.assertEqual(set(batch.SPECS), {p['id'] for p in plan['implemented_v018']})
-        self.assertEqual(347, plan['pending'])
-        self.assertEqual(347, len(plan['items']))
+        self.assertEqual(345, plan['pending'])
+        self.assertEqual(345, len(plan['items']))
         self.assertTrue(all(p['live_verified'] is False for p in plan['implemented_v018']))
 
     def test_code_derived_counts_never_certify_live_services(self):
-        self.assertEqual({'conectado': 263, 'pendiente': 347, 'pieza_de_construccion': 56, 'excluido': 22}, connections.summary()['states'])
+        self.assertEqual({'conectado': 265, 'pendiente': 345, 'pieza_de_construccion': 56, 'excluido': 22}, connections.summary()['states'])
         with closing(Engine(':memory:')) as engine:
             status = engine.status()
         self.assertEqual(103, status['api_adapters_implemented'])
         self.assertEqual(107, status['api_actions_implemented'])
-        self.assertEqual(282, status['total_adapters_implemented'])
+        self.assertEqual(284, status['total_adapters_implemented'])
         self.assertEqual(0, status['live_verified'])
 
 if __name__ == '__main__':

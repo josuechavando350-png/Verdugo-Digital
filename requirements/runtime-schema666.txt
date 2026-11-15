@@ -1,0 +1,4 @@
+-c runtime-schema666.constraints.txt
+guidance @ https://codeload.github.com/guidance-ai/guidance/tar.gz/21b1d90dfbebff4b141df70c714c8af15aa5f4af#sha256=88feb0a11d25f9b774d6c06a173aaa01433a616bf7f3555320dc3cbc4e623c09
+llguidance @ https://files.pythonhosted.org/packages/43/45/8b89afccd95a47fc39924cd09963633a16b1ef8c54d6e3dd3035906720ef/llguidance-1.6.1-cp39-abi3-manylinux_2_28_x86_64.whl#sha256=5b8b755c1af85df8496f0d5404fc43d49220d039aa9eda22adad72c2f2acacec
+guidance-stitch @ https://files.pythonhosted.org/packages/55/6f/24a042f87de344d707a4c9bb11235b54df1b6f5dc5d641935deb2fb01428/guidance_stitch-0.1.5-py3-none-any.whl#sha256=22ab8c5e9b5db36eeb0d54822797d02c8de658595dea3b9662708edb2274f6d1

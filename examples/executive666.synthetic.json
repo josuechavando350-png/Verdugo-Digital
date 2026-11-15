@@ -653,6 +653,65 @@
           31
         ]
       }
+    },
+    {
+      "id": "schema_check",
+      "service": "guidance",
+      "operation": "schema.check",
+      "depends_on": [
+        "quantization"
+      ],
+      "params": {
+        "dataset": "demo",
+        "cases": [
+          {
+            "decision": "review",
+            "approved": false,
+            "item_count": 2,
+            "variant": "canonical"
+          },
+          {
+            "decision": "execute",
+            "approved": true,
+            "item_count": 2,
+            "variant": "canonical"
+          },
+          {
+            "decision": "defer",
+            "approved": false,
+            "item_count": 3,
+            "variant": "extra_field"
+          }
+        ]
+      }
+    },
+    {
+      "id": "prefix_check",
+      "service": "lm-format-enforcer",
+      "operation": "prefix.check",
+      "params": {
+        "dataset": "demo",
+        "cases": [
+          {
+            "decision": "review",
+            "mode": "dry_run",
+            "cut": "complete"
+          },
+          {
+            "decision": "defer",
+            "mode": "dry_run",
+            "cut": "object_prefix"
+          },
+          {
+            "decision": "execute",
+            "mode": "send",
+            "cut": "complete"
+          }
+        ]
+      },
+      "depends_on": [
+        "schema_check"
+      ]
     }
   ]
 }

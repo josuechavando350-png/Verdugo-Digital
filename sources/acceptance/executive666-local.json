@@ -20,7 +20,9 @@
     "granite-guardian",
     "interpret",
     "transformerlens",
-    "bitsandbytes"
+    "bitsandbytes",
+    "guidance",
+    "lm-format-enforcer"
   ],
   "original_sdks_executed": true,
   "mocked_sdks": false,
@@ -34,7 +36,7 @@
         "dataset": "demo",
         "distribution": "semantic-kernel",
         "external_provider_calls_made": false,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66",
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -85,7 +87,7 @@
         "dataset": "demo",
         "distribution": "agno",
         "external_provider_calls_made": false,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66",
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -140,7 +142,7 @@
         "dataset": "demo",
         "distribution": "griptape",
         "external_provider_calls_made": false,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66",
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd",
         "ok": true,
         "operation": "objective.scenarios",
         "production_certified": false,
@@ -189,7 +191,7 @@
         "dataset": "demo",
         "distribution": "strands-agents",
         "external_provider_calls_made": false,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66",
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd",
         "ok": true,
         "operation": "limits.parallel",
         "production_certified": false,
@@ -229,7 +231,7 @@
         "dataset": "demo",
         "distribution": "mcp:@modelcontextprotocol/server-memory",
         "external_provider_calls_made": false,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66",
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd",
         "ok": true,
         "operation": "graph.audit",
         "production_certified": false,
@@ -268,7 +270,7 @@
         "dataset": "demo",
         "distribution": "ag2",
         "external_provider_calls_made": false,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66",
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd",
         "ok": true,
         "operation": "actions.check",
         "production_certified": false,
@@ -304,7 +306,7 @@
         "dataset": "demo",
         "distribution": "unified-planning",
         "external_provider_calls_made": false,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66",
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd",
         "ok": true,
         "operation": "sequence.validate",
         "production_certified": false,
@@ -340,7 +342,7 @@
         "dataset": "demo",
         "distribution": "playwright",
         "external_provider_calls_made": false,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66",
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd",
         "ok": true,
         "operation": "cookies.check",
         "production_certified": false,
@@ -465,7 +467,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd"
       },
       "measure": {
         "algorithm": "synthetic-funnel-v1",
@@ -526,7 +528,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd"
       },
       "review": {
         "ok": true,
@@ -557,7 +559,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd"
       },
       "measurement_review": {
         "ok": true,
@@ -589,7 +591,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd"
       },
       "dispatch_policy": {
         "ok": true,
@@ -632,7 +634,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd"
       },
       "trace_policy": {
         "ok": true,
@@ -676,7 +678,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd"
       },
       "tool_audit": {
         "ok": true,
@@ -712,7 +714,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd"
       },
       "context_budget": {
         "ok": true,
@@ -753,7 +755,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd"
       },
       "model_review": {
         "ok": true,
@@ -798,7 +800,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd"
       },
       "explanation": {
         "ok": true,
@@ -841,7 +843,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd"
       },
       "activations": {
         "ok": true,
@@ -887,7 +889,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd"
       },
       "quantization": {
         "ok": true,
@@ -934,7 +936,100 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "e84018819ed39257d790f17e3fdaa2a0b86d4c93232cf566fd7a6021c0e94f66"
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd"
+      },
+      "schema_check": {
+        "ok": true,
+        "service": "guidance",
+        "operation": "schema.check",
+        "distribution": "guidance",
+        "version": "0.3.2",
+        "dataset": "demo",
+        "result": {
+          "source_commit": "21b1d90dfbebff4b141df70c714c8af15aa5f4af",
+          "original_source_files_verified": 78,
+          "dependency_files_verified": 22,
+          "case_count": 3,
+          "accepted_count": 1,
+          "rejected_count": 2,
+          "accepted_indices": [
+            0
+          ],
+          "fixed_schema_count": 1,
+          "native_parser_used": true,
+          "independent_enum_reference_verified": true,
+          "parser_threads_remaining": 0,
+          "raw_payloads_persisted": false,
+          "syntactic_validity_grants_permission": false,
+          "content_truth_verified": false,
+          "model_weights_loaded": false,
+          "quality_calibrated": false,
+          "original_sdk": "guidance",
+          "sdk_version": "0.3.2",
+          "dataset": "demo",
+          "dry_run": true,
+          "llm_calls": 0,
+          "autonomous_agent": false,
+          "external_calls_made": false,
+          "external_execution_authorized": false,
+          "operator_approval_required": true,
+          "approvals_granted": 0,
+          "business_outcome_proven": false
+        },
+        "external_provider_calls_made": false,
+        "production_certified": false,
+        "commercial_success_probability": null,
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd"
+      },
+      "prefix_check": {
+        "ok": true,
+        "service": "lm-format-enforcer",
+        "operation": "prefix.check",
+        "distribution": "lm-format-enforcer",
+        "version": "0.11.3",
+        "dataset": "demo",
+        "result": {
+          "source_commit": "817f944fcc8851917c40300a47f62d1defc3ffc3",
+          "original_source_files_verified": 21,
+          "dependency_files_verified": 7,
+          "case_count": 3,
+          "viable_count": 2,
+          "complete_count": 1,
+          "rejected_count": 1,
+          "viable_indices": [
+            0,
+            1
+          ],
+          "complete_indices": [
+            0
+          ],
+          "first_rejection_offsets": [
+            null,
+            null,
+            13
+          ],
+          "independent_finite_language_verified": true,
+          "vocabulary_lookup_used": false,
+          "raw_payloads_persisted": false,
+          "syntactic_validity_grants_permission": false,
+          "content_truth_verified": false,
+          "model_weights_loaded": false,
+          "original_sdk": "lm-format-enforcer",
+          "sdk_version": "0.11.3",
+          "dataset": "demo",
+          "dry_run": true,
+          "llm_calls": 0,
+          "autonomous_agent": false,
+          "external_calls_made": false,
+          "external_execution_authorized": false,
+          "operator_approval_required": true,
+          "approvals_granted": 0,
+          "business_outcome_proven": false
+        },
+        "external_provider_calls_made": false,
+        "production_certified": false,
+        "commercial_success_probability": null,
+        "implementation_sha256": "50b7b96d1bb99de7bbb4e1e8c0266c958dff5876504d80edc1b1f242d371f1cd"
       }
     }
   },

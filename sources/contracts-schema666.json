@@ -1,0 +1,789 @@
+{
+  "schema": "verdugo.schema666.sources.v1",
+  "id": "guidance",
+  "operation": "schema.check",
+  "repository": "guidance-ai/guidance",
+  "commit": "21b1d90dfbebff4b141df70c714c8af15aa5f4af",
+  "distribution": "guidance",
+  "version": "0.3.2",
+  "license": "MIT",
+  "archive_url": "https://codeload.github.com/guidance-ai/guidance/tar.gz/21b1d90dfbebff4b141df70c714c8af15aa5f4af",
+  "archive_sha256": "88feb0a11d25f9b774d6c06a173aaa01433a616bf7f3555320dc3cbc4e623c09",
+  "runtime_versions": {
+    "llguidance": "1.6.1",
+    "guidance-stitch": "0.1.5"
+  },
+  "source_review_scope": "Original JSON-node conversion and ByteParser/TokenParser processing and cleanup read. Other files integrity-checked only.",
+  "operation_scope": [
+    "Compile one fixed JSON schema via guidance.json and its original llguidance validation.",
+    "ByteParser consumes deterministic synthetic payloads, finalizes valid ones and reports conformance against an enum reference.",
+    "One to eight bounded cases; explicit threadpool shutdown on both accepted and rejected parses."
+  ],
+  "limitations": [
+    "Format validation is not truthful content, business correctness or execution permission.",
+    "No model construction, weights, generation, arbitrary schema, free text, plugins or network requests.",
+    "llguidance is the original pinned published dependency wheel, not a source rebuild. Its MIT and guidance-stitch BSD-3 license texts are preserved.",
+    "No exhaustive transitive dependency license or security audit."
+  ],
+  "files": [
+    {
+      "path": "LICENSE.md",
+      "blob_sha": "32c0918f5b5e9235caca8208df13bc0a3cb95c09",
+      "sha256": "26626ff4cdf0ff458d8c5bfde70003dceb6bb57d9e691923d349aa7e6a015677",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "guidance/__init__.py",
+      "blob_sha": "78ff7a7d917c90088671daaf8a7d44b4b20478c6",
+      "sha256": "54d2fc3f6f1498e5c2e4725ea4d699fb32cb702583804c859452045cc9f46e38",
+      "installed_path": "guidance/__init__.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "guidance/_ast.py",
+      "blob_sha": "980aff6d217139f9bc8445f86bec201675bac545",
+      "sha256": "bdfb90ef2c03dee279f52d4e565153cf815a755be62bbbf1ba18c6f529099961",
+      "installed_path": "guidance/_ast.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "guidance/_bg/__init__.py",
+      "blob_sha": "fa4aae0e77497816b63cfd7cdecf9f13f2cfb22e",
+      "sha256": "02daeed3d4665fde01f0e7c838d851ba3cf247ac8bfb53960fc806d0bc827479",
+      "installed_path": "guidance/_bg/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/_grammar.py",
+      "blob_sha": "6548b2414d6de5e433328c98f6e218d0e6dc0540",
+      "sha256": "3bbb2afd4504a2fe1c6f1ec68a4e2e8dfc8bb7093e9dd592cfa463dd651bc54d",
+      "installed_path": "guidance/_grammar.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "guidance/_guidance.py",
+      "blob_sha": "b9875dcff94e373a8d5aca7ec8e4baac6d6dcbb3",
+      "sha256": "a903f3e2222313a223e57ac52e2a4261853e837f8ae97b9d475821a9a390cd2d",
+      "installed_path": "guidance/_guidance.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/_guidance.pyi",
+      "blob_sha": "844885332f485b0c0d7921b35dd99aa5ff65fa33",
+      "sha256": "4e1674a4a82df529f6bc73aca4c4bbb9997e729b1c54064e24ed683e0a718a2d",
+      "installed_path": "guidance/_guidance.pyi",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/_parser.py",
+      "blob_sha": "fce4bf5a6a98205b0e0668e4db645c7dfd62515b",
+      "sha256": "ca3e10d27106fd5f67f5a214b4609ca8fbd982ddd2589d1f425f962efcd5f801",
+      "installed_path": "guidance/_parser.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "guidance/_schema.py",
+      "blob_sha": "de3b843711d83d68400e4f039363905f93ae8303",
+      "sha256": "4768307d283a9a3d015dee10a7ddc87e73e6a809ff0c0d61dc2d1eb497187e60",
+      "installed_path": "guidance/_schema.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/_tools.py",
+      "blob_sha": "7faa48c438fb5da4fe4599d2a8c83172d71d8f43",
+      "sha256": "bf86c45308fa37368374d8c2617ff6c004f49e6bdb7dad0a43fd25ac6dd57153",
+      "installed_path": "guidance/_tools.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/_topics.py",
+      "blob_sha": "094c747ada000ad60cd527bec8d164585c400977",
+      "sha256": "f30326294585cd16e3d9a39fb132c14502ad3e9304e2805afa4bcdf077d24848",
+      "installed_path": "guidance/_topics.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/_uri_validation.py",
+      "blob_sha": "86e6f65defdc08e89d3471aa976e46c7ea5d5084",
+      "sha256": "1c06d7ef44f81e10ff2ff912764f820e7f5ceb5ee268d3f54d3c73d675940201",
+      "installed_path": "guidance/_uri_validation.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/_utils.py",
+      "blob_sha": "f779a2bf1cd2ddc092f34c84e829e343d2bda762",
+      "sha256": "2e56fdd19a5b1d96ddc40230b088fb3d72f79c4c39f48096a04d49cc7250db56",
+      "installed_path": "guidance/_utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/chat.py",
+      "blob_sha": "e54e294c22d7be172f2ba2495ac6f392c7f33ce0",
+      "sha256": "23b94ebd1d1beaab17e759b622382378572e5901dc17220ece077bf25c5a1df7",
+      "installed_path": "guidance/chat.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/debug.py",
+      "blob_sha": "931d2261be74e48409ce27d2643585cefd599284",
+      "sha256": "38893029125be73697917616c9bb8aa14bfdc64be2512947efee3ddcd4e05b85",
+      "installed_path": "guidance/debug.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/library/__init__.py",
+      "blob_sha": "f2f42ebe5826817e81b0331b9e08d5379690374f",
+      "sha256": "e43e0391dc6571dcd2cc98ac00ef88e4c3ed80de8348173e03f9a06aca1d8d63",
+      "installed_path": "guidance/library/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/library/_audio.py",
+      "blob_sha": "2905a8764000622eb3b0dfc0cc0f280aab5ed1b0",
+      "sha256": "d41c9db55c6d66d1eb4cf7f59eefeb1a79ef729f3b6f2b74ff83253b8eeba3e8",
+      "installed_path": "guidance/library/_audio.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/library/_block.py",
+      "blob_sha": "fc57f6781b5eb2521d7c025389ab83ffd6aff910",
+      "sha256": "703b1f95c2847fe95530f51e4f1f392fede7cff8da87a551fd99d49acc80d6c5",
+      "installed_path": "guidance/library/_block.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/library/_capture.py",
+      "blob_sha": "ff8f4fa4c2b9c0c9d98c88b456b2caf87cb732fe",
+      "sha256": "e845b0fa90e45d31003a4078df9e8fe7cf892d4dadf20a4c57043ffbbc9f87ec",
+      "installed_path": "guidance/library/_capture.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/library/_ebnf.py",
+      "blob_sha": "ac2bd94d7db162035f9761e606ef6de35c1372e7",
+      "sha256": "c27535fc8d20066302c0465af8d4032f03c2e6a4267b6a8f1c2c445f3c03b012",
+      "installed_path": "guidance/library/_ebnf.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/library/_gen.py",
+      "blob_sha": "929a01ecbc027b1ac9c97e54bd8be5ae57af50db",
+      "sha256": "69989080e64d5f210e12e206b01bfa20c549ab7d56459dd605cc6f5dd155aa49",
+      "installed_path": "guidance/library/_gen.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/library/_image.py",
+      "blob_sha": "6f7986155b963377b4ccc9fc8e35604e6d7ae290",
+      "sha256": "386441b1eee3e2fb8e8140ffd417ca7e311bc98ce1e21a703e31170343011a47",
+      "installed_path": "guidance/library/_image.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/library/_json.py",
+      "blob_sha": "83092ff726f1cbb720b0ce96a2d94f9d9fc55803",
+      "sha256": "e967bab6b99a0961966d96e32f61424d55cb85321fe98eaa8b178ba743ffb53f",
+      "installed_path": "guidance/library/_json.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "guidance/library/_optional.py",
+      "blob_sha": "ef12a68a7d650af39bc54c28cd07c7867a77c7b7",
+      "sha256": "245a94b988b4531bd538045140f4b5f7addef707694ba7c1eed33db8520dcd18",
+      "installed_path": "guidance/library/_optional.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/library/_pydantic.py",
+      "blob_sha": "9be8e68e12a2ce7d18ad58accf385b5304f6e054",
+      "sha256": "bb4a8a2a2ea4746d44759642ddc1bfd26c77078894ae771532af2e94de989e65",
+      "installed_path": "guidance/library/_pydantic.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/library/_role.py",
+      "blob_sha": "39c17f14de11c9ef37dec72ae7f72d949ef6e64c",
+      "sha256": "27f611781cde234224e22504130cb97c4c4bbd022367bc7825696a80a56f723e",
+      "installed_path": "guidance/library/_role.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/library/_sequences.py",
+      "blob_sha": "05932b7a3de4337d187d95e4a46161c1849857de",
+      "sha256": "4c87a3d7dcbf660c9e67dae5563584b950dfff81899292a63faf12fb76c74c7b",
+      "installed_path": "guidance/library/_sequences.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/library/_subgrammar.py",
+      "blob_sha": "9be90f240d3b3ea84046bdb3e1704d3a7c059c95",
+      "sha256": "dfcd111f17c8f4211828dbeaf2481d63670cd8949a51bdc7a30b280829063d05",
+      "installed_path": "guidance/library/_subgrammar.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/library/_substring.py",
+      "blob_sha": "948aa7db67d9c697ab32c9dbda92eb6413b25564",
+      "sha256": "35688ffa350b18b6ef463f569b62b7ebda252204c9575ff00138ca0a8067fd34",
+      "installed_path": "guidance/library/_substring.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/library/_video.py",
+      "blob_sha": "b4a5e04cd14c32b6ad92b68e5bc8ae645cce79a7",
+      "sha256": "de9d97ed34722841deb2bc76c621f9587d99ebb62871356bda5ec0ddceae49ef",
+      "installed_path": "guidance/library/_video.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/metrics/__init__.py",
+      "blob_sha": "5a18fd39f581cfd877ce54456d2bd353f9b64f9e",
+      "sha256": "a0220a9676fbd5109a20409619c66850b6373e05c9430d3ac5eef7fb03ffcdda",
+      "installed_path": "guidance/metrics/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/metrics/_metrics.py",
+      "blob_sha": "9c4aa7c43008a9148229b9eb4ed63ccab7083388",
+      "sha256": "d708b8e4f0071a6e62e613bca7c4d7cd852e72db147348b15b163575acc9572e",
+      "installed_path": "guidance/metrics/_metrics.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/__init__.py",
+      "blob_sha": "76fd08da4f4a3e42870d886bcd2ab022011781ff",
+      "sha256": "95e505a93caad2ca012ba6ff83abe7d66de5950f56aa9e0bc0e7db68ade01a83",
+      "installed_path": "guidance/models/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/_azureai.py",
+      "blob_sha": "47c11528c3924397e090de6e0b185abd86b156d8",
+      "sha256": "cf9f1d72f3d749a299089faacde6ed051479ac2bdaa2a9ab459334dd042cbd8a",
+      "installed_path": "guidance/models/_azureai.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/_base/__init__.py",
+      "blob_sha": "c3056373bebc7980e51374aa5d36bc4f3a2b07e7",
+      "sha256": "36d50670bc4660bf7379635a1d8ed73f686c0b2dd3b65d61be06eed4e69f238f",
+      "installed_path": "guidance/models/_base/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/_base/_interpreter.py",
+      "blob_sha": "d957b6c591b84b0d0ed6459c3115ee347ae5aa54",
+      "sha256": "015ea8ac3bbfe4a87d3b09d5f269097e97090284ae30af566bccba2b953ce8f2",
+      "installed_path": "guidance/models/_base/_interpreter.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/_base/_model.py",
+      "blob_sha": "aca445f8f85c826cd3857f4268c867787187334b",
+      "sha256": "af5c3ba7faa185578cdbc56999569caa70fa064adeeaa387f9ca980bcf3c3a0c",
+      "installed_path": "guidance/models/_base/_model.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/_base/_state.py",
+      "blob_sha": "b8cf40a63fea55a4e7dd34f90fb88cbfc7d643e9",
+      "sha256": "a80cdb585511a142d393ce67dde2cf0c2052bb8292a5601a87b708e41eacec69",
+      "installed_path": "guidance/models/_base/_state.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/_byte_tokenizer.py",
+      "blob_sha": "872a80f17624c5d82424525a18f3a59331d9703c",
+      "sha256": "ff0d790c6e6aa0f7d90bf730c810614e02d34cac8afec0f2c254485d79fc6d20",
+      "installed_path": "guidance/models/_byte_tokenizer.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/_engine/__init__.py",
+      "blob_sha": "5cb2bf38ac7e34869ec7785541e93243604b29f7",
+      "sha256": "3e765463803b9a72537bf381fe92c17d74c7fbd3930272515212fa6a9d470e8e",
+      "installed_path": "guidance/models/_engine/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/_engine/_engine.py",
+      "blob_sha": "fe1ff248c3da536a5d970ef80361799640654fd7",
+      "sha256": "067650968aa26ef1e2711f88b690f2a01c2346463d5097f4677ef34063ec4b03",
+      "installed_path": "guidance/models/_engine/_engine.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/_engine/_interpreter.py",
+      "blob_sha": "48c380048736ed7ab65b999de37bb4ea7efcee7b",
+      "sha256": "1b47e13d44cad4e3a6ac4390b15e3bc6c702dbe0fbf581d7b041e23394bbd3ad",
+      "installed_path": "guidance/models/_engine/_interpreter.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/_engine/_state.py",
+      "blob_sha": "883e471617fb4b552c86e6ed2c2d075b59705b80",
+      "sha256": "5d643e645426385ec25fbdeb91b1b91527b47c787d8e8703b61267d1fdaaf435",
+      "installed_path": "guidance/models/_engine/_state.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/_engine/_tokenizer.py",
+      "blob_sha": "fa28f6336390aa6ad4dbb72da7a04c5e88b0b583",
+      "sha256": "2700dfa9571fc2460f1ff7629be8ee51a2d3cb5b227635e4e17dae4b9ba6f546",
+      "installed_path": "guidance/models/_engine/_tokenizer.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/_llama_cpp.py",
+      "blob_sha": "be4332b006e8a3f1c42dc772336591bbd9b94d09",
+      "sha256": "9d82a3c68bdd10bce67e6f28cf667324aa7c9ed1ae3f8181c2dd39e3c41329f9",
+      "installed_path": "guidance/models/_llama_cpp.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/_mock.py",
+      "blob_sha": "21e453f24dace7f5b35a8df2186ce0f0527be96b",
+      "sha256": "0170d7980d92298c22feae54e77e8acc5a7a33cbbb3d000d8775c8059425725f",
+      "installed_path": "guidance/models/_mock.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/_onnxruntime.py",
+      "blob_sha": "4404e982f83bdcc7740fb4d8d18406882e75bd67",
+      "sha256": "e412f060b0a7631dc01ba9ba839241eb6f76d63a9a12f011b60c5054f9dc5b1d",
+      "installed_path": "guidance/models/_onnxruntime.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/_openai.py",
+      "blob_sha": "ea4f5f8416bcd6e22625282f7c7bc0caabe50097",
+      "sha256": "581d637705100c93a605f8b922cac6de830ab77e0eacae0b3e47edec92801a0b",
+      "installed_path": "guidance/models/_openai.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/_openai_base.py",
+      "blob_sha": "851bc25252d93f3847d6a9a14d40704e61d74008",
+      "sha256": "9f9e63637324f82e52d624b0f22d4826a9884542611a60a5aceee5b421c2250d",
+      "installed_path": "guidance/models/_openai_base.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/_transformers.py",
+      "blob_sha": "6975a4c8eb2e36a1a9ee95ef4a8450732d414772",
+      "sha256": "71597bcb9b1b561527bc2713035b105733a338ce25488741746ae8d0b491bdba",
+      "installed_path": "guidance/models/_transformers.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/broken_models/README.MD",
+      "blob_sha": "610e634b1bc82db883a54a6a7080e541b6a4bdce",
+      "sha256": "8ea01281cc3eb6d3ea655334b751ba36a8c09981688fcb60afd38a8c37e1b0a6",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/broken_models/_Gemini.py",
+      "blob_sha": "fa23ccaeaf83733d4f97ac7a26dfb2d54f3d8b54",
+      "sha256": "aca13307843d54c95f58936cc42ac5785fdda72c9df189af0425e92f85c510fa",
+      "installed_path": "guidance/models/broken_models/_Gemini.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/broken_models/_anthropic.py",
+      "blob_sha": "408d0bb3976ddb1a356328a08d918ed462bfd209",
+      "sha256": "16654b44a92cec8ebd0fbafa44ef008688f667d4fbf1cd4350527794c3d331ff",
+      "installed_path": "guidance/models/broken_models/_anthropic.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/broken_models/_azure_openai.py",
+      "blob_sha": "b684360f766e871abb52c7ba3c7aaed002045e03",
+      "sha256": "2e9f1bf2235b9eeb900288018240f954dd97e3916b5e6ea24c14a78fdcbaadfb",
+      "installed_path": "guidance/models/broken_models/_azure_openai.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/broken_models/_azureai_studio.py",
+      "blob_sha": "dfaeebcf1d67349213d027b515cefca9f52b1cf5",
+      "sha256": "659467533647423ba5e32bbf50275c018a7e8f6eef039716cc2caab58c5827cc",
+      "installed_path": "guidance/models/broken_models/_azureai_studio.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/broken_models/_cohere.py",
+      "blob_sha": "19db9c447c7bd75e5ee7ce44f5d9e0e6bc7830aa",
+      "sha256": "e9f72d270afd0b7a91c01a374cb65aba16a4d3a8643541edb5e6751b05c40086",
+      "installed_path": "guidance/models/broken_models/_cohere.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/broken_models/_googleai.py",
+      "blob_sha": "3dafb34a033209b3f43918f49eacb4f04ab08b67",
+      "sha256": "62db9385a81d3069649f5721fdbf5feddffd12dc91e68c7c396600c4dcc50da7",
+      "installed_path": "guidance/models/broken_models/_googleai.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/broken_models/_lite_llm.py",
+      "blob_sha": "74120b9154f0af15a3973fa0e1f26446a3e1193d",
+      "sha256": "4ae33003028869f720a48e07b3f60add4f3e3b0e3e857d579bb13d2ec357e01c",
+      "installed_path": "guidance/models/broken_models/_lite_llm.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/broken_models/_togetherai.py",
+      "blob_sha": "9b313a3b0119b1506c0198f7aac0d74d34b829fc",
+      "sha256": "7b09a174d72b000ef64193fe2bc12582548c9da5fc82eff1b011364375d3c123",
+      "installed_path": "guidance/models/broken_models/_togetherai.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/broken_models/_vertexai.py",
+      "blob_sha": "846be30e5ef53cc4ef828441baecd843a4cab72b",
+      "sha256": "c28737ff60afaca52936c69fc9ec476b3412de533a9ff37340b9820f01d96d0f",
+      "installed_path": "guidance/models/broken_models/_vertexai.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/experimental/__init__.py",
+      "blob_sha": "490aba2a2ab1de92cf1f748164887649393befe0",
+      "sha256": "429951123b0d8d1cd8f62baf3105b6754443105577bd258283c29f20e9faed2c",
+      "installed_path": "guidance/models/experimental/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/experimental/_litellm.py",
+      "blob_sha": "26b49d2fe1191124560a94fce2d171a7335c6283",
+      "sha256": "54812035684cdd9146ca51e92b0c779e181daaab4ceb9bb08be26b1d5111d7f1",
+      "installed_path": "guidance/models/experimental/_litellm.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/experimental/_sglang.py",
+      "blob_sha": "643bcda9a0d9015ee6896aa1ff44d665102c3d0e",
+      "sha256": "aeb9e1561a904bd2f78226bc70b6b225b03b57b90cab0ab30c8e6cbb0d388193",
+      "installed_path": "guidance/models/experimental/_sglang.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/models/experimental/_vllm.py",
+      "blob_sha": "0dd03c8b798248427a6a1d8f5be5a0b335d1f361",
+      "sha256": "fa2769b22add9a3512d1b203c2d2de0fff8572c175e2621425b1d5a89a0c0e16",
+      "installed_path": "guidance/models/experimental/_vllm.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/py.typed",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "guidance/py.typed",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/registry/__init__.py",
+      "blob_sha": "51b78eb5dc2a98b5974077e8a4b5976cdad91eb1",
+      "sha256": "476b87ff131a8f7e9b548779ffd5d4e6e841f114e890617d04c8edb43213c3a9",
+      "installed_path": "guidance/registry/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/registry/_registry.py",
+      "blob_sha": "fc97bb278855546bd2d27cdaf6f18beef824e317",
+      "sha256": "c04e864e57932f2b433074ff1b37f60cd9080a656ca98e0fd58b1bfcbb6024ad",
+      "installed_path": "guidance/registry/_registry.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/resources/graphpaper-inline.html",
+      "blob_sha": "a01c3e5bb8e0cfc8cffadf7cf1486c3a03ac5dd2",
+      "sha256": "3270a1b318b6f3268f633e768d447a78ec35a428fc61fa99790f6578f1eeae11",
+      "installed_path": "guidance/resources/graphpaper-inline.html",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/resources/sample_audio.wav",
+      "blob_sha": "55f47c2c5ca5988f9492073bea9dcf06bd2ae939",
+      "sha256": "9c846a9e1c2349cc456239a6e696a4a9e9105f18f70521338d6f03d6651368e4",
+      "installed_path": "guidance/resources/sample_audio.wav",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/resources/sample_image.png",
+      "blob_sha": "e9f10969734e2af37b5e4830d364ce26eefa1d68",
+      "sha256": "670b4cde256f757a0e2270916141d7f04977e27cf280f320d1e131d93d3b5309",
+      "installed_path": "guidance/resources/sample_image.png",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/resources/sample_video.mp4",
+      "blob_sha": "7936dc09092f5a02a4e228f4c6cd9a7d7240696d",
+      "sha256": "05bd857af7f70bf51b6aac1144046973bf3325c9101a554bc27dc9607dbbd8f5",
+      "installed_path": "guidance/resources/sample_video.mp4",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/trace/__init__.py",
+      "blob_sha": "4775920426654adad0446a46b2e16c229250e38c",
+      "sha256": "8abae3de4bb593e5aaf92a03d5eaaeb10ec188a4dd8a24e7a8b1062e79bf3fae",
+      "installed_path": "guidance/trace/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/trace/_trace.py",
+      "blob_sha": "246e7966d9774d0c88bd3d641a736e57e3fb298b",
+      "sha256": "28e822cab55c55426bb968c36f3c4aca7a34b3726bc0616dadf176e1ff52a012",
+      "installed_path": "guidance/trace/_trace.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/visual/__init__.py",
+      "blob_sha": "2ced9c3269c78a76175ca17e8ff2cd54c4613536",
+      "sha256": "023aaa79cb4c62b618ba85d5283c8a41effe1d4d1f65e781db3664e38ecea86b",
+      "installed_path": "guidance/visual/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/visual/_environment.py",
+      "blob_sha": "3884180d7d46d38b86fbe8101a630e737dc1fd91",
+      "sha256": "cb5fca0424b173ad3cbb1fc9c24d009cd79ecf02212312d291295cf82bb4dfdd",
+      "installed_path": "guidance/visual/_environment.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/visual/_exchange.py",
+      "blob_sha": "292e8bf0e67b8ee9f1a234b57357d3778405a113",
+      "sha256": "708ba928a8e64fbc16c25e039da2ebfd985dd03325adf637ecb361107cb76ebd",
+      "installed_path": "guidance/visual/_exchange.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/visual/_jupyter.py",
+      "blob_sha": "508cbd6d011f07e4a678b5f7588823b1febddc40",
+      "sha256": "8c35e43fd19c9c649cfe4f615a9224f4b97d04fc232495d7ecc13430e3391399",
+      "installed_path": "guidance/visual/_jupyter.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/visual/_message.py",
+      "blob_sha": "6329e99e415d1f94683b1f63817e28796302b90e",
+      "sha256": "24dc97472fcba059b114188862770bfebf9022909b552399f8908881c750379d",
+      "installed_path": "guidance/visual/_message.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/visual/_renderer.py",
+      "blob_sha": "df9a8c9b2377dea5f35b3d209336e7a69838988a",
+      "sha256": "5521f632ed2143dbe7460951229a74d25a1b5d03a8658bdc93eb862a866d63e7",
+      "installed_path": "guidance/visual/_renderer.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "guidance/visual/_trace.py",
+      "blob_sha": "ce523cc98bf93a1ec74e07b0da5064b82c2d6456",
+      "sha256": "10dea5311aac5159e316c22a12665fa0b282e6078912cac7f8fa7a5aa2bcadd6",
+      "installed_path": "guidance/visual/_trace.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "packages/python/stitch/LICENSE.txt",
+      "blob_sha": "be5b7c6c64cdcdcff3b65a85db632462847bb631",
+      "sha256": "34d2c9ac4d5016073dd5cd88c4c6bbb407d48b7802dfa4f69e6557df0ba69aaf",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "pyproject.toml",
+      "blob_sha": "6eb125ee461282720efe7fb5ad1d4118dc3284e2",
+      "sha256": "086bc5647c8c05ba969f3909d64abfaca6af0bb7ca4518ee97ba9f5612339127",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    }
+  ],
+  "installed_source_count": 78,
+  "dependency_artifacts": [
+    {
+      "name": "llguidance",
+      "version": "1.6.1",
+      "artifact": {
+        "comment_text": null,
+        "core-metadata": {
+          "sha256": "d3724c110b0d8a75f4837c2fba8fa386c8aae7dca697afb23794a0decf70432b"
+        },
+        "digests": {
+          "blake2b_256": "43458b89afccd95a47fc39924cd09963633a16b1ef8c54d6e3dd3035906720ef",
+          "md5": "e8d00ec9692616d77448a72379cdfd8a",
+          "sha256": "5b8b755c1af85df8496f0d5404fc43d49220d039aa9eda22adad72c2f2acacec"
+        },
+        "downloads": -1,
+        "filename": "llguidance-1.6.1-cp39-abi3-manylinux_2_28_x86_64.whl",
+        "has_sig": false,
+        "md5_digest": "e8d00ec9692616d77448a72379cdfd8a",
+        "packagetype": "bdist_wheel",
+        "python_version": "cp39",
+        "requires_python": ">=3.10",
+        "size": 3072845,
+        "upload_time": "2026-02-24T02:15:09",
+        "upload_time_iso_8601": "2026-02-24T02:15:09.951283Z",
+        "url": "https://files.pythonhosted.org/packages/43/45/8b89afccd95a47fc39924cd09963633a16b1ef8c54d6e3dd3035906720ef/llguidance-1.6.1-cp39-abi3-manylinux_2_28_x86_64.whl",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "license_files": [
+        {
+          "path": "llguidance-1.6.1.dist-info/licenses/LICENSE",
+          "text": "    MIT License\n\n    Copyright (c) Microsoft Corporation.\n\n    Permission is hereby granted, free of charge, to any person obtaining a copy\n    of this software and associated documentation files (the \"Software\"), to deal\n    in the Software without restriction, including without limitation the rights\n    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell\n    copies of the Software, and to permit persons to whom the Software is\n    furnished to do so, subject to the following conditions:\n\n    The above copyright notice and this permission notice shall be included in all\n    copies or substantial portions of the Software.\n\n    THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\n    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\n    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\n    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\n    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\n    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\n    SOFTWARE\n",
+          "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+        }
+      ]
+    },
+    {
+      "name": "guidance-stitch",
+      "version": "0.1.5",
+      "artifact": {
+        "comment_text": null,
+        "core-metadata": {
+          "sha256": "26c34e6693d7fb0c81f76eb7c6d0ed1b56542f5dca175f6a99d6ef8a96420e5a"
+        },
+        "digests": {
+          "blake2b_256": "556f24a042f87de344d707a4c9bb11235b54df1b6f5dc5d641935deb2fb01428",
+          "md5": "550d1d4bff811044b5299d929f9578d2",
+          "sha256": "22ab8c5e9b5db36eeb0d54822797d02c8de658595dea3b9662708edb2274f6d1"
+        },
+        "downloads": -1,
+        "filename": "guidance_stitch-0.1.5-py3-none-any.whl",
+        "has_sig": false,
+        "md5_digest": "550d1d4bff811044b5299d929f9578d2",
+        "packagetype": "bdist_wheel",
+        "python_version": "py3",
+        "requires_python": ">=3.9",
+        "size": 108802,
+        "upload_time": "2025-06-16T20:07:28",
+        "upload_time_iso_8601": "2025-06-16T20:07:28.280609Z",
+        "url": "https://files.pythonhosted.org/packages/55/6f/24a042f87de344d707a4c9bb11235b54df1b6f5dc5d641935deb2fb01428/guidance_stitch-0.1.5-py3-none-any.whl",
+        "yanked": false,
+        "yanked_reason": null
+      },
+      "license_files": [
+        {
+          "path": "guidance_stitch-0.1.5.dist-info/licenses/LICENSE.txt",
+          "text": "Copyright (c) 2024 Guidance Contributors\nAll rights reserved.\n\nRedistribution and use in source and binary forms, with or without\nmodification, are permitted provided that the following conditions are met:\n\n1. Redistributions of source code must retain the above copyright notice, this\n   list of conditions and the following disclaimer.\n\n2. Redistributions in binary form must reproduce the above copyright notice,\n   this list of conditions and the following disclaimer in the documentation\n   and/or other materials provided with the distribution.\n\n3. Neither the name of the copyright holder nor the names of its\n   contributors may be used to endorse or promote products derived from\n   this software without specific prior written permission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\nAND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\nIMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\nDISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\nFOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\nDAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\nSERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\nCAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\nOR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\nOF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n",
+          "sha256": "34d2c9ac4d5016073dd5cd88c4c6bbb407d48b7802dfa4f69e6557df0ba69aaf"
+        }
+      ]
+    }
+  ],
+  "dependency_files": [
+    {
+      "distribution": "llguidance",
+      "path": "llguidance/__init__.py",
+      "sha256": "17db2f5ef9baa1a7dbb947ff7aadf83c7255e1cefec8dd77def99b58dea72247"
+    },
+    {
+      "distribution": "llguidance",
+      "path": "llguidance/_grammar_from.py",
+      "sha256": "faf1ea90fa897bab7424a2ae421954bb4f246293c85649cc87cb59961f0561e4"
+    },
+    {
+      "distribution": "llguidance",
+      "path": "llguidance/_lib.abi3.so",
+      "sha256": "e509259cf30612446eba4ed1a60c9330d37d2a790c21e215bbdcc7b264b99b18"
+    },
+    {
+      "distribution": "llguidance",
+      "path": "llguidance/_struct_tag.py",
+      "sha256": "f37a2498659287166e77b4b6bc78cf462227845c344154c791e37cc2d47c851f"
+    },
+    {
+      "distribution": "llguidance",
+      "path": "llguidance/_tokenizer.py",
+      "sha256": "c82f91720c8c64dfa8955f8f9cde17923947f9f394f04f63af03bc5645cbbf83"
+    },
+    {
+      "distribution": "llguidance",
+      "path": "llguidance/_util.py",
+      "sha256": "e895794b18e81fb8593da48784f443fc6e89cc885b285153a964e9a7cf152225"
+    },
+    {
+      "distribution": "llguidance",
+      "path": "llguidance/cli.py",
+      "sha256": "8e15dd59b242e6bb3a27c6a49c7b62b8978858771a8d9ee36148f4c9d78327af"
+    },
+    {
+      "distribution": "llguidance",
+      "path": "llguidance/gbnf_to_lark.py",
+      "sha256": "df65c9e43ceafa24b24a7915feb2da359f3cf098c7048aff424498761b4c00c1"
+    },
+    {
+      "distribution": "llguidance",
+      "path": "llguidance/hf.py",
+      "sha256": "b0b24a6711a97edb80639792098a688338a6dd6640efebecf52395827cdfdf12"
+    },
+    {
+      "distribution": "llguidance",
+      "path": "llguidance/llamacpp.py",
+      "sha256": "77f2e335ba260618fbb93a3dd21d26baf3e438cb28f0d2deec7fd87cf0aa03c5"
+    },
+    {
+      "distribution": "llguidance",
+      "path": "llguidance/mlx.py",
+      "sha256": "cef13787164d357817d0984d6f5f5e2b76db1c36995a872110e1f5d82e5f0a09"
+    },
+    {
+      "distribution": "llguidance",
+      "path": "llguidance/numpy.py",
+      "sha256": "997be6e20a7b597fdabd560acf6bf8025138fefd1d0202eeaa65b2dcf28ebba8"
+    },
+    {
+      "distribution": "llguidance",
+      "path": "llguidance/tiktoken.py",
+      "sha256": "fa66033f1ab82ccd8523d2bc90b2f452cd2a37e7d9a4d2b4a88c1ba033e37d29"
+    },
+    {
+      "distribution": "llguidance",
+      "path": "llguidance/torch.py",
+      "sha256": "0f0cc51a11a06c8090050b9cbabb2b03ac8081ffced9738fd8aa73eef1f8b8df"
+    },
+    {
+      "distribution": "guidance-stitch",
+      "path": "stitch/__init__.py",
+      "sha256": "6bc009b1d691c880613a7515030883f676157170160ce18928ac6828fcb7d254"
+    },
+    {
+      "distribution": "guidance-stitch",
+      "path": "stitch/_frontend.py",
+      "sha256": "b930daa7ae9cf5cae23b7a04fcebb9b19aab18a2bacb21e29f550bda58addea3"
+    },
+    {
+      "distribution": "guidance-stitch",
+      "path": "stitch/_version.py",
+      "sha256": "9876502c2843b8c29b501566ad0b1fbefc903bd5acf2e082b98a64be5dd633f1"
+    },
+    {
+      "distribution": "guidance-stitch",
+      "path": "stitch/stitch.py",
+      "sha256": "30bb670d484637bb3a025987b2d52b24fdd64ca71fe04933111c0b3afdf8a255"
+    },
+    {
+      "distribution": "guidance-stitch",
+      "path": "stitch/tests/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "distribution": "guidance-stitch",
+      "path": "stitch/tests/conftest.py",
+      "sha256": "f7896068f9c1632796ac9708f999287147ee309e9d025e7ee662c77447921465"
+    },
+    {
+      "distribution": "guidance-stitch",
+      "path": "stitch/tests/test_example.py",
+      "sha256": "7bd353c79dbd5877dba84de153b21078c9bd5b4aa88a161cb577a087e7e6ece6"
+    },
+    {
+      "distribution": "guidance-stitch",
+      "path": "stitch/tests/test_nbextension_path.py",
+      "sha256": "46249997b5650641e41ef90d4da74d1e39a0af2d0664ce47bf7af78b7784a57f"
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "schema": "verdugo.prefix666.sources.v1",
+  "id": "lm-format-enforcer",
+  "operation": "prefix.check",
+  "repository": "noamgat/lm-format-enforcer",
+  "commit": "817f944fcc8851917c40300a47f62d1defc3ffc3",
+  "distribution": "lm-format-enforcer",
+  "version": "0.11.3",
+  "license": "MIT",
+  "archive_url": "https://codeload.github.com/noamgat/lm-format-enforcer/tar.gz/817f944fcc8851917c40300a47f62d1defc3ffc3",
+  "archive_sha256": "d05c6377123e3ac893a77248f66340c9b9fca7d4da10c6ec5dbff82e830f636b",
+  "source_review_scope": "Selected parser APIs, enum/object states, explicit configuration and bundled MIT JSON-schema class license read. Remaining installed code integrity checked only.",
+  "operation_scope": [
+    "Character-by-character allowed-set and completion checks over one fixed schema and deterministic bounded enum cases.",
+    "Compare prefix viability, completion and first rejected offset with a separate two-document finite language."
+  ],
+  "limitations": [
+    "No arbitrary schema or free text, tokenizer, weights, LLM generation, network, content truth or execution authorization.",
+    "Optional numpy analyzer is absent; original package warns and exposes None for that analyzer. All mandatory dependencies installed.",
+    "No exhaustive transitive license or security audit."
+  ],
+  "files": [
+    {
+      "path": "LICENSE",
+      "blob_sha": "8e1f2b81ce5fafc25ca9681a7365c8471ca99b6c",
+      "sha256": "d1c02373f9da54abb40fb9fa5ca6c19136d10da76a1054ff1ee2528221ae1bfe",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "lmformatenforcer/__init__.py",
+      "blob_sha": "410d5142dcde94e27b16d2f7783a8e3bf0fb51f3",
+      "sha256": "5509725f208ad470b86a7dfd84511d5fd85a7b9be8775c18f438c74d59c95023",
+      "installed_path": "lmformatenforcer/__init__.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "lmformatenforcer/analyzer.py",
+      "blob_sha": "ce01d08985c1109a387ac538414602308b633f65",
+      "sha256": "ad0707bc3d4bd8187ab8e48c49fbd0a49ba06a2a5e71403e6d6c7933b7afcd95",
+      "installed_path": "lmformatenforcer/analyzer.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "lmformatenforcer/characterlevelparser.py",
+      "blob_sha": "a30d6198f9d2f4a8a6203c345ff61878967cc85c",
+      "sha256": "e5665f3a96b65fb435a37bb038db4a229aa01a68b80dc1bde961877290c90b22",
+      "installed_path": "lmformatenforcer/characterlevelparser.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "lmformatenforcer/consts.py",
+      "blob_sha": "07c4f703615a522a352d221a95115d1bf74c7adb",
+      "sha256": "a021a8369cb5fe2acfa38238b80fcbbde47b3ed7ed77c7680eb688c9d8f461b7",
+      "installed_path": "lmformatenforcer/consts.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "lmformatenforcer/exceptions.py",
+      "blob_sha": "c90e28fc10575f15eb3a38121963593595f1cb6e",
+      "sha256": "a09b8485a1b069ac2d80650b85348bfa69d554d897b9a042fd436587a3047d7f",
+      "installed_path": "lmformatenforcer/exceptions.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "lmformatenforcer/external/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "lmformatenforcer/external/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "lmformatenforcer/external/jsonschemaobject.py",
+      "blob_sha": "1ecfd9bc8f5aca78d8d93c0510b6829f1b89285a",
+      "sha256": "5d3d42f93f0cb46cee766fa11b95358ac4687cb90f3e8039700d598ea62bedcb",
+      "installed_path": "lmformatenforcer/external/jsonschemaobject.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "lmformatenforcer/external/jsonschemaobjectutil.py",
+      "blob_sha": "f89609c9b6f093ac5e4c5eaccb2efdc453a9173f",
+      "sha256": "dd6d0856b5034ba934c9da7e361775ca642b0e2e057b778ef27697fa8db4ce5d",
+      "installed_path": "lmformatenforcer/external/jsonschemaobjectutil.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "lmformatenforcer/integrations/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "lmformatenforcer/integrations/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "lmformatenforcer/integrations/exllamav2.py",
+      "blob_sha": "5e7d9d5a16fd8fd4607431ddcb1d707ac7a85260",
+      "sha256": "c77ec6ddf902fb5c5971c26f175cbb4de380fb492f84a5aa2c9cacea73fb5eb6",
+      "installed_path": "lmformatenforcer/integrations/exllamav2.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "lmformatenforcer/integrations/haystackv1.py",
+      "blob_sha": "5b64a5a9d5035225adc5cee62162ff34207cc6df",
+      "sha256": "599e3789e6def076a0dc9de77403df4607f177e256c61155a1436f8c0e3ce5a8",
+      "installed_path": "lmformatenforcer/integrations/haystackv1.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "lmformatenforcer/integrations/haystackv2.py",
+      "blob_sha": "7885c6f5c6228c183ead20329e9848694da4ded3",
+      "sha256": "60b92069d8252b877431fdbe8098785252620a1668b883e32b1936858a80abba",
+      "installed_path": "lmformatenforcer/integrations/haystackv2.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "lmformatenforcer/integrations/llamacpp.py",
+      "blob_sha": "ec3d4abe81878791d8faae7a689c8f610db17a3c",
+      "sha256": "d9a13a2c1c026b9b92d5b57f6b7f05b4970af27906b173096c20ee578e33537f",
+      "installed_path": "lmformatenforcer/integrations/llamacpp.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "lmformatenforcer/integrations/transformers.py",
+      "blob_sha": "ca05fa38b3686493d757899bf4558fab6c778631",
+      "sha256": "e860c15add51ef0049b2de546d653b56a92eca71417394c43045467e7f9f9479",
+      "installed_path": "lmformatenforcer/integrations/transformers.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "lmformatenforcer/integrations/trtllm.py",
+      "blob_sha": "39312dd9fe9548305a09e51a529389574e296d3f",
+      "sha256": "aa7e299380df4a77824a325bc109f86b98b34eaf9db5b80bd388717e01b7ce07",
+      "installed_path": "lmformatenforcer/integrations/trtllm.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "lmformatenforcer/integrations/vllm.py",
+      "blob_sha": "6180cf56ecf12f1655dceee4837bc9eae7241226",
+      "sha256": "29037ba0d442e64ff9c3d468841e6fc49bb704b7700422a63275f4760de1a452",
+      "installed_path": "lmformatenforcer/integrations/vllm.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "lmformatenforcer/jsonschemaparser.py",
+      "blob_sha": "27770ff6e2d44e1a04cf22b67dbcee57deceab2d",
+      "sha256": "c5a8887ee92ed00f0185246c9d2678190cbd76e32d5070c1aa80c3012b13d92a",
+      "installed_path": "lmformatenforcer/jsonschemaparser.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "lmformatenforcer/regexparser.py",
+      "blob_sha": "ca40fa6eee562b5d033edb30e25781984ab94f91",
+      "sha256": "6283d2a307259837ba33861b05a6dfde29b6c00c94ab3a4a9105c010c60c9c44",
+      "installed_path": "lmformatenforcer/regexparser.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "lmformatenforcer/tokenenforcer.py",
+      "blob_sha": "2f392f11ef8b4b8883d5e50a87e52c2ac0a90d93",
+      "sha256": "776108535bfbf03431f944aaf5ed496b53e6aaa42d751c4b811f821032e754b9",
+      "installed_path": "lmformatenforcer/tokenenforcer.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "lmformatenforcer/tokenizerprefixtree.py",
+      "blob_sha": "349d8ac3992055f79314252937a90dad15b3bde2",
+      "sha256": "7ac7275143ffc775902e2318cd5d16f94e672c16c541c62b380bee3f1975157e",
+      "installed_path": "lmformatenforcer/tokenizerprefixtree.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "lmformatenforcer/tokenlist.py",
+      "blob_sha": "69cee715e7aa67cb989ebfe59914b3f270b83cd9",
+      "sha256": "2182268af0c2835fb581eba8ea8834cd7ab014fbac89a30feaa747ff658dc6f6",
+      "installed_path": "lmformatenforcer/tokenlist.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "pyproject.toml",
+      "blob_sha": "d7a3c1af4c9dada17ebd050ee8fb0afa8d1c4c75",
+      "sha256": "42885027459577d170cbdac09b8ff6cddda10a116d3416c478d1140ba729e20a",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    }
+  ],
+  "installed_source_count": 21,
+  "dependency_artifact": {
+    "distribution": "interegular",
+    "version": "0.3.3",
+    "url": "https://files.pythonhosted.org/packages/c4/01/72d6472f80651673716d1deda2a5bbb633e563ecf94f4479da5519d69d25/interegular-0.3.3-py37-none-any.whl",
+    "sha256": "b0c07007d48c89d6d19f7204972d369b2a77222722e126b6aa63aa721dc3b19c",
+    "license": "MIT",
+    "license_files": [
+      {
+        "path": "interegular-0.3.3.dist-info/LICENSE.txt",
+        "text": "MIT License\r\n\r\nCopyright (c) 2019 @MegaIng and @qntm\r\n\r\nPermission is hereby granted, free of charge, to any person obtaining a copy\r\nof this software and associated documentation files (the \"Software\"), to deal\r\nin the Software without restriction, including without limitation the rights\r\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\r\ncopies of the Software, and to permit persons to whom the Software is\r\nfurnished to do so, subject to the following conditions:\r\n\r\nThe above copyright notice and this permission notice shall be included in all\r\ncopies or substantial portions of the Software.\r\n\r\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\r\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\r\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\r\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\r\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\r\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\r\nSOFTWARE.\r\n",
+        "sha256": "8a23189a107478fa292418a2e0b1b8bd2fe60617c1ce6325c2194f6d91f27b29"
+      }
+    ]
+  },
+  "dependency_files": [
+    {
+      "path": "interegular/__init__.py",
+      "sha256": "4e69d230b8c29d2c702582fdc8d5beeb9a9a66e870b828dfad1db4797aeade94"
+    },
+    {
+      "path": "interegular/comparator.py",
+      "sha256": "b579bb7fa9f818f6d9ae5ebdb2f011fe7f897b0c307b52678d9366d6daf51c7c"
+    },
+    {
+      "path": "interegular/fsm.py",
+      "sha256": "083f9c66aea90777e909c7336c6e7eff8b146c8c9df9aeb6c6630acac80141ac"
+    },
+    {
+      "path": "interegular/patterns.py",
+      "sha256": "bdfd7e6e48cd89c57d92d945ba3060f79acfa7de43032a450de5aa3de6a65d16"
+    },
+    {
+      "path": "interegular/utils/__init__.py",
+      "sha256": "728eb1727abb0a0599e922cfdf4e53a12b4bb24cabdd1dcdc5851f88eab7ede4"
+    },
+    {
+      "path": "interegular/utils/simple_parser.py",
+      "sha256": "1be091b0a2a67a437923d148f20dfb6e5d5abfd684485a3225398a08e207bb34"
+    },
+    {
+      "path": "interegular-0.3.3.dist-info/LICENSE.txt",
+      "sha256": "8a23189a107478fa292418a2e0b1b8bd2fe60617c1ce6325c2194f6d91f27b29"
+    }
+  ]
+}

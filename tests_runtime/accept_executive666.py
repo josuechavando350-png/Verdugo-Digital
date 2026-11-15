@@ -18,7 +18,7 @@ from verdugo import local_runtime, objectives, workflow
 
 
 def accept():
-    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','servers','monty','playwright-python','hatchet','invariant','pyrit','llama-cpp','granite-guardian','interpret','transformerlens','bitsandbytes')
+    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','servers','monty','playwright-python','hatchet','invariant','pyrit','llama-cpp','granite-guardian','interpret','transformerlens','bitsandbytes','guidance','lm-format-enforcer')
     spec=json.loads((ROOT/'examples/executive666.synthetic.json').read_text())
     cfg=template('nexus')
     for sid in services:
@@ -41,12 +41,12 @@ def accept():
         with closing(engine()) as e:
             result=invoke(e,'verdugo_workflow',{'workflow':spec,'execute':True})
             assert result['state']=='succeeded',result
-            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations','quantization'}
+            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations','quantization','schema_check','prefix_check'}
             r=result['steps']['check']['result']
             assert r['planned_contacts']==200 and r['planned_cost_minor']==0
             assert r['feasible_under_declared_limits'] and not r['external_execution_authorized']
             assert result['steps']['agno']['result']['budget_checked']
-            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations','quantization'),services):
+            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations','quantization','schema_check','prefix_check'),services):
                 actual=result['steps'][step]['result']
                 assert actual['original_sdk']==sid and actual['llm_calls']==(1 if sid=='granite-guardian' else 0)
                 assert not actual['autonomous_agent']
@@ -120,7 +120,17 @@ def accept():
             assert quantized['codebook_array_bytes']==1024 and quantized['scale_array_bytes']==4
             assert quantized['total_representation_array_bytes']==1092 and quantized['array_bytes_saved']==-836
             assert quantized['scalar_reconstruction_max_error']<1e-4 and not quantized['speed_benchmarked']
-            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==22
+            shape=result['steps']['schema_check']['result']
+            assert shape['native_parser_used'] and shape['independent_enum_reference_verified']
+            assert shape['accepted_indices']==[0] and shape['rejected_count']==2
+            assert shape['parser_threads_remaining']==0 and not shape['syntactic_validity_grants_permission']
+            assert not shape['raw_payloads_persisted']
+            prefix=result['steps']['prefix_check']['result']
+            assert prefix['viable_indices']==[0,1] and prefix['complete_indices']==[0]
+            assert prefix['first_rejection_offsets']==[None,None,13]
+            assert prefix['independent_finite_language_verified']
+            assert not prefix['syntactic_validity_grants_permission']
+            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==24
         with closing(engine()) as e, \
                 patch.object(local_runtime,'execute',side_effect=AssertionError('SDK re-executed')), \
                 patch.object(objectives,'simulate',side_effect=AssertionError('simulation re-executed')):
@@ -296,6 +306,23 @@ def accept():
                 q=checked['result']['result']
                 assert q['native_cpu_path_used'] and q['scalar_reconstruction_max_error']<1e-4
                 if label!='extreme':assert q['max_absolute_reconstruction_error']==0
+            cases=[{'decision':'review','approved':False,'item_count':0,'variant':variant}
+                   for variant in ('canonical','truncated','extra_field','string_count')]
+            cases += [{'decision':'defer','approved':False,'item_count':n,'variant':'canonical'} for n in (0,3,4,6)]
+            checked=e.execute({'service':'guidance','operation':'schema.check','key':'schema-all-boundaries',
+                'params':{'dataset':'demo','cases':cases}},True)
+            assert checked['state']=='succeeded',checked
+            shape=checked['result']['result']
+            assert shape['accepted_indices']==[0,4,5] and shape['parser_threads_remaining']==0
+            for decision in ('review','defer','execute'):
+                for mode in ('dry_run','send'):
+                    prefix_cases=[{'decision':decision,'mode':mode,'cut':cut} for cut in ('complete','value_prefix','object_prefix','bad_suffix')]
+                    checked=e.execute({'service':'lm-format-enforcer','operation':'prefix.check',
+                        'key':'prefix-'+decision+'-'+mode,'params':{'dataset':'demo','cases':prefix_cases}},True)
+                    assert checked['state']=='succeeded',checked
+                    prefix=checked['result']['result']
+                    assert prefix['complete_count']==(1 if decision!='execute' and mode=='dry_run' else 0)
+                    assert prefix['viable_count']==(3 if decision!='execute' and mode=='dry_run' else 1)
     assert not calls
     return {'schema':'verdugo.executive666.acceptance.v1','services':list(services),
             'original_sdks_executed':True,'mocked_sdks':False,'dataset':'demo',

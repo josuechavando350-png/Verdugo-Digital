@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 347,
+ "pending": 345,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -234,9 +234,9 @@
    "kind": "biblioteca",
    "domain": "pensamiento",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "Pending preparation of a separate original CPU Torch>=2.10 dependency profile; no project installation or build attempted.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/review-runtime-next666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 1",
@@ -248,37 +248,9 @@
    "kind": "biblioteca",
    "domain": "pensamiento",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "Pending original native build/submodule preparation and review of bundled native artifacts in required Triton wheel; no project or Triton installed, no upstream failure asserted.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
-   "id": "guidance",
-   "repository": "guidance-ai/guidance",
-   "commit": "21b1d90dfbebff4b141df70c714c8af15aa5f4af",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "pensamiento",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
-   "id": "lm-format-enforcer",
-   "repository": "noamgat/lm-format-enforcer",
-   "commit": "817f944fcc8851917c40300a47f62d1defc3ffc3",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "pensamiento",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/review-runtime-next666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 1",
@@ -290,9 +262,9 @@
    "kind": "biblioteca",
    "domain": "pensamiento",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "Legacy baml-py native path requires colored 2.2.0 MPL-2.0 per original Cargo.lock and inspected crate license. Separate new baml_bridge path remains unreviewed; no installation/build attempted.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/review-runtime-next666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 1",
@@ -304,9 +276,9 @@
    "kind": "biblioteca",
    "domain": "juicio",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "Root MIT license and packaging 0.4.14.dev0 reviewed. Torch is an optional hf-extra dependency. Operation and mandatory dependency closure remain unreviewed; no install or model run.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/review-runtime-next666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 1",
@@ -7697,6 +7669,36 @@
    "live_verified": false,
    "evidence": "sources/contracts-quant666.json",
    "operation": "quantization.check"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 1",
+   "id": "guidance",
+   "repository": "guidance-ai/guidance",
+   "commit": "21b1d90dfbebff4b141df70c714c8af15aa5f4af",
+   "license": "MIT",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "pensamiento",
+   "que_hacer": "Operación local implementada; sin certificación productiva.",
+   "nota": "Original Guidance JSON grammar and ByteParser on bounded synthetic enums; pinned original LLGuidance wheel; no model or authorization.",
+   "live_verified": false,
+   "evidence": "sources/contracts-schema666.json",
+   "operation": "schema.check"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 1",
+   "id": "lm-format-enforcer",
+   "repository": "noamgat/lm-format-enforcer",
+   "commit": "817f944fcc8851917c40300a47f62d1defc3ffc3",
+   "license": "MIT",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "pensamiento",
+   "que_hacer": "Operación local implementada; sin certificación productiva.",
+   "nota": "Original character-level prefix parser for a fixed finite language; complete versus viable versus rejected outputs, no model or permission.",
+   "live_verified": false,
+   "evidence": "sources/contracts-prefix666.json",
+   "operation": "prefix.check"
   }
  ]
 }

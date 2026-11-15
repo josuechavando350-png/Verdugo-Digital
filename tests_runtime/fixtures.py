@@ -123,3 +123,7 @@ CASES['transformerlens'] = {'dataset':'demo','symbol_ids':[1,3,4,2],'interventio
 
 
 CASES['bitsandbytes'] = {'dataset':'demo','values':list(range(-32,32))}
+
+CASES['guidance'] = {'dataset': 'demo', 'cases': [{'decision': 'review', 'approved': False, 'item_count': 2, 'variant': 'canonical'}, {'decision': 'execute', 'approved': True, 'item_count': 2, 'variant': 'canonical'}, {'decision': 'defer', 'approved': False, 'item_count': 3, 'variant': 'extra_field'}]}
+
+CASES['lm-format-enforcer'] = {'dataset': 'demo', 'cases': [{'decision': 'review', 'mode': 'dry_run', 'cut': 'complete'}, {'decision': 'defer', 'mode': 'dry_run', 'cut': 'object_prefix'}, {'decision': 'execute', 'mode': 'send', 'cut': 'complete'}]}

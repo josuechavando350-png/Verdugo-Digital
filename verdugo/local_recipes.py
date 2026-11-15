@@ -9,6 +9,10 @@ import math
 
 
 def run(service, operation, p):
+    from .local_prefix666 import SPECS as PREFIX666, run as run_prefix666
+    if service in PREFIX666: return run_prefix666(service, p)
+    from .local_schema666 import SPECS as SCHEMA666, run as run_schema666
+    if service in SCHEMA666: return run_schema666(service, p)
     from .local_quant666 import SPECS as QUANT666, run as run_quant666
     if service in QUANT666: return run_quant666(service, p)
     from .local_lens666 import SPECS as LENS666, run as run_lens666
