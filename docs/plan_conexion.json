@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 357,
+ "pending": 356,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -66,23 +66,9 @@
    "kind": "biblioteca",
    "domain": "ejecutivo",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": "No usar litellm/enterprise (licencia comercial aparte).",
+   "nota": "Compilación nativa del commit fijado terminó SIGKILL, también con un proceso. Instalación y operación pendientes; no se sustituyó por otra versión.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
-   "id": "servers",
-   "repository": "modelcontextprotocol/servers",
-   "commit": "e1dc4b18dbb948921da37f3d4224a628730b43b0",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "mcp",
-   "domain": "manos",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/contracts-executive-blockers666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 1",

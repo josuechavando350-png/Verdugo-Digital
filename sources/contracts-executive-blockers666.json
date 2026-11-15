@@ -68,6 +68,40 @@
       "observed_license": "AGPL-3.0-or-later OR commercial",
       "reason": "Inspected mandatory dependency is outside the permitted runtime license set. No dependency override or license exception applied; no adapter implemented.",
       "scope": "The inspected version is a concrete blocked installation path; other future versions or a separately reviewed minimal source integration have not been ruled out."
+    },
+    {
+      "id": "litellm",
+      "state": "pending",
+      "repo": "BerriAI/litellm",
+      "commit": "9e3a82ff03702e36e2d9e88a3b93648e6f20b787",
+      "version": "1.111.0",
+      "archive_sha256": "c18d564bb13c35e42fb483b538186cd10321cf4d1541871e200c7427420436c7",
+      "build_sources": [
+        {
+          "path": "pyproject.toml",
+          "blob_sha": "baffe10a43e12ca1522b325216f9ba67057e6473",
+          "sha256": "84e2e5a8f51627caa8e0b7394be041520926601a4452b0aa54c38ed375281bb8",
+          "blob_sha_method": "Git blob digest of bytes fetched from the exact commit path"
+        },
+        {
+          "path": ".github/packaging/build_backend.py",
+          "blob_sha": "43ac885fd5053181d3f28207a782f1fb076f8d78",
+          "sha256": "a3bef4821a3c453e84b84df65cd61af5deafe34f7bd15876032824a717a43efc",
+          "blob_sha_method": "Git blob digest of bytes fetched from the exact commit path"
+        }
+      ],
+      "attempts": [
+        {
+          "method": "original source archive with maturin 1.15.0",
+          "outcome": "Native Rust compiler processes terminated by SIGKILL; build failed."
+        },
+        {
+          "method": "same original source with CARGO_BUILD_JOBS=1",
+          "outcome": "Rust tokio compilation terminated by SIGKILL; build failed."
+        }
+      ],
+      "reason": "No validated installation of the pinned source exists in this environment. No adapter, alternate version or false success was added.",
+      "scope": "SIGKILL was observed; resource pressure is a plausible explanation, not a measured proof of the operating-system cause. This does not rule out a successful build in another environment."
     }
   ]
 }

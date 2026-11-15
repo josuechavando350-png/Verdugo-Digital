@@ -10,7 +10,8 @@
     "harness-sdk",
     "unified-planning",
     "voltagent",
-    "openmanus"
+    "openmanus",
+    "servers"
   ],
   "original_sdks_executed": true,
   "mocked_sdks": false,
@@ -24,7 +25,7 @@
         "dataset": "demo",
         "distribution": "semantic-kernel",
         "external_provider_calls_made": false,
-        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c",
+        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -75,7 +76,7 @@
         "dataset": "demo",
         "distribution": "agno",
         "external_provider_calls_made": false,
-        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c",
+        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -130,7 +131,7 @@
         "dataset": "demo",
         "distribution": "griptape",
         "external_provider_calls_made": false,
-        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c",
+        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5",
         "ok": true,
         "operation": "objective.scenarios",
         "production_certified": false,
@@ -179,7 +180,7 @@
         "dataset": "demo",
         "distribution": "strands-agents",
         "external_provider_calls_made": false,
-        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c",
+        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5",
         "ok": true,
         "operation": "limits.parallel",
         "production_certified": false,
@@ -219,7 +220,7 @@
         "dataset": "demo",
         "distribution": "openmanus",
         "external_provider_calls_made": false,
-        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c",
+        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5",
         "ok": true,
         "operation": "stages.track",
         "production_certified": false,
@@ -255,12 +256,51 @@
         "service": "openmanus",
         "version": "0.1.0"
       },
+      "memory": {
+        "commercial_success_probability": null,
+        "dataset": "demo",
+        "distribution": "mcp:@modelcontextprotocol/server-memory",
+        "external_provider_calls_made": false,
+        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5",
+        "ok": true,
+        "operation": "graph.audit",
+        "production_certified": false,
+        "result": {
+          "approvals_granted": 0,
+          "autonomous_agent": false,
+          "dataset": "demo",
+          "dry_run": true,
+          "duplicate_entities_skipped": 1,
+          "duplicate_relations_skipped": 1,
+          "durable_agent_memory": false,
+          "entity_count": 3,
+          "external_calls_made": false,
+          "external_execution_authorized": false,
+          "llm_calls": 0,
+          "matching_entity_count": 1,
+          "matching_incident_relation_count": 2,
+          "operator_approval_required": true,
+          "original_sdk": "servers",
+          "original_source_files_verified": 6,
+          "original_tools_called": 6,
+          "raw_graph_persisted_by_engine": false,
+          "reviewed_sdk_source_map_files": 3,
+          "sdk_graph_deleted": true,
+          "sdk_version": "2.1.1",
+          "source_commit": "e1dc4b18dbb948921da37f3d4224a628730b43b0",
+          "temporary_server_restart_verified": true,
+          "transport": "original_in_memory_development",
+          "unique_relation_count": 2
+        },
+        "service": "servers",
+        "version": "2.1.1"
+      },
       "check": {
         "commercial_success_probability": null,
         "dataset": "demo",
         "distribution": "ag2",
         "external_provider_calls_made": false,
-        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c",
+        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5",
         "ok": true,
         "operation": "actions.check",
         "production_certified": false,
@@ -296,7 +336,7 @@
         "dataset": "demo",
         "distribution": "unified-planning",
         "external_provider_calls_made": false,
-        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c",
+        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5",
         "ok": true,
         "operation": "sequence.validate",
         "production_certified": false,
@@ -428,7 +468,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c"
+        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5"
       },
       "review": {
         "ok": true,
@@ -459,7 +499,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c"
+        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5"
       },
       "measurement_review": {
         "ok": true,
@@ -491,7 +531,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c"
+        "implementation_sha256": "bf0e062cccd12e2e75e934adec9f7442618429441460cd75b8f10dea5df72ae5"
       }
     }
   },

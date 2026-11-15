@@ -25,6 +25,14 @@ def assert_result(test, sid, r):
         test.assertTrue(r['sequence_valid'])
         test.assertEqual(5, r['validated_transition_count'])
         test.assertFalse(r['operator_approval_verified'])
+    elif sid == 'servers':
+        test.assertEqual(3, r['entity_count'])
+        test.assertEqual(2, r['unique_relation_count'])
+        test.assertEqual(1, r['duplicate_relations_skipped'])
+        test.assertEqual(1, r['matching_entity_count'])
+        test.assertEqual(2, r['matching_incident_relation_count'])
+        test.assertTrue(r['temporary_server_restart_verified'])
+        test.assertTrue(r['sdk_graph_deleted'])
     elif sid == 'openmanus':
         test.assertEqual(1, r['status_counts']['blocked'])
         test.assertEqual('simulate', r['first_incomplete_stage'])
@@ -36,3 +44,5 @@ def assert_result(test, sid, r):
         test.assertFalse(r['remote_telemetry_enabled'])
 
 CASES["openmanus"] = {"dataset": "demo", "statuses": ["completed", "completed", "completed", "blocked", "not_started"]}
+
+CASES["servers"] = {"dataset":"demo", "statuses":["completed","blocked","not_started"], "edges":[[0,1],[2,1],[0,1]], "query":"blocked"}

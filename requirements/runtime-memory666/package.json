@@ -1,0 +1,12 @@
+{
+  "name": "verdugo-memory666-profile",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.3.1",
+    "@modelcontextprotocol/client": "2.3.1",
+    "zod": "4.4.3",
+    "typescript": "5.9.3",
+    "@types/node": "24.11.0"
+  }
+}

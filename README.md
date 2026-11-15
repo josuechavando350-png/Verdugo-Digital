@@ -9,7 +9,7 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 
 ## Hacia los 666
 
-El plan para llegar a 666 piezas libres (300 del catálogo + 50 del simulador + 150 del cerebro + 166 finales) está en [docs/PLAN_666.md](docs/PLAN_666.md), con las instrucciones por tanda en [docs/PROMPT_ASTRA_666.md](docs/PROMPT_ASTRA_666.md). El registro contiene 688 identidades distintas: 666 libres y 22 excluidas. Diez de las 366 incorporaciones tienen una operación local implementada; 356 siguen pendientes. La auditoría corrigió cinco alias duplicados y una licencia restringida; evidencia y cola de dos lotes de 183 en [docs/REGISTRO_666.md](docs/REGISTRO_666.md).
+El plan para llegar a 666 piezas libres (300 del catálogo + 50 del simulador + 150 del cerebro + 166 finales) está en [docs/PLAN_666.md](docs/PLAN_666.md), con las instrucciones por tanda en [docs/PROMPT_ASTRA_666.md](docs/PROMPT_ASTRA_666.md). El registro contiene 688 identidades distintas: 666 libres y 22 excluidas. Once de las 366 incorporaciones tienen una operación local implementada; 355 siguen pendientes. La auditoría corrigió cinco alias duplicados y una licencia restringida; evidencia y cola de dos lotes de 183 en [docs/REGISTRO_666.md](docs/REGISTRO_666.md).
 
 ## Estado del código
 
@@ -18,15 +18,15 @@ El plan para llegar a 666 piezas libres (300 del catálogo + 50 del simulador + 
 | Fuentes registradas y fijadas por commit | 688 (322 anteriores + 366 nuevas) |
 | Portafolio con licencia libre | 666 |
 | Excluidos por licencia (registrados, sin operar) | 22 |
-| Proyectos con una operación implementada | 272: 103 HTTP + 148 bibliotecas locales + 17 CLI + 1 MCP local + 3 consultas/reglas de datos |
-| Conectados bajo la política de licencias | 253 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
+| Proyectos con una operación implementada | 273: 103 HTTP + 148 bibliotecas locales + 17 CLI + 2 MCP locales + 3 consultas/reglas de datos |
+| Conectados bajo la política de licencias | 254 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
 | Piezas de construcción (se usan al programar, no vía motor) | 56 |
-| Pendientes de conector | 357 (356 nuevas + `meta-ads`) |
+| Pendientes de conector | 356 (355 nuevas + `meta-ads`) |
 | Servicios de pago | 0 (Stripe, Twilio, Mercado Pago, E2B y Composio retirados) |
-| Operaciones HTTP existentes | 108, limitadas por proveedor |
-| Operaciones locales implementadas | 169; aceptación de ejecución real exigida por commit |
+| Operaciones HTTP existentes | 107, limitadas por proveedor |
+| Operaciones locales implementadas | 170; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Flujo de 87 operaciones nuevas + métricas locales; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 715 pruebas aprobadas en el checkpoint anterior; comprobar la suite vigente por commit en CI |
+| Pruebas unitarias y de contrato | 770 pruebas aprobadas en el checkpoint de diez SDK; comprobar la suite vigente por commit en CI |
 | Herramientas MCP | 25; product-status/product-run reutilizan el mismo motor |
 | Servicios productivos certificados | 0 |
 
@@ -319,7 +319,7 @@ Engine. SQLite y roles de proceso no constituyen IAM multiempresa hostil. Datos
 personales requieren cifrado, retención y respaldos privados. Las escrituras HTTP
 siguen requiriendo aprobación separada; no se reintentan resultados inciertos.
 
-**357 entradas siguen pendientes de conector.** Los adaptadores HTTP necesitan
+**356 entradas siguen pendientes de conector.** Los adaptadores HTTP necesitan
 aceptación de versiones/ediciones/permisos por instancia; Las aceptaciones de Qdrant, Meilisearch y Caddy
 no validan los otros proveedores. No hay despliegue productivo, conexión automática de este
 chat al MCP, servicio 24/7, cobros reconciliados ni probabilidad comercial demostrada.

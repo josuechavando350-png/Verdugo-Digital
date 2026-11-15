@@ -18,7 +18,7 @@ from verdugo import local_runtime, objectives, workflow
 
 
 def accept():
-    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','openmanus')
+    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','openmanus','servers')
     spec=json.loads((ROOT/'examples/executive666.synthetic.json').read_text())
     cfg=template('nexus')
     for sid in services:
@@ -41,12 +41,12 @@ def accept():
         with closing(engine()) as e:
             result=invoke(e,'verdugo_workflow',{'workflow':spec,'execute':True})
             assert result['state']=='succeeded',result
-            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','stages'}
+            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory'}
             r=result['steps']['check']['result']
             assert r['planned_contacts']==200 and r['planned_cost_minor']==0
             assert r['feasible_under_declared_limits'] and not r['external_execution_authorized']
             assert result['steps']['agno']['result']['budget_checked']
-            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','stages'),services):
+            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','stages','memory'),services):
                 actual=result['steps'][step]['result']
                 assert actual['original_sdk']==sid and actual['llm_calls']==0
                 assert not actual['autonomous_agent']
@@ -59,7 +59,12 @@ def accept():
             assert result['steps']['stages']['result']['status_counts']['blocked']==1
             assert result['steps']['stages']['result']['first_incomplete_stage']=='simulate'
             assert result['steps']['stages']['result']['sdk_plan_deleted']
-            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==12
+            assert result['steps']['memory']['result']['matching_incident_relation_count']==2
+            assert result['steps']['memory']['result']['duplicate_relations_skipped']==1
+            assert result['steps']['memory']['result']['temporary_server_restart_verified']
+            assert result['steps']['memory']['result']['sdk_graph_deleted']
+            assert 'stage_0' not in '\n'.join(e.db.iterdump())
+            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==13
         with closing(engine()) as e, \
                 patch.object(local_runtime,'execute',side_effect=AssertionError('SDK re-executed')), \
                 patch.object(objectives,'simulate',side_effect=AssertionError('simulation re-executed')):
@@ -127,6 +132,13 @@ def accept():
                 assert tracked['reported_out_of_order_completion']==disorder
                 assert not tracked['operator_approval_verified'] and tracked['approvals_granted']==0
                 assert tracked['original_source_files_verified']==82 and tracked['sdk_plan_deleted']
+            check=e.execute({'service':'servers','operation':'graph.audit','key':'memory-no-matches',
+                             'params':{'dataset':'demo','statuses':['completed'],'edges':[],'query':'blocked'}},True)
+            assert check['state']=='succeeded',check
+            graph=check['result']['result']
+            assert graph['entity_count']==1 and graph['matching_entity_count']==0
+            assert graph['unique_relation_count']==0 and graph['matching_incident_relation_count']==0
+            assert graph['sdk_graph_deleted'] and not graph['durable_agent_memory']
     assert not calls
     return {'schema':'verdugo.executive666.acceptance.v1','services':list(services),
             'original_sdks_executed':True,'mocked_sdks':False,'dataset':'demo',

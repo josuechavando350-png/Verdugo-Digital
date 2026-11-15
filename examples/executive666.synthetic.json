@@ -286,6 +286,34 @@
           "not_started"
         ]
       }
+    },
+    {
+      "id": "memory",
+      "service": "servers",
+      "operation": "graph.audit",
+      "params": {
+        "dataset": "demo",
+        "statuses": [
+          "completed",
+          "blocked",
+          "not_started"
+        ],
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "query": "blocked"
+      }
     }
   ]
 }

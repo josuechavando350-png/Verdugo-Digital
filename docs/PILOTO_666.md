@@ -1,6 +1,6 @@
 # Piloto 666: avance parcial del lote 1
 
-Diez de 183 piezas del primer lote tienen una operación nueva implementada. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
+Once de 183 piezas del primer lote tienen una operación nueva implementada. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
 
 ## Operación delimitada
 
@@ -103,3 +103,18 @@ El incremento añade comprobaciones de archivo alterado, rutas inesperadas, par�
 DeerFlow exige `langgraph-api>=0.8.1`; el archivo LICENSE de la rueda oficial 0.8.1 es Elastic-2.0. Open Deep Research exige `pymupdf>=1.25.3`; COPYING de la rueda oficial 1.25.3 declara AGPL-3.0 o licencia comercial. Esas instalaciones revisadas no cumplen la política de este repo. No se instalaron, no se agregaron excepciones y las dos piezas siguen pendientes. Se guardan fuente del requisito, blob, hash del artefacto y texto de licencia en `sources/contracts-executive-blockers666.json`. Esto no afirma que toda versión futura o integración mínima separada sea imposible.
 
 La instalación CI detectó una URL de Torch duplicada: una copia en constraints no tenía el fragmento SHA256 y pip la consideró distinta de la URL fijada en requirements. Se eliminó esa duplicación; la única referencia restante conserva versión CPU y SHA256 exactos. La resolución completa con pip 25.0.1, igual que CI, pasó localmente; no cambió la dependencia ejecutada.
+
+
+## Servidor MCP original: grafo temporal de etapas
+
+`servers / graph.audit` construye el servidor `memory` original 2.1.1 desde `modelcontextprotocol/servers`, commit `e1dc4b18dbb948921da37f3d4224a628730b43b0`, con TypeScript 5.9.3 y Node 24.22.1 fijados. El cliente MCP original 2.3.1 ejecuta seis llamadas: crear entidades, crear relaciones, buscar, leer después de reabrir el servidor, borrar entidades y comprobar el grafo vacío. El transporte en memoria del SDK es de desarrollo; no se presenta como transporte MCP productivo.
+
+La entrada solo admite hasta 16 estados sintéticos, 64 pares de índices y una consulta de estado enumerada. Nunca acepta texto libre, nombre de archivo, herramienta, URL ni credencial. Se proyectan recuentos de entidades, relaciones incidentes y duplicados omitidos. Una relación incidente puede conectar con un nodo fuera de la búsqueda: no se describe como subgrafo inducido. El JSONL temporal desaparece al cerrar el worker; Engine conserva únicamente recuentos y evidencia. Esto no ofrece memoria duradera entre ejecuciones ni razonamiento de un agente.
+
+`sources/contracts-memory666.json` vincula seis archivos originales con sus blobs y SHA256, la compilación reproducida, el binario Node de la distribución oficial y el lock npm. Tres archivos de sourcemap del SDK cliente/servidor/transporte coinciden con su commit `fcef852f6cdafea07f36cf6fae69b37c8adf85be`; sus licencias de código Apache/MIT se leyeron. El perfil recién preparado pasó la comprobación de sus 35 artefactos. Preparación explícita: `python tests_runtime/install_memory666.py`; selección: `VERDUGO_MEMORY666_ROOT=/tmp/verdugo-memory666`. El motor no prepara perfiles.
+
+LiteLLM permanece pendiente. Se intentó construir el archivo del commit fijado con maturin y luego con `CARGO_BUILD_JOBS=1`; ambos intentos terminaron con procesos Rust SIGKILL. La presión de recursos es una explicación plausible, no una causa del sistema operativo demostrada. No hay instalación ni operación validadas, y no se sustituyó por otra versión. Evidencia del build original en `sources/contracts-executive-blockers666.json`.
+
+El incremento de memoria pasó localmente el flujo conjunto de once SDK y trece pasos, con reanudación SQLite, aprobación del operador y ausencia del grafo crudo en la base. El checkpoint previo de diez SDK `9b95b92926382838f23ff771168a584f1a391385` está aceptado en los tres workflows. La aceptación CI del incremento de memoria aún debe observarse.
+
+Las 773 pruebas unitarias y de contrato pasan en el incremento de memoria.

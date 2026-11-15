@@ -1,0 +1,119 @@
+{
+  "schema": "verdugo.memory666.sources.v1",
+  "id": "servers",
+  "repo": "modelcontextprotocol/servers",
+  "commit": "e1dc4b18dbb948921da37f3d4224a628730b43b0",
+  "operation": "graph.audit",
+  "distribution": "@modelcontextprotocol/server-memory",
+  "version": "2.1.1",
+  "node_version": "24.22.1",
+  "typescript_version": "5.9.3",
+  "archive_url": "https://codeload.github.com/modelcontextprotocol/servers/tar.gz/e1dc4b18dbb948921da37f3d4224a628730b43b0",
+  "archive_sha256": "bdaa4a0277ebbf8f9abf116b9819d6075208fa3fe569551457819e4396ae44ee",
+  "files": [
+    {
+      "path": "LICENSE",
+      "blob_sha": "4a93985763241755401a10678395303de4e720ba",
+      "sha256": "0382b0057770ca05e9c350a50aa3b1c1fea84da0bc81d723bf00b9aa841be58a"
+    },
+    {
+      "path": "tsconfig.json",
+      "blob_sha": "208ca01e412ce8718fbcfc9ab10f63abb1f6c588",
+      "sha256": "6650a8a11aa9e7f72a2be6c88ff1dddee72e43ee4f96e1c2435c1cf07e7349d4"
+    },
+    {
+      "path": "src/memory/index.ts",
+      "blob_sha": "e57bf12ed3d3e42ee1763225d8fe30a5d1c73a32",
+      "sha256": "f1ec211d2a71f6cf0a3810ae4c432a8dac79ebf67ca7eae7b73b64a4948053fa"
+    },
+    {
+      "path": "src/memory/version.ts",
+      "blob_sha": "9bcaa48318044f5b295d271cca6d7e0823c8fcdd",
+      "sha256": "91188b64cd410bff18962828daa8ea4672ad308ebf1ab4e35330cc645a27dfbe"
+    },
+    {
+      "path": "src/memory/package.json",
+      "blob_sha": "3ae2cab2f378d2f81edac3962204f5529a146ca6",
+      "sha256": "69df917d2255bc71dcff1c8db43b4d4d1d52ccadf046e70ebfb6cc35fcc58ee9"
+    },
+    {
+      "path": "src/memory/tsconfig.json",
+      "blob_sha": "2e306867345b455388688c24ad78f4d571aa1e7f",
+      "sha256": "f31f09c0cd654d55bdf5f3d15c4d05699732c74643934be42d91ea10664abfef"
+    }
+  ],
+  "sdk_dependency": {
+    "repo": "modelcontextprotocol/typescript-sdk",
+    "commit": "fcef852f6cdafea07f36cf6fae69b37c8adf85be",
+    "version": "2.3.1",
+    "code_license": "Apache-2.0 AND MIT",
+    "license_blob_sha": "4a93985763241755401a10678395303de4e720ba",
+    "verified_files": [
+      {
+        "path": "packages/client/src/client/client.ts",
+        "blob_sha": "8118b60cea757e3bdfdcdfa35cd2a95bb558ba99",
+        "sha256": "ba89d9d2dc0ea5a2b03b3766aadbfbaa4d96bf7c853d782a0658898de7701cc8",
+        "source_maps": [
+          "node_modules/@modelcontextprotocol/client/dist/index.mjs.map"
+        ]
+      },
+      {
+        "path": "packages/core-internal/src/util/inMemory.ts",
+        "blob_sha": "3afd2b1ac7040c919df56c7a8f31fe3e16be2919",
+        "sha256": "137d5ca91228629c303f5100d815f4f19bc1bc893d5b76fb17676c2a8eb41414",
+        "source_maps": [
+          "node_modules/@modelcontextprotocol/client/dist/src-WCy6ifGf.mjs.map",
+          "node_modules/@modelcontextprotocol/server/dist/src-Cqbh3MYc.mjs.map"
+        ]
+      },
+      {
+        "path": "packages/server/src/server/mcp.ts",
+        "blob_sha": "57b7c132eb792f37571e5e2c772215fab87003d4",
+        "sha256": "538940da3683b86fda1666c621536c4570b0e42aa7a3d2490948741946998ecd",
+        "source_maps": [
+          "node_modules/@modelcontextprotocol/server/dist/mcp-DIH4cS6P.mjs.map"
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "upstream/LICENSE": "0382b0057770ca05e9c350a50aa3b1c1fea84da0bc81d723bf00b9aa841be58a",
+    "upstream/tsconfig.json": "6650a8a11aa9e7f72a2be6c88ff1dddee72e43ee4f96e1c2435c1cf07e7349d4",
+    "upstream/src/memory/index.ts": "f1ec211d2a71f6cf0a3810ae4c432a8dac79ebf67ca7eae7b73b64a4948053fa",
+    "upstream/src/memory/version.ts": "91188b64cd410bff18962828daa8ea4672ad308ebf1ab4e35330cc645a27dfbe",
+    "upstream/src/memory/package.json": "69df917d2255bc71dcff1c8db43b4d4d1d52ccadf046e70ebfb6cc35fcc58ee9",
+    "upstream/src/memory/tsconfig.json": "f31f09c0cd654d55bdf5f3d15c4d05699732c74643934be42d91ea10664abfef",
+    "upstream/src/memory/dist/index.js": "2171a2d42e51944c3bdd2cb9fa076150eb1264a9e7d3e910f9b16319e606ad0c",
+    "upstream/src/memory/dist/version.js": "a65814e1815264d0a88c697ec9fd678e43168329cd722d8093e53172eae6e73f",
+    "node_modules/@modelcontextprotocol/client/dist/cfWorkerProvider-BylNJ1R5.mjs": "eb39ab8996af767751fc34bea128d6b2adaef5a39cd42ec94749a091f76ab268",
+    "node_modules/@modelcontextprotocol/client/dist/dialects-BOhdv1Fc.mjs": "34447f2f5bffaab20cf5148c190137fc3129e7b23614a75a47c1db3b0994969e",
+    "node_modules/@modelcontextprotocol/client/dist/stdio.mjs": "af887c8972a37b8c3fcc78192d8f1d56c099bf8ca365f4843ec51ced6f5650da",
+    "node_modules/@modelcontextprotocol/client/dist/index.mjs": "8b370b8009c7b64834cc91bf5e6ab28e524d7c2ce952dfe57d943a6926f8d54b",
+    "node_modules/@modelcontextprotocol/client/dist/shimsWorkerd.mjs": "7d42e614b23ab9553207b52d735eaa758552234f0bcaff32dca91d8037311b59",
+    "node_modules/@modelcontextprotocol/client/dist/ajvProvider-97rDpkRx.mjs": "5c4d6ce22cd6f3323ebc16d2e97956eb6238d1135102f6aefb25bacf40bf14be",
+    "node_modules/@modelcontextprotocol/client/dist/chunk-Br0eD_fh.mjs": "d4a000980e7c6a8a2ee04c12d80cf538b11e5040e8487dad7661b09d85894e74",
+    "node_modules/@modelcontextprotocol/client/dist/src-WCy6ifGf.mjs": "689dad5b2e36e44b937841f8ffdf3e402efeac43ce4d398aa5a87731a64eb36d",
+    "node_modules/@modelcontextprotocol/client/dist/shimsNode.mjs": "0ecec14e715e583a63940a922c0586cd7f02f9c1fdeb3eb2fada6adae0764b5c",
+    "node_modules/@modelcontextprotocol/client/dist/shimsBrowser.mjs": "76db20e8d9ff0415e48fdb0d79a5f3005e49782df0991b40f0712038b3a7fdbc",
+    "node_modules/@modelcontextprotocol/client/package.json": "4a886cbee0d611f822618e4ee94ae4589655c282fa0dbafc17e80da9697f2d91",
+    "node_modules/@modelcontextprotocol/server/dist/cfWorkerProvider-p3WaZPqB.mjs": "efe2fd4b658a6022f0941cbf49c1a2a2ddb7c4cdd5bae236624350577eb40d00",
+    "node_modules/@modelcontextprotocol/server/dist/stdio.mjs": "43a68ba2ed4569e6b35d436a7dd94ab32a31d49d6c00df8337e244f8b0a4f956",
+    "node_modules/@modelcontextprotocol/server/dist/index.mjs": "60fca0c96c38d4e64df281ae22d85b3f9edf43306cc857c390054a5e4c3cf2fb",
+    "node_modules/@modelcontextprotocol/server/dist/shimsWorkerd.mjs": "7d6c1428e2a549928cdc38a488280f611fb2980aa728e986cb214ec3cfe35910",
+    "node_modules/@modelcontextprotocol/server/dist/chunk-Br0eD_fh.mjs": "d4a000980e7c6a8a2ee04c12d80cf538b11e5040e8487dad7661b09d85894e74",
+    "node_modules/@modelcontextprotocol/server/dist/ajvProvider-CEoC__sr.mjs": "218157a99879a59cdea0b720a484dfe9989fa768f3d05318c2803b61705373fa",
+    "node_modules/@modelcontextprotocol/server/dist/mcp-DIH4cS6P.mjs": "2657fbeaebe76ef461e8d0860308da4c3404d2d3b6b1f06960b8ffc578fec1b4",
+    "node_modules/@modelcontextprotocol/server/dist/shimsNode.mjs": "efa8ef680135a81cd4b3dadaa765ad5cf506523e410c8a9702ab6d9095869d8f",
+    "node_modules/@modelcontextprotocol/server/dist/shimsBrowser.mjs": "3415fca8dc53c749b71099a6147aec421001d8e4bb9ded4779c70729536035d0",
+    "node_modules/@modelcontextprotocol/server/dist/src-Cqbh3MYc.mjs": "bc81a674f25546e2a631a5f3c9cb1829654bbfcdd40cb89823aab5fb719211e5",
+    "node_modules/@modelcontextprotocol/server/dist/dialects-DoSzNhcb.mjs": "9340570968ae24904805bbb0ee637f9aa1a17f7d2b87c26ba8290809b4cc7080",
+    "node_modules/@modelcontextprotocol/server/package.json": "66d43886157bb694672d5e24a590dc543ff44a482e0ec86fd78d437a2d5e0451",
+    "node_modules/@modelcontextprotocol/client/dist/index.mjs.map": "d50185756bf4efc3b80755cd0b92066860de0d5b4f6756614e79771a5bd03265",
+    "node_modules/@modelcontextprotocol/client/dist/src-WCy6ifGf.mjs.map": "8cebf75c7daf62f391d040f88d6566a43ba06c5dcf61c68ffc37b281b967a87b",
+    "node_modules/@modelcontextprotocol/server/dist/src-Cqbh3MYc.mjs.map": "51ca9f7ad14e28f24f36ad4cb83e1d54e86764eb442f03ecb477b07419b4fae3",
+    "node_modules/@modelcontextprotocol/server/dist/mcp-DIH4cS6P.mjs.map": "e24d9d3e9d12f6bbef320e59d503c0c9f2aee5aaadfddbc7f1d31d2c1fefbb20"
+  },
+  "lock_sha256": "4873bb097ca09ffb3f98a456062516bd70994d6851c3de6db34ad9e2c6f2054e",
+  "scope": "Original MCP memory server over development in-memory transport; fixed synthetic stages, ephemeral graph file, count projection only. Not durable cross-run agent memory or production MCP transport.",
+  "node_binary_sha256": "e32e2d16081cf644f88392934288086e7662529d0d43277c34f7aad2207cfafb"
+}
