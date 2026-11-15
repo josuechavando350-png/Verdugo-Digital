@@ -98,6 +98,8 @@ Los 22 excluidos por licencia siguen registrados, pero no cuentan ni se operan.
 - Recuperado el árbol `c8e6ddf725d85cde70c180329dc29ca9046c2a06`, publicado en `1dc6bd7a116a6ebdb8dbc55732993ebf4efe25a8`; contiene Z3 y Jena además de la captura.
 - **txtai / content.reconcile:** edición MINIMAL oficial, sin dependencias runtime obligatorias. Inserta registros numéricos sintéticos, compara agregaciones y eliminaciones con una referencia independiente y prueba borrado repetido. No proporciona búsqueda semántica ni modelos. Fuente y licencia verificadas en 277 archivos instalados.
 - **Auditoría integrada en product-status:** cuenta identidades GitHub y lotes sin duplicados; diferencia licencias raíz, adaptadores y cierre de dependencias. Mantiene visible la revisión de certifi en doce perfiles; no convierte una revisión incompleta en aprobación.
+- La aceptación conjunta actual pasó con **28 componentes originales y 30 pasos**, con referencia explícita desde medición a txtai, aprobación y replay tras reinicio. Evidencia local en `evidence/accepted/content666-joint-local-20261115.json`; no es una aceptación de CI.
+- BM25S permanece pendiente: el NumPy 2.2.6 examinado incluye libdivide Zlib, permisiva pero fuera de la lista cerrada. Evidencia en `sources/review-numeric-next666.json`; no se descartan otras versiones sin revisarlas.
 - **Estado vigente de los sublotes: 16/80 y 0/81.** Lote original 1: 38/183, con 145 pendientes. Lote original 2: 0/183. Las 22 incorporaciones anteriores no se cuentan de nuevo.
 - Instalación limpia y cuatro casos originales de txtai con CLI/MCP/SQLite/reinicio comprobados. La evidencia de los workflows se observa por commit; no se hereda del anterior.
 

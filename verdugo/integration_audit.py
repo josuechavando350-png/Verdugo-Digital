@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 REVIEWS = (
     'contracts-executive-blockers666.json', 'review-runtime-next666.json',
     'review-memory-next666.json', 'review-logic-next666.json',
-    'review-reasoning-next666.json', 'review-end80-next666.json',
+    'review-reasoning-next666.json', 'review-end80-next666.json', 'review-numeric-next666.json',
 )
 
 

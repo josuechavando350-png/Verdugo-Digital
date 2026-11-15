@@ -1,0 +1,72 @@
+{
+  "schema": "verdugo.numeric666.preparation-review.v1",
+  "records": [
+    {
+      "id": "bm25s",
+      "repository": "xhluca/bm25s",
+      "commit": "b335013d0172e8c2aabd1399d60146cc51768458",
+      "status": "blocked_reviewed_dependency_candidate",
+      "note": "Original BM25S requires NumPy without an exact pin. The inspected NumPy 2.2.6 source distribution includes libdivide under Zlib; LICENSES_bundled.txt explicitly classifies it as bundled library code, unlike the build-only libraries it separately identifies. Zlib is permissive and royalty-free, but absent from the inherited closed allowlist. No exception or policy change was made. This finding does not characterize every other compatible NumPy version or prove commercial incompatibility. No BM25S or NumPy installation/build was performed. Partial source extraction first hit workspace ENOSPC; review continued directly from the verified source archive.",
+      "files": [
+        {
+          "path": "LICENSE",
+          "git_blob_sha": "7a0a000ba7fc0e5dcdaf653b8f38d4a898ef5479",
+          "sha256": "8c159b4c621a86c4695c83f42a00932b26183f6da8ab62b0865835594426c8ff",
+          "source_url": "https://github.com/xhluca/bm25s/blob/b335013d0172e8c2aabd1399d60146cc51768458/LICENSE"
+        },
+        {
+          "path": "bm25s/__init__.py",
+          "git_blob_sha": "f0af113beea1c6b3119f3f37e80300039a85acdb",
+          "sha256": "1a927200b2b99464a8efeb60c9d215e7373e103ea8ae2a3f8327811480b4bace",
+          "source_url": "https://github.com/xhluca/bm25s/blob/b335013d0172e8c2aabd1399d60146cc51768458/bm25s/__init__.py"
+        },
+        {
+          "path": "bm25s/scoring.py",
+          "git_blob_sha": "2ea2687c5fdce48e2f130f3f9ab1c58025849b75",
+          "sha256": "859c13bd8e346d0d585b6743aad010b9e9fcbe163b1b3d6f1d67a72e369e2318",
+          "source_url": "https://github.com/xhluca/bm25s/blob/b335013d0172e8c2aabd1399d60146cc51768458/bm25s/scoring.py"
+        },
+        {
+          "path": "bm25s/version.py",
+          "git_blob_sha": "597dd20334082c57655ffae53db6ae1fc16379f0",
+          "sha256": "21d6a693bae11195957f6574e9255aca5239709c1dc0c2e2aadd12cd8ecb17f4",
+          "source_url": "https://github.com/xhluca/bm25s/blob/b335013d0172e8c2aabd1399d60146cc51768458/bm25s/version.py"
+        },
+        {
+          "path": "setup.py",
+          "git_blob_sha": "447f072cb2e344a3f67688d095f737495866c2b0",
+          "sha256": "a9a92f87da3e8d01d37b7b7afb5b78b335e4f9b85932a1a120079e6e9b2a47ca",
+          "source_url": "https://github.com/xhluca/bm25s/blob/b335013d0172e8c2aabd1399d60146cc51768458/setup.py"
+        }
+      ],
+      "dependency_artifact": {
+        "name": "numpy",
+        "version": "2.2.6",
+        "url": "https://files.pythonhosted.org/packages/76/21/7d2a95e4bba9dc13d043ee156a356c0a8f0c6309dff6b21b4d71a073b8a8/numpy-2.2.6.tar.gz",
+        "filename": "numpy-2.2.6.tar.gz",
+        "sha256": "e29554e2bef54a90aa5cc07da6ce955accb83f21ab5de01a62c8478897b264fd",
+        "license_files": [
+          {
+            "path": "LICENSE.txt",
+            "sha256": "01fb016849aa427edb1bbbbd55f91c26ca6cadb32a5b20e7f000655dd05b0760",
+            "text": "Copyright (c) 2005-2024, NumPy Developers.\nAll rights reserved.\n\nRedistribution and use in source and binary forms, with or without\nmodification, are permitted provided that the following conditions are\nmet:\n\n    * Redistributions of source code must retain the above copyright\n       notice, this list of conditions and the following disclaimer.\n\n    * Redistributions in binary form must reproduce the above\n       copyright notice, this list of conditions and the following\n       disclaimer in the documentation and/or other materials provided\n       with the distribution.\n\n    * Neither the name of the NumPy Developers nor the names of any\n       contributors may be used to endorse or promote products derived\n       from this software without specific prior written permission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n\"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\nLIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR\nA PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT\nOWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,\nSPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT\nLIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,\nDATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY\nTHEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\nOF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n"
+          },
+          {
+            "path": "LICENSES_bundled.txt",
+            "sha256": "7fe52683ce840a3103e9cc82fe92252b2c533061ca4f9b8d6f3d4d835f7c32f9",
+            "text": "The NumPy repository and source distributions bundle several libraries that are\ncompatibly licensed.  We list these here.\n\nName: lapack-lite\nFiles: numpy/linalg/lapack_lite/*\nLicense: BSD-3-Clause\n  For details, see numpy/linalg/lapack_lite/LICENSE.txt\n\nName: dragon4\nFiles: numpy/_core/src/multiarray/dragon4.c\nLicense: MIT\n  For license text, see numpy/_core/src/multiarray/dragon4.c\n\nName: libdivide\nFiles: numpy/_core/include/numpy/libdivide/*\nLicense: Zlib\n  For license text, see numpy/_core/include/numpy/libdivide/LICENSE.txt\n\n\nNote that the following files are vendored in the repository and sdist but not\ninstalled in built numpy packages:\n\nName: Meson\nFiles: vendored-meson/meson/*\nLicense: Apache 2.0\n  For license text, see vendored-meson/meson/COPYING\n\nName: spin\nFiles: .spin/cmds.py\nLicense: BSD-3\n  For license text, see .spin/LICENSE\n\nName: tempita\nFiles: numpy/_build_utils/tempita/*\nLicense: MIT\n  For details, see numpy/_build_utils/tempita/LICENCE.txt\n"
+          },
+          {
+            "path": "numpy/_core/include/numpy/libdivide/LICENSE.txt",
+            "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+            "text": "  zlib License\n  ------------\n\n  Copyright (C) 2010 - 2019 ridiculous_fish, <libdivide@ridiculousfish.com>\n  Copyright (C) 2016 - 2019 Kim Walisch, <kim.walisch@gmail.com>\n\n  This software is provided 'as-is', without any express or implied\n  warranty.  In no event will the authors be held liable for any damages\n  arising from the use of this software.\n\n  Permission is granted to anyone to use this software for any purpose,\n  including commercial applications, and to alter it and redistribute it\n  freely, subject to the following restrictions:\n\n  1. The origin of this software must not be misrepresented; you must not\n     claim that you wrote the original software. If you use this software\n     in a product, an acknowledgment in the product documentation would be\n     appreciated but is not required.\n  2. Altered source versions must be plainly marked as such, and must not be\n     misrepresented as being the original software.\n  3. This notice may not be removed or altered from any source distribution.\n"
+          }
+        ]
+      },
+      "sdk_installed": false,
+      "runtime_executed": false,
+      "counted_as_connected": false,
+      "live_verified": false
+    }
+  ]
+}

@@ -68,9 +68,11 @@ comunes. No es búsqueda semántica, memoria productiva ni ejecución de un LLM.
 La instalación limpia y cuatro casos con cero, negativos, eliminación total
 y límites máximos pasaron. También pasaron el reinicio y replay del producto,
 la ausencia de texto interno en SQLite y el rechazo de fuentes/dependencias
-añadidas. Pasaron 904 pruebas unitarias y de contrato. La aceptación del flujo
-conjunto y los tres workflows deben observarse en el commit correspondiente;
-una prueba local no se presenta como CI aprobado.
+añadidas. Pasaron 904 pruebas unitarias y de contrato. La aceptación conjunta pasó con 28 componentes originales y 30 pasos,
+aprobación, referencias desde medición a txtai y replay después del reinicio.
+La evidencia está en `evidence/accepted/content666-joint-local-20261115.json`.
+Los tres workflows deben observarse en el commit correspondiente; una prueba
+local no se presenta como CI aprobado.
 
 ## Continuar desde aquí
 
@@ -79,3 +81,21 @@ Leer `AGENTS.md`, `docs/PLAN_666.md` y `sources/resume-666.json`. Consultar
 de modificarlo. Los otros 64 candidatos del sublote de 80 siguen pendientes;
 sus revisiones acotadas están enlazadas en el informe. Un candidato bloqueado
 no se convierte en terminado por añadir una explicación o un nombre distinto.
+
+## Siguiente candidato revisado
+
+BM25S sigue pendiente. El candidato de dependencia NumPy 2.2.6 incluye
+libdivide Zlib. Es una licencia permisiva sin pago, pero no pertenece a la
+lista cerrada heredada en AGENTS.md; no se equipara con una licencia
+comercial restrictiva. La evidencia exacta y sus límites están en
+`sources/review-numeric-next666.json`. No se ha descartado toda versión
+alternativa de NumPy ni se intentó compilar este candidato.
+
+## Corrección observada en CI
+
+La verificación de `96af2b94c68605bf912896ef604009a76b1c5a39` pasó
+las 904 pruebas y el control de cierres SQLite, pero falló después en
+`Registry truth checks`: el workflow conservaba los contadores anteriores
+299/389/280. Se actualizan a 300/388/281 y el mapa a 281/56/329/22.
+La ejecución fallida permanece en el historial; el commit corregido necesita
+su propia observación de CI.

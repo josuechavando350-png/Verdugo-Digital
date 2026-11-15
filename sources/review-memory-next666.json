@@ -335,8 +335,8 @@
       "id": "bm25s",
       "repository": "xhluca/bm25s",
       "commit": "b335013d0172e8c2aabd1399d60146cc51768458",
-      "status": "preparation_pending",
-      "note": "Original setup.py requires NumPy only; SciPy is an optional index extra. The original default CSC backend is NumPy. Review of an exact NumPy artifact and its bundled licenses remains pending before installation; no unsupported assertion that SciPy is mandatory. No SDK installed or build failure asserted.",
+      "status": "blocked_reviewed_dependency_candidate",
+      "note": "The original package requires NumPy; SciPy is optional. The inspected NumPy 2.2.6 source candidate bundles libdivide under Zlib, a permissive license absent from the closed allowlist. Evidence and limits in sources/review-numeric-next666.json. No install/build or adapter; other candidates are not ruled out by this review.",
       "files": [
         {
           "path": "LICENSE",
