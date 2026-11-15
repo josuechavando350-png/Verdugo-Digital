@@ -18,7 +18,7 @@ from verdugo import local_runtime, objectives, workflow
 
 
 def accept():
-    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework')
+    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent')
     spec=json.loads((ROOT/'examples/executive666.synthetic.json').read_text())
     cfg=template('nexus')
     for sid in services:
@@ -41,19 +41,22 @@ def accept():
         with closing(engine()) as e:
             result=invoke(e,'verdugo_workflow',{'workflow':spec,'execute':True})
             assert result['state']=='succeeded',result
-            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review'}
+            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review'}
             r=result['steps']['check']['result']
             assert r['planned_contacts']==200 and r['planned_cost_minor']==0
             assert r['feasible_under_declared_limits'] and not r['external_execution_authorized']
             assert result['steps']['agno']['result']['budget_checked']
-            for step,sid in zip(('kernel','agno','check','claims','scenarios','review'),services):
+            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review'),services):
                 actual=result['steps'][step]['result']
                 assert actual['original_sdk']==sid and actual['llm_calls']==0
                 assert not actual['autonomous_agent']
             assert all(c['verdict']=='contradicted' for c in result['steps']['claims']['result']['claims'])
             assert result['steps']['scenarios']['result']['pareto_nondominated_indices']==[0]
             assert result['steps']['review']['result']['recommendation']=='revise_strategy'
-            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==8
+            assert result['steps']['parallel']['result']['recommendation']=='request_operator_review'
+            assert result['steps']['sequence']['result']['sequence_valid']
+            assert result['steps']['measurement_review']['result']['review_recommendation']=='review_shortfall'
+            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==11
         with closing(engine()) as e, \
                 patch.object(local_runtime,'execute',side_effect=AssertionError('SDK re-executed')), \
                 patch.object(objectives,'simulate',side_effect=AssertionError('simulation re-executed')):
@@ -81,10 +84,39 @@ def accept():
                 b=branch['result']['result']
                 assert b['recommendation']==wanted and b['operator_approval_required']
                 assert not b['external_execution_authorized']
+            from planning666_fixtures import CASES
+            negative_process_cases = []
+            for key, changes, reason, failed in [
+                ('skip-review', {'sequence':['plan','limits','simulate','measure']}, 'inapplicable_action', 'simulate'),
+                ('repeat-plan', {'sequence':['plan','plan']}, 'inapplicable_action', 'plan'),
+                ('empty', {'sequence':[]}, 'unsatisfied_goals', None),
+                ('limits-false', {'limits_satisfied':False}, 'inapplicable_action', 'limits'),
+                ('review-unavailable', {'hypothetical_review_available':False}, 'inapplicable_action', 'operator_review')]:
+                check=e.execute({'service':'unified-planning','operation':'sequence.validate','key':'formal-'+key,
+                                 'params':dict(CASES['unified-planning'],**changes)},True)
+                assert check['state']=='succeeded',check
+                checked=check['result']['result']
+                assert not checked['sequence_valid'] and checked['reason']==reason
+                assert checked['first_inapplicable_stage']==failed
+                assert checked['approvals_granted']==0 and not checked['operator_approval_verified']
+                negative_process_cases.append({'case':key,'reason':reason,'failed_stage':failed})
+            for key,capacity,budget,wanted in [('over-budget',20,50,'revise_limits'),
+                                             ('over-capacity',5,100,'revise_limits'),
+                                             ('within-limits',20,100,'request_operator_review')]:
+                check=e.execute({'service':'harness-sdk','operation':'limits.parallel','key':'graph-'+key,
+                                 'params':dict(CASES['harness-sdk'],capacity_contacts=capacity,budget_minor=budget)},True)
+                assert check['state']=='succeeded',check
+                checked=check['result']['result']
+                assert checked['recommendation']==wanted and checked['approvals_granted']==0
+            check=e.execute({'service':'voltagent','operation':'measurement.review','key':'review-target-met',
+                             'params':dict(CASES['voltagent'],observed_clients=20)},True)
+            assert check['state']=='succeeded',check
+            assert check['result']['result']['review_recommendation']=='review_before_execution'
+            assert not check['result']['result']['external_execution_authorized']
     assert not calls
     return {'schema':'verdugo.executive666.acceptance.v1','services':list(services),
             'original_sdks_executed':True,'mocked_sdks':False,'dataset':'demo',
-            'joint_workflow':result,'budget_rejection':data,
+            'joint_workflow':result,'budget_rejection':data,'negative_process_cases':negative_process_cases,
             'approval_gate_verified':True,'sqlite_restart_replay_verified':True,
             'cli_mcp_shared_engine_verified':True,'live_verified':False,
             'models_used':0,'external_effects':0,'batch_1_complete':False,

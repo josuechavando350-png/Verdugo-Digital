@@ -102,3 +102,6 @@ from reasoning666_fixtures import CASES as REASONING666_CASES
 CASES.update(REASONING666_CASES)
 from flow666_fixtures import CASES as FLOW666_CASES
 CASES.update(FLOW666_CASES)
+
+from planning666_fixtures import CASES as PLANNING666_CASES
+CASES.update(PLANNING666_CASES)

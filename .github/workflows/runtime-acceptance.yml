@@ -12,7 +12,7 @@ concurrency:
 jobs:
   pilot666:
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
@@ -29,7 +29,7 @@ jobs:
           /tmp/verdugo-kernel666-venv/bin/python -m pip install -r requirements/runtime-kernel666.txt --report /tmp/kernel666-pip-report.json
           /tmp/verdugo-kernel666-venv/bin/python -m pip check
           /tmp/verdugo-kernel666-venv/bin/python -m pip freeze > /tmp/kernel666-resolved.txt
-          for sdk in agno ag2 langroid griptape bee; do
+          for sdk in agno ag2 langroid griptape bee strands planning; do
             python -m venv --copies /tmp/verdugo-${sdk}666-venv
             chmod go-w /tmp/verdugo-${sdk}666-venv/bin/python*
             /tmp/verdugo-${sdk}666-venv/bin/python -m pip install -r requirements/runtime-${sdk}666.txt --report /tmp/${sdk}666-pip-report.json
@@ -37,6 +37,8 @@ jobs:
             /tmp/verdugo-${sdk}666-venv/bin/python -m pip freeze > /tmp/${sdk}666-resolved.txt
           done
           VERDUGO_LANGROID666_PYTHON=/tmp/verdugo-langroid666-venv/bin/python python tests_runtime/prepare_tokenizer666.py
+      - name: Install pinned offline Node workflow profile
+        run: python tests_runtime/install_volt666.py
       - name: Original SDK, approval and restart with OS network isolation
         run: |
           sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
@@ -51,6 +53,9 @@ jobs:
             VERDUGO_LANGROID666_PYTHON=/tmp/verdugo-langroid666-venv/bin/python \
             VERDUGO_GRIPTAPE666_PYTHON=/tmp/verdugo-griptape666-venv/bin/python \
             VERDUGO_BEE666_PYTHON=/tmp/verdugo-bee666-venv/bin/python \
+            VERDUGO_STRANDS666_PYTHON=/tmp/verdugo-strands666-venv/bin/python \
+            VERDUGO_PLANNING666_PYTHON=/tmp/verdugo-planning666-venv/bin/python \
+            VERDUGO_VOLT666_ROOT=/tmp/verdugo-volt666 \
             /tmp/verdugo-kernel666-venv/bin/python tests_runtime/accept_executive666.py --out /tmp/executive666-execution-evidence.json
       - name: Preserve scoped evidence and dependency resolution
         if: always()
@@ -72,6 +77,11 @@ jobs:
             /tmp/griptape666-resolved.txt
             /tmp/bee666-pip-report.json
             /tmp/bee666-resolved.txt
+            /tmp/strands666-pip-report.json
+            /tmp/strands666-resolved.txt
+            /tmp/planning666-pip-report.json
+            /tmp/planning666-resolved.txt
+            /tmp/volt666-resolved.txt
           retention-days: 3
           if-no-files-found: error
   baseline:

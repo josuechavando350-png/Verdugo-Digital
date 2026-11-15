@@ -1,0 +1,106 @@
+{
+  "schema": "verdugo.planning666.sources.v1",
+  "records": [
+    {
+      "id": "harness-sdk",
+      "repo": "strands-agents/harness-sdk",
+      "commit": "c8e1351a5a6218c8f5c2417534aedbd021882a76",
+      "distribution": "strands-agents",
+      "version": "1.65.1.dev10+gc8e1351a",
+      "operation": "limits.parallel",
+      "files": [
+        {
+          "path": "strands-py/pyproject.toml",
+          "blob_sha": "7de82f256970e753351e3e0712bcc592e86531da",
+          "installed_path": null,
+          "sha256": "f0098bf03ea2dfe44090d9284cced9bcded7b30cc54876c1bdbaf6d6fb4f69bc"
+        },
+        {
+          "path": "strands-py/hatch_build.py",
+          "blob_sha": "bd67eb4152a9a150e968393790d3dba4f4198484",
+          "installed_path": null,
+          "sha256": "d2ab764b5a085866d069ec19905c1994d6ae6ec4204351ebef827817ce8ccb02"
+        },
+        {
+          "path": "strands-py/src/strands/multiagent/graph.py",
+          "blob_sha": "d2fba54b13adabf8864c08480000b5054e929f11",
+          "installed_path": "strands/multiagent/graph.py",
+          "sha256": "0c2f2e6da3e79c520dbe8c03ff317b4a2fe4fd9ae618a4f311c5aa855a240ff9"
+        },
+        {
+          "path": "strands-py/src/strands/multiagent/base.py",
+          "blob_sha": "f1866107cbafb126825585f24d021f9b5db2aff3",
+          "installed_path": "strands/multiagent/base.py",
+          "sha256": "76aa633c5a732e588b5371d764a4fb1d5c036d56dd9a91592d8a4de25c871902"
+        }
+      ],
+      "source_url": "https://github.com/strands-agents/harness-sdk/tree/c8e1351a5a6218c8f5c2417534aedbd021882a76",
+      "llm_calls": 0,
+      "external_effects": false,
+      "install": "git VCS commit, strands-py subdirectory; original hatch-vcs version from repository tags"
+    },
+    {
+      "id": "unified-planning",
+      "repo": "aiplan4eu/unified-planning",
+      "commit": "ea8300995f516bbb633b306275adae457aa9864e",
+      "distribution": "unified-planning",
+      "version": "0.0.0",
+      "operation": "sequence.validate",
+      "archive_sha256": "5ea5ed0eeffa332839a60ddda75b023c6841220c18acad370374411b44d8b50d",
+      "files": [
+        {
+          "path": "pyproject.toml",
+          "blob_sha": "1bc649b1f99d298e56bd2586d96c5aa59b814753",
+          "installed_path": null,
+          "sha256": "e1dbbf1bd8ab04a3b11b239e33dc78c997db88b5a7157b2f20c201698b4ba6e8"
+        },
+        {
+          "path": "unified_planning/engines/plan_validator.py",
+          "blob_sha": "4c9ac0cf2a5896a9b6b4f03d755a167e03f0a8b5",
+          "installed_path": "unified_planning/engines/plan_validator.py",
+          "sha256": "6c1b60fa02e7807287679104b74d9c6c8e6be774007f53d30ccb13d93136ab86"
+        },
+        {
+          "path": "unified_planning/engines/sequential_simulator.py",
+          "blob_sha": "40b4d77acaeb463c38ec195ef056f3a1fe582359",
+          "installed_path": "unified_planning/engines/sequential_simulator.py",
+          "sha256": "76ef36baaaaf6a8a17a80b56500e76c27cdcff4139a3d3cd468a79c5e38dedc7"
+        },
+        {
+          "path": "unified_planning/model/action.py",
+          "blob_sha": "313da8a7430b976a18b31af4e64efec848f0fd3f",
+          "installed_path": "unified_planning/model/action.py",
+          "sha256": "b8329d57ddfe05cc16102673106bfd8f57d3daafb54fe8132cf31fd6145e1ce4"
+        },
+        {
+          "path": "unified_planning/model/problem.py",
+          "blob_sha": "230bd4a3b0fb0f9903b491b5a35177542da6cfff",
+          "installed_path": "unified_planning/model/problem.py",
+          "sha256": "4f544c8aac961692a9acca76029c0f63d3c56f6ec4b1702d8034783903098888"
+        },
+        {
+          "path": "unified_planning/plans/sequential_plan.py",
+          "blob_sha": "0c1a73f427349d2f7e7a0b0d576d858f8523bdd9",
+          "installed_path": "unified_planning/plans/sequential_plan.py",
+          "sha256": "f80fff9e16cbfdb634da3611bdcdff61fd8e31d94becfcb83b5daddf9c31f923"
+        },
+        {
+          "path": "unified_planning/engines/results.py",
+          "blob_sha": "14e12d488d5792526931763bf547168c30e46a13",
+          "installed_path": "unified_planning/engines/results.py",
+          "sha256": "af748a1e9272ca630dd4a6b39d89e512a945315d46b75255ac80059907f4e64a"
+        },
+        {
+          "path": "unified_planning/shortcuts.py",
+          "blob_sha": "71493000ab9ead8d1722e2cb85bfc9ad3f5ea2b2",
+          "installed_path": "unified_planning/shortcuts.py",
+          "sha256": "faf87255935ab669a35ec92640da6f1e079b0c55b0f00c079c18228f30988e04"
+        }
+      ],
+      "source_url": "https://github.com/aiplan4eu/unified-planning/tree/ea8300995f516bbb633b306275adae457aa9864e",
+      "llm_calls": 0,
+      "external_effects": false,
+      "install": "commit archive; upstream hatch-vcs fallback metadata version 0.0.0, not a published release version"
+    }
+  ]
+}

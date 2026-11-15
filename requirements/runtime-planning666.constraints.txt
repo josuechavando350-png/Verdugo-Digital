@@ -1,0 +1,13 @@
+click==8.5.1
+ConfigSpace==1.2.2
+lark==1.1.9
+more-itertools==11.2.1
+networkx==3.6.1
+numpy==2.4.6
+packaging==26.3
+pddl==0.6.0
+pyparsing==3.3.3
+PySMT==0.9.6
+scipy==1.17.1
+typing_extensions==4.16.0
+z3-solver==5.4.1.0

@@ -36,9 +36,14 @@ def main():
     # No caller-selected modules can be imported.
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
     from verdugo.local_recipes import run
-    from verdugo import local_data, local_native, local_cli, local_source, local_r, local_database, local_native_tools, local_media, local_images, local_lastnode, local_owned_http
+    from verdugo import local_data, local_native, local_cli, local_source, local_r, local_database, local_native_tools, local_media, local_images, local_lastnode, local_owned_http, local_volt666
     dist = request['distribution']
-    if request['service'] in local_owned_http.SPECS:
+    if request['service'] in local_volt666.SPECS:
+        state = local_volt666.runtime_state(request['service'])
+        if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
+            raise ValueError('VoltAgent runtime changed')
+        version = state['installed']
+    elif request['service'] in local_owned_http.SPECS:
         state = local_owned_http.runtime_state(request['service'])
         if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
             raise ValueError('Owned HTTP runtime changed')

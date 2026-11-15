@@ -11,6 +11,7 @@ from verdugo.engine import Engine
 from fixtures import CASES
 from executive666_fixtures import CASES as EXECUTIVE666_CASES, assert_result as assert_executive666
 from reasoning666_fixtures import assert_result as assert_reasoning666
+from planning666_fixtures import CASES as PLANNING666_CASES, assert_result as assert_planning666
 from flow666_fixtures import CASES as FLOW666_CASES, assert_result as assert_flow666
 from database_fixtures import CASES as DATABASE_CASES, assert_result as assert_database
 from native_tools_fixtures import CASES as TOOLS_CASES, assert_result as assert_tools
@@ -65,7 +66,9 @@ class RuntimeAcceptance(unittest.TestCase):
                     self.assertIsNone(data['commercial_success_probability'])
                     self.assertEqual(local_runtime.SPECS[sid][2],data['version'])
                     value=data['result']
-                    if sid in FLOW666_CASES:
+                    if sid in PLANNING666_CASES:
+                        assert_planning666(self,sid,value)
+                    elif sid in FLOW666_CASES:
                         assert_flow666(self,sid,value)
                     elif sid == 'langroid':
                         assert_reasoning666(self,value)

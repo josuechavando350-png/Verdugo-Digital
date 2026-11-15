@@ -1,0 +1,93 @@
+{
+  "schema": "verdugo.volt666.sources.v1",
+  "id": "voltagent",
+  "repo": "VoltAgent/voltagent",
+  "commit": "e9fc599f6059afcd88b34f2bfc50d0d1d6a0877c",
+  "distribution": "npm:@voltagent/core",
+  "version": "2.11.1",
+  "operation": "measurement.review",
+  "node_version": "24.22.1",
+  "lock_sha256": "edd047095ce5bb9fc4c18a75caf1e6789e892e19a98af028d762efd122885005",
+  "integrity": "sha512-fPrjewZ+z++2ZHsq5Brf/PB8CaE59WPXhnpkhcqfJgCTF71dterAHXc37HpJ1lAm4pIbr0o3jS6R6YbgLFSjAw==",
+  "artifacts": {
+    "node_modules/@voltagent/core/dist/index.mjs": "caa87f07a87d03353cb22255fe4f5d0f7a0e3d28dfbab7a07fad4f2723e1ef98",
+    "node_modules/@voltagent/core/dist/index.mjs.map": "bde82ebdde25e88e5a695713fe1c152716faa453c397634383f6226cf1e428d5"
+  },
+  "files": [
+    {
+      "path": "packages/core/package.json",
+      "blob_sha": "02d902f752a2ecce5fc8c0903d463326cfe382c7",
+      "sha256": "38c2e3662eb9ab3bfb6d0a0b9806ff75b2dca540b38e711560c74b26a0a06b86",
+      "source_map_key": null
+    },
+    {
+      "path": "packages/core/src/workflow/chain.ts",
+      "blob_sha": "28d0337a0766fb122f7a95a4054f0c612d3fe896",
+      "sha256": "68b1c5ad8c7883140a5b61b8ba06541c104aaa33b7a2dde46e4185af284f2037",
+      "source_map_key": "../src/workflow/chain.ts"
+    },
+    {
+      "path": "packages/core/src/workflow/core.ts",
+      "blob_sha": "55c0199f604b80001e9e808445b3d07f35b14292",
+      "sha256": "95d81d2d8f1e941a7b773038fed5538e91fe0307683730599367253ebcfc0783",
+      "source_map_key": "../src/workflow/core.ts"
+    },
+    {
+      "path": "packages/core/src/workflow/types.ts",
+      "blob_sha": "bf61c8c73c2b0e15c47530cebdcccebdef72846b",
+      "sha256": "97b56032b5dbb5c5f18a6b6d957874a0c5b16459b690a816f1cb78a8052e258d",
+      "source_map_key": null
+    },
+    {
+      "path": "packages/core/src/workflow/steps/and-then.ts",
+      "blob_sha": "1f2858e1d13b4a50681409aa50de7acd7a40cdc4",
+      "sha256": "5c1f18d8a47e06d1640fe1b9eb2ca1da0cdf7d3bf47d0fe9a2bff1e84e1ef933",
+      "source_map_key": "../src/workflow/steps/and-then.ts"
+    },
+    {
+      "path": "packages/core/src/workflow/steps/and-branch.ts",
+      "blob_sha": "2f39646a2d80490164f9a09992b46bb01980d18d",
+      "sha256": "ed9c142faac7a096b6d8e421a2b9921c0198c66d7408e3fbd7007ff5edd7c7de",
+      "source_map_key": "../src/workflow/steps/and-branch.ts"
+    },
+    {
+      "path": "packages/core/src/observability/index.ts",
+      "blob_sha": "faa99807866f9fd9ef4c1f1a6d03b251aa846fe6",
+      "sha256": "5f670c6d3bc1f601cef07e5c450d5d09d6a717f56a6fddbe3171fbb850a76744",
+      "source_map_key": "../src/observability/index.ts"
+    },
+    {
+      "path": "packages/core/src/observability/types.ts",
+      "blob_sha": "beea33eaba5684086245a2f04b0e12ff7c988248",
+      "sha256": "58360cc3a6e4ed6ac2a550f9f3d12a1925b37aa03bc748e8cfa7f58576f78525",
+      "source_map_key": "../src/observability/types.ts"
+    },
+    {
+      "path": "packages/core/src/observability/node/volt-agent-observability.ts",
+      "blob_sha": "7f483892cd1c42adb0a77010cad4b5ff412d86df",
+      "sha256": "55a2ae4f6fff0867a93b43ccb8541e9f89e566f9856314e5ed68856edd7b92fd",
+      "source_map_key": "../src/observability/node/volt-agent-observability.ts"
+    },
+    {
+      "path": "packages/core/src/index.ts",
+      "blob_sha": "b22b821ee09a51a5ebd3fe229f23ae21338a7200",
+      "sha256": "daeabdbaa8ec3de820cd1ef5e1135ffe5daed326bc10fc006951c697c559620b",
+      "source_map_key": "../src/index.ts"
+    },
+    {
+      "path": "packages/core/src/workflow/internal/utils.ts",
+      "blob_sha": "66ea236a32b5726983d25236588fe844543d54b0",
+      "sha256": "bd0ce5a0e5c910a98e0504dcf7d775ccf27806b23eff74bc03d8ac936e524d8c",
+      "source_map_key": "../src/workflow/internal/utils.ts"
+    },
+    {
+      "path": "packages/core/src/registries/model-provider-registry.ts",
+      "blob_sha": "5de3c06140d05733776f55b1c3f73a3c6ffb286e",
+      "sha256": "4fc44add0cf951f6e09798c78977d2f047b89478d45338bd65a421c929fec049",
+      "source_map_key": "../src/registries/model-provider-registry.ts"
+    }
+  ],
+  "provenance_scope": "Published npm bundle pinned by registry integrity and SHA256; 10 embedded source-map files match original Git blobs. This is not a reproducible compiler proof.",
+  "source_map_files_verified": 10,
+  "network_configuration": "NODE_ENV=production disables upstream model registry auto-refresh; VoltOps sampling=never; offline Node guard and no inherited credentials"
+}

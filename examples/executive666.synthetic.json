@@ -211,6 +211,66 @@
         "check",
         "measure"
       ]
+    },
+    {
+      "id": "parallel",
+      "service": "harness-sdk",
+      "operation": "limits.parallel",
+      "params": {
+        "dataset": "demo",
+        "budget_minor": 0,
+        "capacity_contacts": 300,
+        "actions": [
+          {
+            "contacts": 200,
+            "cost_per_contact_minor": 0
+          }
+        ]
+      }
+    },
+    {
+      "id": "sequence",
+      "service": "unified-planning",
+      "operation": "sequence.validate",
+      "depends_on": [
+        "parallel"
+      ],
+      "params": {
+        "dataset": "demo",
+        "sequence": [
+          "plan",
+          "limits",
+          "operator_review",
+          "simulate",
+          "measure"
+        ],
+        "limits_satisfied": {
+          "$ref": "parallel.result.within_budget"
+        },
+        "hypothetical_review_available": true
+      }
+    },
+    {
+      "id": "measurement_review",
+      "service": "voltagent",
+      "operation": "measurement.review",
+      "depends_on": [
+        "simulate",
+        "measure"
+      ],
+      "params": {
+        "dataset": "demo",
+        "target_clients": 20,
+        "simulated_median": {
+          "$ref": "simulate.clients_quantiles.p50"
+        },
+        "observed_clients": {
+          "$ref": "measure.observed_clients"
+        },
+        "observed_contacts": {
+          "$ref": "measure.observed_contacts"
+        }
+      }
     }
   ]
 }

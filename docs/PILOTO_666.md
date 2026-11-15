@@ -1,6 +1,6 @@
 # Piloto 666: avance parcial del lote 1
 
-Seis de 183 piezas del primer lote tienen una operación nueva implementada. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
+Nueve de 183 piezas del primer lote tienen una operación nueva implementada. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
 
 ## Operación delimitada
 
@@ -37,7 +37,7 @@ La aceptación usa exclusivamente fixtures sintéticos, habilita la revisión de
 
 ## Pendiente
 
-MetaGPT está bloqueado por su dependencia original ausente. Harness SDK es la siguiente pieza por revisar. Faltan las demás piezas, el modelo local con licencia de pesos revisada, memoria, calibración, pruebas conjuntas de cada perfil y operación con información real autorizada. No se han desplegado servicios, publicado contenidos, enviado mensajes ni gastado presupuesto. `live_verified` sigue en cero. La cola de `registry-666.json` es el snapshot inmutable del registro; `docs/plan_conexion.json` y el inventario calculado reflejan las operaciones implementadas después.
+MetaGPT está bloqueado por su dependencia original ausente. OpenManus es la siguiente pieza por revisar. Faltan las demás piezas, el modelo local con licencia de pesos revisada, memoria, calibración, pruebas conjuntas de cada perfil y operación con información real autorizada. No se han desplegado servicios, publicado contenidos, enviado mensajes ni gastado presupuesto. `live_verified` sigue en cero. La cola de `registry-666.json` es el snapshot inmutable del registro; `docs/plan_conexion.json` y el inventario calculado reflejan las operaciones implementadas después.
 
 ## Incremento ejecutivo: Agno y AG2
 
@@ -68,3 +68,17 @@ MetaGPT no tiene adaptador: su `requirements.txt` fijado exige `lancedb==0.4.0`.
 El contrato `sources/contracts-flow666.json` conserva código original de ambos commits, blobs, SHA256 y archivos instalados comprobados antes de cada ejecución. Los perfiles separados se preparan con `requirements/runtime-griptape666.txt` y `runtime-bee666.txt`. BeeAI conserva `litellm==1.100.4` exigido por su fuente fijada; no se actualiza automáticamente ni se configura como proveedor.
 
 La aceptación conjunta ejecutó seis SDK y ocho pasos por el worker restringido: aprobación exacta, medición, afirmaciones contradichas, comparación de escenarios, revisión y replay SQLite. Las tres ramas de revisión y presupuesto insuficiente se probaron con los SDK originales. Las **761 pruebas** pasan. La aceptación CI del nuevo incremento todavía debe observarse. No hubo modelos, llamadas a proveedores ni efectos externos.
+
+## Strands, Unified Planning y VoltAgent
+
+| SDK | Operación | Alcance ejecutado |
+|---|---|---|
+| Strands, dentro de Harness SDK | `limits.parallel` | `GraphBuilder` original ejecuta dos comprobaciones propias de presupuesto/capacidad y espera ambas antes de recomendar revisión |
+| Unified Planning | `sequence.validate` | Validador secuencial original con cinco etapas y precondiciones fijas; rechaza saltarse revisión, repetir una etapa, no alcanzar medición o incumplir límites |
+| VoltAgent | `measurement.review` | Workflow original de dos pasos compara medición sintética y mediana simulada, y recomienda revisión |
+
+Strands usa ejecutores deterministas soportados por el SDK, sin agentes LLM, tokens ni sesiones persistentes. Su build VCS original conserva `1.65.1.dev10+gc8e1351a`, construido desde el commit exacto. Unified Planning se construye desde un archivo SHA256 fijado; `0.0.0` es el fallback de metadatos declarado por su propio `hatch-vcs`, **no una versión publicada**. Los módulos ejecutados se comprueban contra blobs y SHA256 de `sources/contracts-planning666.json`.
+
+VoltAgent 2.11.1 usa un perfil Node 24.22.1 separado, lockfile y bundle npm fijados. Diez archivos de su sourcemap coinciden byte a byte con el código original revisado; esto no equivale a demostrar una compilación reproducible. `NODE_ENV=production` evita el refresco de modelos al importar; `voltOpsSync.sampling.strategy=never` elimina los exportadores remotos. Memoria y observabilidad son efímeras. El guard bloquea conexiones y procesos, y CI añade aislamiento de red del sistema operativo. El instalador explícito omite scripts npm.
+
+El flujo conjunto pasó con **nueve SDK, once pasos y 766 pruebas unitarias**, incluyendo cinco rechazos del validador formal, dos rechazos de límites, ambas recomendaciones de medición, aprobación exacta y replay tras reabrir SQLite. Las respuestas del validador son diagnósticas: el booleano hipotético de revisión **no es una aprobación**, no modifica autorizaciones ni verifica resultados comerciales. La aprobación real sigue perteneciendo al operador de Engine. CI de este incremento permanece pendiente hasta observarlo.

@@ -6,7 +6,10 @@
     "ag2",
     "langroid",
     "griptape",
-    "beeai-framework"
+    "beeai-framework",
+    "harness-sdk",
+    "unified-planning",
+    "voltagent"
   ],
   "original_sdks_executed": true,
   "mocked_sdks": false,
@@ -20,7 +23,7 @@
         "dataset": "demo",
         "distribution": "semantic-kernel",
         "external_provider_calls_made": false,
-        "implementation_sha256": "3bf6b7846fd7f2cb178080a4cbbe48f4e6e8ec7aceac13675de713520b0bb372",
+        "implementation_sha256": "9fec4fac345be5f7d84b597657a87779c0cf2031bc1b93a3eacda9b4cee6a670",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -71,7 +74,7 @@
         "dataset": "demo",
         "distribution": "agno",
         "external_provider_calls_made": false,
-        "implementation_sha256": "3bf6b7846fd7f2cb178080a4cbbe48f4e6e8ec7aceac13675de713520b0bb372",
+        "implementation_sha256": "9fec4fac345be5f7d84b597657a87779c0cf2031bc1b93a3eacda9b4cee6a670",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -126,7 +129,7 @@
         "dataset": "demo",
         "distribution": "griptape",
         "external_provider_calls_made": false,
-        "implementation_sha256": "3bf6b7846fd7f2cb178080a4cbbe48f4e6e8ec7aceac13675de713520b0bb372",
+        "implementation_sha256": "9fec4fac345be5f7d84b597657a87779c0cf2031bc1b93a3eacda9b4cee6a670",
         "ok": true,
         "operation": "objective.scenarios",
         "production_certified": false,
@@ -170,12 +173,52 @@
         "service": "griptape",
         "version": "1.13.0"
       },
+      "parallel": {
+        "commercial_success_probability": null,
+        "dataset": "demo",
+        "distribution": "strands-agents",
+        "external_provider_calls_made": false,
+        "implementation_sha256": "9fec4fac345be5f7d84b597657a87779c0cf2031bc1b93a3eacda9b4cee6a670",
+        "ok": true,
+        "operation": "limits.parallel",
+        "production_certified": false,
+        "result": {
+          "approvals_granted": 0,
+          "autonomous_agent": false,
+          "completed_nodes": [
+            "budget",
+            "capacity",
+            "review"
+          ],
+          "dataset": "demo",
+          "dry_run": true,
+          "external_calls_made": false,
+          "external_execution_authorized": false,
+          "fixed_sdk_nodes": 3,
+          "join_dependencies_verified": true,
+          "llm_calls": 0,
+          "model_usage_count": 0,
+          "operator_approval_required": true,
+          "original_sdk": "harness-sdk",
+          "planned_contacts": 200,
+          "planned_cost_minor": 0,
+          "recommendation": "request_operator_review",
+          "reviewed_modules_verified": 2,
+          "sdk_session_persistence": false,
+          "sdk_version": "1.65.1.dev10+gc8e1351a",
+          "source_commit": "c8e1351a5a6218c8f5c2417534aedbd021882a76",
+          "within_budget": true,
+          "within_capacity": true
+        },
+        "service": "harness-sdk",
+        "version": "1.65.1.dev10+gc8e1351a"
+      },
       "check": {
         "commercial_success_probability": null,
         "dataset": "demo",
         "distribution": "ag2",
         "external_provider_calls_made": false,
-        "implementation_sha256": "3bf6b7846fd7f2cb178080a4cbbe48f4e6e8ec7aceac13675de713520b0bb372",
+        "implementation_sha256": "9fec4fac345be5f7d84b597657a87779c0cf2031bc1b93a3eacda9b4cee6a670",
         "ok": true,
         "operation": "actions.check",
         "production_certified": false,
@@ -205,6 +248,42 @@
         },
         "service": "ag2",
         "version": "1.3.1"
+      },
+      "sequence": {
+        "commercial_success_probability": null,
+        "dataset": "demo",
+        "distribution": "unified-planning",
+        "external_provider_calls_made": false,
+        "implementation_sha256": "9fec4fac345be5f7d84b597657a87779c0cf2031bc1b93a3eacda9b4cee6a670",
+        "ok": true,
+        "operation": "sequence.validate",
+        "production_certified": false,
+        "result": {
+          "approvals_granted": 0,
+          "autonomous_agent": false,
+          "business_outcome_proven": false,
+          "dataset": "demo",
+          "dry_run": true,
+          "external_calls_made": false,
+          "external_execution_authorized": false,
+          "first_inapplicable_stage": null,
+          "formal_engine": "sequential_plan_validator",
+          "llm_calls": 0,
+          "operator_approval_required": true,
+          "operator_approval_verified": false,
+          "original_sdk": "unified-planning",
+          "plan_optimality_proven": false,
+          "reason": null,
+          "reviewed_modules_verified": 7,
+          "scope": "Fixed synthetic process and supplied booleans only",
+          "sdk_version": "0.0.0",
+          "sequence_valid": true,
+          "source_commit": "ea8300995f516bbb633b306275adae457aa9864e",
+          "submitted_stage_count": 5,
+          "validated_transition_count": 5
+        },
+        "service": "unified-planning",
+        "version": "0.0.0"
       },
       "simulate": {
         "algorithm": "synthetic-funnel-v1",
@@ -307,7 +386,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "3bf6b7846fd7f2cb178080a4cbbe48f4e6e8ec7aceac13675de713520b0bb372"
+        "implementation_sha256": "9fec4fac345be5f7d84b597657a87779c0cf2031bc1b93a3eacda9b4cee6a670"
       },
       "review": {
         "ok": true,
@@ -338,7 +417,39 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "3bf6b7846fd7f2cb178080a4cbbe48f4e6e8ec7aceac13675de713520b0bb372"
+        "implementation_sha256": "9fec4fac345be5f7d84b597657a87779c0cf2031bc1b93a3eacda9b4cee6a670"
+      },
+      "measurement_review": {
+        "ok": true,
+        "service": "voltagent",
+        "operation": "measurement.review",
+        "distribution": "npm:@voltagent/core",
+        "version": "2.11.1",
+        "dataset": "demo",
+        "result": {
+          "difference_from_median": -3,
+          "target_reached": false,
+          "review_recommendation": "review_shortfall",
+          "fixed_sdk_steps": 2,
+          "original_sdk": "voltagent",
+          "sdk_version": "2.11.1",
+          "dataset": "demo",
+          "dry_run": true,
+          "llm_calls": 0,
+          "autonomous_agent": false,
+          "external_calls_made": false,
+          "external_execution_authorized": false,
+          "operator_approval_required": true,
+          "real_observations_verified": false,
+          "storage": "ephemeral_memory",
+          "remote_telemetry_enabled": false,
+          "source_commit": "e9fc599f6059afcd88b34f2bfc50d0d1d6a0877c",
+          "reviewed_source_map_files": 10
+        },
+        "external_provider_calls_made": false,
+        "production_certified": false,
+        "commercial_success_probability": null,
+        "implementation_sha256": "9fec4fac345be5f7d84b597657a87779c0cf2031bc1b93a3eacda9b4cee6a670"
       }
     }
   },
@@ -366,6 +477,33 @@
     "external_calls_made": false,
     "dataset": "demo"
   },
+  "negative_process_cases": [
+    {
+      "case": "skip-review",
+      "reason": "inapplicable_action",
+      "failed_stage": "simulate"
+    },
+    {
+      "case": "repeat-plan",
+      "reason": "inapplicable_action",
+      "failed_stage": "plan"
+    },
+    {
+      "case": "empty",
+      "reason": "unsatisfied_goals",
+      "failed_stage": null
+    },
+    {
+      "case": "limits-false",
+      "reason": "inapplicable_action",
+      "failed_stage": "limits"
+    },
+    {
+      "case": "review-unavailable",
+      "reason": "inapplicable_action",
+      "failed_stage": "operator_review"
+    }
+  ],
   "approval_gate_verified": true,
   "sqlite_restart_replay_verified": true,
   "cli_mcp_shared_engine_verified": true,

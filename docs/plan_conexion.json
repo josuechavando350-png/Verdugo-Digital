@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 361,
+ "pending": 358,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -27,48 +27,6 @@
    "nota": "Blocked 2026-11-15: upstream requires lancedb==0.4.0, absent from PyPI release list; Python 3.11 resolution fails. No dependency override applied.",
    "live_verified": false,
    "evidence": "sources/contracts-reasoning666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
-   "id": "harness-sdk",
-   "repository": "strands-agents/harness-sdk",
-   "commit": "c8e1351a5a6218c8f5c2417534aedbd021882a76",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "ejecutivo",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
-   "id": "voltagent",
-   "repository": "VoltAgent/voltagent",
-   "commit": "e9fc599f6059afcd88b34f2bfc50d0d1d6a0877c",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "ejecutivo",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
-   "id": "unified-planning",
-   "repository": "aiplan4eu/unified-planning",
-   "commit": "ea8300995f516bbb633b306275adae457aa9864e",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "ejecutivo",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 1",
@@ -7790,6 +7748,24 @@
    "id": "beeai-framework",
    "operation": "review.route",
    "scope": "Original fixed workflow routes findings to revision/operator review; never grants approval",
+   "live_verified": false
+  },
+  {
+   "id": "harness-sdk",
+   "operation": "limits.parallel",
+   "scope": "Original fixed graph joins independent capacity and budget checks; no model",
+   "live_verified": false
+  },
+  {
+   "id": "unified-planning",
+   "operation": "sequence.validate",
+   "scope": "Original sequential plan validator checks fixed synthetic preconditions; not operator approval",
+   "live_verified": false
+  },
+  {
+   "id": "voltagent",
+   "operation": "measurement.review",
+   "scope": "Original workflow compares synthetic counts and recommends review; no effects",
    "live_verified": false
   }
  ]
