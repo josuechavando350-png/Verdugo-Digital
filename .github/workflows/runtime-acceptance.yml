@@ -167,7 +167,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        group: [content021, entities021, pycli021, node, cli-security, cli-storage]
+        group: [content021, entities021, pycli021, node, cli-security, cli-storage, planning021]
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:

@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 70,
+ "pending": 68,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -440,30 +440,6 @@
    "repository": "browser-use/browser-use",
    "commit": "480d0bd508ce10dcf27a4716f2f87355a08e8372",
    "license": "MIT",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "agents",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
-   "nota": null
-  },
-  {
-   "tanda": "Tanda 2",
-   "id": "mcp-agent",
-   "repository": "lastmile-ai/mcp-agent",
-   "commit": "f62d849350816588b1c6294e7914bbe4d8b84072",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "agents",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
-   "nota": null
-  },
-  {
-   "tanda": "Tanda 2",
-   "id": "nemo-guardrails",
-   "repository": "NVIDIA/NeMo-Guardrails",
-   "commit": "5d7f4c1ca62fb6155066e6c581379d1a5ec11338",
-   "license": "Apache-2.0",
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "agents",
@@ -2415,6 +2391,32 @@
    "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
    "nota": null,
    "operation": "description.clean"
+  },
+  {
+   "tanda": "Tanda 2",
+   "id": "mcp-agent",
+   "repository": "lastmile-ai/mcp-agent",
+   "commit": "f62d849350816588b1c6294e7914bbe4d8b84072",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "agents",
+   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "nota": null,
+   "operation": "campaigns.tool"
+  },
+  {
+   "tanda": "Tanda 2",
+   "id": "nemo-guardrails",
+   "repository": "NVIDIA/NeMo-Guardrails",
+   "commit": "5d7f4c1ca62fb6155066e6c581379d1a5ec11338",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "agents",
+   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "nota": null,
+   "operation": "dialogue.compile"
   }
  ]
 }

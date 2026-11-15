@@ -58,3 +58,6 @@ CASES.update(NATIVE_CASES)
 
 from cli_fixtures import CASES as CLI_CASES
 CASES.update(CLI_CASES)
+
+from planning_fixtures import CASES as PLANNING_CASES
+CASES.update(PLANNING_CASES)

@@ -4,13 +4,13 @@ Fecha: 15 de noviembre de 2026. Versión del motor: 0.21.0.
 
 | Estado | Cuántas |
 |---|---|
-| conectado | 174 |
+| conectado | 176 |
 | pieza_de_construccion | 56 |
-| pendiente | 70 |
+| pendiente | 68 |
 | excluido | 22 |
 | **Total** | 322 |
 
-**Pendientes: 70**, conservando la identificación de las cuatro tandas originales. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
+**Pendientes: 68**, conservando la identificación de las cuatro tandas originales. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
 no se conectan al motor: se usan al construir la plataforma (fase aparte). Las 22 excluidas por licencia no se tocan.
 
 El estado de cada pieza lo calcula el código: `python -m verdugo connections`. Este plan en formato
@@ -97,6 +97,13 @@ las otras **70 siguen pendientes**. No se da por terminada la segunda tanda.
 Los flujos incluyen HTML → lint, breadcrumbs → validador e inventario → vulnerabilidades.
 [Alcance y evidencia](AMPLIACION_V021.md).
 
+### Continuación: MCP-Agent y NeMo Guardrails
+
+Se añaden una herramienta local fija y un compilador de diálogos acotados.
+El inventario pasa a 176 conectadas y 68 pendientes. No hay llamadas a modelos,
+servidores MCP externos ni certificación de seguridad. La aceptación exige los
+programas originales y replay en el mismo Engine.
+
 ## Reglas para cada conector (obligatorias)
 
 1. Leer `AGENTS.md` y `README.md`. Correr `python -m unittest discover -s tests -v` antes y después.
@@ -149,7 +156,7 @@ Los flujos incluyen HTML → lint, breadcrumbs → validador e inventario → vu
 | 46 | `openseo` | [duckduckdeploy/openseo@12b5254005](https://github.com/duckduckdeploy/openseo/tree/12b525400539f980668d088ff7154236a2376e88) | MIT | biblioteca | Receta local.  |
 | 48 | `kingfisher-collect` | [open-contracting/kingfisher-collect@865bbb20ff](https://github.com/open-contracting/kingfisher-collect/tree/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6) | BSD-3-Clause | biblioteca | Receta local.  |
 
-## Tanda 2 — bibliotecas (marketing, autoridad, agentes, motor de datos) (15)
+## Tanda 2 — bibliotecas (marketing, autoridad, agentes, motor de datos) (13)
 
 | # | Pieza | Repositorio @ commit | Licencia | Tipo | Qué hacer / nota |
 |---|---|---|---|---|---|
@@ -163,8 +170,6 @@ Los flujos incluyen HTML → lint, breadcrumbs → validador e inventario → vu
 | 19 | `youtube-comment-downloader` | [egbertbouman/youtube-comment-downloader@3f557bc802](https://github.com/egbertbouman/youtube-comment-downloader/tree/3f557bc8023d9e3ab9edda93bcd516ca2b33d3c1) | MIT | biblioteca | Receta local.  |
 | 21 | `c2pa` | [contentauth/c2pa-rs@0e92435c6d](https://github.com/contentauth/c2pa-rs/tree/0e92435c6d621c02c9bde2a8d82346295ed1f509) | Apache-2.0 OR MIT | biblioteca | Receta local.  |
 | 34 | `browser-use` | [browser-use/browser-use@480d0bd508](https://github.com/browser-use/browser-use/tree/480d0bd508ce10dcf27a4716f2f87355a08e8372) | MIT | biblioteca | Receta local.  |
-| 37 | `mcp-agent` | [lastmile-ai/mcp-agent@f62d849350](https://github.com/lastmile-ai/mcp-agent/tree/f62d849350816588b1c6294e7914bbe4d8b84072) | Apache-2.0 | biblioteca | Receta local.  |
-| 39 | `nemo-guardrails` | [NVIDIA/NeMo-Guardrails@5d7f4c1ca6](https://github.com/NVIDIA/NeMo-Guardrails/tree/5d7f4c1ca62fb6155066e6c581379d1a5ec11338) | Apache-2.0 | biblioteca | Receta local.  |
 | 42 | `storm` | [stanford-oval/storm@fb951af774](https://github.com/stanford-oval/storm/tree/fb951af7744dab086e34962e9bc6fe878e145f83) | MIT | biblioteca | Receta local.  |
 | 43 | `humanlayer` | [humanlayer/humanlayer@b7ad8e1d38](https://github.com/humanlayer/humanlayer/tree/b7ad8e1d383ff0f5fbec7bdc30425e4a59d5f789) | Apache-2.0 | biblioteca | Receta local.  |
 | 44 | `cua` | [trycua/cua@c372e5fb2b](https://github.com/trycua/cua/tree/c372e5fb2bae944974e903fbf117c61f4ced696e) | MIT | biblioteca | Receta local.  |

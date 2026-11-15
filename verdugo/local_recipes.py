@@ -9,6 +9,8 @@ import math
 
 
 def run(service, operation, p):
+    from .local_planning import SPECS as PLANNING, run as run_planning
+    if service in PLANNING: return run_planning(service, p)
     from .local_pycli import SPECS as PYCLI, run as run_pycli
     if service in PYCLI: return run_pycli(service, p)
     from .local_content import SPECS as CONTENT, run as run_content

@@ -36,6 +36,9 @@ PROFILE_ENV.update({sid: 'VERDUGO_'+profile+'_PYTHON' for sid,profile in CONTENT
 from .local_pycli import SPECS as PYCLI
 PROFILE_ENV.update({sid:'VERDUGO_PYCLI021_PYTHON' for sid in PYCLI})
 
+from .local_planning import PROFILES as PLANNING
+PROFILE_ENV.update({sid:'VERDUGO_'+profile+'_PYTHON' for sid,profile in PLANNING.items()})
+
 def interpreter(service):
     key = PROFILE_ENV.get(service)
     value = os.environ.get(key) if key else None

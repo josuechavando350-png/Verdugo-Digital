@@ -14,7 +14,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from verdugo.local_cli import SPECS
 from install_expansion import install
-GROUPS={'content021':['graphiti','openbb','people-also-ask','jobspy'],
+GROUPS={'planning021':['mcp-agent','nemo-guardrails'],'content021':['graphiti','openbb','people-also-ask','jobspy'],
         'entities021':['chronos','gliner'],'pycli021':['dvc','dnstwist'],
         'node':['geo-lint','site-md','seo-graph','structured-data-validator'],
         'cli-security':['syft','grype','gitleaks'],'cli-storage':['restic','sops','vale']}
@@ -104,6 +104,12 @@ def cli(selected):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser();parser.add_argument('--group',choices=GROUPS,required=True);args=parser.parse_args()
-    if args.group.endswith('021'):install(args.group)
+    if args.group=='planning021':
+        for name in ('mcpagent021','rails021'):
+            install(name)
+            print('BEGIN_VERDUGO_FREEZE '+name,flush=True)
+            print(Path('/tmp/'+name+'-resolved.txt').read_text(),flush=True)
+            print('END_VERDUGO_FREEZE '+name,flush=True)
+    elif args.group.endswith('021'):install(args.group)
     elif args.group=='node':node()
     else:cli(GROUPS[args.group])

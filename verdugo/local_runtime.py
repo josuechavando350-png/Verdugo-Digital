@@ -16,7 +16,7 @@ import sys
 import tempfile
 
 from .common import VerdugoError, fields, identifier, integer, encode
-from . import local_extended, local_analytics, local_research, local_interop, local_knowledge, local_data, local_native, local_cli, local_content, local_pycli, runtime_profile
+from . import local_extended, local_analytics, local_research, local_interop, local_knowledge, local_data, local_native, local_cli, local_content, local_pycli, local_planning, runtime_profile
 
 # Primary published distribution versions; upstream source pins are a separate
 # provenance inventory and must not be confused with installed Python wheels.
@@ -51,6 +51,8 @@ SPECS.update(local_native.SPECS)
 SPECS.update(local_cli.SPECS)
 SPECS.update(local_content.SPECS)
 SPECS.update(local_pycli.SPECS)
+SPECS.update(local_planning.SPECS)
+EXTRA.update(local_planning.EXTRA)
 EXTRA.update(local_content.EXTRA)
 MAX_OUTPUT = 1024 * 1024
 WORKER = Path(__file__).with_name('_local_worker.py')
@@ -139,6 +141,8 @@ def labels(values, count, minimum_per_class=1):
 def validate(service, operation, params):
     if not supports(service, operation):
         raise VerdugoError('Local adapter/action not implemented')
+    if service in local_planning.SPECS:
+        return local_planning.validate(service, operation, params)
     if service in local_pycli.SPECS:
         return local_pycli.validate(service, operation, params)
     if service in local_content.SPECS:
@@ -270,7 +274,7 @@ def preflight(service, operation, cfg):
 
 def implementation_digest():
     h = hashlib.sha256()
-    for path in (Path(__file__), WORKER, RECIPES, Path(local_extended.__file__), Path(local_analytics.__file__), Path(local_research.__file__), Path(local_interop.__file__), Path(local_knowledge.__file__), Path(local_data.__file__), Path(local_native.__file__), local_native.WORKER, Path(local_cli.__file__), Path(local_content.__file__), Path(local_pycli.__file__),
+    for path in (Path(__file__), WORKER, RECIPES, Path(local_extended.__file__), Path(local_analytics.__file__), Path(local_research.__file__), Path(local_interop.__file__), Path(local_knowledge.__file__), Path(local_data.__file__), Path(local_native.__file__), local_native.WORKER, Path(local_cli.__file__), Path(local_content.__file__), Path(local_pycli.__file__), Path(local_planning.__file__),
                  Path(runtime_profile.__file__), runtime_profile.PROBE):
         h.update(path.name.encode())
         h.update(path.read_bytes())

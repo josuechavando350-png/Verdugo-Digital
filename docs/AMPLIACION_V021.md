@@ -91,3 +91,16 @@ Se verifica el estado con grype db status, el origen exacto y la versión de
 cliente del import.json. Después se fija el SHA-256 local resultante en el
 manifiesto. El runtime sigue recalculando ese SHA-256 y rechaza cambios posteriores.
 El manifiesto conserva también el hash del archivo original descargado.
+
+## Dos operaciones de preparación adicionales
+
+MCP-Agent 0.2.6, con MCP 1.30.0, ejecuta una función de totales de campañas
+registrada en su Agent, con servidores, modelos y telemetría desactivados.
+NeMo Guardrails 0.24.1 compila pares de diálogo proporcionados, con etiquetas
+generadas y texto entrecomillado, sin admitir código Colang/YAML del usuario.
+No ejecuta conversaciones ni acredita protección contra ataques a prompts.
+
+Estas dos operaciones ya se probaron con Engine antes de la interrupción local;
+la nueva integración exige repetir la aceptación, persistencia y replay en CI
+con perfiles separados. El estado actual es 20 operaciones en esta revisión y
+68 pendientes; la evidencia local de 18 operaciones conserva su alcance histórico.

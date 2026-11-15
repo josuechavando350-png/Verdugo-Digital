@@ -14,15 +14,15 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 | Fuentes registradas y fijadas por commit | 322 (100 núcleo + 222 de v0.14) |
 | Portafolio con licencia libre (política v0.14) | 300 |
 | Excluidos por licencia (registrados, sin operar) | 22 |
-| Proyectos con una operación implementada | 193: 78 HTTP + 105 bibliotecas locales + 8 CLI + 2 consultas de datos |
-| Conectados bajo la política de licencias | 174 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
+| Proyectos con una operación implementada | 195: 78 HTTP + 107 bibliotecas locales + 8 CLI + 2 consultas de datos |
+| Conectados bajo la política de licencias | 176 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
 | Piezas de construcción (se usan al programar, no vía motor) | 56 |
-| Pendientes de conector | 70 |
+| Pendientes de conector | 68 |
 | Servicios de pago | 0 (Stripe, Twilio, Mercado Pago, E2B y Composio retirados) |
 | Operaciones HTTP existentes | 82, limitadas por proveedor |
-| Operaciones locales implementadas | 115; aceptación de ejecución real exigida por commit |
+| Operaciones locales implementadas | 117; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Flujo de 87 operaciones nuevas + métricas locales; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 664 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
+| Pruebas unitarias y de contrato | 667 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
 | Herramientas MCP | 25; product-status/product-run reutilizan el mismo motor |
 | Servicios productivos certificados | 0 |
 
@@ -33,12 +33,12 @@ bibliotecas ni certifica un despliegue productivo. La aceptación usa datos sint
 
 ## Plan de lo que falta
 
-Las 70 piezas pendientes, conservando las identificaciones de las tandas originales, con las reglas para conectar cada una:
+Las 68 piezas pendientes, conservando las identificaciones de las tandas originales, con las reglas para conectar cada una:
 [docs/PLAN_CONEXION.md](docs/PLAN_CONEXION.md) (y `docs/plan_conexion.json` para agentes).
 
-## Continuación v0.21: 18 operaciones adicionales verificadas
+## Continuación v0.21: 20 operaciones adicionales
 
-Punto de control de la segunda tanda: **18 implementadas, 70 pendientes**.
+Punto de control de la segunda tanda: **20 implementadas, 68 pendientes**.
 Los programas originales comparten Engine, product-run, auditoría y SQLite.
 Se agregan perfiles npm y CLI fijados; las operaciones siguen deshabilitadas por defecto.
 No se certifica una instalación productiva ni ejecución en Termux de estos binarios Linux.

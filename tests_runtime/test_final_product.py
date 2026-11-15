@@ -14,7 +14,9 @@ from cli_fixtures import CASES as CLI, assert_result as assert_cli
 from content_fixtures import CASES as CONTENT, assert_result as assert_content
 from native_fixtures import CASES as NATIVE, assert_result as assert_native
 
-CASES={**CLI,**CONTENT,**NATIVE}
+from planning_fixtures import CASES as PLANNING, assert_result as assert_planning
+
+CASES={**CLI,**CONTENT,**NATIVE,**PLANNING}
 
 class FinalProduct(unittest.TestCase):
     def test_original_operations_compose_and_restart(self):
@@ -43,7 +45,8 @@ class FinalProduct(unittest.TestCase):
                 self.assertEqual('succeeded',first['state'],json.dumps(first))
                 for row in first['analyses']:
                     sid=row['service'];r=row['analysis']['result']
-                    if sid in CLI:assert_cli(self,sid,r)
+                    if sid in PLANNING:assert_planning(self,sid,r)
+                    elif sid in CLI:assert_cli(self,sid,r)
                     elif sid in CONTENT:assert_content(self,sid,r)
                     elif sid=='structured-data-validator' and 'seo-graph' in selected:self.assertEqual(0,r['issues'])
                     elif sid!='geo-lint':assert_native(self,sid,r)

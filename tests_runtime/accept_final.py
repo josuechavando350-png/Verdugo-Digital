@@ -10,7 +10,7 @@ parser=argparse.ArgumentParser();parser.add_argument('--group',choices=GROUPS,re
 selected=GROUPS[args.group]
 for sid in selected:
     key=runtime_profile.PROFILE_ENV.get(sid)
-    if key:os.environ.setdefault(key,'/tmp/verdugo-'+args.group+'-venv/bin/python')
+    if key:os.environ.setdefault(key,'/tmp/verdugo-'+key.removeprefix('VERDUGO_').removesuffix('_PYTHON').lower().replace('_','-')+'-venv/bin/python')
 os.environ.setdefault('VERDUGO_NATIVE_ROOT','/tmp/verdugo-node021')
 os.environ.setdefault('VERDUGO_CLI_ROOT','/tmp/verdugo-cli021')
 os.environ['VERDUGO_RUNTIME_SERVICES']=','.join(selected)
