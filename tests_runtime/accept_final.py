@@ -1,0 +1,21 @@
+"""Select explicit installed profiles for offline original-program acceptance."""
+import argparse
+import os
+from pathlib import Path
+import sys
+import unittest
+from install_final import GROUPS
+from verdugo import runtime_profile
+parser=argparse.ArgumentParser();parser.add_argument('--group',choices=GROUPS,required=True);args=parser.parse_args()
+selected=GROUPS[args.group]
+for sid in selected:
+    key=runtime_profile.PROFILE_ENV.get(sid)
+    if key:os.environ.setdefault(key,'/tmp/verdugo-'+args.group+'-venv/bin/python')
+os.environ.setdefault('VERDUGO_NATIVE_ROOT','/tmp/verdugo-node021')
+os.environ.setdefault('VERDUGO_CLI_ROOT','/tmp/verdugo-cli021')
+os.environ['VERDUGO_RUNTIME_SERVICES']=','.join(selected)
+os.environ['VERDUGO_RUNTIME_REQUIRED']='1'
+os.environ['VERDUGO_RUNTIME_EVIDENCE']='/tmp/'+args.group+'-execution-evidence.json'
+os.environ['VERDUGO_PRODUCT_EVIDENCE']='/tmp/'+args.group+'-product-evidence.json'
+suite=unittest.defaultTestLoader.discover(str(Path(__file__).parent))
+raise SystemExit(0 if unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful() else 1)

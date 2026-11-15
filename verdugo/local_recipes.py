@@ -9,6 +9,17 @@ import math
 
 
 def run(service, operation, p):
+    from .local_pycli import SPECS as PYCLI, run as run_pycli
+    if service in PYCLI: return run_pycli(service, p)
+    from .local_content import SPECS as CONTENT, run as run_content
+    if service in CONTENT:
+        return run_content(service, p)
+    from .local_cli import SPECS as CLI, run as run_cli
+    if service in CLI:
+        return run_cli(service, p)
+    from .local_native import SPECS as NATIVE, run as run_native
+    if service in NATIVE:
+        return run_native(service, p)
     from .local_knowledge import SPECS as KNOWLEDGE, run as run_knowledge
     if service in KNOWLEDGE:
         return run_knowledge(service, p)

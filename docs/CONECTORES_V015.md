@@ -1,3 +1,7 @@
+> Estado v0.21: 174 conectadas, 70 pendientes, 56 piezas de construcción y 22 excluidas.
+> 115 operaciones locales (105 bibliotecas, 8 CLI, 2 datos) y 78 adaptadores HTTP.
+> Las secciones siguientes conservan el detalle histórico.
+
 # Verdugo Digital v0.15–v0.16 — 16 conectores nuevos de solo lectura (solo servicios gratuitos)
 
 Cada ruta, encabezado de autenticación y forma de respuesta se tomó del **código fuente o

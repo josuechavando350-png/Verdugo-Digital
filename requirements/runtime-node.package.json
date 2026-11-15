@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@adobe/structured-data-validator": "1.7.1",
+    "@ijonis/geo-lint": "0.2.1",
+    "@jdevalk/seo-graph-core": "0.7.0",
+    "site-md": "0.2.6"
+  }
+}

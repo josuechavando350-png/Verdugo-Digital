@@ -16,7 +16,7 @@ import sys
 import tempfile
 
 from .common import VerdugoError, fields, identifier, integer, encode
-from . import local_extended, local_analytics, local_research, local_interop, local_knowledge, local_data, runtime_profile
+from . import local_extended, local_analytics, local_research, local_interop, local_knowledge, local_data, local_native, local_cli, local_content, local_pycli, runtime_profile
 
 # Primary published distribution versions; upstream source pins are a separate
 # provenance inventory and must not be confused with installed Python wheels.
@@ -47,6 +47,11 @@ EXTRA.update(local_interop.EXTRA)
 SPECS.update(local_knowledge.SPECS)
 EXTRA.update(local_knowledge.EXTRA)
 SPECS.update(local_data.SPECS)
+SPECS.update(local_native.SPECS)
+SPECS.update(local_cli.SPECS)
+SPECS.update(local_content.SPECS)
+SPECS.update(local_pycli.SPECS)
+EXTRA.update(local_content.EXTRA)
 MAX_OUTPUT = 1024 * 1024
 WORKER = Path(__file__).with_name('_local_worker.py')
 RECIPES = Path(__file__).with_name('local_recipes.py')
@@ -58,6 +63,10 @@ def supports(service, operation):
 
 def installed(service):
     operation, distribution, expected = SPECS[service]
+    if service in local_cli.SPECS:
+        return local_cli.runtime_state(service)
+    if service in local_native.SPECS:
+        return local_native.runtime_state(service)
     if service in local_data.SPECS:
         try:
             local_data.source_bytes(service)
@@ -130,6 +139,14 @@ def labels(values, count, minimum_per_class=1):
 def validate(service, operation, params):
     if not supports(service, operation):
         raise VerdugoError('Local adapter/action not implemented')
+    if service in local_pycli.SPECS:
+        return local_pycli.validate(service, operation, params)
+    if service in local_content.SPECS:
+        return local_content.validate(service, operation, params)
+    if service in local_cli.SPECS:
+        return local_cli.validate(service, operation, params)
+    if service in local_native.SPECS:
+        return local_native.validate(service, operation, params)
     if service in local_extended.SPECS:
         return local_extended.validate(service, operation, params)
     if service in local_analytics.SPECS:
@@ -253,7 +270,7 @@ def preflight(service, operation, cfg):
 
 def implementation_digest():
     h = hashlib.sha256()
-    for path in (Path(__file__), WORKER, RECIPES, Path(local_extended.__file__), Path(local_analytics.__file__), Path(local_research.__file__), Path(local_interop.__file__), Path(local_knowledge.__file__), Path(local_data.__file__),
+    for path in (Path(__file__), WORKER, RECIPES, Path(local_extended.__file__), Path(local_analytics.__file__), Path(local_research.__file__), Path(local_interop.__file__), Path(local_knowledge.__file__), Path(local_data.__file__), Path(local_native.__file__), local_native.WORKER, Path(local_cli.__file__), Path(local_content.__file__), Path(local_pycli.__file__),
                  Path(runtime_profile.__file__), runtime_profile.PROBE):
         h.update(path.name.encode())
         h.update(path.read_bytes())
@@ -297,6 +314,10 @@ def execute(request, cfg):
                'LANGCHAIN_TRACING_V2': 'false', 'MLFLOW_ENABLE_ASYNC_LOGGING': 'false'}
         env.update(FEAST_USAGE='False', PYWIKIBOT_NO_USER_CONFIG='2',
                    HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1', TOKENIZERS_PARALLELISM='false')
+        if public['service'] in local_cli.SPECS:
+            env[local_cli.ENV] = str(local_cli.root())
+        if public['service'] in local_native.SPECS:
+            env[local_native.ENV] = str(local_native.root())
         if public['service'] == 'playwright':
             browser_dir = cfg.get('browser_path')
             if not isinstance(browser_dir, str) or not Path(browser_dir).is_absolute():

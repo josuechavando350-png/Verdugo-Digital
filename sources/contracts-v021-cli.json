@@ -1,0 +1,134 @@
+{
+  "schema": "verdugo.source-api-evidence.v1",
+  "scope": "six original source-built fixed CLI operations; no caller-controlled command",
+  "files": [
+    {
+      "service": "gitleaks",
+      "repository": "gitleaks/gitleaks",
+      "commit": "5f6ec56cfa6f8c67648d863582c7ae2f206d5c1c",
+      "path": "cmd/stdin.go",
+      "blob_sha": "e7b5a824208f7f17fd3cda2ac337e8d51c815f9e",
+      "url": "https://github.com/gitleaks/gitleaks/blob/5f6ec56cfa6f8c67648d863582c7ae2f206d5c1c/cmd/stdin.go"
+    },
+    {
+      "service": "gitleaks",
+      "repository": "gitleaks/gitleaks",
+      "commit": "5f6ec56cfa6f8c67648d863582c7ae2f206d5c1c",
+      "path": "detect/detect.go",
+      "blob_sha": "ea3bf41ff9a4aa1c64f6c4db00b5abc70485f18a",
+      "url": "https://github.com/gitleaks/gitleaks/blob/5f6ec56cfa6f8c67648d863582c7ae2f206d5c1c/detect/detect.go"
+    },
+    {
+      "service": "gitleaks",
+      "repository": "gitleaks/gitleaks",
+      "commit": "5f6ec56cfa6f8c67648d863582c7ae2f206d5c1c",
+      "path": "go.mod",
+      "blob_sha": "3a16143eab785122ab77865b331761b5cd1f5992",
+      "url": "https://github.com/gitleaks/gitleaks/blob/5f6ec56cfa6f8c67648d863582c7ae2f206d5c1c/go.mod"
+    },
+    {
+      "service": "restic",
+      "repository": "restic/restic",
+      "commit": "c734245fd3ae9bcac8ab3aaafb4482d4b5d0ae92",
+      "path": "cmd/restic/cmd_backup.go",
+      "blob_sha": "63814fb93c4f3f9ba885e3679f54cd5d354dc217",
+      "url": "https://github.com/restic/restic/blob/c734245fd3ae9bcac8ab3aaafb4482d4b5d0ae92/cmd/restic/cmd_backup.go"
+    },
+    {
+      "service": "restic",
+      "repository": "restic/restic",
+      "commit": "c734245fd3ae9bcac8ab3aaafb4482d4b5d0ae92",
+      "path": "cmd/restic/cmd_dump.go",
+      "blob_sha": "981cd95ffb6c507976fa732fd8dd9d2f6a195482",
+      "url": "https://github.com/restic/restic/blob/c734245fd3ae9bcac8ab3aaafb4482d4b5d0ae92/cmd/restic/cmd_dump.go"
+    },
+    {
+      "service": "restic",
+      "repository": "restic/restic",
+      "commit": "c734245fd3ae9bcac8ab3aaafb4482d4b5d0ae92",
+      "path": "cmd/restic/cmd_check.go",
+      "blob_sha": "cdfcb8cbc3bd623d5862ece4feb3eb95165d1b5a",
+      "url": "https://github.com/restic/restic/blob/c734245fd3ae9bcac8ab3aaafb4482d4b5d0ae92/cmd/restic/cmd_check.go"
+    },
+    {
+      "service": "restic",
+      "repository": "restic/restic",
+      "commit": "c734245fd3ae9bcac8ab3aaafb4482d4b5d0ae92",
+      "path": "go.mod",
+      "blob_sha": "191b043780c2dddaa3f387b589246770a1f3aa9c",
+      "url": "https://github.com/restic/restic/blob/c734245fd3ae9bcac8ab3aaafb4482d4b5d0ae92/go.mod"
+    },
+    {
+      "service": "syft",
+      "repository": "anchore/syft",
+      "commit": "a0c0d3890a9d79421c403e8fcadec50a2e55bf21",
+      "path": "go.mod",
+      "blob_sha": "c31b6c7217703a2de37d4c056a43993ed1883b48",
+      "url": "https://github.com/anchore/syft/blob/a0c0d3890a9d79421c403e8fcadec50a2e55bf21/go.mod"
+    },
+    {
+      "service": "grype",
+      "repository": "anchore/grype",
+      "commit": "cd1f23eb50dfb52647090158f453c7359172591f",
+      "path": "go.mod",
+      "blob_sha": "019c5b08d64c9cab870fb3f130e2ebdcaac33459",
+      "url": "https://github.com/anchore/grype/blob/cd1f23eb50dfb52647090158f453c7359172591f/go.mod"
+    },
+    {
+      "service": "sops",
+      "repository": "getsops/sops",
+      "commit": "9aa10f12bcd82400b7eb73331dd7a87a93bb17f7",
+      "path": "cmd/sops/main.go",
+      "blob_sha": "8092a3f400533b31b519fd7309fdbfa05c31ccd8",
+      "url": "https://github.com/getsops/sops/blob/9aa10f12bcd82400b7eb73331dd7a87a93bb17f7/cmd/sops/main.go"
+    },
+    {
+      "service": "sops",
+      "repository": "getsops/sops",
+      "commit": "9aa10f12bcd82400b7eb73331dd7a87a93bb17f7",
+      "path": "go.mod",
+      "blob_sha": "df8b5791b113f7bb3beaa598cfae4b82dc004fb9",
+      "url": "https://github.com/getsops/sops/blob/9aa10f12bcd82400b7eb73331dd7a87a93bb17f7/go.mod"
+    },
+    {
+      "service": "vale",
+      "repository": "vale-cli/vale",
+      "commit": "4ce91ef208b37f9ac2894766e8cd7b33ffe3baed",
+      "path": "cmd/vale/main.go",
+      "blob_sha": "982342071b0d1c33e476cf6860f5d7b3671ebac9",
+      "url": "https://github.com/vale-cli/vale/blob/4ce91ef208b37f9ac2894766e8cd7b33ffe3baed/cmd/vale/main.go"
+    },
+    {
+      "service": "vale",
+      "repository": "vale-cli/vale",
+      "commit": "4ce91ef208b37f9ac2894766e8cd7b33ffe3baed",
+      "path": "go.mod",
+      "blob_sha": "15d58451dff8e9a8753a5d30241f0821604d683a",
+      "url": "https://github.com/vale-cli/vale/blob/4ce91ef208b37f9ac2894766e8cd7b33ffe3baed/go.mod"
+    },
+    {
+      "service": "syft",
+      "repository": "anchore/syft",
+      "commit": "a0c0d3890a9d79421c403e8fcadec50a2e55bf21",
+      "path": "cmd/syft/internal/commands/scan.go",
+      "blob_sha": "4572f65580cf943566738adfa4e6b864ce3aa5e8",
+      "url": "https://github.com/anchore/syft/blob/a0c0d3890a9d79421c403e8fcadec50a2e55bf21/cmd/syft/internal/commands/scan.go"
+    },
+    {
+      "service": "grype",
+      "repository": "anchore/grype",
+      "commit": "cd1f23eb50dfb52647090158f453c7359172591f",
+      "path": "cmd/grype/cli/commands/root.go",
+      "blob_sha": "a84581769fb204a494cf12108fc6b7ef49908645",
+      "url": "https://github.com/anchore/grype/blob/cd1f23eb50dfb52647090158f453c7359172591f/cmd/grype/cli/commands/root.go"
+    },
+    {
+      "service": "grype",
+      "repository": "anchore/grype",
+      "commit": "cd1f23eb50dfb52647090158f453c7359172591f",
+      "path": "cmd/grype/cli/commands/db_import.go",
+      "blob_sha": "587ce08e2811c92d535a5ac92ce93ea24ab2a652",
+      "url": "https://github.com/anchore/grype/blob/cd1f23eb50dfb52647090158f453c7359172591f/cmd/grype/cli/commands/db_import.go"
+    }
+  ]
+}

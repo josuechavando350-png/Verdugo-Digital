@@ -2,7 +2,7 @@
 
 Núcleo comercial y de análisis para Nexus Bot Studio. Una sola entrada CLI/MCP,
 un motor de ejecución, flujos con dependencias, permisos locales, auditoría,
-idempotencia y estado SQLite. Versión de ingeniería **0.20.0**.
+idempotencia y estado SQLite. Versión de ingeniería **0.21.0**.
 
 **La integración operativa de los 300 proyectos NO está terminada.** Registrar
 fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
@@ -14,15 +14,15 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 | Fuentes registradas y fijadas por commit | 322 (100 núcleo + 222 de v0.14) |
 | Portafolio con licencia libre (política v0.14) | 300 |
 | Excluidos por licencia (registrados, sin operar) | 22 |
-| Proyectos con una operación implementada | 175: 78 HTTP + 95 de bibliotecas locales + 2 consultas de datos |
-| Conectados bajo la política de licencias | 156 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
+| Proyectos con una operación implementada | 193: 78 HTTP + 105 bibliotecas locales + 8 CLI + 2 consultas de datos |
+| Conectados bajo la política de licencias | 174 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
 | Piezas de construcción (se usan al programar, no vía motor) | 56 |
-| Pendientes de conector | 88 |
+| Pendientes de conector | 70 |
 | Servicios de pago | 0 (Stripe, Twilio, Mercado Pago, E2B y Composio retirados) |
 | Operaciones HTTP existentes | 82, limitadas por proveedor |
-| Operaciones locales implementadas | 97; aceptación de ejecución real exigida por commit |
+| Operaciones locales implementadas | 115; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Flujo de 87 operaciones nuevas + métricas locales; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 634 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
+| Pruebas unitarias y de contrato | 660 pruebas de núcleo y contrato; comprobar ejecución CI por commit |
 | Herramientas MCP | 25; product-status/product-run reutilizan el mismo motor |
 | Servicios productivos certificados | 0 |
 
@@ -33,8 +33,16 @@ bibliotecas ni certifica un despliegue productivo. La aceptación usa datos sint
 
 ## Plan de lo que falta
 
-Las 88 piezas pendientes, conservando las tandas originales de 27, 21, 27 y 13, con las reglas para conectar cada una:
+Las 70 piezas pendientes, conservando las identificaciones de las tandas originales, con las reglas para conectar cada una:
 [docs/PLAN_CONEXION.md](docs/PLAN_CONEXION.md) (y `docs/plan_conexion.json` para agentes).
+
+## Continuación v0.21: 18 operaciones adicionales verificadas
+
+Punto de control de la segunda tanda: **18 implementadas, 70 pendientes**.
+Los programas originales comparten Engine, product-run, auditoría y SQLite.
+Se agregan perfiles npm y CLI fijados; las operaciones siguen deshabilitadas por defecto.
+No se certifica una instalación productiva ni ejecución en Termux de estos binarios Linux.
+[Operaciones, dependencias y evidencia](docs/AMPLIACION_V021.md).
 
 ## Continuación v0.20: primera ampliación de 87 operaciones
 

@@ -30,6 +30,11 @@ PROFILE_ENV.update({sid: 'VERDUGO_'+profile+'_PYTHON' for sid, profile in PROFIL
 from .local_knowledge import PROFILES as KNOWLEDGE_PROFILES
 PROFILE_ENV.update({sid: 'VERDUGO_'+profile+'_PYTHON' for sid, profile in KNOWLEDGE_PROFILES.items()})
 
+from .local_content import PROFILES as CONTENT_PROFILES
+PROFILE_ENV.update({sid: 'VERDUGO_'+profile+'_PYTHON' for sid,profile in CONTENT_PROFILES.items()})
+
+from .local_pycli import SPECS as PYCLI
+PROFILE_ENV.update({sid:'VERDUGO_PYCLI021_PYTHON' for sid in PYCLI})
 
 def interpreter(service):
     key = PROFILE_ENV.get(service)

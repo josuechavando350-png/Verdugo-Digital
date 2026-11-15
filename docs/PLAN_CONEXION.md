@@ -1,16 +1,16 @@
 # Verdugo Digital — Plan para conectar lo que falta
 
-Fecha: 14 de noviembre de 2026. Versión del motor: 0.20.0.
+Fecha: 15 de noviembre de 2026. Versión del motor: 0.21.0.
 
 | Estado | Cuántas |
 |---|---|
-| conectado | 156 |
+| conectado | 174 |
 | pieza_de_construccion | 56 |
-| pendiente | 88 |
+| pendiente | 70 |
 | excluido | 22 |
 | **Total** | 322 |
 
-**Pendientes: 88**, conservando las cuatro tandas originales (27, 21, 27 y 13). Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
+**Pendientes: 70**, conservando la identificación de las cuatro tandas originales. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
 no se conectan al motor: se usan al construir la plataforma (fase aparte). Las 22 excluidas por licencia no se tocan.
 
 El estado de cada pieza lo calcula el código: `python -m verdugo connections`. Este plan en formato
@@ -89,6 +89,14 @@ excluidas se conservan. Conectado significa una operación delimitada implementa
 no instalación productiva ni cobertura completa del programa original.
 [Operaciones, fuentes, pruebas y límites](AMPLIACION_V020.md).
 
+## Continuación v0.21: punto de control de 18 operaciones
+
+Se ejecutaron cuatro paquetes npm, seis bibliotecas Python, seis binarios compilados
+desde sus commits y dos CLI Python originales. Son **18 de las 88 pendientes**;
+las otras **70 siguen pendientes**. No se da por terminada la segunda tanda.
+Los flujos incluyen HTML → lint, breadcrumbs → validador e inventario → vulnerabilidades.
+[Alcance y evidencia](AMPLIACION_V021.md).
+
 ## Reglas para cada conector (obligatorias)
 
 1. Leer `AGENTS.md` y `README.md`. Correr `python -m unittest discover -s tests -v` antes y después.
@@ -141,15 +149,11 @@ no instalación productiva ni cobertura completa del programa original.
 | 46 | `openseo` | [duckduckdeploy/openseo@12b5254005](https://github.com/duckduckdeploy/openseo/tree/12b525400539f980668d088ff7154236a2376e88) | MIT | biblioteca | Receta local.  |
 | 48 | `kingfisher-collect` | [open-contracting/kingfisher-collect@865bbb20ff](https://github.com/open-contracting/kingfisher-collect/tree/865bbb20ff4e6495bd2aba08bef5f2a0a1a648f6) | BSD-3-Clause | biblioteca | Receta local.  |
 
-## Tanda 2 — bibliotecas (marketing, autoridad, agentes, motor de datos) (21)
+## Tanda 2 — bibliotecas (marketing, autoridad, agentes, motor de datos) (15)
 
 | # | Pieza | Repositorio @ commit | Licencia | Tipo | Qué hacer / nota |
 |---|---|---|---|---|---|
-| 3 | `geo-lint` | [IJONIS/geo-lint@b2d79319d1](https://github.com/IJONIS/geo-lint/tree/b2d79319d1d0d4d4fc5d6abbc4ce5156afc5d14b) | MIT | biblioteca | Receta local.  |
 | 4 | `autogeo` | [cxcscmu/AutoGEO@49456df236](https://github.com/cxcscmu/AutoGEO/tree/49456df236774ea24087c44f45e9e52005b8e6a4) | MIT | biblioteca | Receta local.  |
-| 5 | `site-md` | [yazinsai/site-md@c5c31bc781](https://github.com/yazinsai/site-md/tree/c5c31bc781d06f83a81d30a284f0df3aa2ffbe32) | MIT | biblioteca | Receta local.  |
-| 6 | `seo-graph` | [jdevalk/seo-graph@c33eb1e120](https://github.com/jdevalk/seo-graph/tree/c33eb1e120c620970042e28f1332fc90c30125e6) | MIT | biblioteca | Receta local.  |
-| 7 | `structured-data-validator` | [adobe/structured-data-validator@6918b52651](https://github.com/adobe/structured-data-validator/tree/6918b52651d6f4c5dae612859e2e395de5a1910e) | Apache-2.0 | biblioteca | Receta local.  |
 | 11 | `cc-webgraph` | [commoncrawl/cc-webgraph@8a3a34e2f3](https://github.com/commoncrawl/cc-webgraph/tree/8a3a34e2f3bc16b865ee234eab83a4917086b814) | Apache-2.0 | biblioteca | Receta local.  |
 | 12 | `trendspyg` | [flack0x/trendspyg@9f07b2573e](https://github.com/flack0x/trendspyg/tree/9f07b2573e7287df85df9202da206569024723e9) | MIT | biblioteca | Receta local.  |
 | 14 | `newsjack` | [elvisun/newsjack@c2df3a0168](https://github.com/elvisun/newsjack/tree/c2df3a0168083d620b9b36518aeca16a4eb72296) | MIT | biblioteca | Receta local.  |
@@ -157,9 +161,7 @@ no instalación productiva ni cobertura completa del programa original.
 | 17 | `python-podcastindex` | [piqosoft/python-podcastindex@63fdb84b76](https://github.com/piqosoft/python-podcastindex/tree/63fdb84b76b5d65c99e9c92428af55cc51aff04e) | MIT | biblioteca | Receta local.  |
 | 18 | `praw` | [praw-dev/praw@4590cb5b0a](https://github.com/praw-dev/praw/tree/4590cb5b0ad2f9afbab983d60d792fc3c74d1f45) | BSD-2-Clause | biblioteca | Receta local.  |
 | 19 | `youtube-comment-downloader` | [egbertbouman/youtube-comment-downloader@3f557bc802](https://github.com/egbertbouman/youtube-comment-downloader/tree/3f557bc8023d9e3ab9edda93bcd516ca2b33d3c1) | MIT | biblioteca | Receta local.  |
-| 20 | `people-also-ask` | [labsonmars/people_also_ask@21db28fb5a](https://github.com/labsonmars/people_also_ask/tree/21db28fb5a75d233bf18db381fab538791eee495) | MIT | biblioteca | Receta local.  |
 | 21 | `c2pa` | [contentauth/c2pa-rs@0e92435c6d](https://github.com/contentauth/c2pa-rs/tree/0e92435c6d621c02c9bde2a8d82346295ed1f509) | Apache-2.0 OR MIT | biblioteca | Receta local.  |
-| 33 | `graphiti` | [getzep/graphiti@3ed0252749](https://github.com/getzep/graphiti/tree/3ed02527499d4eb3b2eb133d716898dc89d7cc99) | Apache-2.0 | biblioteca | Receta local.  |
 | 34 | `browser-use` | [browser-use/browser-use@480d0bd508](https://github.com/browser-use/browser-use/tree/480d0bd508ce10dcf27a4716f2f87355a08e8372) | MIT | biblioteca | Receta local.  |
 | 37 | `mcp-agent` | [lastmile-ai/mcp-agent@f62d849350](https://github.com/lastmile-ai/mcp-agent/tree/f62d849350816588b1c6294e7914bbe4d8b84072) | Apache-2.0 | biblioteca | Receta local.  |
 | 39 | `nemo-guardrails` | [NVIDIA/NeMo-Guardrails@5d7f4c1ca6](https://github.com/NVIDIA/NeMo-Guardrails/tree/5d7f4c1ca62fb6155066e6c581379d1a5ec11338) | Apache-2.0 | biblioteca | Receta local.  |
@@ -167,7 +169,7 @@ no instalación productiva ni cobertura completa del programa original.
 | 43 | `humanlayer` | [humanlayer/humanlayer@b7ad8e1d38](https://github.com/humanlayer/humanlayer/tree/b7ad8e1d383ff0f5fbec7bdc30425e4a59d5f789) | Apache-2.0 | biblioteca | Receta local.  |
 | 44 | `cua` | [trycua/cua@c372e5fb2b](https://github.com/trycua/cua/tree/c372e5fb2bae944974e903fbf117c61f4ced696e) | MIT | biblioteca | Receta local.  |
 
-## Tanda 3 — programas de línea de comandos (requiere runner nuevo) y bibliotecas (27)
+## Tanda 3 — programas de línea de comandos (requiere runner nuevo) y bibliotecas (17)
 
 | # | Pieza | Repositorio @ commit | Licencia | Tipo | Qué hacer / nota |
 |---|---|---|---|---|---|
@@ -175,31 +177,21 @@ no instalación productiva ni cobertura completa del programa original.
 | 2 | `goaccess` | [allinurl/goaccess@6e890b584b](https://github.com/allinurl/goaccess/tree/6e890b584b8b36c445aa37dea83d7d5519d5fc46) | MIT | cli | Receta CLI.  |
 | 3 | `sherlock` | [sherlock-project/sherlock@c588d7c8b4](https://github.com/sherlock-project/sherlock/tree/c588d7c8b476df9f9c84912a05d1430fb8cdcdae) | MIT | cli | Receta CLI.  |
 | 4 | `google-maps-scraper` | [gosom/google-maps-scraper@e0c1d501e4](https://github.com/gosom/google-maps-scraper/tree/e0c1d501e49cdcd5c6b2cecd2a032831f6ee9ba8) | MIT | cli | Receta CLI.  |
-| 5 | `dnstwist` | [elceef/dnstwist@341395377f](https://github.com/elceef/dnstwist/tree/341395377f40761fe4152f43fd18eea757b6069a) | Apache-2.0 | cli | Receta CLI.  |
-| 6 | `vale` | [errata-ai/vale@4ce91ef208](https://github.com/errata-ai/vale/tree/4ce91ef208b37f9ac2894766e8cd7b33ffe3baed) | MIT | cli | Receta CLI.  |
 | 7 | `quarto` | [quarto-dev/quarto-cli@1782b5b309](https://github.com/quarto-dev/quarto-cli/tree/1782b5b3099e8e4dd62cf7bac590d3bad2072c56) | MIT | cli | Receta CLI.  |
 | 8 | `auto-editor` | [WyattBlue/auto-editor@2bbdcd95bc](https://github.com/WyattBlue/auto-editor/tree/2bbdcd95bc221254e4e6e00eb4c827b06ae93f71) | Unlicense | cli | Receta CLI.  |
 | 9 | `slidev` | [slidevjs/slidev@437f139ccd](https://github.com/slidevjs/slidev/tree/437f139ccd4c8482a193b217922e7800a5b3baec) | MIT | cli | Receta CLI.  |
-| 10 | `dvc` | [iterative/dvc@b59add99ee](https://github.com/iterative/dvc/tree/b59add99ee667f2b352cc1be337619f965fe3fea) | Apache-2.0 | cli | Receta CLI.  |
 | 11 | `landscape-app` | [cncf/landscapeapp@a882d0675b](https://github.com/cncf/landscapeapp/tree/a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf) | Apache-2.0 | cli | Receta CLI.  |
 | 12 | `log4brains` | [thomvaill/log4brains@17e32021a8](https://github.com/thomvaill/log4brains/tree/17e32021a8c5130386f17e921d4efa6da7709a66) | Apache-2.0 | cli | Receta CLI.  |
 | 13 | `openapi-generator` | [OpenAPITools/openapi-generator@1d942536cd](https://github.com/OpenAPITools/openapi-generator/tree/1d942536cd430bd303076e0eef28325cc6e965fe) | Apache-2.0 | cli | Receta CLI.  |
 | 14 | `lighthouse` | [GoogleChrome/lighthouse@5313024aa0](https://github.com/GoogleChrome/lighthouse/tree/5313024aa05786138dfd38c6740ef354e20c3f92) | Apache-2.0 | cli | Receta CLI.  |
 | 15 | `promptfoo` | [promptfoo/promptfoo@e5ca12a10b](https://github.com/promptfoo/promptfoo/tree/e5ca12a10bf4e28d8598bc800f3e4f2ad0053b2d) | MIT | cli | Receta CLI.  |
 | 16 | `dbt` | [dbt-labs/dbt@3a3c73e46a](https://github.com/dbt-labs/dbt/tree/3a3c73e46acb63bf09dbcb53ebaea1d7efdffe2e) | Apache-2.0 | cli | Receta CLI.  |
-| 17 | `sops` | [getsops/sops@9aa10f12bc](https://github.com/getsops/sops/tree/9aa10f12bcd82400b7eb73331dd7a87a93bb17f7) | MPL-2.0 | cli | Receta CLI. MPL-2.0: si modificas sus archivos, esos archivos se comparten. |
-| 18 | `grype` | [anchore/grype@cd1f23eb50](https://github.com/anchore/grype/tree/cd1f23eb50dfb52647090158f453c7359172591f) | Apache-2.0 | cli | Receta CLI.  |
-| 19 | `syft` | [anchore/syft@a0c0d3890a](https://github.com/anchore/syft/tree/a0c0d3890a9d79421c403e8fcadec50a2e55bf21) | Apache-2.0 | cli | Receta CLI.  |
-| 20 | `gitleaks` | [gitleaks/gitleaks@5f6ec56cfa](https://github.com/gitleaks/gitleaks/tree/5f6ec56cfa6f8c67648d863582c7ae2f206d5c1c) | MIT | cli | Receta CLI.  |
-| 21 | `restic` | [restic/restic@c734245fd3](https://github.com/restic/restic/tree/c734245fd3ae9bcac8ab3aaafb4482d4b5d0ae92) | BSD-2-Clause | cli | Receta CLI.  |
 | 25 | `apache-age` | [apache/age@8c7e44fd2a](https://github.com/apache/age/tree/8c7e44fd2a525dedfd3d4e8168921442eb4fce2f) | Apache-2.0 | biblioteca | Receta local.  |
 | 28 | `tfcausalimpact` | [WillianFuks/tfcausalimpact@99bd5fb866](https://github.com/WillianFuks/tfcausalimpact/tree/99bd5fb866acb352daf1b58c17d8f711d0e1a9ec) | Apache-2.0 | biblioteca | Receta local.  |
-| 33 | `chronos` | [amazon-science/chronos-forecasting@1224fafa91](https://github.com/amazon-science/chronos-forecasting/tree/1224fafa91e1ecd6674f5204066b159e40b5e4a1) | Apache-2.0 | biblioteca | Receta local.  |
-| 38 | `gliner` | [urchade/GLiNER@beb41b3839](https://github.com/urchade/GLiNER/tree/beb41b3839267952d0f063c04dd6236e9fd93a38) | Apache-2.0 | biblioteca | Receta local.  |
 | 39 | `arx` | [arx-deidentifier/arx@4e0a5f5340](https://github.com/arx-deidentifier/arx/tree/4e0a5f5340fe9a58c44b34c2f9acd2d68f1dad5f) | Apache-2.0 | biblioteca | Receta local.  |
 | 46 | `cognee` | [topoteretes/cognee@4053f6cc55](https://github.com/topoteretes/cognee/tree/4053f6cc5536757f26a3665eed95c50088e6dc0b) | Apache-2.0 | biblioteca | Receta local.  |
 
-## Tanda 4 — bibliotecas restantes (13)
+## Tanda 4 — bibliotecas restantes (11)
 
 | # | Pieza | Repositorio @ commit | Licencia | Tipo | Qué hacer / nota |
 |---|---|---|---|---|---|
@@ -209,8 +201,6 @@ no instalación productiva ni cobertura completa del programa original.
 | 6 | `wbgapi` | [tgherzog/wbgapi@4d0d2c925a](https://github.com/tgherzog/wbgapi/tree/4d0d2c925a8dac359df5a2d9e82001ff6feeecda) | MIT | biblioteca | Receta local.  |
 | 7 | `census` | [datamade/census@3da5a10681](https://github.com/datamade/census/tree/3da5a1068164c27f6e83815f5d28ec300e184fdf) | BSD-3-Clause | biblioteca | Receta local.  |
 | 8 | `comtradeapicall` | [uncomtrade/comtradeapicall@d8b1958898](https://github.com/uncomtrade/comtradeapicall/tree/d8b19588986405df8c3c94062bd73fd08b9110cd) | MIT | biblioteca | Receta local.  |
-| 10 | `openbb` | [OpenBB-finance/OpenBB@e43353a828](https://github.com/OpenBB-finance/OpenBB/tree/e43353a82815ff9ba56ad1b7ad47c32729dcf314) | Apache-2.0 | biblioteca | Receta local.  |
-| 12 | `jobspy` | [speedyapply/JobSpy@68b88d6909](https://github.com/speedyapply/JobSpy/tree/68b88d6909a2342ad75fbb945c4204a3a7ed6665) | MIT | biblioteca | Receta local.  |
 | 15 | `pricesensitivitymeter` | [max-alletsee/pricesensitivitymeter@8188de1e95](https://github.com/max-alletsee/pricesensitivitymeter/tree/8188de1e95fa0f407073677f6f88baec2f43c8d4) | MIT | biblioteca | Receta local. Licencia MIT de R (archivo corto con año y titular). |
 | 26 | `vanna` | [vanna-ai/vanna@365d0617c1](https://github.com/vanna-ai/vanna/tree/365d0617c1a4567ffee1b19b40c27feb4206bfcf) | MIT | biblioteca | Receta local.  |
 | 30 | `pgvector` | [pgvector/pgvector@66accb3af6](https://github.com/pgvector/pgvector/tree/66accb3af6705ea9975a33f6704f1cde50d99447) | PostgreSQL | biblioteca | Receta local.  |

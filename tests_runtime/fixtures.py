@@ -50,3 +50,11 @@ from knowledge_fixtures import CASES as KNOWLEDGE_CASES
 CASES.update(RESEARCH_CASES)
 CASES.update(INTEROP_CASES)
 CASES.update(KNOWLEDGE_CASES)
+
+from content_fixtures import CASES as CONTENT_CASES
+CASES.update(CONTENT_CASES)
+from native_fixtures import CASES as NATIVE_CASES
+CASES.update(NATIVE_CASES)
+
+from cli_fixtures import CASES as CLI_CASES
+CASES.update(CLI_CASES)

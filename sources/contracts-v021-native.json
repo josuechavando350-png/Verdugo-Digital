@@ -1,0 +1,110 @@
+{
+  "schema": "verdugo.source-api-evidence.v1",
+  "scope": "four fixed original npm operations; no model or network calls",
+  "files": [
+    {
+      "service": "geo-lint",
+      "repository": "IJONIS/geo-lint",
+      "commit": "b2d79319d1d0d4d4fc5d6abbc4ce5156afc5d14b",
+      "path": "src/index.ts",
+      "blob_sha": "099f68eead40f721e07eef34716f9def00849653",
+      "url": "https://github.com/IJONIS/geo-lint/blob/b2d79319d1d0d4d4fc5d6abbc4ce5156afc5d14b/src/index.ts"
+    },
+    {
+      "service": "geo-lint",
+      "repository": "IJONIS/geo-lint",
+      "commit": "b2d79319d1d0d4d4fc5d6abbc4ce5156afc5d14b",
+      "path": "src/adapters/types.ts",
+      "blob_sha": "c1aa3e7bf60bd6bab09662b8a3d283912c69c0d5",
+      "url": "https://github.com/IJONIS/geo-lint/blob/b2d79319d1d0d4d4fc5d6abbc4ce5156afc5d14b/src/adapters/types.ts"
+    },
+    {
+      "service": "geo-lint",
+      "repository": "IJONIS/geo-lint",
+      "commit": "b2d79319d1d0d4d4fc5d6abbc4ce5156afc5d14b",
+      "path": "src/types.ts",
+      "blob_sha": "ed69e884da0a94d44a81a1d0f83c893c601cdf97",
+      "url": "https://github.com/IJONIS/geo-lint/blob/b2d79319d1d0d4d4fc5d6abbc4ce5156afc5d14b/src/types.ts"
+    },
+    {
+      "service": "geo-lint",
+      "repository": "IJONIS/geo-lint",
+      "commit": "b2d79319d1d0d4d4fc5d6abbc4ce5156afc5d14b",
+      "path": "package.json",
+      "blob_sha": "b45db08efd02b6f2bec5a3d24b8a6639017eb0ec",
+      "url": "https://github.com/IJONIS/geo-lint/blob/b2d79319d1d0d4d4fc5d6abbc4ce5156afc5d14b/package.json"
+    },
+    {
+      "service": "site-md",
+      "repository": "yazinsai/site-md",
+      "commit": "c5c31bc781d06f83a81d30a284f0df3aa2ffbe32",
+      "path": "src/convert.ts",
+      "blob_sha": "81c54624634667169b5242980b5c37f65017d0db",
+      "url": "https://github.com/yazinsai/site-md/blob/c5c31bc781d06f83a81d30a284f0df3aa2ffbe32/src/convert.ts"
+    },
+    {
+      "service": "site-md",
+      "repository": "yazinsai/site-md",
+      "commit": "c5c31bc781d06f83a81d30a284f0df3aa2ffbe32",
+      "path": "src/index.ts",
+      "blob_sha": "e93302d5f04e8cbd929113a167be417d88fabb75",
+      "url": "https://github.com/yazinsai/site-md/blob/c5c31bc781d06f83a81d30a284f0df3aa2ffbe32/src/index.ts"
+    },
+    {
+      "service": "site-md",
+      "repository": "yazinsai/site-md",
+      "commit": "c5c31bc781d06f83a81d30a284f0df3aa2ffbe32",
+      "path": "package.json",
+      "blob_sha": "815d41987d3b2e73ff1de5538e0fbff1234fd839",
+      "url": "https://github.com/yazinsai/site-md/blob/c5c31bc781d06f83a81d30a284f0df3aa2ffbe32/package.json"
+    },
+    {
+      "service": "seo-graph",
+      "repository": "jdevalk/seo-graph",
+      "commit": "c33eb1e120c620970042e28f1332fc90c30125e6",
+      "path": "packages/seo-graph-core/src/pieces/breadcrumb.ts",
+      "blob_sha": "bba4c60123934ecceb974575b4fcfe58fab3e4c1",
+      "url": "https://github.com/jdevalk/seo-graph/blob/c33eb1e120c620970042e28f1332fc90c30125e6/packages/seo-graph-core/src/pieces/breadcrumb.ts"
+    },
+    {
+      "service": "seo-graph",
+      "repository": "jdevalk/seo-graph",
+      "commit": "c33eb1e120c620970042e28f1332fc90c30125e6",
+      "path": "packages/seo-graph-core/src/assemble.ts",
+      "blob_sha": "927df1a4b15097165de7e0bb7250ffc5ad7b0a94",
+      "url": "https://github.com/jdevalk/seo-graph/blob/c33eb1e120c620970042e28f1332fc90c30125e6/packages/seo-graph-core/src/assemble.ts"
+    },
+    {
+      "service": "seo-graph",
+      "repository": "jdevalk/seo-graph",
+      "commit": "c33eb1e120c620970042e28f1332fc90c30125e6",
+      "path": "packages/seo-graph-core/package.json",
+      "blob_sha": "b049be233a0fbc3d7e88dbfe63b1a796a929a92e",
+      "url": "https://github.com/jdevalk/seo-graph/blob/c33eb1e120c620970042e28f1332fc90c30125e6/packages/seo-graph-core/package.json"
+    },
+    {
+      "service": "structured-data-validator",
+      "repository": "adobe/structured-data-validator",
+      "commit": "6918b52651d6f4c5dae612859e2e395de5a1910e",
+      "path": "src/validator.js",
+      "blob_sha": "81d85ef4a91ee4ddfc58bbc9ffb4f057f4e55b47",
+      "url": "https://github.com/adobe/structured-data-validator/blob/6918b52651d6f4c5dae612859e2e395de5a1910e/src/validator.js"
+    },
+    {
+      "service": "structured-data-validator",
+      "repository": "adobe/structured-data-validator",
+      "commit": "6918b52651d6f4c5dae612859e2e395de5a1910e",
+      "path": "src/types/BreadcrumbList.js",
+      "blob_sha": "8cb2fc863a6392b29c4d4a0d323a6aa4400c0dcd",
+      "url": "https://github.com/adobe/structured-data-validator/blob/6918b52651d6f4c5dae612859e2e395de5a1910e/src/types/BreadcrumbList.js"
+    },
+    {
+      "service": "structured-data-validator",
+      "repository": "adobe/structured-data-validator",
+      "commit": "6918b52651d6f4c5dae612859e2e395de5a1910e",
+      "path": "package.json",
+      "blob_sha": "844bfdc7abe60279c4111bc3ce480c6c00bc22af",
+      "url": "https://github.com/adobe/structured-data-validator/blob/6918b52651d6f4c5dae612859e2e395de5a1910e/package.json"
+    }
+  ]
+}
