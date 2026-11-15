@@ -16,9 +16,10 @@ from . import local_runtime
 from .common import VerdugoError, digest, encode, fields, identifier, integer, sanitize, text
 from .transport import send
 from . import identity, jobs, reconciliation, readback, commercial, pilot, office
+from . import objectives
 from .guards import StateGuards, GuardBusy, SCHEMA as GUARD_SCHEMA
 
-CORE = {'lead.capture', 'lead.qualify', 'payment.record', 'metrics.summary'} | identity.ACTIONS
+CORE = {'lead.capture', 'lead.qualify', 'payment.record', 'metrics.summary'} | identity.ACTIONS | objectives.ACTIONS
 SCHEMA = '''
 CREATE TABLE IF NOT EXISTS plans (
  tenant TEXT, key TEXT, hash TEXT NOT NULL, document TEXT NOT NULL,
@@ -171,6 +172,10 @@ class Engine:
         if service == 'core':
             self.validate_core(op, command['params'])
             request = {'public': command, 'mutates': False, 'secret_values': []}
+            if op in objectives.ACTIONS:
+                request['public'] = command | {'implementation_sha256': objectives.implementation_digest()}
+            if op == 'objective.simulate':
+                request['requires_approval'] = True
         elif local_runtime.supports(service, op):
             request = local_runtime.build(service, op, command['params'], cfg)
         else:
@@ -189,7 +194,7 @@ class Engine:
             self.db.execute('INSERT OR IGNORE INTO plans(tenant,key,hash,document) VALUES(?,?,?,?)',
                             (self.tenant, command['key'], fingerprint, encode(public)))
         return {'state': 'planned', 'key': command['key'], 'fingerprint': fingerprint,
-                'requires_approval': request['mutates'], 'request': public,
+                'requires_approval': request['mutates'] or request.get('requires_approval', False), 'request': public,
                 'external_call_made': False}
 
     def approve(self, key, fingerprint, ttl=600):
@@ -245,7 +250,7 @@ class Engine:
                 return {'state': existing['state'], 'key': key, 'replayed': True,
                         'result': json.loads(existing['result']) if existing['result'] else None,
                         'note': 'Running/uncertain actions require reconciliation; never auto-replayed.'}
-            if request['mutates']:
+            if request['mutates'] or request.get('requires_approval', False):
                 p = self.db.execute('SELECT * FROM plans WHERE tenant=? AND key=?',
                                     (self.tenant, key)).fetchone()
                 if not p['approved_by'] or p['used'] or p['expires'] < time.time():
@@ -286,6 +291,8 @@ class Engine:
         self.event(key, 'action.' + state, {'result_digest': digest(result)})
 
     def validate_core(self, op, p):
+        if op in objectives.ACTIONS:
+            return objectives.validate(op, p)
         if op in identity.ACTIONS:
             return identity.validate(op, p)
         specs = {
@@ -329,6 +336,8 @@ class Engine:
         return p
 
     def core(self, op, p):
+        if op in objectives.ACTIONS:
+            return objectives.apply(self, op, p)
         if op in identity.ACTIONS:
             return identity.apply(self, op, p)
         if op == 'lead.capture':

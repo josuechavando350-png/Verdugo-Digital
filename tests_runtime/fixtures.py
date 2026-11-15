@@ -88,3 +88,10 @@ CASES.update(LASTNODE_CASES)
 
 from owned_http_fixtures import CASES as OWNED_HTTP_CASES
 CASES.update(OWNED_HTTP_CASES)
+
+# Same fixed synthetic goal as the public pilot example.
+CASES['semantic-kernel'] = {'dataset': 'demo', 'goal': {
+    'dataset': 'demo', 'target_clients': 20, 'horizon_days': 30,
+    'budget_minor': 0, 'currency': 'MXN', 'channels': [
+        {'channel': 'referral', 'contacts_available': 300, 'cost_per_contact_minor': 0,
+         'history_contacts': 200, 'history_clients': 20}]}}

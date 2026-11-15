@@ -1,0 +1,2 @@
+-c runtime-kernel666.constraints.txt
+semantic-kernel @ https://codeload.github.com/microsoft/semantic-kernel/tar.gz/ff22ec32ed31096c98ad63376d4ecc9aefe0ff38#sha256=bab38485ec7808629a68be283244c1d60dc11fe9c2b486c0ce3a876b0036ba6c&subdirectory=python

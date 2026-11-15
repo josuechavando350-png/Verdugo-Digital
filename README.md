@@ -18,13 +18,13 @@ El plan para llegar a 666 piezas libres (300 del catálogo + 50 del simulador + 
 | Fuentes registradas y fijadas por commit | 688 (322 anteriores + 366 nuevas) |
 | Portafolio con licencia libre | 666 |
 | Excluidos por licencia (registrados, sin operar) | 22 |
-| Proyectos con una operación implementada | 262: 103 HTTP + 138 bibliotecas locales + 17 CLI + 1 MCP local + 3 consultas/reglas de datos |
-| Conectados bajo la política de licencias | 243 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
+| Proyectos con una operación implementada | 263: 103 HTTP + 139 bibliotecas locales + 17 CLI + 1 MCP local + 3 consultas/reglas de datos |
+| Conectados bajo la política de licencias | 244 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
 | Piezas de construcción (se usan al programar, no vía motor) | 56 |
-| Pendientes de conector | 367 (366 nuevas + `meta-ads`) |
+| Pendientes de conector | 366 (365 nuevas + `meta-ads`) |
 | Servicios de pago | 0 (Stripe, Twilio, Mercado Pago, E2B y Composio retirados) |
 | Operaciones HTTP existentes | 108, limitadas por proveedor |
-| Operaciones locales implementadas | 159; aceptación de ejecución real exigida por commit |
+| Operaciones locales implementadas | 160; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Flujo de 87 operaciones nuevas + métricas locales; persistencia y reanudación tras reiniciar Engine |
 | Pruebas unitarias y de contrato | 715 pruebas aprobadas en el checkpoint anterior; comprobar la suite vigente por commit en CI |
 | Herramientas MCP | 25; product-status/product-run reutilizan el mismo motor |
@@ -319,7 +319,7 @@ Engine. SQLite y roles de proceso no constituyen IAM multiempresa hostil. Datos
 personales requieren cifrado, retención y respaldos privados. Las escrituras HTTP
 siguen requiriendo aprobación separada; no se reintentan resultados inciertos.
 
-**367 entradas siguen pendientes de conector.** Los adaptadores HTTP necesitan
+**366 entradas siguen pendientes de conector.** Los adaptadores HTTP necesitan
 aceptación de versiones/ediciones/permisos por instancia; Las aceptaciones de Qdrant, Meilisearch y Caddy
 no validan los otros proveedores. No hay despliegue productivo, conexión automática de este
 chat al MCP, servicio 24/7, cobros reconciliados ni probabilidad comercial demostrada.
@@ -330,3 +330,7 @@ Documentación: [v0.13](docs/MARKETING_READS_V013.md), [v0.12](docs/METADATA_PRO
 [control comercial](docs/COMERCIAL_30_DIAS.md), [eventos](docs/EVENTS.md),
 [piloto y respaldos](docs/PILOTO_Y_RESPALDOS_V06.md), [fuentes](docs/GITHUB_SOURCES_V08.md).
 El historial previo se conserva en [README v0.8](docs/HISTORICAL_README_V08.md).
+
+### Piloto 666 en construcción
+
+La primera operación nueva usa Semantic Kernel original del commit fijado para invocar una función local determinista. El flujo de ejemplo planea, pide aprobación, simula y compara recuentos sintéticos, conservando el replay en SQLite. No usa un modelo ni demuestra clientes o ingresos reales. Estado y reproducción en [PILOTO_666.md](docs/PILOTO_666.md).

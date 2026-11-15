@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 367,
+ "pending": 366,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -13,20 +13,6 @@
    "domain": "research",
    "que_hacer": "Pendiente. Los SDK oficiales de Meta en sus commits revisados (Python b08e5c1d36, Node 246c937eb5, PHP 55b89b1e01, Java 3307575291, Ruby 9c3a845075) envían access_token como parámetro de la URL; ninguno usa el encabezado Authorization. Conectar solo con una fuente original que respalde otro transporte o con una excepción escrita por el operador.",
    "nota": "Retirado de v0.21: el contrato con encabezado Bearer no estaba respaldado por el código original fijado."
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
-   "id": "semantic-kernel",
-   "repository": "microsoft/semantic-kernel",
-   "commit": "ff22ec32ed31096c98ad63376d4ecc9aefe0ff38",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "ejecutivo",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 1",
@@ -7837,6 +7823,14 @@
    "operation": "document.snapshot",
    "live_verified": false,
    "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+  }
+ ],
+ "implemented_666": [
+  {
+   "id": "semantic-kernel",
+   "operation": "objective.plan",
+   "scope": "One fixed original SDK native function; no model; synthetic only",
+   "live_verified": false
   }
  ]
 }

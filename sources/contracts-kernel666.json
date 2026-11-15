@@ -1,0 +1,66 @@
+{
+  "service": "semantic-kernel",
+  "operation": "objective.plan",
+  "source_commit": "ff22ec32ed31096c98ad63376d4ecc9aefe0ff38",
+  "distribution": "semantic-kernel",
+  "version": "1.47.0",
+  "source_files": [
+    {
+      "repository": "microsoft/semantic-kernel",
+      "commit_sha": "ff22ec32ed31096c98ad63376d4ecc9aefe0ff38",
+      "path": "python/pyproject.toml",
+      "blob_sha": "09e65d71a0a31d4e126c589761fb1065132a0511",
+      "sha256": "61804a191439ed1fce0b3cc4fb402beebd98a9695b5e04ac78a4bc0f9fe8846b",
+      "source_url": "https://github.com/microsoft/semantic-kernel/blob/ff22ec32ed31096c98ad63376d4ecc9aefe0ff38/python/pyproject.toml"
+    },
+    {
+      "repository": "microsoft/semantic-kernel",
+      "commit_sha": "ff22ec32ed31096c98ad63376d4ecc9aefe0ff38",
+      "path": "python/semantic_kernel/functions/kernel_function_decorator.py",
+      "blob_sha": "04cc352ebd987c6a1cd02db9f7c2e908b99d223f",
+      "sha256": "f381a0bb32bcc00de1dd1be42f31593222380aede0d081299bd0f4c9ff7b0933",
+      "source_url": "https://github.com/microsoft/semantic-kernel/blob/ff22ec32ed31096c98ad63376d4ecc9aefe0ff38/python/semantic_kernel/functions/kernel_function_decorator.py"
+    },
+    {
+      "repository": "microsoft/semantic-kernel",
+      "commit_sha": "ff22ec32ed31096c98ad63376d4ecc9aefe0ff38",
+      "path": "python/semantic_kernel/functions/kernel_function_from_method.py",
+      "blob_sha": "6460335dae9371e0129ca5c39721f0053ccc0a82",
+      "sha256": "68262fac06fdd1cbf0e1bddd490ec10b26eb578f5f5bff55bd86abb01454fd2c",
+      "source_url": "https://github.com/microsoft/semantic-kernel/blob/ff22ec32ed31096c98ad63376d4ecc9aefe0ff38/python/semantic_kernel/functions/kernel_function_from_method.py"
+    },
+    {
+      "repository": "microsoft/semantic-kernel",
+      "commit_sha": "ff22ec32ed31096c98ad63376d4ecc9aefe0ff38",
+      "path": "python/semantic_kernel/functions/kernel_plugin.py",
+      "blob_sha": "a3bc05def33b1a68d6969c2d3815e091689911d9",
+      "sha256": "8871a0b0d561b1fb190368775688d310dde451e846159408dfcc1f829d9a7416",
+      "source_url": "https://github.com/microsoft/semantic-kernel/blob/ff22ec32ed31096c98ad63376d4ecc9aefe0ff38/python/semantic_kernel/functions/kernel_plugin.py"
+    },
+    {
+      "repository": "microsoft/semantic-kernel",
+      "commit_sha": "ff22ec32ed31096c98ad63376d4ecc9aefe0ff38",
+      "path": "python/semantic_kernel/kernel.py",
+      "blob_sha": "359cceb6a19fdf17908ce4c63ff1b9de559f9884",
+      "sha256": "f90736621c006c882ccb39b11cea91fc26986418bb3ffa3052150015b58d57eb",
+      "source_url": "https://github.com/microsoft/semantic-kernel/blob/ff22ec32ed31096c98ad63376d4ecc9aefe0ff38/python/semantic_kernel/kernel.py"
+    },
+    {
+      "repository": "microsoft/semantic-kernel",
+      "commit_sha": "ff22ec32ed31096c98ad63376d4ecc9aefe0ff38",
+      "path": "python/semantic_kernel/__init__.py",
+      "blob_sha": "b86ade3f8d99afec43a08cb85bc1b69cda51a8b4",
+      "sha256": "4b80669c44990c74569f7e7ea10b3c8e2aeba111be222145ea84ec970ad521ea",
+      "source_url": "https://github.com/microsoft/semantic-kernel/blob/ff22ec32ed31096c98ad63376d4ecc9aefe0ff38/python/semantic_kernel/__init__.py"
+    }
+  ],
+  "scope": "Kernel.invoke invokes one fixed local KernelFunctionFromMethod; goal math is first-party deterministic baseline. No model or provider is configured.",
+  "live_verified": false,
+  "package_source_parity": "Five reviewed installed SDK modules must match the pinned Git source by SHA256; verified before each invocation. Other SDK modules are not individually runtime-hashed.",
+  "installation": {
+    "archive_url": "https://codeload.github.com/microsoft/semantic-kernel/tar.gz/ff22ec32ed31096c98ad63376d4ecc9aefe0ff38",
+    "sha256": "bab38485ec7808629a68be283244c1d60dc11fe9c2b486c0ce3a876b0036ba6c",
+    "subdirectory": "python",
+    "reason": "Published wheel 1.47.0 differed from reviewed commit in two modules; build from exact verified source."
+  }
+}

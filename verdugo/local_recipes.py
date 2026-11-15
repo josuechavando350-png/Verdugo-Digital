@@ -9,6 +9,8 @@ import math
 
 
 def run(service, operation, p):
+    from .local_pilot666 import SPECS as PILOT666, run as run_pilot666
+    if service in PILOT666: return run_pilot666(service, p)
     from .local_owned_http import SPECS as OWNED_HTTP, run as run_owned_http
     if service in OWNED_HTTP: return run_owned_http(service, p)
     from .local_lastnode import SPECS as LASTNODE, run as run_lastnode

@@ -62,7 +62,12 @@ class RuntimeAcceptance(unittest.TestCase):
                     self.assertIsNone(data['commercial_success_probability'])
                     self.assertEqual(local_runtime.SPECS[sid][2],data['version'])
                     value=data['result']
-                    if sid=='trafilatura':
+                    if sid=='semantic-kernel':
+                        self.assertEqual('semantic-kernel', value['original_sdk'])
+                        self.assertEqual(200, value['planned_contacts'])
+                        self.assertEqual(0, value['llm_calls'])
+                        self.assertFalse(value['autonomous_agent'])
+                    elif sid=='trafilatura':
                         self.assertIn('appointment',value['text'].lower())
                         self.assertFalse(value['fetched_remote_content'])
                     elif sid=='scrapy':

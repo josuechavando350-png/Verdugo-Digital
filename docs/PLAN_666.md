@@ -16,10 +16,12 @@ Los 22 excluidos por licencia siguen registrados, pero no cuentan ni se operan.
 
 ## Avance comprobado de esta continuación
 
-- **Tanda 0: registro implementado, aceptación CI pendiente.** 688 identidades GitHub distintas, 666 permitidas por política y 22 excluidas. Se conservan 69 partes: 68 de diez y una de ocho.
+- **Tanda 0: terminada y aceptada en CI.** 688 identidades GitHub distintas, 666 permitidas por política y 22 excluidas. Se conservan 69 partes: 68 de diez y una de ocho.
 - Cinco propuestas eran alias de proyectos ya registrados (Ragas, Presidio, FastMCP, Recommenders y Great Expectations). TEN Framework tiene restricciones adicionales: no se contó como Apache libre. Las seis sustituciones y su alcance constan en [REGISTRO_666.md](REGISTRO_666.md).
-- **Conectadas: 243; construcción: 56; pendientes: 367; certificadas en producción: 0.** Añadir evidencia al catálogo no añade adaptadores.
-- **Lote 1 (183): pendiente de integración. Lote 2 (183): pendiente de integración.** Orden completo, sin duplicados, en `sources/registry-666.json/work_queue`.
+- **Estado actual: 244 conectadas; 56 de construcción; 366 pendientes; certificadas en producción: 0.** Semantic Kernel añade una operación local limitada; registrar las otras piezas no añade adaptadores.
+- **Lote 1 (183): 1 operación implementada y probada localmente; aceptación CI del piloto pendiente. Lote 2 (183): 0 implementadas. Ninguno de los dos lotes está terminado.** Orden completo, sin duplicados, en `sources/registry-666.json/work_queue`.
+- Registro aceptado en `b95f8be09e2a34ff12f163b6f872287eed3afd26`: [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43690692125), [runtime](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43690692198) y [servicios](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43690692157), los tres `success`. PR #24 permanece sin fusionar.
+- **Fase 1: parcial.** El esqueleto sintético recorre plan → aprobación → simulación → medición por CLI/MCP y SQLite. Falta el modelo local, las otras 49 piezas de la fase y calibración real. [Detalle del piloto](PILOTO_666.md).
 - `meta-ads` sigue pendiente. No se instalaron modelos, lanzaron campañas ni desplegaron proveedores por este registro.
 
 ## Qué es el producto terminado

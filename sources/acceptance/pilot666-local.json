@@ -1,0 +1,108 @@
+{
+  "scope": "one original SDK native operation plus synthetic goal workflow",
+  "service": "semantic-kernel",
+  "version": "1.47.0",
+  "source_commit": "ff22ec32ed31096c98ad63376d4ecc9aefe0ff38",
+  "installed_source_files": [
+    {
+      "path": "python/semantic_kernel/functions/kernel_function_decorator.py",
+      "installed_sha256": "f381a0bb32bcc00de1dd1be42f31593222380aede0d081299bd0f4c9ff7b0933",
+      "source_sha256": "f381a0bb32bcc00de1dd1be42f31593222380aede0d081299bd0f4c9ff7b0933",
+      "matches_source": true
+    },
+    {
+      "path": "python/semantic_kernel/functions/kernel_function_from_method.py",
+      "installed_sha256": "68262fac06fdd1cbf0e1bddd490ec10b26eb578f5f5bff55bd86abb01454fd2c",
+      "source_sha256": "68262fac06fdd1cbf0e1bddd490ec10b26eb578f5f5bff55bd86abb01454fd2c",
+      "matches_source": true
+    },
+    {
+      "path": "python/semantic_kernel/functions/kernel_plugin.py",
+      "installed_sha256": "8871a0b0d561b1fb190368775688d310dde451e846159408dfcc1f829d9a7416",
+      "source_sha256": "8871a0b0d561b1fb190368775688d310dde451e846159408dfcc1f829d9a7416",
+      "matches_source": true
+    },
+    {
+      "path": "python/semantic_kernel/kernel.py",
+      "installed_sha256": "f90736621c006c882ccb39b11cea91fc26986418bb3ffa3052150015b58d57eb",
+      "source_sha256": "f90736621c006c882ccb39b11cea91fc26986418bb3ffa3052150015b58d57eb",
+      "matches_source": true
+    },
+    {
+      "path": "python/semantic_kernel/__init__.py",
+      "installed_sha256": "4b80669c44990c74569f7e7ea10b3c8e2aeba111be222145ea84ec970ad521ea",
+      "source_sha256": "4b80669c44990c74569f7e7ea10b3c8e2aeba111be222145ea84ec970ad521ea",
+      "matches_source": true
+    }
+  ],
+  "original_sdk_executed": true,
+  "mocked_sdk": false,
+  "dataset": "demo",
+  "approval_gate_verified": true,
+  "sqlite_restart_replay_verified": true,
+  "cli_mcp_shared_engine_verified": true,
+  "simulation": {
+    "algorithm": "synthetic-funnel-v1",
+    "dataset": "demo",
+    "goal_digest": "43e750b25ae5f0f912df336a7693494fec9616a7fd64b035edf86fed24023caf",
+    "target_clients": 20,
+    "horizon_days": 30,
+    "currency": "MXN",
+    "budget_minor": 0,
+    "planned_contacts": 200,
+    "simulated_cost_minor": 0,
+    "conditional_expected_clients": 20.0,
+    "target_feasible_under_point_assumptions": true,
+    "actions": [
+      {
+        "channel": "referral",
+        "contacts": 200,
+        "simulated_cost_minor": 0,
+        "synthetic_conversion_rate": 0.1,
+        "history_rate_interval_95": [
+          0.06567044866909588,
+          0.1494058124327174
+        ],
+        "requires_operator_approval": true,
+        "external_execution_supported": false
+      }
+    ],
+    "dry_run": true,
+    "external_calls_made": false,
+    "local_model_used": false,
+    "calibrated_to_real_market": false,
+    "forecast_is_guarantee": false,
+    "basis": "Fixed allocation heuristic on supplied synthetic counts; horizon is a supplied capacity window.",
+    "simulation_seed": 666,
+    "simulations": 128,
+    "clients_quantiles": {
+      "p05": 13,
+      "p50": 20,
+      "p95": 29
+    },
+    "runs_reaching_target": 73,
+    "uncertainty_scope": "Synthetic binomial variation conditional on fixed rates; excludes model misspecification and real-market change."
+  },
+  "measurement": {
+    "algorithm": "synthetic-funnel-v1",
+    "dataset": "demo",
+    "goal_digest": "43e750b25ae5f0f912df336a7693494fec9616a7fd64b035edf86fed24023caf",
+    "simulation_result_digest": "21c6dc3f2bdff7b06be0874552ef0244472d4245b36e74848e5775d885cc3c48",
+    "observed_contacts": 200,
+    "observed_clients": 17,
+    "difference_from_simulated_median": -3,
+    "inside_simulated_90_interval": true,
+    "target_reached_in_supplied_demo": false,
+    "measurement_source": "operator_supplied_synthetic_counts",
+    "real_clients_verified": 0,
+    "real_revenue_verified": false,
+    "calibrated_to_real_market": false,
+    "external_calls_made": false
+  },
+  "external_effects": 0,
+  "models_used": 0,
+  "live_verified": false,
+  "batch_1_complete": false,
+  "os_network_namespace": false,
+  "validation_context": "Local original SDK acceptance; OS namespace not available locally. CI separately requires OS network isolation."
+}
