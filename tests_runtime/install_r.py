@@ -39,6 +39,15 @@ def install():
     for service in local_r.SPECS:
         if not local_r.runtime_state(service)['version_matches']:
             raise ValueError('Extracted runtime differs from the reviewed R distribution')
+    # A binary checksum does not establish dynamic-link compatibility. Check
+    # native dependencies and package loading explicitly before acceptance.
+    r_home = home / 'usr/lib/R'
+    env = dict(os.environ, R_HOME=str(r_home),
+               LD_LIBRARY_PATH=str(r_home/'lib')+':'+str(home/'usr/lib/x86_64-linux-gnu'))
+    subprocess.run(['ldd', str(r_home/'bin/exec/R')], env=env, check=True)
+    subprocess.run([str(r_home/'bin/exec/R'), '--vanilla', '--slave', '-e',
+                    'stopifnot(as.character(getRversion()) == "4.2.2", requireNamespace("stats", quietly=TRUE), requireNamespace("methods", quietly=TRUE))'],
+                   env=env, check=True)
     Path('/tmp/r021-resolved.txt').write_text(json.dumps({
         'artifacts': [{'url': url, 'sha256': digest} for url, digest in ARTIFACTS],
         'runtime': 'R 4.2.2, Debian Linux amd64; fixed original sources',
