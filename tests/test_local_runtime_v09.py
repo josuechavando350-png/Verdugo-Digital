@@ -25,7 +25,7 @@ class LocalContractTests(unittest.TestCase):
     def test_all_recipes_are_real_catalog_entries_and_have_strict_contracts(self):
         from verdugo.catalog import catalog
         ids = {r['id'] for r in catalog()}
-        self.assertEqual(187, len(local_runtime.SPECS))
+        self.assertEqual(188, len(local_runtime.SPECS))
         self.assertTrue(set(local_runtime.SPECS) <= ids)
         for sid, (op, _, _) in local_runtime.SPECS.items():
             with self.subTest(sid=sid):
@@ -89,9 +89,9 @@ class LocalContractTests(unittest.TestCase):
         finally: e.close()
         self.assertEqual(688,s['source_pinned'])
         self.assertEqual(114,s['api_adapters_implemented'])
-        self.assertEqual(187,s['local_adapters_implemented'])
-        self.assertEqual(301,s['total_adapters_implemented'])
-        self.assertEqual(387,s['projects_without_any_adapter'])
+        self.assertEqual(188,s['local_adapters_implemented'])
+        self.assertEqual(302,s['total_adapters_implemented'])
+        self.assertEqual(386,s['projects_without_any_adapter'])
         self.assertEqual(0,s['live_verified'])
 
     def test_configuration_keeps_local_integrations_disabled(self):

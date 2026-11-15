@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 328,
+ "pending": 327,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -482,20 +482,6 @@
    "repository": "AnswerDotAI/RAGatouille",
    "commit": "e75b8a964a870dea886548f78da1900804749040",
    "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "memoria",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 2",
-   "id": "bm25s",
-   "repository": "xhluca/bm25s",
-   "commit": "b335013d0172e8c2aabd1399d60146cc51768458",
-   "license": "MIT",
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "memoria",
@@ -7716,6 +7702,21 @@
    "live_verified": false,
    "evidence": "sources/contracts-task-reads666.json",
    "operation": "task.summary"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 2",
+   "id": "bm25s",
+   "repository": "xhluca/bm25s",
+   "commit": "b335013d0172e8c2aabd1399d60146cc51768458",
+   "license": "MIT",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "memoria",
+   "que_hacer": "Receta retrieval.check con BM25S original y NumPy compilados desde fuente; recuentos de casos sintéticos con referencia escalar independiente.",
+   "nota": "Flujo conjunto BM25S → txtai por Engine, CLI/MCP y SQLite, con replay tras reinicio. No búsqueda semántica ni datos privados.",
+   "live_verified": false,
+   "evidence": "sources/contracts-bm25s666.json",
+   "operation": "retrieval.check"
   }
  ]
 }

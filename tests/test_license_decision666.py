@@ -89,7 +89,8 @@ class LicenseDecision666Tests(unittest.TestCase):
                 self.assertEqual(row['id'] != 'tokenizers',
                                  all(d['allowed_by_current_policy'] for d in row['reviewed_dependencies']))
                 self.assertFalse(reviewed['policy_reassessment']['complete_dependency_closure_verified'])
-                self.assertFalse(row['counted_as_connected'])
+                implemented = row['id'] == 'bm25s'
+                self.assertEqual(implemented, row['counted_as_connected'])
                 self.assertFalse(row['live_verified'])
-                self.assertEqual('pendiente', connections.summary(row['id'])['state'])
+                self.assertEqual('conectado' if implemented else 'pendiente', connections.summary(row['id'])['state'])
 

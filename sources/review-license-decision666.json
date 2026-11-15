@@ -6,14 +6,14 @@
     "BSL-1.0",
     "Unicode-3.0"
   ],
-  "scope": "Owner policy update and scoped reassessment of original license bytes. No new adapter, full dependency-closure certification, model-weight approval or production verification.",
+  "scope": "Owner policy update and scoped reassessment of original license bytes. Adapter completion requires separate source contracts and original acceptance; the policy decision alone never counts as completion. No model-weight approval or production verification.",
   "records": [
     {
       "id": "bm25s",
       "repository": "xhluca/bm25s",
       "commit": "b335013d0172e8c2aabd1399d60146cc51768458",
-      "status": "pending_dependency_closure_and_acceptance",
-      "note": "Owner approved Zlib on 2026-11-15: the inspected NumPy 2.2.6 libdivide text is now allowed. The fixed BM25S commit, dependency resolution, installed artifacts, bounded contract and runtime acceptance still need preparation. Other NumPy versions were not assessed by this finding.",
+      "status": "adapter_implemented_scoped_original_acceptance",
+      "note": "The original BM25S commit now has a bounded retrieval.check adapter with six original cases and a joined txtai product CLI/MCP/restart acceptance. The chosen compatible NumPy 1.26.4 is built from its verified source with external BLAS/LAPACK disabled; it is a distinct candidate from the earlier NumPy 2.2.6 review. Only synthetic counts are returned, no text or models. See sources/contracts-bm25s666.json and evidence/accepted/bm25s666-joint-local-20261115.json. Full distributable/platform license closure and production verification are not asserted.",
       "root_license_evidence": [
         {
           "repository": "xhluca/bm25s",
@@ -37,9 +37,10 @@
         }
       ],
       "source_review": "sources/review-numeric-next666.json",
-      "counted_as_connected": false,
+      "counted_as_connected": true,
       "live_verified": false,
-      "source_review_sha256": "55ea9f20f04b0a8390d0be616721a27cef5082ec63d5d4607092a659b8ab62c5"
+      "source_review_sha256": "359d269007b01fbb38ec088a27085ff94c1684386ac51ba2c134e09f0ff011ed",
+      "implementation_evidence": "sources/contracts-bm25s666.json"
     },
     {
       "id": "rustworkx",

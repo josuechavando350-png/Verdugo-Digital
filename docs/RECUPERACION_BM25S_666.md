@@ -1,6 +1,10 @@
 # Recuperación del candidato BM25S — 15 de noviembre de 2026
 
-## Reanudación tras pérdida del entorno de ejecución
+## Recuperación completada
+
+El entorno volvió a estar disponible. Se preservó el diff, se incorporó `f282cef` mediante fast-forward y se reaplicó el candidato sin perder las revisiones remotas. Se reconstruyeron BM25S, NumPy y txtai desde cero; los seis casos y el flujo conjunto con las aserciones reforzadas aprobaron. Pasan 926 pruebas. El incremento implementa A 1/164 y B 0/163, con 283/56/327 y `live_verified=0`; su CI se comprueba por commit. Ver [BM25S_666.md](BM25S_666.md).
+
+## Incidente y reanudación original (histórico)
 
 El 15 de noviembre de 2026, después de publicar `713e4c0d91811ac0b81c9d20240aeb70545f957a`, el entorno local dejó de estar disponible. La conexión a GitHub siguió operativa. **BM25S no está publicado ni se cuenta como conexión:** los cambios candidatos y la comprobación final estaban en el entorno inaccesible. No se presupone que esos archivos se hayan conservado.
 

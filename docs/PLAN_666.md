@@ -4,7 +4,7 @@ Fecha: 15 de noviembre de 2026. Rama de trabajo: `feat/666-pilot` (PR #25 en bor
 
 ## Estado vigente: lotes A y B
 
-**Lote A 0/164 · Lote B 0/163.** Las 39 incorporaciones ya implementadas quedan fuera de ambos lotes y no se vuelven a contar. Total: **282 adaptadores implementados, 56 piezas de construcción, 328 pendientes y `live_verified=0`**. Los 327 miembros de A/B son las 63 piezas restantes del sublote de 80, las 81 del segundo sublote y las 183 del lote 2 original, en ese orden. `meta-ads` es la pendiente restante y sigue bloqueada sin fuente original suficiente.
+**Lote A 1/164 · Lote B 0/163.** Las 39 incorporaciones ya implementadas quedan fuera de ambos lotes y no se vuelven a contar. Total: **283 adaptadores implementados, 56 piezas de construcción, 327 pendientes y `live_verified=0`**. Los 327 miembros de A/B son las 63 piezas restantes del sublote de 80, las 81 del segundo sublote y las 183 del lote 2 original, en ese orden. `meta-ads` es la pendiente restante y sigue bloqueada sin fuente original suficiente.
 
 La pertenencia exacta e inmutable está en `sources/resume-666.json/rebatch`. A termina en `axolotl` y B empieza en `openrlhf`; `product-status.integration_audit.batches` calcula el avance desde los adaptadores existentes y rechaza omisiones, duplicados, reordenamientos y recuentos de las 39 anteriores. Los lotes originales y sublotes se conservan como historia.
 
@@ -12,7 +12,7 @@ La pertenencia exacta e inmutable está en `sources/resume-666.json/rebatch`. A 
 
 **Corrección inicial de CI:** el fallo de `4dbd055` fue una coincidencia de `9999` con los decimales de `observed_at`, no una filtración observada. El commit `486a27119f0085196d0f37136c54a15b1e3a4c83` fija ese timestamp en la prueba y compara el esquema público completo, conservando los controles de privacidad. En ese commit, [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43763785526) y [servicios](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43763785456) aprobaron, y [runtime](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43763785520) terminó también en `success` antes de incorporar nuevos adaptadores. Los tres workflows de `486a271` quedaron en verde, incluido `baseline`. Los cambios de política y lotes pasan **921 pruebas locales**; la ejecución local no sustituye los tres workflows del commit vigente.
 
-## Checkpoint de fuentes y recuperación
+## Checkpoint de fuentes y recuperación (histórico)
 
 **Lote A 0/164 · Lote B 0/163; 282 adaptadores, 56 piezas de construcción, 328 pendientes; `live_verified=0`.** Este checkpoint solo actualiza revisiones y documentación. La revisión adicional de **Rustworkx** confirma que su núcleo requiere `priority-queue 2.7.0`, con `LGPL-3.0-or-later OR MPL-2.0`; ninguna opción está aprobada. El perfil Python también requiere `target-lexicon 0.13.5` a través de PyO3, con `Apache-2.0 WITH LLVM-exception`. Los nueve archivos originales de manifiestos, lock y licencias conservan commit, blob SHA y SHA256 en `sources/review-rustworkx-dependencies666.json`. El núcleo sigue pendiente; no se sustituyeron dependencias ni se añadió una excepción. Para Egg, el hallazgo anterior de `foldhash` Zlib queda resuelto por la misma decisión; aún faltan resolución completa, build y aceptación.
 
@@ -24,13 +24,23 @@ Observación del **15 de noviembre, 22:45 UTC**, sobre `713e4c0d91811ac0b81c9d20
 [![Runtime](https://github.com/josuechavando350-png/Verdugo-Digital/actions/workflows/runtime-acceptance.yml/badge.svg?branch=feat%2F666-pilot)](https://github.com/josuechavando350-png/Verdugo-Digital/actions/workflows/runtime-acceptance.yml?query=branch%3Afeat%2F666-pilot)
 [![Servicios](https://github.com/josuechavando350-png/Verdugo-Digital/actions/workflows/real-services.yml/badge.svg?branch=feat%2F666-pilot)](https://github.com/josuechavando350-png/Verdugo-Digital/actions/workflows/real-services.yml?query=branch%3Afeat%2F666-pilot)
 
+## Incremento BM25S recuperado
+
+**Lote A 1/164 · Lote B 0/163.** BM25S añade una operación local y eleva el piloto a **40 incorporaciones: 29 locales y 11 lecturas HTTP**. Total: **283 adaptadores, 56 piezas de construcción y 327 pendientes; `live_verified=0`**. Las 39 identidades anteriores siguen fuera de A/B. Los bloqueos no se suman como conexiones.
+
+`retrieval.check` ejecuta el BM25S original fijado y NumPy 1.26.4 compilado desde fuente, sin BLAS/LAPACK externos, sobre identificadores numéricos sintéticos. Contrasta las puntuaciones y el top-k con una referencia escalar independiente y devuelve solo recuentos. Un flujo conjunto entrega `matching_documents` a txtai por el mismo Engine, CLI/MCP y SQLite; comprueba privacidad, cero clientes pagados, reinicio y replay. No usa pesos de modelos ni afirma relevancia semántica o validación productiva.
+
+La instalación limpia y la aceptación de seis casos aprobaron después de recuperar el entorno. Pasan **926 pruebas**; las fallas recuperadas fueron expectativas de recuentos, plan pendiente y fixture común incompletos. La evidencia local distingue que no hubo aislamiento de red del sistema operativo; CI lo exige en un job propio. Contrato y hashes en `sources/contracts-bm25s666.json`; recibo y resultados en `evidence/accepted/bm25s666-*-local-20261115.json`. [Alcance completo](BM25S_666.md).
+
+**CI de este incremento:** la aceptación local no sustituye los tres workflows. Verificar los estados vivos de la rama y el SHA exacto en PR #25; las observaciones anteriores se conservan como historia. El commit de recuperación `f282cef` tenía verificación y servicios en verde y runtime todavía compilando al preparar este incremento.
+
 ## Inventario
 
 | Bloque | Piezas | Fuente | Estado hoy |
 |---|---|---|---|
 | Catálogo libre (cuerpo) | 300 | `sources/parts/*.json`, `sources/licenses.json` | 243 conectadas, 56 piezas de construcción, 1 pendiente (`meta-ads`) |
 | Simulador de mercado (bola de cristal) | 50 | `sources/simulador-mercado.json` | registrado; adaptador pendiente |
-| Cerebro (piloto) | 150 | `sources/cerebro-150.json` | 28 operaciones locales y 11 lecturas HTTP; 111 pendientes |
+| Cerebro (piloto) | 150 | `sources/cerebro-150.json` | 29 operaciones locales y 11 lecturas HTTP; 110 pendientes |
 | Últimas 166 | 166 | `sources/final-166.json` | registrado; adaptador pendiente |
 | **Total libre** | **666** | | |
 
@@ -40,8 +50,8 @@ Los 22 excluidos por licencia siguen registrados, pero no cuentan ni se operan.
 
 - **Tanda 0: terminada y aceptada en CI.** 688 identidades GitHub distintas, 666 permitidas por política y 22 excluidas. Se conservan 69 partes: 68 de diez y una de ocho.
 - Cinco propuestas eran alias de proyectos ya registrados (Ragas, Presidio, FastMCP, Recommenders y Great Expectations). TEN Framework tiene restricciones adicionales: no se contó como Apache libre. Las seis sustituciones y su alcance constan en [REGISTRO_666.md](REGISTRO_666.md).
-- **Estado actual: 282 conectadas; 56 de construcción; 328 pendientes; certificadas en producción: 0.** Semantic Kernel, Agno, AG2, Langroid, Griptape, BeeAI, Strands/Harness SDK, VoltAgent, Unified Planning, el servidor MCP de memoria, Monty, Playwright para Python, Hatchet, Invariant, PyRIT, llama.cpp, Granite Guardian, InterpretML, TransformerLens, Bitsandbytes, Guidance, LM Format Enforcer, USearch, Rerankers, SymPy, RDFLib, Z3 y txtai añaden veintiocho operaciones locales limitadas; registrar las otras piezas no añade adaptadores.
-- **Lote 1 (183): 39 operaciones implementadas: 28 locales probadas conjuntamente y 11 lecturas HTTP probadas por sockets sintéticos; consultar CI del commit vigente. Lote 2 (183): 0 implementadas. Ninguno de los dos lotes está terminado.** Orden completo, sin duplicados, en `sources/registry-666.json/work_queue`.
+- **Estado actual: 283 conectadas; 56 de construcción; 327 pendientes; certificadas en producción: 0.** Semantic Kernel, Agno, AG2, Langroid, Griptape, BeeAI, Strands/Harness SDK, VoltAgent, Unified Planning, el servidor MCP de memoria, Monty, Playwright para Python, Hatchet, Invariant, PyRIT, llama.cpp, Granite Guardian, InterpretML, TransformerLens, Bitsandbytes, Guidance, LM Format Enforcer, USearch, Rerankers, SymPy, RDFLib, Z3, txtai y BM25S añaden veintinueve operaciones locales limitadas; registrar las otras piezas no añade adaptadores.
+- **Lote 1 (183): 40 operaciones implementadas: 29 locales con aceptación de componentes y flujos conjuntos y 11 lecturas HTTP probadas por sockets sintéticos; consultar CI del commit vigente. Lote 2 (183): 0 implementadas. Ninguno de los dos lotes está terminado.** Orden completo, sin duplicados, en `sources/registry-666.json/work_queue`.
 - Registro aceptado en `b95f8be09e2a34ff12f163b6f872287eed3afd26`: [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43690692125), [runtime](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43690692198) y [servicios](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43690692157), los tres `success`. PR #24 permanece sin fusionar.
 - El primer checkpoint del piloto (`77670600a4ee083413f5838b1e36991ddbff2347`) pasó [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43692332291), [runtime](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43692332306) y [servicios](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43692332315). Esa evidencia cubre Semantic Kernel; no certifica cambios posteriores.
 - El checkpoint ejecutivo `e914b2622e430ee72121fefc1e256e0adabc126d` pasó [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43693358786), [runtime](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43693358773) y [servicios](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43693358774), cubriendo tres SDK. El checkpoint posterior de Langroid también está aceptado.

@@ -335,8 +335,8 @@
       "id": "bm25s",
       "repository": "xhluca/bm25s",
       "commit": "b335013d0172e8c2aabd1399d60146cc51768458",
-      "status": "pending_dependency_closure_and_acceptance",
-      "note": "Owner approved Zlib on 2026-11-15. The specific libdivide finding in NumPy 2.2.6 no longer blocks this candidate. BM25S requires NumPy; SciPy is an optional indexing extra. Full dependency review, source build, bounded contract and acceptance remain pending. See sources/review-numeric-next666.json and sources/review-license-decision666.json.",
+      "status": "adapter_implemented_scoped_original_acceptance",
+      "note": "The original BM25S commit now has a bounded retrieval.check adapter with six original cases and a joined txtai product CLI/MCP/restart acceptance. The chosen compatible NumPy 1.26.4 is built from its verified source with external BLAS/LAPACK disabled; it is a distinct candidate from the earlier NumPy 2.2.6 review. Only synthetic counts are returned, no text or models. See sources/contracts-bm25s666.json and evidence/accepted/bm25s666-joint-local-20261115.json. Full distributable/platform license closure and production verification are not asserted.",
       "files": [
         {
           "path": "LICENSE",
@@ -369,14 +369,15 @@
           "source_url": "https://github.com/xhluca/bm25s/blob/b335013d0172e8c2aabd1399d60146cc51768458/setup.py"
         }
       ],
-      "sdk_installed": false,
-      "runtime_executed": false,
+      "sdk_installed": true,
+      "runtime_executed": true,
       "live_verified": false,
-      "counted_as_connected": false,
+      "counted_as_connected": true,
       "assessment_before_owner_decision": {
         "status": "blocked_reviewed_dependency_candidate",
         "note": "The original package requires NumPy; SciPy is optional. The inspected NumPy 2.2.6 source candidate bundles libdivide under Zlib, a permissive license absent from the closed allowlist. Evidence and limits in sources/review-numeric-next666.json. No install/build or adapter; other candidates are not ruled out by this review."
-      }
+      },
+      "implementation_evidence": "sources/contracts-bm25s666.json"
     },
     {
       "id": "tantivy",

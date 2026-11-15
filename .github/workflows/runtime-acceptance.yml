@@ -10,6 +10,42 @@ concurrency:
   group: runtime-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  bm25s666:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+      - name: Build original BM25S and NumPy without external BLAS
+        run: |
+          if ! command -v g++-14; then
+            sudo apt-get update
+            sudo apt-get install -y gcc-14 g++-14
+          fi
+          python tests_runtime/install_bm25s666.py
+          python tests_runtime/install_content666.py
+      - name: Original retrieval joined to content counts with network isolation
+        run: |
+          sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
+            HOME="$HOME" VERDUGO_OS_NETWORK_ISOLATED=1 \
+            VERDUGO_BM25S666_PYTHON=/tmp/verdugo-bm25s666/bin/python \
+            VERDUGO_CONTENT666_PYTHON=/tmp/verdugo-content666/bin/python \
+            python tests_runtime/accept_bm25s666.py --out /tmp/bm25s666-execution-evidence.json
+      - name: Preserve scoped lexical evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: verdugo-bm25s666-${{ github.sha }}
+          path: |
+            /tmp/bm25s666-execution-evidence.json
+            /tmp/bm25s666-build-receipt.json
+            /tmp/bm25s666-build-tools-report.json
+            /tmp/bm25s666-pip-report.json
+            /tmp/bm25s666-resolved.txt
   pilot666:
     runs-on: ubuntu-24.04
     timeout-minutes: 120

@@ -6,6 +6,10 @@ una capacidad no demuestra esa integración.
 
 ## Reanudación vigente
 
+**BM25S recuperado y aceptado localmente:** Lote A 1/164 · Lote B 0/163; 283 adaptadores, 56 piezas de construcción, 327 pendientes y `live_verified=0`. La instalación limpia y seis casos del flujo BM25S → txtai aprobaron por Engine, CLI/MCP, SQLite y replay. Pasan 926 pruebas. Ver [BM25S_666.md](BM25S_666.md) y comprobar los tres workflows del nuevo commit; no heredar el verde de otro.
+
+### Checkpoint anterior a BM25S
+
 Rama `feat/666-pilot`, PR #25 en borrador sobre `feat/666-registry` (PR #24). El fallo de privacidad de `4dbd055` se corrigió en `486a271` mediante comparación completa de campos y un timestamp que reproduce la colisión. Los tres workflows de ese commit terminaron en `success` antes de agregar otro adaptador. La evidencia por workflow figura en [PLAN_666.md](PLAN_666.md).
 
 **Lote A 0/164 · Lote B 0/163**: membresía exacta en `sources/resume-666.json/rebatch`, validada por `integration_audit`. Las 39 incorporaciones previas no se cuentan de nuevo. El orden conserva 63 pendientes del antiguo sublote de 80, 81 del siguiente y 183 del lote 2. `meta-ads` queda fuera y bloqueada. Se mantiene el total de 282/56/328 y cero verificaciones productivas.
@@ -34,13 +38,13 @@ a un punto anterior. Se retomó ese árbol sin perder sus fuentes ni pruebas.
 | Identidades GitHub distintas registradas | 688 |
 | Permitidas por el criterio de licencia raíz | 666 |
 | Excluidas por licencia raíz | 22 |
-| Adaptadores implementados dentro del criterio raíz | 282 |
+| Adaptadores implementados dentro del criterio raíz | 283 |
 | Piezas de construcción | 56 |
-| Pendientes de adaptador | 328 |
-| Nuevas incorporaciones implementadas | 39 de 366 |
-| Lote original 1 | 39 de 183 |
+| Pendientes de adaptador | 327 |
+| Nuevas incorporaciones implementadas | 40 de 366 |
+| Lote original 1 | 40 de 183 |
 | Lote original 2 | 0 de 183 |
-| Continuación de 80 | 17 implementadas, 63 pendientes |
+| Continuación de 80 | 18 implementadas, 62 pendientes |
 | Continuación de 81 | 0 implementadas, 81 pendientes |
 | Servicios certificados en producción | 0 |
 
@@ -93,7 +97,7 @@ local no se presenta como CI aprobado.
 
 Leer `AGENTS.md`, `docs/PLAN_666.md` y `sources/resume-666.json`. Consultar
 `product-status` para el estado calculado y comprobar el head de PR #25 antes
-de modificarlo. Los otros 63 candidatos del sublote de 80 siguen pendientes;
+de modificarlo. Los otros 62 candidatos del sublote de 80 siguen pendientes;
 sus revisiones acotadas están enlazadas en el informe. Un candidato bloqueado
 no se convierte en terminado por añadir una explicación o un nombre distinto.
 
