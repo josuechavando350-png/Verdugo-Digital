@@ -147,6 +147,70 @@
       "depends_on": [
         "measure"
       ]
+    },
+    {
+      "id": "scenarios",
+      "service": "griptape",
+      "operation": "objective.scenarios",
+      "params": {
+        "dataset": "demo",
+        "goals": [
+          {
+            "dataset": "demo",
+            "target_clients": 20,
+            "horizon_days": 30,
+            "budget_minor": 0,
+            "currency": "MXN",
+            "channels": [
+              {
+                "channel": "referral",
+                "contacts_available": 300,
+                "cost_per_contact_minor": 0,
+                "history_contacts": 200,
+                "history_clients": 20
+              }
+            ]
+          },
+          {
+            "dataset": "demo",
+            "target_clients": 20,
+            "horizon_days": 30,
+            "budget_minor": 0,
+            "currency": "MXN",
+            "channels": [
+              {
+                "channel": "referral",
+                "contacts_available": 100,
+                "cost_per_contact_minor": 0,
+                "history_contacts": 200,
+                "history_clients": 20
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "review",
+      "service": "beeai-framework",
+      "operation": "review.route",
+      "params": {
+        "dataset": "demo",
+        "budget_ok": {
+          "$ref": "check.result.within_budget"
+        },
+        "capacity_ok": {
+          "$ref": "check.result.within_contact_limit"
+        },
+        "observed_clients": {
+          "$ref": "measure.observed_clients"
+        },
+        "target_clients": 20
+      },
+      "depends_on": [
+        "check",
+        "measure"
+      ]
     }
   ]
 }

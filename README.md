@@ -18,13 +18,13 @@ El plan para llegar a 666 piezas libres (300 del catálogo + 50 del simulador + 
 | Fuentes registradas y fijadas por commit | 688 (322 anteriores + 366 nuevas) |
 | Portafolio con licencia libre | 666 |
 | Excluidos por licencia (registrados, sin operar) | 22 |
-| Proyectos con una operación implementada | 266: 103 HTTP + 142 bibliotecas locales + 17 CLI + 1 MCP local + 3 consultas/reglas de datos |
-| Conectados bajo la política de licencias | 247 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
+| Proyectos con una operación implementada | 268: 103 HTTP + 144 bibliotecas locales + 17 CLI + 1 MCP local + 3 consultas/reglas de datos |
+| Conectados bajo la política de licencias | 249 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
 | Piezas de construcción (se usan al programar, no vía motor) | 56 |
-| Pendientes de conector | 363 (362 nuevas + `meta-ads`) |
+| Pendientes de conector | 361 (360 nuevas + `meta-ads`) |
 | Servicios de pago | 0 (Stripe, Twilio, Mercado Pago, E2B y Composio retirados) |
 | Operaciones HTTP existentes | 108, limitadas por proveedor |
-| Operaciones locales implementadas | 163; aceptación de ejecución real exigida por commit |
+| Operaciones locales implementadas | 165; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Flujo de 87 operaciones nuevas + métricas locales; persistencia y reanudación tras reiniciar Engine |
 | Pruebas unitarias y de contrato | 715 pruebas aprobadas en el checkpoint anterior; comprobar la suite vigente por commit en CI |
 | Herramientas MCP | 25; product-status/product-run reutilizan el mismo motor |
@@ -319,7 +319,7 @@ Engine. SQLite y roles de proceso no constituyen IAM multiempresa hostil. Datos
 personales requieren cifrado, retención y respaldos privados. Las escrituras HTTP
 siguen requiriendo aprobación separada; no se reintentan resultados inciertos.
 
-**363 entradas siguen pendientes de conector.** Los adaptadores HTTP necesitan
+**361 entradas siguen pendientes de conector.** Los adaptadores HTTP necesitan
 aceptación de versiones/ediciones/permisos por instancia; Las aceptaciones de Qdrant, Meilisearch y Caddy
 no validan los otros proveedores. No hay despliegue productivo, conexión automática de este
 chat al MCP, servicio 24/7, cobros reconciliados ni probabilidad comercial demostrada.

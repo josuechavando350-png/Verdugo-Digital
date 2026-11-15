@@ -1,0 +1,2 @@
+-c runtime-griptape666.constraints.txt
+griptape @ https://codeload.github.com/griptape-ai/griptape/tar.gz/5f6fd2376a5ac082eb77732de09216ff14e748bf#sha256=732ebe0288d0421ba328452e8c6f1ff437044016c9c354caaf4b33a095feab83

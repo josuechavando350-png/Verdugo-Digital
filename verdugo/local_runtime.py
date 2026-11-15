@@ -16,7 +16,7 @@ import sys
 import tempfile
 
 from .common import VerdugoError, fields, identifier, integer, encode
-from . import local_pilot666, local_executive666, local_reasoning666, objectives
+from . import local_pilot666, local_executive666, local_reasoning666, local_flow666, objectives
 from . import local_extended, local_analytics, local_research, local_interop, local_knowledge, local_data, local_native, local_cli, local_content, local_pycli, local_planning, local_completion, local_source, local_r, local_database, local_native_tools, local_media, local_images, local_lastnode, local_owned_http, runtime_profile
 
 # Primary published distribution versions; upstream source pins are a separate
@@ -65,6 +65,7 @@ SPECS.update(local_completion.SPECS)
 SPECS.update(local_pilot666.SPECS)
 SPECS.update(local_executive666.SPECS)
 SPECS.update(local_reasoning666.SPECS)
+SPECS.update(local_flow666.SPECS)
 EXTRA.update(local_completion.EXTRA)
 EXTRA.update(local_planning.EXTRA)
 EXTRA.update(local_content.EXTRA)
@@ -177,6 +178,8 @@ def validate(service, operation, params):
         return local_executive666.validate(service, operation, params)
     if service in local_reasoning666.SPECS:
         return local_reasoning666.validate(service, operation, params)
+    if service in local_flow666.SPECS:
+        return local_flow666.validate(service, operation, params)
     if service in local_owned_http.SPECS:
         return local_owned_http.validate(service, operation, params)
     if service in local_lastnode.SPECS:
@@ -330,7 +333,8 @@ def implementation_digest():
     h = hashlib.sha256()
     for path in (Path(local_pilot666.__file__), local_pilot666.CONTRACT, Path(objectives.__file__),
                  Path(local_executive666.__file__), local_executive666.CONTRACT,
-                 Path(local_reasoning666.__file__), local_reasoning666.CONTRACT):
+                 Path(local_reasoning666.__file__), local_reasoning666.CONTRACT,
+                 Path(local_flow666.__file__), local_flow666.CONTRACT):
         h.update(path.read_bytes())
     for path in (Path(__file__), WORKER, RECIPES, Path(local_extended.__file__), Path(local_analytics.__file__), Path(local_research.__file__), Path(local_interop.__file__), Path(local_knowledge.__file__), Path(local_data.__file__), Path(local_native.__file__), local_native.WORKER, Path(local_cli.__file__), Path(local_content.__file__), Path(local_pycli.__file__), Path(local_planning.__file__), Path(local_completion.__file__), Path(local_source.__file__), Path(local_r.__file__), local_r.WORKER, local_r.CONTRACT, Path(local_database.__file__), Path(local_native_tools.__file__), local_native_tools.CONTRACT, Path(local_media.__file__), local_media.CONTRACT, Path(local_images.__file__), Path(local_lastnode.__file__), local_lastnode.CONTRACT, local_lastnode.GUARD, local_lastnode.MCP_WORKER, Path(local_owned_http.__file__), local_owned_http.WORKER, local_owned_http.PY_WORKER,
                  Path(runtime_profile.__file__), runtime_profile.PROBE):

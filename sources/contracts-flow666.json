@@ -1,0 +1,99 @@
+{
+  "scope": "Fixed local pipeline and review state transitions, no model or approval grant",
+  "records": [
+    {
+      "id": "griptape",
+      "repository": "griptape-ai/griptape",
+      "commit": "5f6fd2376a5ac082eb77732de09216ff14e748bf",
+      "version": "1.13.0",
+      "archive_sha256": "732ebe0288d0421ba328452e8c6f1ff437044016c9c354caaf4b33a095feab83",
+      "prefix": "",
+      "files": [
+        {
+          "path": "pyproject.toml",
+          "blob_sha": "4593e6c2714d9567b31c85cf4b73ecdd370b2a5d",
+          "sha256": "34bcf8d109a946f70c9047bd77c547bfcb5d2f26007580511a363ebb9b66dd99",
+          "installed_path": null,
+          "source_url": "https://github.com/griptape-ai/griptape/blob/5f6fd2376a5ac082eb77732de09216ff14e748bf/pyproject.toml"
+        },
+        {
+          "path": "griptape/structures/pipeline.py",
+          "blob_sha": "eefdeb4dc2e4f88626424959d68ba75cb598f968",
+          "sha256": "04e2aa12184f80434d0b8354e2f27da662e5600f9a025a88f002a1fb199ad963",
+          "installed_path": "griptape/structures/pipeline.py",
+          "source_url": "https://github.com/griptape-ai/griptape/blob/5f6fd2376a5ac082eb77732de09216ff14e748bf/griptape/structures/pipeline.py"
+        },
+        {
+          "path": "griptape/structures/structure.py",
+          "blob_sha": "2d06d632cf4fb923cda0ada7927c15cf68009fa5",
+          "sha256": "a9d208ea7a37edf8cccebb7a6236de587ee11e4c196a30428b272c5bdc8365ab",
+          "installed_path": "griptape/structures/structure.py",
+          "source_url": "https://github.com/griptape-ai/griptape/blob/5f6fd2376a5ac082eb77732de09216ff14e748bf/griptape/structures/structure.py"
+        },
+        {
+          "path": "griptape/tasks/code_execution_task.py",
+          "blob_sha": "bb4f1062bb1a3f56e1fa591e1c724d424d1c0271",
+          "sha256": "efa385f3185b082d33f9116f820f722a62c8024c0dd888296e60ff81c89f5806",
+          "installed_path": "griptape/tasks/code_execution_task.py",
+          "source_url": "https://github.com/griptape-ai/griptape/blob/5f6fd2376a5ac082eb77732de09216ff14e748bf/griptape/tasks/code_execution_task.py"
+        },
+        {
+          "path": "griptape/tasks/base_task.py",
+          "blob_sha": "0a05f09a0999207ea19bfd093be41d67f8c41139",
+          "sha256": "1ee2e863077c1dee486b8d864f8eac3e59e1db73f0b144d89cfd59a393d5baad",
+          "installed_path": "griptape/tasks/base_task.py",
+          "source_url": "https://github.com/griptape-ai/griptape/blob/5f6fd2376a5ac082eb77732de09216ff14e748bf/griptape/tasks/base_task.py"
+        },
+        {
+          "path": "griptape/artifacts/text_artifact.py",
+          "blob_sha": "218c1fedce26cbf8d6cac5badcb564f632c20da5",
+          "sha256": "77a26a0220952996b6a9642a4e5c11d8f96b061930d8023cc4089ad1f3006d82",
+          "installed_path": "griptape/artifacts/text_artifact.py",
+          "source_url": "https://github.com/griptape-ai/griptape/blob/5f6fd2376a5ac082eb77732de09216ff14e748bf/griptape/artifacts/text_artifact.py"
+        }
+      ],
+      "distribution": "griptape",
+      "live_verified": false
+    },
+    {
+      "id": "beeai-framework",
+      "repository": "i-am-bee/beeai-framework",
+      "commit": "ba1a76e484c903e22c7ff71d63fc53afc33c9922",
+      "version": "0.1.86",
+      "archive_sha256": "90cee543b0f75b0c6ebc379972d5ec3362e098b3a27814632031420f661a7478",
+      "prefix": "python/",
+      "files": [
+        {
+          "path": "python/pyproject.toml",
+          "blob_sha": "5ea2e30c999a884b0798c6c098fb6b03b72cea72",
+          "sha256": "fdce8b411c787b20e5a8e2c01eebeb43923a644c9b915ec699d1609cb6637d63",
+          "installed_path": null,
+          "source_url": "https://github.com/i-am-bee/beeai-framework/blob/ba1a76e484c903e22c7ff71d63fc53afc33c9922/python/pyproject.toml"
+        },
+        {
+          "path": "python/beeai_framework/workflows/workflow.py",
+          "blob_sha": "dc24a6bb8f18fbd1675bd68ae41219a6dbcf0b21",
+          "sha256": "fad8aa25c67e637c58e279d5300dbb1f3468b6c4db6e0c256128a2dabed78a0c",
+          "installed_path": "beeai_framework/workflows/workflow.py",
+          "source_url": "https://github.com/i-am-bee/beeai-framework/blob/ba1a76e484c903e22c7ff71d63fc53afc33c9922/python/beeai_framework/workflows/workflow.py"
+        },
+        {
+          "path": "python/beeai_framework/workflows/types.py",
+          "blob_sha": "ea4f8179f4b7d70df974640d5a15d60f0be56b14",
+          "sha256": "59f8c1fdf72af13bb8a7d6cf657a613e42c6dd81acfd33ff65def84c47b87ef1",
+          "installed_path": "beeai_framework/workflows/types.py",
+          "source_url": "https://github.com/i-am-bee/beeai-framework/blob/ba1a76e484c903e22c7ff71d63fc53afc33c9922/python/beeai_framework/workflows/types.py"
+        },
+        {
+          "path": "python/beeai_framework/__init__.py",
+          "blob_sha": "ef775222db0db3ffdf1b57173da9eff7aa726a6c",
+          "sha256": "f715b955d4e8ac3c3602005f587e41ad5ce39836d38ca3d5b1957ce8f82ca1b2",
+          "installed_path": "beeai_framework/__init__.py",
+          "source_url": "https://github.com/i-am-bee/beeai-framework/blob/ba1a76e484c903e22c7ff71d63fc53afc33c9922/python/beeai_framework/__init__.py"
+        }
+      ],
+      "distribution": "beeai-framework",
+      "live_verified": false
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 363,
+ "pending": 361,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -27,34 +27,6 @@
    "nota": "Blocked 2026-11-15: upstream requires lancedb==0.4.0, absent from PyPI release list; Python 3.11 resolution fails. No dependency override applied.",
    "live_verified": false,
    "evidence": "sources/contracts-reasoning666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
-   "id": "griptape",
-   "repository": "griptape-ai/griptape",
-   "commit": "5f6fd2376a5ac082eb77732de09216ff14e748bf",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "ejecutivo",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
-   "id": "beeai-framework",
-   "repository": "i-am-bee/beeai-framework",
-   "commit": "ba1a76e484c903e22c7ff71d63fc53afc33c9922",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "ejecutivo",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 1",
@@ -7806,6 +7778,18 @@
    "id": "langroid",
    "operation": "claims.check",
    "scope": "Original fixed tool dispatch checks three arithmetic predicates; no model; synthetic only",
+   "live_verified": false
+  },
+  {
+   "id": "griptape",
+   "operation": "objective.scenarios",
+   "scope": "Two original fixed pipeline tasks compare synthetic conditional scenarios",
+   "live_verified": false
+  },
+  {
+   "id": "beeai-framework",
+   "operation": "review.route",
+   "scope": "Original fixed workflow routes findings to revision/operator review; never grants approval",
    "live_verified": false
   }
  ]

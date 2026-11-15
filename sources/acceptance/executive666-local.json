@@ -4,7 +4,9 @@
     "semantic-kernel",
     "agno",
     "ag2",
-    "langroid"
+    "langroid",
+    "griptape",
+    "beeai-framework"
   ],
   "original_sdks_executed": true,
   "mocked_sdks": false,
@@ -18,7 +20,7 @@
         "dataset": "demo",
         "distribution": "semantic-kernel",
         "external_provider_calls_made": false,
-        "implementation_sha256": "0bbed3ea479e2f4648f4060f055f5d8427c204cc12adfd5597ab382b664968c9",
+        "implementation_sha256": "3bf6b7846fd7f2cb178080a4cbbe48f4e6e8ec7aceac13675de713520b0bb372",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -69,7 +71,7 @@
         "dataset": "demo",
         "distribution": "agno",
         "external_provider_calls_made": false,
-        "implementation_sha256": "0bbed3ea479e2f4648f4060f055f5d8427c204cc12adfd5597ab382b664968c9",
+        "implementation_sha256": "3bf6b7846fd7f2cb178080a4cbbe48f4e6e8ec7aceac13675de713520b0bb372",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -119,12 +121,61 @@
         "service": "agno",
         "version": "3.2.0"
       },
+      "scenarios": {
+        "commercial_success_probability": null,
+        "dataset": "demo",
+        "distribution": "griptape",
+        "external_provider_calls_made": false,
+        "implementation_sha256": "3bf6b7846fd7f2cb178080a4cbbe48f4e6e8ec7aceac13675de713520b0bb372",
+        "ok": true,
+        "operation": "objective.scenarios",
+        "production_certified": false,
+        "result": {
+          "autonomous_agent": false,
+          "caller_code_executed": false,
+          "comparison_scope": "Point assumptions supplied in synthetic goals; cost and expected clients only",
+          "conversation_memory_used": false,
+          "dataset": "demo",
+          "dry_run": true,
+          "external_calls_made": false,
+          "external_execution_authorized": false,
+          "fixed_sdk_tasks": 2,
+          "forecast_is_guarantee": false,
+          "llm_calls": 0,
+          "original_sdk": "griptape",
+          "pareto_nondominated_indices": [
+            0
+          ],
+          "real_market_optimality_proven": false,
+          "reviewed_modules_verified": 5,
+          "scenarios": [
+            {
+              "conditional_expected_clients": 20.0,
+              "contacts": 200,
+              "cost_minor": 0,
+              "index": 0,
+              "target_feasible_under_point_assumptions": true
+            },
+            {
+              "conditional_expected_clients": 10.0,
+              "contacts": 100,
+              "cost_minor": 0,
+              "index": 1,
+              "target_feasible_under_point_assumptions": false
+            }
+          ],
+          "sdk_version": "1.13.0",
+          "source_commit": "5f6fd2376a5ac082eb77732de09216ff14e748bf"
+        },
+        "service": "griptape",
+        "version": "1.13.0"
+      },
       "check": {
         "commercial_success_probability": null,
         "dataset": "demo",
         "distribution": "ag2",
         "external_provider_calls_made": false,
-        "implementation_sha256": "0bbed3ea479e2f4648f4060f055f5d8427c204cc12adfd5597ab382b664968c9",
+        "implementation_sha256": "3bf6b7846fd7f2cb178080a4cbbe48f4e6e8ec7aceac13675de713520b0bb372",
         "ok": true,
         "operation": "actions.check",
         "production_certified": false,
@@ -256,7 +307,38 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "0bbed3ea479e2f4648f4060f055f5d8427c204cc12adfd5597ab382b664968c9"
+        "implementation_sha256": "3bf6b7846fd7f2cb178080a4cbbe48f4e6e8ec7aceac13675de713520b0bb372"
+      },
+      "review": {
+        "ok": true,
+        "service": "beeai-framework",
+        "operation": "review.route",
+        "distribution": "beeai-framework",
+        "version": "0.1.86",
+        "dataset": "demo",
+        "result": {
+          "recommendation": "revise_strategy",
+          "sdk_step_path": [
+            "assess",
+            "revise"
+          ],
+          "operator_approval_required": true,
+          "real_observations_verified": false,
+          "source_commit": "ba1a76e484c903e22c7ff71d63fc53afc33c9922",
+          "reviewed_modules_verified": 3,
+          "original_sdk": "beeai-framework",
+          "sdk_version": "0.1.86",
+          "dataset": "demo",
+          "dry_run": true,
+          "llm_calls": 0,
+          "autonomous_agent": false,
+          "external_calls_made": false,
+          "external_execution_authorized": false
+        },
+        "external_provider_calls_made": false,
+        "production_certified": false,
+        "commercial_success_probability": null,
+        "implementation_sha256": "3bf6b7846fd7f2cb178080a4cbbe48f4e6e8ec7aceac13675de713520b0bb372"
       }
     }
   },

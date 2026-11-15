@@ -100,3 +100,5 @@ from executive666_fixtures import CASES as EXECUTIVE666_CASES
 CASES.update(EXECUTIVE666_CASES)
 from reasoning666_fixtures import CASES as REASONING666_CASES
 CASES.update(REASONING666_CASES)
+from flow666_fixtures import CASES as FLOW666_CASES
+CASES.update(FLOW666_CASES)

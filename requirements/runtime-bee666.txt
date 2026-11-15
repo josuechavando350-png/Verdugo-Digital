@@ -1,0 +1,2 @@
+-c runtime-bee666.constraints.txt
+beeai-framework @ https://codeload.github.com/i-am-bee/beeai-framework/tar.gz/ba1a76e484c903e22c7ff71d63fc53afc33c9922#sha256=90cee543b0f75b0c6ebc379972d5ec3362e098b3a27814632031420f661a7478&subdirectory=python
