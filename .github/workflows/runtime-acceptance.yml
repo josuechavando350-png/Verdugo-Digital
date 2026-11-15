@@ -32,7 +32,12 @@ jobs:
           for sdk in agno ag2 langroid griptape bee strands planning; do
             python -m venv --copies /tmp/verdugo-${sdk}666-venv
             chmod go-w /tmp/verdugo-${sdk}666-venv/bin/python*
+            if [ "$sdk" = "strands" ]; then
+              SETUPTOOLS_SCM_PRETEND_VERSION=1.65.1.dev10+gc8e1351a5a6218c8f5c2417534aedbd021882a76 \
+                /tmp/verdugo-${sdk}666-venv/bin/python -m pip install -r requirements/runtime-${sdk}666.txt --report /tmp/${sdk}666-pip-report.json
+            else
             /tmp/verdugo-${sdk}666-venv/bin/python -m pip install -r requirements/runtime-${sdk}666.txt --report /tmp/${sdk}666-pip-report.json
+            fi
             /tmp/verdugo-${sdk}666-venv/bin/python -m pip check
             /tmp/verdugo-${sdk}666-venv/bin/python -m pip freeze > /tmp/${sdk}666-resolved.txt
           done

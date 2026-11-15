@@ -6,7 +6,7 @@
       "repo": "strands-agents/harness-sdk",
       "commit": "c8e1351a5a6218c8f5c2417534aedbd021882a76",
       "distribution": "strands-agents",
-      "version": "1.65.1.dev10+gc8e1351a",
+      "version": "1.65.1.dev10+gc8e1351a5a6218c8f5c2417534aedbd021882a76",
       "operation": "limits.parallel",
       "files": [
         {
@@ -37,7 +37,7 @@
       "source_url": "https://github.com/strands-agents/harness-sdk/tree/c8e1351a5a6218c8f5c2417534aedbd021882a76",
       "llm_calls": 0,
       "external_effects": false,
-      "install": "git VCS commit, strands-py subdirectory; original hatch-vcs version from repository tags"
+      "install": "Fixed git VCS commit, strands-py subdirectory; SETUPTOOLS_SCM_PRETEND_VERSION pins full-commit source build metadata, independent of git abbreviation length"
     },
     {
       "id": "unified-planning",

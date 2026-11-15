@@ -23,7 +23,7 @@
         "dataset": "demo",
         "distribution": "semantic-kernel",
         "external_provider_calls_made": false,
-        "implementation_sha256": "9fec4fac345be5f7d84b597657a87779c0cf2031bc1b93a3eacda9b4cee6a670",
+        "implementation_sha256": "e5a1de8c6ca5ba255de6049749fc4859b7a53ffe658e7abb0d514b0c437047bb",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -74,7 +74,7 @@
         "dataset": "demo",
         "distribution": "agno",
         "external_provider_calls_made": false,
-        "implementation_sha256": "9fec4fac345be5f7d84b597657a87779c0cf2031bc1b93a3eacda9b4cee6a670",
+        "implementation_sha256": "e5a1de8c6ca5ba255de6049749fc4859b7a53ffe658e7abb0d514b0c437047bb",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -129,7 +129,7 @@
         "dataset": "demo",
         "distribution": "griptape",
         "external_provider_calls_made": false,
-        "implementation_sha256": "9fec4fac345be5f7d84b597657a87779c0cf2031bc1b93a3eacda9b4cee6a670",
+        "implementation_sha256": "e5a1de8c6ca5ba255de6049749fc4859b7a53ffe658e7abb0d514b0c437047bb",
         "ok": true,
         "operation": "objective.scenarios",
         "production_certified": false,
@@ -178,7 +178,7 @@
         "dataset": "demo",
         "distribution": "strands-agents",
         "external_provider_calls_made": false,
-        "implementation_sha256": "9fec4fac345be5f7d84b597657a87779c0cf2031bc1b93a3eacda9b4cee6a670",
+        "implementation_sha256": "e5a1de8c6ca5ba255de6049749fc4859b7a53ffe658e7abb0d514b0c437047bb",
         "ok": true,
         "operation": "limits.parallel",
         "production_certified": false,
@@ -205,20 +205,20 @@
           "recommendation": "request_operator_review",
           "reviewed_modules_verified": 2,
           "sdk_session_persistence": false,
-          "sdk_version": "1.65.1.dev10+gc8e1351a",
+          "sdk_version": "1.65.1.dev10+gc8e1351a5a6218c8f5c2417534aedbd021882a76",
           "source_commit": "c8e1351a5a6218c8f5c2417534aedbd021882a76",
           "within_budget": true,
           "within_capacity": true
         },
         "service": "harness-sdk",
-        "version": "1.65.1.dev10+gc8e1351a"
+        "version": "1.65.1.dev10+gc8e1351a5a6218c8f5c2417534aedbd021882a76"
       },
       "check": {
         "commercial_success_probability": null,
         "dataset": "demo",
         "distribution": "ag2",
         "external_provider_calls_made": false,
-        "implementation_sha256": "9fec4fac345be5f7d84b597657a87779c0cf2031bc1b93a3eacda9b4cee6a670",
+        "implementation_sha256": "e5a1de8c6ca5ba255de6049749fc4859b7a53ffe658e7abb0d514b0c437047bb",
         "ok": true,
         "operation": "actions.check",
         "production_certified": false,
@@ -254,7 +254,7 @@
         "dataset": "demo",
         "distribution": "unified-planning",
         "external_provider_calls_made": false,
-        "implementation_sha256": "9fec4fac345be5f7d84b597657a87779c0cf2031bc1b93a3eacda9b4cee6a670",
+        "implementation_sha256": "e5a1de8c6ca5ba255de6049749fc4859b7a53ffe658e7abb0d514b0c437047bb",
         "ok": true,
         "operation": "sequence.validate",
         "production_certified": false,
@@ -386,7 +386,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "9fec4fac345be5f7d84b597657a87779c0cf2031bc1b93a3eacda9b4cee6a670"
+        "implementation_sha256": "e5a1de8c6ca5ba255de6049749fc4859b7a53ffe658e7abb0d514b0c437047bb"
       },
       "review": {
         "ok": true,
@@ -417,7 +417,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "9fec4fac345be5f7d84b597657a87779c0cf2031bc1b93a3eacda9b4cee6a670"
+        "implementation_sha256": "e5a1de8c6ca5ba255de6049749fc4859b7a53ffe658e7abb0d514b0c437047bb"
       },
       "measurement_review": {
         "ok": true,
@@ -449,7 +449,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "9fec4fac345be5f7d84b597657a87779c0cf2031bc1b93a3eacda9b4cee6a670"
+        "implementation_sha256": "e5a1de8c6ca5ba255de6049749fc4859b7a53ffe658e7abb0d514b0c437047bb"
       }
     }
   },

@@ -8,7 +8,7 @@ from .common import VerdugoError, fields, integer
 from . import objectives
 
 SPECS = {
-    'harness-sdk': ('limits.parallel', 'strands-agents', '1.65.1.dev10+gc8e1351a'),
+    'harness-sdk': ('limits.parallel', 'strands-agents', '1.65.1.dev10+gc8e1351a5a6218c8f5c2417534aedbd021882a76'),
     'unified-planning': ('sequence.validate', 'unified-planning', '0.0.0'),
 }
 CONTRACT = Path(__file__).resolve().parents[1] / 'sources/contracts-planning666.json'
