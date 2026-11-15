@@ -1,19 +1,20 @@
 # Complemento v0.21 — evidencia y alcance
 
 Base: `a6809de201ba517846e19cf965194b21e6617050`, rama `feat/v0.21-final88`, PR #20.
-Se añaden **67 de las 68 integraciones pendientes**: 40 operaciones locales
+Se añaden **68 de las 68 integraciones pendientes**: 41 operaciones locales
 con código original, una comparación propia de reglas NAP originales y 26 contratos HTTP. Junto con las 20 anteriores de v0.21, son
-87 operaciones de esta tanda y **1 todavía pendiente**. No declarar terminada
-la tanda. No se modifica main ni se altera la política de licencias.
+88 operaciones de esta tanda y **0 pendientes de implementación**. La aceptación
+exige los tres workflows completos sobre el commit vigente. No se modifica main ni se altera la política de licencias.
 
-Inventario actual: 322 entradas; 243 conectadas bajo la política, 56 componentes,
-1 pendiente y 22 excluidas. Hay 104 adaptadores HTTP (108 acciones) y 158
+Inventario actual: 322 entradas; 244 conectadas bajo la política, 56 componentes,
+0 pendientes y 22 excluidas. Hay 104 adaptadores HTTP (108 acciones) y 159
 operaciones locales; 19 adaptadores HTTP históricos siguen excluidos por licencia.
 
 ## Operaciones comprobadas y límites
 
 | Proyecto | Operación | Alcance |
 |---|---|---|
+| `playwright-mcp` | `document.snapshot` | Herramienta browser_snapshot del MCP original 0.0.85, cliente SDK 1.32.2 y Chromium 158.0.8127.18; solo recuentos de documento suministrado, JavaScript de página deshabilitado, sin navegación externa. |
 | `a2a` | `tasks.snapshot` | Almacén temporal de tareas con SDK oficial 1.3.0; proyecta estados; no invoca agentes. |
 | `anubis` | `health.summary` | Salud del proceso; Basic nativo del puerto de métricas revisado. |
 | `autogeo` | `citations.score` | Puntuación de citas sobre tokens y referencias suministrados; no visibilidad real ni efectos causales. |
@@ -179,10 +180,14 @@ El checkpoint de 63, `8403d02405ea6a58f3e0080706bc3aa224e45513`, aprobó [verifi
 
 Landscape App pasó el producto/replay en 8.669 s y el caso de repositorio/fecha inválidos en 2.092 s. Se ejecutan validateLandscape.js, settings, actualTwitter, fatalErrors y yaml originales; reporter.js solo sustituye ambas rutas `/tmp/landscape.json` por `landscape-errors.json` en el directorio privado. La prueba verifica la adaptación byte por byte. Un preload propio bloquea red y procesos hijos, y el entorno no contiene claves de GitHub ni variables de notificación. Los textos del reporte original nunca se guardan en SQLite; solo recuentos y validez. [Resultado](evidence/v021-landscape-local.json).
 
-El perfil `lastnode021` incluye además una prueba experimental del servidor Playwright MCP 0.0.85 con cliente SDK 1.32.2 y Chromium 158.0.8127.18 original. Esa herramienta todavía no está registrada en Engine ni contabilizada. El host local rechaza AF_UNIX y Chromium falla antes de abrirse. CI debe ejecutar `browser_snapshot` real sobre contenido suministrado; no hay fallback, mock ni éxito por omisión. La descarga automática desde cdn.playwright.dev devolvió HTML de sitio no disponible: se usa el ZIP original de Chrome for Testing en storage.googleapis.com, fijado por SHA-256.
+El perfil `lastnode021` ejecuta el servidor Playwright MCP 0.0.85 con cliente SDK 1.32.2 y Chromium 158.0.8127.18 original. `document.snapshot` está registrado en el mismo Engine. El host local rechaza AF_UNIX y no pudo abrir Chromium; la herramienta original pasó en CI del commit df413d105604d5b7359948e337610c99c39c08a2. El fallo anterior era isolated:true con un contexto ya suministrado: la API original exige reutilizar ese contexto privado. No se sustituyó el servidor ni el navegador. El worker solo llama browser_snapshot, escapa títulos, encabezados y botones, bloquea peticiones de página y servicios worker, y cierra Chromium antes de devolver el resultado. El contenido original no llega a SQLite. La descarga automática desde cdn.playwright.dev devolvió HTML de sitio no disponible: se usa el ZIP original de Chrome for Testing en storage.googleapis.com, fijado por SHA-256.
 
 El grupo network021 pasó localmente 20 pruebas en 46.106 s (17 omitidas por pertenecer a otros perfiles). Incluye ambos programas originales a través de Engine, composición y replay, una página inalcanzable y una respuesta HTTP 200 que contiene el marcador de ausencia. Los únicos destinos son 127.0.0.1 y un puerto efímero generado; Host y credenciales efímeras se comprueban en el servidor. Las salidas proyectadas omiten URLs, cuerpos y credenciales. El padre cierra conexiones y servidor antes de devolver éxito. CI habilita solo loopback dentro del namespace sin red externa.
 
-La prueba inicial usó una compilación Node 24.22.1 distinta de la extraída del archivo oficial. El perfil final fija el SHA-256 e32e2d16081cf644f88392934288086e7662529d0d43277c34f7aad2207cfafb de ese archivo oficial; la aceptación posterior del perfil exacto debe observarse en CI. Durante la repetición local el entorno se desconectó; no se atribuye éxito a esa repetición ni a una nueva suite conjunta de 67. La última composición conjunta observada sigue siendo la de 65 y 66 pasos, conservada en evidencia.
+La prueba inicial usó una compilación Node 24.22.1 distinta de la extraída del archivo oficial. El perfil final fija el SHA-256 e32e2d16081cf644f88392934288086e7662529d0d43277c34f7aad2207cfafb de ese archivo oficial; la aceptación del perfil exacto network021 pasó en CI de 3d7a2df (job 132713693238). Durante la repetición local el entorno se desconectó; no se atribuye éxito a esa repetición ni a una nueva suite conjunta de 67. La última composición conjunta observada sigue siendo la de 65 y 66 pasos, conservada en evidencia.
 
-Microsandbox original pasó también en CI del checkpoint 5710826. Landscape App pasó sus pruebas originales en ese CI; el trabajo completo lastnode021 falló por la herramienta de Playwright MCP. Esa herramienta sigue sin registrarse en Engine y no se cuenta como terminada. Se añade diagnóstico exclusivamente para su prueba sintética, para corregir el fallo sin sustituir la ejecución real.
+Microsandbox original pasó también en CI del checkpoint 5710826. Landscape App pasó sus pruebas originales en ese CI; el trabajo completo lastnode021 falló por la herramienta de Playwright MCP. Ese fallo se resolvió en df413d1 y el job 132715169636 aprobó las cuatro pruebas activas (20 descubiertas, 16 de otros perfiles omitidas) en 8.745 s. La aceptación posterior del adaptador ya registrado se exige en el commit vigente.
+
+El perfil `closure021` prepara los cinco últimos programas originales (Microsandbox, Landscape, Playwright MCP, SiteOne y Sherlock) y exige su composición junto a los 26 contratos HTTP sintéticos en un mismo Engine/SQLite: 32 pasos contando la instantánea local. Reabre SQLite, prohíbe volver a llamar a workers o transportes en replay y comprueba que las entradas privadas no se persistan. Es una aceptación adicional a la composición previa de 65, no una afirmación de una nueva ejecución conjunta de 68 en el entorno local interrumpido. Cada perfil del resto de programas se vuelve a ejecutar en CI. Los artefactos y estados del workflow deben corresponder al commit que se evalúa.
+
+El ZIP de Chromium se verifica por SHA-256 antes de extraerlo; su manifiesto de archivos se genera durante la preparación administrativa, y cada archivo vuelve a verificarse en planificación y ejecución. Un manifiesto cambiado invalida el perfil. No hay instalación dentro del motor. El runtime usa Node oficial y versiones npm exactas con integridad del lockfile; los binarios son Linux x86_64. [Contrato MCP fijado](../sources/contracts-v021-mcp.json).

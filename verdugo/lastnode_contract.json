@@ -7,7 +7,9 @@
     "js-yaml": "4.1.1",
     "lodash": "4.18.1",
     "colors": "1.4.0",
-    "axios": "1.21.1"
+    "axios": "1.21.1",
+    "playwright": "1.66.0-alpha-2026-11-09",
+    "playwright-core": "1.66.0-alpha-2026-11-09"
   },
   "landscape_files": {
     "validateLandscape.js": "b14e0bcb00977c8c42c87e99f95898faf447dbcfe7d6de103b01321bf622e1e2",

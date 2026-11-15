@@ -4,13 +4,13 @@ Fecha: 15 de noviembre de 2026. Versión del motor: 0.21.0.
 
 | Estado | Cuántas |
 |---|---|
-| conectado | 243 |
+| conectado | 244 |
 | pieza_de_construccion | 56 |
-| pendiente | 1 |
+| pendiente | 0 |
 | excluido | 22 |
 | **Total** | 322 |
 
-**Pendientes: 1**, conservando la identificación de las cuatro tandas originales. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
+**Pendientes: 0**, conservando la identificación de las cuatro tandas originales. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
 no se conectan al motor: se usan al construir la plataforma (fase aparte). Las 22 excluidas por licencia no se tocan.
 
 El estado de cada pieza lo calcula el código: `python -m verdugo connections`. Este plan en formato
@@ -216,8 +216,8 @@ programas originales y replay en el mismo Engine.
 
 - **servicio**: Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.
 - **biblioteca**: Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.
-- **cli**: Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).
-- **mcp**: Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos.
+- **cli**: Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Usa el worker compartido y perfiles preparados expresamente fuera del motor.
+- **mcp**: Cliente/servidor originales con herramienta fija, transporte local, versión fijada y ejecución a través del worker compartido.
 - **protocolo**: Implementar con su SDK oficial (a2a-python) como receta local.
 - **datos**: Descargar fijado por commit en CI y leer localmente; nunca descargar en tiempo de ejecución.
 
@@ -229,16 +229,12 @@ que use el motor por su API/MCP. Esa fase se planea cuando las tandas de conecto
 
 ## Complemento v0.21 desde a6809de
 
-67 operaciones adicionales: 40 operaciones con programas originales, una comparación propia de reglas NAP originales y 26 contratos HTTP. Son 87 de las 88 de v0.21; Playwright MCP sigue pendiente de integración y aceptación. [Alcance y evidencia](ACEPTACION_COMPLEMENTO_V021.md).
+68 operaciones adicionales: 41 operaciones con programas originales, una comparación propia de reglas NAP originales y 26 contratos HTTP. Son las 88 de v0.21, con alcance delimitado y aceptación obligatoria por commit. [Alcance y evidencia](ACEPTACION_COMPLEMENTO_V021.md).
 
-Las listas anteriores conservan el plan histórico. La lista pendiente vigente es:
-
-| Pendiente | Trabajo restante |
-|---|---|
-| `playwright-mcp` | Ejecutar una herramienta MCP original delimitada y comprobar su resultado, no solo registrar el servidor. |
+Las listas anteriores conservan el plan histórico. La lista pendiente vigente está vacía; el JSON conserva todas las identidades y sus operaciones implementadas.
 
 CUA normaliza acciones sin ejecutarlas; TinyTroupe compara muestras sin simular agentes. Sus únicas adaptaciones son imports documentados. Google Maps Scraper analiza cargas suministradas con su parser original sin consultar Google. Quarto renderiza texto plano y Auto-Editor mide amplitudes PCM sin editar audio. Local SEO Skills aporta reglas NAP, no un ejecutable upstream ni un servidor MCP. Todas las operaciones comparten Engine, workflows y SQLite.
 
-Microsandbox 0.7.15 ejecuta importación e inspección de imágenes de datos temporales, sin iniciar microVMs ni cloud. Landscape App ejecuta su validador original sobre proyectos suministrados; solo cambia la ruta del reporte a un directorio privado. Playwright MCP aún no cuenta como integrado: su prueba con navegador debe pasar en CI.
+Microsandbox 0.7.15 ejecuta importación e inspección de imágenes de datos temporales, sin iniciar microVMs ni cloud. Landscape App ejecuta su validador original sobre proyectos suministrados; solo cambia la ruta del reporte a un directorio privado. Playwright MCP invoca browser_snapshot real mediante cliente y servidor originales sobre Chromium privado. Devuelve recuentos y niveles de encabezados y botones; no navega sitios externos. Su prueba original pasó en df413d1; la integración con Engine y el flujo final se exige en CI del commit vigente.
 
 SiteOne Crawler y Sherlock ejecutan algoritmos originales contra un servidor privado autenticado que contiene únicamente datos suministrados. No consultan sitios ni cuentas externas. El perfil network021 exige pruebas reales de procesos, proyección, casos negativos y replay en CI con loopback dentro de un namespace sin salida a Internet.

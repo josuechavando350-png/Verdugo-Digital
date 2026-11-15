@@ -382,14 +382,14 @@ class CatalogueTruthTests(unittest.TestCase):
 
     def test_connection_changes_are_code_derived_and_do_not_certify_production(self):
         report = connections.summary()
-        self.assertEqual({'conectado': 243, 'pendiente': 1, 'pieza_de_construccion': 56, 'excluido': 22}, report['states'])
+        self.assertEqual({'conectado': 244, 'pendiente': 0, 'pieza_de_construccion': 56, 'excluido': 22}, report['states'])
         self.assertEqual(0, report['live_verified'])
         with closing(Engine(':memory:')) as engine:
             status = engine.status()
         self.assertEqual(104, status['api_adapters_implemented'])
         self.assertEqual(108, status['api_actions_implemented'])
-        self.assertEqual(262, status['total_adapters_implemented'])
-        self.assertEqual(60, status['projects_without_any_adapter'])
+        self.assertEqual(263, status['total_adapters_implemented'])
+        self.assertEqual(59, status['projects_without_any_adapter'])
 
 
 if __name__ == '__main__':

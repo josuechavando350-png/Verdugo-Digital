@@ -8,6 +8,7 @@ const {InMemoryTransport}=req('@modelcontextprotocol/sdk/inMemory.js');
 const raw=fs.readFileSync(0);if(raw.length>32768)throw Error('Input budget');const p=JSON.parse(raw);
 const esc=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 (async()=>{
+ let projection;
  const browser=await chromium.launch({headless:true,executablePath:path.join(home,'chromium/chrome-linux64/chrome'),args:['--disable-dev-shm-usage']});
  try {
   const context=await browser.newContext({javaScriptEnabled:false,serviceWorkers:'block',offline:true});
@@ -29,7 +30,9 @@ const esc=s=>s.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&g
    const headings=[...snapshot[1].matchAll(/^-?\s*- heading .*\[level=(\d)\]/gm)].map(x=>Number(x[1]));
    const buttons=[...snapshot[1].matchAll(/^\s*- button\b/gm)].length;
    if(!snapshot[1].includes('main'))throw Error('Original document snapshot absent');
-   process.stdout.write(JSON.stringify({headings:headings.length,heading_levels:headings,buttons,mcp_tool:'browser_snapshot',browser_started:true,javascript_enabled:false,remote_page_fetched:false,scope:'Original MCP accessibility snapshot of supplied structured content; not a live website audit'}));
+   projection={headings:headings.length,heading_levels:headings,buttons,mcp_tool:'browser_snapshot',browser_started:true,javascript_enabled:false,remote_page_fetched:false,scope:'Original MCP accessibility snapshot of supplied structured content; not a live website audit'};
   } finally {await client.close();await server.close();}
  } finally {await browser.close();}
+ if(browser.isConnected())throw Error('Browser failed to close');
+ process.stdout.write(JSON.stringify({...projection,browser_closed:true}));
 })().catch(e=>{process.stderr.write(String(e)+'\n');process.exitCode=1});

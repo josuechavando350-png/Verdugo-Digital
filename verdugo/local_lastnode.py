@@ -7,7 +7,12 @@ import subprocess
 import tempfile
 from .common import VerdugoError, fields
 from .local_native import checked
-SPECS={'landscape-app':('landscape.validate','original-landscape-source','a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf')}
+SPECS={'landscape-app':('landscape.validate','original-landscape-source','a882d0675b2cd9ace3fa158f6d8df3b65a5a82cf'),
+       'playwright-mcp':('document.snapshot','npm:@playwright/mcp','0.0.85')}
+CLI={'landscape-app'}
+MCP={'playwright-mcp'}
+MCP_WORKER=Path(__file__).with_name('_playwright_mcp_worker.cjs')
+CHROME_SHA='c6cb06e1574ac2f6c5c38e31551157fbcaa67e6366c89974084553c5a5772592'
 ENV='VERDUGO_LASTNODE_ROOT'
 CONTRACT=Path(__file__).with_name('lastnode_contract.json')
 SOURCE=Path(__file__).with_name('vendor')/'landscape'
@@ -29,9 +34,24 @@ def runtime_state(service):
    p=checked(home/'node_modules'/package/'package.json').read_bytes();meta=json.loads(p);entry=lock['packages']['node_modules/'+package]
    if meta['name']!=package or meta['version']!=expected or entry['version']!=expected or not entry['integrity'].startswith('sha512-'):raise ValueError('Native package mismatch')
    h.update(p)
+  if service in MCP:
+   manifest_raw=checked(home/'browser-manifest.json',budget=1024*1024).read_bytes();manifest=json.loads(manifest_raw)
+   if manifest['archive_sha256']!=CHROME_SHA or not isinstance(manifest['files'],dict) or not 1<=len(manifest['files'])<=2000:raise ValueError('Browser manifest mismatch')
+   if 'chrome-linux64/chrome' not in manifest['files']:raise ValueError('Browser binary absent')
+   h.update(manifest_raw)
+   for name,sha in sorted(manifest['files'].items()):
+    rel=Path(name)
+    if rel.is_absolute() or '..' in rel.parts or not name.startswith('chrome-linux64/') or not isinstance(sha,str) or len(sha)!=64:raise ValueError('Unsafe browser manifest')
+    target=home/'chromium'/rel
+    if not target.resolve().is_relative_to(home/'chromium'):raise ValueError('Browser escaped runtime')
+    digest=hashlib.sha256()
+    with checked(target,budget=512*1024*1024).open('rb') as stream:
+     for block in iter(lambda:stream.read(1024*1024),b''):digest.update(block)
+    if digest.hexdigest()!=sha:raise ValueError('Browser runtime changed')
+    h.update(digest.digest())
   binding=h.hexdigest();present=True
  except (OSError,ValueError,KeyError,TypeError,VerdugoError):pass
- return {'distribution':dist,'distribution_kind':'original-source-cli','expected':version,'installed':version if present else None,'version_matches':present,'extra_distributions':{},'operation':op,'execution_verified':False,'runtime_binding':binding}
+ return {'distribution':dist,'distribution_kind':'npm-mcp' if service in MCP else 'original-source-cli','expected':version,'installed':version if present else None,'version_matches':present,'extra_distributions':{},'operation':op,'execution_verified':False,'runtime_binding':binding}
 def records(p):
  from .local_runtime import string
  string(p['secret_text'],16000)
@@ -42,15 +62,47 @@ def records(p):
   fields(row,('name',),('repo_url','project_org','joined','twitter'))
   for value in row.values():string(value,300)
  return rows
+def document(p):
+ from .local_runtime import string
+ string(p['secret_text'],16000)
+ try:doc=json.loads(p['secret_text'])
+ except (ValueError,TypeError,RecursionError) as exc:raise VerdugoError('Structured document JSON required') from exc
+ fields(doc,('title','headings','buttons'))
+ string(doc['title'],160)
+ if not isinstance(doc['headings'],list) or not 1<=len(doc['headings'])<=20:raise VerdugoError('1..20 headings required')
+ if not isinstance(doc['buttons'],list) or len(doc['buttons'])>20:raise VerdugoError('At most 20 buttons required')
+ for row in doc['headings']:
+  fields(row,('level','text'))
+  if type(row['level']) is not int or not 1<=row['level']<=6:raise VerdugoError('Heading level 1..6 required')
+  string(row['text'],300)
+ for label in doc['buttons']:string(label,160)
+ return doc
+
 def validate(service,operation,p):
  if service not in SPECS or operation!=SPECS[service][0]:raise VerdugoError('Unsupported native operation')
  fields(p,('dataset','secret_text'))
  if p['dataset'] not in ('demo','real'):raise VerdugoError('Explicit dataset required')
- records(p)
+ document(p) if service in MCP else records(p)
 def run(service,p):
  validate(service,SPECS[service][0],p)
  if not runtime_state(service)['version_matches']:raise ValueError('Native runtime changed')
- home=root();rows=records(p)
+ home=root()
+ if service in MCP:
+  doc=document(p)
+  env={'PATH':os.defpath,'HOME':os.getcwd(),'TMPDIR':os.getcwd(),'LANG':'C.UTF-8',ENV:str(home)}
+  with tempfile.TemporaryFile() as out,tempfile.TemporaryFile() as err:
+   result=subprocess.run([str(home/'bin/node'),str(MCP_WORKER)],input=json.dumps(doc).encode(),env=env,stdout=out,stderr=err,timeout=60,close_fds=True)
+   if result.returncode:raise ValueError('Original MCP browser operation failed')
+   out.seek(0);raw=out.read(32769)
+  if len(raw)>32768:raise ValueError('MCP projection exceeded budget')
+  value=json.loads(raw)
+  fields(value,('headings','heading_levels','buttons','mcp_tool','browser_started','browser_closed','javascript_enabled','remote_page_fetched','scope'))
+  if value['mcp_tool']!='browser_snapshot' or value['browser_started'] is not True or value['browser_closed'] is not True or value['javascript_enabled'] is not False or value['remote_page_fetched'] is not False:raise ValueError('Invalid original MCP evidence')
+  if type(value['headings']) is not int or not 1<=value['headings']<=20 or type(value['buttons']) is not int or not 0<=value['buttons']<=20:raise ValueError('Invalid snapshot counts')
+  if not isinstance(value['heading_levels'],list) or len(value['heading_levels'])!=value['headings'] or any(type(x) is not int or not 1<=x<=6 for x in value['heading_levels']):raise ValueError('Invalid snapshot heading levels')
+  if not isinstance(value['scope'],str) or len(value['scope'])>300:raise ValueError('Invalid snapshot scope')
+  return value
+ rows=records(p)
  Path('settings.yml').write_text(json.dumps({'global':{'membership':False},'membership':{}}))
  Path('landscape.yml').write_text(json.dumps({'landscape':[{'category':None,'name':'Supplied','subcategories':[{'subcategory':None,'name':'Projects','items':[{'item':None,**row} for row in rows]}]}]}))
  env={'PATH':os.defpath,'HOME':os.getcwd(),'TMPDIR':os.getcwd(),'LANG':'C.UTF-8','NODE_PATH':str(home/'node_modules'),'PROJECT_PATH':os.getcwd()}

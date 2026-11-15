@@ -47,7 +47,7 @@ def read_map(path=None):
             raise VerdugoError('Connection map disagrees with the license policy: ' + sid)
         if sid in SPECS and row['kind'] not in (('biblioteca',) if sid == 'ckanapi' else ('servicio', 'excluido')):
             raise VerdugoError('An HTTP adapter requires kind servicio: ' + sid)
-        if sid in local_runtime.SPECS and row['kind'] != ('datos' if sid in local_data.SPECS else 'cli' if sid in {*local_cli.SPECS, *local_pycli.SPECS, *local_native_tools.CLI, *local_media.SPECS, *local_images.SPECS, *local_lastnode.SPECS, *local_owned_http.SPECS} else 'biblioteca'):
+        if sid in local_runtime.SPECS and row['kind'] != ('datos' if sid in local_data.SPECS else 'mcp' if sid in local_lastnode.MCP else 'cli' if sid in {*local_cli.SPECS, *local_pycli.SPECS, *local_native_tools.CLI, *local_media.SPECS, *local_images.SPECS, *local_lastnode.CLI, *local_owned_http.SPECS} else 'biblioteca'):
             raise VerdugoError('A local recipe requires kind biblioteca: ' + sid)
         table[sid] = row['kind']
     _CACHE[str(path)] = (table, kinds)

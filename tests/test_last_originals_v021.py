@@ -18,3 +18,14 @@ class LastOriginals(unittest.TestCase):
    with self.assertRaises(VerdugoError):local_lastnode.validate('landscape-app','landscape.validate',p|{key:'forbidden'})
   for row in [{'name':'Supplied','__proto__':{}},{'name':'Supplied','repo_url':{}},{'name':'Supplied','script':'exec'}]:
    with self.assertRaises(VerdugoError):local_lastnode.validate('landscape-app','landscape.validate',p|{'secret_text':json.dumps([row])})
+
+ def test_mcp_cannot_select_urls_html_tools_or_browser_configuration(self):
+  doc={'title':'Supplied','headings':[{'level':1,'text':'Heading'}],'buttons':[]}
+  p={'dataset':'demo','secret_text':json.dumps(doc)}
+  local_lastnode.validate('playwright-mcp','document.snapshot',p)
+  for key in ['url','html','tool','command','browser','config','path','token']:
+   with self.subTest(key=key),self.assertRaises(VerdugoError):local_lastnode.validate('playwright-mcp','document.snapshot',p|{key:'forbidden'})
+   with self.subTest(nested=key),self.assertRaises(VerdugoError):local_lastnode.validate('playwright-mcp','document.snapshot',p|{'secret_text':json.dumps(doc|{key:'forbidden'})})
+  for bad in [[],{},doc|{'headings':[]},doc|{'headings':[{'level':True,'text':'x'}]},doc|{'headings':[{'level':7,'text':'x'}]},doc|{'headings':[{'level':1,'text':'x','onclick':'bad'}]},doc|{'buttons':['x']*21},doc|{'title':'x'*161}]:
+   with self.subTest(value=bad),self.assertRaises(VerdugoError):local_lastnode.validate('playwright-mcp','document.snapshot',p|{'secret_text':json.dumps(bad)})
+  with self.assertRaises(VerdugoError):local_lastnode.validate('playwright-mcp','browser_navigate',p)

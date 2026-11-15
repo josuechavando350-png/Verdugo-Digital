@@ -4,7 +4,7 @@
   "biblioteca": "Biblioteca que el motor ejecuta como receta local aislada (proceso aparte, sin red, con límite de tiempo).",
   "componente": "Pieza para construir el producto (interfaz, API, móvil). Se conecta al programar la plataforma, no a través del motor.",
   "cli": "Programa de línea de comandos que el motor ejecutaría como proceso externo con argumentos fijos.",
-  "mcp": "Servidor o paquete de instrucciones para agentes; se conecta a los agentes por MCP, no al motor directamente.",
+  "mcp": "Servidor MCP original; una herramienta acotada se llama con cliente y transporte local dentro del worker compartido, sin comandos ni destinos elegidos por params.",
   "protocolo": "Especificación que siguen los agentes para hablar entre sí; se implementa con su SDK.",
   "datos": "Conjunto de datos o lista; se descarga fijado por commit y se lee localmente.",
   "excluido": "Excluido por licencia: el motor se niega a operarlo."

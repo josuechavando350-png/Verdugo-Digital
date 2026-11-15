@@ -21,7 +21,7 @@ class FinalSources(unittest.TestCase):
                 self.assertRegex(source['git_blob_sha'],r'^[0-9a-f]{40}$')
                 self.assertRegex(source['sha256'],r'^[0-9a-f]{64}$')
         plan=json.loads((root/'docs/plan_conexion.json').read_text())
-        self.assertEqual(expected|{'lighthouse','slidev','promptfoo','log4brains','pricesensitivitymeter','robyn','valkey','postgres','pgvector','apache-age','arx','cc-webgraph','goaccess','openapi-generator','quarto','auto-editor','google-maps-scraper','local-seo-skills','microsandbox','landscape-app','siteone-crawler','sherlock'},{r['id'] for r in plan['implemented_v021_completion']})
+        self.assertEqual(expected|{'lighthouse','slidev','promptfoo','log4brains','pricesensitivitymeter','robyn','valkey','postgres','pgvector','apache-age','arx','cc-webgraph','goaccess','openapi-generator','quarto','auto-editor','google-maps-scraper','local-seo-skills','microsandbox','landscape-app','siteone-crawler','sherlock','playwright-mcp'},{r['id'] for r in plan['implemented_v021_completion']})
 
     def test_every_new_operation_has_pinned_original_api_evidence(self):
         sources={r['id']:r for r in read_sources()}
@@ -33,3 +33,16 @@ class FinalSources(unittest.TestCase):
                 self.assertEqual(sources[row['service']]['commit_sha'],row['commit'])
                 self.assertRegex(row['blob_sha'],r'^[0-9a-f]{40}$')
                 self.assertIn('/blob/'+row['commit']+'/',row['url'])
+
+    def test_original_mcp_api_matches_catalog_and_runtime(self):
+        from verdugo import local_lastnode, connections
+        root=Path(__file__).resolve().parents[1]
+        doc=json.loads((root/'sources/contracts-v021-mcp.json').read_text())
+        sources={r['id']:r for r in read_sources()}
+        self.assertEqual(sources['playwright-mcp']['commit_sha'],doc['catalog_commit'])
+        self.assertEqual(local_lastnode.SPECS['playwright-mcp'][2],doc['version'])
+        self.assertEqual('mcp',connections.summary('playwright-mcp')['kind'])
+        self.assertEqual({'index.js','index.d.ts','package.json','LICENSE'},{x['path'] for x in doc['files']})
+        for row in doc['files']:
+            self.assertRegex(row['git_blob_sha'],r'^[0-9a-f]{40}$')
+            self.assertIn('/blob/'+doc['catalog_commit']+'/',row['url'])

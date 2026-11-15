@@ -1,20 +1,7 @@
 {
  "generated": "2026-11-15",
- "pending": 1,
- "items": [
-  {
-   "tanda": "Tanda 1",
-   "id": "playwright-mcp",
-   "repository": "microsoft/playwright-mcp",
-   "commit": "78eca85361efb545a4c0f59b6140aef0721c5412",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "mcp",
-   "domain": "agents",
-   "que_hacer": "Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos.",
-   "nota": null
-  }
- ],
+ "pending": 0,
+ "items": [],
  "baseline_commit": "35516f830cba1e0dbb06b91f44357128440fc832",
  "baseline_pending": 185,
  "implemented_v017": [
@@ -1625,11 +1612,12 @@
    "policy": "libre",
    "kind": "servicio",
    "domain": "authority",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "que_hacer": "Operación delimitada implementada: health.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "health.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback."
   },
   {
    "tanda": "Tanda 1",
@@ -1640,11 +1628,12 @@
    "policy": "libre_condicionado",
    "kind": "servicio",
    "domain": "authority",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "que_hacer": "Operación delimitada implementada: mentions.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "mentions.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback."
   },
   {
    "tanda": "Tanda 1",
@@ -1655,11 +1644,12 @@
    "policy": "libre",
    "kind": "servicio",
    "domain": "agents",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "que_hacer": "Operación delimitada implementada: health.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "health.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback."
   },
   {
    "tanda": "Tanda 1",
@@ -1670,11 +1660,12 @@
    "policy": "libre",
    "kind": "servicio",
    "domain": "agents",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "que_hacer": "Operación delimitada implementada: agents.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "agents.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback."
   },
   {
    "tanda": "Tanda 1",
@@ -1685,11 +1676,12 @@
    "policy": "libre",
    "kind": "servicio",
    "domain": "dataengine",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "que_hacer": "Operación delimitada implementada: connector.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "connector.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback."
   },
   {
    "tanda": "Tanda 1",
@@ -1700,11 +1692,12 @@
    "policy": "libre",
    "kind": "servicio",
    "domain": "platform",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "que_hacer": "Operación delimitada implementada: metrics.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "metrics.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback."
   },
   {
    "tanda": "Tanda 1",
@@ -1715,11 +1708,12 @@
    "policy": "libre",
    "kind": "servicio",
    "domain": "platform",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "que_hacer": "Operación delimitada implementada: health.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "health.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback."
   },
   {
    "tanda": "Tanda 1",
@@ -1730,11 +1724,12 @@
    "policy": "libre",
    "kind": "servicio",
    "domain": "research",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "que_hacer": "Operación delimitada implementada: accounts.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "accounts.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback."
   },
   {
    "tanda": "Tanda 1",
@@ -1745,11 +1740,12 @@
    "policy": "libre_condicionado",
    "kind": "servicio",
    "domain": "research",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "que_hacer": "Operación delimitada implementada: accounts.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "accounts.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback."
   },
   {
    "tanda": "Tanda 1",
@@ -1760,11 +1756,12 @@
    "policy": "libre",
    "kind": "servicio",
    "domain": "voice",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "que_hacer": "Operación delimitada implementada: rooms.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "rooms.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback."
   },
   {
    "tanda": "Tanda 1",
@@ -1775,11 +1772,12 @@
    "policy": "libre",
    "kind": "servicio",
    "domain": "orchestration",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "que_hacer": "Operación delimitada implementada: namespaces.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "namespaces.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback."
   },
   {
    "tanda": "Tanda 1",
@@ -1790,11 +1788,12 @@
    "policy": "libre",
    "kind": "servicio",
    "domain": "operations",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "que_hacer": "Operación delimitada implementada: metrics.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "metrics.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback."
   },
   {
    "tanda": "Tanda 1",
@@ -1805,11 +1804,12 @@
    "policy": "libre",
    "kind": "mcp",
    "domain": "marketing",
-   "que_hacer": "Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos.",
+   "que_hacer": "Operación delimitada implementada: sites.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "sites.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos."
   },
   {
    "tanda": "Tanda 1",
@@ -1820,11 +1820,12 @@
    "policy": "libre",
    "kind": "mcp",
    "domain": "marketing",
-   "que_hacer": "Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos.",
+   "que_hacer": "Operación delimitada implementada: actions.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "actions.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos."
   },
   {
    "tanda": "Tanda 1",
@@ -1835,11 +1836,12 @@
    "policy": "libre",
    "kind": "mcp",
    "domain": "authority",
-   "que_hacer": "Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos.",
+   "que_hacer": "Operación delimitada implementada: health.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "health.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos."
   },
   {
    "tanda": "Tanda 1",
@@ -1850,11 +1852,12 @@
    "policy": "libre",
    "kind": "protocolo",
    "domain": "authority",
-   "que_hacer": "Implementar con su SDK oficial (a2a-python) como receta local.",
+   "que_hacer": "Operación delimitada implementada: tasks.snapshot. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "tasks.snapshot",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Implementar con su SDK oficial (a2a-python) como receta local."
   },
   {
    "tanda": "Tanda 1",
@@ -1865,11 +1868,12 @@
    "policy": "libre",
    "kind": "mcp",
    "domain": "strategy",
-   "que_hacer": "Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos.",
+   "que_hacer": "Operación delimitada implementada: cashflow.scenario. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "cashflow.scenario",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos."
   },
   {
    "tanda": "Tanda 1",
@@ -1880,11 +1884,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "marketing",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: readiness.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "readiness.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 1",
@@ -1895,11 +1900,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "marketing",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: projects.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "projects.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 2",
@@ -1910,11 +1916,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "authority",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: citations.score. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "citations.score",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 2",
@@ -1925,11 +1932,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "authority",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: traffic.normalize. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "traffic.normalize",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 2",
@@ -1940,11 +1948,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "authority",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: articles.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "articles.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 2",
@@ -1955,11 +1964,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "authority",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: index.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "index.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 2",
@@ -1970,11 +1980,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "authority",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: posts.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "posts.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 2",
@@ -1985,11 +1996,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "authority",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: comments.inspect. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "comments.inspect",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 2",
@@ -2000,11 +2012,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "authority",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: manifest.inspect. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "manifest.inspect",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 2",
@@ -2015,11 +2028,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "agents",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: domains.evaluate. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "domains.evaluate",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 2",
@@ -2030,11 +2044,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "agents",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: citations.inspect. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "citations.inspect",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 3",
@@ -2045,11 +2060,12 @@
    "policy": "libre",
    "kind": "cli",
    "domain": "authority",
-   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
+   "que_hacer": "Operación delimitada implementada: slides.parse. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "slides.parse",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía)."
   },
   {
    "tanda": "Tanda 3",
@@ -2060,11 +2076,12 @@
    "policy": "libre",
    "kind": "cli",
    "domain": "research",
-   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
+   "que_hacer": "Operación delimitada implementada: description.audit. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "description.audit",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía)."
   },
   {
    "tanda": "Tanda 3",
@@ -2075,11 +2092,12 @@
    "policy": "libre",
    "kind": "cli",
    "domain": "data",
-   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
+   "que_hacer": "Operación delimitada implementada: campaigns.materialize. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "campaigns.materialize",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía)."
   },
   {
    "tanda": "Tanda 3",
@@ -2090,11 +2108,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "dataengine",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: impact.estimate. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "impact.estimate",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 3",
@@ -2105,11 +2124,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "dataengine",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: text.segment. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "text.segment",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 4",
@@ -2120,11 +2140,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "strategy",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: passages.rank. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "passages.rank",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 4",
@@ -2135,11 +2156,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "strategy",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: fix.latest. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "fix.latest",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 4",
@@ -2150,11 +2172,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "strategy",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: population.read. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "population.read",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 4",
@@ -2165,11 +2188,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "strategy",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: groups.expand. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "groups.expand",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 4",
@@ -2180,11 +2204,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "strategy",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: campaigns.query. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "campaigns.query",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 4",
@@ -2195,11 +2220,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "analytics",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: media.transform. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada implementada; consultar alcance y evidencia. No certifica producción.",
    "operation": "media.transform",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 1",
@@ -2210,11 +2236,12 @@
    "policy": "libre",
    "kind": "servicio",
    "domain": "marketing",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "que_hacer": "Operación delimitada implementada: dashboard.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Lectura nativa delimitada; consultar alcance y evidencia. No certifica producción.",
    "operation": "dashboard.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback."
   },
   {
    "tanda": "Tanda 2",
@@ -2225,11 +2252,12 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "agents",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: health.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Lectura nativa delimitada; consultar alcance y evidencia. No certifica producción.",
    "operation": "health.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 1",
@@ -2240,12 +2268,13 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "marketing",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: releases.inspect. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación local delimitada ejecutada con implementación original; no certifica producción.",
    "nota_previa": null,
    "operation": "releases.inspect",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 2",
@@ -2256,12 +2285,13 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "authority",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: rewrite.compare. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación local delimitada ejecutada con implementación original; no certifica producción.",
    "nota_previa": null,
    "operation": "rewrite.compare",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 3",
@@ -2272,12 +2302,13 @@
    "policy": "libre",
    "kind": "cli",
    "domain": "strategy",
-   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
+   "que_hacer": "Operación delimitada implementada: decisions.inspect. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación local delimitada ejecutada con implementación original; no certifica producción.",
    "nota_previa": null,
    "operation": "decisions.inspect",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía)."
   },
   {
    "tanda": "Tanda 3",
@@ -2288,12 +2319,13 @@
    "policy": "libre",
    "kind": "cli",
    "domain": "ai",
-   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
+   "que_hacer": "Operación delimitada implementada: response.check. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación local delimitada ejecutada con implementación original; no certifica producción.",
    "nota_previa": null,
    "operation": "response.check",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía)."
   },
   {
    "tanda": "Tanda 4",
@@ -2304,12 +2336,13 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "strategy",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: prices.survey. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación local delimitada ejecutada con implementación original; no certifica producción.",
    "nota_previa": "Licencia MIT de R (archivo corto con año y titular).",
    "operation": "prices.survey",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 4",
@@ -2320,12 +2353,13 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "analytics",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: media.transform. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación local delimitada ejecutada con implementación original; no certifica producción.",
    "nota_previa": null,
    "operation": "media.transform",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 1",
@@ -2336,12 +2370,13 @@
    "policy": "libre",
    "kind": "servicio",
    "domain": "agents",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "que_hacer": "Operación delimitada implementada: health.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Contrato HTTP sintético; Agent Server oficial 1.62.0 detrás de proxy autenticador; no verifica agentes.",
    "nota_previa": null,
    "operation": "health.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback."
   },
   {
    "tanda": "Tanda 1",
@@ -2352,12 +2387,13 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "platform",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "que_hacer": "Operación delimitada implementada: cache.match. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación local delimitada ejecutada con servidor original; almacenamiento efímero, SQLite conserva resultados.",
    "nota_previa": "Protocolo RESP, no HTTP. Receta local con cliente oficial y comando fijo (INFO).",
    "operation": "cache.match",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback."
   },
   {
    "tanda": "Tanda 1",
@@ -2368,12 +2404,13 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "data",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "que_hacer": "Operación delimitada implementada: campaigns.aggregate. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación local delimitada ejecutada con servidor original; almacenamiento efímero, SQLite conserva resultados.",
    "nota_previa": "No es HTTP. Leer vía PostgREST (componente) o con un driver de solo lectura en receta local.",
    "operation": "campaigns.aggregate",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback."
   },
   {
    "tanda": "Tanda 3",
@@ -2384,12 +2421,13 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "dataengine",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: graph.degrees. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación local delimitada ejecutada con servidor original; almacenamiento efímero, SQLite conserva resultados.",
    "nota_previa": null,
    "operation": "graph.degrees",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 4",
@@ -2400,12 +2438,13 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "data",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: vectors.rank. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación local delimitada ejecutada con servidor original; almacenamiento efímero, SQLite conserva resultados.",
    "nota_previa": null,
    "operation": "vectors.rank",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 2",
@@ -2416,12 +2455,13 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "authority",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: adjacency.merge. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación local delimitada ejecutada con programas originales; entrada suministrada, sin servicios externos.",
    "nota_previa": null,
    "operation": "adjacency.merge",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 3",
@@ -2432,12 +2472,13 @@
    "policy": "libre",
    "kind": "cli",
    "domain": "authority",
-   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
+   "que_hacer": "Operación delimitada implementada: requests.summarize. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación local delimitada ejecutada con programas originales; entrada suministrada, sin servicios externos.",
    "nota_previa": null,
    "operation": "requests.summarize",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía)."
   },
   {
    "tanda": "Tanda 3",
@@ -2448,12 +2489,13 @@
    "policy": "libre",
    "kind": "cli",
    "domain": "platform",
-   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
+   "que_hacer": "Operación delimitada implementada: spec.validate. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación local delimitada ejecutada con programas originales; entrada suministrada, sin servicios externos.",
    "nota_previa": null,
    "operation": "spec.validate",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía)."
   },
   {
    "tanda": "Tanda 3",
@@ -2464,12 +2506,13 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "dataengine",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: groups.anonymize. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación local delimitada ejecutada con programas originales; entrada suministrada, sin servicios externos.",
    "nota_previa": null,
    "operation": "groups.anonymize",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 4",
@@ -2480,12 +2523,13 @@
    "policy": "libre",
    "kind": "servicio",
    "domain": "strategy",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: tables.summary. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Metadatos públicos ACS5 profile 2024 sin clave; contrato HTTP y respuesta oficial observados; no datos de población.",
    "nota_previa": null,
    "operation": "tables.summary",
    "live_verified": false,
-   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 1",
@@ -2496,12 +2540,13 @@
    "policy": "libre",
    "kind": "datos",
    "domain": "authority",
-   "que_hacer": "Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos.",
+   "que_hacer": "Operación delimitada implementada: nap.compare. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Comparación propia de reglas NAP originales; no programa upstream ni servidor MCP. Directorios no consultados.",
    "operation": "nap.compare",
    "live_verified": false,
    "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
-   "nota_previa": null
+   "nota_previa": null,
+   "que_hacer_previo": "Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos."
   },
   {
    "tanda": "Tanda 2",
@@ -2512,12 +2557,13 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "agents",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: actions.normalize. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada con programa original y datos suministrados; adaptación de imports declarada cuando aplica; no ejecución de agentes ni servicio productivo.",
    "operation": "actions.normalize",
    "live_verified": false,
    "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
-   "nota_previa": null
+   "nota_previa": null,
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 3",
@@ -2528,12 +2574,13 @@
    "policy": "libre",
    "kind": "cli",
    "domain": "authority",
-   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
+   "que_hacer": "Operación delimitada implementada: places.inspect. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada con programa original y datos suministrados; adaptación de imports declarada cuando aplica; no ejecución de agentes ni servicio productivo.",
    "operation": "places.inspect",
    "live_verified": false,
    "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
-   "nota_previa": null
+   "nota_previa": null,
+   "que_hacer_previo": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía)."
   },
   {
    "tanda": "Tanda 3",
@@ -2544,12 +2591,13 @@
    "policy": "libre",
    "kind": "cli",
    "domain": "authority",
-   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
+   "que_hacer": "Operación delimitada implementada: document.render. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada con programa original y datos suministrados; adaptación de imports declarada cuando aplica; no ejecución de agentes ni servicio productivo.",
    "operation": "document.render",
    "live_verified": false,
    "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
-   "nota_previa": null
+   "nota_previa": null,
+   "que_hacer_previo": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía)."
   },
   {
    "tanda": "Tanda 3",
@@ -2560,12 +2608,13 @@
    "policy": "libre",
    "kind": "cli",
    "domain": "authority",
-   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
+   "que_hacer": "Operación delimitada implementada: audio.levels. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada con programa original y datos suministrados; adaptación de imports declarada cuando aplica; no ejecución de agentes ni servicio productivo.",
    "operation": "audio.levels",
    "live_verified": false,
    "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
-   "nota_previa": null
+   "nota_previa": null,
+   "que_hacer_previo": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía)."
   },
   {
    "tanda": "Tanda 4",
@@ -2576,12 +2625,13 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "strategy",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "que_hacer": "Operación delimitada implementada: experiments.compare. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Operación acotada con programa original y datos suministrados; adaptación de imports declarada cuando aplica; no ejecución de agentes ni servicio productivo.",
    "operation": "experiments.compare",
    "live_verified": false,
    "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
-   "nota_previa": null
+   "nota_previa": null,
+   "que_hacer_previo": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime."
   },
   {
    "tanda": "Tanda 1",
@@ -2592,12 +2642,13 @@
    "policy": "libre",
    "kind": "cli",
    "domain": "agents",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "que_hacer": "Operación delimitada implementada: image.inspect. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "CLI original 0.7.15 importa e inspecciona imagen de datos suministrados en caché temporal; no VM, KVM ni cloud.",
    "operation": "image.inspect",
    "live_verified": false,
    "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
-   "nota_previa": "Su API es JSON-RPC por POST. Requiere un contrato POST de solo lectura fijo en código (mismo patrón que Plausible en marketing_reads)."
+   "nota_previa": "Su API es JSON-RPC por POST. Requiere un contrato POST de solo lectura fijo en código (mismo patrón que Plausible en marketing_reads).",
+   "que_hacer_previo": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback."
   },
   {
    "tanda": "Tanda 3",
@@ -2608,12 +2659,13 @@
    "policy": "libre",
    "kind": "cli",
    "domain": "strategy",
-   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
+   "que_hacer": "Operación delimitada implementada: landscape.validate. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
    "nota": "Validador original de proyectos suministrados; solo se adapta ruta del reporte a directorio privado; no comunicaciones ni verificación de repositorios.",
    "operation": "landscape.validate",
    "live_verified": false,
    "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
-   "nota_previa": null
+   "nota_previa": null,
+   "que_hacer_previo": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía)."
   },
   {
    "tanda": "Tanda 3",
@@ -2624,12 +2676,13 @@
    "policy": "libre",
    "kind": "cli",
    "domain": "marketing",
-   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
-   "nota": "Programa original sobre contenido suministrado servido en loopback privado autenticado; no rastreo remoto ni búsqueda de personas/cuentas. Aceptación local observada; CI del perfil oficial requerido.",
+   "que_hacer": "Operación delimitada implementada: pages.crawl. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
+   "nota": "Programa original sobre contenido suministrado servido en loopback privado autenticado; no rastreo remoto ni búsqueda de personas/cuentas. Aceptación con el perfil oficial observada en CI del commit 3d7a2df; la del commit vigente se verifica separadamente.",
    "operation": "pages.crawl",
    "live_verified": false,
    "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
-   "nota_previa": null
+   "nota_previa": null,
+   "que_hacer_previo": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía)."
   },
   {
    "tanda": "Tanda 3",
@@ -2640,12 +2693,29 @@
    "policy": "libre",
    "kind": "cli",
    "domain": "authority",
-   "que_hacer": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía).",
-   "nota": "Programa original sobre contenido suministrado servido en loopback privado autenticado; no rastreo remoto ni búsqueda de personas/cuentas. Aceptación local observada; CI del perfil oficial requerido.",
+   "que_hacer": "Operación delimitada implementada: responses.classify. Alcance, perfil original o contrato HTTP sintético y evidencia especificados en docs/ACEPTACION_COMPLEMENTO_V021.md.",
+   "nota": "Programa original sobre contenido suministrado servido en loopback privado autenticado; no rastreo remoto ni búsqueda de personas/cuentas. Aceptación con el perfil oficial observada en CI del commit 3d7a2df; la del commit vigente se verifica separadamente.",
    "operation": "responses.classify",
    "live_verified": false,
    "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md",
-   "nota_previa": null
+   "nota_previa": null,
+   "que_hacer_previo": "Receta de proceso externo con binario en lista blanca y argumentos fijos, sin shell, con límite de tiempo. Requiere crear primero un runner de CLI acotado (no existe todavía)."
+  },
+  {
+   "tanda": "Tanda 1",
+   "id": "playwright-mcp",
+   "repository": "microsoft/playwright-mcp",
+   "commit": "78eca85361efb545a4c0f59b6140aef0721c5412",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "mcp",
+   "domain": "agents",
+   "que_hacer": "Herramienta browser_snapshot del servidor MCP original y cliente SDK original, en transporte en memoria, sobre Chromium privado y contenido estructurado suministrado. Ejecutada por el worker compartido y proyectada a recuentos.",
+   "nota": "Operación document.snapshot delimitada; no navegación remota ni herramientas arbitrarias. Requiere aceptación del perfil lastnode021 y flujo closure021 para el commit.",
+   "que_hacer_previo": "Registro como servidor MCP para agentes (configuración, no ejecución desde el motor) con versión fijada y permisos mínimos.",
+   "operation": "document.snapshot",
+   "live_verified": false,
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
   }
  ]
 }

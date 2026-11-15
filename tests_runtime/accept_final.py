@@ -8,6 +8,7 @@ from install_final import GROUPS
 from verdugo import runtime_profile
 parser=argparse.ArgumentParser();parser.add_argument('--group',choices=GROUPS,required=True);args=parser.parse_args()
 selected=GROUPS[args.group]
+if args.group=='closure021':os.environ['VERDUGO_COMPLETION_HTTP_FIXTURES']='1'
 for sid in selected:
     key=runtime_profile.PROFILE_ENV.get(sid)
     if key:os.environ.setdefault(key,'/tmp/verdugo-'+key.removeprefix('VERDUGO_').removesuffix('_PYTHON').lower().replace('_','-')+'-venv/bin/python')
