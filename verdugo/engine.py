@@ -185,7 +185,9 @@ class Engine:
 
     def plan(self, command):
         request, _, fingerprint = self.prepare(command)
-        public = sanitize(request['public'])
+        public = (local_runtime.public_plan(request)
+                  if local_runtime.supports(command['service'], command['operation'])
+                  else sanitize(request['public']))
         with self.transaction():
             old = self.db.execute('SELECT hash FROM plans WHERE tenant=? AND key=?',
                                   (self.tenant, command['key'])).fetchone()

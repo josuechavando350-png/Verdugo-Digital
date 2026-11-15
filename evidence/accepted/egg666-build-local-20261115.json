@@ -1,0 +1,229 @@
+{
+  "schema": "verdugo.egg666.operator-build.v1",
+  "contract_sha256": "a5efb3eab1c36648545f26ba23fc397d8c02696f14d0bec0aad67820923e7656",
+  "commit": "73975c9819efb4af2f3c6c1b44fa53f8c5742574",
+  "archive_sha256": "7b453e1f32de1f976bc43254934929104addb5e1cbaa2b31ea0dbc0979bc5c80",
+  "rust_toolchain": "1.100.0",
+  "driver_files": {
+    "Cargo.toml": "374972efc12d61cc94cb62b5e3f72d053281345da05f85d8b8f63201c9e5fba0",
+    "Cargo.lock": "d393a02e2e0cf0ac9678b4e8daac46492da67084ea4475a626e4756654cebc10",
+    "src/main.rs": "557d29e7627b1f9fc9f6dcbcb55de5b796d6c63e2ecc1c96e890c2a395b1d085"
+  },
+  "resolved_graph": [
+    {
+      "id": "autocfg@1.5.1",
+      "features": [],
+      "dependencies": []
+    },
+    {
+      "id": "crossbeam-utils@0.8.23",
+      "features": [],
+      "dependencies": []
+    },
+    {
+      "id": "egg@0.11.0",
+      "features": [],
+      "dependencies": [
+        "hashbrown@0.15.5",
+        "indexmap@2.14.2",
+        "log@0.4.35",
+        "num-bigint@0.4.8",
+        "num-traits@0.2.19",
+        "rustc-hash@2.1.3",
+        "smallvec@1.16.5",
+        "spin@0.9.9",
+        "symbol_table@0.5.0",
+        "thiserror@2.0.21"
+      ]
+    },
+    {
+      "id": "equivalent@1.0.3",
+      "features": [],
+      "dependencies": []
+    },
+    {
+      "id": "foldhash@0.1.5",
+      "features": [],
+      "dependencies": []
+    },
+    {
+      "id": "hashbrown@0.15.5",
+      "features": [
+        "default-hasher",
+        "inline-more",
+        "raw-entry"
+      ],
+      "dependencies": [
+        "foldhash@0.1.5"
+      ]
+    },
+    {
+      "id": "hashbrown@0.17.1",
+      "features": [],
+      "dependencies": []
+    },
+    {
+      "id": "indexmap@2.14.2",
+      "features": [],
+      "dependencies": [
+        "equivalent@1.0.3",
+        "hashbrown@0.17.1"
+      ]
+    },
+    {
+      "id": "log@0.4.35",
+      "features": [],
+      "dependencies": []
+    },
+    {
+      "id": "num-bigint@0.4.8",
+      "features": [],
+      "dependencies": [
+        "num-integer@0.1.47",
+        "num-traits@0.2.19"
+      ]
+    },
+    {
+      "id": "num-integer@0.1.47",
+      "features": [
+        "i128"
+      ],
+      "dependencies": [
+        "num-traits@0.2.19"
+      ]
+    },
+    {
+      "id": "num-traits@0.2.19",
+      "features": [
+        "i128"
+      ],
+      "dependencies": [
+        "autocfg@1.5.1"
+      ]
+    },
+    {
+      "id": "proc-macro2@1.0.107",
+      "features": [
+        "default",
+        "proc-macro"
+      ],
+      "dependencies": [
+        "unicode-ident@1.0.27"
+      ]
+    },
+    {
+      "id": "quote@1.0.47",
+      "features": [
+        "default",
+        "proc-macro"
+      ],
+      "dependencies": [
+        "proc-macro2@1.0.107"
+      ]
+    },
+    {
+      "id": "rustc-hash@2.1.3",
+      "features": [],
+      "dependencies": []
+    },
+    {
+      "id": "smallvec@1.16.5",
+      "features": [
+        "const_generics",
+        "union"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "spin@0.10.1",
+      "features": [
+        "mutex",
+        "once",
+        "spin_mutex"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "spin@0.9.9",
+      "features": [
+        "lazy",
+        "mutex",
+        "once",
+        "spin_mutex"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "symbol_table@0.5.0",
+      "features": [
+        "global"
+      ],
+      "dependencies": [
+        "crossbeam-utils@0.8.23",
+        "foldhash@0.1.5",
+        "hashbrown@0.15.5",
+        "spin@0.10.1"
+      ]
+    },
+    {
+      "id": "syn@3.0.10",
+      "features": [
+        "clone-impls",
+        "default",
+        "derive",
+        "parsing",
+        "printing",
+        "proc-macro"
+      ],
+      "dependencies": [
+        "proc-macro2@1.0.107",
+        "quote@1.0.47",
+        "unicode-ident@1.0.27"
+      ]
+    },
+    {
+      "id": "thiserror-impl@2.0.21",
+      "features": [],
+      "dependencies": [
+        "proc-macro2@1.0.107",
+        "quote@1.0.47",
+        "syn@3.0.10"
+      ]
+    },
+    {
+      "id": "thiserror@2.0.21",
+      "features": [
+        "default",
+        "std"
+      ],
+      "dependencies": [
+        "thiserror-impl@2.0.21"
+      ]
+    },
+    {
+      "id": "unicode-ident@1.0.27",
+      "features": [],
+      "dependencies": []
+    },
+    {
+      "id": "verdugo-egg666-driver@0.1.0",
+      "features": [],
+      "dependencies": [
+        "egg@0.11.0"
+      ]
+    }
+  ],
+  "compiler": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+  "native_needed": [
+    "ld-linux-x86-64.so.2",
+    "libc.so.6",
+    "libgcc_s.so.1"
+  ],
+  "artifacts": {
+    "bin/verdugo-egg666-driver": "dbf4c0a9879aede90ccfeb347d57b0242ed25288c744068f572b2fbed068fd9e",
+    "share/verdugo-egg/licenses.json": "168418398c446f86a45c90b481c200d733a87797e8bb2d906dd09881ec9c972a"
+  },
+  "independent_build_attestation": false,
+  "reproducible_binary_build_proven": false,
+  "distribution_license_closure_verified": false
+}

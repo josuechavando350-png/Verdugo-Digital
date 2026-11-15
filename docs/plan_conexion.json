@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 327,
+ "pending": 326,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -621,20 +621,6 @@
    "id": "leandojo",
    "repository": "lean-dojo/LeanDojo",
    "commit": "7a9f600b250a89a62e991c05ffe81ba033018e6e",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "logica",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 2",
-   "id": "egg",
-   "repository": "egraphs-good/egg",
-   "commit": "73975c9819efb4af2f3c6c1b44fa53f8c5742574",
    "license": "MIT",
    "policy": "libre",
    "kind": "biblioteca",
@@ -7717,6 +7703,21 @@
    "live_verified": false,
    "evidence": "sources/contracts-bm25s666.json",
    "operation": "retrieval.check"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 2",
+   "id": "egg",
+   "repository": "egraphs-good/egg",
+   "commit": "73975c9819efb4af2f3c6c1b44fa53f8c5742574",
+   "license": "MIT",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "logica",
+   "que_hacer": "Receta congruence.check con Egg original sin funciones opcionales, referencia independiente y recuentos sintéticos.",
+   "nota": "Flujo Egg → txtai en Engine, CLI/MCP y SQLite; no programas ni reglas arbitrarias. Solo recuentos y huellas se persisten.",
+   "live_verified": false,
+   "evidence": "sources/contracts-egg666.json",
+   "operation": "congruence.check"
   }
  ]
 }

@@ -138,3 +138,5 @@ CASES['rdflib'] = {'dataset':'demo','node_count':4,'edges':[[0,1],[1,2],[2,0],[0
 CASES['z3'] = {'dataset':'demo','spend_limit':8,'unit_limit':3,'minimum_yield':6}
 CASES['txtai'] = {'dataset':'demo','rows':[[0,10],[1,-5],[0,20]],'remove':[0]}
 CASES['bm25s'] = {'dataset':'demo','documents':[[0,0,1],[1,2],[3]],'query':[0],'k':2}
+
+CASES['egg'] = {'dataset':'demo','nodes':[{'op':0,'children':[]},{'op':1,'children':[]},{'op':2,'children':[0]},{'op':2,'children':[1]}],'equalities':[[0,1]]}

@@ -6,7 +6,7 @@ una capacidad no demuestra esa integración.
 
 ## Reanudación vigente
 
-**BM25S recuperado y aceptado localmente:** Lote A 1/164 · Lote B 0/163; 283 adaptadores, 56 piezas de construcción, 327 pendientes y `live_verified=0`. La instalación limpia y seis casos del flujo BM25S → txtai aprobaron por Engine, CLI/MCP, SQLite y replay. Pasan 926 pruebas. Ver [BM25S_666.md](BM25S_666.md) y comprobar los tres workflows del nuevo commit; no heredar el verde de otro.
+**Egg y BM25S aceptados localmente:** Lote A 2/164 · Lote B 0/163; 284 adaptadores, 56 piezas de construcción, 326 pendientes y `live_verified=0`. Egg pasa instalación limpia, siete casos por Engine, 200 comparaciones independientes y flujo Egg → txtai con CLI/MCP y replay. Los planes de Egg y BM25S conservan únicamente recuentos y huellas en SQLite; se repitió la aceptación de BM25S. Pasan 932 pruebas. Ver [EGG_666.md](EGG_666.md) y el estado de los tres workflows por SHA en [PLAN_666.md](PLAN_666.md) y PR #25.
 
 ### Checkpoint anterior a BM25S
 
@@ -38,13 +38,13 @@ a un punto anterior. Se retomó ese árbol sin perder sus fuentes ni pruebas.
 | Identidades GitHub distintas registradas | 688 |
 | Permitidas por el criterio de licencia raíz | 666 |
 | Excluidas por licencia raíz | 22 |
-| Adaptadores implementados dentro del criterio raíz | 283 |
+| Adaptadores implementados dentro del criterio raíz | 284 |
 | Piezas de construcción | 56 |
-| Pendientes de adaptador | 327 |
-| Nuevas incorporaciones implementadas | 40 de 366 |
-| Lote original 1 | 40 de 183 |
+| Pendientes de adaptador | 326 |
+| Nuevas incorporaciones implementadas | 41 de 366 |
+| Lote original 1 | 41 de 183 |
 | Lote original 2 | 0 de 183 |
-| Continuación de 80 | 18 implementadas, 62 pendientes |
+| Continuación de 80 | 19 implementadas, 61 pendientes |
 | Continuación de 81 | 0 implementadas, 81 pendientes |
 | Servicios certificados en producción | 0 |
 
@@ -57,7 +57,7 @@ operaciones y la pertenencia a los lotes. No lee contadores de un informe viejo.
 La revisión de identidades verifica tanto el ID numérico de GitHub como el
 nombre canónico, y rechaza pertenencia repetida entre lotes. La revisión previa
 retiró cinco alias: Ragas, Presidio, FastMCP, Recommenders y Great Expectations.
-Este incremento no añade identidades: implementa el txtai ya registrado.
+Estos incrementos no añaden identidades: implementan capacidades delimitadas de las piezas ya registradas.
 Dos repositorios distintos pueden tener funciones parecidas; la comprobación
 de identidades no certifica ausencia total de solapamiento funcional.
 

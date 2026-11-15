@@ -1,0 +1,12 @@
+[package]
+name = "verdugo-egg666-driver"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+egg = { path = "../egg-source", default-features = false }
+
+[profile.release]
+lto = false
+codegen-units = 1

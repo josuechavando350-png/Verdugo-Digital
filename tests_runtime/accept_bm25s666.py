@@ -67,6 +67,7 @@ def accept():
             assert analyses['txtai']['before_groups']==[{'segment':0,'total':analyses['bm25s']['matching_documents'],'records':1}]
             dump='\n'.join(engine.db.iterdump())
             assert 'synthetic_term_' not in dump and 'fixed_synthetic_content' not in dump
+            assert '"documents"' not in dump and '"query"' not in dump
             overview=invoke(engine,'verdugo_product_status',{})
             assert overview['integration_audit']['duplicate_identities']==0
             assert overview['business']['reported_paid_clients']==0

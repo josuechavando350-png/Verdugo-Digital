@@ -9,15 +9,17 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 
 ## Hacia los 666
 
-El plan para llegar a 666 piezas libres (300 del catálogo + 50 del simulador + 150 del cerebro + 166 finales) está en [docs/PLAN_666.md](docs/PLAN_666.md), con las instrucciones por tanda en [docs/PROMPT_ASTRA_666.md](docs/PROMPT_ASTRA_666.md). El registro contiene 688 identidades distintas: 666 permitidas por licencia raíz y 22 excluidas. Cuarenta de las 366 incorporaciones tienen una operación implementada: 29 locales y once lecturas HTTP con aceptación sintética; 326 siguen pendientes. La auditoría corrigió cinco alias duplicados y una licencia restringida; evidencia y cola original de dos lotes de 183 en [docs/REGISTRO_666.md](docs/REGISTRO_666.md).
+El plan para llegar a 666 piezas libres (300 del catálogo + 50 del simulador + 150 del cerebro + 166 finales) está en [docs/PLAN_666.md](docs/PLAN_666.md), con las instrucciones por tanda en [docs/PROMPT_ASTRA_666.md](docs/PROMPT_ASTRA_666.md). El registro contiene 688 identidades distintas: 666 permitidas por licencia raíz y 22 excluidas. Cuarenta y una de las 366 incorporaciones tienen una operación implementada: 30 locales y once lecturas HTTP con aceptación sintética; 325 siguen pendientes. La auditoría corrigió cinco alias duplicados y una licencia restringida; evidencia y cola original de dos lotes de 183 en [docs/REGISTRO_666.md](docs/REGISTRO_666.md).
 
-OpenManus fue retirado tras detectar su dependencia obligatoria GPL-3.0; vuelve a pendientes. InterpretML incorpora una explicación aditiva sintética. TransformerLens añade diagnóstico de un modelo sin entrenar; Bitsandbytes añade diagnóstico nativo de cuantización; Guidance y LM Format Enforcer comprueban formatos y prefijos sintéticos; TensorZero y Opik añaden lecturas acotadas de registros existentes; MemOS y LightRAG añaden recuentos de tareas y documentos; Kernel Memory, Chroma y Milvus añaden inventarios acotados; USearch añade diagnóstico nativo de vecinos y RAGFlow un inventario comunitario; Rerankers ordena puntuaciones suministradas e Infinity cuenta modelos declarados; SymPy comprueba polinomios, RDFLib comprueba alcanzabilidad, Z3 comprueba factibilidad finita y Jena cuenta datasets de Fuseki; txtai concilia contenido numérico en su almacén efímero original; KAG consulta el estado de una tarea existente mediante su protocolo original; BM25S verifica recuperación léxica sintética y entrega sus recuentos a txtai; el total vigente llega a 40 incorporaciones con adaptador; las pruebas funcionales históricas no sustituyen revisión de dependencias.
+OpenManus fue retirado tras detectar su dependencia obligatoria GPL-3.0; vuelve a pendientes. InterpretML incorpora una explicación aditiva sintética. TransformerLens añade diagnóstico de un modelo sin entrenar; Bitsandbytes añade diagnóstico nativo de cuantización; Guidance y LM Format Enforcer comprueban formatos y prefijos sintéticos; TensorZero y Opik añaden lecturas acotadas de registros existentes; MemOS y LightRAG añaden recuentos de tareas y documentos; Kernel Memory, Chroma y Milvus añaden inventarios acotados; USearch añade diagnóstico nativo de vecinos y RAGFlow un inventario comunitario; Rerankers ordena puntuaciones suministradas e Infinity cuenta modelos declarados; SymPy comprueba polinomios, RDFLib comprueba alcanzabilidad, Z3 comprueba factibilidad finita y Jena cuenta datasets de Fuseki; txtai concilia contenido numérico en su almacén efímero original; KAG consulta el estado de una tarea existente mediante su protocolo original; BM25S verifica recuperación léxica sintética y entrega sus recuentos a txtai; Egg comprueba congruencia finita con una referencia independiente; el total vigente llega a 41 incorporaciones con adaptador; las pruebas funcionales históricas no sustituyen revisión de dependencias.
 
 El campo `integration_audit` de `product-status` verifica identidades y pertenencia a los lotes, muestra las revisiones pendientes y conserva el hallazgo de certifi en doce perfiles. `all_666_integrated=false` y `distribution_license_closure_verified=false`: el registro no certifica un producto distribuible. [Continuidad y alcance actual](docs/CONTINUIDAD_666.md).
 
-La continuación vigente está dividida en **Lote A 1/164 · Lote B 0/163**. La pertenencia exacta figura en `sources/resume-666.json/rebatch`, sin recontar las 39 incorporaciones anteriores. Se aprobaron únicamente Zlib, Boost Software License 1.0 (`BSL-1.0`) y Unicode-3.0; la reevaluación de candidatos conserva los límites de revisión y no añade adaptadores. Tokenizers continúa bloqueado por MPL-2.0.
+La continuación vigente está dividida en **Lote A 2/164 · Lote B 0/163**. La pertenencia exacta figura en `sources/resume-666.json/rebatch`, sin recontar las 39 incorporaciones anteriores. Se aprobaron únicamente Zlib, Boost Software License 1.0 (`BSL-1.0`) y Unicode-3.0; la reevaluación de candidatos conserva los límites de revisión y no añade adaptadores. Tokenizers continúa bloqueado por MPL-2.0.
 
 BM25S se recuperó y pasó instalación limpia y aceptación conjunta con txtai, CLI/MCP y replay. [Alcance y evidencia](docs/BM25S_666.md). Rustworkx sigue pendiente por la dependencia obligatoria `priority-queue` (LGPL/MPL); aprobar Zlib no resuelve ese bloqueo.
+
+Egg incorpora `congruence.check` desde fuente original, sin funciones opcionales. Sus siete casos por Engine y 200 comparaciones independientes pasaron junto con txtai, CLI/MCP y replay. Los planes de Egg y BM25S guardan recuentos y huellas, sin grafos ni secuencias de tokens. [Alcance y evidencia](docs/EGG_666.md).
 
 ## Estado del código
 
@@ -26,15 +28,15 @@ BM25S se recuperó y pasó instalación limpia y aceptación conjunta con txtai,
 | Fuentes registradas y fijadas por commit | 688 (322 anteriores + 366 nuevas) |
 | Permisos según la licencia raíz; cierre completo de dependencias pendiente | 666 |
 | Excluidos por licencia (registrados, sin operar) | 22 |
-| Proyectos con una operación implementada | 302: 114 HTTP + 165 bibliotecas locales + 18 CLI + 2 MCP locales + 3 consultas/reglas de datos |
-| Conectados bajo la política de licencias | 283 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
+| Proyectos con una operación implementada | 303: 114 HTTP + 166 bibliotecas locales + 18 CLI + 2 MCP locales + 3 consultas/reglas de datos |
+| Conectados bajo la política de licencias | 284 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
 | Piezas de construcción (se usan al programar, no vía motor) | 56 |
-| Pendientes de conector | 327 (326 nuevas + `meta-ads`) |
+| Pendientes de conector | 326 (325 nuevas + `meta-ads`) |
 | Servicios de pago | 0 (Stripe, Twilio, Mercado Pago, E2B y Composio retirados) |
 | Operaciones HTTP existentes | 118, limitadas por proveedor |
-| Operaciones locales implementadas | 188; aceptación de ejecución real exigida por commit |
+| Operaciones locales implementadas | 189; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Flujo de 87 operaciones nuevas + métricas locales; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 926 pruebas locales aprobadas del incremento BM25S; comprobar los tres workflows del commit vigente en CI |
+| Pruebas unitarias y de contrato | 932 pruebas locales aprobadas del incremento Egg; comprobar los tres workflows del commit vigente en CI |
 | Herramientas MCP | 25; product-status/product-run reutilizan el mismo motor |
 | Servicios productivos certificados | 0 |
 

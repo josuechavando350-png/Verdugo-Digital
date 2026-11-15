@@ -4,7 +4,7 @@ Fecha: 15 de noviembre de 2026. Rama de trabajo: `feat/666-pilot` (PR #25 en bor
 
 ## Estado vigente: lotes A y B
 
-**Lote A 1/164 · Lote B 0/163.** Las 39 incorporaciones ya implementadas quedan fuera de ambos lotes y no se vuelven a contar. Total: **283 adaptadores implementados, 56 piezas de construcción, 327 pendientes y `live_verified=0`**. Los 327 miembros de A/B son las 63 piezas restantes del sublote de 80, las 81 del segundo sublote y las 183 del lote 2 original, en ese orden. `meta-ads` es la pendiente restante y sigue bloqueada sin fuente original suficiente.
+**Lote A 2/164 · Lote B 0/163.** Las 39 incorporaciones ya implementadas quedan fuera de ambos lotes y no se vuelven a contar. Total: **284 adaptadores implementados, 56 piezas de construcción, 326 pendientes y `live_verified=0`**. Los 327 miembros de A/B son las 63 piezas restantes del sublote de 80, las 81 del segundo sublote y las 183 del lote 2 original, en ese orden. `meta-ads` es la pendiente restante y sigue bloqueada sin fuente original suficiente.
 
 La pertenencia exacta e inmutable está en `sources/resume-666.json/rebatch`. A termina en `axolotl` y B empieza en `openrlhf`; `product-status.integration_audit.batches` calcula el avance desde los adaptadores existentes y rechaza omisiones, duplicados, reordenamientos y recuentos de las 39 anteriores. Los lotes originales y sublotes se conservan como historia.
 
@@ -34,13 +34,25 @@ La instalación limpia y la aceptación de seis casos aprobaron después de recu
 
 **CI de este incremento:** la aceptación local no sustituye los tres workflows. Verificar los estados vivos de la rama y el SHA exacto en PR #25; las observaciones anteriores se conservan como historia. El commit de recuperación `f282cef` tenía verificación y servicios en verde y runtime todavía compilando al preparar este incremento.
 
+## Incremento Egg y privacidad de planes
+
+**Lote A 2/164 · Lote B 0/163.** Egg eleva el piloto a **41 incorporaciones: 30 locales y 11 lecturas HTTP**. Total: **284 adaptadores, 56 piezas de construcción y 326 pendientes; `live_verified=0`**. La pertenencia de A/B y las 39 identidades anteriores permanecen intactas.
+
+`congruence.check` usa Egg original `73975c9819efb4af2f3c6c1b44fa53f8c5742574`, con `default-features=false`, y su dependencia Git exacta `symbol_table`. Se verificaron 40 archivos de Egg, 14 de symbol_table y los 21 archivos de crates.io del lock; las licencias originales elegidas son MIT, Zlib y Unicode-3.0. No se modificaron fuentes upstream ni se aceptaron reglas, programas, rutas, modelos o destinos externos. El alcance de compilador/plataforma permanece sin certificar.
+
+Pasaron instalación limpia, siete casos por Engine, 200 comparaciones deterministas con referencia independiente, rechazo nativo de entradas inválidas, modificación de binario/recibo y flujo Egg → txtai por CLI/MCP con reinicio y replay. Una prueba detectó grafos en los planes SQLite: se corrigió la proyección de Egg y BM25S para guardar únicamente recuentos y huellas, conservando la vinculación al contenido completo para idempotencia. Se repitió también la aceptación original de BM25S. La instalación limpia falló inicialmente por no transmitir la configuración de proxy al descargador de Git; se corrigió y repitió desde cero.
+
+**932 pruebas locales aprobadas.** Contrato, licencias, recibo y resultados en `sources/contracts-egg666.json` y `evidence/accepted/egg666-*-local-20261115.json`. [Límites y ejecución](EGG_666.md). La evidencia local no afirma aislamiento de red del sistema operativo; el nuevo job `egg666` lo exige en CI.
+
+**Estado de CI al preparar el checkpoint:** en `a0deab47ad1b04434fa4f3aea9d6ebfca9c2d023`, verificación y servicios están en `success`; runtime lleva 31 de 32 jobs aprobados, incluido BM25S, y `pilot666` aún compila. El siguiente commit requiere sus propios tres workflows; estado por SHA y enlaces vivos en PR #25. No se hereda el verde de otro commit.
+
 ## Inventario
 
 | Bloque | Piezas | Fuente | Estado hoy |
 |---|---|---|---|
 | Catálogo libre (cuerpo) | 300 | `sources/parts/*.json`, `sources/licenses.json` | 243 conectadas, 56 piezas de construcción, 1 pendiente (`meta-ads`) |
 | Simulador de mercado (bola de cristal) | 50 | `sources/simulador-mercado.json` | registrado; adaptador pendiente |
-| Cerebro (piloto) | 150 | `sources/cerebro-150.json` | 29 operaciones locales y 11 lecturas HTTP; 110 pendientes |
+| Cerebro (piloto) | 150 | `sources/cerebro-150.json` | 30 operaciones locales y 11 lecturas HTTP; 109 pendientes |
 | Últimas 166 | 166 | `sources/final-166.json` | registrado; adaptador pendiente |
 | **Total libre** | **666** | | |
 
@@ -50,8 +62,8 @@ Los 22 excluidos por licencia siguen registrados, pero no cuentan ni se operan.
 
 - **Tanda 0: terminada y aceptada en CI.** 688 identidades GitHub distintas, 666 permitidas por política y 22 excluidas. Se conservan 69 partes: 68 de diez y una de ocho.
 - Cinco propuestas eran alias de proyectos ya registrados (Ragas, Presidio, FastMCP, Recommenders y Great Expectations). TEN Framework tiene restricciones adicionales: no se contó como Apache libre. Las seis sustituciones y su alcance constan en [REGISTRO_666.md](REGISTRO_666.md).
-- **Estado actual: 283 conectadas; 56 de construcción; 327 pendientes; certificadas en producción: 0.** Semantic Kernel, Agno, AG2, Langroid, Griptape, BeeAI, Strands/Harness SDK, VoltAgent, Unified Planning, el servidor MCP de memoria, Monty, Playwright para Python, Hatchet, Invariant, PyRIT, llama.cpp, Granite Guardian, InterpretML, TransformerLens, Bitsandbytes, Guidance, LM Format Enforcer, USearch, Rerankers, SymPy, RDFLib, Z3, txtai y BM25S añaden veintinueve operaciones locales limitadas; registrar las otras piezas no añade adaptadores.
-- **Lote 1 (183): 40 operaciones implementadas: 29 locales con aceptación de componentes y flujos conjuntos y 11 lecturas HTTP probadas por sockets sintéticos; consultar CI del commit vigente. Lote 2 (183): 0 implementadas. Ninguno de los dos lotes está terminado.** Orden completo, sin duplicados, en `sources/registry-666.json/work_queue`.
+- **Estado actual: 284 conectadas; 56 de construcción; 326 pendientes; certificadas en producción: 0.** Semantic Kernel, Agno, AG2, Langroid, Griptape, BeeAI, Strands/Harness SDK, VoltAgent, Unified Planning, el servidor MCP de memoria, Monty, Playwright para Python, Hatchet, Invariant, PyRIT, llama.cpp, Granite Guardian, InterpretML, TransformerLens, Bitsandbytes, Guidance, LM Format Enforcer, USearch, Rerankers, SymPy, RDFLib, Z3, txtai, BM25S y Egg añaden treinta operaciones locales limitadas; registrar las otras piezas no añade adaptadores.
+- **Lote 1 (183): 41 operaciones implementadas: 30 locales con aceptación de componentes y flujos conjuntos y 11 lecturas HTTP probadas por sockets sintéticos; consultar CI del commit vigente. Lote 2 (183): 0 implementadas. Ninguno de los dos lotes está terminado.** Orden completo, sin duplicados, en `sources/registry-666.json/work_queue`.
 - Registro aceptado en `b95f8be09e2a34ff12f163b6f872287eed3afd26`: [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43690692125), [runtime](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43690692198) y [servicios](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43690692157), los tres `success`. PR #24 permanece sin fusionar.
 - El primer checkpoint del piloto (`77670600a4ee083413f5838b1e36991ddbff2347`) pasó [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43692332291), [runtime](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43692332306) y [servicios](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43692332315). Esa evidencia cubre Semantic Kernel; no certifica cambios posteriores.
 - El checkpoint ejecutivo `e914b2622e430ee72121fefc1e256e0adabc126d` pasó [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43693358786), [runtime](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43693358773) y [servicios](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43693358774), cubriendo tres SDK. El checkpoint posterior de Langroid también está aceptado.

@@ -303,8 +303,8 @@
       "id": "egg",
       "repository": "egraphs-good/egg",
       "commit": "73975c9819efb4af2f3c6c1b44fa53f8c5742574",
-      "status": "pending_dependency_closure_and_acceptance",
-      "note": "Owner approved Zlib on 2026-11-15. The already reviewed foldhash 0.1.5 candidate required through the original symbol_table revision is no longer outside policy. This finding still does not establish a complete resolved Cargo lock, source build, bounded contract or runtime acceptance. No Rust SDK was built or installed.",
+      "status": "implemented_bounded_original_congruence",
+      "note": "Pinned original Egg with default-features=false, 40 source files and 14 symbol_table files verified, all 21 registry archives and original selected licenses reviewed. Seven Engine cases and 200 independent finite-reference checks passed, with joined txtai CLI/MCP/restart acceptance. Compiler/platform license closure and production verification remain unclaimed.",
       "files": [
         {
           "path": "Cargo.toml",
@@ -313,9 +313,9 @@
           "source_url": "https://github.com/egraphs-good/egg/blob/73975c9819efb4af2f3c6c1b44fa53f8c5742574/Cargo.toml"
         }
       ],
-      "sdk_installed": false,
-      "runtime_executed": false,
-      "counted_as_connected": false,
+      "sdk_installed": true,
+      "runtime_executed": true,
+      "counted_as_connected": true,
       "live_verified": false,
       "dependency_files": [
         {
@@ -359,7 +359,13 @@
         "counted_as_connected": false,
         "evidence": "sources/review-license-decision666.json",
         "license_sha256": "b1181a40b2a7b25cf66fd01481713bc1005df082c53ef73e851e55071b102744"
-      }
+      },
+      "assessment_before_implementation": {
+        "status": "pending_dependency_closure_and_acceptance",
+        "note": "Owner approved Zlib on 2026-11-15. The already reviewed foldhash 0.1.5 candidate required through the original symbol_table revision is no longer outside policy. This finding still does not establish a complete resolved Cargo lock, source build, bounded contract or runtime acceptance. No Rust SDK was built or installed."
+      },
+      "implementation_evidence": "sources/contracts-egg666.json",
+      "acceptance_evidence": "evidence/accepted/egg666-joint-local-20261115.json"
     }
   ]
 }

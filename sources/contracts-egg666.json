@@ -1,0 +1,980 @@
+{
+  "schema": "verdugo.egg666.source-contract.v1",
+  "service": "egg",
+  "operation": "congruence.check",
+  "repository": "egraphs-good/egg",
+  "commit": "73975c9819efb4af2f3c6c1b44fa53f8c5742574",
+  "version": "0.11.0",
+  "archive_url": "https://codeload.github.com/egraphs-good/egg/tar.gz/73975c9819efb4af2f3c6c1b44fa53f8c5742574",
+  "archive_sha256": "7b453e1f32de1f976bc43254934929104addb5e1cbaa2b31ea0dbc0979bc5c80",
+  "files": [
+    {
+      "path": ".github/workflows/build.yml",
+      "blob_sha": "059b064614f5af1aeb9ad7d11d3d07f738c2a240",
+      "sha256": "ca8efb315ec35e5e902fd2a208987e61b9034f9a422d343c8e5bfd8c8ddac022"
+    },
+    {
+      "path": ".github/workflows/docs.yml",
+      "blob_sha": "9c876513f8907b1a308de849a9ff4350e2e0ca03",
+      "sha256": "ba20e08db63a883c43a80ff1ebb759aa06e07fa76f9febd28e26938a0f6ae0aa"
+    },
+    {
+      "path": ".gitignore",
+      "blob_sha": "53547711899f60d6ace7d032f174d3aebf97e79b",
+      "sha256": "63752cb7ca36dc158e31748b05f84146024d01a6393589b76d4d506ad42553d6"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "blob_sha": "dd038ea482de8df5f55a0d7dba6d5fa1378d987d",
+      "sha256": "d5f382266cbf6736cd1a13517f96ae0fdb383705f9dbc7c766b762f952254f3e"
+    },
+    {
+      "path": "CITATION.bib",
+      "blob_sha": "7f90bf52ccbdf938eb1423a7a5cc5cbf36955f12",
+      "sha256": "9dc46f72250242ab42c9d24c565f9bb76add075702660f17e6d5c7d94547cfe0"
+    },
+    {
+      "path": "Cargo.toml",
+      "blob_sha": "a6f2ae0fe3b64822277c5fb3fdc375afd918ecd4",
+      "sha256": "888a217640f148eba3b4eba40dc60ecb45b9913e13512dece9a0f3ffc276732c"
+    },
+    {
+      "path": "LICENSE",
+      "blob_sha": "6e6d258f048daa07590e9b32c113e262adfd92c1",
+      "sha256": "33ec94d67f8eff8e107cbd61c6af1502c6e414c5ec70923cf47515f015233969"
+    },
+    {
+      "path": "Makefile",
+      "blob_sha": "f2f81658f9c205c0ffddb37b931b5394a3a68e7d",
+      "sha256": "0aeac6e4c29204536d3d964945f280f6e3cf5636ebddf7cb79c25f1ffec60893"
+    },
+    {
+      "path": "README.md",
+      "blob_sha": "79d467d00d1d0bfb889f8b5156929afac2676320",
+      "sha256": "f87c9e4be59e3ffc3c20cd086199e9a562c6e8711ee53562f3381c42f29a2049"
+    },
+    {
+      "path": "doc/egg.svg",
+      "blob_sha": "1d1356b90ae9347ebfeab3d49f57076a66d059bf",
+      "sha256": "b03c550b379651bcd3fa71776929cd04143b441888b5d583e9127b2120ed7d85"
+    },
+    {
+      "path": "doc/egraphs.drawio",
+      "blob_sha": "5d93186e3522013c67866a8f69aec198bf0adc47",
+      "sha256": "b05900495dcfc1fd602644dfead95784048779b7787c590a8db3a6fae6860b64"
+    },
+    {
+      "path": "rust-toolchain",
+      "blob_sha": "c25d22eebe8bb93acdc862ea3c31465da29efb02",
+      "sha256": "de7f44a989dedb765f2b35240ed7bc7843f9633c57d38e7d004826ce96328eb4"
+    },
+    {
+      "path": "src/dot.rs",
+      "blob_sha": "0f3e8a02f4169eab75e11a22135a4f6710bebc7c",
+      "sha256": "a10f9c987b4ea635ad28b21532b84b678ea0d7f1da0c5bd0bd553156de1b26c7"
+    },
+    {
+      "path": "src/eclass.rs",
+      "blob_sha": "89ecc8d9f96029a8235d582847f22f5b79462fc4",
+      "sha256": "d7ac6ac851090485946b1b250fd47902bde6153a68ee25e7d85c6ac13548fcee"
+    },
+    {
+      "path": "src/egraph.rs",
+      "blob_sha": "084fd3fb59f9cf3c40149fb099a32162de18c515",
+      "sha256": "7582d7a8191dd0dae8619ccaa431203e010f2f3a7dfa631f723067e2b67f589e"
+    },
+    {
+      "path": "src/explain.rs",
+      "blob_sha": "e155600cbb2a45277b274301c26a4f28c217ec62",
+      "sha256": "c55360d1667f7d2f1c3dd4efbb5b136304ff4fe567ae94ce2eb0c58a23f3f225"
+    },
+    {
+      "path": "src/extract.rs",
+      "blob_sha": "9f77a911aedfc138d7bd68c537fb314449f5aff8",
+      "sha256": "595cc7d8834927a27b3e6d630a8ed2a0065a3ccd4787c0f2d904ce8246f977b0"
+    },
+    {
+      "path": "src/language.rs",
+      "blob_sha": "f1ed3fa4f7c0b27213afdbf8bb9db63cae164033",
+      "sha256": "96f9eabc43a3b8fb34e16d3ed7aeda0d5a03eb90c97cecf3464782025ccce78d"
+    },
+    {
+      "path": "src/lib.rs",
+      "blob_sha": "38f9a6de374881831c0f55f48bce4e4afc453047",
+      "sha256": "5ed4e29b3533219d05f3e95d0f5f7861503b8419126224fffaf24f3c0a291cf8"
+    },
+    {
+      "path": "src/lp_extract.rs",
+      "blob_sha": "16a6b5f875976555ee3d4dfffcc97d2c50a3314d",
+      "sha256": "1ee34d542c5c14b0886ccba054e98b346a6a3552615f35cf04d6efb711cb0b47"
+    },
+    {
+      "path": "src/machine.rs",
+      "blob_sha": "b9854df9fd54056841a99ab8ffcd225ecd90670b",
+      "sha256": "41cf8f9ffb71210466ae7978434e69782e576ed883a6e77f7c793292112e4abf"
+    },
+    {
+      "path": "src/macros.rs",
+      "blob_sha": "fb94fa6a486f9d459e30b06accc669dad89a8705",
+      "sha256": "851649b6d5b956aa1fd4d8f326855506d83536a42d235c9542b4d047dac961ef"
+    },
+    {
+      "path": "src/multipattern.rs",
+      "blob_sha": "fd801ea8bbdc1a917b5f61437a22175ff116e127",
+      "sha256": "c76fbd3cbd562b64a7b208cd3cc6d8fa5c3332824c7466419da5605e12780b52"
+    },
+    {
+      "path": "src/pattern.rs",
+      "blob_sha": "5707eb2c2d720077df4a766474dea620956ec5c0",
+      "sha256": "7c19c9d588e04999b6443a58021cad997659231844357709061e86db9b38c11e"
+    },
+    {
+      "path": "src/rewrite.rs",
+      "blob_sha": "1977f4a817fe97aba784959743a42d5f5970f49a",
+      "sha256": "de9e82fc8d8b76f90f0c2497ff5c8d424b67140e6df8ce412d533e4ac015b68e"
+    },
+    {
+      "path": "src/run.rs",
+      "blob_sha": "50bcfcede9eede3bb9e82294604fce29567b7853",
+      "sha256": "6c1fe13fcb391ae0fa993bcd6dfcea23f27627c3ee853346281e6165fe3e86e4"
+    },
+    {
+      "path": "src/sexp.rs",
+      "blob_sha": "cef529bb5ce25bd240e0ae55cd4b23fc5d27433a",
+      "sha256": "fa789d88098c998337aafa3f61cbf22f3b899f02226120632fbf8a5f3b2c6cd3"
+    },
+    {
+      "path": "src/subst.rs",
+      "blob_sha": "2dd18ab683ba6d2b5f166a37d9ffaadf636e08c1",
+      "sha256": "a73da3c785dc443ffbc1fb2542e093e7a840fe493eae662d8f987d31ace8c516"
+    },
+    {
+      "path": "src/test.rs",
+      "blob_sha": "8565f79a675f3bfd491f85b7258e624bf6da3c31",
+      "sha256": "eb6d011038b08c50dbe8bcf118147047459a0622199740d878e53dcac8dea9ea"
+    },
+    {
+      "path": "src/tutorials/_01_background.rs",
+      "blob_sha": "b5e01e323ac9fc005a97d90dd72ba3539f0833a8",
+      "sha256": "8333841f74ccc0ff325d5c0c2007a0798233ec9c2e3c88d629aa0458968d2234"
+    },
+    {
+      "path": "src/tutorials/_02_getting_started.rs",
+      "blob_sha": "9c81996d8cd7938fb0c8cfaae396155039f0531a",
+      "sha256": "e28311904bae54722ff7d1b15018e4b466f5ccb318e88889dfba327d6382bb40"
+    },
+    {
+      "path": "src/tutorials/_03_explanations.rs",
+      "blob_sha": "018e6b2dca336d9dede9afe174f671550e9dc11c",
+      "sha256": "fd99b82b4766e7584c1ada8d0008cb8caf69640a24301d17bbc46f1bdfecfa69"
+    },
+    {
+      "path": "src/tutorials/mod.rs",
+      "blob_sha": "76fdb145a6f1397520c6c9f63f95b708d7a654e8",
+      "sha256": "a1bc64c9a40f0fb6b3bc557f637630fbe947f574ff4dca82f4e8513259b6b688"
+    },
+    {
+      "path": "src/unionfind.rs",
+      "blob_sha": "06ca28aa128a904ecc1f28c57c569a06b308dec0",
+      "sha256": "c81b6279541ac8be9383dfc6b3bd3809d9dc943a027dd775fe9a39c1e6d4f6ca"
+    },
+    {
+      "path": "src/util.rs",
+      "blob_sha": "2684b1f67a30bc109a2da3057497e379e95dd563",
+      "sha256": "4a46d646541c7759ac9d9f87348b02a2f73ab8742b30b70ffbc48ca42c1e6c7a"
+    },
+    {
+      "path": "tests/datalog.rs",
+      "blob_sha": "2343d68102ab7713b15c778d6399b9e29b2eb630",
+      "sha256": "f1b713549aa4bf48908507a474d7468fe0b7a2b5a3734513a8eab8626138e8f3"
+    },
+    {
+      "path": "tests/lambda.rs",
+      "blob_sha": "63a067d02891aa8a6524bc0431248f33ab41ea8d",
+      "sha256": "5950313c1e9ea9ebfeaf647ffdfd4f7ace5ccbe9419e93fa24060758862b8dfb"
+    },
+    {
+      "path": "tests/math.rs",
+      "blob_sha": "2215ff91be1563420749696f699bf28a32ef3335",
+      "sha256": "aac6179f66f8592fb8b08dfe116dc29843ddff770fd7d6d309965ceef921a952"
+    },
+    {
+      "path": "tests/prop.rs",
+      "blob_sha": "bca5ebfa93ac9600e521eebcd13f0a0fdc8c06a2",
+      "sha256": "e20e180df8f2463364aaff0aa711d26210546ed74dfe125eb36713b87f0c1320"
+    },
+    {
+      "path": "tests/simple.rs",
+      "blob_sha": "22585b3d7f90f67801c96d638978275762d526cb",
+      "sha256": "d7ed1a6c78f2b99814211e962a6f854c656a70663a18c8b1d41d9fefeaa11bde"
+    }
+  ],
+  "symbol_table": {
+    "repository": "mwillsey/symbol_table",
+    "commit": "a716c39a4aa4757c910c93fc10c5c7fa8f467133",
+    "version": "0.5.0",
+    "files": [
+      {
+        "path": ".github/workflows/build.yml",
+        "blob_sha": "d513f5fdd350c2ae21f6053d82e861126bb87e57",
+        "sha256": "cccf2e1316adaae9a34a8a92a890f44b5e48f90787ca91d358743a9f814863e2"
+      },
+      {
+        "path": ".gitignore",
+        "blob_sha": "64ee209c8fbdfa38c02a6181581c2175d099772b",
+        "sha256": "5d1cb2ac88bfedb2a1bfa406843fb5e89e935e6fb8c6efcbb6da91c8db40f61d"
+      },
+      {
+        "path": "Cargo.lock",
+        "blob_sha": "2c233d1c907f11cb2a2b3070590a5e5e06895ea5",
+        "sha256": "6a36e63158c9277423f7231402b0b110955e2988f45d411b8d2c1be009669bfd"
+      },
+      {
+        "path": "Cargo.toml",
+        "blob_sha": "5f92bca726df17d797857af197e712bc58b2893c",
+        "sha256": "cf07e235a0b87faba3442582d6303807256bfa5bb521046010f9ab652197d39f"
+      },
+      {
+        "path": "LICENSE",
+        "blob_sha": "6e6d258f048daa07590e9b32c113e262adfd92c1",
+        "sha256": "33ec94d67f8eff8e107cbd61c6af1502c6e414c5ec70923cf47515f015233969"
+      },
+      {
+        "path": "Makefile",
+        "blob_sha": "da29e319f25efbfe24fa5eb7d0c9c952e560b3ad",
+        "sha256": "27581a5e08f3196c5267089459c61aa07dafe1f5c4d54760df71bf6df3772e13"
+      },
+      {
+        "path": "README.md",
+        "blob_sha": "07060db8f4afdbb4e8807267fb6c2f93f55ce100",
+        "sha256": "2a1b8af8755d8877094a5bc9e9998d16f770be70ae60932e76ddcf30b2d96fa9"
+      },
+      {
+        "path": "bench/Cargo.lock",
+        "blob_sha": "2d0cef0563fc08db76378a27ddc99e77e49ef56e",
+        "sha256": "cd7fcd20817e3d4b0f981a541580d0055c3e1f6f3a8ff747be7cdc904b325c5c"
+      },
+      {
+        "path": "bench/Cargo.toml",
+        "blob_sha": "9ed6251ae83eb0e61cc1eaf8dd0bc229c1deb86d",
+        "sha256": "15a110ce578676f6a5e68f683eb8dd5acec27a5643c194ba70e8789d7c692d22"
+      },
+      {
+        "path": "bench/src/main.rs",
+        "blob_sha": "b497d7e2483ed2c3ed242ff332656576d7f83900",
+        "sha256": "3d51e87f5533eeb0ab4947e497a282846ffcf5c79b2c521495eb8f2a5ab37319"
+      },
+      {
+        "path": "src/global.rs",
+        "blob_sha": "6fc437795377c326de2d3aabaf19d1f2e80540da",
+        "sha256": "ee5152bf99ae4654357b97ff613a65886cbdf26f068813c07ada3b8e3f543ee8"
+      },
+      {
+        "path": "src/lib.rs",
+        "blob_sha": "756bae0256c106c503022831f9280ef6043092bb",
+        "sha256": "f96615742ad57bba6cd3d1b4ad1d7310d37ab0e6ac5b1f53cb68d3af2eade8ac"
+      },
+      {
+        "path": "tests/gulliver.txt",
+        "blob_sha": "bd81bd2506a15190cd86f0bc1a96e64fbcaa6733",
+        "sha256": "1d6d5dae7d56910f0ff7448a4ca97fab7512f1a7921fefb5861557cf74ea38b1"
+      },
+      {
+        "path": "tests/test.rs",
+        "blob_sha": "54cf8a36b73ef7e85055fafa691ff57e63d4e9a7",
+        "sha256": "11feea7a534ee61b467599c11ebfc50e615ff641a81e65bac4161bd50015c0ad"
+      }
+    ]
+  },
+  "root_license_evidence": [
+    {
+      "path": "LICENSE",
+      "blob_sha": "6e6d258f048daa07590e9b32c113e262adfd92c1",
+      "sha256": "33ec94d67f8eff8e107cbd61c6af1502c6e414c5ec70923cf47515f015233969",
+      "repository": "egraphs-good/egg",
+      "commit": "73975c9819efb4af2f3c6c1b44fa53f8c5742574",
+      "text": "Copyright 2019 Max Willsey\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\"Software\"), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE\nLIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION\nWITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
+      "source_url": "https://github.com/egraphs-good/egg/blob/73975c9819efb4af2f3c6c1b44fa53f8c5742574/LICENSE",
+      "license": "MIT"
+    },
+    {
+      "path": "LICENSE",
+      "blob_sha": "6e6d258f048daa07590e9b32c113e262adfd92c1",
+      "sha256": "33ec94d67f8eff8e107cbd61c6af1502c6e414c5ec70923cf47515f015233969",
+      "repository": "mwillsey/symbol_table",
+      "commit": "a716c39a4aa4757c910c93fc10c5c7fa8f467133",
+      "text": "Copyright 2019 Max Willsey\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\"Software\"), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\nNONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE\nLIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION\nWITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
+      "source_url": "https://github.com/mwillsey/symbol_table/blob/a716c39a4aa4757c910c93fc10c5c7fa8f467133/LICENSE",
+      "license": "MIT"
+    }
+  ],
+  "registry_dependencies": [
+    {
+      "name": "autocfg",
+      "version": "1.5.1",
+      "declared_license": "Apache-2.0 OR MIT",
+      "repository_url": "https://github.com/cuviper/autocfg",
+      "commit": "2799b09c24e6632f8e653c5cd8fc303e85a906ba",
+      "crate_sha256": "f2032f911046de80f0a198e0901378627c33f59ea0ac00e363d481118bd70a53",
+      "selected_license_files": [
+        {
+          "repository": "cuviper/autocfg",
+          "commit": "2799b09c24e6632f8e653c5cd8fc303e85a906ba",
+          "path": "LICENSE-MIT",
+          "blob_sha": "44fbc4d8b90dbe07864fdf49939308839e5735b2",
+          "sha256": "27995d58ad5c1145c1a8cd86244ce844886958a35eb2b78c6b772748669999ac",
+          "source_url": "https://github.com/cuviper/autocfg/blob/2799b09c24e6632f8e653c5cd8fc303e85a906ba/LICENSE-MIT",
+          "text": "Copyright (c) 2018 Josh Stone\n\nPermission is hereby granted, free of charge, to any\nperson obtaining a copy of this software and associated\ndocumentation files (the \"Software\"), to deal in the\nSoftware without restriction, including without\nlimitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software\nis furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice\nshall be included in all copies or substantial portions\nof the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF\nANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\nTO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\nPARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT\nSHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR\nIN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n"
+        }
+      ]
+    },
+    {
+      "name": "crossbeam-utils",
+      "version": "0.8.23",
+      "declared_license": "MIT OR Apache-2.0",
+      "repository_url": "https://github.com/crossbeam-rs/crossbeam",
+      "commit": "2920c984290229ab4e0ca0452ef09e48a82063f3",
+      "crate_sha256": "a31eee39dddec8330830986fcd7625edb5a24ec90ea038215273bbc3adb08ac6",
+      "selected_license_files": [
+        {
+          "repository": "crossbeam-rs/crossbeam",
+          "commit": "2920c984290229ab4e0ca0452ef09e48a82063f3",
+          "path": "LICENSE-MIT",
+          "blob_sha": "068d491fd551ae2531f4d28583245719a2e19e2d",
+          "sha256": "5734ed989dfca1f625b40281ee9f4530f91b2411ec01cb748223e7eb87e201ab",
+          "source_url": "https://github.com/crossbeam-rs/crossbeam/blob/2920c984290229ab4e0ca0452ef09e48a82063f3/LICENSE-MIT",
+          "text": "The MIT License (MIT)\n\nCopyright (c) 2019 The Crossbeam Project Developers\n\nPermission is hereby granted, free of charge, to any\nperson obtaining a copy of this software and associated\ndocumentation files (the \"Software\"), to deal in the\nSoftware without restriction, including without\nlimitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software\nis furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice\nshall be included in all copies or substantial portions\nof the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF\nANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\nTO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\nPARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT\nSHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR\nIN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n"
+        }
+      ]
+    },
+    {
+      "name": "equivalent",
+      "version": "1.0.3",
+      "declared_license": "Apache-2.0 OR MIT",
+      "repository_url": "https://github.com/indexmap-rs/equivalent",
+      "commit": "4ee88130bd4ab3229e785533da2af641be22deac",
+      "crate_sha256": "00d174d5400e5e8fd687ad1049e2f578285fa914201b1af7e8b112a4546bd826",
+      "selected_license_files": [
+        {
+          "repository": "indexmap-rs/equivalent",
+          "commit": "4ee88130bd4ab3229e785533da2af641be22deac",
+          "path": "LICENSE-MIT",
+          "blob_sha": "5ac40dae7f6f1ae64964fbe1ee9a9d85e261d1b7",
+          "sha256": "7365cc8878a1d7ce155a58c4ca09c3d7a6be413efa5334a80ea842912b669349",
+          "source_url": "https://github.com/indexmap-rs/equivalent/blob/4ee88130bd4ab3229e785533da2af641be22deac/LICENSE-MIT",
+          "text": "Copyright (c) 2016--2023\n\nPermission is hereby granted, free of charge, to any\nperson obtaining a copy of this software and associated\ndocumentation files (the \"Software\"), to deal in the\nSoftware without restriction, including without\nlimitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software\nis furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice\nshall be included in all copies or substantial portions\nof the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF\nANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\nTO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\nPARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT\nSHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR\nIN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n"
+        }
+      ]
+    },
+    {
+      "name": "foldhash",
+      "version": "0.1.5",
+      "declared_license": "Zlib",
+      "repository_url": "https://github.com/orlp/foldhash",
+      "commit": "42461756c3760f9165c90d9626a49e36980a1e47",
+      "crate_sha256": "d9c4f5dac5e15c24eb999c26181a6ca40b39fe946cbe4c263c7209467bc83af2",
+      "selected_license_files": [
+        {
+          "repository": "orlp/foldhash",
+          "commit": "42461756c3760f9165c90d9626a49e36980a1e47",
+          "path": "LICENSE",
+          "blob_sha": "2f65b0a366d4a8492175794e3bd3485fdd693c03",
+          "sha256": "b1181a40b2a7b25cf66fd01481713bc1005df082c53ef73e851e55071b102744",
+          "source_url": "https://github.com/orlp/foldhash/blob/42461756c3760f9165c90d9626a49e36980a1e47/LICENSE",
+          "text": "Copyright (c) 2024 Orson Peters\n\nThis software is provided 'as-is', without any express or implied warranty. In\nno event will the authors be held liable for any damages arising from the use of\nthis software.\n\nPermission is granted to anyone to use this software for any purpose, including\ncommercial applications, and to alter it and redistribute it freely, subject to\nthe following restrictions:\n\n1. The origin of this software must not be misrepresented; you must not claim\n    that you wrote the original software. If you use this software in a product,\n    an acknowledgment in the product documentation would be appreciated but is\n    not required.\n\n2. Altered source versions must be plainly marked as such, and must not be\n    misrepresented as being the original software.\n\n3. This notice may not be removed or altered from any source distribution."
+        }
+      ]
+    },
+    {
+      "name": "hashbrown",
+      "version": "0.15.5",
+      "declared_license": "MIT OR Apache-2.0",
+      "repository_url": "https://github.com/rust-lang/hashbrown",
+      "commit": "b751eef8e99ccf3652046ef4a9e1ec47c1bfb78d",
+      "crate_sha256": "9229cfe53dfd69f0609a49f65461bd93001ea1ef889cd5529dd176593f5338a1",
+      "selected_license_files": [
+        {
+          "repository": "rust-lang/hashbrown",
+          "commit": "b751eef8e99ccf3652046ef4a9e1ec47c1bfb78d",
+          "path": "LICENSE-MIT",
+          "blob_sha": "5afc2a7b0acabd34676023f9ebe3912ea2643ac2",
+          "sha256": "ff8f68cb076caf8cefe7a6430d4ac086ce6af2ca8ce2c4e5a2004d4552ef52a2",
+          "source_url": "https://github.com/rust-lang/hashbrown/blob/b751eef8e99ccf3652046ef4a9e1ec47c1bfb78d/LICENSE-MIT",
+          "text": "Copyright (c) 2016 Amanieu d'Antras\n\nPermission is hereby granted, free of charge, to any\nperson obtaining a copy of this software and associated\ndocumentation files (the \"Software\"), to deal in the\nSoftware without restriction, including without\nlimitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software\nis furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice\nshall be included in all copies or substantial portions\nof the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF\nANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\nTO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\nPARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT\nSHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR\nIN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n"
+        }
+      ]
+    },
+    {
+      "name": "hashbrown",
+      "version": "0.17.1",
+      "declared_license": "MIT OR Apache-2.0",
+      "repository_url": "https://github.com/rust-lang/hashbrown",
+      "commit": "c62a63a61b7caf2de8f9ecb7b06a66b0ab6bdf3d",
+      "crate_sha256": "ed5909b6e89a2db4456e54cd5f673791d7eca6732202bbf2a9cc504fe2f9b84a",
+      "selected_license_files": [
+        {
+          "repository": "rust-lang/hashbrown",
+          "commit": "c62a63a61b7caf2de8f9ecb7b06a66b0ab6bdf3d",
+          "path": "LICENSE-MIT",
+          "blob_sha": "5afc2a7b0acabd34676023f9ebe3912ea2643ac2",
+          "sha256": "ff8f68cb076caf8cefe7a6430d4ac086ce6af2ca8ce2c4e5a2004d4552ef52a2",
+          "source_url": "https://github.com/rust-lang/hashbrown/blob/c62a63a61b7caf2de8f9ecb7b06a66b0ab6bdf3d/LICENSE-MIT",
+          "text": "Copyright (c) 2016 Amanieu d'Antras\n\nPermission is hereby granted, free of charge, to any\nperson obtaining a copy of this software and associated\ndocumentation files (the \"Software\"), to deal in the\nSoftware without restriction, including without\nlimitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software\nis furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice\nshall be included in all copies or substantial portions\nof the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF\nANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\nTO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\nPARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT\nSHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR\nIN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n"
+        }
+      ]
+    },
+    {
+      "name": "indexmap",
+      "version": "2.14.2",
+      "declared_license": "Apache-2.0 OR MIT",
+      "repository_url": "https://github.com/indexmap-rs/indexmap",
+      "commit": "41a870887c4c77adf665886e63df08f406bfe37a",
+      "crate_sha256": "cc4e190f5d26ca7051642629da2c52fc03bde85a03197c99408dcd291734c855",
+      "selected_license_files": [
+        {
+          "repository": "indexmap-rs/indexmap",
+          "commit": "41a870887c4c77adf665886e63df08f406bfe37a",
+          "path": "LICENSE-MIT",
+          "blob_sha": "8b8181068b3cb531b8d9d75bf7a825d9a5dfad2f",
+          "sha256": "ecc269ef87fd38a1d98e30bfac9ba964a9dbd9315c3770fed98d4d7cb5882055",
+          "source_url": "https://github.com/indexmap-rs/indexmap/blob/41a870887c4c77adf665886e63df08f406bfe37a/LICENSE-MIT",
+          "text": "Copyright (c) 2016--2017\n\nPermission is hereby granted, free of charge, to any\nperson obtaining a copy of this software and associated\ndocumentation files (the \"Software\"), to deal in the\nSoftware without restriction, including without\nlimitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software\nis furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice\nshall be included in all copies or substantial portions\nof the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF\nANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\nTO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\nPARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT\nSHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR\nIN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n"
+        }
+      ]
+    },
+    {
+      "name": "log",
+      "version": "0.4.35",
+      "declared_license": "MIT OR Apache-2.0",
+      "repository_url": "https://github.com/rust-lang/log",
+      "commit": "a46450ba763280c29d35b53aa8ad0ff1fc1d78d0",
+      "crate_sha256": "5d15f86d12da44cd8d4ec3c73984537eb7f4cadcb9776a575a0a8a05ca11005c",
+      "selected_license_files": [
+        {
+          "repository": "rust-lang/log",
+          "commit": "a46450ba763280c29d35b53aa8ad0ff1fc1d78d0",
+          "path": "LICENSE-MIT",
+          "blob_sha": "39d4bdb5acd313c1a92dbeaa1c379aaf0596a315",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb",
+          "source_url": "https://github.com/rust-lang/log/blob/a46450ba763280c29d35b53aa8ad0ff1fc1d78d0/LICENSE-MIT",
+          "text": "Copyright (c) 2014 The Rust Project Developers\n\nPermission is hereby granted, free of charge, to any\nperson obtaining a copy of this software and associated\ndocumentation files (the \"Software\"), to deal in the\nSoftware without restriction, including without\nlimitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software\nis furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice\nshall be included in all copies or substantial portions\nof the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF\nANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\nTO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\nPARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT\nSHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR\nIN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n"
+        }
+      ]
+    },
+    {
+      "name": "num-bigint",
+      "version": "0.4.8",
+      "declared_license": "MIT OR Apache-2.0",
+      "repository_url": "https://github.com/rust-num/num-bigint",
+      "commit": "65330056d6c00def4c6cda78c87453f4c2a76913",
+      "crate_sha256": "c89e69e7e0f03bea5ef08013795c25018e101932225a656383bd384495ecc367",
+      "selected_license_files": [
+        {
+          "repository": "rust-num/num-bigint",
+          "commit": "65330056d6c00def4c6cda78c87453f4c2a76913",
+          "path": "LICENSE-MIT",
+          "blob_sha": "39d4bdb5acd313c1a92dbeaa1c379aaf0596a315",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb",
+          "source_url": "https://github.com/rust-num/num-bigint/blob/65330056d6c00def4c6cda78c87453f4c2a76913/LICENSE-MIT",
+          "text": "Copyright (c) 2014 The Rust Project Developers\n\nPermission is hereby granted, free of charge, to any\nperson obtaining a copy of this software and associated\ndocumentation files (the \"Software\"), to deal in the\nSoftware without restriction, including without\nlimitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software\nis furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice\nshall be included in all copies or substantial portions\nof the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF\nANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\nTO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\nPARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT\nSHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR\nIN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n"
+        }
+      ]
+    },
+    {
+      "name": "num-integer",
+      "version": "0.1.47",
+      "declared_license": "MIT OR Apache-2.0",
+      "repository_url": "https://github.com/rust-num/num-integer",
+      "commit": "765fd9b3eb9397471d41b9f613e530f6d9d6383f",
+      "crate_sha256": "7ce2d95d4b3734dc35aa2f45e1aa22cd416814592a4f9d9205e11affd5b8e10b",
+      "selected_license_files": [
+        {
+          "repository": "rust-num/num-integer",
+          "commit": "765fd9b3eb9397471d41b9f613e530f6d9d6383f",
+          "path": "LICENSE-MIT",
+          "blob_sha": "39d4bdb5acd313c1a92dbeaa1c379aaf0596a315",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb",
+          "source_url": "https://github.com/rust-num/num-integer/blob/765fd9b3eb9397471d41b9f613e530f6d9d6383f/LICENSE-MIT",
+          "text": "Copyright (c) 2014 The Rust Project Developers\n\nPermission is hereby granted, free of charge, to any\nperson obtaining a copy of this software and associated\ndocumentation files (the \"Software\"), to deal in the\nSoftware without restriction, including without\nlimitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software\nis furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice\nshall be included in all copies or substantial portions\nof the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF\nANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\nTO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\nPARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT\nSHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR\nIN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n"
+        }
+      ]
+    },
+    {
+      "name": "num-traits",
+      "version": "0.2.19",
+      "declared_license": "MIT OR Apache-2.0",
+      "repository_url": "https://github.com/rust-num/num-traits",
+      "commit": "7ec3d41d39b28190ec1d42db38021107b3951f3a",
+      "crate_sha256": "071dfc062690e90b734c0b2273ce72ad0ffa95f0c74596bc250dcfd960262841",
+      "selected_license_files": [
+        {
+          "repository": "rust-num/num-traits",
+          "commit": "7ec3d41d39b28190ec1d42db38021107b3951f3a",
+          "path": "LICENSE-MIT",
+          "blob_sha": "39d4bdb5acd313c1a92dbeaa1c379aaf0596a315",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb",
+          "source_url": "https://github.com/rust-num/num-traits/blob/7ec3d41d39b28190ec1d42db38021107b3951f3a/LICENSE-MIT",
+          "text": "Copyright (c) 2014 The Rust Project Developers\n\nPermission is hereby granted, free of charge, to any\nperson obtaining a copy of this software and associated\ndocumentation files (the \"Software\"), to deal in the\nSoftware without restriction, including without\nlimitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software\nis furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice\nshall be included in all copies or substantial portions\nof the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF\nANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\nTO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\nPARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT\nSHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR\nIN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n"
+        }
+      ]
+    },
+    {
+      "name": "proc-macro2",
+      "version": "1.0.107",
+      "declared_license": "MIT OR Apache-2.0",
+      "repository_url": "https://github.com/dtolnay/proc-macro2",
+      "commit": "ed8a5497669cd63db33bf24646f261b012bbbc4a",
+      "crate_sha256": "985e7ec9bb745e6ce6535b544d84d6cd6f7ad8bd711c398938ae983b91a766d9",
+      "selected_license_files": [
+        {
+          "repository": "dtolnay/proc-macro2",
+          "commit": "ed8a5497669cd63db33bf24646f261b012bbbc4a",
+          "path": "LICENSE-MIT",
+          "blob_sha": "31aa79387f27e730e33d871925e152e35e428031",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "source_url": "https://github.com/dtolnay/proc-macro2/blob/ed8a5497669cd63db33bf24646f261b012bbbc4a/LICENSE-MIT",
+          "text": "Permission is hereby granted, free of charge, to any\nperson obtaining a copy of this software and associated\ndocumentation files (the \"Software\"), to deal in the\nSoftware without restriction, including without\nlimitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software\nis furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice\nshall be included in all copies or substantial portions\nof the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF\nANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\nTO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\nPARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT\nSHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR\nIN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n"
+        }
+      ]
+    },
+    {
+      "name": "quote",
+      "version": "1.0.47",
+      "declared_license": "MIT OR Apache-2.0",
+      "repository_url": "https://github.com/dtolnay/quote",
+      "commit": "723dcb47d3f0ddc896e17287c8a8d3f2ea2317d5",
+      "crate_sha256": "1fbf4db142a473a8d80c26bbf18454ed458bf8d26c8219c331daecfdbd079001",
+      "selected_license_files": [
+        {
+          "repository": "dtolnay/quote",
+          "commit": "723dcb47d3f0ddc896e17287c8a8d3f2ea2317d5",
+          "path": "LICENSE-MIT",
+          "blob_sha": "31aa79387f27e730e33d871925e152e35e428031",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "source_url": "https://github.com/dtolnay/quote/blob/723dcb47d3f0ddc896e17287c8a8d3f2ea2317d5/LICENSE-MIT",
+          "text": "Permission is hereby granted, free of charge, to any\nperson obtaining a copy of this software and associated\ndocumentation files (the \"Software\"), to deal in the\nSoftware without restriction, including without\nlimitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software\nis furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice\nshall be included in all copies or substantial portions\nof the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF\nANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\nTO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\nPARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT\nSHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR\nIN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n"
+        }
+      ]
+    },
+    {
+      "name": "rustc-hash",
+      "version": "2.1.3",
+      "declared_license": "Apache-2.0 OR MIT",
+      "repository_url": "https://github.com/rust-lang/rustc-hash",
+      "commit": "c13e7ccca705e6255387a2ebc6dca142d6881621",
+      "crate_sha256": "6b1e7f9a428571be2dc5bc0505c13fb6bf936822b894ec87abf8a08a4e51742d",
+      "selected_license_files": [
+        {
+          "repository": "rust-lang/rustc-hash",
+          "commit": "c13e7ccca705e6255387a2ebc6dca142d6881621",
+          "path": "LICENSE-MIT",
+          "blob_sha": "468cd79a8f6e50f2b24558c41ed3abafa5bb40ae",
+          "sha256": "30fefc3a7d6a0041541858293bcbea2dde4caa4c0a5802f996a7f7e8c0085652",
+          "source_url": "https://github.com/rust-lang/rustc-hash/blob/c13e7ccca705e6255387a2ebc6dca142d6881621/LICENSE-MIT",
+          "text": "Permission is hereby granted, free of charge, to any\nperson obtaining a copy of this software and associated\ndocumentation files (the \"Software\"), to deal in the\nSoftware without restriction, including without\nlimitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software\nis furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice\nshall be included in all copies or substantial portions\nof the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF\nANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\nTO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\nPARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT\nSHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR\nIN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE."
+        }
+      ]
+    },
+    {
+      "name": "smallvec",
+      "version": "1.16.5",
+      "declared_license": "MIT OR Apache-2.0",
+      "repository_url": "https://github.com/servo/rust-smallvec",
+      "commit": "6e900059c51b7c0f5580e13e9e215a50b6be9d27",
+      "crate_sha256": "149309498a5f7334b12ddae0cad8aba81ce785fe91755068867e017cf98fee46",
+      "selected_license_files": [
+        {
+          "repository": "smallvec/smallvec",
+          "commit": "6e900059c51b7c0f5580e13e9e215a50b6be9d27",
+          "path": "LICENSE-MIT",
+          "blob_sha": "9729c1284e1bff82ca875abbf0fb4ec540804cd6",
+          "sha256": "0b28172679e0009b655da42797c03fd163a3379d5cfa67ba1f1655e974a2a1a9",
+          "source_url": "https://github.com/smallvec/smallvec/blob/6e900059c51b7c0f5580e13e9e215a50b6be9d27/LICENSE-MIT",
+          "text": "Copyright (c) 2018 The Servo Project Developers\n\nPermission is hereby granted, free of charge, to any\nperson obtaining a copy of this software and associated\ndocumentation files (the \"Software\"), to deal in the\nSoftware without restriction, including without\nlimitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software\nis furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice\nshall be included in all copies or substantial portions\nof the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF\nANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\nTO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\nPARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT\nSHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR\nIN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n"
+        }
+      ],
+      "repository_redirect": {
+        "from": "servo/rust-smallvec",
+        "to": "smallvec/smallvec",
+        "github_id": 33456236
+      }
+    },
+    {
+      "name": "spin",
+      "version": "0.9.9",
+      "declared_license": "MIT",
+      "repository_url": "https://github.com/mvdnes/spin-rs.git",
+      "commit": "d882207a7befa5dd74981306e9c2cc2c3ef21cd7",
+      "crate_sha256": "3763264f6b73151db08c50ff20d7d8a0b8796e021cdea7ceedad07b80155fa0e",
+      "selected_license_files": [
+        {
+          "path": "LICENSE",
+          "text": "The MIT License (MIT)\n\nCopyright (c) 2014 Mathijs van de Nes\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.",
+          "sha256": "6ac8711fb340c62ce0a4ecd463342d3fa0e8e70de697c863a2e1c0c53006003c",
+          "blob_sha": "b2d7f7bbdcd9997f8de01da3100b549872287997",
+          "repository": "https://codeberg.org/zesterer/spin",
+          "commit": "d882207a7befa5dd74981306e9c2cc2c3ef21cd7",
+          "source_url": "https://codeberg.org/zesterer/spin/src/commit/d882207a7befa5dd74981306e9c2cc2c3ef21cd7/LICENSE"
+        }
+      ],
+      "repository_redirect": {
+        "from": "https://github.com/mvdnes/spin-rs.git",
+        "via": "https://github.com/zesterer/spin-rs",
+        "to": "https://codeberg.org/zesterer/spin",
+        "github_id": 21686666
+      }
+    },
+    {
+      "name": "spin",
+      "version": "0.10.1",
+      "declared_license": "MIT",
+      "repository_url": "https://github.com/mvdnes/spin-rs.git",
+      "commit": "026d8e95bf03f90ad2067038df4c138ebc1ac4e7",
+      "crate_sha256": "023a211cb3138dbc438680b32560ad89f699977624c9f8dbb95a47d5b4c07dd3",
+      "selected_license_files": [
+        {
+          "path": "LICENSE",
+          "text": "The MIT License (MIT)\n\nCopyright (c) 2014 Mathijs van de Nes\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.",
+          "sha256": "6ac8711fb340c62ce0a4ecd463342d3fa0e8e70de697c863a2e1c0c53006003c",
+          "blob_sha": "b2d7f7bbdcd9997f8de01da3100b549872287997",
+          "repository": "https://codeberg.org/zesterer/spin",
+          "commit": "026d8e95bf03f90ad2067038df4c138ebc1ac4e7",
+          "source_url": "https://codeberg.org/zesterer/spin/src/commit/026d8e95bf03f90ad2067038df4c138ebc1ac4e7/LICENSE"
+        }
+      ],
+      "repository_redirect": {
+        "from": "https://github.com/mvdnes/spin-rs.git",
+        "via": "https://github.com/zesterer/spin-rs",
+        "to": "https://codeberg.org/zesterer/spin",
+        "github_id": 21686666
+      }
+    },
+    {
+      "name": "syn",
+      "version": "3.0.10",
+      "declared_license": "MIT OR Apache-2.0",
+      "repository_url": "https://github.com/dtolnay/syn",
+      "commit": "97ec37dda8a893a460066da694fd1eb7cb30538a",
+      "crate_sha256": "4ae9ccbea3a7b0b09443036490c8f34a8b1b760fd345e5c0dae0aac718faea79",
+      "selected_license_files": [
+        {
+          "repository": "dtolnay/syn",
+          "commit": "97ec37dda8a893a460066da694fd1eb7cb30538a",
+          "path": "LICENSE-MIT",
+          "blob_sha": "31aa79387f27e730e33d871925e152e35e428031",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "source_url": "https://github.com/dtolnay/syn/blob/97ec37dda8a893a460066da694fd1eb7cb30538a/LICENSE-MIT",
+          "text": "Permission is hereby granted, free of charge, to any\nperson obtaining a copy of this software and associated\ndocumentation files (the \"Software\"), to deal in the\nSoftware without restriction, including without\nlimitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software\nis furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice\nshall be included in all copies or substantial portions\nof the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF\nANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\nTO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\nPARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT\nSHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR\nIN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n"
+        }
+      ]
+    },
+    {
+      "name": "thiserror",
+      "version": "2.0.21",
+      "declared_license": "MIT OR Apache-2.0",
+      "repository_url": "https://github.com/dtolnay/thiserror",
+      "commit": "b1827ee06f81a7d7f954e676771e19a97f9f8e3b",
+      "crate_sha256": "09e52cb86a36cede5cb101bf8908837b3e4c6e5e59fe7fd85c23fb56200d189e",
+      "selected_license_files": [
+        {
+          "repository": "dtolnay/thiserror",
+          "commit": "b1827ee06f81a7d7f954e676771e19a97f9f8e3b",
+          "path": "LICENSE-MIT",
+          "blob_sha": "31aa79387f27e730e33d871925e152e35e428031",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "source_url": "https://github.com/dtolnay/thiserror/blob/b1827ee06f81a7d7f954e676771e19a97f9f8e3b/LICENSE-MIT",
+          "text": "Permission is hereby granted, free of charge, to any\nperson obtaining a copy of this software and associated\ndocumentation files (the \"Software\"), to deal in the\nSoftware without restriction, including without\nlimitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software\nis furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice\nshall be included in all copies or substantial portions\nof the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF\nANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\nTO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\nPARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT\nSHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR\nIN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n"
+        }
+      ]
+    },
+    {
+      "name": "thiserror-impl",
+      "version": "2.0.21",
+      "declared_license": "MIT OR Apache-2.0",
+      "repository_url": "https://github.com/dtolnay/thiserror",
+      "commit": "b1827ee06f81a7d7f954e676771e19a97f9f8e3b",
+      "crate_sha256": "fe5197923287db20a58125f0bc85c062f7f2c892de97b18c356f9efb14b28524",
+      "selected_license_files": [
+        {
+          "repository": "dtolnay/thiserror",
+          "commit": "b1827ee06f81a7d7f954e676771e19a97f9f8e3b",
+          "path": "LICENSE-MIT",
+          "blob_sha": "31aa79387f27e730e33d871925e152e35e428031",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "source_url": "https://github.com/dtolnay/thiserror/blob/b1827ee06f81a7d7f954e676771e19a97f9f8e3b/LICENSE-MIT",
+          "text": "Permission is hereby granted, free of charge, to any\nperson obtaining a copy of this software and associated\ndocumentation files (the \"Software\"), to deal in the\nSoftware without restriction, including without\nlimitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software\nis furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice\nshall be included in all copies or substantial portions\nof the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF\nANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\nTO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\nPARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT\nSHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR\nIN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n"
+        }
+      ]
+    },
+    {
+      "name": "unicode-ident",
+      "version": "1.0.27",
+      "declared_license": "(MIT OR Apache-2.0) AND Unicode-3.0",
+      "repository_url": "https://github.com/dtolnay/unicode-ident",
+      "commit": "c1ac3afb721f3cea6527bc2255340a04d0de3ca0",
+      "crate_sha256": "a2c754d6c33795a1c324727428e5a7dedb5b06195f9890bdbcba760d3e246563",
+      "selected_license_files": [
+        {
+          "repository": "dtolnay/unicode-ident",
+          "commit": "c1ac3afb721f3cea6527bc2255340a04d0de3ca0",
+          "path": "LICENSE-MIT",
+          "blob_sha": "31aa79387f27e730e33d871925e152e35e428031",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3",
+          "source_url": "https://github.com/dtolnay/unicode-ident/blob/c1ac3afb721f3cea6527bc2255340a04d0de3ca0/LICENSE-MIT",
+          "text": "Permission is hereby granted, free of charge, to any\nperson obtaining a copy of this software and associated\ndocumentation files (the \"Software\"), to deal in the\nSoftware without restriction, including without\nlimitation the rights to use, copy, modify, merge,\npublish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software\nis furnished to do so, subject to the following\nconditions:\n\nThe above copyright notice and this permission notice\nshall be included in all copies or substantial portions\nof the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF\nANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\nTO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\nPARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT\nSHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION\nOF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR\nIN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER\nDEALINGS IN THE SOFTWARE.\n"
+        },
+        {
+          "repository": "dtolnay/unicode-ident",
+          "commit": "c1ac3afb721f3cea6527bc2255340a04d0de3ca0",
+          "path": "LICENSE-UNICODE",
+          "blob_sha": "11f2842a303a7935740f7a1d09139b0b9c28c3b6",
+          "sha256": "f7db81051789b729fea528a63ec4c938fdcb93d9d61d97dc8cc2e9df6d47f2a1",
+          "source_url": "https://github.com/dtolnay/unicode-ident/blob/c1ac3afb721f3cea6527bc2255340a04d0de3ca0/LICENSE-UNICODE",
+          "text": "UNICODE LICENSE V3\n\nCOPYRIGHT AND PERMISSION NOTICE\n\nCopyright © 1991-2023 Unicode, Inc.\n\nNOTICE TO USER: Carefully read the following legal agreement. BY\nDOWNLOADING, INSTALLING, COPYING OR OTHERWISE USING DATA FILES, AND/OR\nSOFTWARE, YOU UNEQUIVOCALLY ACCEPT, AND AGREE TO BE BOUND BY, ALL OF THE\nTERMS AND CONDITIONS OF THIS AGREEMENT. IF YOU DO NOT AGREE, DO NOT\nDOWNLOAD, INSTALL, COPY, DISTRIBUTE OR USE THE DATA FILES OR SOFTWARE.\n\nPermission is hereby granted, free of charge, to any person obtaining a\ncopy of data files and any associated documentation (the \"Data Files\") or\nsoftware and any associated documentation (the \"Software\") to deal in the\nData Files or Software without restriction, including without limitation\nthe rights to use, copy, modify, merge, publish, distribute, and/or sell\ncopies of the Data Files or Software, and to permit persons to whom the\nData Files or Software are furnished to do so, provided that either (a)\nthis copyright and permission notice appear with all copies of the Data\nFiles or Software, or (b) this copyright and permission notice appear in\nassociated Documentation.\n\nTHE DATA FILES AND SOFTWARE ARE PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY\nKIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF\nTHIRD PARTY RIGHTS.\n\nIN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE\nBE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES,\nOR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,\nWHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION,\nARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA\nFILES OR SOFTWARE.\n\nExcept as contained in this notice, the name of a copyright holder shall\nnot be used in advertising or otherwise to promote the sale, use or other\ndealings in these Data Files or Software without prior written\nauthorization of the copyright holder.\n"
+        }
+      ]
+    }
+  ],
+  "resolved_graph": [
+    {
+      "id": "autocfg@1.5.1",
+      "features": [],
+      "dependencies": []
+    },
+    {
+      "id": "crossbeam-utils@0.8.23",
+      "features": [],
+      "dependencies": []
+    },
+    {
+      "id": "egg@0.11.0",
+      "features": [],
+      "dependencies": [
+        "hashbrown@0.15.5",
+        "indexmap@2.14.2",
+        "log@0.4.35",
+        "num-bigint@0.4.8",
+        "num-traits@0.2.19",
+        "rustc-hash@2.1.3",
+        "smallvec@1.16.5",
+        "spin@0.9.9",
+        "symbol_table@0.5.0",
+        "thiserror@2.0.21"
+      ]
+    },
+    {
+      "id": "equivalent@1.0.3",
+      "features": [],
+      "dependencies": []
+    },
+    {
+      "id": "foldhash@0.1.5",
+      "features": [],
+      "dependencies": []
+    },
+    {
+      "id": "hashbrown@0.15.5",
+      "features": [
+        "default-hasher",
+        "inline-more",
+        "raw-entry"
+      ],
+      "dependencies": [
+        "foldhash@0.1.5"
+      ]
+    },
+    {
+      "id": "hashbrown@0.17.1",
+      "features": [],
+      "dependencies": []
+    },
+    {
+      "id": "indexmap@2.14.2",
+      "features": [],
+      "dependencies": [
+        "equivalent@1.0.3",
+        "hashbrown@0.17.1"
+      ]
+    },
+    {
+      "id": "log@0.4.35",
+      "features": [],
+      "dependencies": []
+    },
+    {
+      "id": "num-bigint@0.4.8",
+      "features": [],
+      "dependencies": [
+        "num-integer@0.1.47",
+        "num-traits@0.2.19"
+      ]
+    },
+    {
+      "id": "num-integer@0.1.47",
+      "features": [
+        "i128"
+      ],
+      "dependencies": [
+        "num-traits@0.2.19"
+      ]
+    },
+    {
+      "id": "num-traits@0.2.19",
+      "features": [
+        "i128"
+      ],
+      "dependencies": [
+        "autocfg@1.5.1"
+      ]
+    },
+    {
+      "id": "proc-macro2@1.0.107",
+      "features": [
+        "default",
+        "proc-macro"
+      ],
+      "dependencies": [
+        "unicode-ident@1.0.27"
+      ]
+    },
+    {
+      "id": "quote@1.0.47",
+      "features": [
+        "default",
+        "proc-macro"
+      ],
+      "dependencies": [
+        "proc-macro2@1.0.107"
+      ]
+    },
+    {
+      "id": "rustc-hash@2.1.3",
+      "features": [],
+      "dependencies": []
+    },
+    {
+      "id": "smallvec@1.16.5",
+      "features": [
+        "const_generics",
+        "union"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "spin@0.10.1",
+      "features": [
+        "mutex",
+        "once",
+        "spin_mutex"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "spin@0.9.9",
+      "features": [
+        "lazy",
+        "mutex",
+        "once",
+        "spin_mutex"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "symbol_table@0.5.0",
+      "features": [
+        "global"
+      ],
+      "dependencies": [
+        "crossbeam-utils@0.8.23",
+        "foldhash@0.1.5",
+        "hashbrown@0.15.5",
+        "spin@0.10.1"
+      ]
+    },
+    {
+      "id": "syn@3.0.10",
+      "features": [
+        "clone-impls",
+        "default",
+        "derive",
+        "parsing",
+        "printing",
+        "proc-macro"
+      ],
+      "dependencies": [
+        "proc-macro2@1.0.107",
+        "quote@1.0.47",
+        "unicode-ident@1.0.27"
+      ]
+    },
+    {
+      "id": "thiserror-impl@2.0.21",
+      "features": [],
+      "dependencies": [
+        "proc-macro2@1.0.107",
+        "quote@1.0.47",
+        "syn@3.0.10"
+      ]
+    },
+    {
+      "id": "thiserror@2.0.21",
+      "features": [
+        "default",
+        "std"
+      ],
+      "dependencies": [
+        "thiserror-impl@2.0.21"
+      ]
+    },
+    {
+      "id": "unicode-ident@1.0.27",
+      "features": [],
+      "dependencies": []
+    },
+    {
+      "id": "verdugo-egg666-driver@0.1.0",
+      "features": [],
+      "dependencies": [
+        "egg@0.11.0"
+      ]
+    }
+  ],
+  "driver_files": {
+    "Cargo.toml": "374972efc12d61cc94cb62b5e3f72d053281345da05f85d8b8f63201c9e5fba0",
+    "Cargo.lock": "d393a02e2e0cf0ac9678b4e8daac46492da67084ea4475a626e4756654cebc10",
+    "src/main.rs": "557d29e7627b1f9fc9f6dcbcb55de5b796d6c63e2ecc1c96e890c2a395b1d085"
+  },
+  "rust_toolchain": "1.100.0",
+  "default_features": false,
+  "selected_api": [
+    {
+      "path": "src/egraph.rs",
+      "symbols": [
+        "EGraph::default",
+        "add",
+        "union",
+        "rebuild",
+        "find",
+        "number_of_classes"
+      ]
+    },
+    {
+      "path": "src/language.rs",
+      "symbols": [
+        "SymbolLang::new"
+      ]
+    }
+  ],
+  "scope": "fixed_synthetic_finite_congruence",
+  "license_scope": "Original Egg and symbol_table MIT plus all 21 locked registry crates; MIT selected for OR alternatives, and Unicode-3.0 retained with unicode-ident. Compiler, Rust standard library and OS are outside this source-dependency review. No all-platform closure claim.",
+  "native_system_libraries_allowed": [
+    "libgcc_s.so.1",
+    "libc.so.6",
+    "libm.so.6",
+    "ld-linux-x86-64.so.2"
+  ],
+  "input_programs_accepted": false,
+  "model_weights_loaded": false,
+  "live_verified": false,
+  "distribution_license_closure_verified": false
+}

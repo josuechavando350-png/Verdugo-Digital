@@ -11,6 +11,8 @@ import math
 def run(service, operation, p):
     from .local_logic666 import SPECS as LOGIC666, run as run_logic666
     if service in LOGIC666: return run_logic666(service, p)
+    from .local_egg666 import SPECS as EGG666, run as run_egg666
+    if service in EGG666: return run_egg666(service, p)
     from .local_bm25s666 import SPECS as BM25S666, run as run_bm25s666
     if service in BM25S666: return run_bm25s666(service, p)
     from .local_content666 import SPECS as CONTENT666, run as run_content666
