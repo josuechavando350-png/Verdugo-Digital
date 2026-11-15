@@ -109,6 +109,12 @@ def template(tenant):
                                   native_auth_enforced_reviewed=False, dedicated_instance_reviewed=False)
     services['opik'].update(api_surface='self_hosted', auth_mode='reviewed_proxy_bearer',
                            proxy_auth_reviewed=False, dedicated_instance_reviewed=False)
+    services['memos'].update(api_surface='self_hosted', auth_mode='reviewed_proxy_bearer',
+                            proxy_auth_reviewed=False, proxy_strips_credentials_reviewed=False,
+                            dedicated_instance_reviewed=False)
+    services['lightrag'].update(api_surface='self_hosted', auth_mode='native_x_api_key',
+                               native_auth_enforced_reviewed=False, dedicated_instance_reviewed=False,
+                               status_storage='JsonDocStatusStorage', status_storage_reviewed=False)
     return {'tenants': {tenant: {'services': services, 'ingress': {}}}}
 
 

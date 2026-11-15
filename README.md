@@ -9,9 +9,9 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 
 ## Hacia los 666
 
-El plan para llegar a 666 piezas libres (300 del catálogo + 50 del simulador + 150 del cerebro + 166 finales) está en [docs/PLAN_666.md](docs/PLAN_666.md), con las instrucciones por tanda en [docs/PROMPT_ASTRA_666.md](docs/PROMPT_ASTRA_666.md). El registro contiene 688 identidades distintas: 666 libres y 22 excluidas. Veinticuatro de las 366 incorporaciones tienen una operación implementada: 22 locales y dos lecturas HTTP con aceptación sintética; 342 siguen pendientes. La auditoría corrigió cinco alias duplicados y una licencia restringida; evidencia y cola de dos lotes de 183 en [docs/REGISTRO_666.md](docs/REGISTRO_666.md).
+El plan para llegar a 666 piezas libres (300 del catálogo + 50 del simulador + 150 del cerebro + 166 finales) está en [docs/PLAN_666.md](docs/PLAN_666.md), con las instrucciones por tanda en [docs/PROMPT_ASTRA_666.md](docs/PROMPT_ASTRA_666.md). El registro contiene 688 identidades distintas: 666 libres y 22 excluidas. Veintiséis de las 366 incorporaciones tienen una operación implementada: 22 locales y cuatro lecturas HTTP con aceptación sintética; 340 siguen pendientes. La auditoría corrigió cinco alias duplicados y una licencia restringida; evidencia y cola de dos lotes de 183 en [docs/REGISTRO_666.md](docs/REGISTRO_666.md).
 
-OpenManus fue retirado tras detectar su dependencia obligatoria GPL-3.0; vuelve a pendientes. InterpretML incorpora una explicación aditiva sintética. TransformerLens añade diagnóstico de un modelo sin entrenar; Bitsandbytes añade diagnóstico nativo de cuantización; Guidance y LM Format Enforcer comprueban formatos y prefijos sintéticos; TensorZero y Opik añaden lecturas acotadas de registros existentes; el total vigente llega a 24 incorporaciones operativas; las pruebas funcionales históricas no sustituyen revisión de dependencias.
+OpenManus fue retirado tras detectar su dependencia obligatoria GPL-3.0; vuelve a pendientes. InterpretML incorpora una explicación aditiva sintética. TransformerLens añade diagnóstico de un modelo sin entrenar; Bitsandbytes añade diagnóstico nativo de cuantización; Guidance y LM Format Enforcer comprueban formatos y prefijos sintéticos; TensorZero y Opik añaden lecturas acotadas de registros existentes; MemOS y LightRAG añaden recuentos de tareas y documentos; el total vigente llega a 26 incorporaciones operativas; las pruebas funcionales históricas no sustituyen revisión de dependencias.
 
 ## Estado del código
 
@@ -20,15 +20,15 @@ OpenManus fue retirado tras detectar su dependencia obligatoria GPL-3.0; vuelve 
 | Fuentes registradas y fijadas por commit | 688 (322 anteriores + 366 nuevas) |
 | Portafolio con licencia libre | 666 |
 | Excluidos por licencia (registrados, sin operar) | 22 |
-| Proyectos con una operación implementada | 286: 105 HTTP + 158 bibliotecas locales + 18 CLI + 2 MCP locales + 3 consultas/reglas de datos |
-| Conectados bajo la política de licencias | 267 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
+| Proyectos con una operación implementada | 288: 107 HTTP + 158 bibliotecas locales + 18 CLI + 2 MCP locales + 3 consultas/reglas de datos |
+| Conectados bajo la política de licencias | 269 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
 | Piezas de construcción (se usan al programar, no vía motor) | 56 |
-| Pendientes de conector | 343 (342 nuevas + `meta-ads`) |
+| Pendientes de conector | 341 (340 nuevas + `meta-ads`) |
 | Servicios de pago | 0 (Stripe, Twilio, Mercado Pago, E2B y Composio retirados) |
-| Operaciones HTTP existentes | 109, limitadas por proveedor |
+| Operaciones HTTP existentes | 111, limitadas por proveedor |
 | Operaciones locales implementadas | 181; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Flujo de 87 operaciones nuevas + métricas locales; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 837 pruebas locales; comprobar los tres workflows del commit vigente en CI |
+| Pruebas unitarias y de contrato | 846 pruebas locales; comprobar los tres workflows del commit vigente en CI |
 | Herramientas MCP | 25; product-status/product-run reutilizan el mismo motor |
 | Servicios productivos certificados | 0 |
 

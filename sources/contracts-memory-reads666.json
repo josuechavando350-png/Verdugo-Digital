@@ -1,0 +1,164 @@
+{
+  "schema": "verdugo.memory-reads666.v1",
+  "records": [
+    {
+      "id": "memos",
+      "repository": "MemTensor/MemOS",
+      "commit": "3a16e5fe3048a209f722806f4123fa2e533588fd",
+      "files": [
+        {
+          "path": "src/memos/api/handlers/scheduler_handler.py",
+          "git_blob_sha": "61d0d0b99a6cf0545a2f7c4237002f7ef2c7c456",
+          "sha256": "4cec72e50ca61eb06f98657e720de5e17a089f4ae54395ab97622c8416f53848",
+          "source_url": "https://github.com/MemTensor/MemOS/blob/3a16e5fe3048a209f722806f4123fa2e533588fd/src/memos/api/handlers/scheduler_handler.py",
+          "review_scope": "Selected route, authentication, response declarations and count implementation; hash covers the full file."
+        },
+        {
+          "path": "src/memos/api/middleware/request_context.py",
+          "git_blob_sha": "025a0f9eb29151fa9dfd780c19b31c47b03d9d08",
+          "sha256": "356dbf64cb3f92f3122c467466b844c53c11961cdc05075a211e3337f8df52a3",
+          "source_url": "https://github.com/MemTensor/MemOS/blob/3a16e5fe3048a209f722806f4123fa2e533588fd/src/memos/api/middleware/request_context.py",
+          "review_scope": "Selected route, authentication, response declarations and count implementation; hash covers the full file."
+        },
+        {
+          "path": "src/memos/api/product_models.py",
+          "git_blob_sha": "1769b0ee67ac672f9395ec38707665b054956959",
+          "sha256": "2c52d881402182650e72bec6c8d64132ae49bf886390dc20eadd1769e3c12ee4",
+          "source_url": "https://github.com/MemTensor/MemOS/blob/3a16e5fe3048a209f722806f4123fa2e533588fd/src/memos/api/product_models.py",
+          "review_scope": "Selected route, authentication, response declarations and count implementation; hash covers the full file."
+        },
+        {
+          "path": "src/memos/api/routers/server_router.py",
+          "git_blob_sha": "561b696d019ff752e42a333782b2b9f23f056e6b",
+          "sha256": "54cc289dc4cd34ca4d57083d5b59e0985783aeafd72f00ba95f6268c30a786d2",
+          "source_url": "https://github.com/MemTensor/MemOS/blob/3a16e5fe3048a209f722806f4123fa2e533588fd/src/memos/api/routers/server_router.py",
+          "review_scope": "Selected route, authentication, response declarations and count implementation; hash covers the full file."
+        },
+        {
+          "path": "src/memos/api/server_api.py",
+          "git_blob_sha": "1c6d93b9f4b418dfb9b898bd88a9ce6ee17f90ed",
+          "sha256": "c6618fd66e5edc751c92f883386ad9426a70b09af8e8ecb877b8fb68f8c1f0e1",
+          "source_url": "https://github.com/MemTensor/MemOS/blob/3a16e5fe3048a209f722806f4123fa2e533588fd/src/memos/api/server_api.py",
+          "review_scope": "Selected route, authentication, response declarations and count implementation; hash covers the full file."
+        }
+      ],
+      "license_evidence": [
+        {
+          "repository": "MemTensor/MemOS",
+          "commit_sha": "3a16e5fe3048a209f722806f4123fa2e533588fd",
+          "path": "LICENSE",
+          "blob_sha": "2090de541d3389f3da3d001d37e6426fe5c93779",
+          "sha256": "154f9be8df2d55ceddcd4646c8d8d4206d48867ae1da2b81ce2ab86b51a5f075",
+          "local_path": "sources/license-texts/154f9be8df2d55ceddcd4646c8d8d4206d48867ae1da2b81ce2ab86b51a5f075.txt",
+          "source_url": "https://github.com/MemTensor/MemOS/blob/3a16e5fe3048a209f722806f4123fa2e533588fd/LICENSE"
+        }
+      ],
+      "license_text_read": true,
+      "operation": "scheduler.summary",
+      "live_verified": false,
+      "original_server_executed": false,
+      "sdk_installed": false,
+      "cost": "No paid endpoint or model. Operator supplies an already reviewed self-hosted instance; no provisioning.",
+      "route": {
+        "method": "GET",
+        "path": "/product/scheduler/allstatus",
+        "params": []
+      },
+      "authentication": {
+        "mode": "reviewed_proxy_bearer",
+        "upstream_native_auth": false,
+        "requirements": [
+          "Dedicated instance for this company; global scheduler route has no tenant parameter.",
+          "Authenticating proxy must strip the Authorization header before forwarding and keep its own logs free of credentials.",
+          "Original request_context.py logs request headers; forwarding the bearer credential is forbidden."
+        ]
+      },
+      "limits": [
+        "pending may alias waiting; scheduler and tracker summaries overlap and are never added together.",
+        "Tracker Redis aggregation skips timestamped entries older than 86400 seconds; fallback differs. Not complete history.",
+        "Scheduler queue monitor can overwrite waiting/in_progress/pending. Values are reported, not verified task completion.",
+        "Only fixed counters retained; no private payloads.",
+        "Synthetic contract/socket acceptance is not original-server or production certification."
+      ]
+    },
+    {
+      "id": "lightrag",
+      "repository": "HKUDS/LightRAG",
+      "commit": "c515065405929202c4068e66230f1a19069196ff",
+      "files": [
+        {
+          "path": "lightrag/api/routers/document_routes.py",
+          "git_blob_sha": "f6812d8d62bde272be6eeb7d6a3c4da756306941",
+          "sha256": "d60a2e955cd3e7b4e482583e8756cbeaa7397196491b2fdeac05475572e84cb6",
+          "source_url": "https://github.com/HKUDS/LightRAG/blob/c515065405929202c4068e66230f1a19069196ff/lightrag/api/routers/document_routes.py",
+          "review_scope": "Selected route, authentication, response declarations and count implementation; hash covers the full file."
+        },
+        {
+          "path": "lightrag/api/utils_api.py",
+          "git_blob_sha": "dd5e4f076868a04d8da66a28dff90943b2678e8e",
+          "sha256": "ad1bc23758d2a8c434ea779ee7559233111d793b67144a7bce215cb5784bb7fc",
+          "source_url": "https://github.com/HKUDS/LightRAG/blob/c515065405929202c4068e66230f1a19069196ff/lightrag/api/utils_api.py",
+          "review_scope": "Selected route, authentication, response declarations and count implementation; hash covers the full file."
+        },
+        {
+          "path": "lightrag/base.py",
+          "git_blob_sha": "380a140330f9d6cc24d71e6d8dfe5acd87dae416",
+          "sha256": "72335bbc454ba184bd83b0b115e9b1dacabe631ba27af9a753aaceee681c87d1",
+          "source_url": "https://github.com/HKUDS/LightRAG/blob/c515065405929202c4068e66230f1a19069196ff/lightrag/base.py",
+          "review_scope": "Selected route, authentication, response declarations and count implementation; hash covers the full file."
+        },
+        {
+          "path": "lightrag/kg/json_doc_status_impl.py",
+          "git_blob_sha": "c916b26c7e7ef06a186a44cef5f684bf8d0e6794",
+          "sha256": "65eedbeb7e11bd014ce67d9880cf8aed86e083712535eacd58461435d1752613",
+          "source_url": "https://github.com/HKUDS/LightRAG/blob/c515065405929202c4068e66230f1a19069196ff/lightrag/kg/json_doc_status_impl.py",
+          "review_scope": "Selected route, authentication, response declarations and count implementation; hash covers the full file."
+        },
+        {
+          "path": "lightrag/api/lightrag_server.py",
+          "git_blob_sha": "f76cd21560af1689caad8402abaad597aa4b315e",
+          "sha256": "5b6f795ea057324da02c3a16d7223453761e9c49e19fe957321e674567c54cc6",
+          "source_url": "https://github.com/HKUDS/LightRAG/blob/c515065405929202c4068e66230f1a19069196ff/lightrag/api/lightrag_server.py",
+          "review_scope": "Selected route, authentication, response declarations and count implementation; hash covers the full file."
+        }
+      ],
+      "license_evidence": [
+        {
+          "repository": "HKUDS/LightRAG",
+          "commit_sha": "c515065405929202c4068e66230f1a19069196ff",
+          "path": "LICENSE",
+          "blob_sha": "ff0c29b4790f767e8abdc14f43ca0495330e89e4",
+          "sha256": "0c16924564059e493c86854574660a47ed1dcc2a476ba7b5f949d3f2f73a1984",
+          "local_path": "sources/license-texts/0c16924564059e493c86854574660a47ed1dcc2a476ba7b5f949d3f2f73a1984.txt",
+          "source_url": "https://github.com/HKUDS/LightRAG/blob/c515065405929202c4068e66230f1a19069196ff/LICENSE"
+        }
+      ],
+      "license_text_read": true,
+      "operation": "documents.summary",
+      "live_verified": false,
+      "original_server_executed": false,
+      "sdk_installed": false,
+      "cost": "No paid endpoint or model. Operator supplies an already reviewed self-hosted instance; no provisioning.",
+      "route": {
+        "method": "GET",
+        "path": "/documents/status_counts",
+        "params": []
+      },
+      "authentication": {
+        "mode": "native_x_api_key",
+        "header": "X-API-Key",
+        "requirements": [
+          "LIGHTRAG_API_KEY configured and the document status route excluded from WHITELIST_PATHS.",
+          "Dedicated instance and fixed configured workspace; no caller workspace selector.",
+          "Only reviewed JsonDocStatusStorage backend; all eight lowercase DocStatus keys and all sum."
+        ]
+      },
+      "limits": [
+        "JsonDocStatusStorage enumerates all DocStatus values, including deprecated preprocessed; API examples use misleading uppercase keys.",
+        "Counts are status records, including any duplicate markers. They do not prove document content, indexing quality or retrieval accuracy.",
+        "Only fixed counters retained; no private payloads.",
+        "Synthetic contract/socket acceptance is not original-server or production certification."
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 343,
+ "pending": 341,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -352,38 +352,10 @@
   },
   {
    "tanda": "666 / lote 1 / fase 2",
-   "id": "memos",
-   "repository": "MemTensor/MemOS",
-   "commit": "3a16e5fe3048a209f722806f4123fa2e533588fd",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "memoria",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 2",
    "id": "memoryos",
    "repository": "BAI-LAB/MemoryOS",
    "commit": "587ed7755c7aed179965792830ff1b5ad9a6fa92",
    "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "memoria",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 2",
-   "id": "lightrag",
-   "repository": "HKUDS/LightRAG",
-   "commit": "c515065405929202c4068e66230f1a19069196ff",
-   "license": "MIT",
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "memoria",
@@ -7701,6 +7673,36 @@
    "live_verified": false,
    "evidence": "sources/contracts-judgment-reads666.json",
    "operation": "projects.summary"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 2",
+   "id": "memos",
+   "repository": "MemTensor/MemOS",
+   "commit": "3a16e5fe3048a209f722806f4123fa2e533588fd",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "memoria",
+   "que_hacer": "Implementado: lectura HTTP acotada de recuentos; aceptación sintética, servidor original no ejecutado.",
+   "nota": "Instancia dedicada y autenticación revisada obligatorias. No recupera textos ni ejecuta modelos.",
+   "live_verified": false,
+   "evidence": "sources/contracts-memory-reads666.json",
+   "operation": "scheduler.summary"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 2",
+   "id": "lightrag",
+   "repository": "HKUDS/LightRAG",
+   "commit": "c515065405929202c4068e66230f1a19069196ff",
+   "license": "MIT",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "memoria",
+   "que_hacer": "Implementado: lectura HTTP acotada de recuentos; aceptación sintética, servidor original no ejecutado.",
+   "nota": "Instancia dedicada y autenticación revisada obligatorias. No recupera textos ni ejecuta modelos.",
+   "live_verified": false,
+   "evidence": "sources/contracts-memory-reads666.json",
+   "operation": "documents.summary"
   }
  ]
 }

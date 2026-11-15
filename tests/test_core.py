@@ -53,6 +53,10 @@ class Base(unittest.TestCase):
         for sid in ('datahub', 'bifrost'): services[sid]['native_auth_enforced_reviewed'] = True
         services['tensorzero'].update(native_auth_enforced_reviewed=True, dedicated_instance_reviewed=True)  # synthetic only
         services['opik'].update(proxy_auth_reviewed=True, dedicated_instance_reviewed=True)  # synthetic only
+        services['memos'].update(proxy_auth_reviewed=True, dedicated_instance_reviewed=True,
+                                 proxy_strips_credentials_reviewed=True)  # synthetic only
+        services['lightrag'].update(native_auth_enforced_reviewed=True, dedicated_instance_reviewed=True,
+                                    status_storage_reviewed=True)  # synthetic only
         services['magentic-ui'].update(user_id='demo-user', user_scope_reviewed=True)
         services['taguette'].update(project_id=1, document_id=2)
         from test_completion_reads_v021 import configure as completion_config
@@ -114,7 +118,7 @@ class CatalogTests(Base):
 
     def test_no_false_live_status(self):
         s=self.engine.status()
-        self.assertEqual(105,s['api_adapters_implemented'])
+        self.assertEqual(107,s['api_adapters_implemented'])
         self.assertEqual(0,s['live_verified'])
         self.assertFalse(any(r['live_verified'] for r in s['integrations']))
 
@@ -122,7 +126,7 @@ class CatalogTests(Base):
         g=graph(SPECS)
         self.assertEqual(689,len(g['nodes']))
         self.assertEqual(688,len(g['edges']))
-        self.assertEqual(105,sum(e['kind']=='adapter' for e in g['edges']))
+        self.assertEqual(107,sum(e['kind']=='adapter' for e in g['edges']))
         self.assertFalse(any(e['live'] for e in g['edges']))
 
     def test_template_disabled(self):

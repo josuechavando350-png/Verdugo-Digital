@@ -47,7 +47,7 @@ def command(sid, key=None, params=None):
 
 
 @contextmanager
-def wire(config, replies=None, specs=None):
+def wire(config, replies=None, specs=None, auth_headers=None):
     replies = replies if replies is not None else REPLIES
     specs = specs if specs is not None else batch.SPECS
     state = {'calls': [], 'status': 200, 'raw': None}
@@ -59,7 +59,8 @@ def wire(config, replies=None, specs=None):
             sid = routes.get(self.path)
             state['calls'].append({'service': sid, 'method': self.command, 'path': self.path,
                                    'body': body, 'headers': dict(self.headers)})
-            authorized = self.headers.get('Authorization') == 'Bearer '+TOKEN
+            header, value = (auth_headers or {}).get(sid, ('Authorization', 'Bearer '+TOKEN))
+            authorized = self.headers.get(header) == value
             self.send_response(state['status'] if authorized and sid else 401)
             content = state['raw'] if state['raw'] is not None else json.dumps(replies.get(sid, {})).encode()
             self.send_header('Content-Type', 'application/json')
