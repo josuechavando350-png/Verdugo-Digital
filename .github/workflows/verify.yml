@@ -153,7 +153,7 @@ jobs:
           suite = unittest.defaultTestLoader.discover('tests', pattern='test_*v019.py')
           result = unittest.TextTestRunner(verbosity=2).run(suite)
           assert result.wasSuccessful() and result.testsRun == 36
-          assert len(read_operations()) == 68
+          assert len(read_operations()) == 67
           evidence = {'commit':os.environ['GITHUB_SHA'], 'run_id':os.environ['GITHUB_RUN_ID'],
               'baseline_commit':'088c759033fd52e2ece9f6cb0d23590bd378a160',
               'contract_and_product_tests_passed':result.testsRun,
@@ -165,7 +165,7 @@ jobs:
           Path('/tmp/verdugo-v019-evidence.json').write_text(json.dumps(evidence,indent=2)+'\n')
           PYCODE
           python3 -m verdugo --state :memory: product-status > /tmp/verdugo-product-status.json
-          python3 -c "import json; r=json.load(open('/tmp/verdugo-product-status.json')); assert r['bounded_observation_routes']==68 and r['external_calls_made'] is False and r['business']['reported_paid_clients']==0"
+          python3 -c "import json; r=json.load(open('/tmp/verdugo-product-status.json')); assert r['bounded_observation_routes']==67 and r['external_calls_made'] is False and r['business']['reported_paid_clients']==0"
       - name: Preserve unified product evidence
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
