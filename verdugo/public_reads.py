@@ -1,4 +1,4 @@
-"""Explicit credential-free reads at two fixed public data origins.
+"""Explicit credential-free reads at fixed public data origins.
 
 These are REST adapters for the APIs wrapped by the catalogued clients. They
 do not claim to execute those Python clients or to certify live availability.
@@ -11,10 +11,11 @@ from urllib.parse import urlencode
 
 from .common import VerdugoError, digest, fields, integer
 
-SPECS = {'gdeltdoc': {'articles.summary': ('GET', '/api/v2/doc/doc')},
+SPECS = {'census': {'tables.summary': ('GET', '/data/2024/acs/acs5/profile/groups.json')},
+         'gdeltdoc': {'articles.summary': ('GET', '/api/v2/doc/doc')},
          'wbgapi': {'population.read': ('GET', '/v2/country/{country}/indicator/SP.POP.TOTL')}}
-ORIGINS = {'gdeltdoc': 'https://api.gdeltproject.org', 'wbgapi': 'https://api.worldbank.org'}
-PINS = {'gdeltdoc': '41220163fbab99982e4dca3a05d25a95b49896d7', 'wbgapi': '4d0d2c925a8dac359df5a2d9e82001ff6feeecda'}
+ORIGINS = {'census': 'https://api.census.gov', 'gdeltdoc': 'https://api.gdeltproject.org', 'wbgapi': 'https://api.worldbank.org'}
+PINS = {'census': '3da5a1068164c27f6e83815f5d28ec300e184fdf', 'gdeltdoc': '41220163fbab99982e4dca3a05d25a95b49896d7', 'wbgapi': '4d0d2c925a8dac359df5a2d9e82001ff6feeecda'}
 
 
 def connection(service, cfg, origin):
@@ -33,7 +34,10 @@ def build(service, operation, params, cfg, origin, token, headers):
     connection(service, cfg, origin)
     method, path = SPECS[service][operation]
     scope = {}
-    if service == 'gdeltdoc':
+    if service == 'census':
+        query = {}
+        scope = {'year': 2024, 'dataset': 'acs/acs5/profile', 'metadata_only': True}
+    elif service == 'gdeltdoc':
         terms = cfg.get('query_terms')
         if not isinstance(terms, str) or not re.fullmatch(r'[A-Za-z][A-Za-z0-9 ]{2,79}', terms):
             raise VerdugoError('Administrator-supplied plain English topic required')
@@ -45,7 +49,7 @@ def build(service, operation, params, cfg, origin, token, headers):
         path = path.format(country=country)
         query = {'format': 'json', 'date': year, 'per_page': 1, 'page': 1}
         scope = {'country': country, 'year': year}
-    public = {'service': service, 'operation': operation, 'method': method, 'url': origin + path + '?' + urlencode(query),
+    public = {'service': service, 'operation': operation, 'method': method, 'url': origin + path + ('?' + urlencode(query) if query else ''),
               'body': None, 'version': cfg.get('version'), 'credential_binding': digest(headers),
               'authentication_policy': {'mode': 'public_no_credentials'}, 'query_scope': scope,
               'contract_source_commit': PINS[service], 'implementation_binding': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
@@ -60,6 +64,20 @@ def check(service, operation, response, request=None):
         bad()
     result = {'service': service, 'operation': operation, 'raw_provider_payload_retained': False,
               'live_verified': False, 'production_certified': False, 'scope': 'one_bounded_response'}
+    if service == 'census':
+        rows = response.get('groups') if isinstance(response, dict) else None
+        if not isinstance(rows, list) or len(rows) > 100:
+            bad()
+        seen = set()
+        for row in rows:
+            if (not isinstance(row, dict) or not isinstance(row.get('name'), str)
+                    or not re.fullmatch(r'DP[0-9]{2}(?:PR)?', row['name']) or row['name'] in seen
+                    or not isinstance(row.get('description'), str)
+                    or row.get('variables') != ORIGINS[service] + '/data/2024/acs/acs5/profile/groups/' + row['name'] + '.json'):
+                bad()
+            seen.add(row['name'])
+        return result | {'tables_in_response': len(rows), 'dataset': 'acs/acs5/profile',
+                         'year': 2024, 'metadata_only': True, 'population_data_retrieved': False}
     if service == 'gdeltdoc':
         rows = response.get('articles') if isinstance(response, dict) else None
         # Upstream returns {} for zero matches, but an arbitrary missing field

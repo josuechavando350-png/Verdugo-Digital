@@ -36,9 +36,14 @@ def main():
     # No caller-selected modules can be imported.
     sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
     from verdugo.local_recipes import run
-    from verdugo import local_data, local_native, local_cli, local_source, local_r, local_database
+    from verdugo import local_data, local_native, local_cli, local_source, local_r, local_database, local_native_tools
     dist = request['distribution']
-    if request['service'] in local_database.SPECS:
+    if request['service'] in local_native_tools.SPECS:
+        state = local_native_tools.runtime_state(request['service'])
+        if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
+            raise ValueError('Native-tools runtime changed')
+        version = state['installed']
+    elif request['service'] in local_database.SPECS:
         state = local_database.runtime_state(request['service'])
         if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
             raise ValueError('Database runtime changed')

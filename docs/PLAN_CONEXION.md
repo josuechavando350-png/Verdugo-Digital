@@ -4,13 +4,13 @@ Fecha: 15 de noviembre de 2026. Versión del motor: 0.21.0.
 
 | Estado | Cuántas |
 |---|---|
-| conectado | 228 |
+| conectado | 233 |
 | pieza_de_construccion | 56 |
-| pendiente | 16 |
+| pendiente | 11 |
 | excluido | 22 |
 | **Total** | 322 |
 
-**Pendientes: 16**, conservando la identificación de las cuatro tandas originales. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
+**Pendientes: 11**, conservando la identificación de las cuatro tandas originales. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
 no se conectan al motor: se usan al construir la plataforma (fase aparte). Las 22 excluidas por licencia no se tocan.
 
 El estado de cada pieza lo calcula el código: `python -m verdugo connections`. Este plan en formato
@@ -271,3 +271,7 @@ Se ejecutaron Promptfoo, Log4brains, PriceSensitivityMeter, Robyn, Newsjack y Ki
 ## Continuación con motores de datos originales
 
 PostgreSQL 18.7, Valkey, pgvector y Apache AGE ejecutan operaciones fijas sobre datos suministrados en almacenes temporales; resultados y replay pasan por Engine/SQLite. OpenHands incorpora un contrato acotado del Agent Server 1.62.0, probado con HTTP sintético. El JSON vigente tiene **16 pendientes**.
+
+## Validadores y análisis nativos
+
+Se añaden OpenAPI Generator 7.27.0, ARX 3.9.2, el combinador de adyacencias de Common Crawl WebGraph y GoAccess 1.7, ejecutados con datos suministrados. Census incorpora únicamente catálogo de tablas ACS5 profile 2024, sin credenciales. Quedan **11 pendientes** en el JSON vigente.

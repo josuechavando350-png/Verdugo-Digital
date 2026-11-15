@@ -16,7 +16,7 @@ from verdugo.read_contracts import check
 from verdugo.transport import send
 
 PRIVATE = 'private-publisher@example.invalid'
-REPLIES = {'gdeltdoc': {'articles': [{'url': 'https://news.example.invalid/a', 'title': PRIVATE}]},
+REPLIES = {'census': {'groups': [{'name':'DP05', 'description':PRIVATE, 'variables':'https://api.census.gov/data/2024/acs/acs5/profile/groups/DP05.json'}]}, 'gdeltdoc': {'articles': [{'url': 'https://news.example.invalid/a', 'title': PRIVATE}]},
            'wbgapi': [{'page': 1, 'pages': 1, 'per_page': 1, 'total': 1},
                       [{'indicator': {'id': 'SP.POP.TOTL', 'value': PRIVATE}, 'countryiso3code': 'MEX', 'date': '2024', 'value': 100}]]}
 
@@ -60,6 +60,18 @@ class PublicReads(unittest.TestCase):
             with self.assertRaises(VerdugoError): check('wbgapi', op, response, req['public'])
         self.assertEqual(0, check('gdeltdoc', 'articles.summary', {})['articles_in_response'])
 
+    def test_census_metadata_never_becomes_population_or_accepts_other_resource_origins(self):
+        cfg=self.config['tenants']['nexus']['services']['census']
+        request=build('census','tables.summary',{},cfg)
+        self.assertNotIn('?',request['public']['url'])
+        out=check('census','tables.summary',REPLIES['census'],request['public'])
+        self.assertTrue(out['metadata_only']);self.assertFalse(out['population_data_retrieved'])
+        for changes in ({'name':'OTHER'},{'variables':'https://other.invalid/private'}):
+            response=copy.deepcopy(REPLIES['census']);response['groups'][0].update(changes)
+            with self.assertRaises(VerdugoError):check('census','tables.summary',response,request['public'])
+        response=copy.deepcopy(REPLIES['census']);response['groups']*=2
+        with self.assertRaises(VerdugoError):check('census','tables.summary',response,request['public'])
+
     def test_transport_and_sqlite_restart(self):
         for sid, payload in REPLIES.items():
             calls = []
@@ -86,6 +98,6 @@ class PublicReads(unittest.TestCase):
             state = Path(temp)/'state.db'
             with closing(Engine(state, self.config, transport=lambda r, c: copy.deepcopy(REPLIES[r['public']['service']]))) as e:
                 result = product.observe(e, request, True); self.assertEqual('succeeded', result['state'], result)
-                self.assertEqual(2, result['new_observations']); self.assertNotIn(PRIVATE, '\n'.join(e.db.iterdump()))
+                self.assertEqual(3, result['new_observations']); self.assertNotIn(PRIVATE, '\n'.join(e.db.iterdump()))
             with closing(Engine(state, self.config, transport=lambda *a: self.fail('Replay called provider'))) as e:
-                self.assertEqual(2, product.observe(e, request, True)['reused_observations'])
+                self.assertEqual(3, product.observe(e, request, True)['reused_observations'])

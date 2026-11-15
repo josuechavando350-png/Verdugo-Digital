@@ -9,6 +9,8 @@ import math
 
 
 def run(service, operation, p):
+    from .local_native_tools import SPECS as NATIVE_TOOLS, run as run_native_tools
+    if service in NATIVE_TOOLS: return run_native_tools(service, p)
     from .local_database import SPECS as DATABASE, run as run_database
     if service in DATABASE:
         return run_database(service, p)

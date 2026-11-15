@@ -70,3 +70,6 @@ CASES.update(R_CASES)
 
 from database_fixtures import CASES as DATABASE_CASES
 CASES.update(DATABASE_CASES)
+
+from native_tools_fixtures import CASES as TOOLS_CASES
+CASES.update(TOOLS_CASES)

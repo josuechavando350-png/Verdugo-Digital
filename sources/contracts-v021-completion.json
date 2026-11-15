@@ -198,6 +198,40 @@
       ]
     },
     {
+      "id": "census",
+      "catalog_commit": "3da5a1068164c27f6e83815f5d28ec300e184fdf",
+      "operation": "tables.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "datamade/census",
+          "commit": "3da5a1068164c27f6e83815f5d28ec300e184fdf",
+          "path": "census/core.py",
+          "git_blob_sha": "2101e17cadd7ace6621c6154f60e5ad84dcdb137",
+          "sha256": "9c0186a89f6a79912f4a7b3517216349c20ae12f867158fe18f1d5ae5754a599",
+          "source_url": "https://github.com/datamade/census/blob/3da5a1068164c27f6e83815f5d28ec300e184fdf/census/core.py"
+        },
+        {
+          "repository": "datamade/census",
+          "commit": "3da5a1068164c27f6e83815f5d28ec300e184fdf",
+          "path": "pyproject.toml",
+          "git_blob_sha": "d984fdce760d5e180e8579533b0e34dee92ea540",
+          "sha256": "6544d31cf39cb7168eb1deb167226acaf87380a970d5f86fd269cc960a3b569e",
+          "source_url": "https://github.com/datamade/census/blob/3da5a1068164c27f6e83815f5d28ec300e184fdf/pyproject.toml"
+        },
+        {
+          "repository": "datamade/census",
+          "commit": "3da5a1068164c27f6e83815f5d28ec300e184fdf",
+          "path": "setup.py",
+          "git_blob_sha": "606849326a4002007fd42060b51e69a19c18675c",
+          "sha256": "843ac26c38a41abae578250bc0f9419194b320a0f67327d941037a4268f6cfe7",
+          "source_url": "https://github.com/datamade/census/blob/3da5a1068164c27f6e83815f5d28ec300e184fdf/setup.py"
+        }
+      ]
+    },
+    {
       "id": "claude-skills-c-level",
       "catalog_commit": "08cd8a9fc86cc370e2c0d448e8171fbcfdbc5a30",
       "operation": "cashflow.scenario",

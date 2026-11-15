@@ -10,6 +10,7 @@ from verdugo.__main__ import template
 from verdugo.engine import Engine
 from fixtures import CASES
 from database_fixtures import CASES as DATABASE_CASES, assert_result as assert_database
+from native_tools_fixtures import CASES as TOOLS_CASES, assert_result as assert_tools
 from r_fixtures import CASES as R_CASES, assert_result as assert_r
 from completion_fixtures import CASES as COMPLETION_CASES, assert_result as assert_completion
 from planning_fixtures import CASES as PLANNING_CASES, assert_result as assert_planning
@@ -105,6 +106,8 @@ class RuntimeAcceptance(unittest.TestCase):
                         self.assertTrue(value['views'][0]['observations']['horizontal_overflow'])
                         self.assertFalse(value['views'][1]['observations']['horizontal_overflow'])
                         self.assertFalse(value['javascript_enabled'])
+                    if sid in TOOLS_CASES:
+                        assert_tools(self,sid,value)
                     if sid in DATABASE_CASES:
                         assert_database(self,sid,value)
                     if sid in R_CASES:

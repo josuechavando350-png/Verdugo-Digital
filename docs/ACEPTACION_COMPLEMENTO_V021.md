@@ -1,13 +1,13 @@
 # Complemento v0.21 — evidencia y alcance
 
 Base: `a6809de201ba517846e19cf965194b21e6617050`, rama `feat/v0.21-final88`, PR #20.
-Se añaden **52 de las 68 integraciones pendientes**: 27 operaciones locales
-originales y 25 contratos HTTP. Junto con las 20 anteriores de v0.21, son
-72 operaciones de esta tanda y **16 todavía pendientes**. No declarar terminada
+Se añaden **57 de las 68 integraciones pendientes**: 31 operaciones locales
+originales y 26 contratos HTTP. Junto con las 20 anteriores de v0.21, son
+77 operaciones de esta tanda y **11 todavía pendientes**. No declarar terminada
 la tanda. No se modifica main ni se altera la política de licencias.
 
-Inventario actual: 322 entradas; 228 conectadas bajo la política, 56 componentes,
-16 pendientes y 22 excluidas. Hay 103 adaptadores HTTP (107 acciones) y 144
+Inventario actual: 322 entradas; 233 conectadas bajo la política, 56 componentes,
+11 pendientes y 22 excluidas. Hay 104 adaptadores HTTP (108 acciones) y 148
 operaciones locales; 19 adaptadores HTTP históricos siguen excluidos por licencia.
 
 ## Operaciones comprobadas y límites
@@ -69,22 +69,27 @@ operaciones locales; 19 adaptadores HTTP históricos siguen excluidos por licenc
 | `pgvector` | `vectors.rank` | Operador L2 original sobre vectores tridimensionales suministrados; no embeddings generados ni relevancia semántica. |
 | `apache-age` | `graph.degrees` | Cypher original parametrizado para grados de salida de grafo suministrado; no conocimiento externo. |
 
+| `openapi-generator` | `spec.validate` | Validador original 7.27.0 sobre OpenAPI 3.0 JSON suministrado; referencias locales; no genera código ni comprueba una API desplegada. |
+| `arx` | `groups.anonymize` | ARX 3.9.2 generaliza dos atributos suministrados con k-anonimato y cero supresión; solo devuelve tamaños de clases, nunca filas; no elimina todos los riesgos de reidentificación. |
+| `cc-webgraph` | `adjacency.merge` | CountingMergedIntIterator original, compilado sin cambios con WebGraph/fastutil; fusiona adyacencias ordenadas y cuenta repeticiones; no descarga el grafo Common Crawl. |
+| `goaccess` | `requests.summarize` | Parser GoAccess 1.7 original sobre eventos suministrados transformados a COMMON; recuentos HTTP y bytes; no mide visitantes reales ni consulta archivos de logs externos. |
+| `census` | `tables.summary` | Catálogo público fijo de tablas ACS5 profile 2024; no envía claves ni consulta población. |
+
 ## Ejecución observada
 
-- Suite de núcleo y contratos: 701 pruebas aprobadas en CPython 3.12.
-- 27 operaciones locales originales en un único `product-run`, 28 pasos incluyendo
-  instantánea comercial; persistencia y replay después de cerrar/abrir SQLite.
-  Vanna alimenta dbt mediante una referencia de workflow.
-- Flujo conjunto de las 52 integraciones nuevas: 27 operaciones locales originales
-  + 25 respuestas HTTP sintéticas + instantánea comercial, 53 pasos, 179.585 s.
+- Suite de núcleo y contratos: 707 pruebas aprobadas en CPython 3.12.
+- Las 31 operaciones locales originales participan en el flujo conjunto siguiente.
+  Vanna alimenta dbt mediante una referencia de workflow; los resultados persisten en SQLite.
+- Flujo conjunto de las 57 integraciones nuevas: 31 operaciones locales originales
+  + 26 respuestas HTTP sintéticas + instantánea comercial, 58 pasos, 211.826 s.
   Cero llamadas HTTP o ejecuciones de worker durante el replay tras reinicio.
   [Evidencia local](evidence/v021-completion-local.json).
 - Ocho paquetes npm originales probados juntos, incluidos los cuatro anteriores;
   aceptación del grupo en 103.895 s. Cuatro casos negativos comprueban que Promptfoo
   conserva fallos de aserción y trata plantillas y referencias de archivo como texto;
   HTML alimenta lint y SEO Graph alimenta el validador de breadcrumbs.
-- Los 25 contratos HTTP nuevos tienen transporte loopback y proyección comprobada;
-  las 67 lecturas admisibles del producto se prueban juntas con respuestas sintéticas.
+- Los 26 contratos HTTP nuevos tienen transporte loopback y proyección comprobada;
+  las 68 lecturas admisibles del producto se prueban juntas con respuestas sintéticas.
 - C2PA: PNG firmado de ejemplo, sin manifiesto, contenido alterado y manifiesto remoto.
   Un certificado de ejemplo no se convierte en autenticidad verificada.
 - Los nueve perfiles Python pasan `pip check`; dependencias exactas y npm lock fijados.
@@ -142,3 +147,9 @@ El checkpoint `7c38cb72bd5930a5c45821bc8b76ffaf01780ac8` aprobó los tres workfl
 El checkpoint de 47, `4a0afe938dc926af6326baa261c623d62221430a`, aprobó los tres workflows: [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43674427802), [runtimes](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43674427842) y [servicios originales](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43674427831). El fallo anterior de R era `libblas.so.3` ausente: se añadieron BLAS, LAPACK, gfortran y quadmath oficiales fijados por hash. Ese CI no sustituye la aceptación del nuevo perfil de bases de datos.
 
 El perfil `database021` compila Valkey, PostgreSQL, pgvector y AGE originales con fuentes fijadas. En este host se ejecutaron los cuatro mediante `product-run`, con reinicio/replay; el grupo completo pasó en 21.682 s e incluye rechazo de clientes TCP sin contraseña y cierre de los servidores. Por defecto usa sockets Unix privados, sin TCP. Este host rechaza AF_UNIX: el administrador seleccionó `VERDUGO_DATABASE_LOOPBACK=1`, que enlaza únicamente 127.0.0.1 con contraseñas efímeras. Los parámetros nunca eligen destino, puerto, credencial, SQL ni Cypher. CI conserva el modo Unix en namespace sin red. `VERDUGO_DATABASE_ROOT` identifica el perfil. Los datos temporales se borran; Engine/SQLite conserva los resultados. [Fuentes](../sources/contracts-v021-database.json) y [artefactos ejecutados](evidence/v021-database-artifacts.json).
+
+El perfil `tools021` prepara Eclipse Temurin 21.0.13+9, OpenAPI Generator 7.27.0, ARX 3.9.2, WebGraph 3.6.12, fastutil-core 8.5.19 y GoAccess 1.7 con hashes de archivos/distribuciones fijados. El puente Java es propio y llama a algoritmos originales; el iterador de Common Crawl conserva su fuente sin modificaciones. Se verifican 114 archivos del runtime y los archivos fuente. La política Java bloquea conexiones, escuchas y procesos hijos, además del namespace sin red de CI. Java 21 se fija explícitamente: no se presume compatibilidad con versiones que retiren SecurityManager. GoAccess usa configuración fija sin DNS. El grupo completo pasó en 100.086 s, con resultados específicos, replay, especificación inválida, clases ARX y adyacencias vacías, y rechazo efectivo de conexiones/procesos Java. [Artefactos](evidence/v021-native-tools-artifacts.json) y [fuentes](../sources/contracts-v021-native-tools.json).
+
+La [respuesta oficial de Census](evidence/v021-census-public-metadata.json) del 15 de noviembre devolvió cinco tablas de metadatos, sin clave. Esto no certifica una consulta demográfica ni la disponibilidad futura del servicio.
+
+El checkpoint `11b5a44` aprobó runtimes ([43675593741](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43675593741)), incluido `database021` con sockets Unix sin red, y servicios originales ([43675593745](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43675593745)). Verificación falló porque un gate conservaba el contador HTTP 102 anterior, aunque sus pruebas unitarias/Termux/SQLite pasaron. Los contadores de gates se actualizan junto con este nuevo inventario; su CI debe observarse por separado.

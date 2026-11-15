@@ -14,7 +14,7 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from verdugo.local_cli import SPECS
 from install_expansion import install
-GROUPS={'planning021':['mcp-agent','nemo-guardrails'],'content021':['graphiti','openbb','people-also-ask','jobspy'],
+GROUPS={'tools021':['openapi-generator','cc-webgraph','arx','goaccess'],'planning021':['mcp-agent','nemo-guardrails'],'content021':['graphiti','openbb','people-also-ask','jobspy'],
         'entities021':['chronos','gliner'],'pycli021':['dvc','dnstwist'],
         'finalpy021':['newsjack','kingfisher-collect'],
         'database021':['valkey','postgres','pgvector','apache-age'],
@@ -116,6 +116,9 @@ if __name__=='__main__':
             print('BEGIN_VERDUGO_FREEZE '+name,flush=True)
             print(Path('/tmp/'+name+'-resolved.txt').read_text(),flush=True)
             print('END_VERDUGO_FREEZE '+name,flush=True)
+    elif args.group=='tools021':
+        from install_native_tools import install as install_tools
+        install_tools()
     elif args.group=='database021':
         from install_database import install as install_database
         install_database()
