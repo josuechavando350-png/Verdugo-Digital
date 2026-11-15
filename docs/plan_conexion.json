@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 21,
+ "pending": 16,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -13,42 +13,6 @@
    "domain": "agents",
    "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
    "nota": "Su API es JSON-RPC por POST. Requiere un contrato POST de solo lectura fijo en código (mismo patrón que Plausible en marketing_reads)."
-  },
-  {
-   "tanda": "Tanda 1",
-   "id": "openhands",
-   "repository": "All-Hands-AI/OpenHands",
-   "commit": "685eb42ded117ba0321aa8c3019e6677e5474317",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "servicio",
-   "domain": "agents",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
-   "nota": null
-  },
-  {
-   "tanda": "Tanda 1",
-   "id": "valkey",
-   "repository": "valkey-io/valkey",
-   "commit": "c98c0e2e6c271a24c829d17b2ed94d64c576c33f",
-   "license": "BSD-3-Clause",
-   "policy": "libre",
-   "kind": "servicio",
-   "domain": "platform",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
-   "nota": "Protocolo RESP, no HTTP. Receta local con cliente oficial y comando fijo (INFO)."
-  },
-  {
-   "tanda": "Tanda 1",
-   "id": "postgres",
-   "repository": "postgres/postgres",
-   "commit": "8d87367b39e44b0913ca585c733795cc2d30bff1",
-   "license": "PostgreSQL",
-   "policy": "libre",
-   "kind": "servicio",
-   "domain": "data",
-   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
-   "nota": "No es HTTP. Leer vía PostgREST (componente) o con un driver de solo lectura en receta local."
   },
   {
    "tanda": "Tanda 1",
@@ -196,18 +160,6 @@
   },
   {
    "tanda": "Tanda 3",
-   "id": "apache-age",
-   "repository": "apache/age",
-   "commit": "8c7e44fd2a525dedfd3d4e8168921442eb4fce2f",
-   "license": "Apache-2.0",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "dataengine",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
-   "nota": null
-  },
-  {
-   "tanda": "Tanda 3",
    "id": "arx",
    "repository": "arx-deidentifier/arx",
    "commit": "4e0a5f5340fe9a58c44b34c2f9acd2d68f1dad5f",
@@ -239,18 +191,6 @@
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "strategy",
-   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
-   "nota": null
-  },
-  {
-   "tanda": "Tanda 4",
-   "id": "pgvector",
-   "repository": "pgvector/pgvector",
-   "commit": "66accb3af6705ea9975a33f6704f1cde50d99447",
-   "license": "PostgreSQL",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "data",
    "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
    "nota": null
   }
@@ -335,7 +275,7 @@
    "proxy_authentication_required": true
   }
  ],
- "version": "0.20",
+ "version": "0.21",
  "implemented_v018": [
   {
    "tanda": "Tanda 1",
@@ -2564,6 +2504,86 @@
    "nota": "Operación local delimitada ejecutada con implementación original; no certifica producción.",
    "nota_previa": null,
    "operation": "media.transform",
+   "live_verified": false,
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+  },
+  {
+   "tanda": "Tanda 1",
+   "id": "openhands",
+   "repository": "All-Hands-AI/OpenHands",
+   "commit": "685eb42ded117ba0321aa8c3019e6677e5474317",
+   "license": "MIT",
+   "policy": "libre",
+   "kind": "servicio",
+   "domain": "agents",
+   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "nota": "Contrato HTTP sintético; Agent Server oficial 1.62.0 detrás de proxy autenticador; no verifica agentes.",
+   "nota_previa": null,
+   "operation": "health.summary",
+   "live_verified": false,
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+  },
+  {
+   "tanda": "Tanda 1",
+   "id": "valkey",
+   "repository": "valkey-io/valkey",
+   "commit": "c98c0e2e6c271a24c829d17b2ed94d64c576c33f",
+   "license": "BSD-3-Clause",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "platform",
+   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "nota": "Operación local delimitada ejecutada con servidor original; almacenamiento efímero, SQLite conserva resultados.",
+   "nota_previa": "Protocolo RESP, no HTTP. Receta local con cliente oficial y comando fijo (INFO).",
+   "operation": "cache.match",
+   "live_verified": false,
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+  },
+  {
+   "tanda": "Tanda 1",
+   "id": "postgres",
+   "repository": "postgres/postgres",
+   "commit": "8d87367b39e44b0913ca585c733795cc2d30bff1",
+   "license": "PostgreSQL",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "data",
+   "que_hacer": "Adaptador HTTP GET acotado en verdugo/service_reads.py: ruta, autenticación y forma de respuesta tomadas del código u OpenAPI en el commit fijado; proyección a recuentos; pruebas de contrato y loopback.",
+   "nota": "Operación local delimitada ejecutada con servidor original; almacenamiento efímero, SQLite conserva resultados.",
+   "nota_previa": "No es HTTP. Leer vía PostgREST (componente) o con un driver de solo lectura en receta local.",
+   "operation": "campaigns.aggregate",
+   "live_verified": false,
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+  },
+  {
+   "tanda": "Tanda 3",
+   "id": "apache-age",
+   "repository": "apache/age",
+   "commit": "8c7e44fd2a525dedfd3d4e8168921442eb4fce2f",
+   "license": "Apache-2.0",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "dataengine",
+   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "nota": "Operación local delimitada ejecutada con servidor original; almacenamiento efímero, SQLite conserva resultados.",
+   "nota_previa": null,
+   "operation": "graph.degrees",
+   "live_verified": false,
+   "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+  },
+  {
+   "tanda": "Tanda 4",
+   "id": "pgvector",
+   "repository": "pgvector/pgvector",
+   "commit": "66accb3af6705ea9975a33f6704f1cde50d99447",
+   "license": "PostgreSQL",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "data",
+   "que_hacer": "Receta local en verdugo/local_extended.py (patrón v0.10): una función acotada, datos sintéticos, versión exacta en requirements/runtime*.txt con constraints generados por pip en CI y prueba real en tests_runtime.",
+   "nota": "Operación local delimitada ejecutada con servidor original; almacenamiento efímero, SQLite conserva resultados.",
+   "nota_previa": null,
+   "operation": "vectors.rank",
    "live_verified": false,
    "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
   }

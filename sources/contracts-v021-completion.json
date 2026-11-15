@@ -1424,6 +1424,48 @@
       ]
     },
     {
+      "id": "openhands",
+      "catalog_commit": "685eb42ded117ba0321aa8c3019e6677e5474317",
+      "operation": "health.summary",
+      "distribution": null,
+      "executed_version": null,
+      "live_verified": false,
+      "files": [
+        {
+          "repository": "All-Hands-AI/OpenHands",
+          "commit": "685eb42ded117ba0321aa8c3019e6677e5474317",
+          "path": "README.md",
+          "git_blob_sha": "32c308ddc1d5a9e82c72ccbae497395ac403e11c",
+          "sha256": "eca2b7026190577215e9967cc6ba69ff6ed3219d05f2a48a01d4ab590fa6a38a",
+          "source_url": "https://github.com/All-Hands-AI/OpenHands/blob/685eb42ded117ba0321aa8c3019e6677e5474317/README.md"
+        },
+        {
+          "repository": "All-Hands-AI/OpenHands",
+          "commit": "685eb42ded117ba0321aa8c3019e6677e5474317",
+          "path": "package.json",
+          "git_blob_sha": "5382efb0f35ce4242a257d5e2a91cfbfbe9fe58d",
+          "sha256": "3886d5aa7e90b425b201b7712bc2b72e287a39a6bd1c7a7afef92b106f2bb47f",
+          "source_url": "https://github.com/All-Hands-AI/OpenHands/blob/685eb42ded117ba0321aa8c3019e6677e5474317/package.json"
+        },
+        {
+          "repository": "All-Hands-AI/OpenHands",
+          "commit": "685eb42ded117ba0321aa8c3019e6677e5474317",
+          "path": "src/api/backend-registry/auth.ts",
+          "git_blob_sha": "2d9fb3d1da7688e23becd03ee837f040f5d746e4",
+          "sha256": "6c0febb4b68bfd3621e6f5d7b3580bcbd9f562ce76ce282bbf19f6fbcd079658",
+          "source_url": "https://github.com/All-Hands-AI/OpenHands/blob/685eb42ded117ba0321aa8c3019e6677e5474317/src/api/backend-registry/auth.ts"
+        },
+        {
+          "repository": "All-Hands-AI/OpenHands",
+          "commit": "685eb42ded117ba0321aa8c3019e6677e5474317",
+          "path": "src/api/backend-registry/health-store.ts",
+          "git_blob_sha": "5b4a470b031447fd1f92830da6d3ceccb09a739c",
+          "sha256": "9419fc962eaf4aa940bfdd38bb81b4e9b7755e4aba4b3471c6c4e293e80f006a",
+          "source_url": "https://github.com/All-Hands-AI/OpenHands/blob/685eb42ded117ba0321aa8c3019e6677e5474317/src/api/backend-registry/health-store.ts"
+        }
+      ]
+    },
+    {
       "id": "openprospector",
       "catalog_commit": "dad0e778ff4e1438b69574ff9cbb7663a3bda6e6",
       "operation": "readiness.summary",
@@ -2238,6 +2280,54 @@
       "git_blob_sha": "7981c364be7b089702e6b99dad97ab97f8a1c83f",
       "sha256": "3189d10094852f4fdae0f7ec527dfb08f98bb3873afa69dd2a8d38946e50bcf2",
       "source_url": "https://github.com/livekit/python-sdks/blob/9576941317df7f1d5c35567c7003f513b5717888/livekit-api/livekit/api/room_service.py"
+    },
+    {
+      "repository": "OpenHands/software-agent-sdk",
+      "commit": "504a88cab0fb48ee5226238ad7b8f1d865fa84a8",
+      "path": "LICENSE",
+      "git_blob_sha": "b0bd86a6335a564bd3766666bebbf014fd6a8013",
+      "sha256": "14a9b631c658eee682c6c2973525fbdf808c3457176bc47513052c559cc5ce86",
+      "source_url": "https://github.com/OpenHands/software-agent-sdk/blob/504a88cab0fb48ee5226238ad7b8f1d865fa84a8/LICENSE"
+    },
+    {
+      "repository": "OpenHands/software-agent-sdk",
+      "commit": "504a88cab0fb48ee5226238ad7b8f1d865fa84a8",
+      "path": "openhands-agent-server/openhands/agent_server/api.py",
+      "git_blob_sha": "59d66352edd74e856386c89f362c74045a8a2fe8",
+      "sha256": "8b8647463a2c85f52d63681d7f46bb8995a775e9135a110f50d71d4815ff3901",
+      "source_url": "https://github.com/OpenHands/software-agent-sdk/blob/504a88cab0fb48ee5226238ad7b8f1d865fa84a8/openhands-agent-server/openhands/agent_server/api.py"
+    },
+    {
+      "repository": "OpenHands/software-agent-sdk",
+      "commit": "504a88cab0fb48ee5226238ad7b8f1d865fa84a8",
+      "path": "openhands-agent-server/openhands/agent_server/dependencies.py",
+      "git_blob_sha": "d2a69c2474d7548a6aeda0d4398109d963e3b757",
+      "sha256": "f5f513621df584fe56920c133c137598eb2c81cdd7521e281a914ceff46d5a15",
+      "source_url": "https://github.com/OpenHands/software-agent-sdk/blob/504a88cab0fb48ee5226238ad7b8f1d865fa84a8/openhands-agent-server/openhands/agent_server/dependencies.py"
+    },
+    {
+      "repository": "OpenHands/software-agent-sdk",
+      "commit": "504a88cab0fb48ee5226238ad7b8f1d865fa84a8",
+      "path": "openhands-agent-server/openhands/agent_server/middleware.py",
+      "git_blob_sha": "d2c4edec9742fd8c287ef4e258acad33340bdb5a",
+      "sha256": "59980d01f3965b8f64411e131e90854aad2b43d62664a0f93e91cb86f46ffd14",
+      "source_url": "https://github.com/OpenHands/software-agent-sdk/blob/504a88cab0fb48ee5226238ad7b8f1d865fa84a8/openhands-agent-server/openhands/agent_server/middleware.py"
+    },
+    {
+      "repository": "OpenHands/software-agent-sdk",
+      "commit": "504a88cab0fb48ee5226238ad7b8f1d865fa84a8",
+      "path": "openhands-agent-server/openhands/agent_server/server_details_router.py",
+      "git_blob_sha": "c293a4b8db031e52b8c8cd0d64410cfc55f26e5a",
+      "sha256": "2878f452207b56f25e37d3332b08658a447e1bc8c36ff2cc57d0aa4fbaa1f34d",
+      "source_url": "https://github.com/OpenHands/software-agent-sdk/blob/504a88cab0fb48ee5226238ad7b8f1d865fa84a8/openhands-agent-server/openhands/agent_server/server_details_router.py"
+    },
+    {
+      "repository": "OpenHands/software-agent-sdk",
+      "commit": "504a88cab0fb48ee5226238ad7b8f1d865fa84a8",
+      "path": "tests/agent_server/test_api_authentication.py",
+      "git_blob_sha": "7c56cc64da1046ae2ae76b89d70b0ee98482e984",
+      "sha256": "b46e4946b6132fb5d103ccdbcc441284e998d4db814d3e62767ef788ab93f2b8",
+      "source_url": "https://github.com/OpenHands/software-agent-sdk/blob/504a88cab0fb48ee5226238ad7b8f1d865fa84a8/tests/agent_server/test_api_authentication.py"
     },
     {
       "repository": "podcastindex-org/docs-api",

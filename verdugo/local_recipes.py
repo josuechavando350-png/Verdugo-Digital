@@ -9,6 +9,9 @@ import math
 
 
 def run(service, operation, p):
+    from .local_database import SPECS as DATABASE, run as run_database
+    if service in DATABASE:
+        return run_database(service, p)
     from .local_r import SPECS as R, run as run_r
     if service in R:
         return run_r(service, p)

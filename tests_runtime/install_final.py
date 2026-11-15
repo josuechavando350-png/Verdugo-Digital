@@ -17,6 +17,7 @@ from install_expansion import install
 GROUPS={'planning021':['mcp-agent','nemo-guardrails'],'content021':['graphiti','openbb','people-also-ask','jobspy'],
         'entities021':['chronos','gliner'],'pycli021':['dvc','dnstwist'],
         'finalpy021':['newsjack','kingfisher-collect'],
+        'database021':['valkey','postgres','pgvector','apache-age'],
         'r021':['pricesensitivitymeter','robyn'],
         'node':['geo-lint','site-md','seo-graph','structured-data-validator','slidev','lighthouse','promptfoo','log4brains'],
         'utility021':['vanna','trendspyg','youtube-comment-downloader','comtradeapicall','c2pa','autogeo','cognee','claude-skills-c-level'],
@@ -115,6 +116,9 @@ if __name__=='__main__':
             print('BEGIN_VERDUGO_FREEZE '+name,flush=True)
             print(Path('/tmp/'+name+'-resolved.txt').read_text(),flush=True)
             print('END_VERDUGO_FREEZE '+name,flush=True)
+    elif args.group=='database021':
+        from install_database import install as install_database
+        install_database()
     elif args.group=='r021':
         from install_r import install as install_r
         install_r()

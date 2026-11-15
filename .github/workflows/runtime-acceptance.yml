@@ -167,7 +167,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        group: [content021, entities021, pycli021, node, cli-security, cli-storage, planning021, utility021, browser021, storm021, dbt021, a2a021, research021, meridian021, causal021, r021, finalpy021]
+        group: [content021, entities021, pycli021, node, cli-security, cli-storage, planning021, utility021, browser021, storm021, dbt021, a2a021, research021, meridian021, causal021, r021, finalpy021, database021]
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:

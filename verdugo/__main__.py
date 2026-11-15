@@ -104,6 +104,7 @@ def template(tenant):
                                           api_key_env=None, account_scope_reviewed=False)
     services['letta'].update(api_surface='letta_code_app_server')
     services['humanlayer'].update(api_surface='riptide_api')
+    services['openhands'].update(api_surface='openhands_agent_server_1_62')
     services['krayin-crm'].update(session_cookie_name=None, account_scope_reviewed=False, admin_path='admin')
     return {'tenants': {tenant: {'services': services, 'ingress': {}}}}
 

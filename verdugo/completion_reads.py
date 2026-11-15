@@ -16,6 +16,7 @@ import time
 from .common import VerdugoError, digest, fields, identifier, integer, text
 
 SPECS = {
+    'openhands': {'health.summary': ('GET', '/health')},
     'anubis': {'health.summary': ('GET', '/healthz')},
     'postal': {'health.summary': ('GET', '/health')},
     'tusd': {'metrics.summary': ('GET', '/metrics')},
@@ -41,6 +42,7 @@ SPECS = {
 }
 READ_POSTS = frozenset({('livekit', 'rooms.summary')})
 PINS = {
+    'openhands': '685eb42ded117ba0321aa8c3019e6677e5474317',
     'krayin-crm': 'ed6deebfcb8c616eaf352c893a10a6d8e666fc6e',
     'humanlayer': 'b7ad8e1d383ff0f5fbec7bdc30425e4a59d5f789',
     'anubis': 'f197f9a6235d255000c7b654ac478354a6e4bd02',
@@ -77,6 +79,8 @@ TEXT_READS = frozenset((sid, next(iter(SPECS[sid]))) for sid in ('anubis', 'post
 
 
 def auth_policy(service, cfg):
+    if service == 'openhands' and cfg.get('api_surface') != 'openhands_agent_server_1_62':
+        raise VerdugoError('Only the reviewed official OpenHands Agent Server API is supported')
     if service == 'krayin-crm' and cfg.get('admin_path') != 'admin':
         raise VerdugoError('Only the native default admin path is supported')
     if service == 'humanlayer' and cfg.get('api_surface') != 'riptide_api':
@@ -236,6 +240,11 @@ def check(service, operation, response, request=None):
             counts[key] = row['current']
         return result | {'reported_counts': counts, 'scope': 'native dashboard configured date range and signed-in user scope',
                          'paid_clients_verified': False, 'rest_api_extension_used': False}
+    if service == 'openhands':
+        if not isinstance(response, dict) or response.get('status') != 'ok':
+            raise VerdugoError('Unexpected OpenHands Agent Server health response')
+        return result | {'process_health_reported': True, 'agent_execution_verified': False,
+                         'initialization_readiness_verified': False}
     if service == 'humanlayer':
         from datetime import datetime
         value = response.get('timestamp')

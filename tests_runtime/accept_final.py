@@ -11,6 +11,7 @@ selected=GROUPS[args.group]
 for sid in selected:
     key=runtime_profile.PROFILE_ENV.get(sid)
     if key:os.environ.setdefault(key,'/tmp/verdugo-'+key.removeprefix('VERDUGO_').removesuffix('_PYTHON').lower().replace('_','-')+'-venv/bin/python')
+os.environ.setdefault('VERDUGO_DATABASE_ROOT','/tmp/verdugo-database021')
 os.environ.setdefault('VERDUGO_R_ROOT','/tmp/verdugo-r021')
 os.environ.setdefault('VERDUGO_NATIVE_ROOT','/tmp/verdugo-node021')
 os.environ.setdefault('VERDUGO_CLI_ROOT','/tmp/verdugo-cli021')

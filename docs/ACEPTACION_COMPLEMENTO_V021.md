@@ -1,13 +1,13 @@
 # Complemento v0.21 — evidencia y alcance
 
 Base: `a6809de201ba517846e19cf965194b21e6617050`, rama `feat/v0.21-final88`, PR #20.
-Se añaden **47 de las 68 integraciones pendientes**: 23 operaciones locales
-originales y 24 contratos HTTP. Junto con las 20 anteriores de v0.21, son
-67 operaciones de esta tanda y **21 todavía pendientes**. No declarar terminada
+Se añaden **52 de las 68 integraciones pendientes**: 27 operaciones locales
+originales y 25 contratos HTTP. Junto con las 20 anteriores de v0.21, son
+72 operaciones de esta tanda y **16 todavía pendientes**. No declarar terminada
 la tanda. No se modifica main ni se altera la política de licencias.
 
-Inventario actual: 322 entradas; 223 conectadas bajo la política, 56 componentes,
-21 pendientes y 22 excluidas. Hay 102 adaptadores HTTP (106 acciones) y 140
+Inventario actual: 322 entradas; 228 conectadas bajo la política, 56 componentes,
+16 pendientes y 22 excluidas. Hay 103 adaptadores HTTP (107 acciones) y 144
 operaciones locales; 19 adaptadores HTTP históricos siguen excluidos por licencia.
 
 ## Operaciones comprobadas y límites
@@ -63,22 +63,28 @@ operaciones locales; 19 adaptadores HTTP históricos siguen excluidos por licenc
 | `newsjack` | `rewrite.compare` | Comparador léxico original de cifras, fechas, citas, enlaces y entidades entre textos; no comprueba hechos ni equivalencia semántica. |
 | `kingfisher-collect` | `releases.inspect` | FileItem, Validate y Pluck originales para metadatos suministrados; deduplica archivo/número conservando el primero; no descarga ni valida el esquema OCDS completo. |
 
+| `openhands` | `health.summary` | Salud del Agent Server oficial 1.62.0; proxy autenticador obligatorio; no ejecución de agentes ni inicialización completa. |
+| `valkey` | `cache.match` | MSET/MGET originales sobre claves y números suministrados, en caché temporal; no caché permanente. |
+| `postgres` | `campaigns.aggregate` | PostgreSQL 18.7 original, COPY y agregación SQL fija de campañas suministradas; no almacén productivo ni P&L conciliado. |
+| `pgvector` | `vectors.rank` | Operador L2 original sobre vectores tridimensionales suministrados; no embeddings generados ni relevancia semántica. |
+| `apache-age` | `graph.degrees` | Cypher original parametrizado para grados de salida de grafo suministrado; no conocimiento externo. |
+
 ## Ejecución observada
 
-- Suite de núcleo y contratos: 697 pruebas aprobadas en CPython 3.12.
-- 23 operaciones locales originales en un único `product-run`, 24 pasos incluyendo
+- Suite de núcleo y contratos: 701 pruebas aprobadas en CPython 3.12.
+- 27 operaciones locales originales en un único `product-run`, 28 pasos incluyendo
   instantánea comercial; persistencia y replay después de cerrar/abrir SQLite.
   Vanna alimenta dbt mediante una referencia de workflow.
-- Flujo conjunto de las 47 integraciones nuevas: 23 operaciones locales originales
-  + 24 respuestas HTTP sintéticas + instantánea comercial, 48 pasos, 170.148 s.
+- Flujo conjunto de las 52 integraciones nuevas: 27 operaciones locales originales
+  + 25 respuestas HTTP sintéticas + instantánea comercial, 53 pasos, 179.585 s.
   Cero llamadas HTTP o ejecuciones de worker durante el replay tras reinicio.
   [Evidencia local](evidence/v021-completion-local.json).
 - Ocho paquetes npm originales probados juntos, incluidos los cuatro anteriores;
   aceptación del grupo en 103.895 s. Cuatro casos negativos comprueban que Promptfoo
   conserva fallos de aserción y trata plantillas y referencias de archivo como texto;
   HTML alimenta lint y SEO Graph alimenta el validador de breadcrumbs.
-- Los 24 contratos HTTP nuevos tienen transporte loopback y proyección comprobada;
-  las 66 lecturas admisibles del producto se prueban juntas con respuestas sintéticas.
+- Los 25 contratos HTTP nuevos tienen transporte loopback y proyección comprobada;
+  las 67 lecturas admisibles del producto se prueban juntas con respuestas sintéticas.
 - C2PA: PNG firmado de ejemplo, sin manifiesto, contenido alterado y manifiesto remoto.
   Un certificado de ejemplo no se convierte en autenticidad verificada.
 - Los nueve perfiles Python pasan `pip check`; dependencias exactas y npm lock fijados.
@@ -102,7 +108,7 @@ python tests_runtime/accept_final.py --group utility021
 ```
 
 Grupos nuevos: `utility021`, `browser021`, `storm021`, `dbt021`, `a2a021`,
-`research021`, `meridian021`, `causal021`, `finalpy021`; `node` añade Slidev, Lighthouse, Promptfoo y Log4brains. `r021` prepara el intérprete R 4.2.2 original extraído de paquetes Debian fijados por SHA-256, sin scripts de instalación privilegiados. Se verifican 789 archivos de ese runtime y cada fuente original. Es un perfil Linux amd64, no una promesa de compatibilidad Android.
+`research021`, `meridian021`, `causal021`, `finalpy021`; `node` añade Slidev, Lighthouse, Promptfoo y Log4brains. `r021` prepara el intérprete R 4.2.2 original extraído de paquetes Debian fijados por SHA-256, sin scripts de instalación privilegiados. Se verifican 793 archivos de ese runtime y cada fuente original. Es un perfil Linux amd64, no una promesa de compatibilidad Android.
 Los perfiles se eligen mediante `VERDUGO_<PERFIL>_PYTHON`; npm usa
 `VERDUGO_NATIVE_ROOT` y R usa `VERDUGO_R_ROOT`. No se permiten rutas, SQL, comandos, modelos, hosts ni
 credenciales desde parámetros de una operación. Los perfiles deben ser confiables;
@@ -132,3 +138,7 @@ fuentes fijadas, corrigiendo notas anteriores del plan.
 Las fuentes R y sus licencias se describen en [contracts-v021-r.json](../sources/contracts-v021-r.json). Se cargan funciones originales concretas, sin instalar los paquetes R completos ni sus rutas de modelos, gráficos o encuestas ponderadas. El intérprete R es una dependencia, no una nueva entrada del catálogo.
 
 El checkpoint `7c38cb72bd5930a5c45821bc8b76ffaf01780ac8` aprobó los tres workflows: [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43670439952), [runtimes](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43670439947) y [servicios originales](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43670440002). Esos resultados corresponden al checkpoint de 41, y no sustituyen el CI del nuevo commit de 47.
+
+El checkpoint de 47, `4a0afe938dc926af6326baa261c623d62221430a`, aprobó los tres workflows: [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43674427802), [runtimes](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43674427842) y [servicios originales](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43674427831). El fallo anterior de R era `libblas.so.3` ausente: se añadieron BLAS, LAPACK, gfortran y quadmath oficiales fijados por hash. Ese CI no sustituye la aceptación del nuevo perfil de bases de datos.
+
+El perfil `database021` compila Valkey, PostgreSQL, pgvector y AGE originales con fuentes fijadas. En este host se ejecutaron los cuatro mediante `product-run`, con reinicio/replay; el grupo completo pasó en 21.682 s e incluye rechazo de clientes TCP sin contraseña y cierre de los servidores. Por defecto usa sockets Unix privados, sin TCP. Este host rechaza AF_UNIX: el administrador seleccionó `VERDUGO_DATABASE_LOOPBACK=1`, que enlaza únicamente 127.0.0.1 con contraseñas efímeras. Los parámetros nunca eligen destino, puerto, credencial, SQL ni Cypher. CI conserva el modo Unix en namespace sin red. `VERDUGO_DATABASE_ROOT` identifica el perfil. Los datos temporales se borran; Engine/SQLite conserva los resultados. [Fuentes](../sources/contracts-v021-database.json) y [artefactos ejecutados](evidence/v021-database-artifacts.json).

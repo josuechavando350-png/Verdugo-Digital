@@ -1,5 +1,5 @@
 > Estado v0.21: 217 conectadas, 27 pendientes, 56 piezas de construcción y 22 excluidas.
-> 134 operaciones locales (124 bibliotecas, 8 CLI, 2 datos) y 102 adaptadores HTTP.
+> 144 operaciones locales (134 bibliotecas, 8 CLI, 2 datos) y 103 adaptadores HTTP.
 > Las secciones siguientes conservan el detalle histórico.
 
 # Verdugo Digital v0.15–v0.16 — 16 conectores nuevos de solo lectura (solo servicios gratuitos)

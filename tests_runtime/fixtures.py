@@ -67,3 +67,6 @@ CASES.update(COMPLETION_CASES)
 
 from r_fixtures import CASES as R_CASES
 CASES.update(R_CASES)
+
+from database_fixtures import CASES as DATABASE_CASES
+CASES.update(DATABASE_CASES)

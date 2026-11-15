@@ -1,6 +1,7 @@
 {
   "services": [
     "a2a",
+    "apache-age",
     "autogeo",
     "browser-use",
     "c2pa",
@@ -14,6 +15,8 @@
     "log4brains",
     "meridian",
     "newsjack",
+    "pgvector",
+    "postgres",
     "pricesensitivitymeter",
     "promptfoo",
     "robyn",
@@ -21,6 +24,7 @@
     "storm",
     "tfcausalimpact",
     "trendspyg",
+    "valkey",
     "vanna",
     "youtube-comment-downloader"
   ],
@@ -39,6 +43,7 @@
     "meta-ads",
     "nlweb",
     "opengmb",
+    "openhands",
     "openprospector",
     "openseo",
     "otel-collector",
@@ -50,7 +55,7 @@
     "wbgapi",
     "webmention-io"
   ],
-  "steps": 48,
+  "steps": 53,
   "execution": "passed",
   "sqlite_restart": "passed",
   "replay_worker_calls": 0,

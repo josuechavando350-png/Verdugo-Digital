@@ -243,7 +243,7 @@
   {
    "number": 47,
    "id": "postgres",
-   "kind": "servicio"
+   "kind": "biblioteca"
   },
   {
    "number": 48,
@@ -1308,7 +1308,7 @@
   {
    "number": 260,
    "id": "valkey",
-   "kind": "servicio"
+   "kind": "biblioteca"
   },
   {
    "number": 261,

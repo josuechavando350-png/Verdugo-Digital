@@ -21,6 +21,7 @@ TOKEN = 'oseo_private_test_credential'
 DEVELOPER = 'private_test_developer_credential'
 PRIVATE = 'private-person@example.invalid'
 REPLIES = {
+    'openhands': {'status': 'ok', 'private': PRIVATE},
     'anubis': {'bounded_text': 'OK\n'},
     'postal': {'bounded_text': 'OK'},
     'tusd': {'bounded_text': '# HELP tusd_connections_open Current connections\ntusd_connections_open 3\nother_metric{person="' + PRIVATE + '"} 7\n'},
@@ -51,7 +52,7 @@ REPLIES = {
                                  for key in ('total_leads', 'total_quotations', 'total_persons', 'total_organizations')},
                     'date_range': PRIVATE},
 }
-EXPECTED = {'anubis': ('process_health_reported', True), 'postal': ('process_health_reported', True),
+EXPECTED = {'openhands': ('process_health_reported', True), 'anubis': ('process_health_reported', True), 'postal': ('process_health_reported', True),
             'tusd': ('open_connections_reported', 3), 'nlweb': ('uptime_seconds_reported', 12.5),
             'openprospector': ('configured_providers', 3), 'openseo': ('projects_in_response', 1),
             'google-ads': ('directly_accessible_accounts', 2), 'meta-ads': ('accounts_in_response', 1),

@@ -20,7 +20,9 @@ from completion_fixtures import CASES as COMPLETION, assert_result as assert_com
 
 from r_fixtures import CASES as R_CASES, assert_result as assert_r
 
-CASES={**R_CASES,**CLI,**CONTENT,**NATIVE,**PLANNING,**COMPLETION}
+from database_fixtures import CASES as DATABASE_CASES, assert_result as assert_database
+
+CASES={**DATABASE_CASES,**R_CASES,**CLI,**CONTENT,**NATIVE,**PLANNING,**COMPLETION}
 
 class FinalProduct(unittest.TestCase):
     def test_original_operations_compose_and_restart(self):
@@ -63,7 +65,8 @@ class FinalProduct(unittest.TestCase):
                 self.assertEqual('succeeded',first['state'],json.dumps(first))
                 for row in first['analyses']:
                     sid=row['service'];r=row['analysis']['result']
-                    if sid in R_CASES:assert_r(self,sid,r)
+                    if sid in DATABASE_CASES:assert_database(self,sid,r)
+                    elif sid in R_CASES:assert_r(self,sid,r)
                     elif sid in COMPLETION:assert_completion(self,sid,r)
                     elif sid in PLANNING:assert_planning(self,sid,r)
                     elif sid in CLI:assert_cli(self,sid,r)

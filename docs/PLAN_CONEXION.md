@@ -4,13 +4,13 @@ Fecha: 15 de noviembre de 2026. Versión del motor: 0.21.0.
 
 | Estado | Cuántas |
 |---|---|
-| conectado | 223 |
+| conectado | 228 |
 | pieza_de_construccion | 56 |
-| pendiente | 21 |
+| pendiente | 16 |
 | excluido | 22 |
 | **Total** | 322 |
 
-**Pendientes: 21**, conservando la identificación de las cuatro tandas originales. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
+**Pendientes: 16**, conservando la identificación de las cuatro tandas originales. Las 56 *piezas de construcción* (Next.js, Tailwind, shadcn, Expo…)
 no se conectan al motor: se usan al construir la plataforma (fase aparte). Las 22 excluidas por licencia no se tocan.
 
 El estado de cada pieza lo calcula el código: `python -m verdugo connections`. Este plan en formato
@@ -267,3 +267,7 @@ no se sustituyen adaptadores por fichas de catálogo ni se certifica producción
 ## Segundo complemento v0.21: seis operaciones adicionales
 
 Se ejecutaron Promptfoo, Log4brains, PriceSensitivityMeter, Robyn, Newsjack y Kingfisher Collect con las funciones originales delimitadas. Quedan **21 pendientes**; el detalle vigente está en el JSON y [la evidencia de aceptación](ACEPTACION_COMPLEMENTO_V021.md). Las operaciones comparten Engine y SQLite y permanecen deshabilitadas por defecto.
+
+## Continuación con motores de datos originales
+
+PostgreSQL 18.7, Valkey, pgvector y Apache AGE ejecutan operaciones fijas sobre datos suministrados en almacenes temporales; resultados y replay pasan por Engine/SQLite. OpenHands incorpora un contrato acotado del Agent Server 1.62.0, probado con HTTP sintético. El JSON vigente tiene **16 pendientes**.
