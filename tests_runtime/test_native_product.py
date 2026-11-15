@@ -10,7 +10,7 @@ from unittest.mock import patch
 from verdugo import local_native, product
 from verdugo.__main__ import template
 from verdugo.engine import Engine
-from native_fixtures import CASES
+from native_fixtures import CASES, assert_result
 
 
 class NativeProduct(unittest.TestCase):
@@ -24,10 +24,11 @@ class NativeProduct(unittest.TestCase):
         config = template('nexus')
         for sid in CASES: config['tenants']['nexus']['services'][sid].update(enabled=True,license_reviewed=True,runtime_reviewed=True)
         tasks = [{'id':s,'service':s,'params':copy.deepcopy(p)} for s,p in CASES.items()]
-        tasks[0]['params']['text'] = {'$ref':'analysis-site-md.result.markdown'}
-        tasks[0]['depends_on'] = ['analysis-site-md']
-        tasks[-1]['params']['graph'] = {'$ref':'analysis-seo-graph.result.graph'}
-        tasks[-1]['depends_on'] = ['analysis-seo-graph']
+        by_service = {task['service']: task for task in tasks}
+        by_service['geo-lint']['params']['text'] = {'$ref':'analysis-site-md.result.markdown'}
+        by_service['geo-lint']['depends_on'] = ['analysis-site-md']
+        by_service['structured-data-validator']['params']['graph'] = {'$ref':'analysis-seo-graph.result.graph'}
+        by_service['structured-data-validator']['depends_on'] = ['analysis-seo-graph']
         request={'id':'native-demo','services':[],'dataset':'demo','currency':'MXN','analyses':tasks}
         with tempfile.TemporaryDirectory() as temp:
             state=Path(temp)/'state.db'
@@ -39,8 +40,10 @@ class NativeProduct(unittest.TestCase):
                 self.assertGreater(rows['geo-lint']['issues'],0)
                 self.assertEqual(2,rows['seo-graph']['entries'])
                 self.assertEqual(0,rows['structured-data-validator']['issues'])
-                self.assertEqual(5,e.db.execute("SELECT count(*) FROM runs WHERE state='succeeded'").fetchone()[0])
+                for sid in CASES:
+                    if sid not in ('geo-lint', 'structured-data-validator'):assert_result(self,sid,rows[sid])
+                self.assertEqual(len(CASES)+1,e.db.execute("SELECT count(*) FROM runs WHERE state='succeeded'").fetchone()[0])
             with closing(Engine(state,config)) as e, patch('verdugo.local_runtime.execute',side_effect=AssertionError('Replay executed worker')):
                 replay=product.observe(e,request,True)
-                self.assertEqual('succeeded',replay['state']);self.assertEqual(4,replay['reused_analyses'])
+                self.assertEqual('succeeded',replay['state']);self.assertEqual(len(CASES),replay['reused_analyses'])
                 for a,b in zip(first['analyses'],replay['analyses']):self.assertEqual(a['analysis'],b['analysis'])
