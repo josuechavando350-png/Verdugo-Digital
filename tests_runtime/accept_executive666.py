@@ -18,7 +18,7 @@ from verdugo import local_runtime, objectives, workflow
 
 
 def accept():
-    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent')
+    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','openmanus')
     spec=json.loads((ROOT/'examples/executive666.synthetic.json').read_text())
     cfg=template('nexus')
     for sid in services:
@@ -41,12 +41,12 @@ def accept():
         with closing(engine()) as e:
             result=invoke(e,'verdugo_workflow',{'workflow':spec,'execute':True})
             assert result['state']=='succeeded',result
-            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review'}
+            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','stages'}
             r=result['steps']['check']['result']
             assert r['planned_contacts']==200 and r['planned_cost_minor']==0
             assert r['feasible_under_declared_limits'] and not r['external_execution_authorized']
             assert result['steps']['agno']['result']['budget_checked']
-            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review'),services):
+            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','stages'),services):
                 actual=result['steps'][step]['result']
                 assert actual['original_sdk']==sid and actual['llm_calls']==0
                 assert not actual['autonomous_agent']
@@ -56,7 +56,10 @@ def accept():
             assert result['steps']['parallel']['result']['recommendation']=='request_operator_review'
             assert result['steps']['sequence']['result']['sequence_valid']
             assert result['steps']['measurement_review']['result']['review_recommendation']=='review_shortfall'
-            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==11
+            assert result['steps']['stages']['result']['status_counts']['blocked']==1
+            assert result['steps']['stages']['result']['first_incomplete_stage']=='simulate'
+            assert result['steps']['stages']['result']['sdk_plan_deleted']
+            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==12
         with closing(engine()) as e, \
                 patch.object(local_runtime,'execute',side_effect=AssertionError('SDK re-executed')), \
                 patch.object(objectives,'simulate',side_effect=AssertionError('simulation re-executed')):
@@ -113,6 +116,17 @@ def accept():
             assert check['state']=='succeeded',check
             assert check['result']['result']['review_recommendation']=='review_before_execution'
             assert not check['result']['result']['external_execution_authorized']
+            for key, statuses, complete, disorder in [
+                ('complete',['completed']*5,True,False),
+                ('out-of-order',['not_started','completed','not_started','blocked','not_started'],False,True)]:
+                check=e.execute({'service':'openmanus','operation':'stages.track','key':'stages-'+key,
+                                 'params':{'dataset':'demo','statuses':statuses}},True)
+                assert check['state']=='succeeded',check
+                tracked=check['result']['result']
+                assert tracked['synthetic_plan_complete']==complete
+                assert tracked['reported_out_of_order_completion']==disorder
+                assert not tracked['operator_approval_verified'] and tracked['approvals_granted']==0
+                assert tracked['original_source_files_verified']==82 and tracked['sdk_plan_deleted']
     assert not calls
     return {'schema':'verdugo.executive666.acceptance.v1','services':list(services),
             'original_sdks_executed':True,'mocked_sdks':False,'dataset':'demo',

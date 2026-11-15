@@ -20,6 +20,7 @@ from .common import VerdugoError
 PROBE = Path(__file__).with_name('_runtime_probe.py')
 PROFILE_ENV = {'ragas': 'VERDUGO_RAGAS_PYTHON'}
 PROFILE_ENV['semantic-kernel'] = 'VERDUGO_KERNEL666_PYTHON'
+PROFILE_ENV['openmanus'] = 'VERDUGO_MANUS666_PYTHON'
 PROFILE_ENV['agno'] = 'VERDUGO_AGNO666_PYTHON'
 PROFILE_ENV['ag2'] = 'VERDUGO_AG2666_PYTHON'
 PROFILE_ENV['langroid'] = 'VERDUGO_LANGROID666_PYTHON'

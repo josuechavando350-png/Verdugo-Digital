@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 358,
+ "pending": 357,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -30,20 +30,6 @@
   },
   {
    "tanda": "666 / lote 1 / fase 1",
-   "id": "openmanus",
-   "repository": "FoundationAgents/OpenManus",
-   "commit": "3309bf4e416fb1c74b008f3e86494439a31bad53",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "ejecutivo",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
    "id": "deer-flow",
    "repository": "bytedance/deer-flow",
    "commit": "085b52b5f39a2dc6ca23f207584763bc17d3950b",
@@ -52,9 +38,9 @@
    "kind": "biblioteca",
    "domain": "ejecutivo",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "Instalación revisada bloqueada por langgraph-api 0.8.1 (Elastic-2.0), dependencia obligatoria. No se alteraron dependencias ni aceptaron excepciones.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/contracts-executive-blockers666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 1",
@@ -66,9 +52,9 @@
    "kind": "biblioteca",
    "domain": "ejecutivo",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "Instalación revisada bloqueada por PyMuPDF 1.25.3 (AGPL/comercial), dependencia obligatoria. No se alteraron dependencias ni aceptaron excepciones.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/contracts-executive-blockers666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 1",

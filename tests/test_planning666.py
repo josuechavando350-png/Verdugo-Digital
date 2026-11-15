@@ -7,7 +7,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from verdugo import local_planning666 as planning, local_volt666 as volt
+from verdugo import local_planning666 as planning, local_volt666 as volt, local_manus666 as manus
 from verdugo.common import VerdugoError
 from verdugo.registry666 import read_registry
 
@@ -19,7 +19,7 @@ from planning666_fixtures import CASES
 class Planning666Tests(unittest.TestCase):
     def test_only_fixed_synthetic_inputs_no_code_models_or_commands(self):
         for sid, params in CASES.items():
-            module = volt if sid == 'voltagent' else planning
+            module = manus if sid == 'openmanus' else volt if sid == 'voltagent' else planning
             module.validate(sid, module.SPECS[sid][0], params)
             for key, value in [('code', 'run'), ('model', 'remote'), ('url', 'https://example.invalid'),
                                ('sequence', ['shell']), ('dataset', 'real')]:

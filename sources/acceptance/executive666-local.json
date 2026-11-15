@@ -9,7 +9,8 @@
     "beeai-framework",
     "harness-sdk",
     "unified-planning",
-    "voltagent"
+    "voltagent",
+    "openmanus"
   ],
   "original_sdks_executed": true,
   "mocked_sdks": false,
@@ -23,7 +24,7 @@
         "dataset": "demo",
         "distribution": "semantic-kernel",
         "external_provider_calls_made": false,
-        "implementation_sha256": "e5a1de8c6ca5ba255de6049749fc4859b7a53ffe658e7abb0d514b0c437047bb",
+        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -74,7 +75,7 @@
         "dataset": "demo",
         "distribution": "agno",
         "external_provider_calls_made": false,
-        "implementation_sha256": "e5a1de8c6ca5ba255de6049749fc4859b7a53ffe658e7abb0d514b0c437047bb",
+        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -129,7 +130,7 @@
         "dataset": "demo",
         "distribution": "griptape",
         "external_provider_calls_made": false,
-        "implementation_sha256": "e5a1de8c6ca5ba255de6049749fc4859b7a53ffe658e7abb0d514b0c437047bb",
+        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c",
         "ok": true,
         "operation": "objective.scenarios",
         "production_certified": false,
@@ -178,7 +179,7 @@
         "dataset": "demo",
         "distribution": "strands-agents",
         "external_provider_calls_made": false,
-        "implementation_sha256": "e5a1de8c6ca5ba255de6049749fc4859b7a53ffe658e7abb0d514b0c437047bb",
+        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c",
         "ok": true,
         "operation": "limits.parallel",
         "production_certified": false,
@@ -213,12 +214,53 @@
         "service": "harness-sdk",
         "version": "1.65.1.dev10+gc8e1351a5a6218c8f5c2417534aedbd021882a76"
       },
+      "stages": {
+        "commercial_success_probability": null,
+        "dataset": "demo",
+        "distribution": "openmanus",
+        "external_provider_calls_made": false,
+        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c",
+        "ok": true,
+        "operation": "stages.track",
+        "production_certified": false,
+        "result": {
+          "approvals_granted": 0,
+          "autonomous_agent": false,
+          "business_outcome_proven": false,
+          "dataset": "demo",
+          "dry_run": true,
+          "external_calls_made": false,
+          "external_execution_authorized": false,
+          "first_incomplete_stage": "simulate",
+          "llm_calls": 0,
+          "operator_approval_required": true,
+          "operator_approval_verified": false,
+          "original_sdk": "openmanus",
+          "original_source_files_verified": 82,
+          "reported_out_of_order_completion": false,
+          "sdk_plan_deleted": true,
+          "sdk_session_persistence": false,
+          "sdk_version": "0.1.0",
+          "source_commit": "3309bf4e416fb1c74b008f3e86494439a31bad53",
+          "stage_count": 5,
+          "status_counts": {
+            "blocked": 1,
+            "completed": 3,
+            "in_progress": 0,
+            "not_started": 1
+          },
+          "synthetic_completed_prefix": 3,
+          "synthetic_plan_complete": false
+        },
+        "service": "openmanus",
+        "version": "0.1.0"
+      },
       "check": {
         "commercial_success_probability": null,
         "dataset": "demo",
         "distribution": "ag2",
         "external_provider_calls_made": false,
-        "implementation_sha256": "e5a1de8c6ca5ba255de6049749fc4859b7a53ffe658e7abb0d514b0c437047bb",
+        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c",
         "ok": true,
         "operation": "actions.check",
         "production_certified": false,
@@ -254,7 +296,7 @@
         "dataset": "demo",
         "distribution": "unified-planning",
         "external_provider_calls_made": false,
-        "implementation_sha256": "e5a1de8c6ca5ba255de6049749fc4859b7a53ffe658e7abb0d514b0c437047bb",
+        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c",
         "ok": true,
         "operation": "sequence.validate",
         "production_certified": false,
@@ -386,7 +428,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "e5a1de8c6ca5ba255de6049749fc4859b7a53ffe658e7abb0d514b0c437047bb"
+        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c"
       },
       "review": {
         "ok": true,
@@ -417,7 +459,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "e5a1de8c6ca5ba255de6049749fc4859b7a53ffe658e7abb0d514b0c437047bb"
+        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c"
       },
       "measurement_review": {
         "ok": true,
@@ -449,7 +491,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "e5a1de8c6ca5ba255de6049749fc4859b7a53ffe658e7abb0d514b0c437047bb"
+        "implementation_sha256": "a8f739695b64df0805b2e695e5ae61016b81387f4cfccf28a43a6db6142e3a2c"
       }
     }
   },

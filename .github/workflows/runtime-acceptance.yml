@@ -29,7 +29,7 @@ jobs:
           /tmp/verdugo-kernel666-venv/bin/python -m pip install -r requirements/runtime-kernel666.txt --report /tmp/kernel666-pip-report.json
           /tmp/verdugo-kernel666-venv/bin/python -m pip check
           /tmp/verdugo-kernel666-venv/bin/python -m pip freeze > /tmp/kernel666-resolved.txt
-          for sdk in agno ag2 langroid griptape bee strands planning; do
+          for sdk in agno ag2 langroid griptape bee strands planning manus; do
             python -m venv --copies /tmp/verdugo-${sdk}666-venv
             chmod go-w /tmp/verdugo-${sdk}666-venv/bin/python*
             if [ "$sdk" = "strands" ]; then
@@ -42,6 +42,7 @@ jobs:
             /tmp/verdugo-${sdk}666-venv/bin/python -m pip freeze > /tmp/${sdk}666-resolved.txt
           done
           VERDUGO_LANGROID666_PYTHON=/tmp/verdugo-langroid666-venv/bin/python python tests_runtime/prepare_tokenizer666.py
+          /tmp/verdugo-manus666-venv/bin/python tests_runtime/prepare_manus666.py
       - name: Install pinned offline Node workflow profile
         run: python tests_runtime/install_volt666.py
       - name: Original SDK, approval and restart with OS network isolation
@@ -60,6 +61,7 @@ jobs:
             VERDUGO_BEE666_PYTHON=/tmp/verdugo-bee666-venv/bin/python \
             VERDUGO_STRANDS666_PYTHON=/tmp/verdugo-strands666-venv/bin/python \
             VERDUGO_PLANNING666_PYTHON=/tmp/verdugo-planning666-venv/bin/python \
+            VERDUGO_MANUS666_PYTHON=/tmp/verdugo-manus666-venv/bin/python \
             VERDUGO_VOLT666_ROOT=/tmp/verdugo-volt666 \
             /tmp/verdugo-kernel666-venv/bin/python tests_runtime/accept_executive666.py --out /tmp/executive666-execution-evidence.json
       - name: Preserve scoped evidence and dependency resolution
@@ -87,6 +89,8 @@ jobs:
             /tmp/planning666-pip-report.json
             /tmp/planning666-resolved.txt
             /tmp/volt666-resolved.txt
+            /tmp/manus666-pip-report.json
+            /tmp/manus666-resolved.txt
           retention-days: 3
           if-no-files-found: error
   baseline:

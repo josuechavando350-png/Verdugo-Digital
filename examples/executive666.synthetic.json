@@ -271,6 +271,21 @@
           "$ref": "measure.observed_contacts"
         }
       }
+    },
+    {
+      "id": "stages",
+      "service": "openmanus",
+      "operation": "stages.track",
+      "params": {
+        "dataset": "demo",
+        "statuses": [
+          "completed",
+          "completed",
+          "completed",
+          "blocked",
+          "not_started"
+        ]
+      }
     }
   ]
 }

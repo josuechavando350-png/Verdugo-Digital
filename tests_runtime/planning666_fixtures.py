@@ -25,7 +25,14 @@ def assert_result(test, sid, r):
         test.assertTrue(r['sequence_valid'])
         test.assertEqual(5, r['validated_transition_count'])
         test.assertFalse(r['operator_approval_verified'])
+    elif sid == 'openmanus':
+        test.assertEqual(1, r['status_counts']['blocked'])
+        test.assertEqual('simulate', r['first_incomplete_stage'])
+        test.assertTrue(r['sdk_plan_deleted'])
+        test.assertFalse(r['operator_approval_verified'])
     else:
         test.assertEqual(-3, r['difference_from_median'])
         test.assertEqual('review_shortfall', r['review_recommendation'])
         test.assertFalse(r['remote_telemetry_enabled'])
+
+CASES["openmanus"] = {"dataset": "demo", "statuses": ["completed", "completed", "completed", "blocked", "not_started"]}

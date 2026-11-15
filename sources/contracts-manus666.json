@@ -1,0 +1,520 @@
+{
+  "schema": "verdugo.manus666.sources.v1",
+  "id": "openmanus",
+  "repo": "FoundationAgents/OpenManus",
+  "commit": "3309bf4e416fb1c74b008f3e86494439a31bad53",
+  "distribution": "openmanus",
+  "version": "0.1.0",
+  "operation": "stages.track",
+  "archive_sha256": "b74afdfadb4eb33343425205a72054e7c37c0663b9c5106e793fd2e250aa42dc",
+  "archive_url": "https://codeload.github.com/FoundationAgents/OpenManus/tar.gz/3309bf4e416fb1c74b008f3e86494439a31bad53",
+  "source_files": [
+    {
+      "path": "app/__init__.py",
+      "blob_sha": "0749c6de16b761fd11e14794578c68d54ce3dc0e",
+      "sha256": "b13ed78fd27d0ee10ae8510d0ba9aa87b706082a3e087711b2b17300e34527d1",
+      "reviewed": true
+    },
+    {
+      "path": "app/agent/__init__.py",
+      "blob_sha": "f7df2b9ba7d6f5b6b775fe2e51e447e8b5d783fc",
+      "sha256": "ffb890a2d67f576ddd12be870e943a3591f08c2aa10933224eb11eabc7c85ca2",
+      "reviewed": false
+    },
+    {
+      "path": "app/agent/base.py",
+      "blob_sha": "65f660073527cee9a9385a482123bd7632de5b09",
+      "sha256": "d47eb88a4ed0487b2c2933e9a7bbaa6159ea395c81a263ff0410f179d7340aa8",
+      "reviewed": false
+    },
+    {
+      "path": "app/agent/browser.py",
+      "blob_sha": "f840d6719a58d3ca35914a631405bb34d33904f0",
+      "sha256": "3452d54a3ba8694b43488f3bcedd76a1c98c70f440dd81534b9f0e3a49a12a4e",
+      "reviewed": false
+    },
+    {
+      "path": "app/agent/data_analysis.py",
+      "blob_sha": "79b9c2967af60237d37cf014f440ae83184a15ea",
+      "sha256": "8c0657b1e7f4a9f3797036f8e0a35bf90ac3f4314c4275ab85599fa1ac9f039b",
+      "reviewed": false
+    },
+    {
+      "path": "app/agent/manus.py",
+      "blob_sha": "94246abd2ee4b944d0853f7a742828beed8f1057",
+      "sha256": "8ad579bf731d1d14408eb00b95450a5f075580e89d77ee009e78de58d1aef0c1",
+      "reviewed": false
+    },
+    {
+      "path": "app/agent/mcp.py",
+      "blob_sha": "92fbbf7d670e44d71673a4937bd7743a4b82bef9",
+      "sha256": "efcc6d350c3730568d4e4fccad87667dd06ec89be6dadf863200c373b268d557",
+      "reviewed": false
+    },
+    {
+      "path": "app/agent/react.py",
+      "blob_sha": "7f9482082052a95977c9ddf4e14757df0de77dc4",
+      "sha256": "f5d52e7519d89eeffafc75eb880621bc7cdc9ed958aea3fd4895aace3c7a3883",
+      "reviewed": false
+    },
+    {
+      "path": "app/agent/sandbox_agent.py",
+      "blob_sha": "58612d20f9c7a7302bd06b8e0b75d2fc80c84d92",
+      "sha256": "b979f15e6e73ceb67c378c8b9d52a78f4b37607bad08be0b380d19c42dae300c",
+      "reviewed": false
+    },
+    {
+      "path": "app/agent/swe.py",
+      "blob_sha": "e655a5b73c5ad53b2c0b193c47d5d5ba1f3bf045",
+      "sha256": "be1a1dd1cc7b5825d43c7be60b4ce73065c4f84dfa921d54bddff2d088229575",
+      "reviewed": false
+    },
+    {
+      "path": "app/agent/toolcall.py",
+      "blob_sha": "f8b85429c8dea6ec10bac9a709eace006d58c1ab",
+      "sha256": "01d514133932e8d525eacc7d2bad043f21f109474ff5f69a00aeb3e6a4513adf",
+      "reviewed": false
+    },
+    {
+      "path": "app/bedrock.py",
+      "blob_sha": "2806329311d5dbe27d1008faae849cff9771dd7b",
+      "sha256": "93800f91c68bbd644f6aecc9942b547ff383c84d4c24f91e5d37a68a7dede5e7",
+      "reviewed": false
+    },
+    {
+      "path": "app/config.py",
+      "blob_sha": "a881e2a5e7a2d541f6839868ccf1ee6d5c676f29",
+      "sha256": "c6a4e0fb26cb0a32e501f8c7ae8c63ebf73a031c7d010fd3aeb4dbc9983d7e02",
+      "reviewed": true
+    },
+    {
+      "path": "app/daytona/README.md",
+      "blob_sha": "6f802061802faafda48a8288a85047fc4327f0c7",
+      "sha256": "457b50aee7fd49262def2a5b84beb14f248fafa8c5fce3bdf75029e33864e9ab",
+      "reviewed": false
+    },
+    {
+      "path": "app/daytona/sandbox.py",
+      "blob_sha": "8970b9cef21e8a9c126bafc33f45d38fc93a5f5d",
+      "sha256": "47f0541e29f7739d01ac07b47e34e9faffd30faa7ab33072265f130eae751913",
+      "reviewed": false
+    },
+    {
+      "path": "app/daytona/tool_base.py",
+      "blob_sha": "043578a9a06f50460cd29611d5ea738b5f948aea",
+      "sha256": "28f8120840c061f32509948a64b57889902123a9ef8149d41bfdb48cb4bc3b05",
+      "reviewed": false
+    },
+    {
+      "path": "app/exceptions.py",
+      "blob_sha": "fc900874dfbea532cf9077ad74fac15defa9d76a",
+      "sha256": "4c6ce67a4698d9934be5a6b8ac618e7482ea394b24ddecbe66607b13bfcb7c0a",
+      "reviewed": true
+    },
+    {
+      "path": "app/flow/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reviewed": false
+    },
+    {
+      "path": "app/flow/base.py",
+      "blob_sha": "dc57b39962877fb2aee2ce7dc46ce79ded472f70",
+      "sha256": "8d3f7ec50fbb35a1a00132a262e6c997a8dcd7d9c4605bf6de434a892856dc5e",
+      "reviewed": false
+    },
+    {
+      "path": "app/flow/flow_factory.py",
+      "blob_sha": "293694011b4608392966b3f5e2f95ec04f06fced",
+      "sha256": "4e71e2592f42f3984b09a0c661824369344fbdec3e20bffaa63cd7a05e48bc98",
+      "reviewed": false
+    },
+    {
+      "path": "app/flow/planning.py",
+      "blob_sha": "b60596a889c55a8e12c082403222806843b2b1ef",
+      "sha256": "d5a81791dca87ae567334fedcd128e8d1639aad5c56a7c661470cdb9c7925c00",
+      "reviewed": false
+    },
+    {
+      "path": "app/llm.py",
+      "blob_sha": "82ebe88571bc32f17da64b517ea00dc064da7129",
+      "sha256": "c9fd72396fccd8e27d3e205527dabef0e29a2643b05c93cd2b459da864c27052",
+      "reviewed": false
+    },
+    {
+      "path": "app/logger.py",
+      "blob_sha": "c5d9ce18cad06b2a9221c7a6564c79bb5169df4c",
+      "sha256": "94367153205fa2cea2512cda9a0bd0b56f3499a50361faa86fdee59cedd2c11b",
+      "reviewed": true
+    },
+    {
+      "path": "app/mcp/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reviewed": false
+    },
+    {
+      "path": "app/mcp/server.py",
+      "blob_sha": "a35493b618b73231bc1ff19cdae95e1456ad3cc6",
+      "sha256": "1bff8be30814e7707202c416b2a812614d97a5ad065fb926aa1f65c554dbb2f4",
+      "reviewed": false
+    },
+    {
+      "path": "app/prompt/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "reviewed": false
+    },
+    {
+      "path": "app/prompt/browser.py",
+      "blob_sha": "b27714d5fb7e3621734f09cab22c4e908bae7b28",
+      "sha256": "6caf9606ede1ece3458cb8f4c4989d968d4e22f38e2c8b8c7e0d422b9c50443b",
+      "reviewed": false
+    },
+    {
+      "path": "app/prompt/manus.py",
+      "blob_sha": "99e7e8315b9de1673980bdd109718795ff97a67c",
+      "sha256": "3e1ed4e27d999b6e0f3455ecd491310cc4085bcd94d694d0907727ba3507eb09",
+      "reviewed": false
+    },
+    {
+      "path": "app/prompt/mcp.py",
+      "blob_sha": "acf15b2a25a9bf85205c3bac9e5dad8a0ed52c50",
+      "sha256": "68c1347b17f3ac962ab6eddcd889c9da4afad739d3001e7bfe6965ddc87d3841",
+      "reviewed": false
+    },
+    {
+      "path": "app/prompt/planning.py",
+      "blob_sha": "bd5f4ce7c429d6060bf9566a2c900900605fb149",
+      "sha256": "222deab0423936dd1592170cd18d890d1330274156396f2baa8cea16a9c6c700",
+      "reviewed": false
+    },
+    {
+      "path": "app/prompt/swe.py",
+      "blob_sha": "389e74b814aaaadc3033960d61274646864bf97e",
+      "sha256": "8021f779b299446f3835f9955699e0776196cc8dd266fa321eb18c743b356cd8",
+      "reviewed": false
+    },
+    {
+      "path": "app/prompt/toolcall.py",
+      "blob_sha": "e1a3be93936b0f81f97369209bd6d0d3b71c0f95",
+      "sha256": "79bbf92bdc19a7b85988a38ca477f355adb8c130a51b1c8173e4b61f88f5c20d",
+      "reviewed": false
+    },
+    {
+      "path": "app/prompt/visualization.py",
+      "blob_sha": "8e4fecc533583495fab7a7c6726362e6fba049d9",
+      "sha256": "85164cad3bb10be743036ba595e0f9841cf8b381c0f2a99288c8581b0431ddce",
+      "reviewed": false
+    },
+    {
+      "path": "app/sandbox/__init__.py",
+      "blob_sha": "ccf0df6d83e3d2c2e8ece52ca501a094e3bb8d58",
+      "sha256": "6c7190684c837c4f5aead0a0c9a6d2d1c4915da683cb62760a0214643bdbf034",
+      "reviewed": false
+    },
+    {
+      "path": "app/sandbox/client.py",
+      "blob_sha": "09a8f2e84fea5557f12665d8ebc6ee3284eccf01",
+      "sha256": "ba78f42cc827129b07ac6a3c9b503c949825d2fcb3287215db8cc127a5663082",
+      "reviewed": true
+    },
+    {
+      "path": "app/sandbox/core/exceptions.py",
+      "blob_sha": "5c1f0e8a9a50b5d4102cd3cc9ed453f8994159a6",
+      "sha256": "0031dfea98fa26706d0c8d17ee14ab46a12ad8a404f7108ab288ea97aaca5071",
+      "reviewed": false
+    },
+    {
+      "path": "app/sandbox/core/manager.py",
+      "blob_sha": "5814f1206e3b960f5f5b8a8b9cd086bfeca72194",
+      "sha256": "9f590d7fc263ee1ee5d33f3b935d1d4747db8f63a15fa73e112591c0db542973",
+      "reviewed": true
+    },
+    {
+      "path": "app/sandbox/core/sandbox.py",
+      "blob_sha": "c57b3f239e6ba069f85b8585903a2cb190483d52",
+      "sha256": "424720fa19f43c68a3e3365b3ac7d4c45b05163ceee07a5f478e1d59b2e8f8b3",
+      "reviewed": true
+    },
+    {
+      "path": "app/sandbox/core/terminal.py",
+      "blob_sha": "aee51844b55d3b2d0f6ed847f1658dd42b739cf8",
+      "sha256": "d8b25b03b4d2831526fc4ee79ebd323a1a8b2a2cdc90be2a6cb79e742bac5fca",
+      "reviewed": false
+    },
+    {
+      "path": "app/schema.py",
+      "blob_sha": "5f743f92f17b255acf5b3670001112bb99393f9a",
+      "sha256": "d0e508d54d237d6ee307cf0aaaf523aa8d3c3a4bf7daffe3d336e292c5fdfb91",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/__init__.py",
+      "blob_sha": "f2175c5c664a7ec1bfffc6288aa4b4d7892327b9",
+      "sha256": "a7fafb97abddff816be7dfc0413b638cb740d17d881d4d35ebef5fe1a3c634e0",
+      "reviewed": true
+    },
+    {
+      "path": "app/tool/ask_human.py",
+      "blob_sha": "5fd455070ba495792e185fbbb96f7d4f370f6020",
+      "sha256": "28173bf6712fc9e14fa12ccd00981bf4d3088a6447fa54075de230ff327b7cec",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/base.py",
+      "blob_sha": "fdb8b7d3a62a05725c453ef0358b1407c127657f",
+      "sha256": "e2957fee59daba4d1bf86560f81b029274e619554f17442f8ded80906fa49c4e",
+      "reviewed": true
+    },
+    {
+      "path": "app/tool/bash.py",
+      "blob_sha": "c6b9072fd1e22e9af812855bc63372c988021200",
+      "sha256": "d4f1596bdca60433c496d1e4f5cdc1bd17a28da1b890afd7ae0b09991ea26e4e",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/chart_visualization/README.md",
+      "blob_sha": "b5e0df5bb41e82abae619d9aa5ca57985744e88a",
+      "sha256": "592d3b8dd3892239dba5f2f52ad644c16981d7fc51913d55a36439f60d05f06e",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/chart_visualization/README_ja.md",
+      "blob_sha": "7c702785fa832561f7283862419f454172c61d6e",
+      "sha256": "79577ca1d2931952f05336006b8ad844b4ff61b009fa9bfb826996832581809f",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/chart_visualization/README_ko.md",
+      "blob_sha": "4f65f0091dcab68dd6135d7fb5cfe5d0a0437724",
+      "sha256": "2050dc5f15ba42fd460e98d3b2f6e2be97ad7b24078578dfcc22976b5f672025",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/chart_visualization/README_zh.md",
+      "blob_sha": "b1e414c6592554a67e2d7537998a140cb0a390bf",
+      "sha256": "975f70cfbb74f4f3a124c29bf66410f7fbc20d8f4b16ce70253745f39239f9f7",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/chart_visualization/__init__.py",
+      "blob_sha": "ea7d51a39efe0fbae3bf1398063db7aac501fd3a",
+      "sha256": "27717f6bb5139fa9193522a7183cbaaab09b1b9796f14ea3ec6bd670f3d60efc",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/chart_visualization/chart_prepare.py",
+      "blob_sha": "1eed35e4db431b866d232fde2a0ea71af625d600",
+      "sha256": "9d40b23072f2e4eab2b2e862dece29f2c232ef03e55d7dd817e2019454e8bfbd",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/chart_visualization/data_visualization.py",
+      "blob_sha": "26dfaa985ebe10ac8ed8b5405c2fbb360a19b963",
+      "sha256": "4f4716ccf3d020e764841d2b120e1199a431436a077d26085573d2066d245729",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/chart_visualization/package-lock.json",
+      "blob_sha": "19dae01ea7942c60c5b588b0838bbea9c5e3f5f3",
+      "sha256": "e0f36c1e15a79d1832d69ca8c27370d7bfc3a6ce8f6fb5628b1de21acd38a9d8",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/chart_visualization/package.json",
+      "blob_sha": "1e9189dcbecb13fd80ee301b71cc0ef235a7d5ba",
+      "sha256": "dbda1713d05bf677913d19347a14f33e1ad0e94632efb1c7961302e671482153",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/chart_visualization/python_execute.py",
+      "blob_sha": "8a7b5bb4db1af723cdda252210bbf94cc27db9ad",
+      "sha256": "0c023995757f46857f894047455cab3b2bba80395aa1c04f5261f28145db582a",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/chart_visualization/src/chartVisualize.ts",
+      "blob_sha": "c5091a373fc0a5a0b156fdae18fc2a6623a56946",
+      "sha256": "5561eedf480ca227d974e746e1ebbe6c97fa3225bede3f0601e4935f054eec7e",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/chart_visualization/test/chart_demo.py",
+      "blob_sha": "d89d993f24b7f04c92d6110e2827d51d64dad9a4",
+      "sha256": "98cecd486eac30eba266130d14dfe39c7638c4cce0cf7b6e9a55f00b8cf1d1f9",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/chart_visualization/test/report_demo.py",
+      "blob_sha": "d66f8cf25800a1c861a001355641bb70f00d8110",
+      "sha256": "979ad9e8a8e574af0ed869265c8eb778591336e4d5830888ab81d08e696c218d",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/chart_visualization/tsconfig.json",
+      "blob_sha": "7e499fa4097eab7a267b478b165e717d41283422",
+      "sha256": "9750820bb979aa92f65dfe7e977b1f533945840e90f25c8a22c085f85207f5d1",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/computer_use_tool.py",
+      "blob_sha": "0ea57a7343a023a7a3fb9f177032b03dfc7dde50",
+      "sha256": "a6b45165ec24e77091e5c4a67230b9e04539c1d736c498b620989bbb3dadbc2a",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/crawl4ai.py",
+      "blob_sha": "d0f9133684784c3dc163aca9d641aeebf95edca6",
+      "sha256": "b90c529621a6ba812fbb3c7c71095e2865aa101c6e42551e182612ca276db3af",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/create_chat_completion.py",
+      "blob_sha": "882a5bebff0b80d803b7713a3107f7655ec6e3eb",
+      "sha256": "03ac2b449bfd96bf250adaa81ef6a3195ca7947620dc3f9f66adcb7191f27690",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/file_operators.py",
+      "blob_sha": "dd64c838699daa3155d0c05ab1b274ca9d35e880",
+      "sha256": "9ba54d97e990117d9913cc2d71d831db90d9e0957d805d8a814dcf29846f096f",
+      "reviewed": true
+    },
+    {
+      "path": "app/tool/mcp.py",
+      "blob_sha": "60549b07efc3fdd0aae85685d9a52f52506997bb",
+      "sha256": "114520652d4ec3d4aa9ec691d87d29eec1d61b1ac4b62e5eb1e27767075c4f47",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/planning.py",
+      "blob_sha": "47e334d6632cd18373a48fced78bb21662952217",
+      "sha256": "69d76dd1ef705f2fb68da9f1287eff4f09ba30e9176084c5e8c186ae8fa4d79c",
+      "reviewed": true
+    },
+    {
+      "path": "app/tool/python_execute.py",
+      "blob_sha": "08ceffa85f9e444d36bd07e4e6241efce6a66336",
+      "sha256": "c6bf31db1c1226b1a63c764046e255cfab7a16944a60b4e2ab7db0387d623861",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/sandbox/sb_browser_tool.py",
+      "blob_sha": "b3a862eddfa66cdc34e9c4ecb0edc3dcad591c34",
+      "sha256": "df875fe804ffa1fc1caa9b6c019bc6ef067569122ac009ba942616b92d4c90e7",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/sandbox/sb_files_tool.py",
+      "blob_sha": "be558b0cb2ef5165fece4cf0da70dc1f9de2e846",
+      "sha256": "8798a7dde3cf2711c75f2cd58808762b15ae770ac1d34b6b342fefe6e9d66d36",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/sandbox/sb_shell_tool.py",
+      "blob_sha": "8a45244d0c8d8493459f3405a7d3adc98baa1dbd",
+      "sha256": "8f2c36334f798fe2b4ae103fa7ffc81e62ae651a0ff7d7df6caec2b80180b14e",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/sandbox/sb_vision_tool.py",
+      "blob_sha": "ffe847d4861a8c7ef5ac12d3800e6b8df7d937b7",
+      "sha256": "0685884f515485f7e07c8eef36843c36eee32e95ffc334b246b2ea53b0864cb4",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/search/__init__.py",
+      "blob_sha": "fe127ae309a1b550e5e36ffa3e0828f869c14182",
+      "sha256": "489fffb71a37436433da94cfdbec81dc8c0aa229c3c5f005beee45ea1cb450b1",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/search/baidu_search.py",
+      "blob_sha": "8beb3300535eded784bcc3f70f6840c2b643d9c3",
+      "sha256": "05da7b66fcc29affc239b8ff14a73f3a9a1689f6adc12c540e591b204d2b2f0f",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/search/base.py",
+      "blob_sha": "31d78b9fdc45f72bd93795440a1f2e30044d306d",
+      "sha256": "3baaef999fb10a325b198b633d3772d4c79c80acc886ad0dcfe328a0a371c787",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/search/bing_search.py",
+      "blob_sha": "620620cd33d206944d0ac6a1b161dc317db3e5ce",
+      "sha256": "ec7cdd9e7832ca0d310df5d22214286882e141b3b703087b5b5cee8e1fc537f1",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/search/duckduckgo_search.py",
+      "blob_sha": "ca269b803f3be7e7be84758c939a4300311b4f34",
+      "sha256": "710e5446a0d688c3682ab9a2755dcc68d62d50d44ac6a4ba805bcb500aa5330e",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/search/google_search.py",
+      "blob_sha": "bd0838ee72485c945333a8a5e01932f37b11e8cb",
+      "sha256": "731b0054f53dd1fa3372851c8e00a9c58da3faf73968048121e7efaaeca81a52",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/str_replace_editor.py",
+      "blob_sha": "a907f41e139e6a80e75e57aa41379172c7667109",
+      "sha256": "acb02f4ee695ccef2e1fed0932c02966799e029cba29bb2a955ae6b26a975807",
+      "reviewed": true
+    },
+    {
+      "path": "app/tool/terminate.py",
+      "blob_sha": "8c2d82ca7f3d840c2af53177a25bd187a854952f",
+      "sha256": "7ff7ce9218f8b144975e4ccba1cea1778445adf23b735b0652c13849b5dcfd27",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/tool_collection.py",
+      "blob_sha": "297ab6cbe831eebbb91fe0fdfe341794e6cddeca",
+      "sha256": "704b7ff76d7b78925b32b5f1e240e4d5c208478b042c1ce3e7ba38a250717cc1",
+      "reviewed": false
+    },
+    {
+      "path": "app/tool/web_search.py",
+      "blob_sha": "b9b9e31ae91ac6cda22f3b4b308876546023002d",
+      "sha256": "55c9cd4e276320427ede4d10b9ff24372f7bacae081352fd287205f828aa060b",
+      "reviewed": false
+    },
+    {
+      "path": "app/utils/__init__.py",
+      "blob_sha": "4d3ecf1be8204d9d53f73b47c36de690ead82310",
+      "sha256": "402e857cbbf687ae7483b23df11c7bbfdfffe2c8b087d0940a08ac20520b335b",
+      "reviewed": false
+    },
+    {
+      "path": "app/utils/files_utils.py",
+      "blob_sha": "d14ad552bf6cbd557cf40fc7e5cc16baf966549e",
+      "sha256": "f8d1d8d73cb818bb68116a348fe4c6b6d66ae200f103953a966ab9ad5efaf699",
+      "reviewed": false
+    },
+    {
+      "path": "app/utils/logger.py",
+      "blob_sha": "3c4f6458bef0c7fd4aae3330a2ab06f893ab28f1",
+      "sha256": "40f7eff1c4b0317000bdc09012994365827effddfa8b771b754d8e0c62d992e4",
+      "reviewed": false
+    },
+    {
+      "path": "requirements.txt",
+      "blob_sha": "42278f17b436105616bf0cc7ca340e7707454bca",
+      "sha256": "826c5232877dd1d462fbea3e2935d4566a2a2be55e1bdd34a7d869f68211f641",
+      "reviewed": true
+    },
+    {
+      "path": "setup.py",
+      "blob_sha": "9d1371926bc7fb1c678e6066e1aac946978b4f97",
+      "sha256": "e8999f54fbb007035ccdf8caef5f4aba48431673e1b5485a5a028699dfb76cce",
+      "reviewed": true
+    }
+  ],
+  "original_source_files_verified": 82,
+  "install": "Original source archive, full dependencies with CPU-only torch; archive retained because wheel omits app.sandbox.core namespace. Original app files copied byte-for-byte into private job, never patched.",
+  "scope": "PlanningTool state tracking for five fixed synthetic stages only; no model, browser, shell, search or sandbox execution."
+}

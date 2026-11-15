@@ -9,6 +9,8 @@ import math
 
 
 def run(service, operation, p):
+    from .local_manus666 import SPECS as MANUS666, run as run_manus666
+    if service in MANUS666: return run_manus666(service, p)
     from .local_volt666 import SPECS as VOLT666, run as run_volt666
     if service in VOLT666: return run_volt666(service, p)
     from .local_planning666 import SPECS as PLANNING666, run as run_planning666

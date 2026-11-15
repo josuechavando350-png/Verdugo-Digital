@@ -1,6 +1,6 @@
 # Piloto 666: avance parcial del lote 1
 
-Nueve de 183 piezas del primer lote tienen una operación nueva implementada. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
+Diez de 183 piezas del primer lote tienen una operación nueva implementada. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
 
 ## Operación delimitada
 
@@ -85,4 +85,19 @@ El flujo conjunto pasó con **nueve SDK, once pasos y 766 pruebas unitarias**, i
 
 ### Corrección reproducible de Strands
 
-CI del commit `2b0b8dc594f403674330c9cd90ec964949d137ba` rechazó la versión de Strands: Git abrevió el mismo SHA con nueve caracteres en CI y ocho localmente. El código original coincidía, pero el requisito de versión exacta hizo fallar correctamente la aceptación. La compilación fija ahora `SETUPTOOLS_SCM_PRETEND_VERSION` al identificador completo de arriba; no relaja el control de módulos ni modifica el SDK. Esta variable se requiere al preparar manualmente el perfil y está fijada en el workflow de CI. La corrección debe pasar un nuevo checkpoint; no se presenta el run fallido como aprobado.
+CI del commit `2b0b8dc594f403674330c9cd90ec964949d137ba` rechazó la versión de Strands: Git abrevió el mismo SHA con nueve caracteres en CI y ocho localmente. El código original coincidía, pero el requisito de versión exacta hizo fallar correctamente la aceptación. La compilación fija ahora `SETUPTOOLS_SCM_PRETEND_VERSION` al identificador completo de arriba; no relaja el control de módulos ni modifica el SDK. Esta variable se requiere al preparar manualmente el perfil y está fijada en el workflow de CI. El checkpoint corregido `1e12900b5c275345d5c27d6adda448c80896232d` pasó los tres workflows, incluido el piloto aislado por red; enlaces en PLAN_666. El fallo anterior permanece documentado.
+
+
+## OpenManus: seguimiento de etapas fijas
+
+`openmanus / stages.track` usa `PlanningTool` original para crear, marcar y borrar un plan efímero de cinco etapas: plan, límites, revisión del operador, simulación y medición. Acepta únicamente cinco estados de una enumeración fija sobre datos demo; conserva recuentos y diagnósticos de orden. Declarar una etapa completada no demuestra su ejecución ni concede aprobación en Engine. La detección de finalización fuera de orden es una regla propia, no razonamiento del SDK.
+
+La construcción original 0.1.0 omite el namespace `app.sandbox.core` y su configuración. Se conserva el archivo original SHA256 del commit; el worker copia sus 82 archivos `app/` intactos y comprobados a una carpeta privada. Solo allí escribe configuración vacía exigida por Pydantic. No configura ni ofrece proveedores; los logs temporales desaparecen al cerrar el worker. No instancia sandbox, navegador, shell, buscador ni LLM. `sources/contracts-manus666.json` conserva blobs Git y SHA256, diferenciando archivos revisados de archivos solo cotejados.
+
+Preparación explícita: instalar `requirements/runtime-manus666.txt` con Python 3.12 Linux y ejecutar `tests_runtime/prepare_manus666.py` con ese intérprete. Se resuelven las dependencias de `setup.py` y tres imports exigidos por el `requirements.txt` original. Torch usa una rueda CPU con SHA256 fijado; no se descargan CUDA, navegadores ni pesos de modelos. `VERDUGO_MANUS666_PYTHON` selecciona el perfil del operador. El motor no instala ni descarga nada.
+
+El incremento añade comprobaciones de archivo alterado, rutas inesperadas, parámetros no permitidos, finalización fuera de orden y el hecho de que marcar todo completado no autoriza efectos externos. Las 770 pruebas unitarias pasan. La prueba conjunta pasó con diez SDK y doce pasos, con aprobación, CLI/MCP y replay SQLite; CI de este incremento se observa por separado.
+
+## Dependencias que bloquean otras piezas
+
+DeerFlow exige `langgraph-api>=0.8.1`; el archivo LICENSE de la rueda oficial 0.8.1 es Elastic-2.0. Open Deep Research exige `pymupdf>=1.25.3`; COPYING de la rueda oficial 1.25.3 declara AGPL-3.0 o licencia comercial. Esas instalaciones revisadas no cumplen la política de este repo. No se instalaron, no se agregaron excepciones y las dos piezas siguen pendientes. Se guardan fuente del requisito, blob, hash del artefacto y texto de licencia en `sources/contracts-executive-blockers666.json`. Esto no afirma que toda versión futura o integración mínima separada sea imposible.
