@@ -351,7 +351,7 @@ class CatalogueTruthTests(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         plan = json.loads((root / 'docs/plan_conexion.json').read_text())
         expected = {p['id'] for p in catalog() if connections.state(p['id']) == 'pendiente'}
-        self.assertEqual(1, plan['pending'])
+        self.assertEqual(0, plan['pending'])
         self.assertEqual(expected, {p['id'] for p in plan['items']})
         self.assertEqual(len(expected), len(plan['items']))
         self.assertEqual(set(batch.SPECS), {p['id'] for p in plan['implemented_v017']})

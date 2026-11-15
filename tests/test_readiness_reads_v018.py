@@ -328,8 +328,8 @@ class ReadinessInventoryTests(unittest.TestCase):
                 self.assertIn('/blob/'+item['commit']+'/', source['source_url'])
         plan = json.loads((root/'docs/plan_conexion.json').read_text())
         self.assertEqual(set(batch.SPECS), {p['id'] for p in plan['implemented_v018']})
-        self.assertEqual(1, plan['pending'])
-        self.assertEqual(1, len(plan['items']))
+        self.assertEqual(0, plan['pending'])
+        self.assertEqual(0, len(plan['items']))
         self.assertTrue(all(p['live_verified'] is False for p in plan['implemented_v018']))
 
     def test_code_derived_counts_never_certify_live_services(self):
