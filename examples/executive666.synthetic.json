@@ -558,6 +558,24 @@
           }
         ]
       }
+    },
+    {
+      "id": "activations",
+      "service": "transformerlens",
+      "operation": "activations.check",
+      "depends_on": [
+        "explanation"
+      ],
+      "params": {
+        "dataset": "demo",
+        "symbol_ids": [
+          1,
+          3,
+          4,
+          2
+        ],
+        "intervention": "zero_residual"
+      }
     }
   ]
 }

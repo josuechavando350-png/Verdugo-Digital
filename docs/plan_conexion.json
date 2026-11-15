@@ -1,6 +1,6 @@
 {
  "generated": "2026-11-15",
- "pending": 349,
+ "pending": 348,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -184,20 +184,6 @@
   },
   {
    "tanda": "666 / lote 1 / fase 1",
-   "id": "transformerlens",
-   "repository": "TransformerLensOrg/TransformerLens",
-   "commit": "284e35b4ee2deea0924894c221a3be8ad519474d",
-   "license": "MIT",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "conciencia",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 1",
    "id": "sglang",
    "repository": "sgl-project/sglang",
    "commit": "cb6a391c961fa71e7b560f9819b1fb3a478b8dde",
@@ -206,9 +192,9 @@
    "kind": "servicio",
    "domain": "pensamiento",
    "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
+   "nota": "Perfil CPU x86_64 original exige intel-openmp; versión 2026.2.0 revisada contiene Intel EULA, fuera de la política. Otras rutas no aceptadas todavía.",
    "live_verified": false,
-   "evidence": "sources/registry-666.json"
+   "evidence": "sources/contracts-executive-blockers666.json"
   },
   {
    "tanda": "666 / lote 1 / fase 1",
@@ -7695,6 +7681,21 @@
    "operation": "prediction.explain",
    "scope": "Original native EBM fit/predict/eval_terms on bounded synthetic rows; additive reconstruction, no causal or held-out accuracy claim",
    "live_verified": false
+  },
+  {
+   "tanda": "666 / lote 1 / fase 1",
+   "id": "transformerlens",
+   "repository": "TransformerLensOrg/TransformerLens",
+   "commit": "284e35b4ee2deea0924894c221a3be8ad519474d",
+   "license": "MIT",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "conciencia",
+   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
+   "nota": "Modelo nativo sin entrenar; captura/intervención/restauración originales. No explica razonamiento de un LLM real.",
+   "live_verified": false,
+   "evidence": "sources/contracts-lens666.json",
+   "operation": "activations.check"
   }
  ]
 }

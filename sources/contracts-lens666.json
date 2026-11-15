@@ -1,0 +1,2781 @@
+{
+  "schema": "verdugo.lens666.sources.v1",
+  "id": "transformerlens",
+  "operation": "activations.check",
+  "repository": "TransformerLensOrg/TransformerLens",
+  "commit": "284e35b4ee2deea0924894c221a3be8ad519474d",
+  "distribution": "transformer-lens",
+  "version": "0.0.0",
+  "version_note": "Original pyproject uses static 0.0.0; source is pinned, not a published release claim.",
+  "license": "MIT",
+  "archive_url": "https://codeload.github.com/TransformerLensOrg/TransformerLens/tar.gz/284e35b4ee2deea0924894c221a3be8ad519474d",
+  "archive_sha256": "fc55df5c65afc11a200b98a6370ff12b8f8c8832ae5e0e535a7ee69ba72cf82a",
+  "runtime_versions": {
+    "torch": "2.9.1+cpu",
+    "transformers": "5.23.0"
+  },
+  "source_review_scope": "Selected original native boot, configuration, bridge cache/hook dispatch and hook removal reviewed. Other files have byte integrity verification only.",
+  "operation_scope": [
+    "TransformerBridge.boot_native builds an ephemeral random 936-parameter native model with seed 666, CPU float32.",
+    "run_with_cache reads three fixed activation names; aliases may produce five cache entries.",
+    "run_with_hooks applies a fixed optional zero-residual intervention and removes hooks; third forward checks restoration.",
+    "Only shapes/counts/numeric diagnostics retained, no raw logits or activation tensors."
+  ],
+  "limitations": [
+    "Untrained toy diagnostic; no pretrained weights downloaded or licensed as model weights.",
+    "Not an explanation of a real LLM, accuracy calibration, causal business claim, or operator approval.",
+    "llm_calls counts pretrained language-model inference; this operation instead reports three toy_forward_passes.",
+    "Dependency findings elsewhere are scoped; this is not an exhaustive transitive license audit."
+  ],
+  "local_torch_provenance": {
+    "wheel_url": "https://download-r2.pytorch.org/whl/cpu/torch-2.9.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl",
+    "wheel_sha256": "7417d8c565f219d3455654cb431c6d892a3eb40246055e14d645422de13b9ea1",
+    "method": "Reused verified wheel files in a new isolated venv; source environment removed after OpenManus withdrawal. Only Torch wheel entries copied; two generated console shebangs relocated and RECORD updated. CI installs official wheel normally."
+  },
+  "files": [
+    {
+      "path": "LICENSE",
+      "blob_sha": "0d1ba77b316af43db7eb1ad23b6252c3a7443b26",
+      "sha256": "46924225aa2a7325d9d4bf47a8add940844d8d7e2d342a6f07baeeeaf4b66a43",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "pyproject.toml",
+      "blob_sha": "fc7142c9506601a4c81901cae51e5084baca2039",
+      "sha256": "0125ce7ad9c6a160fd96a69bec969f1fb0b98502ea13b1a0d7048c68168ba556",
+      "installed_path": null,
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "transformer_lens/ActivationCache.py",
+      "blob_sha": "2fa617dc67d9865bc2bf9cd7128c8f71d6fbcc2f",
+      "sha256": "8672df6b824e3e535843b2f7f4aeda51c589ee034fb63d6b93939cfd9e88989c",
+      "installed_path": "transformer_lens/ActivationCache.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/FactoredMatrix.py",
+      "blob_sha": "49517b95b461037c2fdd21b0cbe506b2f6555a8e",
+      "sha256": "54647a782f152d330feb92e51ee9ff7d916ff248257ec57f1f53658b83d283e2",
+      "installed_path": "transformer_lens/FactoredMatrix.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/HookedRootModule.py",
+      "blob_sha": "4de3615a6ba206e82b30c4c384b1c5a019551a98",
+      "sha256": "29760981165c51793749a5550bd978ecb412accefac923d88064c717b43b40b2",
+      "installed_path": "transformer_lens/HookedRootModule.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/SVDInterpreter.py",
+      "blob_sha": "ce914e29ed117eaaf56a787ed2248401f2f266ba",
+      "sha256": "6ef1e65ea98ce349de136ff02cded7eba122046ec73f668132ebdaf5547a6f13",
+      "installed_path": "transformer_lens/SVDInterpreter.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/__init__.py",
+      "blob_sha": "0b2b74a04588d8f667057b3dd6cf00484e7862c2",
+      "sha256": "cb2f55636af244ac50883a4a2b5c902a9dadf53f12d9f360a8858f96ed6d3e59",
+      "installed_path": "transformer_lens/__init__.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "transformer_lens/benchmarks/AGENTS.md",
+      "blob_sha": "010fd568816f8c0abd37a055ad3dd779ef563638",
+      "sha256": "52cee14e3e8ba1e02368f2591447c7f2b8ecb02a36a46d4b0d149e2ad5a3c306",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/benchmarks/README.md",
+      "blob_sha": "24d5b23b6499a348b023c98c18e1c8a636d25ac2",
+      "sha256": "2eba380f7debf12127205d78ef2093bb3321f1ccd637ecda1459a2f0665c893c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/benchmarks/__init__.py",
+      "blob_sha": "1dd2c0e8682119d1c623252fb7756dee2318ea20",
+      "sha256": "ce42134473c2c128f441dc1178ae17001948553a004db00495072531e83ec3f9",
+      "installed_path": "transformer_lens/benchmarks/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/benchmarks/activation_cache.py",
+      "blob_sha": "edf5fe7accaeb018faa4f283f74b759a5b91c55a",
+      "sha256": "e4f576e7987f94937522956bb079d182a90ea7d4350a42d881f82c90b9476e1b",
+      "installed_path": "transformer_lens/benchmarks/activation_cache.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/benchmarks/audio.py",
+      "blob_sha": "1b57ddd86456496d077313275c2e49019f02e17a",
+      "sha256": "8da3fb573bb94ba84349b4219186d08e518b07e3aff4a220e9f7f8641bb46edb",
+      "installed_path": "transformer_lens/benchmarks/audio.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/benchmarks/backward_gradients.py",
+      "blob_sha": "359d474479c6c6ff144ff4ce7db416ffa27b3933",
+      "sha256": "95196c68551aad4e9b5938583b96d808efabe4ef7341d01decef6247f1ea04f1",
+      "installed_path": "transformer_lens/benchmarks/backward_gradients.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/benchmarks/component_benchmark.py",
+      "blob_sha": "f10f8dd04d966298189f7252fc816ffee0ea830d",
+      "sha256": "4e50d57b6e7e27df722baa7db991c4dbf5b404fb3925eda0162998f5c6ab58a4",
+      "installed_path": "transformer_lens/benchmarks/component_benchmark.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/benchmarks/component_outputs.py",
+      "blob_sha": "7f1df8a2f8f33d8c4f448e566c5026749a1bff61",
+      "sha256": "458d24d4b9be57d4d752d7b06376646993247cce7d6461d6b43121c587e5fe9e",
+      "installed_path": "transformer_lens/benchmarks/component_outputs.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/benchmarks/encoder_common.py",
+      "blob_sha": "cf40fe4db1a886c69ff13d05b4dcc4228c5fe4e2",
+      "sha256": "9164ac87c39adcedbcd8ffa0b63d8994490ca389ad59ff5a780e9d21130dc931",
+      "installed_path": "transformer_lens/benchmarks/encoder_common.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/benchmarks/forward_pass.py",
+      "blob_sha": "e807b1cb1131d0fb3ac4607e82c80a36b9b8a70d",
+      "sha256": "7af9fa388a12dc58ee508f64f16d2f6e3a39ae4f2147ee4f25cd86b3e1970d2b",
+      "installed_path": "transformer_lens/benchmarks/forward_pass.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/benchmarks/generation.py",
+      "blob_sha": "36ab040ba2124f554ba51a88f3f056f96ba31e61",
+      "sha256": "3be1597d3a91522a34ce655af905d786ff4c67ad7650abe8298cef84b8c7c41e",
+      "installed_path": "transformer_lens/benchmarks/generation.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/benchmarks/hook_registration.py",
+      "blob_sha": "6f9fa6e4e7617a0c2dd21fe042ae02c72a5e3ea8",
+      "sha256": "8437cfd735b5502655d73e4e37733e62a6fcaea72e8da8ccdb1bc44771c6cf43",
+      "installed_path": "transformer_lens/benchmarks/hook_registration.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/benchmarks/main_benchmark.py",
+      "blob_sha": "3200f9957011ff3c2304c52d093fb69e7fc3e8d5",
+      "sha256": "2358b4ef92c2bca1126065b8171e881dd4f21efd6aca19d6e31ec21a38b60044",
+      "installed_path": "transformer_lens/benchmarks/main_benchmark.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/benchmarks/multimodal.py",
+      "blob_sha": "f5107902d043e4c8e502b41e360ffb90fb7c03fc",
+      "sha256": "07f0f313cd3d3b21f38f9fcfc96f5d7701df728f2b7114b5b42b531a7c4ee9d3",
+      "installed_path": "transformer_lens/benchmarks/multimodal.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/benchmarks/text_quality.py",
+      "blob_sha": "b281c7dfb686502542f584e9a384486cb896225c",
+      "sha256": "5872c75b11c82fa7e07f949ed89a596dee1692a1aba499cadd0667a250b4955c",
+      "installed_path": "transformer_lens/benchmarks/text_quality.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/benchmarks/text_quality_profiles.py",
+      "blob_sha": "2b09083bcb2d1104c37e9336f8c4951d6a7602b0",
+      "sha256": "9dea815e64f2bedf0b0485c9a9fa4f4136b01d89c000cdf468db75983d1212b2",
+      "installed_path": "transformer_lens/benchmarks/text_quality_profiles.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/benchmarks/utils.py",
+      "blob_sha": "9f192d2b9c99a022d7fec0e8059c39729cdda96d",
+      "sha256": "ef563df34c9b46825469346a59e4adcc162517141837a928c870c6ea79005205",
+      "installed_path": "transformer_lens/benchmarks/utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/benchmarks/vision.py",
+      "blob_sha": "186973ab8d53b2a94098777483533c0952d45b27",
+      "sha256": "5fbb26e34f17d46f1475bef53a597e64bdde805c51b3b3b83b1c03407e8677eb",
+      "installed_path": "transformer_lens/benchmarks/vision.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/benchmarks/weight_processing.py",
+      "blob_sha": "7f9e0780d946bb49757b287b6dcc579da240ebd1",
+      "sha256": "e9e3e7c6929701a82bd6198330a5d671aef71b7d66b39cca6e88c2b6e2acad9a",
+      "installed_path": "transformer_lens/benchmarks/weight_processing.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/cache/__init__.py",
+      "blob_sha": "e56da8884619e9a5d62d870ba0b722ae39bbde4f",
+      "sha256": "0e757f4bd2fe0e5ab7b10c0af23d65f4439bce5a2f2eda4a280f769d1c3555b7",
+      "installed_path": "transformer_lens/cache/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/cache/key_value_cache.py",
+      "blob_sha": "8943ff510928b515d169ed7492ddb2acb60716d9",
+      "sha256": "3d8bcbd155cf3f24fc757790ec4b7a2fe2858f61c9542c209358eb6ed5045d09",
+      "installed_path": "transformer_lens/cache/key_value_cache.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/cache/key_value_cache_entry.py",
+      "blob_sha": "f2f04e53cb45c677a483ed57e820e41577c59a0c",
+      "sha256": "b7043ceaa11235adeec9aa7bcce08fa708bb593793ee6d784bbd372f4e9cad7b",
+      "installed_path": "transformer_lens/cache/key_value_cache_entry.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/config/AGENTS.md",
+      "blob_sha": "840847c063fd6a09ba9241dec19ccfbdf450fccd",
+      "sha256": "23910ff2e9bd02493be1d572ce3896177823199007708568d113d94649159d98",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/config/__init__.py",
+      "blob_sha": "82b75454b911d69676d3f79a64ed753f1a9b48c1",
+      "sha256": "88cbe41a63e7e21cb128d67c98420e765646bf2f6d607919b699a186d677a50a",
+      "installed_path": "transformer_lens/config/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/config/transformer_bridge_config.py",
+      "blob_sha": "1cd5a5900e88dda84c4f3f478c1558c7649afa47",
+      "sha256": "de8d3c4e5b5dbe9a27113da416b3258094d7963fc55955a183233d26ad7f2aa9",
+      "installed_path": "transformer_lens/config/transformer_bridge_config.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "transformer_lens/config/transformer_lens_config.py",
+      "blob_sha": "dacae23a16edd3761169063bd0feb52bd1a26bfa",
+      "sha256": "0f753ee4cdf552a55511e2a9f2c93edbfe79688a8fc4b0153d8be7c23f9e30d7",
+      "installed_path": "transformer_lens/config/transformer_lens_config.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/conversion_utils/__init__.py",
+      "blob_sha": "e1e006fc15b262f642c6e4df2af2c136cf8dca12",
+      "sha256": "7a2bd46ba20550c070c53817ed7a182e1a11f50350bdad673365628c37356b2e",
+      "installed_path": "transformer_lens/conversion_utils/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/conversion_utils/conversion_steps/__init__.py",
+      "blob_sha": "f13e9769a0d5dc72f96181db0dd0168659c73547",
+      "sha256": "a2d05876ccce8352fa9cf4a0cd3410e265aeddd7f3ee64a31bc0a9dfcfe420de",
+      "installed_path": "transformer_lens/conversion_utils/conversion_steps/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/conversion_utils/conversion_steps/arithmetic_tensor_conversion.py",
+      "blob_sha": "35ebe52a5df263d542b9923f53d5a733408df225",
+      "sha256": "0bb83d2f684b48a4e64972b03815b0452bb6949ee93aacb4cba20102ebe94c28",
+      "installed_path": "transformer_lens/conversion_utils/conversion_steps/arithmetic_tensor_conversion.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/conversion_utils/conversion_steps/attention_auto_conversion.py",
+      "blob_sha": "c8d8df97ad386de349ba5cf1d0693970be06f788",
+      "sha256": "d9950b192f1c1d355d7a39fbf17a4da0f2b2417c6009314f778741ccca6e6b29",
+      "installed_path": "transformer_lens/conversion_utils/conversion_steps/attention_auto_conversion.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/conversion_utils/conversion_steps/base_tensor_conversion.py",
+      "blob_sha": "9eab97727faf35649eed23f9f7bc2d5b3eab823c",
+      "sha256": "cd937c91c8d50442d9ea0b827428c51d76605a5dfa76e38d6a3142aa5b7e57ed",
+      "installed_path": "transformer_lens/conversion_utils/conversion_steps/base_tensor_conversion.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/conversion_utils/conversion_steps/callable_tensor_conversion.py",
+      "blob_sha": "f6240f7bb1fbd5341fb06ab7644551c7637daf9b",
+      "sha256": "03f04b913fdd9789340c745568565f803352c48c50e6a62de8f86b8af1f68dab",
+      "installed_path": "transformer_lens/conversion_utils/conversion_steps/callable_tensor_conversion.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/conversion_utils/conversion_steps/chain_tensor_conversion.py",
+      "blob_sha": "81b1190eb5938f68c3e653d8561320deb198fb28",
+      "sha256": "b8c829a51787dcd0cbfa1c0cf3e8ed5c29a54bddd4e40e7235a5f89a0bb96117",
+      "installed_path": "transformer_lens/conversion_utils/conversion_steps/chain_tensor_conversion.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/conversion_utils/conversion_steps/rearrange_tensor_conversion.py",
+      "blob_sha": "cfb1b1bc46ab21ff56cbb1ba01d4d6097d9b446f",
+      "sha256": "efc1641b34f95da01ac3ee93a2c88430445f089b1f2e6bb6e629de39371f1f9c",
+      "installed_path": "transformer_lens/conversion_utils/conversion_steps/rearrange_tensor_conversion.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/conversion_utils/conversion_steps/repeat_tensor_conversion.py",
+      "blob_sha": "318e0765443f1405fdd9be5e58dff08fb60526e0",
+      "sha256": "46798130d12886a80a523d73f10958dc767a0839986e043ea35b5ecb8de97174",
+      "installed_path": "transformer_lens/conversion_utils/conversion_steps/repeat_tensor_conversion.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/conversion_utils/conversion_steps/split_tensor_conversion.py",
+      "blob_sha": "71ec4d6eeb7fc01f4bd7747ba5eb58899ebc535d",
+      "sha256": "88d50a41b575f04ce0280131c0343216f9cec2b20e9add5bfd1b1eac478ff1a8",
+      "installed_path": "transformer_lens/conversion_utils/conversion_steps/split_tensor_conversion.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/conversion_utils/conversion_steps/tensor_conversion_set.py",
+      "blob_sha": "d07ca83fe626d4a2c627113c813778f8e9ec1736",
+      "sha256": "dba28f09fb7665cdb6f79f7b4d2477dc6f0c5623010c30b6fcc622e19ec809dd",
+      "installed_path": "transformer_lens/conversion_utils/conversion_steps/tensor_conversion_set.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/conversion_utils/conversion_steps/ternary_tensor_conversion.py",
+      "blob_sha": "25ab2d9d18afe02ab5df600dc01b0a7352014fe9",
+      "sha256": "bc2b5901c3a29131eae1171efd66b48203aac064c8f62ef74d73bf72c0073afd",
+      "installed_path": "transformer_lens/conversion_utils/conversion_steps/ternary_tensor_conversion.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/conversion_utils/conversion_steps/transpose_tensor_conversion.py",
+      "blob_sha": "054d1cda5c449dd7649e73592e045d84c825a088",
+      "sha256": "1e1103b2c2bdf72d716d7518560e20fdcca2492ebf37093246a35c07e0c2fd13",
+      "installed_path": "transformer_lens/conversion_utils/conversion_steps/transpose_tensor_conversion.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/conversion_utils/conversion_steps/zeros_like_conversion.py",
+      "blob_sha": "812edef6d0afea00306df03bcbfa036104f6c6e0",
+      "sha256": "3914c61579f1a634def7aab836d2acbca3a34b85437a94a68832294b119fbcc0",
+      "installed_path": "transformer_lens/conversion_utils/conversion_steps/zeros_like_conversion.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/conversion_utils/helpers/__init__.py",
+      "blob_sha": "b9e8749c3d420e00ec9f2717972ce6503aadf1f1",
+      "sha256": "1f77c5160e2871989ac1f3d7cf47052f0f298dd814f198778481de0110c53b47",
+      "installed_path": "transformer_lens/conversion_utils/helpers/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/conversion_utils/helpers/find_property.py",
+      "blob_sha": "83bbcb16bef7266ed5cf9b6fc2ee89c0618b9f75",
+      "sha256": "2098e8a82da9d4b0bf470a3fea82f23db05c1c20a3d8fcc1d59e1e660b1cbcb8",
+      "installed_path": "transformer_lens/conversion_utils/helpers/find_property.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/conversion_utils/helpers/merge_quantiziation_fields.py",
+      "blob_sha": "05f87a78bc25e62865e6800aa34e5d63c2544519",
+      "sha256": "233f2a665aa12c6678ecda45630672360c06fb7f94f10df29f05f66b5ba76e9b",
+      "installed_path": "transformer_lens/conversion_utils/helpers/merge_quantiziation_fields.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/conversion_utils/hook_conversion_utils.py",
+      "blob_sha": "a5dab16afab27d48835d6b181f064bfbe393be58",
+      "sha256": "a0460dcc53b5d57857cf14461bd6b60e0fb448c6e79049a392cf617d7818a982",
+      "installed_path": "transformer_lens/conversion_utils/hook_conversion_utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/conversion_utils/param_processing_conversion.py",
+      "blob_sha": "6bd4bcf916e9126144e3a04b9ebc44cf33af6ff2",
+      "sha256": "4464510a65e684f64c78329546519345a64f23969c5ea2b651281312f02786e4",
+      "installed_path": "transformer_lens/conversion_utils/param_processing_conversion.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/evals.py",
+      "blob_sha": "fddbc3839b4b4f57c032ec518df437a391553731",
+      "sha256": "9d25d109cc30d34a919199e8edff2745a78bfc4c4e5c762bdcd4002154883270",
+      "installed_path": "transformer_lens/evals.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/factories/__init__.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "transformer_lens/factories/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/factories/activation_function_factory.py",
+      "blob_sha": "348d7ddb6e3e08844fea2070a5c2facdb093cde2",
+      "sha256": "017ad3ef3817d8bf3d3c5811a5deb27e4755bcc4dbc945587118d0efcabd8650",
+      "installed_path": "transformer_lens/factories/activation_function_factory.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/factories/architecture_adapter_factory.py",
+      "blob_sha": "f64ad97ecf9269b24f6fb13784d29da025ffacd1",
+      "sha256": "90cdba6a1df42e8ab500960479f010274866fcfdb0e4e3a1f10ddda5c4e64f3d",
+      "installed_path": "transformer_lens/factories/architecture_adapter_factory.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/head_detector.py",
+      "blob_sha": "15870005c1470ffbb442b322357dfa36c0585602",
+      "sha256": "b6d7f454877519a42ff530aefdec3aa544c38a6ed6e6d3f38e32cda9e91bac36",
+      "installed_path": "transformer_lens/head_detector.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/hook_points.py",
+      "blob_sha": "4232c8f69770142083f26b019bfb119733e91a45",
+      "sha256": "de3c7c42b1b8d25e29add9e49ba1f1db44bf9f2ca221b709086af260442093de",
+      "installed_path": "transformer_lens/hook_points.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "transformer_lens/lit/README.md",
+      "blob_sha": "a24c2b14a972ca1f592776d533f7cf3aedf86059",
+      "sha256": "0dfd0b6ea0605f6b4cc3cb3a960b75c814490c4f1596771f10d3bab1a5744378",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/lit/__init__.py",
+      "blob_sha": "9b769d9d311cc6d6c44bda53eb0eb0fd70f3d552",
+      "sha256": "05b11e667f8d29d61ff432fc7ed8d6c8220265452b92418cd87f521ad9a88d17",
+      "installed_path": "transformer_lens/lit/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/lit/constants.py",
+      "blob_sha": "8ea3fb9dba0feda4d01ec277bb90ea7f245fab4b",
+      "sha256": "23296232b59f0df0523691b1eeee8c1966faba1466c4a7cb12f53be626dc86ec",
+      "installed_path": "transformer_lens/lit/constants.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/lit/dataset.py",
+      "blob_sha": "22caa947c2351d4e3869822777340aa6ed7f22a5",
+      "sha256": "019129228db08f93c39f89e5d6952c87b386588a6944f850b8f8a2aa61eae47b",
+      "installed_path": "transformer_lens/lit/dataset.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/lit/model.py",
+      "blob_sha": "a717ac743fac59d89263981dbcc52dda599edde6",
+      "sha256": "c6cd9001bd51cd14c650da5c0c41bd89664b31769c52712abd32f31b9ae12064",
+      "installed_path": "transformer_lens/lit/model.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/lit/utils.py",
+      "blob_sha": "5259e3d6b39f54f4c2baff4c3d23702b29ee0821",
+      "sha256": "3c111715da05d3de4f428bef4256d55cbe6670bf71e71b666ab55397dc4838e8",
+      "installed_path": "transformer_lens/lit/utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/__init__.py",
+      "blob_sha": "98108ee3de7882227595831c081219154c5d2b7f",
+      "sha256": "44b2ffe5409c9e71435db2d7381966c1b7cda33eb65470442ad3c5411dc5a27b",
+      "installed_path": "transformer_lens/model_bridge/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/architecture_adapter.py",
+      "blob_sha": "e7fd9033c03762e918753f3480b48da24824db2f",
+      "sha256": "1a81f2f7f078d2fe093f86ce2c3f3e9d6f01e5592b09b012ce9d553eee8f13c6",
+      "installed_path": "transformer_lens/model_bridge/architecture_adapter.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/bridge.py",
+      "blob_sha": "55e8937088c8cb49a68757106af4b6c58789c2be",
+      "sha256": "193737a63675b2609b3922f880e92fba7f94b3df33669548ded4a33b14f4e14b",
+      "installed_path": "transformer_lens/model_bridge/bridge.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "transformer_lens/model_bridge/bridge_core.py",
+      "blob_sha": "c40ccba0c8748689b82c38c67dc10019f8921a60",
+      "sha256": "82948fcbe7aeffa1b5f43ad224b34b1c5598f9b21fce7fc687a84ff528646d90",
+      "installed_path": "transformer_lens/model_bridge/bridge_core.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "transformer_lens/model_bridge/buffer_restore.py",
+      "blob_sha": "465171a38bc2da1fd7c7c8ef427da7ac2514c04d",
+      "sha256": "131d15d2d24cd674bce9b31bb4b377fe8cf88806f2f452c5796cf174d7b45377",
+      "installed_path": "transformer_lens/model_bridge/buffer_restore.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/compat.py",
+      "blob_sha": "f711fbe1774f1b508e72e96ebfb9f4905687428c",
+      "sha256": "bb45c29896700f86934ee98134624f59668e3ba67ad77c4c8b3fdf229eecbf5a",
+      "installed_path": "transformer_lens/model_bridge/compat.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/component_setup.py",
+      "blob_sha": "ea19a87cfb1d7707b05f45b60eae0f375c69556b",
+      "sha256": "605e42981d93c3b351917515a1a700120db97a3b1e915989ce72c3398f61230c",
+      "installed_path": "transformer_lens/model_bridge/component_setup.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/composition_scores.py",
+      "blob_sha": "6cf409fb0f510797cfdd7d3ce60f68890f0a38da",
+      "sha256": "77d24892006aabd488ab48b03bc6a6097c7e721b13960a555603808e1bad4a61",
+      "installed_path": "transformer_lens/model_bridge/composition_scores.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/driver_protocol.py",
+      "blob_sha": "71b35874158308b13f85f21615333271c7ddd4e3",
+      "sha256": "b5488a88303ead41459be53cc1cc2b80145dee0bda83667cde45a311d43f33ef",
+      "installed_path": "transformer_lens/model_bridge/driver_protocol.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/exceptions.py",
+      "blob_sha": "3060fdeb9eae56445d2ed2f2246ccee6a683a040",
+      "sha256": "6906dcefb1c603ab9ac8974a934d07a19dbcdd624019db3a207bc0589d155126",
+      "installed_path": "transformer_lens/model_bridge/exceptions.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/__init__.py",
+      "blob_sha": "d4d4476da37457cee54d0471b1fd84ac3363d8a9",
+      "sha256": "9bbe75317193e620de8a4098d943064f02cdc55ab6fd740a00427b659fb809ec",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/alibi_joint_qkv_attention.py",
+      "blob_sha": "5465ff80db836ea91bce4cae15ea28dcad841361",
+      "sha256": "0384de1e3df50de05e8312ada949864fafda2b759e9bb380f8d99c18e2e019c3",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/alibi_joint_qkv_attention.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/alibi_utils.py",
+      "blob_sha": "84b6e1ccf7971b59f0ae78206bed7f39c991a8cf",
+      "sha256": "426123d936c180ca33e15e3749f24632205aa2cf3e205557680d13f5cb1a56f8",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/alibi_utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/altup_block.py",
+      "blob_sha": "28c1ccd680d240ea526997b8ad6a9b7e476bc081",
+      "sha256": "17a0db21b18c09478ecbeef21a59dae2d6f358fea9aa645b26d6a7e83db42102",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/altup_block.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/attention.py",
+      "blob_sha": "24a72411b03ca9b34346346a70bc89fe67d03c85",
+      "sha256": "8b8935e27673488c2bd52a1d7d744946455cd34edcf256d531fddf0bcef94c98",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/attention.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/audio_feature_extractor.py",
+      "blob_sha": "d2ac84a2de3441f93e05c6f8cd82dbc091a5f1d1",
+      "sha256": "baa12f606a5c3080117c66ccdddb612e2493941d55b9d802fddd90e6fe839791",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/audio_feature_extractor.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/base.py",
+      "blob_sha": "af2797472a854c6bf932e2df4818ad542864f4e2",
+      "sha256": "f7963b51323fe1ed81f1a8788804a4606f158fa04630c7c8cef22622d16324db",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/base.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/block.py",
+      "blob_sha": "7155083359e8a857f55dcef8665c76d9161a1b92",
+      "sha256": "a1d75a0935717571330086548ca17fed95b6549db98580b266ecaa94b66b11b4",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/block.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/bloom_attention.py",
+      "blob_sha": "45c23e6da0e572d3f6c766abf99e994eecfd88a4",
+      "sha256": "dc314213d4075556108a8702d3b7dd53be2faa89fbc9417328eea045fc7eaf12",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/bloom_attention.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/bloom_block.py",
+      "blob_sha": "d3a2f9a020b2db0b0b479bc9a23693957eac29cd",
+      "sha256": "f9fdd724d57ed2fca5372dabd420c450c6963be5491db5ffbc3294d67f512616",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/bloom_block.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/bloom_mlp.py",
+      "blob_sha": "63af2d9d7386035a406493baf428538fda27f6b0",
+      "sha256": "a65d46c71a7704d8ac8283f3ed868cc3ab2182b5f671667d2c39dbbaeb9b09c4",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/bloom_mlp.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/clip_vision_encoder.py",
+      "blob_sha": "785ad04e9a47c00296520530db792f5b282f3056",
+      "sha256": "62cfd9e06fe210d61b193e9133dd86276f23bb5dafcd3bc36c123121f2cc9edc",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/clip_vision_encoder.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/codegen_attention.py",
+      "blob_sha": "e21bc46b0c3376bcb4357f1b20a910c6dfd98583",
+      "sha256": "8a6fdeee880cc402a3344910df77fb48ae660c5d57f553875393c5ee813d8f9c",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/codegen_attention.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/conv1d.py",
+      "blob_sha": "a4280408d29a81c77158af0c1859082c2abf8cd8",
+      "sha256": "5a5c619aa044496fe90d59355f4a580276e91b93c999d18fd7c70d7a6b1695a3",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/conv1d.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/conv_pos_embed.py",
+      "blob_sha": "5463d9d00337f3a9a14b527a2f750ef2254ca517",
+      "sha256": "5181d24d281617c3bec7f351e81fcbb6b71d140288dc01b8f0128d3660588dc3",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/conv_pos_embed.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/depthwise_conv1d.py",
+      "blob_sha": "b8abd07e3d055418436c9b60fd71548910c68e01",
+      "sha256": "38bfe8e3f740d9d20e4977b299f9e3dcc21ba0543677cc6fe8a80eb4af4bf705",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/depthwise_conv1d.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/embedding.py",
+      "blob_sha": "102c435c7e9adbc517ca927029f868e837db6e9b",
+      "sha256": "476e383c6f439bb6d430213cef33dee99bce1bfc80bbaedf2320b2bcfcce1a15",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/embedding.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/gated_delta_net.py",
+      "blob_sha": "86661768cbe47aa0c91d2af756b096055d676521",
+      "sha256": "0ef037d8382428f482d59c665dcb3cafff41573b72268f84ad611841b1af7912",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/gated_delta_net.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/gated_mlp.py",
+      "blob_sha": "ddd3b62e542d370b120c10f0e8be7e99e34cc56f",
+      "sha256": "030eb21e10d9427c32a7101f034687d21b2689e66dbe29fd97c22c1ca65220b7",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/gated_mlp.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/gated_rms_norm.py",
+      "blob_sha": "8e46eb1660a214771fd558b275bd9a105c5a69ff",
+      "sha256": "9cbac213d68420a9b122816ad879b4805a88df308d552d7047a5f6a51c12dc78",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/gated_rms_norm.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/glm_moe_dsa_attention.py",
+      "blob_sha": "eb998dae8c40122bedfcca1bc10cbb285577a101",
+      "sha256": "f465d2a9a94e7f9e31d1b5e479f3428e9084b3571ad739dc287376e343b3a664",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/glm_moe_dsa_attention.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/joint_gate_up_mlp.py",
+      "blob_sha": "9f0b28b4d7bcfa190e3b1df365dde1bdf2c98522",
+      "sha256": "d70233882804011cdf3e03cd7f9473bd544aafd8ed309ce8c08f0fb9292e2923",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/joint_gate_up_mlp.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/joint_qkv_attention.py",
+      "blob_sha": "c06ff688b87dfe64dcca781c1a98a7e7798c25b3",
+      "sha256": "ec68eb52ab4c83f6a1f94ed841e8722cb413dd9f861931d07a351dbedf081e6a",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/joint_qkv_attention.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/joint_qkv_position_embeddings_attention.py",
+      "blob_sha": "6a0512f70c20ee6e809e7712c18781d6c2b3e5eb",
+      "sha256": "3b04e67027d288d0c719055a22c974736dfa72314062d726fba43ddd7378fac9",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/joint_qkv_position_embeddings_attention.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/lfm2_gated_short_conv.py",
+      "blob_sha": "b5b10c48bf56a44214f293a3c8c8d43e5d99340c",
+      "sha256": "85f17b229f7b9e22e6ba2bd4d3b45a1d9e8721d505f63ff9e3b1a524c727115a",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/lfm2_gated_short_conv.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/linear.py",
+      "blob_sha": "f59631a598f03d142b809d2a0c3fbc518ac32fd0",
+      "sha256": "2d2c3f74645e9b57ae9ea68f30b9974b2cec9f7b466d0c0b25aa624c453f4417",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/linear.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/mla_attention.py",
+      "blob_sha": "120252c1c619aa16d602582e9772b42066c69919",
+      "sha256": "3582bc03fdbb9b953bca9ea456a5a89e5513f0265c3328f0b3cac3410ff3746e",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/mla_attention.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/mlp.py",
+      "blob_sha": "594f35aac815e02110e57f260278c8a43bf1aa9f",
+      "sha256": "817788d14359ee0a03514fa9ac8e385567f159a9f28cc02880e7c16202184167",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/mlp.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/moe.py",
+      "blob_sha": "be46ed1f55a763f76b20438c455f3eb236a4b3b2",
+      "sha256": "25e2315600a3094587d618248be1dc7530bb659d547d0219392a01c2247ddfd8",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/moe.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/mpt_alibi_attention.py",
+      "blob_sha": "ba60df40a9eb59c57451b376b0fa3db47b290813",
+      "sha256": "e4331244b52ef9baf544cf85a8a9a80a52b68613f415abef85218d907ce6177a",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/mpt_alibi_attention.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/normalization.py",
+      "blob_sha": "5920445c4cfb37eb7789678fce1de5b27a933409",
+      "sha256": "a5328cf3f191af2efc8a1d34cc9ca9338088140d2f8853bc5a28f9082bffd0d2",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/normalization.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/opaque_block.py",
+      "blob_sha": "2bfb990fc626c4a8fa3ec4ca953d8e874c50d308",
+      "sha256": "d0d86772fe1fad40f5f50494e86e9e7116e1a522b4ca7b19183df2c03f6e4a35",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/opaque_block.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/pooler.py",
+      "blob_sha": "7558875df05df0aba3928c6f0e8b610754b4ac98",
+      "sha256": "40eed5b317f4077e2d0a05a45b92fac6786865560f858cc4d39f0ed16b2ebfae",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/pooler.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/pos_embed.py",
+      "blob_sha": "0d32ac894d1b618752e054f4a257d90b8beb859f",
+      "sha256": "08b547a5d02925a6b0cb5ffcb3e381b8ed9a5589a4ab74ea810031fe1dd18660",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/pos_embed.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/position_embedding_hooks_mixin.py",
+      "blob_sha": "213b19773d983ec1bfa553b057cc4a5b4d1aedd7",
+      "sha256": "432fd4ff70d315ea185f83fcb7350fd0f1b620add784d25d1b52b7f1090bc341",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/position_embedding_hooks_mixin.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/position_embeddings_attention.py",
+      "blob_sha": "99b24f4dea3bde013b4549d30d2b8de4a465c8e2",
+      "sha256": "38a874529c0768e0f5a86bc415a373c1e5eb32e268a3baf552cbcf54b4008716",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/position_embeddings_attention.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/qwen3_5_vision_encoder.py",
+      "blob_sha": "4aa372385c7775f2cfc083b7f04a1c837673eec0",
+      "sha256": "a5ae61f092a4ebc12afde8eb422dc2ac4b54185d96c420cefac1644d897d698b",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/qwen3_5_vision_encoder.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/rms_normalization.py",
+      "blob_sha": "5e9579d1909254cc50f2cd7b3044fccc7bf0b3b1",
+      "sha256": "442d5287fe7a11d616b59ac6dcb2977c36de8369c5f2a3571b286a5f4cbb99a2",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/rms_normalization.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/rotary_embedding.py",
+      "blob_sha": "a5e6b5e20895cf7938175d3a7ae755eb63757d7a",
+      "sha256": "83071954cf998ed0232b0122fe2963ae6920f9ee1f8b736dbed821d77e4b2ce8",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/rotary_embedding.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/siglip_vision_encoder.py",
+      "blob_sha": "d769921ececb9c2a83d34c5c331bebe5adc289dc",
+      "sha256": "8927be24b5eb7d00fb18c3da8f618c697c27f20f3450364e262ffbb2343bec04",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/siglip_vision_encoder.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/ssm2_mixer.py",
+      "blob_sha": "3f93f46bd0c74af1759737dcb55925f916321057",
+      "sha256": "1254618f177fd106914e9223f5f66b0d4c777473886ed634cf3bd1c47fbc726c",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/ssm2_mixer.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/ssm_block.py",
+      "blob_sha": "28d0720fd9a81267452645563f0adb5080a6c892",
+      "sha256": "610acf68afb6cd79fdd613869965bf80abca7b96bd18f17fafc785460df9b83d",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/ssm_block.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/ssm_mixer.py",
+      "blob_sha": "33a0191fb7d244e72c27a49780e5156723fd3b55",
+      "sha256": "d3b12489306fb0be8f5e7569601c2039cb5f12255495dff6cf459d15c6f4ea7b",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/ssm_mixer.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/ssm_protocol.py",
+      "blob_sha": "75c346e1033e188663e819c666e86d4e2b665700",
+      "sha256": "d8c1240b24882fe9eef412e732a04c92b99ae5a7a42b76ca9a1e1b6cec351c91",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/ssm_protocol.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/symbolic.py",
+      "blob_sha": "2825c5719acef3622bf29852382b1d201170539a",
+      "sha256": "23a1e7714c17be0df2f20710a94dd4e19b8a91f5b4fc7d4f49bf892f83f62b68",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/symbolic.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/t5_block.py",
+      "blob_sha": "d1d2a85079684ae4e1c56a1e0537995766325a02",
+      "sha256": "0df458fe793b1799b9cbecb8db700f21b4750bea02182238b2c2d9f1b79b2d21",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/t5_block.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/t5gemma2_decoder_block.py",
+      "blob_sha": "5c423d80d1536095879c0b63024d2585afed3508",
+      "sha256": "fc10a28adfe25148cc1a91af31ece08ff5ffbacf9d8cfda9b8d41113bb146c0a",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/t5gemma2_decoder_block.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/t5gemma2_merged_attention.py",
+      "blob_sha": "ef764271b7f83313c9326b6f62f8b0a8e3e5369e",
+      "sha256": "5e922d03e9b6329bfe36390e7753b734e4729af505819a03f41b7ed63e285f43",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/t5gemma2_merged_attention.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/t5gemma_decoder_block.py",
+      "blob_sha": "0a264fdb9188eb78223aff5b6f14647cab8f2362",
+      "sha256": "ec58a85da3e58ce6fc82f50b64303095f695a83439b4dab6f3797f93eb9ec377",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/t5gemma_decoder_block.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/unembedding.py",
+      "blob_sha": "562254a9cd3d8757e8eda7dba15ab29d848f9517",
+      "sha256": "f43f5e3fefe47b4e3690cec6994975ca6bbc781fa028d98339c91e03ec37715d",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/unembedding.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/vision_classifier_head.py",
+      "blob_sha": "8e9dfbbad31daa09c4da841e070d90e09ee868a7",
+      "sha256": "b266d6b8fda84234f8100be4eab4a3c391c0f632cc8baf2c4528e0c0a9f1075f",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/vision_classifier_head.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/vision_embeddings.py",
+      "blob_sha": "2bcbc50f9e5829741967ff4cad1969795ad198b9",
+      "sha256": "c4f044cc75eaf91d400b9ed91921392ce930c98099b48a0a45712b72e45622dd",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/vision_embeddings.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/vision_encoder.py",
+      "blob_sha": "68ed4824f62bd149a7a223e7ca47bcc1323a4380",
+      "sha256": "284dec9fee4b17ce0ccea922905543e9c62108111f501313fa9a8d85338122e4",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/vision_encoder.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/generalized_components/vision_projection.py",
+      "blob_sha": "0c3917522904529cde1c218e7142dbeb3bc02f75",
+      "sha256": "11f0ad2791e411f8b81a0d0711f2e128a0f090f06d4713a35c8fbdc01164e5a7",
+      "installed_path": "transformer_lens/model_bridge/generalized_components/vision_projection.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/get_params_util.py",
+      "blob_sha": "03d89bf9b3dd1802648e49ada1976513fbdb4dfd",
+      "sha256": "af3643fe2972d9655940f3df24ece27d656186186c68c2aafba2997a7c19d54b",
+      "installed_path": "transformer_lens/model_bridge/get_params_util.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/remote_bridge.py",
+      "blob_sha": "897371ab94175d331c74da123492ca2961603fbd",
+      "sha256": "48d394af4e869d71ca7e821518ff6bfdf3683170d2ee9aa6e2d9ca831bf9c794",
+      "installed_path": "transformer_lens/model_bridge/remote_bridge.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/AGENTS.md",
+      "blob_sha": "cb4d4807c024ec2684c74e86445bde1093924c4c",
+      "sha256": "c079990f3c0bca765262a30a8511ec702c2fa0cace55af2abdca064aac17aa87",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/__init__.py",
+      "blob_sha": "dbb1db7203fa78846aea2e8c1d352bff28cd85be",
+      "sha256": "6665659ac55885f959a622b11b53e059d1ca0418c15ef5af3fe1edf2bdb49cab",
+      "installed_path": "transformer_lens/model_bridge/sources/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/_bridge_builder.py",
+      "blob_sha": "1cf0b3ef8b71ed55a68236aa00e58cdf2922019c",
+      "sha256": "30a4cb037ed5cfec069c93f79314f03151e48f66cc4b09878b48e55281e395ef",
+      "installed_path": "transformer_lens/model_bridge/sources/_bridge_builder.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/_driver_base.py",
+      "blob_sha": "ac3be638ff2351e9485ca8a07ff9a639aa81e794",
+      "sha256": "fbe5b7508a0bc170ea4984d450ca9137aeae52237c32c303ec23e84365607dff",
+      "installed_path": "transformer_lens/model_bridge/sources/_driver_base.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/_hf_format.py",
+      "blob_sha": "39e6ffe23947dfd365ec9f002bb91a0acd195fa6",
+      "sha256": "5283e0ba5cf6b1e8a1e69e7ea8d436201c1e5826016764e960e77804a7a71a20",
+      "installed_path": "transformer_lens/model_bridge/sources/_hf_format.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/inspect/__init__.py",
+      "blob_sha": "a31d5920b52359487139e9b3496085f1b86e811e",
+      "sha256": "15f949ebc51be9cf4b43498495ac9506d32db3085d40b922bd406472b879eee0",
+      "installed_path": "transformer_lens/model_bridge/sources/inspect/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/inspect/_provider_base.py",
+      "blob_sha": "55013994c6f54bdb91227d4464ee3e5d6f054438",
+      "sha256": "59ae995ea43a7ab04c6948fb41c5f10f3f90fa0333ab61cbdd8c88fab3661ad0",
+      "installed_path": "transformer_lens/model_bridge/sources/inspect/_provider_base.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/inspect/conftest.py",
+      "blob_sha": "baa9985ec001e304a70a852f039e0fa62f4f4d77",
+      "sha256": "106dd3ee12485ba0554faf0c5134a8cb51980800ad24aea2dfb3856ffc0c0cb4",
+      "installed_path": "transformer_lens/model_bridge/sources/inspect/conftest.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/inspect/driver.py",
+      "blob_sha": "7bd7340fec9b0657dfbcd67d9830b2a9e9d417c8",
+      "sha256": "cc0dc0b553be224d16252ea7336634a6fdb0f0c8e0ebfa678a4e1da29be7132b",
+      "installed_path": "transformer_lens/model_bridge/sources/inspect/driver.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/inspect/eval.py",
+      "blob_sha": "006679daefca897a3be550716ccec135060c95b1",
+      "sha256": "8581c41ba890c253da05fef427971849e8f7719079dbf80b8c1db869b8fe4754",
+      "installed_path": "transformer_lens/model_bridge/sources/inspect/eval.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/inspect/hooks.py",
+      "blob_sha": "2282472216a44e4898c9580139c4af7667493bae",
+      "sha256": "269ccf63231d63f840366d1aff340e213d365421dcd82e49fc59de4ad835cdd6",
+      "installed_path": "transformer_lens/model_bridge/sources/inspect/hooks.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/inspect/intervention.py",
+      "blob_sha": "0cd1ee9dc852d0d9bc15fdd2b513ac70ea2203e8",
+      "sha256": "fd7906b51dbf51741cce7b30ba8bf80fbe82fee63978e03ef4ec1099e8814851",
+      "installed_path": "transformer_lens/model_bridge/sources/inspect/intervention.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/inspect/masks.py",
+      "blob_sha": "5f4109c945e43d2f244c955a838da6e9b23da141",
+      "sha256": "271a5581792c792f8de13e64f7d2e44d324373918e00ba06c7a46e111fcbd7a0",
+      "installed_path": "transformer_lens/model_bridge/sources/inspect/masks.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/inspect/profiles.py",
+      "blob_sha": "4531096547afc3da441d66ea8bddba4c3c250e44",
+      "sha256": "d85f8bf78e72a24d875ac90ac3bc5a3d14789e6bf32d065efa7ec2397fab87a1",
+      "installed_path": "transformer_lens/model_bridge/sources/inspect/profiles.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/inspect/source.py",
+      "blob_sha": "b1959bed65adf22f4b0867ba8122f97e1756b8ba",
+      "sha256": "ee08592a6f45a1481b3b47405bf8ed00ce2424e06c6e704ce727217cf62ed8cb",
+      "installed_path": "transformer_lens/model_bridge/sources/inspect/source.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/inspect/transformers_provider.py",
+      "blob_sha": "26df800e27291edd4e32bec49b40ef677c9885e9",
+      "sha256": "99cc33ce3ebd63181d59765ff476c362562194605e692dd722c7f5074954fa07",
+      "installed_path": "transformer_lens/model_bridge/sources/inspect/transformers_provider.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/inspect/vllm_provider.py",
+      "blob_sha": "76cb7f5efc91e425b9c3d0d97fe061b3c06f16d1",
+      "sha256": "ea32d11d0d94539857a5caaea16ce7388b7836f33a1e5d1a0f70d802d22f9c4c",
+      "installed_path": "transformer_lens/model_bridge/sources/inspect/vllm_provider.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/inspect/wire.py",
+      "blob_sha": "bf527a5e34e88e91499e01d6b104c81bad5d97c0",
+      "sha256": "997a3f22662ea4769978aa99b678b11732a9a878b7da890581973c3fb3177bf8",
+      "installed_path": "transformer_lens/model_bridge/sources/inspect/wire.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/native/__init__.py",
+      "blob_sha": "0fe9eb83beda4dfc4ff98047bf1f5e2d76f4b4f7",
+      "sha256": "3a7f82abf948560005a9c0511f6c6968f4967d2e883225b9704acf95cb395013",
+      "installed_path": "transformer_lens/model_bridge/sources/native/__init__.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/native/init.py",
+      "blob_sha": "6f96400b90d2b014561382db1f7018f20beec02e",
+      "sha256": "d85d0b306b7a576179b7554f2a03b789c6dbc20e7a66c60f999fc2d3063ca938",
+      "installed_path": "transformer_lens/model_bridge/sources/native/init.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/native/model.py",
+      "blob_sha": "be3ce5f2a057d84dc5956b8e19ae0fda3e378023",
+      "sha256": "1a9ec51e57a4dc40e2940e23ac2d4cb4667e3ca17396b2f89f63ed0786b472ce",
+      "installed_path": "transformer_lens/model_bridge/sources/native/model.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/tl_legacy.py",
+      "blob_sha": "030374aacd34e4d03da63d6fe5c6908ef49ca3bf",
+      "sha256": "54ec9629feb5454f220a4ff6ff90bb2c3224d3f49a1b0966702a356f5bba25d1",
+      "installed_path": "transformer_lens/model_bridge/sources/tl_legacy.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/transformers/__init__.py",
+      "blob_sha": "942a65e1c7002d73ef5834e952c917208240cfeb",
+      "sha256": "b90c69b3a769c0e6433bf2ecbff45db7a476a041a7300918c10280a117a275bf",
+      "installed_path": "transformer_lens/model_bridge/sources/transformers/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/transformers/helpers.py",
+      "blob_sha": "3d091d50e4fde9c3ae747d0cf5ebe6a0ebeb6522",
+      "sha256": "927ea573fd4fcce49059d992db35f64e927d1271952ce4e586f21be73e223583",
+      "installed_path": "transformer_lens/model_bridge/sources/transformers/helpers.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/transformers/source.py",
+      "blob_sha": "cb9a532f13334caf385cb6bc4f589134abb46b0d",
+      "sha256": "09dbb029db7e6912beabb0df77fd04ab8afbf0a6cf645f9fdba3dc5284eff811",
+      "installed_path": "transformer_lens/model_bridge/sources/transformers/source.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/transformers_driver.py",
+      "blob_sha": "294fc0c6eabc246b26ae13d1b399b9d537630212",
+      "sha256": "344e70fa30cd1e076095ad419a22097b228aa80339f8ed3f30fb7e00e6ae84e6",
+      "installed_path": "transformer_lens/model_bridge/sources/transformers_driver.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/vllm/__init__.py",
+      "blob_sha": "ee059a6e691e260980c87710dfdf97c4ebae24ea",
+      "sha256": "d7933ed94681eb0b9d2dfea7e0d8a7672e162561592c797a0515a22cde467d2e",
+      "installed_path": "transformer_lens/model_bridge/sources/vllm/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/vllm/driver.py",
+      "blob_sha": "a08085907658cc8694457256b33245ccc04f77af",
+      "sha256": "f81d49febe83083a1b122ee168626f6fe00650f4f4941f5d07914f721975dd19",
+      "installed_path": "transformer_lens/model_bridge/sources/vllm/driver.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/vllm/internals.py",
+      "blob_sha": "4ec1efc621972aebc20dfd2f5d7912e1eebf77df",
+      "sha256": "dc8af98e52371a1f6d7cbd6e123f4fe77907e43ffa723636c2d57b70dfc65a0b",
+      "installed_path": "transformer_lens/model_bridge/sources/vllm/internals.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/vllm/intervention_specs.py",
+      "blob_sha": "4181de8b750c6c893926d850a1a3f1c9cc2d0b93",
+      "sha256": "299a526b2460db5e560c77799e01ef534537145f396e56fd8df7d23f9d9b2785",
+      "installed_path": "transformer_lens/model_bridge/sources/vllm/intervention_specs.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/vllm/overlays/__init__.py",
+      "blob_sha": "37d3650d75c3240d9cb220accc3f9395db8fc729",
+      "sha256": "22fb6a13c541479a64d8b871000343371e88b2bdb1da17e49cb9d5d97fb22267",
+      "installed_path": "transformer_lens/model_bridge/sources/vllm/overlays/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/vllm/overlays/base.py",
+      "blob_sha": "e59bad5392f438f193df72d669c123f1f78b0dfe",
+      "sha256": "4c864f5aac127376ec12686a8e43ca9bb769f6f687878e4599881354e565762e",
+      "installed_path": "transformer_lens/model_bridge/sources/vllm/overlays/base.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/vllm/overlays/decoder_only.py",
+      "blob_sha": "50b2e80d3ca2e1c7927b02b4c2a102ffea338637",
+      "sha256": "59266144b5903d7b8d5fb78c11a5fc120075f8d3204b58aabd10851521a5dcac",
+      "installed_path": "transformer_lens/model_bridge/sources/vllm/overlays/decoder_only.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/vllm/plugin.py",
+      "blob_sha": "dcd7b238e7ec27571a5acba1ccf02bd63a8017d8",
+      "sha256": "957e55140a1d38b1d42e17a6a86f44ac43196ab1accc3d15491cfed89a482f22",
+      "installed_path": "transformer_lens/model_bridge/sources/vllm/plugin.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/vllm/source.py",
+      "blob_sha": "ae62fb8de4fa181a9914e664b1c30d22458ca5f3",
+      "sha256": "002ff27451e918a75937fdf983267285859dc160c8955aaaf4acffde74631fd3",
+      "installed_path": "transformer_lens/model_bridge/sources/vllm/source.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/sources/vllm/worker_extension.py",
+      "blob_sha": "ec89daea908a9e075c12bbff8dda4b73fbbfe507",
+      "sha256": "00f330b385f622732bf17e46a5cd7a35d871b7753979560073c3e3c093660a0b",
+      "installed_path": "transformer_lens/model_bridge/sources/vllm/worker_extension.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/AGENTS.md",
+      "blob_sha": "8e7a205a65e759c2b37b834688e37d2d00136008",
+      "sha256": "40d1fd31888a54f164b4f0997114ff3e043a8a7d430083f4158fda70811816f5",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/__init__.py",
+      "blob_sha": "e6fb7e4b541e4736423d9478b921384f8dddf0c1",
+      "sha256": "63f5d58a86a73bd37ad4158a6f6caf6a06d2dacd812ca7a1f1bb8761d628f758",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/_remote_code_compat.py",
+      "blob_sha": "8f1250add96ba61637b77e59c4ae9f5978084f68",
+      "sha256": "36dcfe2362ca3220874a2a9e79c1e4010f4aadf536f4a16114324fe22d30347a",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/_remote_code_compat.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/afmoe.py",
+      "blob_sha": "d13aa91e631476abfda664eec3d18772a482d52b",
+      "sha256": "cabcfff07e1b1541fa8b67085ad1edc6b63114eec9af796c798a5b3745fe557d",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/afmoe.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/apertus.py",
+      "blob_sha": "006ba7e493826fb83c88ec30e8a89814c995f069",
+      "sha256": "c5642d173c2bcaca8d2502f0d6f50befa20ae9f89e1d6872ad634439074552ba",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/apertus.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/arcee.py",
+      "blob_sha": "a9681328cf0f2a665b0940cced62eb11aa819f98",
+      "sha256": "449460ef5443bff1cc577719535cb24c254ba1e8cf8fccf3dacf5930df654e83",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/arcee.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/ast.py",
+      "blob_sha": "5ecd7c71343a26691e7e3e900c09964e145ce09d",
+      "sha256": "63dbeb9e1bc824b4ebb43c6e1c53e6e2632c1d9e672465876fac993e6db5481e",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/ast.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/audio_flamingo3.py",
+      "blob_sha": "20725749a89549090aa812c53f2cf39ab0534d8f",
+      "sha256": "7d97741e42d6160f3ff0744d5793580885f245fbe74bd40a672ba3c6d1ae2803",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/audio_flamingo3.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/baichuan.py",
+      "blob_sha": "626f8ac006f75dc91c9d620726fd8f89889bd206",
+      "sha256": "33cbea895328169a55cc696621fa4a2e13422f8f633122219018ba52d8c99abe",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/baichuan.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/bamba.py",
+      "blob_sha": "c4c3e1905f7210562102de5fc61d968fed26e5af",
+      "sha256": "18df5df5806cf93be2da1a0154d30d9d396f5c7d4b965d69db728ab3d17fb172",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/bamba.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/bart.py",
+      "blob_sha": "7d553832fa30765dfdf68a88bd02d57a082a1cbd",
+      "sha256": "bfae845fee5acc677ee054c07616ebb4f4cdef5dd0dba3cbea36e86fdc62d445",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/bart.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/bd3lm.py",
+      "blob_sha": "003a1647ac97d4cc0787eca729641ce0d9f75eb2",
+      "sha256": "6f997ee6be100e438bee587cb88ab5c50fc1e9f66d9be0f6bd730d49584b5ce9",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/bd3lm.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/bert.py",
+      "blob_sha": "bf3c1671e1375705375f7b969db680dc62a8408a",
+      "sha256": "7011bbf80862cdf61694e3c4a4b8d7f355a4c6b59d0fa19a162c6475395a9f2b",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/bert.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/bitnet.py",
+      "blob_sha": "0b933d9d41257f2bb4405b1ecbaefd1d6ca19bc1",
+      "sha256": "f446ddaf15454b2598d1d721293f400873788e6cb97a0dec81f61b9abd29e68d",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/bitnet.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/blenderbot.py",
+      "blob_sha": "6d141e557707b3484bb3e0219df3bae30593a58f",
+      "sha256": "80c278662aa6405fdb57b9b8b538d758978565f75fa2102aa0bb86b8398836b5",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/blenderbot.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/bloom.py",
+      "blob_sha": "c82a365de9526e4a2a4c045305f009e0e65a40d1",
+      "sha256": "2a4a8b509d13bd7bc99d6e52c2a50fb8506ccf2d1db7948701bbe3e01115d356",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/bloom.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/codegen.py",
+      "blob_sha": "f8ed8354480c7660c4bebcbadaff757809fe6405",
+      "sha256": "b7c5493d240dae1dad4c239ef6c13e75caf3d1e524506e4e27a8450db0bc42db",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/codegen.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/cohere.py",
+      "blob_sha": "9080bb16e79090ba741d5eefea9af6324da6b2c6",
+      "sha256": "83d4dc9256b6fc47c86e3b6a26f8dc421cf16e2253554a44dfc3e5a01b749ba1",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/cohere.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/deepseek_v2.py",
+      "blob_sha": "7f1dc1afcf93ea4d941df987f9afb850e69d29a6",
+      "sha256": "236f756290d3106b8fff3c984bd23f65dfbf580683e41c5e880fd9a43243ab10",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/deepseek_v2.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/deepseek_v3.py",
+      "blob_sha": "f2114eb4f4104cd7e69acdfd683c3f4e9a3d43ab",
+      "sha256": "1050c329abfee82acb50c015c46cede7f0005adc2b1ffe8819f7f7e07196902a",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/deepseek_v3.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/deepseek_v4.py",
+      "blob_sha": "b2d51415e5b39431347f7f049f03d52079778705",
+      "sha256": "5589d39719d47f465e388015f99270e46d577326182301fd7d203880036b3071",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/deepseek_v4.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/dream.py",
+      "blob_sha": "6db0627150a6bd38202e6d4da2c83508f2f06b6f",
+      "sha256": "59ccb7fdb22f2b2b36d2eab64345c7d85392a7328a93448db00e5b4bd934010b",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/dream.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/emu3.py",
+      "blob_sha": "61db2f1d74704f0f85914b886eed9fc6e384abd8",
+      "sha256": "ca4803cbd8ace6f01e068e6a33d05e9a07db706f7c857a9d203de71361e3dfc3",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/emu3.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/ernie4_5.py",
+      "blob_sha": "a9e5a5512c65782488e7603d075b6665054b174a",
+      "sha256": "1e6e8dc86756c5adef98a4b51a7ca64cdd89207b30979f808a851d405c6ca843",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/ernie4_5.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/ernie4_5_moe.py",
+      "blob_sha": "ab60e54c81ede35e29bcf84e8773072382425438",
+      "sha256": "f1525d22653b78badc2596ae52525ae2a3e9cacb9d04697fc07d9b22b25509b2",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/ernie4_5_moe.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/exaone.py",
+      "blob_sha": "bbcf1a40234e32156d409575eb62827edf5a764e",
+      "sha256": "2f6e267a825996c83ec51f424ae8f1ac341a0b3d75c19fb3154231a2c1cd8b70",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/exaone.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/exaone4.py",
+      "blob_sha": "1ffdf3ff96937aadd03d4ec62bc518f351857a76",
+      "sha256": "879a46e676bf6cc0b79d5a82ce9ccb6e0b5b8346d11df427fcbde95b0df5b1d4",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/exaone4.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/falcon.py",
+      "blob_sha": "7e7cc6e8529185ce3117e3fd0719a35c8c10c499",
+      "sha256": "40ec0d0352d3e144b5ce1690f557a02bae661f975b45f45fc64a325267218ab6",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/falcon.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/falcon_h1.py",
+      "blob_sha": "b633cd42f9b406f25d77562ac661107668707c1b",
+      "sha256": "50b0eb20ae5ca8c9702d9a787875da67bab0aeb742a0f915a85cdc034b997d9d",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/falcon_h1.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/falcon_mamba.py",
+      "blob_sha": "ca7a61f7792d6f06eaa173989a462e536fdee035",
+      "sha256": "48a019f42b322dfc306e1f6603fc68ac623e8ab293377b0948199c10f0ef233e",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/falcon_mamba.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/flex_olmo.py",
+      "blob_sha": "e3e6c5828595850b9e0275736c5bee0e61f47bdc",
+      "sha256": "a662efa9bae1696cac58eb7c521049d8e721a7a0dbc1fc27d9b1bf5450f780df",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/flex_olmo.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/florence2.py",
+      "blob_sha": "1ed78fbcc13a2f79f9c0e24a64f533f101179a0e",
+      "sha256": "6723e3ee9a79e78b0a0bc6a6d8254eced14b8d1b77dbdf0915af93154e39443b",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/florence2.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/gemma1.py",
+      "blob_sha": "87c65fa4d6ce85348894e926d2189851d9a83c99",
+      "sha256": "7097c3798361f49a6e5265ddd78f8f7b8f7a4bc8ec6c223bdcb7fd6c0bf02699",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/gemma1.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/gemma2.py",
+      "blob_sha": "5b7b6395f84a0b19703269b1b67bfd1d72040049",
+      "sha256": "6c67765bc5dc918b097135839a3808e5a7e9978c05ec6ecfd67878d0082495ed",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/gemma2.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/gemma3.py",
+      "blob_sha": "76e6cd1c90dc894454ca9fa7654a44b0b6b33825",
+      "sha256": "b38e232b8c4022672a0d2d8c2904a0c0f70f73eae546978a80ad24a499984c8b",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/gemma3.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/gemma3_multimodal.py",
+      "blob_sha": "1701bf7aa688d30884aa2db9c1360ef401ca6ca6",
+      "sha256": "9ba36889cf1e4aa27728c086424cbaf54ab45b1eac370a9a4b0fc19bb1318ed0",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/gemma3_multimodal.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/gemma3n.py",
+      "blob_sha": "e151d9189db25f001e6895a20ebe409abdf14837",
+      "sha256": "03280d8e5e2664d15f256151d931a423e86cd3603ee037911c430bc34466dd40",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/gemma3n.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/gemma4.py",
+      "blob_sha": "555e4fe36d148028f9d7838142f81cf91ee83296",
+      "sha256": "f95edced70d4254f705c5d7c97f8c527e448d24fb6aced6789a09a6e36a28e0c",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/gemma4.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/gemma4_text.py",
+      "blob_sha": "c5f07b47d2b4e8bd5a4fcfb62298441ce3c65020",
+      "sha256": "baedf99ac58bc8c30ce38047771bba7b4b3924d25904f588add303b6583cf799",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/gemma4_text.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/gidd.py",
+      "blob_sha": "a6ee6a5593101916ed547b163efa205cc34206e0",
+      "sha256": "c86a40be022ec9bb6ad211f71b4dbf226a6de12bdcd3dada98a7568e79eb825c",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/gidd.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/glm.py",
+      "blob_sha": "68861f7b036a40398776a13058d3fa27fe3e28ad",
+      "sha256": "737074917a737554af0a5b3d968abbb62c9719dfa1d7671633b47f8da92ca16d",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/glm.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/glm4.py",
+      "blob_sha": "d612cff8f2e9328e46ea6efa9f4dd39c750ec673",
+      "sha256": "fa04ec3a6e0beb33c548df5bccaf9d9f620d4d3d57ef3f8728535781faf9fa2d",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/glm4.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/glm4_moe.py",
+      "blob_sha": "fc2e8bfb98109f7e689f6cdea1f0192101ff6438",
+      "sha256": "232e8e4d044ebb5f8209793cf98eaf932337bf7db52eb32efc9001083ebde45c",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/glm4_moe.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/glm4_moe_lite.py",
+      "blob_sha": "98773758ca28e41367ebc2ac6e01f2a1681bc1d7",
+      "sha256": "566f48cc950867f2af4527bb7f4683ec067814c4c516b1cc302c0bea5c8b4d8e",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/glm4_moe_lite.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/glm4v.py",
+      "blob_sha": "b8d959b28a42d94fc8d3edb5d0a8137f0b8de7df",
+      "sha256": "a9bedea8d7c24d6c31606e6c2edb82b853720001286a3837a15c7491d85fb5a5",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/glm4v.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/glm_asr.py",
+      "blob_sha": "d02336b43fc286a1daf0c886ee1c2f93931e5ec8",
+      "sha256": "7091beb19c0a9bc9435d10955b2a29535873413b052966aaa2a0edaefb15142f",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/glm_asr.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/glm_moe_dsa.py",
+      "blob_sha": "5560ee31d1e9fa95edda273c058532fbda334616",
+      "sha256": "75527edcd77b5095cb29cd6709c7b79716606876e8f4025917286a2b6fbb895c",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/glm_moe_dsa.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/gpt2.py",
+      "blob_sha": "bc68d064e8f7e9e44051bc51bdd3dba0d80d3654",
+      "sha256": "aabc4a78c33288245879c1229c03bad9c634acd48da3492c46ac89bd0b232c1e",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/gpt2.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/gpt2_lm_head_custom.py",
+      "blob_sha": "f0557e09fa274a01bab078298fdee09f95ecd24d",
+      "sha256": "0923865817fb98a3ada164074181d5b970bd55bdf2a440e2105b5ca877ce388b",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/gpt2_lm_head_custom.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/gpt_bigcode.py",
+      "blob_sha": "2f3d7aa2b0d3268163dbbdeb3f9db889dd09c8bb",
+      "sha256": "5eb80c0e56e82e5d99d2268ca2262c55db0c7bdd80f80891d46fa0341f252ed4",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/gpt_bigcode.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/gpt_oss.py",
+      "blob_sha": "1de8ad1086ed047500eaf5bb01cec10fbb8acefb",
+      "sha256": "c05acf96790affc53dc00bb267561850ca2be2aa981105ae4435a6aa78f8edea",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/gpt_oss.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/gptj.py",
+      "blob_sha": "9ddb6156875c64e79f4bab48d65d1c02b445f834",
+      "sha256": "91feda05d029a161637eb237830e0843e7b2c0982e383bd73811bb39aac35cf8",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/gptj.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/granite.py",
+      "blob_sha": "1aada0b28999861f7aad44633371a0f252a38bda",
+      "sha256": "d6a24c7266593feded55e2d5cc3dbb1e7ded63bf433c96cd6b8922cd8d4b5063",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/granite.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/granite_moe.py",
+      "blob_sha": "194dfdb1cf23dff117300b57cef3d7d50dcaf7f1",
+      "sha256": "ff200da29570b101e0d8a5b3892431e277857d9fd015b98f908596886a9d5076",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/granite_moe.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/granite_moe_hybrid.py",
+      "blob_sha": "5065574461933f658600644ef575f94ae213c009",
+      "sha256": "e3097ff45531230c0521bc8fb86d4f74c6dd870cfee70687e499dd9d2e3f748c",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/granite_moe_hybrid.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/hrm_text.py",
+      "blob_sha": "b5a1d8a2b0c2ffc48b92b74aa0462c3812e3f7fd",
+      "sha256": "e1b59012a37a8a7330c20f62f131a2918e29678674caeaae080e4d4bf948f60d",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/hrm_text.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/hubert.py",
+      "blob_sha": "0e11e8682b2b1edbd666277fc208eab68e8fa313",
+      "sha256": "af0086933fa11b73639890de9fc28f7be936d756f40f4a9db265b185cf0a19b1",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/hubert.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/hunyuan_v1_dense.py",
+      "blob_sha": "f3b1ed755d1ec8f77d3946ae954931413cf4bf86",
+      "sha256": "44aafc4af913986dbfb179d1986bf46df7f219ffb7a6cdc37c05efc8bf9e9fe9",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/hunyuan_v1_dense.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/hyenadna.py",
+      "blob_sha": "18e0ff6358fc24b576468d87ab43bfc7d696ec16",
+      "sha256": "714265833415ddff30b1b3b3fb12ada2c6f6da8e33434ce3d9e4e9eeb41441e1",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/hyenadna.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/idefics3.py",
+      "blob_sha": "7455e5dd822a63d2ff8aea0ed3eac304c462e9f0",
+      "sha256": "b855f2ac6cad96739a66c7f6f3c44dda60b700f803d0d12f9699278a82bb3dcc",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/idefics3.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/internlm2.py",
+      "blob_sha": "a35b34f2387d0a9e2960b2b0452006bedc73546d",
+      "sha256": "48402e6f30f2d7618da377f634e1c46c28b76fe6fe069e8a5dc21ee416740d58",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/internlm2.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/jais2.py",
+      "blob_sha": "fdc82d24613faa28be3366513dc5f80f1d65f273",
+      "sha256": "04e00b83dde4f314c57be8168a2b72268151b2af70b20de833074a976a0e927d",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/jais2.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/jamba.py",
+      "blob_sha": "d2613230fd15a714f085959406048b14d24d906c",
+      "sha256": "e6d7e28212003f5be247678c94afb5229b1616f75764390f3f478df14d6fdca1",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/jamba.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/jetmoe.py",
+      "blob_sha": "95e82ff767b8ec76d9729c43ce54c40761fc6c17",
+      "sha256": "8c0f332629bd112770e7b938a96bc1ae14c7db2d1e3e4d5cafaac0b156eff366",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/jetmoe.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/laguna.py",
+      "blob_sha": "536c4f2ba86eaa45583f75195d8ed6c4bf2c76bb",
+      "sha256": "52315ddbbc6705ec877a945fd697bd67e2f313866ab8fc85891c46d13507d853",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/laguna.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/led.py",
+      "blob_sha": "c48837e9d16c409f3f09716293f5f1365dd90194",
+      "sha256": "b27c27ba8d64e0a35dd0a3d9caaa4edca30273aa07cc1063c9ce7f6ad491a532",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/led.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/lfm2.py",
+      "blob_sha": "512bd378dfa33cfe80749b08405c5b0717786f88",
+      "sha256": "db42da65b9bd1d31d8944f0b7cb4f1932acfe9cc07289f7414f689642692d089",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/lfm2.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/lfm2_moe.py",
+      "blob_sha": "2751f140f36c35e75ad1803ad3e803a1118138f5",
+      "sha256": "8a49566e75c9cbb514bf8b39fa7bc5c7c24d9ce28a0163f5c64bcd946aa75720",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/lfm2_moe.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/llada.py",
+      "blob_sha": "a1feba7fd3877a1aece80fd8b156dfefbc8054f4",
+      "sha256": "662f245380f7735d615dd7c523072d4469a8b18006e2bc99f4dc500c7368df24",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/llada.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/llada2_moe.py",
+      "blob_sha": "92ceb494c64eb26502ef24500645b0bd8c1c33c8",
+      "sha256": "064fcb89d3fc5d061c2ddbfb2ef4537ee3efc328518d7187ccfaab4fa8c6f79a",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/llada2_moe.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/llama.py",
+      "blob_sha": "1c3890e6a4ce9b85ae9ca55ec9eb3667bb346f94",
+      "sha256": "04737297a0a3b282c271e7bb9be7dbff16f0c3a17f6123ee64cacf0b2493111f",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/llama.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/llama4.py",
+      "blob_sha": "f9e23d5a28a4ea25fdc03d04011d1b2f98e96f26",
+      "sha256": "91d46f73177ffad09e92208f1bc5a55e41cbc7ee0552ef7e9acf6a8834a97dbc",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/llama4.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/llama4_multimodal.py",
+      "blob_sha": "20915d4f19097a7abacd68b29a234e42da91a887",
+      "sha256": "990c1f65ea198de0f0224bbffc02b6537fcd1d68f8c458f8ac097f547b8b4369",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/llama4_multimodal.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/llava.py",
+      "blob_sha": "ff54568530c04d95824425bd6b51a81128229236",
+      "sha256": "e04b1a8c6968938b5489f00ec68e9fa23c7b9d7ceaee912404fca2cd93228d7e",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/llava.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/llava_next.py",
+      "blob_sha": "5f5196870432caa6c5c2bb9322850168b9dd3c04",
+      "sha256": "a18c3b7525c6414cc1900f9fc4004a759fb252a066a960e312583c2aff494528",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/llava_next.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/llava_onevision.py",
+      "blob_sha": "38dc36e4ef3655d5a2fa99244e3979f5079aeba4",
+      "sha256": "68195fb359db21a3a8751ae9ac498e6969cfcf335ee56cb0cec0ab67c3630a58",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/llava_onevision.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/longt5.py",
+      "blob_sha": "bb226632c79e1a06794571e5d9a450494dbe9b47",
+      "sha256": "8c3a9910e7f8d7ed511affd3c3fc90398fb278b7de696ec700dcb32bff52d9bc",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/longt5.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/m2m100.py",
+      "blob_sha": "a84a3a6a1e5aa1e0725e40a10d942e60d6face2a",
+      "sha256": "9ec18729998d3f7c64a113f7974f8ef91ba26628d2321d169e78da6b38fbbddb",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/m2m100.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/mamba.py",
+      "blob_sha": "03b6f3d9533b869da80a6573992f7b855e7bae09",
+      "sha256": "5b436574b234a9fceb030d082f9f18805f7bf36c592226aaa530426af3bbc690",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/mamba.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/mamba2.py",
+      "blob_sha": "4716e79f0200dd64621e136a7013230963a3c585",
+      "sha256": "a351fac8fd49a347e0e52aa922f4fd51a1b393630e96f2d7a5304728a54cba1f",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/mamba2.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/marian.py",
+      "blob_sha": "b0bb00c7b472ecf7abfae73eb0ea0308840026ee",
+      "sha256": "6fa6bd4206472ca0b50ce9b4feb1ee853926d44c49c8949d9ed3af7b3a80259f",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/marian.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/mbart.py",
+      "blob_sha": "6424f97b1b4c83193dfc84d8a6879e2bb2c8dd19",
+      "sha256": "4c96e4f848de19a89481357102fd3937bb3dbb8de5ae62230d12a1e6994237cf",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/mbart.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/mingpt.py",
+      "blob_sha": "22cdeb66480bd29473726690210410a7eab31b34",
+      "sha256": "1b2cc2d03fad5f6add338f11331314282dfb2481a8e1ecaa9bb03dce1594d016",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/mingpt.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/minimax_m2.py",
+      "blob_sha": "4c44813f35122f16e2688f652623fd13e7f93bd3",
+      "sha256": "72b2b46425beb3844c9a60dd1556d95671def5abb07d7aea37c9aedff7b3023a",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/minimax_m2.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/ministral3.py",
+      "blob_sha": "89ae76e44cfd440bc75caaf21f41a255dc3f537b",
+      "sha256": "cea27966e0a414c2cf6ec9dac4e4e7f48d32fd7e8e4b29862aeb48ba6d624306",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/ministral3.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/mistral.py",
+      "blob_sha": "62495036cf5d4729110e1a4772637ae1a3871b02",
+      "sha256": "3702822370e8e0eb230028d03583ce71f13cfb1ecc86184ec540ec344bce5a33",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/mistral.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/mistral3.py",
+      "blob_sha": "f93a2c29dd5848132cf2cfcd88d33b18c261f1e8",
+      "sha256": "cadc3c3964d17f66674a2ba65bb9b33635ecb55851c5a3b4e965f3fd9d0886a0",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/mistral3.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/mixtral.py",
+      "blob_sha": "57e3cedbd030c7fdbf83d3f7f7d1bf145d6bc2b0",
+      "sha256": "35c649705cee224cfff1dc83c7b855581446e1be4cc35dad563098d1a80be756",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/mixtral.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/modernbert_decoder.py",
+      "blob_sha": "b9505ab4aa9ad791b1f23852b20c9dd56ba89acd",
+      "sha256": "18ca641dc96be9f108580ae413dc0996e7b94ca46b7cb33022a9c03a0e931e13",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/modernbert_decoder.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/mpt.py",
+      "blob_sha": "760c3d6499bf123e89bf95e55bb0b183ac726379",
+      "sha256": "be1f60857a7db14f55df38aebd5c942e35a6beb93cc8041068f9140f12ba8374",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/mpt.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/muse_glimmer.py",
+      "blob_sha": "313ec6896a550257a7b2849440db2589e43a21d6",
+      "sha256": "6858a77d36e5979dba00a6b4bb41be55a98f0488db03235ce074996e830e85b0",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/muse_glimmer.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/music_flamingo.py",
+      "blob_sha": "b116eb7663293432331d97c5896a36ca8bbd146d",
+      "sha256": "76efa948f2543717caff5494618a343e595bcdbe363c8874c6c9437a5853d6c8",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/music_flamingo.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/nanochat.py",
+      "blob_sha": "ca219e30e29983a9f17a9d7cf468dddce0d5c527",
+      "sha256": "063b9a290c0d70eb694d0e420c0ad1c4e9bffaa448e27ccbbb7b0c23e6d72340",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/nanochat.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/nanogpt.py",
+      "blob_sha": "5ba52e4bf88ad3f486d9a55e8aef23927a468b36",
+      "sha256": "839e99df8bad327db80bfb929cb5d454a7d7e5a0d4520295ef1e51f006decada",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/nanogpt.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/native.py",
+      "blob_sha": "903f4983ff02a501e7d72386f99b7866e7f54cf5",
+      "sha256": "fbca2a1ea880074f85529be81527f533183cd4f2c562a560e864e6b9081b32c2",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/native.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/neel_solu_old.py",
+      "blob_sha": "4b114b3010061f6dbc25263ed92beea360b7b48d",
+      "sha256": "a39a78c3537f7bb1ec5a7e0dde7030b2d4508f2f08513b55cb39f41c5235bfe1",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/neel_solu_old.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/nemotron.py",
+      "blob_sha": "a8c55438a8dce68d871e540288f1eaea823cf27b",
+      "sha256": "8358fc592264f9cc40b4851704d4d5a19e4923da0e7c36bf586eaa5923858529",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/nemotron.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/nemotron_h.py",
+      "blob_sha": "5a190d4e14faa3e5b5d041f3cf9e9a94a83d893c",
+      "sha256": "a61335f126650f10d056bd4a2956b0e4fd37b67965844376f880042fb338e90c",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/nemotron_h.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/neo.py",
+      "blob_sha": "3adc75d160775e74b23cab5cb6d77e7fcbb8b3e3",
+      "sha256": "6faf59976bbf0a8785e5a04774f67a9d30e1f58eca9799ceb42603d5d0df9e1f",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/neo.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/neox.py",
+      "blob_sha": "7a2c17b0151f9c711a8d74cd4c5dd93693764b50",
+      "sha256": "80f45f084c80ef687dfd6a93c9407cdf1095fdfccdac193529a9ec9ff5709264",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/neox.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/olmo.py",
+      "blob_sha": "93335c011f5b0467d0d28f491aaa49b2b871ac94",
+      "sha256": "2e3390c7751629cb5919737aaa823ed8e219802f1e49417a305c930b3f79093d",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/olmo.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/olmo2.py",
+      "blob_sha": "04ce424eb574d8673ab47daad1d893071e27e56b",
+      "sha256": "b96642632ea51bc7c99a4c60f74e264ada816e13829b93a831f846f13882674a",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/olmo2.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/olmo3.py",
+      "blob_sha": "c7c74c9b62b44372b11a8a905dc336e5bda9cbec",
+      "sha256": "861e8db5714ab6a16b23d17e35bdda82894e600cc73b5229b72f21a9a56a4211",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/olmo3.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/olmo_hybrid.py",
+      "blob_sha": "ac6672e8ab4035f6326225dd419b33978c5464ae",
+      "sha256": "c1401a38f5592efe0bd249a89e5b2bb8782469c0477f1b051c9509ead371c54d",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/olmo_hybrid.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/olmoe.py",
+      "blob_sha": "9039c8f90060aeaaefab505d6fee93a8cccbaf62",
+      "sha256": "06fdea5479999aa69f055a598ffdcb1e40f5a515775e36aa96c9edcc882fbb55",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/olmoe.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/openai_gpt.py",
+      "blob_sha": "a9246aac17176be6f6b87aa29cadfe158eb19f74",
+      "sha256": "ce4e57f5163f55cf4530a78bbd3916bb49e17e144e96d65add6f3782e21e1abb",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/openai_gpt.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/openelm.py",
+      "blob_sha": "973601f05f5d16d5d9a159920043dc4bfd08e4b8",
+      "sha256": "7cadb8345ce69eb194071efa5d35fd3fb792f64c43db52212a8accc0ab60975b",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/openelm.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/opt.py",
+      "blob_sha": "7cc57b95af5ed43a9b183ec1a47116d5fd84a7cb",
+      "sha256": "15432cae8220344c79cf62c2c1bfb716078d9bef903af5f460dea06db48337e9",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/opt.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/ouro.py",
+      "blob_sha": "27fbda94d79731802b7b99ff27204d5c5b3cae04",
+      "sha256": "300375804fbc04f05a4911ac4299ab94623c4f015710167edad9887b968ab1e5",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/ouro.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/pegasus.py",
+      "blob_sha": "dccb44e063615f7b8b41de2cb0984cba49cb898e",
+      "sha256": "93d3342a1ff5815fe95583dd4e15b33773fc0ad63e8f6ce7a34108b18882b302",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/pegasus.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/phi.py",
+      "blob_sha": "a0f50ea9c26cf0b3b0c1d38ccd1ff54528e979ce",
+      "sha256": "5397f9da6f89faa21a98a32288370a4ddcd67c0954f739340f270cfba30fb669",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/phi.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/phi3.py",
+      "blob_sha": "05d2fe57320d333c5ecc590ef7ea95d754e7c812",
+      "sha256": "6c3fb12e6308c33cdbf29bca9c51799925e67cb2e06c0ba18cccd0b0dcce397f",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/phi3.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/phimoe.py",
+      "blob_sha": "f6c0d2b03a522e526df5f43cf5aeb8f58357b465",
+      "sha256": "c06061e87865589d5a31fdce1b8062233d7d5efb4cbc67b0fc7f6a5aa24b60b6",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/phimoe.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/pretrain.py",
+      "blob_sha": "df72227f576d26f6ce9e43f90db97ee4304c1b31",
+      "sha256": "0c477a95f758029cab650cf1107b2a35b3036a2a87bcbd34ca13cc8eef2d483f",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/pretrain.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/qwen.py",
+      "blob_sha": "661cb6d6349b53a5ece442abf261970ac9198c76",
+      "sha256": "e43e4c05ec14d407896846b1e7920a6a4df3d08c27d78b0b489400c2cf1a08b4",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/qwen.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/qwen2.py",
+      "blob_sha": "4ba85c54335ba7da4601413e86b141cc8d0b248a",
+      "sha256": "5611b2dae54f957b4fe53b0e12d5acb758ac17a83ee0eacbf445bd2f6ed5a0dc",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/qwen2.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/qwen2_5_vl.py",
+      "blob_sha": "81418f4e72faca08409ce5686e68e616ec42c1bc",
+      "sha256": "9bac693d62fe4e13ac9fc3c2373f4049d7081d80d691908d591884c780d87d1b",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/qwen2_5_vl.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/qwen2_audio.py",
+      "blob_sha": "1fc19603be30dfd5b355e2a786fa4abcbd86554d",
+      "sha256": "4e94e8dc373e0c2d8cfd2e712a4dc854c8d17b5910b1a3eb5726028ccf2f6115",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/qwen2_audio.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/qwen2_moe.py",
+      "blob_sha": "2d52f8e3ef32a17386fbd7399faf714ecbc71f15",
+      "sha256": "686971b492158851f9f492d441537f7d9526a835a6e797071de286a95c5799ca",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/qwen2_moe.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/qwen3.py",
+      "blob_sha": "a4481dfcc0a0a8788714108414361617faa46bfe",
+      "sha256": "57d87912d4441e98d770a75968fed5304fa48855a599ff4e3af7a94778c0a46f",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/qwen3.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/qwen3_5.py",
+      "blob_sha": "412c1aaf0c3fde2d21c8f40aeca486b357b74b9e",
+      "sha256": "96b450ab858da34dd2a016eb7bac05f97e5b0fa6c2bd5716b7ede75b424a858b",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/qwen3_5.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/qwen3_5_moe.py",
+      "blob_sha": "39e20c53417912b2c6d4031972e41240f95cdbd9",
+      "sha256": "19123dfc50b85adfd33e8ccf70137b77199d81d56d1d29cc5500ff33aabcfaa8",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/qwen3_5_moe.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/qwen3_5_multimodal.py",
+      "blob_sha": "82e129d3a3fd9d2320a8dfa83f15487364b2357c",
+      "sha256": "c0db3fc80d9f32e0c9b73d0d1ea7def77c83f9a674cf0e50c8709f1a1fe46e55",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/qwen3_5_multimodal.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/qwen3_moe.py",
+      "blob_sha": "3333501762eaddc32d2e21a569956bcae717cf82",
+      "sha256": "7f51c0750a71ff86d1bafa38a88a5a381881d87736043c1cf22de056a1a3f1bc",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/qwen3_moe.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/qwen3_next.py",
+      "blob_sha": "3e7808f992a19a278cfec0a767c07d43a2516336",
+      "sha256": "c492099a9e77a2e8e2577961c89cbdfc0036b60aa7856387f1b53f999631417d",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/qwen3_next.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/qwen3_vl.py",
+      "blob_sha": "66d0d45877f84000af78804f264760dae991f27e",
+      "sha256": "2f8e5235d70f3c350cef1a396a68773cb17ce505f8ae460e74137e3d56b1fca7",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/qwen3_vl.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/qwen3_vl_moe.py",
+      "blob_sha": "8d9a7394884ece87e363d1e343299a27e3184122",
+      "sha256": "79bce37c825931e4585093d9c2f6ed2d0a2aa2a2c85e1ec2067722871b32798f",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/qwen3_vl_moe.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/raven.py",
+      "blob_sha": "c3825c5b0e43dcb160597042f2da8c00ce780f27",
+      "sha256": "6f5321ad4b6849c7860b6ce62ec44e499b20867c77345b3c865ce474215bb172",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/raven.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/recurrent_gemma.py",
+      "blob_sha": "3c2562dd854cbbe8f65305fae01c07b0fa38abd7",
+      "sha256": "7e693ecea5f29487489cc9bf36506c119e72c802cdf3f0865a42765883081d75",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/recurrent_gemma.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/roberta.py",
+      "blob_sha": "d36818e5d9b8e80144b9043ee08e2ea7a1ff27e4",
+      "sha256": "4732815de1756a82b32c39c8427b80ba9219d87d5d8abe3cdd21486396e0a5cc",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/roberta.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/rwkv.py",
+      "blob_sha": "0c10034ca10b337161a0de8fa995a8bd74d057f6",
+      "sha256": "95fdab4947326c8e4e0a0c6435bfe5f7cbbd74d5e97dbc672348b0401474db82",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/rwkv.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/rwkv7.py",
+      "blob_sha": "03ff0ce9abbcae3c5662ae1c5e412f81a0ad6267",
+      "sha256": "55d1753ace0950be9b3f264c9b862e0be669d64102f5392d39f29b18d8360713",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/rwkv7.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/seed_oss.py",
+      "blob_sha": "6fa7de1764ad83d01f85798daee63fd54f3f71c7",
+      "sha256": "34ca00bfb9cf371ff2ea4b5428f4cc6fa3e51e75119acefb16868a13edd9e710",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/seed_oss.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/smollm3.py",
+      "blob_sha": "a97126b8ad1e09f1c920abba73fcc98738f07edc",
+      "sha256": "22157b6d6b9cc37e58a7687d373e26c3c1fbe43f748f394495f2944da7769423",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/smollm3.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/stablelm.py",
+      "blob_sha": "67f1a5028ac025e53e4f23de83c91180317d601d",
+      "sha256": "19b9f32b34c4c3ecc50fddeb86263cd82368c6fce5602e21b2c72c5df96747c1",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/stablelm.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/starcoder2.py",
+      "blob_sha": "87600d8a304e91543e4ad165f5aa2ffb417020c4",
+      "sha256": "7b4c76fdbf80e56131f84a877829c7d1a6345bb1469b164c315d06438837b6da",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/starcoder2.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/switch_transformers.py",
+      "blob_sha": "2493d7269bdb13d983d194cc8be931c80be2c348",
+      "sha256": "4df37355fd54e5145152f00476b091a783a6ec47961deb065f98d2655517834f",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/switch_transformers.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/t5.py",
+      "blob_sha": "0522bdedef311ccb21dc63f8afebe60309fee777",
+      "sha256": "077feb8a5ce50ecf49699398452db17ec9b6771d61612c063c817be365b5ed28",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/t5.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/t5gemma.py",
+      "blob_sha": "1010e2e0f23d37898757845b396405d1c24bd8e8",
+      "sha256": "708854809f2bf09a7ed8429203ed41f73f2352e274b89e798983538b7ce896df",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/t5gemma.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/t5gemma2.py",
+      "blob_sha": "3eb3d19aacd72cb5482436034d597f6d19184ca7",
+      "sha256": "4157af06690eef7a5b7ed4dc21a0d2532dd3cc0578a41ef86237c7a3c024f019",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/t5gemma2.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/vaultgemma.py",
+      "blob_sha": "234d8fb2452ba99b34329d74c37e457b231cfe87",
+      "sha256": "ff5dc8072cecc6993bf00563fc89d48e30f6294459ffe22cb95d03a9d47520ab",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/vaultgemma.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/vit.py",
+      "blob_sha": "6c4bc9c4263792c49046d2be005d6203aa4cd520",
+      "sha256": "c07f7560fed87ef3c20c75e8b331863d4dc0a2714a1c9e3a8a778809e1f1307a",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/vit.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/wav2vec2.py",
+      "blob_sha": "630946ea7537a173ca59ae31104a3cdd6748f958",
+      "sha256": "74201b9ba573a447fc8a57094938560d3f7193aa51f63bdf2434d60752029c40",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/wav2vec2.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/whisper.py",
+      "blob_sha": "49afb1aa1a7e7243badc98106dc927846635185e",
+      "sha256": "383b74a88cb3b1c94f710b23e2d9726b207da171782d94c744f3c55bbd524ffb",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/whisper.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/xglm.py",
+      "blob_sha": "71deeb72bb32c66946eadbd609341d2324712d8d",
+      "sha256": "87ac73cbba22509625152281aea292a9a0705744644e305f9a1c049bbd33b0ca",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/xglm.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/youtu.py",
+      "blob_sha": "436cf51c157b314efca518c38a789ea3680a9d86",
+      "sha256": "6f9cc7fe3a8e5cd86af52065b3b86c42e89c91fe11188b665853ea534c8bf29a",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/youtu.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/supported_architectures/zamba2.py",
+      "blob_sha": "b42c406d1533e24e2c729daaa7ba77fc9f860615",
+      "sha256": "2328bab857bc3d3eeb55fa62a3819617680f85a970eb7e84fdc4ea0c1bf3566e",
+      "installed_path": "transformer_lens/model_bridge/supported_architectures/zamba2.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_bridge/transformer_bridge.py",
+      "blob_sha": "c86b5edd14bddb48f6de2f8ee3ef2566c2fc2e06",
+      "sha256": "5a9a0f612a334b718e85ae152eed5c82f31542bcd9ac9b8c6527cca69667e431",
+      "installed_path": "transformer_lens/model_bridge/transformer_bridge.py",
+      "review": "selected_content_reviewed"
+    },
+    {
+      "path": "transformer_lens/model_bridge/types.py",
+      "blob_sha": "d931955cb9adc63d489f8a60e9cd5dcd198de1f9",
+      "sha256": "6464b3505c5a21260cea70e21f544a0fc006c8c62193eed364bcde09f21291bf",
+      "installed_path": "transformer_lens/model_bridge/types.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/model_protocol.py",
+      "blob_sha": "4d6833f2d83bb04d9a72a42e3b9ede45ef173b89",
+      "sha256": "afe3ea2fcf2db9dbd10a1fd187afd1823d5fa8d67af854d7a476e4905ad64421",
+      "installed_path": "transformer_lens/model_protocol.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/patching.py",
+      "blob_sha": "8c0dcaafac3dffc4faccd874005b08f5cb10e294",
+      "sha256": "6429d54ed50bd96177d73472eecc87558a5be80b92b8d80fad745448fc75f29d",
+      "installed_path": "transformer_lens/patching.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/py.typed",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/remote_module_loading/module_boot.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "transformer_lens/remote_module_loading/module_boot.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/remote_module_loading/sources/huggingface.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "transformer_lens/remote_module_loading/sources/huggingface.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/remote_module_loading/sources/local.py",
+      "blob_sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "installed_path": "transformer_lens/remote_module_loading/sources/local.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/supported_models.py",
+      "blob_sha": "0b638a21b0e43ba97915f47629f445044061f6b2",
+      "sha256": "f0318593d98f2fb1bb5328506e534817c8409e8c38368400a451274ea247d1d6",
+      "installed_path": "transformer_lens/supported_models.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/__init__.py",
+      "blob_sha": "3c1119a900bf29a43293691890392019abba6ac3",
+      "sha256": "f09ba2cbc399db3277a5cd51862adcf0db79691f6d8f6d79b3da021da3a06d4a",
+      "installed_path": "transformer_lens/tools/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/analysis/__init__.py",
+      "blob_sha": "fbc26cda116633c139e83968365d08421f2fc4ee",
+      "sha256": "e0e62616bb9a415154c55044c7cbb9e9fa433b99475242fc94f04409b5f5a7f5",
+      "installed_path": "transformer_lens/tools/analysis/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/analysis/_model_state.py",
+      "blob_sha": "4644ce123368d857b750c95cf9294103ad31463a",
+      "sha256": "b064195a701c7a4c07fa03bbc6e733d79caeb11259e167b7cba616111696da63",
+      "installed_path": "transformer_lens/tools/analysis/_model_state.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/analysis/attribution_patching.py",
+      "blob_sha": "fa54789d331bb6b4af273510d66f03178c0b4f07",
+      "sha256": "fb29410b8c848bfeef00c085044c9fccf3cb2c06b7fe9980330033f6f068cd8e",
+      "installed_path": "transformer_lens/tools/analysis/attribution_patching.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/analysis/direct_logit_attribution.py",
+      "blob_sha": "d1cfc92a02656c87b97b1b810a58f99c52ce53de",
+      "sha256": "fdc7ffcc4daf282889592da4837e588c78d51a7721c0ad3a5781aa6dccec2b7a",
+      "installed_path": "transformer_lens/tools/analysis/direct_logit_attribution.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/analysis/direct_path_patching.py",
+      "blob_sha": "430864cc2771f3c64c08ccffb5c6b9bee9b217fb",
+      "sha256": "646d72a9009ae4977ff73f8c58d951f0199ac3b53f3d9f6c3737d09fe5b097b2",
+      "installed_path": "transformer_lens/tools/analysis/direct_path_patching.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/analysis/interchange.py",
+      "blob_sha": "e3e63b7a84864e72aa94f21700a48b26b71c0357",
+      "sha256": "021aee485331903bfb5b0ede441251627f6ce4f425b24cfecdd454381371b042",
+      "installed_path": "transformer_lens/tools/analysis/interchange.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/analysis/jacobian_lens.py",
+      "blob_sha": "5d1d21912ac83c1037f56aabfa3f4dfa8ef98303",
+      "sha256": "94fcb4fd3b8142d9b66db64be04581e8170ad391f0e98d2c712489b81a79e3af",
+      "installed_path": "transformer_lens/tools/analysis/jacobian_lens.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/analysis/jacobian_lens_coordinate_patch.py",
+      "blob_sha": "61f986007277538d791ca6e290abae25474fea51",
+      "sha256": "5179dfaca50c11d1518110c19a79844524b75f97dc0fcc8138a86073b28f4239",
+      "installed_path": "transformer_lens/tools/analysis/jacobian_lens_coordinate_patch.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/analysis/jacobian_lens_decomposition.py",
+      "blob_sha": "9a0f978e21964220f790cbb740db8513295a6ae9",
+      "sha256": "5f05ff1664dff4682b797ad89ac6e4207b62cb6016a2b23d825f686c6a4603fa",
+      "installed_path": "transformer_lens/tools/analysis/jacobian_lens_decomposition.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/analysis/jacobian_lens_registry.json",
+      "blob_sha": "56e63551fbcfc2afcc59825f91ec84b1a66f1fa2",
+      "sha256": "2cfdb301200f8c08e5688159287baedb9e6bee6323531eb0153f1b4246ad6b8c",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/analysis/logit_lens.py",
+      "blob_sha": "b11de9d17b81bee3a21f77b459fd630f3f56894a",
+      "sha256": "dc429c1eb84568d6fbc2a7767ef5856d397c8438ff42c678ac4a12ff00fe6e29",
+      "installed_path": "transformer_lens/tools/analysis/logit_lens.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/analysis/projection_kernel.py",
+      "blob_sha": "0927c1ea7f4fe32b9c0806232c025d9d3a51e373",
+      "sha256": "68138f84da03d8df74a683fdbacd737829d3551b93b930fe1628c0918bfb297a",
+      "installed_path": "transformer_lens/tools/analysis/projection_kernel.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/analysis/sparse_probing.py",
+      "blob_sha": "8e265b2633806e339453d75e08989f0668ede512",
+      "sha256": "a0080b0bbb4cbddb88bb971401f11597d4582780218550bfd07750f8794f212c",
+      "installed_path": "transformer_lens/tools/analysis/sparse_probing.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/AGENTS.md",
+      "blob_sha": "4614be820913a69b3f967bfa1113bfa55d57be38",
+      "sha256": "198a64d1fb557f489df741838dcdf02ad25fe626b8c24ed86baf3d8deb5e5582",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/__init__.py",
+      "blob_sha": "4caf1d9ab69c4b41d5ff4d4c1d42dcd9a761f0b5",
+      "sha256": "6f94018c09b9ea7c3281c5d238fc5399c5cbc2348e8515ba5b03bf36db273ae9",
+      "installed_path": "transformer_lens/tools/model_registry/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/alias_drift.py",
+      "blob_sha": "9b556be69ddace557dba3679e6b031687a7e3fb4",
+      "sha256": "b7fc6d0a5019340f80c7dd6a4726d4f5147b4508c1c7a9e2a4667a7125883b09",
+      "installed_path": "transformer_lens/tools/model_registry/alias_drift.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/api.py",
+      "blob_sha": "84d5f2279d50544dc49423019c7631792f17d4e1",
+      "sha256": "9735ef800eb70c227bbb128c7c9f08e13da4f2ea2a9bf75b103538fbcf8df287",
+      "installed_path": "transformer_lens/tools/model_registry/api.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/checkpoints.py",
+      "blob_sha": "020d8a7fce86425c51b754a7bc9676f8a9b718f3",
+      "sha256": "4be4724de80c585712425ad1c913135d312ce864a39d7b44fa98dae430bfd8d7",
+      "installed_path": "transformer_lens/tools/model_registry/checkpoints.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/data/architecture_gaps.json",
+      "blob_sha": "5b671a85862ffd3b68fd9ddb9648066bc87dcf9b",
+      "sha256": "073ae5ee18ab8c3dd6e4fa9f1e5ed7c5a658bdab586fc2b7ab76a680fb899f77",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/data/model_aliases.json",
+      "blob_sha": "60124aab0ca175695f44a22f6285cf7f8740028d",
+      "sha256": "19f044a7ea4c377c3723732e614223d3df67c6b95f8fe40a1585d9a7eddf65d9",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/data/supported_models.json",
+      "blob_sha": "7963f9f28e3df6e98aa39b0f5d157c64f19540ca",
+      "sha256": "095c39a7bc3ab7a1b0a96ebb9f304cfd0b2bee14872b5a0650ae1614ca103b9b",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/data/supported_models_qwen3_moe.json",
+      "blob_sha": "cd5b8e10437c12a209b09f18b31b9d9a1467cb01",
+      "sha256": "4a060649db7fd53bd0d7fbf0dbae579fedd0b5dfe2e53e69dadb226ed45ca086",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/data/verification_history.json",
+      "blob_sha": "df53864fd2f8f0e6a40e40be88cfc145f7bce716",
+      "sha256": "5245a3e0100c4d9a13291667864d1301b355d411e38e50c225f46fab307133e4",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/discover_architectures.py",
+      "blob_sha": "6d9c04fc38dcd9541fb27d965681d366239b6016",
+      "sha256": "ca097a5c8d3822115c93427df7487927e5ec9b3864200ef0748640dc16565d3a",
+      "installed_path": "transformer_lens/tools/model_registry/discover_architectures.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/exceptions.py",
+      "blob_sha": "63dec69d1feb80025e0e8b063aae929b2a13f37f",
+      "sha256": "f181921e3b6ee9fc50b744e1c06ee458b3761f3133e72486082660d10f7acfc4",
+      "installed_path": "transformer_lens/tools/model_registry/exceptions.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/generate_report.py",
+      "blob_sha": "22b72c8c144ed0db9e54342e900f92acd071b94a",
+      "sha256": "75c721cd4be14100a23d1ade08d8c586abd3515ee1ee9a99f18bf15a159c4604",
+      "installed_path": "transformer_lens/tools/model_registry/generate_report.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/hf_scraper.py",
+      "blob_sha": "ef8d1bb3f07dd84d60e4ddf98a83b79e3792a009",
+      "sha256": "b0d8ced6a76873338c057834346ba03963c2d8731183284dcee244efc1a9ba97",
+      "installed_path": "transformer_lens/tools/model_registry/hf_scraper.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/registry_io.py",
+      "blob_sha": "a9dddef7af72dd6f2a467035d95e3cdbdf19d1dd",
+      "sha256": "069a8495a53fb5cfd00adc2b5c6f3355c1de6b2fb5f47625ba4a4fb7ff6c6dd3",
+      "installed_path": "transformer_lens/tools/model_registry/registry_io.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/relevancy.py",
+      "blob_sha": "ad8253702ead789e44037593737f378834d6c7e2",
+      "sha256": "3e7da8cf26031f4ef3b9192799e2f44cbdebe47f7419ecabfee25ce06e54b9dc",
+      "installed_path": "transformer_lens/tools/model_registry/relevancy.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/schemas.py",
+      "blob_sha": "150e8ac296ada2ebe820a2b8d21c65c9843f18b1",
+      "sha256": "beff0d81d0d59971a97e69568955f41ec2df58593afed374d374c925b2fb2d70",
+      "installed_path": "transformer_lens/tools/model_registry/schemas.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/validate.py",
+      "blob_sha": "d070303ea9caafa6c71c922f308aa13e6c896103",
+      "sha256": "8b30c9e7064f3d5cd80a60f12ffcdaca84667973fa2fe4e9a7ed2e3c6d6849ab",
+      "installed_path": "transformer_lens/tools/model_registry/validate.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/verification.py",
+      "blob_sha": "f6734cf4a65c1bae569621067198955a754716ed",
+      "sha256": "77bcd2f818a12a2a7a89596d74c9ada568def5ca9affc595c0bc258e1a8ecf7c",
+      "installed_path": "transformer_lens/tools/model_registry/verification.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/model_registry/verify_models.py",
+      "blob_sha": "ccf61866029836a4ffb0067b350bca717de69267",
+      "sha256": "d82b8a103d4636519ce9dfc2349a0566c836e9bf2b1f65c84471dbef689478b3",
+      "installed_path": "transformer_lens/tools/model_registry/verify_models.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/tools/training.py",
+      "blob_sha": "4bbef82040e93fa37a347e5cfda022aa6f1c9fbd",
+      "sha256": "32bb9a752d9993d6372dbbb65a2a9989438c455c0073bb1a415a2fc7f7db144f",
+      "installed_path": "transformer_lens/tools/training.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/__init__.py",
+      "blob_sha": "99cea18ba6cb38f0fc21e450beaa7bf4d1d92451",
+      "sha256": "f2c2e4fca38cf5bfdabec1199b40b82fa5c72de1545825ede86f2e8822fed171",
+      "installed_path": "transformer_lens/utilities/__init__.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/activation_functions.py",
+      "blob_sha": "0b650b36027bc09773d3a2e55581f966b411578c",
+      "sha256": "40a94b859a0ed8be3152be9786f585a7ef68cdc58314714a45b32c01b14196b4",
+      "installed_path": "transformer_lens/utilities/activation_functions.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/addmm.py",
+      "blob_sha": "6474439728766c75d6e7627baf6367c5b8f7a120",
+      "sha256": "f9e72f6a3d6c508814fa8e69918c20e1cb72cbc9ae7bcb1a1abb2476e246bc38",
+      "installed_path": "transformer_lens/utilities/addmm.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/aliases.py",
+      "blob_sha": "2d8980e8c22be357528431602f7572f6cdd8b09c",
+      "sha256": "025219953e933d836588484a4996dc40baeaf1ca71589b5d8e7fc108530845b8",
+      "installed_path": "transformer_lens/utilities/aliases.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/architectures.py",
+      "blob_sha": "5b1f0c2bb3d95382c4a678ab439ad18684275f5d",
+      "sha256": "74a02b7088aa74d90ddf5f03f0ad91d35eb54a54acbdb1b06c860539d92ab0e8",
+      "installed_path": "transformer_lens/utilities/architectures.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/attention.py",
+      "blob_sha": "f5d6876d288283d8becf1279b9cdbe24bbb01cff",
+      "sha256": "61b5a1739df4b09f861a2e7005047f5dbddf5702c9ecdb6f9b495eb4218bfdb0",
+      "installed_path": "transformer_lens/utilities/attention.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/attn_implementation.py",
+      "blob_sha": "dd18e34a61d89c92152236342d83e926db1355aa",
+      "sha256": "fa29ab656677a8b591b76e98bca72893b6d7e31013fac1b1d8b5f2158eff6008",
+      "installed_path": "transformer_lens/utilities/attn_implementation.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/attribute_utils.py",
+      "blob_sha": "d133b129665fd1fbbd7a6f91d08183c8f46d14ea",
+      "sha256": "501eb4fe6adb45f4e5455cff576a0318db0035c505f0ddef0598c5253a215c38",
+      "installed_path": "transformer_lens/utilities/attribute_utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/bridge_components.py",
+      "blob_sha": "a9d525aa3d70378e1c92cde7200cdfba2a5e9eda",
+      "sha256": "ba1c5abec4eb091d8e85ade1668f534ad975df8ed69c7f1786f6349a1866c3a1",
+      "installed_path": "transformer_lens/utilities/bridge_components.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/cache.py",
+      "blob_sha": "64389f3644dcb9c657f69c0879708823982b3bee",
+      "sha256": "f415db6d5a4f72a1fa3b1f83fb545ac5aaae73fbc67d732ec8ba7977e4f57846",
+      "installed_path": "transformer_lens/utilities/cache.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/components_utils.py",
+      "blob_sha": "2ff9e2ddfaecfb2017ff5cc56c8395fe76579d23",
+      "sha256": "39a5e6301f38a15d0c5c554173a18a65ae93d52a07861802e71c4609244669ae",
+      "installed_path": "transformer_lens/utilities/components_utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/defaults_utils.py",
+      "blob_sha": "9590a384d34b243fa13890c7a5b4896a1401dfbd",
+      "sha256": "5d62fb3d387c23eca8391dd7af09f54f5fbb8041036af966eda65eda30a6e0c7",
+      "installed_path": "transformer_lens/utilities/defaults_utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/devices.py",
+      "blob_sha": "a069d227d73a0c4f57d636f2565abb540c5992aa",
+      "sha256": "05740771a10e3f6b217bc878398a8e822598173f06062e2b9ea13f9c84423303",
+      "installed_path": "transformer_lens/utilities/devices.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/exploratory_utils.py",
+      "blob_sha": "0300bb222e74e1ec28387b04a400cf9ef8018ca8",
+      "sha256": "2fe81f1c8fd9ef14a70c7fdd8bc50da02c111feec9f410ad537cceba3fdced1b",
+      "installed_path": "transformer_lens/utilities/exploratory_utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/gpu_utils.py",
+      "blob_sha": "4b50c73eb08ec19875c8fed02f62dc5b900832c9",
+      "sha256": "587126195851bb12ff531f33fad94499fde18497c986ecbef2be6b69318acdf3",
+      "installed_path": "transformer_lens/utilities/gpu_utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/heterogeneous_config.py",
+      "blob_sha": "d68777de573002b98da10dddad1bc055f8642447",
+      "sha256": "b45946f68df8a98f6cdacad752325e3de873a95eac11d7f357ae594aa9369156",
+      "installed_path": "transformer_lens/utilities/heterogeneous_config.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/hf_utils.py",
+      "blob_sha": "0bc87f7cd0bda9c9ac1016fa9811e9651d489611",
+      "sha256": "06f1a51f41a871c33b192c8d768eb441a45fc37215e32853356f66848a59bbb3",
+      "installed_path": "transformer_lens/utilities/hf_utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/initialization_utils.py",
+      "blob_sha": "064b9d8422bf44228e42b1b97070613f8dd2f66b",
+      "sha256": "805465112dbf102f6f2887436c218ba7f37767d431bad5825a677bd6d5f7bcf8",
+      "installed_path": "transformer_lens/utilities/initialization_utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/library_utils.py",
+      "blob_sha": "7e1d149c9686fb9bb284f6a399de1a3891078474",
+      "sha256": "d2159facad3659acdf176bfa7ce37e2119a1bcaedaa0db03fc1a69450da4686f",
+      "installed_path": "transformer_lens/utilities/library_utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/lm_utils.py",
+      "blob_sha": "79d47c975e794b5c8f264aac0f4ae3b27559e111",
+      "sha256": "e5003e92879a730c6a50b343f8c2ca1153fbe98b0e8ba4bcec0a7a650282332e",
+      "installed_path": "transformer_lens/utilities/lm_utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/logits_utils.py",
+      "blob_sha": "ca906e14fd5883286a26d2a16b81fbf50f25a5f5",
+      "sha256": "e7ab352e3db9a10360f9866230f8a88691a1a6a317b193469daf1b29fac31d04",
+      "installed_path": "transformer_lens/utilities/logits_utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/matrix.py",
+      "blob_sha": "9e3896fbc35002a8827622007ccbfcbcf4c2926f",
+      "sha256": "d8495906ecf3aa57d76f79c901ee51e68e9d9ca9b0f7b4b9cb1921584adf4ca2",
+      "installed_path": "transformer_lens/utilities/matrix.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/multi_gpu.py",
+      "blob_sha": "f95b1463cfb943be64ea46e316c1b08c91176d50",
+      "sha256": "33581d261c31f5523d1ac44c528cfcc5517bb57dff99301b3c9b448a91aebf2f",
+      "installed_path": "transformer_lens/utilities/multi_gpu.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/parameter_swap.py",
+      "blob_sha": "aec23a84940f2e0d505a467d5bb049fa82df0cb5",
+      "sha256": "f6564658c95b98f8dfb58bbb0d36803951c927c441fe100b5d628c37e8ccec88",
+      "installed_path": "transformer_lens/utilities/parameter_swap.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/position_ids.py",
+      "blob_sha": "fc5f11326b0375be0a0664aa4345f0072165e21e",
+      "sha256": "7d12b7352c68832b9a4099a7e8f02f0c843c2727485b1b05ac53eb16ad941de7",
+      "installed_path": "transformer_lens/utilities/position_ids.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/quantization.py",
+      "blob_sha": "dc7e46836fe00df9caa78b0db96fbae8f228c3fe",
+      "sha256": "a5dfbfc7bf35c11e490552eb6cfe12d014a86169324e45ad72516ecb26675d9f",
+      "installed_path": "transformer_lens/utilities/quantization.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/slice.py",
+      "blob_sha": "14a33fd5211bf1bda34109d8a6636a3478a963c3",
+      "sha256": "c9fd358c51c6f75961c577e45ab215e64ac193313fdd9c7a8cfb0f697131c534",
+      "installed_path": "transformer_lens/utilities/slice.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/statistics.py",
+      "blob_sha": "d387cd7460b1d3f94ae685702d44d4bb0c38bf6a",
+      "sha256": "5c7586971315ddd554d3da74d23e06223ccde5fc9cd69a660a70bd01a5d2414b",
+      "installed_path": "transformer_lens/utilities/statistics.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/tensors.py",
+      "blob_sha": "6bba9ff3d0519b904d26b0f843b51bc0bfc2669b",
+      "sha256": "d448fd9aa52ab0571b1d77b8aca350c111813be19da02aaea255935d40b3cbac",
+      "installed_path": "transformer_lens/utilities/tensors.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/tl_checkpoint_conversion.py",
+      "blob_sha": "baa9de85ec9ab1e50f7700691bd09207623c4813",
+      "sha256": "c1c8cc668dd94a4670746e9e40b4e4035b04dc64a9b7357c2022489f66a872e1",
+      "installed_path": "transformer_lens/utilities/tl_checkpoint_conversion.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/tokenize_utils.py",
+      "blob_sha": "da18ba97a444386477d31c22e98a23505a86eb75",
+      "sha256": "d9ccf1fff7caf6bc1fa9d654689ef048a7b9722016b91b5c48f3baa28d6ec98e",
+      "installed_path": "transformer_lens/utilities/tokenize_utils.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/tracr.py",
+      "blob_sha": "fdfa74c9dd2a69a5c7f1293e2e9938b74ab18c0e",
+      "sha256": "756a47e8523efeb52c55d6c81e0ccfc13da7a8ae93cf820bd7630f7b70dc8a89",
+      "installed_path": "transformer_lens/utilities/tracr.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/typed_module_list.py",
+      "blob_sha": "f5e0d4b0c54eada5bf29ce04c8dfb5d151bf3ac0",
+      "sha256": "dd10ad0c38e0309e92f78a755b287d5716476ff9f47b31b7d43891e840fe7e92",
+      "installed_path": "transformer_lens/utilities/typed_module_list.py",
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/utilities/typed_module_list.pyi",
+      "blob_sha": "dc997041a94806a2d481d0a00fa6e5cfdd4abd3e",
+      "sha256": "5fe027d3559ba5c9921cacffef5cbf204184bc5c4545c6072837ac7a8a2cc723",
+      "installed_path": null,
+      "review": "integrity_only"
+    },
+    {
+      "path": "transformer_lens/weight_processing.py",
+      "blob_sha": "2485ebb800a268d02807115f5dea60d1de271055",
+      "sha256": "1bed07ca0722751bcf7a5f75878b7cd547ae12b918fa8eb605a927cfd99ffc7b",
+      "installed_path": "transformer_lens/weight_processing.py",
+      "review": "integrity_only"
+    }
+  ]
+}

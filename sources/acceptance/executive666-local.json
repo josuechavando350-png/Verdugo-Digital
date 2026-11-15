@@ -18,7 +18,8 @@
     "pyrit",
     "llama-cpp",
     "granite-guardian",
-    "interpret"
+    "interpret",
+    "transformerlens"
   ],
   "original_sdks_executed": true,
   "mocked_sdks": false,
@@ -32,7 +33,7 @@
         "dataset": "demo",
         "distribution": "semantic-kernel",
         "external_provider_calls_made": false,
-        "implementation_sha256": "2e9fe21f5a2a16594f3d11770df4c5479301e2cf97186a78fe630262404d9ebb",
+        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -83,7 +84,7 @@
         "dataset": "demo",
         "distribution": "agno",
         "external_provider_calls_made": false,
-        "implementation_sha256": "2e9fe21f5a2a16594f3d11770df4c5479301e2cf97186a78fe630262404d9ebb",
+        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4",
         "ok": true,
         "operation": "objective.plan",
         "production_certified": false,
@@ -138,7 +139,7 @@
         "dataset": "demo",
         "distribution": "griptape",
         "external_provider_calls_made": false,
-        "implementation_sha256": "2e9fe21f5a2a16594f3d11770df4c5479301e2cf97186a78fe630262404d9ebb",
+        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4",
         "ok": true,
         "operation": "objective.scenarios",
         "production_certified": false,
@@ -187,7 +188,7 @@
         "dataset": "demo",
         "distribution": "strands-agents",
         "external_provider_calls_made": false,
-        "implementation_sha256": "2e9fe21f5a2a16594f3d11770df4c5479301e2cf97186a78fe630262404d9ebb",
+        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4",
         "ok": true,
         "operation": "limits.parallel",
         "production_certified": false,
@@ -227,7 +228,7 @@
         "dataset": "demo",
         "distribution": "mcp:@modelcontextprotocol/server-memory",
         "external_provider_calls_made": false,
-        "implementation_sha256": "2e9fe21f5a2a16594f3d11770df4c5479301e2cf97186a78fe630262404d9ebb",
+        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4",
         "ok": true,
         "operation": "graph.audit",
         "production_certified": false,
@@ -266,7 +267,7 @@
         "dataset": "demo",
         "distribution": "ag2",
         "external_provider_calls_made": false,
-        "implementation_sha256": "2e9fe21f5a2a16594f3d11770df4c5479301e2cf97186a78fe630262404d9ebb",
+        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4",
         "ok": true,
         "operation": "actions.check",
         "production_certified": false,
@@ -302,7 +303,7 @@
         "dataset": "demo",
         "distribution": "unified-planning",
         "external_provider_calls_made": false,
-        "implementation_sha256": "2e9fe21f5a2a16594f3d11770df4c5479301e2cf97186a78fe630262404d9ebb",
+        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4",
         "ok": true,
         "operation": "sequence.validate",
         "production_certified": false,
@@ -338,7 +339,7 @@
         "dataset": "demo",
         "distribution": "playwright",
         "external_provider_calls_made": false,
-        "implementation_sha256": "2e9fe21f5a2a16594f3d11770df4c5479301e2cf97186a78fe630262404d9ebb",
+        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4",
         "ok": true,
         "operation": "cookies.check",
         "production_certified": false,
@@ -463,7 +464,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "2e9fe21f5a2a16594f3d11770df4c5479301e2cf97186a78fe630262404d9ebb"
+        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
       },
       "measure": {
         "algorithm": "synthetic-funnel-v1",
@@ -524,7 +525,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "2e9fe21f5a2a16594f3d11770df4c5479301e2cf97186a78fe630262404d9ebb"
+        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
       },
       "review": {
         "ok": true,
@@ -555,7 +556,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "2e9fe21f5a2a16594f3d11770df4c5479301e2cf97186a78fe630262404d9ebb"
+        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
       },
       "measurement_review": {
         "ok": true,
@@ -587,7 +588,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "2e9fe21f5a2a16594f3d11770df4c5479301e2cf97186a78fe630262404d9ebb"
+        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
       },
       "dispatch_policy": {
         "ok": true,
@@ -630,7 +631,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "2e9fe21f5a2a16594f3d11770df4c5479301e2cf97186a78fe630262404d9ebb"
+        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
       },
       "trace_policy": {
         "ok": true,
@@ -674,7 +675,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "2e9fe21f5a2a16594f3d11770df4c5479301e2cf97186a78fe630262404d9ebb"
+        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
       },
       "tool_audit": {
         "ok": true,
@@ -710,7 +711,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "2e9fe21f5a2a16594f3d11770df4c5479301e2cf97186a78fe630262404d9ebb"
+        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
       },
       "context_budget": {
         "ok": true,
@@ -751,7 +752,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "2e9fe21f5a2a16594f3d11770df4c5479301e2cf97186a78fe630262404d9ebb"
+        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
       },
       "model_review": {
         "ok": true,
@@ -796,7 +797,7 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "2e9fe21f5a2a16594f3d11770df4c5479301e2cf97186a78fe630262404d9ebb"
+        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
       },
       "explanation": {
         "ok": true,
@@ -839,7 +840,53 @@
         "external_provider_calls_made": false,
         "production_certified": false,
         "commercial_success_probability": null,
-        "implementation_sha256": "2e9fe21f5a2a16594f3d11770df4c5479301e2cf97186a78fe630262404d9ebb"
+        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
+      },
+      "activations": {
+        "ok": true,
+        "service": "transformerlens",
+        "operation": "activations.check",
+        "distribution": "transformer-lens",
+        "version": "0.0.0",
+        "dataset": "demo",
+        "result": {
+          "source_commit": "284e35b4ee2deea0924894c221a3be8ad519474d",
+          "original_source_files_verified": 375,
+          "symbol_count": 4,
+          "vocabulary_size": 16,
+          "requested_activation_count": 3,
+          "cache_entry_count_with_aliases": 5,
+          "attention_head_count": 2,
+          "toy_model_parameter_count": 936,
+          "toy_forward_passes": 3,
+          "intervention": "zero_residual",
+          "max_output_change": 2.4402453899383545,
+          "max_restored_output_error": 0.0,
+          "hooks_remaining": 0,
+          "max_attention_row_sum_error": 1.1920928955078125e-07,
+          "max_future_attention": 0.0,
+          "hooks_removed_and_output_restored": true,
+          "untrained_toy_model": true,
+          "pretrained_weights_downloaded": false,
+          "model_persisted": false,
+          "real_llm_reasoning_explained": false,
+          "quality_calibrated": false,
+          "original_sdk": "transformerlens",
+          "sdk_version": "0.0.0",
+          "dataset": "demo",
+          "dry_run": true,
+          "llm_calls": 0,
+          "autonomous_agent": false,
+          "external_calls_made": false,
+          "external_execution_authorized": false,
+          "operator_approval_required": true,
+          "approvals_granted": 0,
+          "business_outcome_proven": false
+        },
+        "external_provider_calls_made": false,
+        "production_certified": false,
+        "commercial_success_probability": null,
+        "implementation_sha256": "5de5e5c42298ae0eeec6bfa83d7a2261fcf171658564e29b4e10791dc38f56b4"
       }
     }
   },
@@ -898,9 +945,10 @@
   "sqlite_restart_replay_verified": true,
   "cli_mcp_shared_engine_verified": true,
   "live_verified": false,
-  "models_used": 2,
+  "models_used": 3,
   "language_models_used": 1,
   "ephemeral_additive_models_used": 1,
+  "untrained_toy_transformers_used": 1,
   "selected_model_controls_passed": true,
   "model_accuracy_calibrated": false,
   "external_effects": 0,

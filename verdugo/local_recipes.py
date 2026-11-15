@@ -9,6 +9,8 @@ import math
 
 
 def run(service, operation, p):
+    from .local_lens666 import SPECS as LENS666, run as run_lens666
+    if service in LENS666: return run_lens666(service, p)
     from .local_explain666 import SPECS as EXPLAIN666, run as run_explain666
     if service in EXPLAIN666: return run_explain666(service, p)
     from .local_guardian666 import SPECS as GUARDIAN666, run as run_guardian666

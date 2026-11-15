@@ -29,7 +29,7 @@ jobs:
           /tmp/verdugo-kernel666-venv/bin/python -m pip install -r requirements/runtime-kernel666.txt --report /tmp/kernel666-pip-report.json
           /tmp/verdugo-kernel666-venv/bin/python -m pip check
           /tmp/verdugo-kernel666-venv/bin/python -m pip freeze > /tmp/kernel666-resolved.txt
-          for sdk in agno ag2 langroid griptape bee strands planning hatchet invariant; do
+          for sdk in agno ag2 langroid griptape bee strands planning hatchet invariant lens; do
             python -m venv --copies /tmp/verdugo-${sdk}666-venv
             chmod go-w /tmp/verdugo-${sdk}666-venv/bin/python*
             if [ "$sdk" = "strands" ]; then
@@ -70,6 +70,7 @@ jobs:
             VERDUGO_STRANDS666_PYTHON=/tmp/verdugo-strands666-venv/bin/python \
             VERDUGO_PLANNING666_PYTHON=/tmp/verdugo-planning666-venv/bin/python \
             VERDUGO_MONTY666_PYTHON=/tmp/verdugo-monty666-venv/bin/python \
+            VERDUGO_LENS666_PYTHON=/tmp/verdugo-lens666-venv/bin/python \
             VERDUGO_INTERPRET666_PYTHON=/tmp/verdugo-interpret666/bin/python \
             VERDUGO_GUARDIAN666_PYTHON=/tmp/verdugo-guardian666/bin/python \
             VERDUGO_PYRIT666_PYTHON=/tmp/verdugo-pyrit666/bin/python \
@@ -112,6 +113,8 @@ jobs:
             /tmp/invariant666-resolved.txt
             /tmp/pyrit666-pip-report.json
             /tmp/pyrit666-resolved.txt
+            /tmp/lens666-pip-report.json
+            /tmp/lens666-resolved.txt
             /tmp/interpret666-resolved.txt
             /tmp/interpret666-build-receipt.json
             /tmp/interpret666-pip-report.json

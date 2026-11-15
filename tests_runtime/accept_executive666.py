@@ -18,7 +18,7 @@ from verdugo import local_runtime, objectives, workflow
 
 
 def accept():
-    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','servers','monty','playwright-python','hatchet','invariant','pyrit','llama-cpp','granite-guardian','interpret')
+    services=('semantic-kernel','agno','ag2','langroid','griptape','beeai-framework','harness-sdk','unified-planning','voltagent','servers','monty','playwright-python','hatchet','invariant','pyrit','llama-cpp','granite-guardian','interpret','transformerlens')
     spec=json.loads((ROOT/'examples/executive666.synthetic.json').read_text())
     cfg=template('nexus')
     for sid in services:
@@ -41,12 +41,12 @@ def accept():
         with closing(engine()) as e:
             result=invoke(e,'verdugo_workflow',{'workflow':spec,'execute':True})
             assert result['state']=='succeeded',result
-            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation'}
+            assert set(result['steps'])=={'kernel','agno','check','simulate','measure','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations'}
             r=result['steps']['check']['result']
             assert r['planned_contacts']==200 and r['planned_cost_minor']==0
             assert r['feasible_under_declared_limits'] and not r['external_execution_authorized']
             assert result['steps']['agno']['result']['budget_checked']
-            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation'),services):
+            for step,sid in zip(('kernel','agno','check','claims','scenarios','review','parallel','sequence','measurement_review','memory','monty','cookie_state','dispatch_policy','trace_policy','tool_audit','context_budget','model_review','explanation','activations'),services):
                 actual=result['steps'][step]['result']
                 assert actual['original_sdk']==sid and actual['llm_calls']==(1 if sid=='granite-guardian' else 0)
                 assert not actual['autonomous_agent']
@@ -106,7 +106,15 @@ def accept():
             assert explanation['max_additive_reconstruction_error']<1e-12
             assert not explanation['held_out_accuracy_measured'] and not explanation['causal_explanation_proven']
             assert not explanation['model_persisted'] and explanation['approvals_granted']==0
-            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==20
+            activation=result['steps']['activations']['result']
+            assert activation['hooks_removed_and_output_restored'] and activation['hooks_remaining']==0
+            assert activation['max_output_change']>0 and activation['max_restored_output_error']==0
+            assert activation['toy_model_parameter_count']==936 and activation['toy_forward_passes']==3
+            assert activation['max_attention_row_sum_error']<1e-6 and activation['max_future_attention']==0
+            assert activation['untrained_toy_model'] and not activation['pretrained_weights_downloaded']
+            assert not activation['real_llm_reasoning_explained'] and activation['approvals_granted']==0
+            assert 'logits' not in activation and 'activations' not in activation
+            assert e.db.execute('SELECT COUNT(*) FROM runs').fetchone()[0]==21
         with closing(engine()) as e, \
                 patch.object(local_runtime,'execute',side_effect=AssertionError('SDK re-executed')), \
                 patch.object(objectives,'simulate',side_effect=AssertionError('simulation re-executed')):
@@ -267,13 +275,21 @@ def accept():
             assert explained['additive_reconstruction_verified']
             assert explained['mean_absolute_contribution']=={'contacts':0.0,'spend_minor':0.0}
             assert not explained['quality_calibrated']
+            for symbols in ([0,0],[15,14,13,12,11,10]):
+                checked=e.execute({'service':'transformerlens','operation':'activations.check',
+                    'key':'activation-observe-'+str(len(symbols)), 'params':{'dataset':'demo',
+                    'symbol_ids':symbols,'intervention':'observe'}},True)
+                assert checked['state']=='succeeded',checked
+                activation=checked['result']['result']
+                assert activation['max_output_change']==0 and activation['max_restored_output_error']==0
+                assert activation['hooks_remaining']==0 and activation['max_future_attention']==0
     assert not calls
     return {'schema':'verdugo.executive666.acceptance.v1','services':list(services),
             'original_sdks_executed':True,'mocked_sdks':False,'dataset':'demo',
             'joint_workflow':result,'budget_rejection':data,'negative_process_cases':negative_process_cases,
             'approval_gate_verified':True,'sqlite_restart_replay_verified':True,
             'cli_mcp_shared_engine_verified':True,'live_verified':False,
-            'models_used':2,'language_models_used':1,'ephemeral_additive_models_used':1,'selected_model_controls_passed':True,'model_accuracy_calibrated':False,'external_effects':0,'batch_1_complete':False,
+            'models_used':3,'language_models_used':1,'ephemeral_additive_models_used':1,'untrained_toy_transformers_used':1,'selected_model_controls_passed':True,'model_accuracy_calibrated':False,'external_effects':0,'batch_1_complete':False,
             'os_network_namespace':os.getenv('VERDUGO_OS_NETWORK_ISOLATED')=='1'}
 
 

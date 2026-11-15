@@ -1,6 +1,6 @@
 # Piloto 666: avance parcial del lote 1
 
-Quince de 183 piezas del primer lote tienen una operación nueva implementada. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
+Diecinueve de 183 piezas del primer lote tienen una operación nueva implementada. El segundo lote sigue en cero. Las 666 piezas permitidas están registradas; el producto autónomo de PLAN_666 todavía no está terminado.
 
 ## Operación delimitada
 
@@ -216,3 +216,14 @@ La primera reconstrucción limpia terminó con salida 137 al compilar JavaScript
 Al revisar el perfil anterior de OpenManus se detectó `html2text~=2024.2.26` obligatorio tanto en `setup.py` como en `requirements.txt`. Su COPYING GPL-3.0 coincide por SHA256 con la licencia ya leída de esa dependencia para Gorilla. Fue un error de la revisión anterior contarlo sin resolverlo. La corrección retira el adaptador del registro de operaciones y del flujo, bloquea su receta y preparación directa, elimina la instalación de CI y devuelve el proyecto a pendientes. La licencia MIT de OpenManus no se reclasifica; no se omitieron dependencias ni se habilitó una excepción. Se preservan commits, blobs, licencia y resultados históricos para explicar la corrección.
 
 La aceptación actual pasó con **18 componentes operativos y 20 pasos**, aprobación, CLI/MCP y replay SQLite; **803 pruebas** pasan. Incluye un modelo de lenguaje Guardian y un modelo aditivo efímero, ambos sin calibración comercial. InterpretML añade una operación y la retirada de OpenManus resta otra: el total no aumenta. La aceptación CI de este conjunto corregido debe observarse en su propio commit.
+
+
+## TransformerLens: diagnóstico nativo sin pesos preentrenados
+
+`transformerlens / activations.check` usa `TransformerLensOrg/TransformerLens@284e35b4ee2deea0924894c221a3be8ad519474d`. La versión `0.0.0` es el metadato literal de ese código, no una publicación. `TransformerBridge.boot_native` construye el modelo original de 936 parámetros, una capa, dos cabezas, vocabulario de 16 símbolos, contexto ocho, CPU float32 y semilla 666. No se descargan pesos ni tokenizadores de modelos. La API antigua `HookedTransformer` fue retirada por upstream y no se utiliza.
+
+La operación acepta únicamente de dos a seis índices sintéticos y una intervención enumerada. `run_with_cache` captura tres nombres originales (cinco entradas por alias); `run_with_hooks` aplica opcionalmente una función fija que pone a cero el residual. Una tercera evaluación verifica restauración exacta y ausencia de hooks residuales. Se comprueban formas, finitud, filas de atención normalizadas y máscara causal. Solo se conservan recuentos y diagnósticos numéricos; no se guardan logits, activaciones ni modelos.
+
+Contrato con 392 archivos Git y comprobación de los 375 módulos Python instalados en `sources/contracts-lens666.json`; lectura semántica limitada a los archivos señalados. Todas las dependencias obligatorias se resolvieron en un perfil separado. Torch CPU 2.9.1 se reutilizó localmente desde su wheel previamente verificado, copiando únicamente sus entradas a un entorno nuevo y retirando el entorno OpenManus rechazado; CI descarga el wheel oficial fijado por SHA256. Esto no afirma una auditoría completa de las dependencias.
+
+La aceptación conjunta pasó con **19 componentes, 21 pasos y 807 pruebas**. Incluye un LLM Guardian, un EBM efímero y este transformer de juguete sin entrenar. `llm_calls=0` en esta receta se acompaña de `toy_forward_passes=3`: no hubo inferencia de un modelo de lenguaje preentrenado. No hay explicación de razonamiento real, calibración, rendimiento productivo ni autorización automática. Los controles sin intervención en longitudes mínima y máxima conservaron salida y máscara causal. CI debe observarse para el nuevo commit.

@@ -17,7 +17,7 @@ from extended_fixtures import CASES
 class ExtendedContracts(unittest.TestCase):
     def test_seven_new_distinct_catalog_operations(self):
         self.assertEqual(7, len(local_extended.SPECS))
-        self.assertEqual(177, len(local_runtime.SPECS))
+        self.assertEqual(178, len(local_runtime.SPECS))
         for sid, (operation, _, _) in local_extended.SPECS.items():
             with self.subTest(sid=sid):
                 local_runtime.validate(sid, operation, CASES[sid])
@@ -92,9 +92,9 @@ class ExtendedContracts(unittest.TestCase):
         engine = Engine(':memory:')
         try: status = engine.status()
         finally: engine.close()
-        self.assertEqual(280, status['total_adapters_implemented'])
-        self.assertEqual(408, status['projects_without_any_adapter'])
-        self.assertEqual(261, status['adapters_usable_under_policy'])
+        self.assertEqual(281, status['total_adapters_implemented'])
+        self.assertEqual(407, status['projects_without_any_adapter'])
+        self.assertEqual(262, status['adapters_usable_under_policy'])
         self.assertEqual(0, status['live_verified'])
 
 
