@@ -16,7 +16,7 @@ from . import license_policy, local_runtime, local_data, local_cli, local_pycli,
 
 PATH = Path(__file__).resolve().parents[1] / "sources" / "connections.json"
 KINDS = ('servicio', 'biblioteca', 'componente', 'cli', 'mcp', 'protocolo', 'datos', 'excluido')
-STATES = ('conectado', 'pieza_de_construccion', 'pendiente', 'excluido')
+STATES = ('conectado', 'integrado_en_panel', 'pieza_de_construccion', 'pendiente', 'excluido')
 _CACHE = {}
 
 
@@ -62,6 +62,8 @@ def state(sid):
     if sid in SPECS or sid in local_runtime.SPECS:
         return 'conectado'
     if kind == 'componente':
+        from .panel_components import integrated_ids
+        if sid in integrated_ids(): return 'integrado_en_panel'
         return 'pieza_de_construccion'
     return 'pendiente'
 

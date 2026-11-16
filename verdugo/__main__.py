@@ -157,6 +157,7 @@ def main(argv=None):
     p = sub.add_parser('pilot'); p.add_argument('input'); p.add_argument('--execute', action='store_true')
     p = sub.add_parser('backup-local'); p.add_argument('--to', required=True)
     p = sub.add_parser('verify-backup'); p.add_argument('--file', required=True)
+    p = sub.add_parser('panel'); p.add_argument('--port', type=int, default=8766)
     p = sub.add_parser('ingress-local'); p.add_argument('--port', type=int, default=8765)
     p = sub.add_parser('tenant-add', help='Add a client tenant to --config with every service off')
     p.add_argument('name'); p.add_argument('--execute', action='store_true')
@@ -207,6 +208,13 @@ def main(argv=None):
             tmp = path.with_name(path.name + '.tmp')
             tmp.write_text(json.dumps(data, indent=2) + '\n'); os.chmod(tmp, 0o600); os.replace(tmp, path)
             print(encode({'state': 'applied', 'tenant': args.name, 'services_enabled': 0})); return 0
+        if args.cmd == 'panel':
+            try:
+                from .panel_server import run as panel_run
+            except ImportError:
+                raise VerdugoError('Instala las dependencias del panel: python -m pip install -r panel/requirements.txt') from None
+            panel_run(args.config, args.state, args.role, args.port)
+            return 0
         config = json.loads(Path(args.config).expanduser().read_text()) if args.config else None
         engine = Engine(str(Path(args.state).expanduser()) if args.state != ':memory:' else args.state, config, args.tenant, args.actor, args.role)
         if args.cmd == 'ingress-local':

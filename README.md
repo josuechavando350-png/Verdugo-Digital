@@ -2,7 +2,7 @@
 
 Núcleo comercial y de análisis para Nexus Bot Studio. Una sola entrada CLI/MCP,
 un motor de ejecución, flujos con dependencias, permisos locales, auditoría,
-idempotencia y estado SQLite. Versión de ingeniería **0.23.0**.
+idempotencia y estado SQLite. Versión de ingeniería **0.24.0**.
 
 **La integración operativa de los 300 proyectos NO está terminada.** Registrar
 fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
@@ -11,7 +11,9 @@ fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 
 Importación local de CSV por tenant, reporte de anuncios, lectura Meta v26.0 y perfiles
 instalables por el operador. [Alcance y evidencia](docs/LOTE_A_300.md).
-Las 56 piezas del panel siguen separadas; no se declara 300/300 ni una cuenta real verificada.
+Panel local de cinco vistas en español, con interruptores de cliente, anuncios, embudo,
+inventario y bitácora. **13 de 56 componentes integrados; 43 sin uso justificado**.
+[Tabla completa y evidencia](docs/LOTE_B_300.md). No se declara 300/300 ni una cuenta real verificada.
 
 ## Alcance final: 300 piezas
 
@@ -28,13 +30,14 @@ Por decisión del dueño (15 nov 2026), Verdugo Digital se queda en **300 piezas
 | Excluidos por licencia (registrados, sin operar) | 22 |
 | Proyectos con una operación implementada | 263: 104 HTTP + 138 bibliotecas locales + 17 CLI + 1 MCP local + 3 consultas/reglas de datos |
 | Conectados bajo la política de licencias | 244 (19 adaptadores HTTP antiguos quedaron bloqueados por licencia) |
-| Piezas de construcción (se usan al programar, no vía motor) | 56 |
+| Integradas en el panel (manifiesto, uso y prueba) | 13 |
+| Piezas de construcción sin integrar | 43 |
 | Pendientes de conector | 0 (Meta: insights de cuenta acotados) |
 | Servicios de pago | 0 (Stripe, Twilio, Mercado Pago, E2B y Composio retirados) |
 | Operaciones HTTP existentes | 108, limitadas por proveedor |
 | Operaciones locales implementadas | 159; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Flujo de 87 operaciones nuevas + métricas locales; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 755 pruebas; comprobar CI por commit |
+| Pruebas unitarias y de contrato | 763 núcleo + 8 API panel + 11 Vitest; navegador en job panel; comprobar CI por commit |
 | Herramientas MCP | 27 (incluye `verdugo_client_status`, solo lectura); product-status/product-run reutilizan el mismo motor |
 | Servicios productivos certificados | 0 |
 

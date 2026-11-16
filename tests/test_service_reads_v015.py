@@ -250,13 +250,13 @@ class ConnectionMapTests(unittest.TestCase):
     def test_states_are_computed_from_code(self):
         value = summary()
         self.assertEqual(322, value['registered'])
-        self.assertEqual({'conectado': 244, 'pieza_de_construccion': 56, 'pendiente': 0, 'excluido': 22},
+        self.assertEqual({'conectado': 244, 'integrado_en_panel': 13, 'pieza_de_construccion': 43, 'pendiente': 0, 'excluido': 22},
                          value['states'])
         self.assertEqual(0, value['live_verified'])
         for sid in service_reads.SPECS:
             self.assertEqual('conectado', connections.state(sid))
         self.assertEqual('excluido', connections.state('twenty'))
-        self.assertEqual('pieza_de_construccion', connections.state('tailwindcss'))
+        self.assertEqual('integrado_en_panel', connections.state('tailwindcss'))
         self.assertEqual('conectado', connections.state('krayin-crm'))
         self.assertEqual('conectado', connections.state('postgres'))
 

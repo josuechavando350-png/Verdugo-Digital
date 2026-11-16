@@ -1,0 +1,519 @@
+{
+  "schema": 1,
+  "components": [
+    {
+      "id": "astro",
+      "integrated": true,
+      "reason": "Compila y sirve las vistas estáticas del panel.",
+      "package": "astro",
+      "version": "7.4.11",
+      "ecosystem": "npm",
+      "source": {
+        "repository": "withastro/astro",
+        "commit_sha": "d68e4f6340409a201df7c5f77d5d322abfe6c377",
+        "path": "packages/astro/package.json",
+        "blob_sha": "fb97536bc22bf50e7bb36acaebc7d7fba2b83e6d"
+      },
+      "usage": {
+        "file": "panel/astro.config.mjs",
+        "import": "astro/config",
+        "call": "defineConfig("
+      },
+      "test": {
+        "file": "panel/e2e/panel.spec.ts",
+        "name": "mobile operator lifecycle"
+      }
+    },
+    {
+      "id": "grapesjs",
+      "integrated": false,
+      "reason": "No se editan sitios o plantillas: el panel tiene cinco vistas fijas."
+    },
+    {
+      "id": "react-email",
+      "integrated": false,
+      "reason": "No se envían correos desde este producto local."
+    },
+    {
+      "id": "crawlee",
+      "integrated": false,
+      "reason": "No hay una tarea autorizada de rastreo; los anuncios entran por CSV."
+    },
+    {
+      "id": "better-auth",
+      "integrated": false,
+      "reason": "El token local y el rol fijado al iniciar cubren este acceso; no hay cuentas web."
+    },
+    {
+      "id": "schema-dts",
+      "integrated": false,
+      "reason": "El panel privado no publica datos estructurados para buscadores."
+    },
+    {
+      "id": "web-vitals",
+      "integrated": true,
+      "reason": "Mide CLS, INP y LCP localmente sin enviar telemetría.",
+      "package": "web-vitals",
+      "version": "6.2.3",
+      "ecosystem": "npm",
+      "source": {
+        "repository": "GoogleChrome/web-vitals",
+        "commit_sha": "94b3b4bced9d63b4ff6bfb8290bf1f505daa00bb",
+        "path": "package.json",
+        "blob_sha": "dd038fd74a6e9377f001f15cc85ae89a0aecd1b8"
+      },
+      "usage": {
+        "file": "panel/src/lib/performance.ts",
+        "import": "from 'web-vitals'",
+        "call": "onCLS(local)"
+      },
+      "test": {
+        "file": "panel/tests/panel.test.tsx",
+        "name": "registers local Web Vitals callbacks"
+      }
+    },
+    {
+      "id": "altcha",
+      "integrated": false,
+      "reason": "No hay formularios públicos expuestos a bots."
+    },
+    {
+      "id": "cookieconsent",
+      "integrated": false,
+      "reason": "No usa cookies ni rastreadores que requieran un gestor de consentimiento."
+    },
+    {
+      "id": "libphonenumber",
+      "integrated": false,
+      "reason": "No se capturan teléfonos en estas cinco pantallas."
+    },
+    {
+      "id": "id-openstreetmap",
+      "integrated": false,
+      "reason": "No se edita cartografía de OpenStreetMap."
+    },
+    {
+      "id": "feed",
+      "integrated": true,
+      "reason": "Exporta los eventos proyectados a RSS local.",
+      "package": "feed",
+      "version": "6.0.0",
+      "ecosystem": "npm",
+      "source": {
+        "repository": "jpmonette/feed",
+        "commit_sha": "cbad18d8afb6ea9fc38d460fdf56a2713c313aed",
+        "path": "package.json",
+        "blob_sha": "699b3b3122bc06657ed4e411b3929e0c9fcc5388"
+      },
+      "usage": {
+        "file": "panel/src/lib/exports.ts",
+        "import": "from 'feed'",
+        "call": "feed.rss2("
+      },
+      "test": {
+        "file": "panel/tests/panel.test.tsx",
+        "name": "exports audit metadata through original Feed"
+      }
+    },
+    {
+      "id": "carousel-generator",
+      "integrated": false,
+      "reason": "No hay creación de carruseles en el alcance del panel."
+    },
+    {
+      "id": "excalidraw",
+      "integrated": false,
+      "reason": "No hay un flujo de diagramación que justifique un lienzo adicional."
+    },
+    {
+      "id": "onlinewardleymaps",
+      "integrated": false,
+      "reason": "No se elaboran mapas de estrategia."
+    },
+    {
+      "id": "bpmn-js",
+      "integrated": false,
+      "reason": "No se editan procesos BPMN; las acciones son acotadas."
+    },
+    {
+      "id": "kepler-gl",
+      "integrated": false,
+      "reason": "No existe información geográfica que analizar."
+    },
+    {
+      "id": "squiggle",
+      "integrated": false,
+      "reason": "No hay un modelo probabilístico revisado; agregar uno inventaría supuestos."
+    },
+    {
+      "id": "marimo",
+      "integrated": false,
+      "reason": "Los análisis ya pasan por el motor; no hay notebooks editables en el panel."
+    },
+    {
+      "id": "mastra",
+      "integrated": false,
+      "reason": "No se añade otro motor de agentes ni autonomía al panel."
+    },
+    {
+      "id": "stagehand",
+      "integrated": false,
+      "reason": "No hay navegación autónoma ni sitios autorizados para automatizar."
+    },
+    {
+      "id": "mcp-typescript-sdk",
+      "integrated": false,
+      "reason": "El MCP stdio existente está en Python y no requiere otro servidor."
+    },
+    {
+      "id": "ag-ui",
+      "integrated": false,
+      "reason": "No hay una interfaz de agentes en tiempo real."
+    },
+    {
+      "id": "copilotkit",
+      "integrated": false,
+      "reason": "No se incorpora un asistente con permisos operativos."
+    },
+    {
+      "id": "vercel-ai-sdk",
+      "integrated": false,
+      "reason": "El panel consulta el motor local sin llamadas a modelos."
+    },
+    {
+      "id": "assistant-ui",
+      "integrated": false,
+      "reason": "No se necesita un chat para operar las cinco vistas."
+    },
+    {
+      "id": "trpc",
+      "integrated": false,
+      "reason": "La API delimitada de FastAPI ya resuelve la comunicación."
+    },
+    {
+      "id": "hono",
+      "integrated": false,
+      "reason": "FastAPI utiliza directamente Engine; un segundo servidor no añade una función."
+    },
+    {
+      "id": "fastapi",
+      "integrated": true,
+      "reason": "API local con roles, CSRF y el mismo Engine.",
+      "package": "fastapi",
+      "version": "0.162.7",
+      "ecosystem": "python",
+      "source": {
+        "repository": "fastapi/fastapi",
+        "commit_sha": "5758a9c8347d911444dca97a55b708cc4a8de4f8",
+        "path": "fastapi/__init__.py",
+        "blob_sha": "b52766b458084965a71824b7e63f13af683e7496"
+      },
+      "usage": {
+        "file": "verdugo/panel_server.py",
+        "import": "from fastapi import",
+        "call": "FastAPI("
+      },
+      "test": {
+        "file": "tests_panel/test_api.py",
+        "name": "test_registration_payment_expiration_same_engine"
+      }
+    },
+    {
+      "id": "drizzle",
+      "integrated": false,
+      "reason": "Engine administra SQLite; no se agrega una capa de estado paralela."
+    },
+    {
+      "id": "nextjs",
+      "integrated": false,
+      "reason": "Astro proporciona el sitio estático; no se mezclan dos aplicaciones."
+    },
+    {
+      "id": "shadcn-ui",
+      "integrated": false,
+      "reason": "Los controles accesibles concretos no requieren incorporar otro sistema de componentes."
+    },
+    {
+      "id": "tailwindcss",
+      "integrated": true,
+      "reason": "Genera la cuadrícula adaptable de métricas.",
+      "package": "tailwindcss",
+      "version": "4.3.5",
+      "ecosystem": "npm",
+      "source": {
+        "repository": "tailwindlabs/tailwindcss",
+        "commit_sha": "b08bf83a327271dfb7e3cd485fd793da15013f7c",
+        "path": "packages/tailwindcss/package.json",
+        "blob_sha": "b6f722b7beb38cda2743a68417b14467e5476188"
+      },
+      "usage": {
+        "file": "panel/src/style.css",
+        "import": "@import \"tailwindcss\"",
+        "call": "@import \"tailwindcss\""
+      },
+      "test": {
+        "file": "panel/e2e/panel.spec.ts",
+        "name": "mobile operator lifecycle"
+      }
+    },
+    {
+      "id": "refine",
+      "integrated": false,
+      "reason": "No se necesita un segundo marco de administración sobre las cinco vistas."
+    },
+    {
+      "id": "echarts",
+      "integrated": true,
+      "reason": "Grafica gasto y conversiones en dos ejes.",
+      "package": "echarts",
+      "version": "6.1.0",
+      "ecosystem": "npm",
+      "source": {
+        "repository": "apache/echarts",
+        "commit_sha": "34f4d927eafe251f26f63afd3aeefa30f2feba30",
+        "path": "package.json",
+        "blob_sha": "e7136daa429ac20fd26c69b8be33448afea5d1de"
+      },
+      "usage": {
+        "file": "panel/src/components/Chart.tsx",
+        "import": "from 'echarts/core'",
+        "call": "chart.setOption("
+      },
+      "test": {
+        "file": "panel/tests/panel.test.tsx",
+        "name": "renders original ECharts SVG"
+      }
+    },
+    {
+      "id": "tanstack-query",
+      "integrated": true,
+      "reason": "Consulta, actualiza y aísla caché por tenant y dataset.",
+      "package": "@tanstack/react-query",
+      "version": "5.107.1",
+      "ecosystem": "npm",
+      "source": {
+        "repository": "TanStack/query",
+        "commit_sha": "36dd7927c85ce6cee37ab1eb3af25e7fc7ccbb14",
+        "path": "packages/react-query/package.json",
+        "blob_sha": "18b279d767dfb6512219078d34898286d71f6b4d"
+      },
+      "usage": {
+        "file": "panel/src/components/App.tsx",
+        "import": "from '@tanstack/react-query'",
+        "call": "useQuery("
+      },
+      "test": {
+        "file": "panel/tests/panel.test.tsx",
+        "name": "loads clients using Query"
+      }
+    },
+    {
+      "id": "tanstack-table",
+      "integrated": true,
+      "reason": "Construye tablas reales de campañas e inventario.",
+      "package": "@tanstack/react-table",
+      "version": "9.3.1",
+      "ecosystem": "npm",
+      "source": {
+        "repository": "TanStack/table",
+        "commit_sha": "c14e0221b1e656c7bb35e7b3d4cdf188719a3599",
+        "path": "packages/react-table/package.json",
+        "blob_sha": "cb6bd37e5103f4d11aa02a761658184b11dcc66e"
+      },
+      "usage": {
+        "file": "panel/src/components/DataTable.tsx",
+        "import": "from '@tanstack/react-table'",
+        "call": "useTable("
+      },
+      "test": {
+        "file": "panel/tests/panel.test.tsx",
+        "name": "renders real TanStack row models"
+      }
+    },
+    {
+      "id": "i18next",
+      "integrated": true,
+      "reason": "Traduce navegación y estados al español.",
+      "package": "i18next",
+      "version": "27.1.1",
+      "ecosystem": "npm",
+      "source": {
+        "repository": "i18next/i18next",
+        "commit_sha": "cc3b9853828b1e1fb17d20d176ee9c161e97a348",
+        "path": "package.json",
+        "blob_sha": "e97cd53d563741dbea8b61aed8be8813e7bef88c"
+      },
+      "usage": {
+        "file": "panel/src/lib/language.ts",
+        "import": "from 'i18next'",
+        "call": "language.t("
+      },
+      "test": {
+        "file": "panel/tests/panel.test.tsx",
+        "name": "validates dates and localizes product states"
+      }
+    },
+    {
+      "id": "scalar",
+      "integrated": false,
+      "reason": "La API no se publica; la guía operativa cubre su uso."
+    },
+    {
+      "id": "starlight",
+      "integrated": true,
+      "reason": "Compila la guía de operación en español.",
+      "package": "@astrojs/starlight",
+      "version": "0.43.1",
+      "ecosystem": "npm",
+      "source": {
+        "repository": "withastro/starlight",
+        "commit_sha": "62821331b95d55e9346ca34ebacc676d7be1f26b",
+        "path": "packages/starlight/package.json",
+        "blob_sha": "070a912fa5eab6dba87b516b9c4da8f80da2bd68"
+      },
+      "usage": {
+        "file": "panel/astro.config.mjs",
+        "import": "from '@astrojs/starlight'",
+        "call": "starlight("
+      },
+      "test": {
+        "file": "panel/e2e/panel.spec.ts",
+        "name": "mobile operator lifecycle"
+      }
+    },
+    {
+      "id": "bullmq",
+      "integrated": false,
+      "reason": "No hay trabajos en cola ni Redis; las operaciones son locales y acotadas."
+    },
+    {
+      "id": "uppy",
+      "integrated": false,
+      "reason": "La importación queda en la CLI con vista previa; no hay carga de archivos web."
+    },
+    {
+      "id": "sharp",
+      "integrated": false,
+      "reason": "No se procesan imágenes de clientes ni material creativo."
+    },
+    {
+      "id": "surveyjs",
+      "integrated": false,
+      "reason": "No se crean encuestas."
+    },
+    {
+      "id": "tiptap",
+      "integrated": false,
+      "reason": "No hay edición de texto enriquecido."
+    },
+    {
+      "id": "expo",
+      "integrated": false,
+      "reason": "El sitio adaptable ya se usa en teléfono; no se construye una app nativa."
+    },
+    {
+      "id": "hoppscotch",
+      "integrated": false,
+      "reason": "No se ofrece una consola de peticiones arbitrarias al operador."
+    },
+    {
+      "id": "zod",
+      "integrated": true,
+      "reason": "Valida pagos y filtros antes de enviarlos.",
+      "package": "zod",
+      "version": "4.6.7",
+      "ecosystem": "npm",
+      "source": {
+        "repository": "colinhacks/zod",
+        "commit_sha": "fef16cba0cf6668eb25ecc32fdfe2ce0a46f6f80",
+        "path": "packages/zod/package.json",
+        "blob_sha": "5ba776c0d5bdf1487da2f26af302a1ab7e1e40ce"
+      },
+      "usage": {
+        "file": "panel/src/lib/forms.ts",
+        "import": "from 'zod'",
+        "call": "z.object("
+      },
+      "test": {
+        "file": "panel/tests/panel.test.tsx",
+        "name": "validates dates and localizes product states"
+      }
+    },
+    {
+      "id": "vitest",
+      "integrated": true,
+      "reason": "Ejecuta las pruebas de comportamiento de la interfaz.",
+      "package": "vitest",
+      "version": "5.1.0",
+      "ecosystem": "npm",
+      "source": {
+        "repository": "vitest-dev/vitest",
+        "commit_sha": "cab34bb0ee23f00676ea895560c8b16399ce40b7",
+        "path": "packages/vitest/package.json",
+        "blob_sha": "8acddf82b4d4bc2afed1ee4cba37e127ff7d2d1a"
+      },
+      "usage": {
+        "file": "panel/vitest.config.ts",
+        "import": "from 'vitest/config'",
+        "call": "defineConfig("
+      },
+      "test": {
+        "file": "panel/tests/panel.test.tsx",
+        "name": "Operator confirmation and permissions"
+      }
+    },
+    {
+      "id": "instantsearch",
+      "integrated": false,
+      "reason": "Se filtran 300 entradas locales; no hay índice o servicio de búsqueda."
+    },
+    {
+      "id": "maplibre",
+      "integrated": false,
+      "reason": "Los datos no incluyen zonas verificadas; un mapa sería ficticio."
+    },
+    {
+      "id": "vite-pwa",
+      "integrated": false,
+      "reason": "El panel exige conexión al motor; no almacena datos privados en una caché offline."
+    },
+    {
+      "id": "driverjs",
+      "integrated": true,
+      "reason": "Recorrido de cliente, vistas y confirmaciones.",
+      "package": "driver.js",
+      "version": "1.14.0",
+      "ecosystem": "npm",
+      "source": {
+        "repository": "nilbuild/driver.js",
+        "commit_sha": "47e3c8761720c119aa08c3feb29b36e5b944938a",
+        "path": "packages/driver/package.json",
+        "blob_sha": "17c15b00b8bb841e6cc758276e31d0480a206c95"
+      },
+      "usage": {
+        "file": "panel/src/components/App.tsx",
+        "import": "from 'driver.js'",
+        "call": "driver("
+      },
+      "test": {
+        "file": "panel/tests/panel.test.tsx",
+        "name": "starts original Driver"
+      }
+    },
+    {
+      "id": "socketio",
+      "integrated": false,
+      "reason": "La actualización explícita y periódica es suficiente; no hay eventos por socket."
+    },
+    {
+      "id": "pdfme",
+      "integrated": false,
+      "reason": "El paquete del commit fijado declara 0.0.0 y se versiona al publicar. No se inventa una equivalencia npm; se exporta JSON."
+    },
+    {
+      "id": "evidence",
+      "integrated": false,
+      "reason": "Las gráficas consumen ads-report; no se crea otro sistema SQL o de informes."
+    }
+  ]
+}

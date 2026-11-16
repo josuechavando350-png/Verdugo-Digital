@@ -1,0 +1,40 @@
+{
+  "name": "verdugo-panel",
+  "version": "0.24.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "test": "vitest run",
+    "check": "ASTRO_TELEMETRY_DISABLED=1 astro sync && tsc --noEmit",
+    "e2e": "playwright test"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "7.3.0",
+    "@astrojs/react": "7.1.8",
+    "@astrojs/starlight": "0.43.1",
+    "@tailwindcss/vite": "4.3.5",
+    "@tanstack/react-query": "5.107.1",
+    "@tanstack/react-table": "9.3.1",
+    "astro": "7.4.11",
+    "driver.js": "1.14.0",
+    "echarts": "6.1.0",
+    "feed": "6.0.0",
+    "i18next": "27.1.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "tailwindcss": "4.3.5",
+    "web-vitals": "6.2.3",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.0",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "jsdom": "30.1.3",
+    "typescript": "7.0.2",
+    "vitest": "5.1.0"
+  }
+}
