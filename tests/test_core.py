@@ -56,6 +56,8 @@ class Base(unittest.TestCase):
         from test_completion_reads_v021 import configure as completion_config
         from test_public_reads_v021 import configure as public_config
         completion_config(self.config); public_config(self.config)
+        from test_meta_ads_v023 import configure as meta_config
+        meta_config(self.config)
         self.config['tenants']['other'] = copy.deepcopy(self.config['tenants']['nexus'])
         self.env = patch.dict(os.environ, {c['token_env']: ('api_synthetic-key-not-real' if c['token_env'].endswith('_DOCUMENSO_TOKEN') else 'a'*24+':'+'b'*64 if c['token_env'].endswith('_GHOST_TOKEN') else SECRET) for c in
             self.config['tenants']['nexus']['services'].values() if c.get('token_env')} | {
@@ -112,7 +114,7 @@ class CatalogTests(Base):
 
     def test_no_false_live_status(self):
         s=self.engine.status()
-        self.assertEqual(103,s['api_adapters_implemented'])
+        self.assertEqual(104,s['api_adapters_implemented'])
         self.assertEqual(0,s['live_verified'])
         self.assertFalse(any(r['live_verified'] for r in s['integrations']))
 
@@ -120,7 +122,7 @@ class CatalogTests(Base):
         g=graph(SPECS)
         self.assertEqual(323,len(g['nodes']))
         self.assertEqual(322,len(g['edges']))
-        self.assertEqual(103,sum(e['kind']=='adapter' for e in g['edges']))
+        self.assertEqual(104,sum(e['kind']=='adapter' for e in g['edges']))
         self.assertFalse(any(e['live'] for e in g['edges']))
 
     def test_template_disabled(self):

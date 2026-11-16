@@ -1,3 +1,7 @@
+> Estado vigente del lote A (16 nov 2026): 244 conectadas, 56 piezas de construcción,
+> 0 conectores pendientes, 22 excluidas y 0 verificadas en vivo.
+> La información histórica siguiente conserva su alcance original. Ver [LOTE_A_300.md](LOTE_A_300.md).
+
 # Verdugo Digital — Plan para conectar lo que falta
 
 Fecha: 15 de noviembre de 2026. Versión del motor: 0.21.0.

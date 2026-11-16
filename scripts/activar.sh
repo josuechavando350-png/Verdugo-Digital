@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Puesta en marcha de Verdugo Digital (300 piezas libres) en un Linux o en GitHub Codespaces.
-# No instala proveedores, no llama servicios externos y no habilita nada: deja el producto
+# Solo --perfiles instala dependencias solicitadas; no habilita servicios: deja el producto
 # listo, comprueba que funciona y muestra el estado. Activar un servicio es una decisión del operador.
 set -euo pipefail
+umask 077
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO"
@@ -12,6 +13,12 @@ CONFIG="$VERDUGO_HOME/config.json"
 STATE="$VERDUGO_HOME/estado.sqlite"
 
 "$PY" -c 'import sys; assert sys.version_info >= (3, 12), "Se necesita Python 3.12 o superior"'
+
+case "${1:-}" in
+  ""|--pruebas) ;;
+  --perfiles) shift; exec "$PY" scripts/instalar_perfiles.py "$@" ;;
+  *) echo "Uso: scripts/activar.sh [--pruebas|--perfiles [--perfil NOMBRE]]" >&2; exit 2 ;;
+esac
 
 mkdir -p "$VERDUGO_HOME"
 chmod 700 "$VERDUGO_HOME"

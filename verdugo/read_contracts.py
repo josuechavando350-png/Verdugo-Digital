@@ -4,7 +4,7 @@ Only these provider operations are covered. Schema matching does not verify
 identity, completeness, authorization scope, or production readiness.
 """
 from .common import VerdugoError
-from . import marketing_reads, service_reads, tanda1_reads, readiness_reads, operations_reads, platform_reads, completion_reads, public_reads
+from . import marketing_reads, service_reads, tanda1_reads, readiness_reads, operations_reads, platform_reads, completion_reads, public_reads, meta_ads
 
 SCHEMAS = {
     "novu": ("data",),
@@ -76,6 +76,8 @@ def _metadata_summary(service, operation, response):
 
 
 def check(service, operation, response, request=None):
+    if service in meta_ads.SPECS:
+        return meta_ads.check(service, operation, response, request)
     if service in public_reads.SPECS:
         return public_reads.check(service, operation, response, request)
     if service in completion_reads.SPECS:

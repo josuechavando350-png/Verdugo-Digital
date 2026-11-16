@@ -9,7 +9,7 @@ from . import local_runtime, product
 from .catalog import catalog, graph
 from .common import VerdugoError, encode, identifier
 from .engine import Engine
-from . import workflow, jobs, reconciliation, readback, surface, recovery, commercial, pilot, backups, office, source_evidence, license_policy, connections, subscriptions
+from . import workflow, jobs, reconciliation, readback, surface, recovery, commercial, pilot, backups, office, source_evidence, license_policy, connections, subscriptions, ads
 from .ingress import make_server
 from .bridge import contact_bridge
 from .diagnostics import doctor
@@ -83,6 +83,8 @@ def template(tenant):
         if sid in COMPLETION_PROXIES:
             services[sid]['proxy_auth_reviewed'] = False
     services['anubis'].update(username=None, native_auth_enforced_reviewed=False)
+    services['meta-ads'].update(base_url='https://graph.facebook.com', api_version='v26.0', account_id=None,
+                                account_scope_reviewed=False, report_start_date=None, report_end_date=None)
     services['google-ads'].update(base_url='https://googleads.googleapis.com',
                                 developer_token_env=None, oauth_scope_reviewed=False)
     services['debezium'].update(connector_id=None, debezium_connector_reviewed=False)
@@ -146,6 +148,11 @@ def main(argv=None):
         p.add_argument('input', nargs='?', help='JSON or @file; report and next have safe defaults')
         if name == 'commercial-record': p.add_argument('--execute', action='store_true')
     p = sub.add_parser('sales-intake'); p.add_argument('input'); p.add_argument('--execute', action='store_true')
+    p = sub.add_parser('ads-import'); p.add_argument('input'); p.add_argument('--platform', choices=['google','meta'], required=True)
+    p.add_argument('--execute', action='store_true'); p.add_argument('--dataset', choices=['real','demo'], default='real'); p.add_argument('--currency', default='MXN')
+    p = sub.add_parser('ads-report')
+    for flag in ('start-date','end-date','compare-start','compare-end','month','currency','dataset','platform'): p.add_argument('--'+flag)
+    p.add_argument('--budget-month', type=float)
     p = sub.add_parser('sales-desk'); p.add_argument('input', nargs='?')
     p = sub.add_parser('pilot'); p.add_argument('input'); p.add_argument('--execute', action='store_true')
     p = sub.add_parser('backup-local'); p.add_argument('--to', required=True)
@@ -200,13 +207,13 @@ def main(argv=None):
             tmp = path.with_name(path.name + '.tmp')
             tmp.write_text(json.dumps(data, indent=2) + '\n'); os.chmod(tmp, 0o600); os.replace(tmp, path)
             print(encode({'state': 'applied', 'tenant': args.name, 'services_enabled': 0})); return 0
-        config = json.loads(Path(args.config).read_text()) if args.config else None
-        engine = Engine(args.state, config, args.tenant, args.actor, args.role)
+        config = json.loads(Path(args.config).expanduser().read_text()) if args.config else None
+        engine = Engine(str(Path(args.state).expanduser()) if args.state != ':memory:' else args.state, config, args.tenant, args.actor, args.role)
         if args.cmd == 'ingress-local':
             if args.state == ':memory:' or args.role != 'operator':
                 raise VerdugoError('Local ingress requires persistent state and operator role')
             engine.close(); engine = None
-            factory = lambda: Engine(args.state, config, args.tenant, args.actor, args.role)
+            factory = lambda: Engine(str(Path(args.state).expanduser()) if args.state != ':memory:' else args.state, config, args.tenant, args.actor, args.role)
             with make_server(factory, args.port) as server:
                 print(encode({'local_acceptance_only': True, 'bind': server.server_address,
                               'public_deployment': False}), flush=True)
@@ -217,6 +224,8 @@ def main(argv=None):
         elif args.cmd == 'product-status': result = product.overview(engine, args.dataset)
         elif args.cmd == 'product-run': result = product.observe(engine, read_json(args.input), args.execute)
         elif args.cmd == 'events': result = engine.events(args.after)
+        elif args.cmd == 'ads-import': result = ads.import_file(engine, args.input, args.platform, args.execute, args.dataset, args.currency)
+        elif args.cmd == 'ads-report': result = ads.report(engine, {k:getattr(args,k) for k in ('start_date','end_date','compare_start','compare_end','month','currency','dataset','platform','budget_month') if getattr(args,k) is not None})
         elif args.cmd == 'client-register': result = subscriptions.register(engine, args.label, args.grace_days, args.execute)
         elif args.cmd == 'client-pay': result = subscriptions.pay(engine, args.until, args.months, args.execute)
         elif args.cmd == 'client-pause': result = subscriptions.pause(engine, args.reason, args.execute)

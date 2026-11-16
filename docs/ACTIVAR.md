@@ -95,3 +95,92 @@ $V client-list                                                      # todos los 
 - **No usa servicios de pago.**
 
 Los análisis locales (159 rutas) usan perfiles de Python aparte que prepara el administrador. Ver `docs/AMPLIACION_V020.md` y `docs/AMPLIACION_V021.md`.
+
+## 5. Claude Code y Codex CLI, en la misma laptop o Codespaces
+
+Desde la raíz del repositorio, `.mcp.json` inicia Verdugo por entrada/salida estándar
+con Claude Code. Revisa el proyecto y consulta `/mcp`. Para Codex CLI copia la tabla
+de `examples/codex-config.toml` a tu configuración privada y cambia `cwd` por la
+ruta absoluta de este checkout. Verifica con `codex mcp list`.
+
+Ambos ejecutan `python -m verdugo --config ~/.verdugo/config.json --state ~/.verdugo/estado.sqlite mcp`.
+Verdugo expande `~` incluso cuando el cliente MCP no usa un shell. El tenant por defecto
+es `nexus`; fija `--tenant cliente-demo` en los argumentos de una conexión para ese
+cliente. Nunca permitas que los parámetros de una herramienta elijan otro tenant.
+
+Para análisis opcionales, carga `source ~/.verdugo/perfiles.env` antes de abrir el
+cliente. Codex permite declarar en `env_vars` las variables `VERDUGO_*_PYTHON` que
+necesites heredar. Las credenciales reales se mantienen en el entorno privado.
+Prueba: «consulta el estado del cliente» o «consulta el reporte de anuncios».
+El MCP no puede registrar pagos ni encender clientes.
+
+ChatGPT en el navegador y Claude en la app móvil no leen esta configuración local:
+para acceso desde esas superficies hace falta una conexión remota compatible, que
+no se construye aquí. Claude Desktop dispone también de configuración local propia;
+no es la configuración de Claude Code. No abras este proceso a Internet.
+
+Referencias: [MCP de Codex](https://developers.openai.com/codex/mcp/),
+[MCP de Claude Code](https://code.claude.com/docs/en/mcp).
+
+## 6. Instalar perfiles de análisis, solo cuando tú lo pidas
+
+```bash
+bash scripts/activar.sh --perfiles
+source ~/.verdugo/perfiles.env
+python -m verdugo runtime-check
+```
+
+Requiere Linux y Python 3.12 para las versiones fijadas. Cada `requirements/runtime*.txt`
+se instala con su archivo de restricciones en un entorno independiente bajo
+`~/.verdugo/runtimes/` (700). `perfiles.env` tiene modo 600. Para reintentar uno:
+`bash scripts/activar.sh --perfiles --perfil analytics`. No se habilita ningún servicio.
+El operador sigue revisando `enabled`, `license_reviewed` y `runtime_reviewed` en
+su configuración privada antes de ejecutar una biblioteca.
+
+No se ejecuta desde `postCreateCommand` ni desde el motor. Imprime cada fallo, deja
+su log privado y termina con error si falla un perfil. `perfiles-install.json` registra
+tiempo y tamaño observados por perfil; `runtime-check.json` conserva el inventario.
+`runtime-check` comprueba versiones: no garantiza que funcionen todos los binarios,
+modelos, navegador o recursos auxiliares. Los perfiles npm, Go, R y servidores nativos
+no se instalan con este comando Python; tienen preparación específica en `tests_runtime/`.
+Medición en el entorno Linux local de esta entrega (no Codespaces): 32 perfiles,
+30 min 43.71 s sumados por perfil, 34,650,744,154 bytes de archivos en entornos
+(32.27 GiB), y 127/159 rutas con versiones coincidentes. No equivale a ejecución
+verificada. El script evita caché de pip; reserva espacio adicional para descargas
+y extracción temporal. No hay una medición observada en Codespaces todavía.
+
+## 7. Importar un reporte de anuncios y consultarlo
+
+Exporta **por día y campaña**, UTF-8, máximo 5 MiB, sin columnas de personas.
+Se reconocen encabezados en español e inglés: día, campaña, costo, clics,
+impresiones, conversiones y acción de conversión. Google: `Day,Campaign,Cost,Clicks,Impressions,Conversions`.
+Meta: `Día,Nombre de la campaña,Importe gastado (MXN),Clics (todos),Impresiones,Resultados`.
+Exporta sin separadores de miles; acepta punto o coma decimal y separador CSV coma,
+punto y coma o tabulador. Fechas ISO `YYYY-MM-DD`. No admite preámbulos ni filas de totales.
+
+```bash
+python -m verdugo --config ~/.verdugo/config.json --state ~/.verdugo/estado.sqlite --tenant cliente-demo ads-import @reporte.csv --platform google --currency MXN
+# Revisa y repite con --execute. Datos ficticios: agregar --dataset demo.
+python -m verdugo --config ~/.verdugo/config.json --state ~/.verdugo/estado.sqlite --tenant cliente-demo ads-report --start-date 2026-11-01 --end-date 2026-11-15 --compare-start 2026-10-01 --compare-end 2026-10-15 --budget-month 3000
+```
+
+Solo `operator` importa. Un cliente apagado no puede importar ni consultar. Las campañas
+se presentan con identificadores estables; sus nombres y el CSV nunca se guardan.
+Reimportar actualiza las mismas claves diarias, sin duplicar. No elimina campañas ausentes
+en un archivo posterior: corrige una fila existente exportando explícitamente su valor,
+incluso cero. La moneda y `real`/`demo` siempre quedan separadas.
+Desgloses que repitan gasto por acción se rechazan; no se inventa cómo repartirlo.
+La acción se usa solo para detectar duplicados; no se retiene su texto ni se equipara a ventas.
+
+El costo por cliente usa ventas `won`, canal `paid`, del libro comercial en el mismo
+periodo (hora de Ciudad de México). Son pagos declarados, no conciliación bancaria.
+No se atribuye ese costo a una campaña o plataforma sin evidencia. La proyección
+mensual usa días completos, exige cobertura desde el día 1 y nunca es una promesa.
+Sin perfiles habilitados usa z-score simple; con revisión y versiones correctas puede
+usar PyOD y la línea base Naive de StatsForecast. No interpola días faltantes.
+
+Meta directo: revisa en la configuración privada `api_version: v26.0`,
+`account_id: act_…`, `account_scope_reviewed: true`, `report_start_date` y
+`report_end_date`, además de los permisos habituales. La operación es `insights.summary`,
+con `params: {}`. Usa solo lectura y una credencial con permisos mínimos; nunca pegues
+el token en el JSON. Consulta `docs/LOTE_A_300.md` para alcance y evidencia.

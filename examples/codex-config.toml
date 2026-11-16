@@ -1,0 +1,7 @@
+# Añadir a ~/.codex/config.toml; reemplazar cwd por la ruta local del checkout.
+[mcp_servers.verdugo]
+command = "python"
+args = ["-m", "verdugo", "--config", "~/.verdugo/config.json", "--state", "~/.verdugo/estado.sqlite", "mcp"]
+cwd = "/ruta/absoluta/Verdugo-Digital"
+# Para análisis opcionales, agregar env_vars con las VERDUGO_*_PYTHON instaladas.
+# Nunca escribir tokens reales en este ejemplo.
