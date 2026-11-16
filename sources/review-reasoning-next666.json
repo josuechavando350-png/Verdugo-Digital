@@ -135,8 +135,8 @@
       "id": "oxigraph",
       "repository": "oxigraph/oxigraph",
       "commit": "78734be853a4bec714ba09bbfad790e64f3a1150",
-      "status": "preparation_pending",
-      "note": "Original Python bindings require the Rust workspace, default RocksDB and the Linux rustls HTTP feature. Exact native dependency licenses and a bounded original operation remain unprepared. No build or SDK installation attempted; no blanket incompatibility claim.",
+      "status": "implemented_bounded_original_sparql_paths",
+      "note": "The original Rust library supports default-features=false. The Linux x86_64 candidate disables RocksDB and HTTP without altering upstream source. 913 source blobs, 91 active registry archives and original selected licenses were verified. Stacker permits psm ^0.1.7; the lock selects original 0.1.24, avoiding the unselected later ar_archive_writer dependency without a policy exception. Seven Engine cases and 200 independent graph comparisons passed with joined Egg/Oxigraph/txtai CLI/MCP/restart acceptance. Full platform closure and production remain unclaimed.",
       "files": [
         {
           "path": "Cargo.toml",
@@ -163,10 +163,16 @@
           "source_url": "https://github.com/oxigraph/oxigraph/blob/78734be853a4bec714ba09bbfad790e64f3a1150/lib/oxigraph/Cargo.toml"
         }
       ],
-      "sdk_installed": false,
-      "runtime_executed": false,
-      "counted_as_connected": false,
-      "live_verified": false
+      "sdk_installed": true,
+      "runtime_executed": true,
+      "counted_as_connected": true,
+      "live_verified": false,
+      "assessment_before_implementation": {
+        "status": "preparation_pending",
+        "note": "Original Python bindings require the Rust workspace, default RocksDB and the Linux rustls HTTP feature. Exact native dependency licenses and a bounded original operation remain unprepared. No build or SDK installation attempted; no blanket incompatibility claim."
+      },
+      "implementation_evidence": "sources/contracts-oxigraph666.json",
+      "acceptance_evidence": "evidence/accepted/oxigraph666-joint-local-20261116.json"
     }
   ]
 }

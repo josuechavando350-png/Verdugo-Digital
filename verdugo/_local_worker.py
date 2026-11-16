@@ -38,11 +38,17 @@ def main():
     from verdugo.local_recipes import run
     from verdugo import local_bm25s666, local_content666, local_logic666, local_symbolic666, local_ranking666, local_usearch666, local_data, local_native, local_cli, local_source, local_r, local_database, local_native_tools, local_media, local_images, local_lastnode, local_owned_http, local_volt666, local_memory666, local_monty666, local_browserstate666, local_guardian666, local_explain666, local_quant666
     from verdugo import local_egg666
+    from verdugo import local_oxigraph666
     dist = request['distribution']
     if request['service'] in local_logic666.SPECS:
         state = local_logic666.runtime_state(request['service'])
         if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
             raise ValueError('Original Z3 runtime changed')
+        version = state['installed']
+    elif request['service'] in local_oxigraph666.SPECS:
+        state = local_oxigraph666.runtime_state(request['service'])
+        if not state['version_matches'] or state['runtime_binding'] != request['runtime_binding']:
+            raise ValueError('Original Oxigraph runtime changed')
         version = state['installed']
     elif request['service'] in local_egg666.SPECS:
         state = local_egg666.runtime_state(request['service'])

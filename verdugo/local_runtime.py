@@ -71,6 +71,8 @@ SPECS.update(local_volt666.SPECS)
 SPECS.update(local_memory666.SPECS)
 SPECS.update(local_logic666.SPECS)
 from . import local_egg666
+from . import local_oxigraph666
+SPECS.update(local_oxigraph666.SPECS)
 SPECS.update(local_egg666.SPECS)
 SPECS.update(local_bm25s666.SPECS)
 SPECS.update(local_content666.SPECS)
@@ -120,6 +122,8 @@ def installed(service):
         return local_guardian666.runtime_state(service)
     if service in local_logic666.SPECS:
         return local_logic666.runtime_state(service)
+    if service in local_oxigraph666.SPECS:
+        return local_oxigraph666.runtime_state(service)
     if service in local_egg666.SPECS:
         return local_egg666.runtime_state(service)
     if service in local_bm25s666.SPECS:
@@ -264,6 +268,8 @@ def validate(service, operation, params):
         return local_browserstate666.validate(service, operation, params)
     if service in local_logic666.SPECS:
         return local_logic666.validate(service, operation, params)
+    if service in local_oxigraph666.SPECS:
+        return local_oxigraph666.validate(service, operation, params)
     if service in local_egg666.SPECS:
         return local_egg666.validate(service, operation, params)
     if service in local_bm25s666.SPECS:
@@ -448,6 +454,7 @@ def implementation_digest():
                  Path(local_logic666.__file__), local_logic666.CONTRACT,
                  Path(local_bm25s666.__file__), local_bm25s666.CONTRACT,
                  Path(local_egg666.__file__), local_egg666.CONTRACT,
+                 Path(local_oxigraph666.__file__), local_oxigraph666.CONTRACT,
                  Path(local_content666.__file__), local_content666.CONTRACT,
                  Path(local_symbolic666.__file__), local_symbolic666.CONTRACT,
                  Path(local_dispatch666.__file__), local_dispatch666.CONTRACT,
@@ -475,7 +482,11 @@ def public_plan(request):
     from .common import digest, sanitize
     public = sanitize(request['public'])
     service, params = public['service'], request['public']['params']
-    if service in local_egg666.SPECS:
+    if service in local_oxigraph666.SPECS:
+        public['params'] = {'dataset': params['dataset'], 'edge_records': len(params['edges']),
+                            'remove_records': len(params['remove'])}
+        public['input_sha256'] = digest(params)
+    elif service in local_egg666.SPECS:
         public['params'] = {'dataset': params['dataset'], 'input_nodes': len(params['nodes']),
                             'supplied_equalities': len(params['equalities'])}
         public['input_sha256'] = digest(params)
@@ -531,6 +542,8 @@ def execute(request, cfg):
             env['TIKTOKEN_CACHE_DIR'] = str(local_reasoning666.tokenizer_directory())
         if public['service'] in local_memory666.SPECS:
             env[local_memory666.ENV] = str(local_memory666.root())
+        if public['service'] in local_oxigraph666.SPECS:
+            env[local_oxigraph666.ENV] = str(local_oxigraph666.root())
         if public['service'] in local_egg666.SPECS:
             env[local_egg666.ENV] = str(local_egg666.root())
         if public['service'] in local_volt666.SPECS:

@@ -1,0 +1,107 @@
+{
+  "schema": "verdugo.swipl666.source-review.v1",
+  "review_date": "2026-11-16",
+  "id": "swipl-devel",
+  "repository": "SWI-Prolog/swipl-devel",
+  "commit": "cf6960c295883b0b611e5e6dc73dacf74ec4ef7e",
+  "status": "preparation_pending_license_mapping_and_native_closure",
+  "files": [
+    {
+      "path": "LICENSE",
+      "blob_sha": "ecacbe4f652812e34d9dd64d921f3f8ce7c4cb09",
+      "sha256": "770594d0f4463b71f1485f00e4bc5cf4b6f667d62ef6bc9bde2fee236541992a",
+      "repository": "SWI-Prolog/swipl-devel",
+      "commit": "cf6960c295883b0b611e5e6dc73dacf74ec4ef7e",
+      "source_url": "https://github.com/SWI-Prolog/swipl-devel/blob/cf6960c295883b0b611e5e6dc73dacf74ec4ef7e/LICENSE"
+    },
+    {
+      "path": "CMakeLists.txt",
+      "blob_sha": "14c04098d0480304ad7f0a4590c3c7bcdb4bd5f4",
+      "sha256": "160f0b1a88f74d1904795aee3d1ce7797cadcdc447ab1be1ee0a3438bd7efe09",
+      "repository": "SWI-Prolog/swipl-devel",
+      "commit": "cf6960c295883b0b611e5e6dc73dacf74ec4ef7e",
+      "source_url": "https://github.com/SWI-Prolog/swipl-devel/blob/cf6960c295883b0b611e5e6dc73dacf74ec4ef7e/CMakeLists.txt"
+    },
+    {
+      "path": "cmake/Dependencies.cmake",
+      "blob_sha": "5ae2248da10cb179ae2d70ded1742d6045416b32",
+      "sha256": "d04b5d6fa58a5df0baa79b697c331f52435cb6497106325e77d8241bf4ad8ced",
+      "repository": "SWI-Prolog/swipl-devel",
+      "commit": "cf6960c295883b0b611e5e6dc73dacf74ec4ef7e",
+      "source_url": "https://github.com/SWI-Prolog/swipl-devel/blob/cf6960c295883b0b611e5e6dc73dacf74ec4ef7e/cmake/Dependencies.cmake"
+    },
+    {
+      "path": "src/CMakeLists.txt",
+      "blob_sha": "33f158a4615fb02c19f679139c6ad82f24136ee1",
+      "sha256": "d52af3a10cd9edde2e764a4a426e564b09677329fa4bd5e4c5ee1e753673a8dd",
+      "repository": "SWI-Prolog/swipl-devel",
+      "commit": "cf6960c295883b0b611e5e6dc73dacf74ec4ef7e",
+      "source_url": "https://github.com/SWI-Prolog/swipl-devel/blob/cf6960c295883b0b611e5e6dc73dacf74ec4ef7e/src/CMakeLists.txt"
+    },
+    {
+      "path": "src/libtai/INSTALL",
+      "blob_sha": "80883391fb19773d6c03414d2d66790c185ecbfc",
+      "sha256": "4ae0f87ccce9181637b37a974c5b6ada2bf6e63f524923b6f80d1c310e0b24da",
+      "repository": "SWI-Prolog/swipl-devel",
+      "commit": "cf6960c295883b0b611e5e6dc73dacf74ec4ef7e",
+      "source_url": "https://github.com/SWI-Prolog/swipl-devel/blob/cf6960c295883b0b611e5e6dc73dacf74ec4ef7e/src/libtai/INSTALL"
+    },
+    {
+      "path": "src/libtai/BLURB",
+      "blob_sha": "fd829fc8bfed129c0960478609e7591cf19c6058",
+      "sha256": "49469f2f09eaa1323c7109d1c0da06db882e7ecfc83cb77b63eec50ca9707bd5",
+      "repository": "SWI-Prolog/swipl-devel",
+      "commit": "cf6960c295883b0b611e5e6dc73dacf74ec4ef7e",
+      "source_url": "https://github.com/SWI-Prolog/swipl-devel/blob/cf6960c295883b0b611e5e6dc73dacf74ec4ef7e/src/libtai/BLURB"
+    },
+    {
+      "path": "src/pl-termhash.c",
+      "blob_sha": "01e49893332c870184689c7b11c63bee97bdc1a6",
+      "sha256": "b43529e06814bd4441c984807019b6cbd9dc4c3708a45668346574c55f7ebaf9",
+      "repository": "SWI-Prolog/swipl-devel",
+      "commit": "cf6960c295883b0b611e5e6dc73dacf74ec4ef7e",
+      "source_url": "https://github.com/SWI-Prolog/swipl-devel/blob/cf6960c295883b0b611e5e6dc73dacf74ec4ef7e/src/pl-termhash.c"
+    }
+  ],
+  "root_license_text": "# SWI-Prolog copyright status\n\nSWI-Prolog is covered by the Simplified BSD license:\n\n    Redistribution and use in source and binary forms, with or without\n    modification, are permitted provided that the following conditions\n    are met:\n\n    1. Redistributions of source code must retain the above copyright\n       notice, this list of conditions and the following disclaimer.\n\n    2. Redistributions in binary form must reproduce the above copyright\n       notice, this list of conditions and the following disclaimer in\n       the documentation and/or other materials provided with the\n       distribution.\n\n    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS\n    \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT\n    LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS\n    FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE\n    COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,\n    INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,\n    BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\n    LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\n    CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT\n    LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN\n    ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE\n    POSSIBILITY OF SUCH DAMAGE.\n\n## Possible additional license requirements\n\nNote that SWI-Prolog may be linked with libraries covered by more\nrestrictive license and therefore the above conditions may not suffice\nfor a particular version of SWI-Prolog or a program loaded into\nSWI-Prolog. Run the following predicate to find which components with\nadditional requirements are loaded into a particular version.\n\n  ```\n  ?- license.\n  ```\n\n",
+  "findings": [
+    {
+      "component": "ZLIB",
+      "status": "owner_approved_license_exact_artifact_pending",
+      "evidence_paths": [
+        "cmake/Dependencies.cmake"
+      ],
+      "note": "ZLIB is required even with USE_GMP=OFF. Zlib is now approved, but no exact artifact or native library closure has been prepared."
+    },
+    {
+      "component": "libtai",
+      "status": "public_domain_text_mapping_pending",
+      "evidence_paths": [
+        "src/CMakeLists.txt",
+        "src/libtai/INSTALL",
+        "src/libtai/BLURB"
+      ],
+      "texts": [
+        "Like any other piece of software (and information generally), libtai\ncomes with NO WARRANTY.\n\n\nThese are UNIX installation instructions; libtai has not yet been ported\nto non-UNIX systems.\n\n\nTo compile the programs and format the man pages:\n\n   % make\n\nThen, as root, enable leap second support:\n\n   # cp leapsecs.dat /etc/leapsecs.dat\n   # chmod 644 /etc/leapsecs.dat\n\nTo use another compiler, edit conf-cc and conf-ld.\n\n\nThere are five test programs here. The first is leapsecs, which creates\nleapsecs.dat from leapsecs.txt. Try\n\n   % ./leapsecs < leapsecs.txt | cmp - leapsecs.dat\n\nto make sure that there are no differences.\n\nThe second is check, which prints a variety of information about an\nISO-style input date. Try\n\n   % ./check < check.in | cmp - check.out\n\nto make sure that your test results match mine. Note that the results\nfor future dates will change when more leap seconds are announced.\n\nThe third is easter, which prints the date of Easter in any given year.\nTry\n\n   % ./easter 1997 1998 1999 2000 2001\n\nand check the results against tables from some other source.\n\nThe fourth is yearcal, which prints a year-long calendar. Try\n\n   % ./yearcal 1997 | ul\n\nand check the results against another calendar. (The days in January,\nMarch, May, July, September, and November should show up in boldface.)\n\nThe fifth is nowutc, which prints the current time in UTC. Your system's\nclock must be the number of seconds since 1970-01-01 00:00:10 TAI. This\nis compatible with the interpretation of time_t in the Olson time\nlibrary with leap seconds enabled. Try\n\n   % env TZ=right/Etc/GMT date; ./nowutc\n\nif your system has the Olson library.\n\n\nThe libtai code is in the public domain, so you can use it in your own\nprograms. But keep in mind that this is a very early release. Some of\nthe code hasn't been tested at all! caldate_mjd() and caldate_frommjd()\nare based on previous code of mine; they need outside review. It would\nbe particularly helpful to systematically check my results against\nindependent results from someone else's code.\n",
+        "libtai is a library for storing and manipulating dates and times.\n\nlibtai supports two time scales: (1) TAI64, covering a few hundred\nbillion years with 1-second precision; (2) TAI64NA, covering the same\nperiod with 1-attosecond precision. Both scales are defined in terms of\nTAI, the current international real time standard.\n\nlibtai provides an internal format for TAI64, struct tai, designed for\nfast time manipulations. The tai_pack() and tai_unpack() routines\nconvert between struct tai and a portable 8-byte TAI64 storage format.\nlibtai provides similar internal and external formats for TAI64NA.\n\nlibtai provides struct caldate to store dates in year-month-day form. It\ncan convert struct caldate, under the Gregorian calendar, to a modified\nJulian day number for easy date arithmetic.\n\nlibtai provides struct caltime to store calendar dates and times along\nwith UTC offsets. It can convert from struct tai to struct caltime in\nUTC, accounting for leap seconds, for accurate date and time display. It\ncan also convert back from struct caltime to struct tai for user input.\nIts overall UTC-to-TAI conversion speed is 100x better than the usual\nUNIX mktime() implementation.\n\nThis version of libtai requires a UNIX system with gettimeofday(). It\nwill be easy to port to other operating systems with compilers\nsupporting 64-bit arithmetic.\n\nThe libtai source code is in the public domain.\n"
+      ],
+      "note": "The core build unconditionally includes ten libtai source files. Original INSTALL and BLURB state public-domain status. This wording has not been mapped to any literal license already authorized by the owner; no additional license is approved. This is not a claim that public-domain code is proprietary or paid."
+    },
+    {
+      "component": "embedded_sha1",
+      "status": "permissive_alternative_identified_mapping_pending",
+      "evidence_paths": [
+        "src/CMakeLists.txt",
+        "src/pl-termhash.c"
+      ],
+      "license_excerpt": "/*\n ---------------------------------------------------------------------------\n Copyright (c) 2002, Dr Brian Gladman, Worcester, UK.   All rights reserved.\n\n LICENSE TERMS\n\n The free distribution and use of this software in both source and binary\n form is allowed (with or without changes) provided that:\n\n   1. distributions of this source code include the above copyright\n      notice, this list of conditions and the following disclaimer;\n\n   2. distributions in binary form include the above copyright\n      notice, this list of conditions and the following disclaimer\n      in the documentation and/or other associated materials;\n\n   3. the copyright holder's name is not used to endorse products\n      built using this software without specific written permission.\n\n ALTERNATIVELY, provided that this notice is retained in full, this product\n may be distributed under the terms of the GNU General Public License (GPL),\n in which case the provisions of the GPL apply INSTEAD OF those given above.\n\n DISCLAIMER\n\n This software is provided 'as is' with no explicit or implied warranties\n in respect of its properties, including, but not limited to, correctness\n and/or fitness for purpose.\n ---------------------------------------------------------------------------\n Issue Date: 01/08/2005\n\n This is a byte oriented version of SHA1 that operates on arrays of bytes\n stored in memory.\n*/\n\n#include <string.h>     /* for memcpy() etc.        */\n\n/*\n ---------------------------------------------------------------------------\n Copyright (c) 2002, Dr Brian Gladman, Worcester, UK.   All rights reserved.\n\n LICENSE TERMS\n\n The free distribution and use of this software in both source and binary\n form is allowed (with or without changes) provided that:\n\n   1. distributions of this source code include the above copyright\n      notice, this list of conditions and the following disclaimer;\n\n   2. distributions in binary form include the above copyright\n      notice, this list of conditions and the following disclaimer\n      in the documentation and/or other associated materials;\n\n   3. the copyright holder's name is not used to endorse products\n      built using this software without specific written permission.\n\n ALTERNATIVELY, provided that this notice is retained in full, this product\n may be distributed under the terms of the GNU General Public License (GPL),\n in which case the provisions of the GPL apply INSTEAD OF those given above.\n\n DISCLAIMER\n\n This software is provided 'as is' with no explicit or implied warranties\n in respect of its properties, including, but not limited to, correctness\n and/or fitness for purpose.\n ---------------------------------------------------------------------------\n Issue Date: 01/08/2005\n*/",
+      "note": "The original Brian Gladman notice permits source/binary distribution subject to three preservation/non-endorsement conditions, OR GPL. The GPL alternative is not mandatory. Mapping of the exact permissive text and the rest of the native closure remain pending; no GPL-only classification is made."
+    }
+  ],
+  "native_build_attempted": false,
+  "sdk_installed": false,
+  "runtime_executed": false,
+  "counted_as_connected": false,
+  "live_verified": false,
+  "distribution_license_closure_verified": false
+}

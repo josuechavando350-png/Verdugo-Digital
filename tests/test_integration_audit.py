@@ -20,7 +20,7 @@ class IntegrationAuditTests(unittest.TestCase):
         self.assertEqual(666, result['implemented_adapters'] + result['pending_adapters'] + result['construction_components'])
         self.assertEqual(result['new_implemented'], sum(x['implemented'] for x in result['original_batches']))
         self.assertEqual(12, len(result['existing_profile_review']['profiles']))
-        self.assertEqual([('A', 164, 2), ('B', 163, 0)],
+        self.assertEqual([('A', 164, 3), ('B', 163, 0)],
                          [(x['name'], x['size'], x['implemented']) for x in result['batches']])
         self.assertEqual(39, result['implemented_before_rebatch'])
         self.assertEqual(['meta-ads'], result['outside_batches_pending'])

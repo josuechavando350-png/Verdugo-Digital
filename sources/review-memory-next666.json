@@ -383,8 +383,8 @@
       "id": "tantivy",
       "repository": "quickwit-oss/tantivy",
       "commit": "2ad36b4fd0c00ded047b12295423250d8d4d713b",
-      "status": "preparation_pending",
-      "note": "Original Cargo manifest requires Rust 1.91, native workspace crates and multiple registry dependencies. A fixed dependency closure and source build remain pending; no Rust binary installed or upstream build failure claimed. Optional JIT is not required by the selected manifest defaults.",
+      "status": "blocked_missing_original_dependency_license_text",
+      "note": "The original no-default-features Linux profile resolves 110 active packages. All 623 Tantivy blobs and active registry archive checksums were checked. Mandatory htmlescape 0.3.1 matches all twelve files of original commit 1699b539179798e705ad8464128492a0a0092876, but neither contains a LICENSE file; only a manifest declaration. Original license text required by the owner is missing. No source was compiled and no dependency build script or SDK was executed; no connection counted.",
       "files": [
         {
           "path": "Cargo.toml",
@@ -396,7 +396,12 @@
       "sdk_installed": false,
       "runtime_executed": false,
       "live_verified": false,
-      "counted_as_connected": false
+      "counted_as_connected": false,
+      "assessment_before_dependency_review": {
+        "status": "preparation_pending",
+        "note": "Original Cargo manifest requires Rust 1.91, native workspace crates and multiple registry dependencies. A fixed dependency closure and source build remain pending; no Rust binary installed or upstream build failure claimed. Optional JIT is not required by the selected manifest defaults."
+      },
+      "dependency_review": "sources/review-tantivy-dependencies666.json"
     },
     {
       "id": "unstructured",

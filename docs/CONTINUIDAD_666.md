@@ -1,4 +1,4 @@
-# Continuidad de los 666 — 15 de noviembre de 2026
+# Continuidad de los 666 — 16 de noviembre de 2026
 
 El producto todavía no está terminado. La meta es un sistema conjunto con
 componentes distintos y permisos compatibles; contar repositorios o renombrar
@@ -6,7 +6,7 @@ una capacidad no demuestra esa integración.
 
 ## Reanudación vigente
 
-**Egg y BM25S aceptados localmente:** Lote A 2/164 · Lote B 0/163; 284 adaptadores, 56 piezas de construcción, 326 pendientes y `live_verified=0`. Egg pasa instalación limpia, siete casos por Engine, 200 comparaciones independientes y flujo Egg → txtai con CLI/MCP y replay. Los planes de Egg y BM25S conservan únicamente recuentos y huellas en SQLite; se repitió la aceptación de BM25S. Pasan 932 pruebas. Ver [EGG_666.md](EGG_666.md) y el estado de los tres workflows por SHA en [PLAN_666.md](PLAN_666.md) y PR #25.
+**Oxigraph, Egg y BM25S aceptados localmente:** Lote A 3/164 · Lote B 0/163; 285 adaptadores, 56 piezas de construcción, 325 pendientes y `live_verified=0`. Oxigraph pasa instalación limpia, siete casos por Engine, 200 comparaciones independientes y flujo Egg → Oxigraph → txtai con CLI/MCP y replay. Los planes conservan recuentos y huellas, sin grafos. Pasan 937 pruebas. Ver [OXIGRAPH_666.md](OXIGRAPH_666.md), [EGG_666.md](EGG_666.md) y los tres workflows por SHA en [PLAN_666.md](PLAN_666.md) y PR #25.
 
 ### Checkpoint anterior a BM25S
 
@@ -38,13 +38,13 @@ a un punto anterior. Se retomó ese árbol sin perder sus fuentes ni pruebas.
 | Identidades GitHub distintas registradas | 688 |
 | Permitidas por el criterio de licencia raíz | 666 |
 | Excluidas por licencia raíz | 22 |
-| Adaptadores implementados dentro del criterio raíz | 284 |
+| Adaptadores implementados dentro del criterio raíz | 285 |
 | Piezas de construcción | 56 |
-| Pendientes de adaptador | 326 |
-| Nuevas incorporaciones implementadas | 41 de 366 |
-| Lote original 1 | 41 de 183 |
+| Pendientes de adaptador | 325 |
+| Nuevas incorporaciones implementadas | 42 de 366 |
+| Lote original 1 | 42 de 183 |
 | Lote original 2 | 0 de 183 |
-| Continuación de 80 | 19 implementadas, 61 pendientes |
+| Continuación de 80 | 20 implementadas, 60 pendientes |
 | Continuación de 81 | 0 implementadas, 81 pendientes |
 | Servicios certificados en producción | 0 |
 

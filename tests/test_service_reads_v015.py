@@ -250,7 +250,7 @@ class ConnectionMapTests(unittest.TestCase):
     def test_states_are_computed_from_code(self):
         value = summary()
         self.assertEqual(688, value['registered'])
-        self.assertEqual({'conectado': 284, 'pieza_de_construccion': 56, 'pendiente': 326, 'excluido': 22},
+        self.assertEqual({'conectado': 285, 'pieza_de_construccion': 56, 'pendiente': 325, 'excluido': 22},
                          value['states'])
         self.assertEqual(0, value['live_verified'])
         for sid in service_reads.SPECS:
@@ -286,7 +286,7 @@ class ConnectionMapTests(unittest.TestCase):
             status = engine.status()
         finally:
             engine.close()
-        self.assertEqual(284, status['connection_states']['conectado'])
+        self.assertEqual(285, status['connection_states']['conectado'])
         row = next(r for r in status['integrations'] if r['id'] == 'vllm')
         self.assertEqual(('servicio', 'conectado'), (row['connection_kind'], row['connection_state']))
 

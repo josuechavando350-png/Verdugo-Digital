@@ -1,10 +1,10 @@
 # Verdugo Digital — Plan de los 666
 
-Fecha: 15 de noviembre de 2026. Rama de trabajo: `feat/666-pilot` (PR #25 en borrador) sobre `feat/666-registry` (PR #24).
+Fecha: 16 de noviembre de 2026. Rama de trabajo: `feat/666-pilot` (PR #25 en borrador) sobre `feat/666-registry` (PR #24).
 
 ## Estado vigente: lotes A y B
 
-**Lote A 2/164 · Lote B 0/163.** Las 39 incorporaciones ya implementadas quedan fuera de ambos lotes y no se vuelven a contar. Total: **284 adaptadores implementados, 56 piezas de construcción, 326 pendientes y `live_verified=0`**. Los 327 miembros de A/B son las 63 piezas restantes del sublote de 80, las 81 del segundo sublote y las 183 del lote 2 original, en ese orden. `meta-ads` es la pendiente restante y sigue bloqueada sin fuente original suficiente.
+**Lote A 3/164 · Lote B 0/163.** Las 39 incorporaciones ya implementadas quedan fuera de ambos lotes y no se vuelven a contar. Total: **285 adaptadores implementados, 56 piezas de construcción, 325 pendientes y `live_verified=0`**. Los 327 miembros de A/B son las 63 piezas restantes del sublote de 80, las 81 del segundo sublote y las 183 del lote 2 original, en ese orden. `meta-ads` es la pendiente restante y sigue bloqueada sin fuente original suficiente.
 
 La pertenencia exacta e inmutable está en `sources/resume-666.json/rebatch`. A termina en `axolotl` y B empieza en `openrlhf`; `product-status.integration_audit.batches` calcula el avance desde los adaptadores existentes y rechaza omisiones, duplicados, reordenamientos y recuentos de las 39 anteriores. Los lotes originales y sublotes se conservan como historia.
 
@@ -46,13 +46,33 @@ Pasaron instalación limpia, siete casos por Engine, 200 comparaciones determini
 
 **Estado de CI al preparar el checkpoint:** en `a0deab47ad1b04434fa4f3aea9d6ebfca9c2d023`, verificación y servicios están en `success`; runtime lleva 31 de 32 jobs aprobados, incluido BM25S, y `pilot666` aún compila. El siguiente commit requiere sus propios tres workflows; estado por SHA y enlaces vivos en PR #25. No se hereda el verde de otro commit.
 
+## Incremento Oxigraph
+
+**Lote A 3/164 · Lote B 0/163.** Oxigraph eleva el piloto a **42 incorporaciones: 31 locales y 11 lecturas HTTP**. Total: **285 adaptadores, 56 piezas de construcción y 325 pendientes; `live_verified=0`**. La pertenencia de A/B y las 39 incorporaciones previas no cambian.
+
+`paths.check` usa la biblioteca Rust original en memoria, sin RocksDB ni cliente HTTP. Ejecuta dos consultas SPARQL fijas antes y después de retirar aristas sintéticas, y contrasta todas las respuestas con una referencia independiente. Solo devuelve recuentos; los planes SQLite conservan recuentos y huellas. No acepta consultas, rutas, IRIs ni código del usuario.
+
+Se verificaron 913 blobs originales y las licencias de los 91 paquetes activos en Linux x86_64. La primera resolución seleccionaba `psm 0.1.32` y un componente con `Apache-2.0 WITH LLVM-exception`, que no se compiló. El lock nuevo selecciona `psm 0.1.24`, permitido por el rango original `^0.1.7` de Stacker. No se modificaron fuentes ni se aprobó otra licencia. El contrato conserva los manifiestos y la diferencia CRLF/LF del LICENSE de allocator-api2.
+
+Instalación limpia, siete casos por Engine, 200 comparaciones independientes, seis rechazos nativos y flujo Egg → Oxigraph → txtai con CLI/MCP, privacidad y replay aprobados. Pasan **937 pruebas locales**. Se corrigió una aserción de aceptación que buscaba la clave genérica `remove` también en el plan de txtai; ahora comprueba el esquema exacto de cada plan de Oxigraph, además de la ausencia del grafo en SQLite. Contrato y recibos: `sources/contracts-oxigraph666.json` y `evidence/accepted/oxigraph666-*-local-20261116.json`. [Alcance](OXIGRAPH_666.md).
+
+**CI antes de publicar este incremento:** `3125e8041d7e5db4b646cbe50a56128d6af615f8` terminó con los tres workflows en `success`: [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43776252109), [runtime](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43776252097), con sus 33 jobs aprobados, y [servicios](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43776252212). Se esperó su finalización antes de actualizar la rama. El incremento Oxigraph requiere sus propios tres workflows, ahora con 34 jobs de runtime; su estado por SHA se mantiene en PR #25 y en los indicadores vivos de este plan.
+
+**Tantivy sigue pendiente:** el perfil original sin funciones opcionales resuelve 110 paquetes; se verificaron 623 blobs y los checksums de sus archivos activos. La dependencia obligatoria `htmlescape 0.3.1` coincide en sus doce archivos con el commit original, pero carece de LICENSE tanto en Git como en el paquete. Su declaración de manifiesto no sustituye el texto exigido por el dueño. No se compiló ni se contó como conectado. Evidencia: `sources/review-tantivy-dependencies666.json`.
+
+**SWI-Prolog conserva preparación pendiente:** Zlib ya está aprobada, pero el núcleo incluye libtai con una declaración de dominio público cuya correspondencia con la lista cerrada no está resuelta. El SHA1 incorporado ofrece una alternativa permisiva de tres condiciones; no se lo clasifica como GPL obligatorio. Se conservan los textos y siete archivos originales en `sources/review-swipl-dependencies666.json`, sin build ni nueva aprobación.
+
+**Scallop sigue pendiente:** el núcleo resuelve 97 paquetes activos y exige `colored 2.2.0`, MPL-2.0. También se comprobó el LICENSE original de la versión mínima compatible 2.0.0, con el mismo texto. No se compiló ni se eliminó el requisito. Los commits, locks y licencias están en `sources/review-scallop-dependencies666.json`.
+
+**Candle, ruta Rust CPU en preparación:** se revisó por separado `candle-core` original sin bindings Python ni backends GPU opcionales. El grafo fijado tiene 132 paquetes, con 130 archivos de crates.io y sus LICENSE originales comprobados; no incluye PyO3, target-lexicon ni colored. Usa Tokenizers 0.23.2 con funciones originales compatibles, sin desbloquear la pieza independiente Tokenizers. Faltan contrato/API, revisión completa de avisos, build limpio y aceptación conjunta; no se ejecutaron modelos, pesos ni código de dependencias y no aumenta el conteo. Evidencia para retomar: `sources/review-candle-core-next666.json`.
+
 ## Inventario
 
 | Bloque | Piezas | Fuente | Estado hoy |
 |---|---|---|---|
 | Catálogo libre (cuerpo) | 300 | `sources/parts/*.json`, `sources/licenses.json` | 243 conectadas, 56 piezas de construcción, 1 pendiente (`meta-ads`) |
 | Simulador de mercado (bola de cristal) | 50 | `sources/simulador-mercado.json` | registrado; adaptador pendiente |
-| Cerebro (piloto) | 150 | `sources/cerebro-150.json` | 30 operaciones locales y 11 lecturas HTTP; 109 pendientes |
+| Cerebro (piloto) | 150 | `sources/cerebro-150.json` | 31 operaciones locales y 11 lecturas HTTP; 108 pendientes |
 | Últimas 166 | 166 | `sources/final-166.json` | registrado; adaptador pendiente |
 | **Total libre** | **666** | | |
 
@@ -62,8 +82,8 @@ Los 22 excluidos por licencia siguen registrados, pero no cuentan ni se operan.
 
 - **Tanda 0: terminada y aceptada en CI.** 688 identidades GitHub distintas, 666 permitidas por política y 22 excluidas. Se conservan 69 partes: 68 de diez y una de ocho.
 - Cinco propuestas eran alias de proyectos ya registrados (Ragas, Presidio, FastMCP, Recommenders y Great Expectations). TEN Framework tiene restricciones adicionales: no se contó como Apache libre. Las seis sustituciones y su alcance constan en [REGISTRO_666.md](REGISTRO_666.md).
-- **Estado actual: 284 conectadas; 56 de construcción; 326 pendientes; certificadas en producción: 0.** Semantic Kernel, Agno, AG2, Langroid, Griptape, BeeAI, Strands/Harness SDK, VoltAgent, Unified Planning, el servidor MCP de memoria, Monty, Playwright para Python, Hatchet, Invariant, PyRIT, llama.cpp, Granite Guardian, InterpretML, TransformerLens, Bitsandbytes, Guidance, LM Format Enforcer, USearch, Rerankers, SymPy, RDFLib, Z3, txtai, BM25S y Egg añaden treinta operaciones locales limitadas; registrar las otras piezas no añade adaptadores.
-- **Lote 1 (183): 41 operaciones implementadas: 30 locales con aceptación de componentes y flujos conjuntos y 11 lecturas HTTP probadas por sockets sintéticos; consultar CI del commit vigente. Lote 2 (183): 0 implementadas. Ninguno de los dos lotes está terminado.** Orden completo, sin duplicados, en `sources/registry-666.json/work_queue`.
+- **Estado actual: 285 conectadas; 56 de construcción; 325 pendientes; certificadas en producción: 0.** Semantic Kernel, Agno, AG2, Langroid, Griptape, BeeAI, Strands/Harness SDK, VoltAgent, Unified Planning, el servidor MCP de memoria, Monty, Playwright para Python, Hatchet, Invariant, PyRIT, llama.cpp, Granite Guardian, InterpretML, TransformerLens, Bitsandbytes, Guidance, LM Format Enforcer, USearch, Rerankers, SymPy, RDFLib, Z3, txtai, BM25S, Egg y Oxigraph añaden treinta y una operaciones locales limitadas; registrar las otras piezas no añade adaptadores.
+- **Lote 1 (183): 42 operaciones implementadas: 31 locales con aceptación de componentes y flujos conjuntos y 11 lecturas HTTP probadas por sockets sintéticos; consultar CI del commit vigente. Lote 2 (183): 0 implementadas. Ninguno de los dos lotes está terminado.** Orden completo, sin duplicados, en `sources/registry-666.json/work_queue`.
 - Registro aceptado en `b95f8be09e2a34ff12f163b6f872287eed3afd26`: [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43690692125), [runtime](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43690692198) y [servicios](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43690692157), los tres `success`. PR #24 permanece sin fusionar.
 - El primer checkpoint del piloto (`77670600a4ee083413f5838b1e36991ddbff2347`) pasó [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43692332291), [runtime](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43692332306) y [servicios](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43692332315). Esa evidencia cubre Semantic Kernel; no certifica cambios posteriores.
 - El checkpoint ejecutivo `e914b2622e430ee72121fefc1e256e0adabc126d` pasó [verificación](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43693358786), [runtime](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43693358773) y [servicios](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43693358774), cubriendo tres SDK. El checkpoint posterior de Langroid también está aceptado.

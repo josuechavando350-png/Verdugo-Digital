@@ -161,8 +161,8 @@
       "id": "swipl-devel",
       "repository": "SWI-Prolog/swipl-devel",
       "commit": "cf6960c295883b0b611e5e6dc73dacf74ec4ef7e",
-      "status": "preparation_pending",
-      "note": "Follow-up source review confirms cmake/Dependencies.cmake calls find_package(ZLIB REQUIRED) unconditionally. The supported USE_GMP=OFF / USE_LIBBF=ON options avoid GMP but do not eliminate this native dependency. An exact selected ZLIB artifact, all other selected native libraries, dependency-license closure and source build remain unprepared. No native runtime installed or upstream build failure asserted. Zlib itself is now owner-approved; selecting and reading the exact dependency artifact and preparing the remaining closure are still required.",
+      "status": "preparation_pending_license_mapping_and_native_closure",
+      "note": "Zlib is owner-approved but the exact native dependency profile is still unprepared. Original core CMake includes libtai unconditionally; its INSTALL/BLURB explicitly state public domain, whose mapping to the closed approved list remains pending. The embedded SHA1 notice has a permissive three-condition alternative, so it is not classified as GPL-only. No source was altered, runtime built or license newly approved.",
       "files": [
         {
           "path": "CMakeLists.txt",
@@ -184,14 +184,19 @@
           "sha256": "d04b5d6fa58a5df0baa79b697c331f52435cb6497106325e77d8241bf4ad8ced",
           "source_url": "https://github.com/SWI-Prolog/swipl-devel/blob/cf6960c295883b0b611e5e6dc73dacf74ec4ef7e/cmake/Dependencies.cmake"
         }
-      ]
+      ],
+      "assessment_before_native_review": {
+        "status": "preparation_pending",
+        "note": "Follow-up source review confirms cmake/Dependencies.cmake calls find_package(ZLIB REQUIRED) unconditionally. The supported USE_GMP=OFF / USE_LIBBF=ON options avoid GMP but do not eliminate this native dependency. An exact selected ZLIB artifact, all other selected native libraries, dependency-license closure and source build remain unprepared. No native runtime installed or upstream build failure asserted. Zlib itself is now owner-approved; selecting and reading the exact dependency artifact and preparing the remaining closure are still required."
+      },
+      "dependency_review": "sources/review-swipl-dependencies666.json"
     },
     {
       "id": "scallop",
       "repository": "scallop-lang/scallop",
       "commit": "668bfb6d45ce302fd4ffa7f29916baf3c7ce36ef",
-      "status": "preparation_pending",
-      "note": "Original core requires colored 2.0, native/sparse math dependencies and an unpinned chronoutil Git dependency. Exact resolved versions and license closure still require review. No SDK or build installed; findings for other colored versions are not automatically extended.",
+      "status": "blocked_selected_mandatory_dependency_mpl",
+      "note": "The core-only Linux candidate resolves 97 active packages and obligatorily selects colored 2.2.0. Its original LICENSE at ef1484c713e1340d842cc7b76f79dc976afe891f matches the fixed archive and is MPL-2.0, outside policy. The separately examined minimum-compatible 2.0.0 has the same original license text. No source was compiled and no dependency build script or runtime was executed; no requirement removed and no connection counted.",
       "files": [
         {
           "path": "Cargo.toml",
@@ -209,7 +214,12 @@
       "sdk_installed": false,
       "runtime_executed": false,
       "counted_as_connected": false,
-      "live_verified": false
+      "live_verified": false,
+      "assessment_before_dependency_review": {
+        "status": "preparation_pending",
+        "note": "Original core requires colored 2.0, native/sparse math dependencies and an unpinned chronoutil Git dependency. Exact resolved versions and license closure still require review. No SDK or build installed; findings for other colored versions are not automatically extended."
+      },
+      "dependency_review": "sources/review-scallop-dependencies666.json"
     },
     {
       "id": "problog",

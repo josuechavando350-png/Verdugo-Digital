@@ -10,6 +10,38 @@ concurrency:
   group: runtime-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  oxigraph666:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
+        with:
+          python-version: '3.12'
+      - name: Build locked original Oxigraph without optional features
+        run: |
+          rustup toolchain install 1.100.0 --profile minimal
+          python tests_runtime/install_oxigraph666.py
+          python tests_runtime/install_egg666.py
+          python tests_runtime/install_content666.py
+      - name: Original graph paths joined to content counts with network isolation
+        run: |
+          sudo unshare --net -- setpriv --reuid="$(id -u)" --regid="$(id -g)" --clear-groups -- env \
+            HOME="$HOME" VERDUGO_OS_NETWORK_ISOLATED=1 \
+            VERDUGO_OXIGRAPH666_ROOT=/tmp/verdugo-oxigraph666 \
+            VERDUGO_EGG666_ROOT=/tmp/verdugo-egg666 \
+            VERDUGO_CONTENT666_PYTHON=/tmp/verdugo-content666/bin/python \
+            python tests_runtime/accept_oxigraph666.py --out /tmp/oxigraph666-execution-evidence.json
+      - name: Preserve scoped graph paths evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: verdugo-oxigraph666-${{ github.sha }}
+          path: |
+            /tmp/oxigraph666-execution-evidence.json
+            /tmp/oxigraph666-build-receipt.json
   egg666:
     runs-on: ubuntu-24.04
     timeout-minutes: 20

@@ -1,6 +1,6 @@
 {
- "generated": "2026-11-15",
- "pending": 326,
+ "generated": "2026-11-16",
+ "pending": 325,
  "items": [
   {
    "tanda": "Tanda 1",
@@ -622,20 +622,6 @@
    "repository": "lean-dojo/LeanDojo",
    "commit": "7a9f600b250a89a62e991c05ffe81ba033018e6e",
    "license": "MIT",
-   "policy": "libre",
-   "kind": "biblioteca",
-   "domain": "logica",
-   "que_hacer": "Contrato original, adaptador acotado, ejecución original y aceptación conjunta pendientes.",
-   "nota": null,
-   "live_verified": false,
-   "evidence": "sources/registry-666.json"
-  },
-  {
-   "tanda": "666 / lote 1 / fase 2",
-   "id": "oxigraph",
-   "repository": "oxigraph/oxigraph",
-   "commit": "78734be853a4bec714ba09bbfad790e64f3a1150",
-   "license": "Apache-2.0 AND MIT",
    "policy": "libre",
    "kind": "biblioteca",
    "domain": "logica",
@@ -7718,6 +7704,21 @@
    "live_verified": false,
    "evidence": "sources/contracts-egg666.json",
    "operation": "congruence.check"
+  },
+  {
+   "tanda": "666 / lote 1 / fase 2",
+   "id": "oxigraph",
+   "repository": "oxigraph/oxigraph",
+   "commit": "78734be853a4bec714ba09bbfad790e64f3a1150",
+   "license": "Apache-2.0 AND MIT",
+   "policy": "libre",
+   "kind": "biblioteca",
+   "domain": "logica",
+   "que_hacer": "Receta paths.check con Oxigraph original en memoria, consulta SPARQL fija y referencia independiente.",
+   "nota": "Flujo Oxigraph → txtai por Engine, CLI/MCP y SQLite; solo recuentos y huellas, sin grafos ni consultas del usuario.",
+   "live_verified": false,
+   "evidence": "sources/contracts-oxigraph666.json",
+   "operation": "paths.check"
   }
  ]
 }

@@ -7,12 +7,15 @@ from unittest.mock import patch
 from verdugo.__main__ import template
 from verdugo.common import VerdugoError, digest
 from verdugo.engine import Engine
-from verdugo import local_egg666, local_bm25s666
+from verdugo import local_egg666, local_bm25s666, local_oxigraph666
 
 
 class FinitePlanPrivacy666Tests(unittest.TestCase):
     def test_plan_projection_hides_inputs_without_weakening_idempotency(self):
         cases = [
+            (local_oxigraph666, 'oxigraph', {'dataset': 'demo', 'edges': [[0,1]], 'remove': []},
+             {'dataset': 'demo', 'edge_records': 1, 'remove_records': 0},
+             lambda p: p['edges'].__setitem__(0, [1,0]), ('"edges"', '"remove"')),
             (local_egg666, 'egg', {'dataset': 'demo', 'nodes': [{'op': 0, 'children': []},
               {'op': 1, 'children': []}], 'equalities': [[0, 1]]},
              {'dataset': 'demo', 'input_nodes': 2, 'supplied_equalities': 1},
