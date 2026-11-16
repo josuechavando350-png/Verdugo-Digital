@@ -90,6 +90,20 @@ La API prueba token, Host/Origin, CSRF, confirmación, tamaño, aislamiento y SQ
 compartido. No se conserva sesión ni reportes en localStorage, cookies o caché offline.
 Los reportes y RSS descargados quedan bajo responsabilidad del operador.
 
+## Validación observada
+
+- 763 pruebas del núcleo; 8 de API; 11 de Vitest; 1 recorrido completo en navegador.
+- Tipos TypeScript y compilación Astro/Starlight correctos.
+- Recorrido observado en CI 43828575165, Chrome 157.0.8103.50, 390 × 844.
+- Exportaciones JSON y RSS comprobadas, sin peticiones externas ni errores JavaScript.
+- El navegador de este entorno local no pudo abrir su socket Unix; la ejecución
+  real del navegador se comprobó en el job panel de GitHub, sobre 127.0.0.1.
+- El diagnóstico sin ejecución ahora usa prepare, sin crear planes en SQLite.
+
+![Clientes en teléfono](capturas-panel/clientes-movil.png)
+![Anuncios sintéticos en teléfono](capturas-panel/anuncios-movil.png)
+![Producto en teléfono](capturas-panel/producto-movil.png)
+
 ## Límites
 
 No se instalaron ni ejecutaron las 43 piezas que no aportan un uso honesto a estas

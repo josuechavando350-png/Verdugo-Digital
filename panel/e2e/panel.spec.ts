@@ -1,9 +1,10 @@
 import { test,expect } from '@playwright/test';
-import { writeFile,mkdir,readFile } from 'node:fs/promises';
+import { writeFile,mkdir,readFile,rename } from 'node:fs/promises';
 import { join } from 'node:path';
 const token='synthetic-e2e-token-with-no-real-access';
 test('mobile operator lifecycle, reports, guide and viewer isolation',async({page,browser})=>{
- const errors:string[]=[];const external:string[]=[];
+ const errors:string[]=[];const serverErrors:number[]=[];const external:string[]=[];
+ page.on('response',r=>{if(r.status()>=500)serverErrors.push(r.status());});
  page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>{if(!new URL(r.url()).hostname.match(/^(127\.0\.0\.1|localhost)$/))external.push(r.url());});
  await page.goto('http://127.0.0.1:8766');await page.getByLabel('Token de acceso local').fill(token);await page.getByRole('button',{name:'Entrar al panel'}).click();
  const row=page.locator('.client-row').filter({has:page.locator('code',{hasText:'cliente-demo'})});
@@ -18,10 +19,10 @@ test('mobile operator lifecycle, reports, guide and viewer isolation',async({pag
  await page.getByRole('button',{name:'Producto',exact:true}).click();await expect(page.getByText('Inventario verificable')).toBeVisible();await expect(page.getByRole('cell',{name:'astro',exact:true})).toBeVisible();await page.screenshot({path:join(shots,'producto-movil.png'),fullPage:false});
  await page.getByRole('button',{name:'Recorrido'}).click();await expect(page.locator('.driver-popover-title')).toHaveText('Un cliente a la vez');await page.locator('.driver-popover-close-btn').click();
  await page.getByRole('button',{name:'Bitácora',exact:true}).click();await expect(page.getByText('Registro de actividad')).toBeVisible();const rssDownload=page.waitForEvent('download');await page.getByRole('button',{name:'Exportar RSS'}).click();const rss=await readFile((await (await rssDownload).path())!,'utf8');expect(rss).toContain('<rss');expect(rss).toContain('subscription.paid');
- await page.getByRole('button',{name:'Clientes',exact:true}).click();await writeFile(join(process.env.PANEL_TEST_DIR!,'clock'),'2026-11-21');await page.getByRole('button',{name:'Actualizar'}).click();await expect(row.getByText('Apagado',{exact:true})).toBeVisible();await expect(row.getByText('Pago vencido')).toBeVisible();
+ await page.getByRole('button',{name:'Clientes',exact:true}).click();await writeFile(join(process.env.PANEL_TEST_DIR!,'clock-next'),'2026-11-21');await rename(join(process.env.PANEL_TEST_DIR!,'clock-next'),join(process.env.PANEL_TEST_DIR!,'clock'));await page.getByRole('button',{name:'Actualizar'}).click();await expect(row.getByText('Apagado',{exact:true})).toBeVisible();await expect(row.getByText('Pago vencido')).toBeVisible();
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  expect(await page.evaluate(()=>localStorage.length+sessionStorage.length)).toBe(0);
  const viewer=await browser.newPage({viewport:{width:390,height:844}});await viewer.goto('http://127.0.0.1:8767');await viewer.getByLabel('Token de acceso local').fill(token);await viewer.getByRole('button',{name:'Entrar al panel'}).click();await expect(viewer.getByText('Solo lectura')).toBeVisible();await expect(viewer.getByRole('button',{name:'Registrar pago'})).toHaveCount(0);await expect(viewer.getByRole('button',{name:'Pausar'})).toHaveCount(0);await expect(viewer.getByRole('button',{name:'Reanudar'})).toHaveCount(0);await viewer.close();
- await page.goto('http://127.0.0.1:8766/es/operacion/');await expect(page.getByRole('heading',{name:'Operación local',exact:true})).toBeVisible();expect(errors).toEqual([]);expect(external).toEqual([]);
+ await page.goto('http://127.0.0.1:8766/es/operacion/');await expect(page.getByRole('heading',{name:'Operación local',exact:true})).toBeVisible();expect(errors).toEqual([]);expect(serverErrors).toEqual([]);expect(external).toEqual([]);
  console.log('Browser observed:',browser.version());
 });
