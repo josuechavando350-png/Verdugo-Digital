@@ -8,7 +8,7 @@ import time
 
 from . import (commercial, connections, license_policy, local_runtime,
                marketing_reads, operations_reads, platform_reads, completion_reads, public_reads, read_contracts, readiness_reads,
-               reconciliation, service_reads, tanda1_reads, workflow)
+               reconciliation, service_reads, subscriptions, tanda1_reads, workflow)
 from .adapters import SPECS, service_config
 from .common import VerdugoError, fields, identifier
 
@@ -42,6 +42,7 @@ def overview(engine, dataset='real'):
             'observed_at': time.time(), 'connection_states': state['states'],
             'registered': state['registered'], 'services': rows,
             'bounded_observation_routes': len(routes), 'local_analysis_routes': len(local_runtime.SPECS), 'business': business,
+            'subscription': subscriptions.state(engine),
             'reconciliation_required': len(pending['items']),
             'reconciliation_list_truncated': len(pending['items']) == pending['limit'],
             'external_calls_made': False, 'live_verified': 0,
