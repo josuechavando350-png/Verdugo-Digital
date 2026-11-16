@@ -49,7 +49,7 @@ def main(argv=None):
                 print('Instalando perfil '+name,flush=True)
                 venv.EnvBuilder(with_pip=True,symlinks=False).create(dest)
                 py=dest/'bin'/'python'; py.chmod(0o700)
-                for command in ([str(py),'-m','pip','install','--disable-pip-version-check','--retries','0','--timeout','30','-r',str(req),'-c',str(constraint)],
+                for command in ([str(py),'-m','pip','install','--disable-pip-version-check','--no-cache-dir','--retries','0','--timeout','30','-r',str(req),'-c',str(constraint)],
                                 [str(py),'-m','pip','check']):
                     subprocess.run(command,stdout=output,stderr=subprocess.STDOUT,check=True,timeout=1800)
             state='installed'

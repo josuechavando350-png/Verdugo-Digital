@@ -65,7 +65,14 @@ HTTP locales, privacidad, rechazo de errores y replay. Todo usa datos sintético
 
 Inventario inicial de esta sesión Linux/Python 3.12: **8/159** rutas con versiones
 coincidentes. Eso es disponibilidad de metadatos, no aceptación de las 159 rutas.
-La medición final de instalación se registra en esta entrega al concluir el instalador.
+Instalación observada en este entorno: **32/32 perfiles Python** instalados,
+**1,843.71 segundos** sumados por perfil (30 min 43.71 s) y **34,650,744,154 bytes**
+de archivos en sus entornos (32.27 GiB; no incluye caché ni bloques del sistema).
+Inventario final: **127/159** versiones coincidentes; **32** rutas requieren otros
+runtimes, herramientas o versiones. No se probaron aquí las 127 ejecuciones.
+Durante la instalación la caché de pip llenó el volumen temporal del usuario;
+se limpió esa caché desechable y todos los perfiles finalizaron. El instalador
+ahora usa `--no-cache-dir` para no volver a acumularla.
 No se operó Codespaces: tiempo, disco e inventario en Codespaces siguen sin observar.
 El operador puede reproducirlos con `--perfiles` y consultar los reportes privados.
 No se afirma instalación de runtimes npm, Go, R o servidores nativos con este script.

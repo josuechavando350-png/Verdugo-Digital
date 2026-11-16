@@ -143,7 +143,11 @@ tiempo y tamaño observados por perfil; `runtime-check.json` conserva el inventa
 `runtime-check` comprueba versiones: no garantiza que funcionen todos los binarios,
 modelos, navegador o recursos auxiliares. Los perfiles npm, Go, R y servidores nativos
 no se instalan con este comando Python; tienen preparación específica en `tests_runtime/`.
-No hay una medición observada de tiempo o espacio en Codespaces todavía.
+Medición en el entorno Linux local de esta entrega (no Codespaces): 32 perfiles,
+30 min 43.71 s sumados por perfil, 34,650,744,154 bytes de archivos en entornos
+(32.27 GiB), y 127/159 rutas con versiones coincidentes. No equivale a ejecución
+verificada. El script evita caché de pip; reserva espacio adicional para descargas
+y extracción temporal. No hay una medición observada en Codespaces todavía.
 
 ## 7. Importar un reporte de anuncios y consultarlo
 
