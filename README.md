@@ -7,9 +7,11 @@ idempotencia y estado SQLite. Versión de ingeniería **0.21.0**.
 **La integración operativa de los 300 proyectos NO está terminada.** Registrar
 fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 
-## Hacia los 666
+## Alcance final: 300 piezas
 
-El plan para llegar a 666 piezas libres (300 del catálogo + 50 del simulador + 150 del cerebro + 166 finales) está en [docs/PLAN_666.md](docs/PLAN_666.md), con las instrucciones por tanda en [docs/PROMPT_ASTRA_666.md](docs/PROMPT_ASTRA_666.md). Las 366 piezas nuevas son catálogo propuesto: todavía no tienen adaptadores.
+Por decisión del dueño (15 nov 2026), Verdugo Digital se queda en **300 piezas con licencia libre** (322 registradas, 22 excluidas por licencia). La ampliación a 666 queda archivada en [docs/PLAN_666.md](docs/PLAN_666.md) solo como referencia.
+
+**Para ponerlo en marcha:** [docs/ACTIVAR.md](docs/ACTIVAR.md). Se abre con un toque en GitHub Codespaces (también desde el teléfono) o en cualquier Linux.
 
 ## Estado del código
 

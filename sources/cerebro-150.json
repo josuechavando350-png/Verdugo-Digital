@@ -23,7 +23,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 2,
@@ -33,7 +33,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 3,
@@ -43,7 +43,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 4,
@@ -53,7 +53,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 5,
@@ -63,7 +63,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 6,
@@ -73,7 +73,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 7,
@@ -83,7 +83,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 8,
@@ -93,7 +93,7 @@
    "license_file": "LICENSE.APACHE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 9,
@@ -103,7 +103,7 @@
    "license_file": "LICENCE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 10,
@@ -113,7 +113,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 11,
@@ -123,7 +123,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 12,
@@ -133,7 +133,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 13,
@@ -143,7 +143,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 14,
@@ -153,7 +153,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre_nucleo",
-   "status": "propuesto",
+   "status": "archivado",
    "note": "No usar litellm/enterprise (licencia comercial aparte)."
   },
   {
@@ -164,7 +164,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 16,
@@ -174,7 +174,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 17,
@@ -184,7 +184,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 18,
@@ -194,7 +194,7 @@
    "license_file": "LICENSE",
    "license_detected": "BSD-3-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 19,
@@ -204,7 +204,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 20,
@@ -214,7 +214,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 21,
@@ -224,7 +224,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 22,
@@ -234,7 +234,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 23,
@@ -244,7 +244,7 @@
    "license_file": "LICENSE.md",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 24,
@@ -254,7 +254,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 25,
@@ -264,7 +264,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 26,
@@ -274,7 +274,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 27,
@@ -284,7 +284,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 28,
@@ -294,7 +294,7 @@
    "license_file": "LICENSE.txt",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 29,
@@ -304,7 +304,7 @@
    "license_file": "LICENSE.md",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 30,
@@ -314,7 +314,7 @@
    "license_file": "LICENSE",
    "license_detected": "BSD-2-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 31,
@@ -324,7 +324,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 32,
@@ -334,7 +334,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 33,
@@ -344,7 +344,7 @@
    "license_file": "LICENSE.md",
    "license_detected": "BSD-2-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 34,
@@ -354,7 +354,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 35,
@@ -364,7 +364,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 36,
@@ -374,7 +374,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 37,
@@ -384,7 +384,7 @@
    "license_file": "LICENSE",
    "license_detected": "BSD-3-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 38,
@@ -394,7 +394,7 @@
    "license_file": "LICENSE",
    "license_detected": "BSD-3-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 39,
@@ -404,7 +404,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 40,
@@ -414,7 +414,7 @@
    "license_file": "LICENSE-APACHE",
    "license_detected": "Apache-2.0+MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 41,
@@ -424,7 +424,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 42,
@@ -434,7 +434,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 43,
@@ -444,7 +444,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 44,
@@ -454,7 +454,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 45,
@@ -464,7 +464,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 46,
@@ -474,7 +474,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 47,
@@ -484,7 +484,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 48,
@@ -494,7 +494,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 49,
@@ -504,7 +504,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 50,
@@ -514,7 +514,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 51,
@@ -524,7 +524,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 52,
@@ -534,7 +534,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 53,
@@ -544,7 +544,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 54,
@@ -554,7 +554,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 55,
@@ -564,7 +564,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 56,
@@ -574,7 +574,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 57,
@@ -584,7 +584,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 58,
@@ -594,7 +594,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 59,
@@ -604,7 +604,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 60,
@@ -614,7 +614,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 61,
@@ -624,7 +624,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 62,
@@ -634,7 +634,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 63,
@@ -644,7 +644,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 64,
@@ -654,7 +654,7 @@
    "license_file": "LICENSE.md",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 65,
@@ -664,7 +664,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 66,
@@ -674,7 +674,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 67,
@@ -684,7 +684,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 68,
@@ -694,7 +694,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 69,
@@ -704,7 +704,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 70,
@@ -714,7 +714,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 71,
@@ -724,7 +724,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 72,
@@ -734,7 +734,7 @@
    "license_file": "LICENSE.txt",
    "license_detected": "BSD-3-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 73,
@@ -744,7 +744,7 @@
    "license_file": "LICENSE.txt",
    "license_detected": "BSD-3-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 74,
@@ -754,7 +754,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 75,
@@ -764,7 +764,7 @@
    "license_file": "LICENSE.md",
    "license_detected": "BSD-3-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 76,
@@ -774,7 +774,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 77,
@@ -784,7 +784,7 @@
    "license_file": "LICENSE.txt",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 78,
@@ -794,7 +794,7 @@
    "license_file": "LICENSE.txt",
    "license_detected": "Apache-2.0",
    "policy": "libre_nucleo",
-   "status": "propuesto",
+   "status": "archivado",
    "note": "No usar la edición enterprise; solo el núcleo Apache-2.0."
   },
   {
@@ -805,7 +805,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 80,
@@ -815,7 +815,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 81,
@@ -825,7 +825,7 @@
    "license_file": "LICENSE.md",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 82,
@@ -835,7 +835,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 83,
@@ -845,7 +845,7 @@
    "license_file": "LICENSE.txt",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 84,
@@ -855,7 +855,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 85,
@@ -865,7 +865,7 @@
    "license_file": "LICENSE",
    "license_detected": "BSD-3-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 86,
@@ -875,7 +875,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 87,
@@ -885,7 +885,7 @@
    "license_file": "LICENSE",
    "license_detected": "BSD-3-Clause",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 88,
@@ -895,7 +895,7 @@
    "license_file": "LICENSE.md",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 89,
@@ -905,7 +905,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 90,
@@ -915,7 +915,7 @@
    "license_file": "LICENSE.md",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 91,
@@ -925,7 +925,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 92,
@@ -935,7 +935,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 93,
@@ -945,7 +945,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 94,
@@ -955,7 +955,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 95,
@@ -965,7 +965,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 96,
@@ -975,7 +975,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 97,
@@ -985,7 +985,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 98,
@@ -995,7 +995,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 99,
@@ -1005,7 +1005,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 100,
@@ -1015,7 +1015,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 101,
@@ -1025,7 +1025,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 102,
@@ -1035,7 +1035,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 103,
@@ -1045,7 +1045,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 104,
@@ -1055,7 +1055,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 105,
@@ -1065,7 +1065,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 106,
@@ -1075,7 +1075,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 107,
@@ -1085,7 +1085,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 108,
@@ -1095,7 +1095,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 109,
@@ -1105,7 +1105,7 @@
    "license_file": "LICENSE.md",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 110,
@@ -1115,7 +1115,7 @@
    "license_file": "LICENSE.md",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 111,
@@ -1125,7 +1125,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 112,
@@ -1135,7 +1135,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 113,
@@ -1145,7 +1145,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 114,
@@ -1155,7 +1155,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 115,
@@ -1165,7 +1165,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 116,
@@ -1175,7 +1175,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 117,
@@ -1185,7 +1185,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 118,
@@ -1195,7 +1195,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 119,
@@ -1205,7 +1205,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 120,
@@ -1215,7 +1215,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 121,
@@ -1225,7 +1225,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 122,
@@ -1235,7 +1235,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 123,
@@ -1245,7 +1245,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 124,
@@ -1255,7 +1255,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 125,
@@ -1265,7 +1265,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 126,
@@ -1275,7 +1275,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 127,
@@ -1285,7 +1285,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 128,
@@ -1295,7 +1295,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 129,
@@ -1305,7 +1305,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 130,
@@ -1315,7 +1315,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 131,
@@ -1325,7 +1325,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 132,
@@ -1335,7 +1335,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 133,
@@ -1345,7 +1345,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 134,
@@ -1355,7 +1355,7 @@
    "license_file": "LICENSE-APACHE",
    "license_detected": "Apache-2.0+MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 135,
@@ -1365,7 +1365,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 136,
@@ -1375,7 +1375,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 137,
@@ -1385,7 +1385,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 138,
@@ -1395,7 +1395,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 139,
@@ -1405,7 +1405,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 140,
@@ -1415,7 +1415,7 @@
    "license_file": "LICENSE.md",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 141,
@@ -1425,7 +1425,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 142,
@@ -1435,7 +1435,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 143,
@@ -1445,7 +1445,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 144,
@@ -1455,7 +1455,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 145,
@@ -1465,7 +1465,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 146,
@@ -1475,7 +1475,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 147,
@@ -1485,7 +1485,7 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 148,
@@ -1495,7 +1495,7 @@
    "license_file": "LICENSE",
    "license_detected": "MIT",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 149,
@@ -1505,7 +1505,7 @@
    "license_file": "LICENSE.md",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   },
   {
    "number": 150,
@@ -1515,7 +1515,9 @@
    "license_file": "LICENSE",
    "license_detected": "Apache-2.0",
    "policy": "libre",
-   "status": "propuesto"
+   "status": "archivado"
   }
- ]
+ ],
+ "status": "archivado",
+ "archived_note": "Decisión del dueño (15 nov 2026): el producto se queda en 300 piezas libres. No integrar."
 }

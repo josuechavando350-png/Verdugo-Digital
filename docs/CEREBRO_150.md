@@ -1,5 +1,7 @@
 # El cerebro de Verdugo — 150 repos propuestos
 
+> **ARCHIVADO (15 nov 2026, decisión del dueño):** Verdugo Digital se queda en **300 piezas libres**. Este catálogo de ampliación no se integra. Se conserva solo como referencia; no es una cola de trabajo. Los PR #24 y #25 quedaron cerrados sin fusionar.
+
 Catálogo propuesto para construir el piloto: el sistema que recibe un objetivo, planea, simula, pide aprobación, ejecuta, mide y aprende. No modifica los 322 del catálogo, los 50 del simulador ni el motor. Cada licencia se leyó del archivo LICENSE en el commit fijado en `sources/cerebro-150.json`. Ninguno exige un servicio de pago; los modelos corren en local.
 
 Ya estaban en Verdugo y no se repiten: LangGraph, LangChain, LlamaIndex, CrewAI, Letta, Mem0, Graphiti, Cognee, GraphRAG, DSPy, Outlines, Instructor, Transformers, vLLM, Ollama, Qdrant, Docling, MLflow, Evidently, Guardrails, LLM Guard, NeMo Guardrails, Promptfoo, Langfuse, Ax, OR-Tools, Vowpal Wabbit, Chronos, MAPIE, SHAP, MCP Python/TypeScript SDK, Browser Use, OpenAI Agents, Google ADK, Pydantic AI, smolagents, Haystack, GPT Researcher, STORM, Magentic-UI, Mastra.
