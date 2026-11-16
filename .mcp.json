@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "verdugo": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["-m", "verdugo", "--config", "~/.verdugo/config.json", "--state", "~/.verdugo/estado.sqlite", "mcp"]
+    }
+  }
+}

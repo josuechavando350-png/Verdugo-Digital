@@ -48,7 +48,7 @@ PROFILE_ENV['tinytroupe'] = 'VERDUGO_SOURCE021_PYTHON'
 PROFILE_ENV['kingfisher-collect'] = 'VERDUGO_FINALPY021_PYTHON'
 
 def interpreter(service):
-    key = PROFILE_ENV.get(service)
+    key = PROFILE_ENV.get(service, 'VERDUGO_RUNTIME_PYTHON')
     value = os.environ.get(key) if key else None
     if value is None:
         return sys.executable

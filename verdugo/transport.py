@@ -6,7 +6,7 @@ import socket
 import ssl
 from urllib.parse import urlsplit
 from .common import VerdugoError, encode
-from . import marketing_reads, tanda1_reads, readiness_reads, operations_reads, platform_reads, completion_reads, public_reads
+from . import marketing_reads, tanda1_reads, readiness_reads, operations_reads, platform_reads, completion_reads, public_reads, meta_ads
 
 MAX_RESPONSE = 1024 * 1024
 
@@ -60,6 +60,8 @@ def send(request, cfg):
                        cfg.get('allow_local_http') is True)
         connection = PinnedHTTP(u.hostname, port, addr, u.scheme == 'https')
         path = u.path + ('?' + u.query if u.query else '')
+        if p['service'] == 'meta-ads':
+            path = meta_ads.wire_path(request)
         if (p['service'], p['operation']) == ('matomo', 'visits.summary'):
             data = marketing_reads.form_bytes(request)
         else:
@@ -69,7 +71,7 @@ def send(request, cfg):
         # No retries for mutations. No redirect following, including same-host redirects.
         if not 200 <= response.status < 300:
             raise TransportError('Upstream HTTP %s; response body omitted' % response.status)
-        if (p['service'] in public_reads.SPECS or p['service'] in completion_reads.SPECS or p['service'] in marketing_reads.SPECS or p['service'] in tanda1_reads.SPECS or p['service'] in readiness_reads.SPECS or p['service'] in operations_reads.SPECS or p['service'] in platform_reads.SPECS) and response.status != 200:
+        if (p['service'] in meta_ads.SPECS or p['service'] in public_reads.SPECS or p['service'] in completion_reads.SPECS or p['service'] in marketing_reads.SPECS or p['service'] in tanda1_reads.SPECS or p['service'] in readiness_reads.SPECS or p['service'] in operations_reads.SPECS or p['service'] in platform_reads.SPECS) and response.status != 200:
             raise TransportError('Bounded reads require a synchronous HTTP 200 response')
         if request['mutates'] and response.status not in (200, 201):
             raise TransportError('Write response is not a completed synchronous operation')
@@ -89,6 +91,6 @@ def send(request, cfg):
         raise
     except (OSError, ValueError, http.client.HTTPException) as exc:
         # Never expose upstream URLs, headers or arbitrary exception strings with secrets.
-        raise TransportError('Upstream transport failed (%s)' % type(exc).__name__) from exc
+        raise TransportError('Upstream transport failed (%s)' % type(exc).__name__) from None
     finally:
         if connection is not None: connection.close()

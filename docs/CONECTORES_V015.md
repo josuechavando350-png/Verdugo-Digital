@@ -1,3 +1,7 @@
+> Estado vigente del lote A (16 nov 2026): 244 conectadas, 56 piezas de construcción,
+> 0 conectores pendientes, 22 excluidas y 0 verificadas en vivo.
+> La información histórica siguiente conserva su alcance original. Ver [LOTE_A_300.md](LOTE_A_300.md).
+
 > Estado v0.21: 217 conectadas, 27 pendientes, 56 piezas de construcción y 22 excluidas.
 > 148 operaciones locales (136 bibliotecas, 10 CLI, 2 datos) y 104 adaptadores HTTP.
 > Las secciones siguientes conservan el detalle histórico.

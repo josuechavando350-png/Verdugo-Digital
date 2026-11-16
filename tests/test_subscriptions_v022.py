@@ -1,3 +1,4 @@
+from pathlib import Path
 from datetime import date, timedelta
 import json
 import subprocess
@@ -155,7 +156,7 @@ class ClientSwitchTests(Base):
                                                capture_output=True).returncode)
             self.assertEqual('planned', json.loads(run('tenant-add', 'cliente-a').stdout)['state'])
             self.assertEqual('applied', json.loads(run('tenant-add', 'cliente-a', '--execute').stdout)['state'])
-            config = json.load(open(cfg))
+            config = json.loads(Path(cfg).read_text())
             self.assertFalse(any(s['enabled'] for s in config['tenants']['cliente-a']['services'].values()))
             run('--tenant', 'cliente-a', 'client-register', '--label', 'Cliente A', '--execute')
             self.assertEqual('suspended', json.loads(run('--tenant', 'cliente-a', 'client-status').stdout)['state'])

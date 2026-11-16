@@ -88,10 +88,10 @@ class LocalContractTests(unittest.TestCase):
         try: s = e.status()
         finally: e.close()
         self.assertEqual(322,s['source_pinned'])
-        self.assertEqual(103,s['api_adapters_implemented'])
+        self.assertEqual(104,s['api_adapters_implemented'])
         self.assertEqual(159,s['local_adapters_implemented'])
-        self.assertEqual(262,s['total_adapters_implemented'])
-        self.assertEqual(60,s['projects_without_any_adapter'])
+        self.assertEqual(263,s['total_adapters_implemented'])
+        self.assertEqual(59,s['projects_without_any_adapter'])
         self.assertEqual(0,s['live_verified'])
 
     def test_configuration_keeps_local_integrations_disabled(self):

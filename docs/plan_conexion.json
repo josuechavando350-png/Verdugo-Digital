@@ -1,20 +1,7 @@
 {
- "generated": "2026-11-15",
- "pending": 1,
- "items": [
-  {
-   "tanda": "Tanda 1",
-   "id": "meta-ads",
-   "repository": "meta/facebook-python-business-sdk",
-   "commit": "b08e5c1d36a2adad3c4ede6578654c8eaca5f225",
-   "license": "LicenseRef-Meta-Platform",
-   "policy": "libre_condicionado",
-   "kind": "servicio",
-   "domain": "research",
-   "que_hacer": "Pendiente. Los SDK oficiales de Meta en sus commits revisados (Python b08e5c1d36, Node 246c937eb5, PHP 55b89b1e01, Java 3307575291, Ruby 9c3a845075) envían access_token como parámetro de la URL; ninguno usa el encabezado Authorization. Conectar solo con una fuente original que respalde otro transporte o con una excepción escrita por el operador.",
-   "nota": "Retirado de v0.21: el contrato con encabezado Bearer no estaba respaldado por el código original fijado."
-  }
- ],
+ "generated": "2026-11-16",
+ "pending": 0,
+ "items": [],
  "baseline_commit": "35516f830cba1e0dbb06b91f44357128440fc832",
  "baseline_pending": 185,
  "implemented_v017": [
@@ -2713,6 +2700,26 @@
    "operation": "document.snapshot",
    "live_verified": false,
    "evidence": "docs/ACEPTACION_COMPLEMENTO_V021.md"
+  }
+ ],
+ "implemented_v023": [
+  {
+   "tanda": "Tanda 1",
+   "id": "meta-ads",
+   "repository": "meta/facebook-python-business-sdk",
+   "commit": "b08e5c1d36a2adad3c4ede6578654c8eaca5f225",
+   "license": "LicenseRef-Meta-Platform",
+   "policy": "libre_condicionado",
+   "kind": "servicio",
+   "domain": "research",
+   "que_hacer": "Implementado con consulta privada access_token según SDK fijado. Campos, cuenta y fechas fijos por configuración; sin payload privado persistido.",
+   "nota": "Retirado de v0.21: el contrato con encabezado Bearer no estaba respaldado por el código original fijado.",
+   "implemented_actions": [
+    "insights.summary"
+   ],
+   "implementation_version": "0.23.0",
+   "acceptance": "synthetic_contract_and_loopback",
+   "live_verified": false
   }
  ]
 }

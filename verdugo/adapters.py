@@ -4,7 +4,7 @@ import os
 import re
 from urllib.parse import urlencode, urlsplit
 from .common import VerdugoError, fields, text, integer, identifier, digest, encode
-from . import marketing_reads, service_reads, tanda1_reads, readiness_reads, operations_reads, platform_reads, completion_reads, public_reads
+from . import marketing_reads, service_reads, tanda1_reads, readiness_reads, operations_reads, platform_reads, completion_reads, public_reads, meta_ads
 
 # API-contract implementations; live compatibility is NOT established by this list.
 SPECS = {
@@ -60,6 +60,7 @@ SPECS.update(operations_reads.SPECS)
 SPECS.update(platform_reads.SPECS)
 SPECS.update(completion_reads.SPECS)
 SPECS.update(public_reads.SPECS)
+SPECS.update(meta_ads.SPECS)
 HEADERS = {'qdrant': 'api-key', 'metabase': 'X-API-Key',
            'shlink': 'X-Api-Key', 'n8n': 'X-N8N-API-KEY',
            'changedetection': 'x-api-key', 'formbricks': 'x-api-key'}
@@ -98,7 +99,9 @@ def connection(service, cfg):
     if not token or len(token) > 8192 or any(not 33 <= ord(c) <= 126 for c in token):
         raise VerdugoError('Missing or invalid service credential: ' + env_name)
     headers = {'Accept': 'application/json', 'User-Agent': 'Verdugo-Digital/0.2'}
-    if service in completion_reads.SPECS:
+    if service in meta_ads.SPECS:
+        headers.update(meta_ads.authorization(cfg, origin))
+    elif service in completion_reads.SPECS:
         headers.update(completion_reads.authorization(service, cfg, token))
     elif service in platform_reads.SPECS:
         headers.update(platform_reads.authorization(service, cfg, token))
@@ -166,6 +169,9 @@ def remote_id(result, path):
 
 
 def build(service, operation, params, cfg):
+    if service in meta_ads.SPECS:
+        origin, token, headers = connection(service, cfg)
+        return meta_ads.build(service, operation, params, cfg, origin, token, headers)
     if service in public_reads.SPECS:
         origin, token, headers = connection(service, cfg)
         return public_reads.build(service, operation, params, cfg, origin, token, headers)
