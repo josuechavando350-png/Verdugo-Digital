@@ -1,0 +1,4 @@
+import i18next from 'i18next';
+export const language = i18next.createInstance();
+void language.init({lng:'es',fallbackLng:'es',initAsync:false,resources:{es:{translation:{clientes:'Clientes',anuncios:'Anuncios',embudo:'Embudo',estado:'Producto',bitacora:'Bitácora',conectado:'Conectada al motor',integrado_en_panel:'Integrada en el panel',pieza_de_construccion:'Sin integrar al panel',excluido:'Excluida por licencia',pendiente:'Pendiente',checked:'Revisión completa',incomplete:'Revisión incompleta',disabled:'Deshabilitados',local_configured:'Configurados localmente',not_implemented:'Sin operación',blocked:'Bloqueados',planned:'Configuración válida',not_configured:'Sin configurar',sin_pago:'Sin pago registrado',pago_vencido:'Pago vencido',pausado:'Pausado por el operador',active:'Prendido',suspended:'Apagado'}}}});
+export const tr=(key:string)=>language.t(key);

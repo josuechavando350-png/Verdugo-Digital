@@ -333,7 +333,7 @@ class ReadinessInventoryTests(unittest.TestCase):
         self.assertTrue(all(p['live_verified'] is False for p in plan['implemented_v018']))
 
     def test_code_derived_counts_never_certify_live_services(self):
-        self.assertEqual({'conectado': 244, 'pendiente': 0, 'pieza_de_construccion': 56, 'excluido': 22}, connections.summary()['states'])
+        self.assertEqual({'conectado': 244, 'pendiente': 0, 'integrado_en_panel': 13, 'pieza_de_construccion': 43, 'excluido': 22}, connections.summary()['states'])
         with closing(Engine(':memory:')) as engine:
             status = engine.status()
         self.assertEqual(104, status['api_adapters_implemented'])

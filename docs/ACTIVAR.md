@@ -184,3 +184,38 @@ Meta directo: revisa en la configuración privada `api_version: v26.0`,
 `report_end_date`, además de los permisos habituales. La operación es `insights.summary`,
 con `params: {}`. Usa solo lectura y una credencial con permisos mínimos; nunca pegues
 el token en el JSON. Consulta `docs/LOTE_A_300.md` para alcance y evidencia.
+
+## 8. Panel local (lote B)
+
+Requiere Python 3.12 y Node 24.22.1. Desde la raíz del repositorio:
+
+```bash
+python3.12 -m venv ~/.verdugo/panel-venv
+~/.verdugo/panel-venv/bin/python -m pip install --no-cache-dir -r panel/requirements.txt -c panel/constraints.txt
+npm ci --prefix panel
+npm run build --prefix panel
+~/.verdugo/panel-venv/bin/python -m verdugo --config ~/.verdugo/config.json --state ~/.verdugo/estado.sqlite --role operator panel
+```
+
+Antes debe existir la configuración privada creada por `scripts/activar.sh`.
+Abre `http://127.0.0.1:8766` y copia el token del archivo privado indicado por la
+terminal. No lo pongas en la URL ni en Git. El directorio requiere modo 700 y
+el token modo 600. El token y los reportes quedan solo en memoria del navegador;
+al salir se vacía la sesión. Cierra también pestañas que ya no uses.
+
+Para consulta usa `--role viewer panel --port 8767`; tiene un token separado y
+ningún permiso de escritura. No cambies el rol en una sesión ya compartida.
+El proceso se enlaza únicamente a 127.0.0.1; no admite otro host de escucha.
+En Codespaces abre Ports, agrega 8766 y conserva la visibilidad **Private**.
+Solo tú debes poder abrir ese reenvío; no elijas Public. No se despliega nada.
+
+Las pantallas usan el mismo SQLite. Cliente nuevo: crea su tenant con la CLI,
+registra su interruptor en Clientes (queda apagado), registra el periodo pagado
+y confirma. El vencimiento se comprueba en el motor, aunque cierres el panel.
+Anuncios consume `ads-report`; importa los archivos por CLI con vista previa.
+Selecciona Demostración para los ejemplos sintéticos. Producto muestra las 300
+piezas libres; 43 componentes siguen sin integración por motivos documentados.
+
+Las descargas JSON/RSS pueden contener datos privados: consérvalas fuera de Git.
+La guía integrada está en `/es/operacion/`. No hay llamadas a modelos, CDNs ni
+telemetría de navegador. No se ofrece funcionamiento desconectado del motor.

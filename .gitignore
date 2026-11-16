@@ -12,3 +12,12 @@ htmlcov/
 
 respaldos.local/
 *.snapshot.sqlite3
+
+panel/node_modules/
+panel/dist/
+panel/.astro/
+panel/test-results/
+panel/playwright-report/
+
+panel/.env*
+!panel/.env.example
