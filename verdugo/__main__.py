@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 from pathlib import Path
 import sys
 import tempfile
@@ -8,7 +9,7 @@ from . import local_runtime, product
 from .catalog import catalog, graph
 from .common import VerdugoError, encode, identifier
 from .engine import Engine
-from . import workflow, jobs, reconciliation, readback, surface, recovery, commercial, pilot, backups, office, source_evidence, license_policy, connections
+from . import workflow, jobs, reconciliation, readback, surface, recovery, commercial, pilot, backups, office, source_evidence, license_policy, connections, subscriptions
 from .ingress import make_server
 from .bridge import contact_bridge
 from .diagnostics import doctor
@@ -150,6 +151,19 @@ def main(argv=None):
     p = sub.add_parser('backup-local'); p.add_argument('--to', required=True)
     p = sub.add_parser('verify-backup'); p.add_argument('--file', required=True)
     p = sub.add_parser('ingress-local'); p.add_argument('--port', type=int, default=8765)
+    p = sub.add_parser('tenant-add', help='Add a client tenant to --config with every service off')
+    p.add_argument('name'); p.add_argument('--execute', action='store_true')
+    p = sub.add_parser('client-register', help='Create the payment switch for --tenant (starts off)')
+    p.add_argument('--label', required=True); p.add_argument('--grace-days', type=int, default=0)
+    p.add_argument('--execute', action='store_true')
+    p = sub.add_parser('client-pay', help='Declare a payment for --tenant: --until YYYY-MM-DD or --months N')
+    g = p.add_mutually_exclusive_group(required=True)
+    g.add_argument('--until'); g.add_argument('--months', type=int)
+    p.add_argument('--execute', action='store_true')
+    p = sub.add_parser('client-pause'); p.add_argument('--reason', required=True)
+    p.add_argument('--execute', action='store_true')
+    p = sub.add_parser('client-resume'); p.add_argument('--execute', action='store_true')
+    sub.add_parser('client-status'); sub.add_parser('client-list')
     args = parser.parse_args(argv)
     engine = None
     try:
@@ -174,6 +188,18 @@ def main(argv=None):
                 result = workflow.run(engine, spec, execute=True)
                 print(encode({'synthetic_only': True, 'external_calls': 0, 'workflow': result}))
                 return 0 if result['state'] == 'succeeded' else 1
+        if args.cmd == 'tenant-add':
+            if not args.config: raise VerdugoError('tenant-add requires --config')
+            identifier(args.name)
+            path = Path(args.config); data = json.loads(path.read_text())
+            if args.name in data.get('tenants', {}): raise VerdugoError('Tenant already exists')
+            if not args.execute:
+                print(encode({'state': 'planned', 'tenant': args.name, 'services_enabled': 0,
+                              'note': 'Vista previa: agrega --execute para escribirlo en la configuración.'})); return 0
+            data['tenants'][args.name] = template(args.name)['tenants'][args.name]
+            tmp = path.with_name(path.name + '.tmp')
+            tmp.write_text(json.dumps(data, indent=2) + '\n'); os.chmod(tmp, 0o600); os.replace(tmp, path)
+            print(encode({'state': 'applied', 'tenant': args.name, 'services_enabled': 0})); return 0
         config = json.loads(Path(args.config).read_text()) if args.config else None
         engine = Engine(args.state, config, args.tenant, args.actor, args.role)
         if args.cmd == 'ingress-local':
@@ -191,6 +217,12 @@ def main(argv=None):
         elif args.cmd == 'product-status': result = product.overview(engine, args.dataset)
         elif args.cmd == 'product-run': result = product.observe(engine, read_json(args.input), args.execute)
         elif args.cmd == 'events': result = engine.events(args.after)
+        elif args.cmd == 'client-register': result = subscriptions.register(engine, args.label, args.grace_days, args.execute)
+        elif args.cmd == 'client-pay': result = subscriptions.pay(engine, args.until, args.months, args.execute)
+        elif args.cmd == 'client-pause': result = subscriptions.pause(engine, args.reason, args.execute)
+        elif args.cmd == 'client-resume': result = subscriptions.resume(engine, args.execute)
+        elif args.cmd == 'client-status': result = subscriptions.state(engine)
+        elif args.cmd == 'client-list': result = subscriptions.listing(engine)
         elif args.cmd == 'queue': result = jobs.overview(engine, args.limit)
         elif args.cmd == 'job': result = jobs.get(engine, args.job_id)
         elif args.cmd == 'job-plan': result = jobs.plan(engine, args.job_id)['plan']

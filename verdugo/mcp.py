@@ -7,7 +7,7 @@ from .common import VerdugoError, encode, fields
 from .catalog import graph
 from .adapters import SPECS
 from . import source_evidence, license_policy, connections, product
-from . import workflow, jobs, reconciliation, readback, surface, commercial, pilot, office
+from . import workflow, jobs, reconciliation, readback, surface, commercial, pilot, office, subscriptions
 from . import __version__
 from .bridge import contact_bridge
 from .diagnostics import doctor
@@ -19,6 +19,8 @@ BOOL = {'type': 'boolean', 'default': False}
 TOOLS = [
  ('verdugo_product_status', 'One local product overview: all connections, bounded observation routes and declared business state. No provider calls.',
   {'dataset': {'type': 'string', 'enum': ['real', 'demo'], 'default': 'real'}}, [], True),
+ ('verdugo_client_status', 'Read-only client switch: whether this tenant has a current operator-declared paid period. Cannot register payments or turn service on.',
+  {}, [], True),
  ('verdugo_product_run', 'One bounded observation workflow across selected services and local business records; preview by default. Reports saved versus new observations, not production certification.',
   {'request': OBJ, 'execute': BOOL}, ['request'], False),
  ('verdugo_source_evidence', 'Read-only pinned GitHub source evidence. No deployment, license approval, or external API call.',
@@ -82,6 +84,7 @@ def invoke(engine, name, args):
     fields(args, spec[3], set(spec[2])-set(spec[3]),
            max_bytes=workflow.MAX_MANIFEST_BYTES if name in ('verdugo_product_run', 'verdugo_workflow') else 32768)
     if name == 'verdugo_product_status': return product.overview(engine, args.get('dataset', 'real'))
+    if name == 'verdugo_client_status': return subscriptions.state(engine)
     if name == 'verdugo_product_run': return product.observe(engine, args['request'], args.get('execute', False))
     if name == 'verdugo_source_evidence': return source_evidence.report(args.get('project_id'))
     if name == 'verdugo_license_policy': return license_policy.summary(args.get('project_id'))

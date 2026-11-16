@@ -15,7 +15,7 @@ from . import license_policy, connections
 from . import local_runtime
 from .common import VerdugoError, digest, encode, fields, identifier, integer, sanitize, text
 from .transport import send
-from . import identity, jobs, reconciliation, readback, commercial, pilot, office
+from . import identity, jobs, reconciliation, readback, commercial, pilot, office, subscriptions
 from .guards import StateGuards, GuardBusy, SCHEMA as GUARD_SCHEMA
 
 CORE = {'lead.capture', 'lead.qualify', 'payment.record', 'metrics.summary'} | identity.ACTIONS
@@ -75,7 +75,7 @@ class Engine:
             self.db.row_factory = sqlite3.Row
             self.db.execute('PRAGMA journal_mode=WAL')
             self.db.execute('PRAGMA foreign_keys=ON')
-            self.db.executescript(SCHEMA + identity.SCHEMA + jobs.SCHEMA + reconciliation.SCHEMA + GUARD_SCHEMA + readback.SCHEMA + commercial.SCHEMA + pilot.SCHEMA + office.SCHEMA)
+            self.db.executescript(SCHEMA + identity.SCHEMA + jobs.SCHEMA + reconciliation.SCHEMA + GUARD_SCHEMA + readback.SCHEMA + commercial.SCHEMA + pilot.SCHEMA + office.SCHEMA + subscriptions.SCHEMA)
         except BaseException:
             # sqlite3.connect() succeeded, but schema/PRAGMA/bootstrap failed.
             # Context managers alone do not close sqlite3.Connection objects.
@@ -144,6 +144,8 @@ class Engine:
         if service == 'core':
             if operation not in CORE: raise VerdugoError('Unknown core action')
             return {}
+        # Client switch: a client tenant without a current paid period gets no service.
+        subscriptions.check(self)
         is_local = local_runtime.supports(service, operation)
         if operation not in SPECS.get(service, {}) and not is_local:
             raise VerdugoError('Adapter/action not implemented: %s.%s' % (service, operation))

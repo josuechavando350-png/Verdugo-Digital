@@ -58,6 +58,34 @@ Ejemplo con Uptime Kuma. Funciona igual para cualquier pieza con estado `conecta
 
 Algunas piezas piden datos propios (por ejemplo, Google Ads necesita un *developer token* que Google aprueba aparte y la revisión del permiso OAuth). El archivo de configuración marca cada campo requerido.
 
+## 4. Interruptor por cliente (paga = prendido, no paga = apagado)
+
+Cada cliente es un *tenant* propio, con sus servicios y su historial separados. El interruptor decide si ese tenant recibe servicio:
+
+- **Se registra apagado.** No recibe nada hasta que anotes su primer pago.
+- **Prendido** mientras la fecha de hoy (hora de Ciudad de México) no pase de `pagado hasta` + días de gracia.
+- **Se apaga solo** al día siguiente de vencer: el motor rechaza cualquier acción de servicio para ese cliente, incluso repetir una ya guardada.
+- Tu propio tenant (`nexus`) no tiene interruptor y nunca se apaga.
+
+```bash
+V="python -m verdugo --config ~/.verdugo/config.json --state ~/.verdugo/estado.sqlite"
+
+$V tenant-add cliente-1 --execute                                   # crea el cliente con todo apagado
+$V --tenant cliente-1 client-register --label "Cliente 1" --grace-days 3 --execute
+$V --tenant cliente-1 client-pay --months 1 --execute               # pagó: prendido 1 mes
+$V --tenant cliente-1 client-pay --until 2027-01-15 --execute       # o hasta una fecha exacta
+$V --tenant cliente-1 client-pause --reason "Sin pago" --execute    # apagarlo ya, aunque tenga días
+$V --tenant cliente-1 client-resume --execute                       # quitar la pausa
+$V --tenant cliente-1 client-status                                 # ver su estado
+$V client-list                                                      # todos los clientes: activos y apagados
+```
+
+- Sin `--execute`, cada comando solo muestra la vista previa.
+- `--months` suma a partir de la fecha pagada si aún no vence, así un pago adelantado no pierde días.
+- Cada cambio queda en la bitácora (`events`) con quién lo hizo.
+- Desde Claude o ChatGPT (MCP), la herramienta `verdugo_client_status` **solo consulta**. Anotar pagos y prender o apagar se hace únicamente desde la terminal con rol `operator`, para que ningún asistente pueda prender un cliente por su cuenta.
+- El pago lo declaras tú. Verdugo no revisa tu banco ni usa ningún procesador de pagos.
+
 ## Qué no hace este paso
 
 - **No despliega nada.** El producto corre donde lo abras: Codespaces se apaga cuando no lo usas, y una laptop depende de la luz y el internet de casa. Para operación de 24 horas hace falta un servidor.

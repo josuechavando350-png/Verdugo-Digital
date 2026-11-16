@@ -29,7 +29,7 @@ Por decisión del dueño (15 nov 2026), Verdugo Digital se queda en **300 piezas
 | Operaciones locales implementadas | 159; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Flujo de 87 operaciones nuevas + métricas locales; persistencia y reanudación tras reiniciar Engine |
 | Pruebas unitarias y de contrato | 715 pruebas aprobadas en el checkpoint anterior; comprobar la suite vigente por commit en CI |
-| Herramientas MCP | 25; product-status/product-run reutilizan el mismo motor |
+| Herramientas MCP | 26 (incluye `verdugo_client_status`, solo lectura); product-status/product-run reutilizan el mismo motor |
 | Servicios productivos certificados | 0 |
 
 Los tres workflows de aceptación son **Verdugo verification**, **Verdugo runtime
