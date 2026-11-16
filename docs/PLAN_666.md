@@ -66,6 +66,8 @@ Instalación limpia, siete casos por Engine, 200 comparaciones independientes, s
 
 **Candle, ruta Rust CPU en preparación:** se revisó por separado `candle-core` original sin bindings Python ni backends GPU opcionales. El grafo fijado tiene 132 paquetes, con 130 archivos de crates.io y sus LICENSE originales comprobados; no incluye PyO3, target-lexicon ni colored. Usa Tokenizers 0.23.2 con funciones originales compatibles, sin desbloquear la pieza independiente Tokenizers. Faltan contrato/API, revisión completa de avisos, build limpio y aceptación conjunta; no se ejecutaron modelos, pesos ni código de dependencias y no aumenta el conteo. Evidencia para retomar: `sources/review-candle-core-next666.json`.
 
+**Corrección de integridad tras publicar Oxigraph:** en `d9eaa3a`, el job original de Oxigraph pasó (build limpio y Egg → Oxigraph → txtai bajo aislamiento de red). `baseline` detectó dos SHA256 desactualizados en `review-license-decision666.json` después de ampliar `review-logic-next666.json`. Se actualizan ambas referencias al contenido exacto; no se modifica la prueba ni la política. Los recuentos siguen en Lote A 3/164 · Lote B 0/163, 285 adaptadores, 56 piezas de construcción y 325 pendientes. Las 937 pruebas locales volvieron a aprobar después de corregir las huellas. El commit correctivo exige volver a observar los tres workflows.
+
 ## Inventario
 
 | Bloque | Piezas | Fuente | Estado hoy |

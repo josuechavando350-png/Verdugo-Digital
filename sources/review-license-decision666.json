@@ -73,7 +73,7 @@
       "source_review": "sources/review-logic-next666.json",
       "counted_as_connected": false,
       "live_verified": false,
-      "source_review_sha256": "ae75d278231df9fc2402978ca4ff1f4c5d643839fda0685b709102f5cbfb174a",
+      "source_review_sha256": "312a8083e53f8966cb7555c05b0044406db27914e6a8114d3cc9dc9f2a7bd7f3",
       "additional_dependency_review": "sources/review-rustworkx-dependencies666.json"
     },
     {
@@ -116,7 +116,7 @@
       "source_review": "sources/review-logic-next666.json",
       "counted_as_connected": false,
       "live_verified": false,
-      "source_review_sha256": "ae75d278231df9fc2402978ca4ff1f4c5d643839fda0685b709102f5cbfb174a",
+      "source_review_sha256": "312a8083e53f8966cb7555c05b0044406db27914e6a8114d3cc9dc9f2a7bd7f3",
       "additional_review": "sources/review-clingo-dependencies666.json"
     },
     {
