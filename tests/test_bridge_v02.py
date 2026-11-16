@@ -296,6 +296,7 @@ class DoctorTests(Base):
         self.assertEqual(322, len(result['checks']))
         self.assertEqual(104, sum(r['state'] == 'planned' for r in result['checks']))
         self.assertFalse(self.calls)
+        self.assertEqual(0, self.engine.db.execute('SELECT COUNT(*) FROM plans').fetchone()[0])
 
     def test_bounded_doctor_checks_every_enabled_adapter_once(self):
         result = doctor(self.engine, 'probe-1', True)

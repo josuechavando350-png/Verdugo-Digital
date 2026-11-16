@@ -40,7 +40,12 @@ def doctor(engine, probe_id='configuration-check', execute=False):
         command = {'service': sid, 'operation': operation, 'params': params,
                    'key': 'probe-'+digest([probe_id, sid])[:32]}
         try:
-            result = engine.execute(command, execute)
+            if execute:
+                result = engine.execute(command, True)
+            else:
+                # A configuration lookup must not insert idempotency plans.
+                engine.prepare(command)
+                result = {'state': 'planned'}
             row.update(state='read_succeeded' if result['state'] == 'succeeded' else result['state'],
                        operation=operation, replayed=result.get('replayed', False))
             if result['state'] == 'succeeded': row['result_digest'] = digest(result['result'])
