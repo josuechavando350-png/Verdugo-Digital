@@ -2,6 +2,11 @@
 
 Nombre del producto: Verdugo Digital. No renombrarlo como Revenue OS.
 
+Alcance vigente: los 300 proyectos originales permitidos por la política. Mantener
+las 22 exclusiones históricas para que el motor siga rechazándolas. No ampliar el
+catálogo sin una nueva instrucción explícita del propietario. Todas las operaciones
+del producto deben seguir usando el mismo Engine, workflow, CLI/MCP y estado SQLite.
+
 Antes de cambiar código: ejecutar `python -m unittest discover -s tests -v`, leer README y consultar `python -m verdugo --state :memory: status`.
 
 No confundir 100 entradas de catálogo con 100 adaptadores ejecutables. `verdugo/catalog.py` es el catálogo aprobado; `verdugo/adapters.py` es la lista real de acciones externas implementadas. Una integración no soportada debe devolver error, nunca éxito de prueba como resultado productivo.
