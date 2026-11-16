@@ -4,12 +4,14 @@ Núcleo comercial y de análisis para Nexus Bot Studio. Una sola entrada CLI/MCP
 un motor de ejecución, flujos con dependencias, permisos locales, auditoría,
 idempotencia y estado SQLite. Versión de ingeniería **0.21.0**.
 
+El alcance del producto son los **300 proyectos originales**: 243 cuentan con una
+operación implementada, 56 son piezas para construir la plataforma y Meta Ads sigue
+pendiente. Las operaciones implementadas comparten Engine, workflow, CLI/MCP y
+SQLite. Las 22 exclusiones históricas se conservan para aplicar la política de
+licencias, fuera del portafolio de 300.
+
 **La integración operativa de los 300 proyectos NO está terminada.** Registrar
 fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
-
-## Hacia los 666
-
-El plan para llegar a 666 piezas libres (300 del catálogo + 50 del simulador + 150 del cerebro + 166 finales) está en [docs/PLAN_666.md](docs/PLAN_666.md), con las instrucciones por tanda en [docs/PROMPT_ASTRA_666.md](docs/PROMPT_ASTRA_666.md). Las 366 piezas nuevas son catálogo propuesto: todavía no tienen adaptadores.
 
 ## Estado del código
 
@@ -23,10 +25,10 @@ El plan para llegar a 666 piezas libres (300 del catálogo + 50 del simulador + 
 | Piezas de construcción (se usan al programar, no vía motor) | 56 |
 | Pendientes de conector | 1 (`meta-ads`, ver corrección v0.21.1) |
 | Servicios de pago | 0 (Stripe, Twilio, Mercado Pago, E2B y Composio retirados) |
-| Operaciones HTTP existentes | 108, limitadas por proveedor |
+| Operaciones HTTP existentes | 107, limitadas por proveedor |
 | Operaciones locales implementadas | 159; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Flujo de 87 operaciones nuevas + métricas locales; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 715 pruebas aprobadas en el checkpoint anterior; comprobar la suite vigente por commit en CI |
+| Pruebas unitarias y de contrato | 719 pruebas locales aprobadas; comprobar los tres workflows del commit vigente en CI |
 | Herramientas MCP | 25; product-status/product-run reutilizan el mismo motor |
 | Servicios productivos certificados | 0 |
 
@@ -44,8 +46,8 @@ Estado actual y alcance de las operaciones, con las identificaciones históricas
 
 > **Corrección v0.21.1 (revisión):** `google-ads` conserva su lectura con evidencia original añadida (`googleapis/googleapis@97f6460c35`: ruta REST `GET /v26/customers:listAccessibleCustomers` en `customer_service.proto`; encabezado `developer-token` en `google/ads/googleads/interceptors/metadata_interceptor.py` de google-ads-python). `meta-ads` vuelve a pendiente: los SDK oficiales de Meta (Python, Node, PHP, Java y Ruby) envían `access_token` en la URL y ninguno respalda el encabezado Bearer que usaba el contrato. Quedan 87 operaciones de la tanda, 25 contratos HTTP nuevos y 1 pendiente.
 
-La segunda tanda incorpora **88 operaciones implementadas, 0 pendientes de implementación**. La aceptación del commit vigente exige los tres workflows completos.
-Las últimas 68 incluyen 41 operaciones locales con código original, una comparación propia de reglas NAP originales y 26 lecturas HTTP.
+La segunda tanda incorpora **87 operaciones implementadas y 1 pendiente de implementación**, tras la corrección v0.21.1. La aceptación del commit vigente exige los tres workflows completos.
+El complemento conserva 41 operaciones locales con código original, una comparación propia de reglas NAP originales y 25 lecturas HTTP; Meta Ads queda pendiente.
 [Alcance, dependencias y evidencia del complemento](docs/ACEPTACION_COMPLEMENTO_V021.md).
 Los programas originales comparten Engine, product-run, auditoría y SQLite.
 Se agregan perfiles npm y CLI fijados; las operaciones siguen deshabilitadas por defecto.

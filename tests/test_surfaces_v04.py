@@ -5,6 +5,7 @@ import subprocess
 import sys
 import threading
 import unittest
+from unittest.mock import patch
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlsplit, parse_qs
 from test_core import Base, SECRET
@@ -80,14 +81,30 @@ class SurfaceTests(Base):
         self.assertEqual([],result['approval_batch']);self.assertFalse(self.calls)
 
     def test_one_command_combines_four_reads_without_counting_customers_or_money(self):
-        result=surface.overview(self.engine,self.request,True)
+        # Regression: the private numeric sentinel also occurs in this valid
+        # timestamp. Compare the complete public schema, not JSON substrings.
+        observed_at = 1794776894.1169999
+        with patch('verdugo.engine.time.time', return_value=observed_at):
+            result=surface.overview(self.engine,self.request,True)
         self.assertEqual('succeeded',result['state']);self.assertEqual(4,len(self.calls))
         self.assertEqual([1,1,1,1],[r['records_in_response'] for r in result['surfaces']])
         self.assertFalse(result['revenue_inferred']);self.assertIsNone(result['combined_customer_count'])
         for row in result['surfaces']:
             self.assertFalse(row['live_verified']);self.assertIsNotNone(row['observed_at'])
             self.assertEqual('single_response_not_complete_export',row['coverage'])
-        for value in (SECRET,'private@example.invalid','9999','100000','https://example.invalid'):
+        self.assertEqual({
+            'state': 'succeeded', 'id': 'surface-1', 'tenant': 'nexus',
+            'surfaces': [{
+                'service': sid, 'operation': surface.ROUTES[sid][0],
+                'state': 'observed', 'records_in_response': 1,
+                'coverage': 'single_response_not_complete_export',
+                'read_key': 'surface-1-'+sid, 'observed_at': observed_at,
+                'live_verified': False,
+            } for sid in self.request['services']],
+            'revenue_inferred': False, 'combined_customer_count': None,
+            'note': 'Different entities are not added together; repeat ID reuses saved reads. No bidirectional sync.',
+        }, result)
+        for value in (SECRET,'private@example.invalid','https://example.invalid'):
             self.assertNotIn(value,encode(result))
 
     def test_no_response_urls_or_instructions_are_followed(self):
