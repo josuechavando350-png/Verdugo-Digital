@@ -1,5 +1,7 @@
 # Las últimas 166 — para llegar a 666
 
+> **ARCHIVADO (15 nov 2026, decisión del dueño):** Verdugo Digital se queda en **300 piezas libres**. Este catálogo de ampliación no se integra. Se conserva solo como referencia; no es una cola de trabajo. Los PR #24 y #25 quedaron cerrados sin fusionar.
+
 Catálogo propuesto. Cada licencia se leyó del archivo LICENSE en el commit fijado en `sources/final-166.json`. Ninguno exige un servicio de pago. No repite los 322 del catálogo, los 50 del simulador ni los 150 del cerebro.
 
 ## Bola de cristal: pronosticar demanda, ventas y tráfico (12)

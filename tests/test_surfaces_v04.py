@@ -87,8 +87,10 @@ class SurfaceTests(Base):
         for row in result['surfaces']:
             self.assertFalse(row['live_verified']);self.assertIsNotNone(row['observed_at'])
             self.assertEqual('single_response_not_complete_export',row['coverage'])
+        # observed_at is a wall-clock float; its digits must not be mistaken for leaked payload numbers.
+        scrubbed={**result,'surfaces':[{k:v for k,v in row.items() if k!='observed_at'} for row in result['surfaces']]}
         for value in (SECRET,'private@example.invalid','9999','100000','https://example.invalid'):
-            self.assertNotIn(value,encode(result))
+            self.assertNotIn(value,encode(scrubbed))
 
     def test_no_response_urls_or_instructions_are_followed(self):
         def untrusted(req,cfg):

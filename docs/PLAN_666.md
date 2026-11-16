@@ -1,5 +1,7 @@
 # Verdugo Digital — Plan de los 666
 
+> **ARCHIVADO (15 nov 2026, decisión del dueño):** Verdugo Digital se queda en **300 piezas libres**. Este catálogo de ampliación no se integra. Se conserva solo como referencia; no es una cola de trabajo. Los PR #24 y #25 quedaron cerrados sin fusionar.
+
 Fecha: 15 de noviembre de 2026. Base: `main` después de la v0.21.1.
 
 ## Inventario

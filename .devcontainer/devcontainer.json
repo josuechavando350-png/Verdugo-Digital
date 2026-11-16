@@ -1,0 +1,10 @@
+{
+  "name": "Verdugo Digital",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "postCreateCommand": "bash scripts/activar.sh --pruebas",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python"]
+    }
+  }
+}

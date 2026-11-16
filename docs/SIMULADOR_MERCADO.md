@@ -1,5 +1,7 @@
 # Simulador de mercado — 50 repos propuestos
 
+> **ARCHIVADO (15 nov 2026, decisión del dueño):** Verdugo Digital se queda en **300 piezas libres**. Este catálogo de ampliación no se integra. Se conserva solo como referencia; no es una cola de trabajo. Los PR #24 y #25 quedaron cerrados sin fusionar.
+
 Catálogo propuesto para construir el simulador de mercado (clientes virtuales calibrados con datos reales). No modifica los 322 del catálogo ni el motor. Cada licencia se leyó del archivo LICENSE en el commit fijado en `sources/simulador-mercado.json`. Ninguno requiere servicio de pago; los que usan IA funcionan con modelos locales.
 
 Ya estaban en el catálogo y no se repiten: TinyTroupe, Mesa, CAMEL, PyMC-Marketing, Meridian, DoWhy, EconML, CausalML, NetworkX, Optuna.

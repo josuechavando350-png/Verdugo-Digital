@@ -1,5 +1,7 @@
 # Prompt para Astra — los 666
 
+> **ARCHIVADO (15 nov 2026, decisión del dueño):** Verdugo Digital se queda en **300 piezas libres**. Este catálogo de ampliación no se integra. Se conserva solo como referencia; no es una cola de trabajo. Los PR #24 y #25 quedaron cerrados sin fusionar.
+
 Copia y pega esto al empezar cada sesión con Astra.
 
 ```
