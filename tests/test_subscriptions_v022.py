@@ -112,8 +112,11 @@ class ClientSwitchTests(Base):
                 with self.assertRaises(VerdugoError): subscriptions.pay(e, until=bad, execute=True)
             with self.assertRaises(VerdugoError): subscriptions.pay(e, until='2026-12-01', months=1)
             with self.assertRaises(VerdugoError): subscriptions.register(e, 'Otra vez', execute=True)
-            with self.assertRaises(VerdugoError): subscriptions.register(self.client(), 'x', 99)
         finally: e.close()
+        fresh = Engine(self.path, self.config, tenant='nexus', transport=self.transport)
+        try:
+            with self.assertRaises(VerdugoError): subscriptions.register(fresh, 'x', 99)
+        finally: fresh.close()
 
     def test_changes_are_audited_and_tenant_scoped(self):
         e = self.registered()
