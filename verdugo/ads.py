@@ -38,6 +38,20 @@ ALIASES = {
  'action': ('conversion action', 'accion de conversion', 'result type', 'tipo de resultado', 'indicador de resultado'),
  'currency': ('currency', 'currency code', 'moneda', 'codigo de moneda'),
 }
+# Used only when the export has no "all clicks" column (common in Meta exports).
+SECONDARY = {'link clicks': 'clicks', 'clics en el enlace': 'clicks'}
+# Unknown columns are ignored and never stored, except headers that look like personal data.
+PII_WORDS = {'email', 'e-mail', 'correo', 'telefono', 'phone', 'celular', 'movil', 'apellido', 'apellidos',
+             'address', 'direccion', 'gclid', 'fbclid', 'ip', 'curp', 'rfc'}
+PII_PHRASES = ('nombre completo', 'full name', 'first name', 'last name', 'user id', 'id de usuario',
+               'nombre del cliente', 'customer name')
+EMPTY = ('', '--', '—', '-')
+MONTHS = {'ene': 1, 'jan': 1, 'enero': 1, 'january': 1, 'feb': 2, 'febrero': 2, 'february': 2,
+          'mar': 3, 'marzo': 3, 'march': 3, 'abr': 4, 'apr': 4, 'abril': 4, 'april': 4,
+          'may': 5, 'mayo': 5, 'jun': 6, 'junio': 6, 'june': 6, 'jul': 7, 'julio': 7, 'july': 7,
+          'ago': 8, 'aug': 8, 'agosto': 8, 'august': 8, 'sep': 9, 'sept': 9, 'septiembre': 9,
+          'september': 9, 'oct': 10, 'octubre': 10, 'october': 10, 'nov': 11, 'noviembre': 11,
+          'november': 11, 'dic': 12, 'dec': 12, 'diciembre': 12, 'december': 12}
 
 
 def day(value):
@@ -47,13 +61,64 @@ def day(value):
     except ValueError: raise VerdugoError('Fecha no válida') from None
 
 
-def number(value):
-    if not isinstance(value, str) or not re.fullmatch(r'\d+(?:[.,]\d{1,6})?', value.strip()):
-        raise VerdugoError('Número inválido; exporta sin separadores de miles ni símbolos de moneda')
-    try: n = Decimal(value.strip().replace(',', '.'))
+def _text_day(value):
+    """Dates as the ad platforms print them: 2026-11-01, 1 nov 2026, 1 de noviembre de 2026, Nov 1, 2026."""
+    v = _header(value).replace(',', ' ').replace('.', ' ')
+    v = re.sub(r'\bde\b', ' ', v); v = re.sub(r'\s+', ' ', v).strip()
+    m = re.fullmatch(r'(\d{1,2}) ([a-z]+) (\d{4})', v) or None
+    if m and m[2] in MONTHS: d, mo, y = int(m[1]), MONTHS[m[2]], int(m[3])
+    else:
+        m = re.fullmatch(r'([a-z]+) (\d{1,2}) (\d{4})', v)
+        if not (m and m[1] in MONTHS): return None
+        d, mo, y = int(m[2]), MONTHS[m[1]], int(m[3])
+    try: return date(y, mo, d)
+    except ValueError: raise VerdugoError('Fecha no válida') from None
+
+
+def _days(values):
+    """Parse one file's dates with a single format. Slash dates must be unambiguous."""
+    if all(re.fullmatch(r'\d{4}-\d{2}-\d{2}', v) for v in values): return [day(v) for v in values]
+    if all(re.fullmatch(r'\d{1,2}/\d{1,2}/\d{4}', v) for v in values):
+        parts = [tuple(int(x) for x in v.split('/')) for v in values]
+        if any(a > 12 for a, b, _ in parts): order = 'dmy'
+        elif any(b > 12 for a, b, _ in parts): order = 'mdy'
+        else: raise VerdugoError('Fechas ambiguas (día/mes): exporta con formato AAAA-MM-DD')
+        try: return [date(y, b, a) if order == 'dmy' else date(y, a, b) for a, b, y in parts]
+        except ValueError: raise VerdugoError('Fecha no válida') from None
+    out = [_text_day(v) for v in values]
+    if any(d is None for d in out): raise VerdugoError('Usa fechas YYYY-MM-DD')
+    return out
+
+
+def number(value, integer=False):
+    """Read 1,234.56 / 1.234,56 / 100,25 / $1,234 / -- as the platforms export them."""
+    if not isinstance(value, str): raise VerdugoError('Número inválido')
+    v = value.strip().replace('\u00a0', '').replace(' ', '')
+    v = re.sub(r'^(MX\$|US\$|\$|MXN|USD)', '', v)
+    if v in EMPTY: return Decimal(0)
+    if not re.fullmatch(r'[\d.,]+', v) or not v[0].isdigit() or not v[-1].isdigit():
+        raise VerdugoError('Número inválido; exporta sin símbolos ni porcentajes')
+    grouped = lambda sep: re.fullmatch(r'\d{1,3}(?:' + re.escape(sep) + r'\d{3})+', v)
+    if '.' in v and ',' in v:
+        dec = '.' if v.rindex('.') > v.rindex(',') else ','
+        thou = ',' if dec == '.' else '.'
+        whole, _, frac = v.rpartition(dec)
+        if not re.fullmatch(r'\d{1,3}(?:' + re.escape(thou) + r'\d{3})*', whole) or not 1 <= len(frac) <= 6:
+            raise VerdugoError('Número inválido')
+        v = whole.replace(thou, '') + '.' + frac
+    elif ',' in v or '.' in v:
+        sep = ',' if ',' in v else '.'
+        if v.count(sep) > 1 or (integer and grouped(sep)) or (sep == ',' and grouped(sep)):
+            if not grouped(sep): raise VerdugoError('Número inválido')
+            v = v.replace(sep, '')
+        else:
+            if not re.fullmatch(r'\d+' + re.escape(sep) + r'\d{1,6}', v): raise VerdugoError('Número inválido')
+            v = v.replace(sep, '.')
+    try: n = Decimal(v)
     except InvalidOperation: raise VerdugoError('Número inválido') from None
     if not n.is_finite() or not 0 <= n <= 10**9:
         raise VerdugoError('Métrica fuera de rango')
+    if integer and n != n.to_integral_value(): raise VerdugoError('Clics e impresiones deben ser enteros')
     return n
 
 
@@ -75,46 +140,83 @@ def _access(engine, write=False):
     subscriptions.check(engine)
 
 
+def _decode(raw):
+    if raw[:2] in (b'\xff\xfe', b'\xfe\xff'): return raw.decode('utf-16')
+    return raw.decode('utf-8-sig')
+
+
+def _is_pii(normalized):
+    words = set(re.split(r'[^a-z0-9-]+', normalized))
+    return bool(words & PII_WORDS) or any(p in normalized for p in PII_PHRASES)
+
+
+def _map_header(cells, currency):
+    lookup = {alias: key for key, aliases in ALIASES.items() for alias in aliases}
+    columns, secondary = [], []
+    for cell in cells:
+        normalized = _header(cell)
+        match = re.fullmatch(r'(importe gastado|amount spent|costo|cost) \(([a-z]{3})\)', normalized)
+        if match:
+            if match[2].upper() != currency: raise VerdugoError('La moneda del CSV no coincide')
+            normalized = match[1]
+        if normalized in lookup: columns.append(lookup[normalized])
+        elif normalized in SECONDARY: columns.append(None); secondary.append((len(columns)-1, SECONDARY[normalized]))
+        elif _is_pii(normalized):
+            raise VerdugoError('Columna no admitida: exporta solo métricas diarias, sin datos personales')
+        else: columns.append(None)  # ignored metric (CTR, CPC, estado...), never stored
+    for index, key in secondary:
+        if key not in columns: columns[index] = key
+    named = [c for c in columns if c]
+    if len(set(named)) != len(named): raise VerdugoError('Faltan columnas requeridas o hay columnas duplicadas')
+    return columns
+
+
+def _find_header(lines, currency):
+    """Google puts a title and a date range above the header; skip up to 12 such lines."""
+    for index, line in enumerate(lines[:12]):
+        for delimiter in (',', ';', '\t'):
+            try: cells = next(csv.reader([line], delimiter=delimiter))
+            except (csv.Error, StopIteration): continue
+            if len(cells) < 4: continue
+            names = {_header(c) for c in cells}
+            if any(n in ALIASES['day'] for n in names) and any(n in ALIASES['campaign'] for n in names):
+                return index, delimiter, _map_header(cells, currency)
+    raise VerdugoError('Faltan columnas requeridas o hay columnas duplicadas')
+
+
 def parse(raw, tenant, platform, currency):
     if not isinstance(raw, bytes) or not 0 < len(raw) <= MAX_BYTES:
         raise VerdugoError('CSV vacío o mayor de 5 MiB')
     try:
-        content = raw.decode('utf-8-sig')
+        content = _decode(raw)
         if '\x00' in content: raise ValueError()
-        dialect = csv.Sniffer().sniff(content[:8192], delimiters=',;\t')
-        reader = csv.reader(io.StringIO(content), dialect=dialect, strict=True)
-        header = next(reader)
-        lookup = {alias: key for key, aliases in ALIASES.items() for alias in aliases}
-        columns = []
-        for cell in header:
-            normalized = _header(cell)
-            # Meta includes the currency in this recognized metric header.
-            match = re.fullmatch(r'(importe gastado|amount spent) \(([a-z]{3})\)', normalized)
-            if match:
-                if match[2].upper() != currency: raise VerdugoError('La moneda del CSV no coincide')
-                normalized = match[1]
-            if normalized not in lookup:
-                raise VerdugoError('Columna no admitida: exporta solo métricas diarias, sin datos personales')
-            columns.append(lookup[normalized])
-        if len(set(columns)) != len(columns) or not {'day','campaign','spend','clicks','impressions','conversions'} <= set(columns):
+        lines = content.splitlines(keepends=True)
+        start, delimiter, columns = _find_header(lines, currency)
+        if not {'day','campaign','spend','clicks','impressions','conversions'} <= set(columns):
             raise VerdugoError('Faltan columnas requeridas o hay columnas duplicadas')
-        groups, seen = {}, set()
+        reader = csv.reader(io.StringIO(''.join(lines[start+1:])), delimiter=delimiter, strict=True)
+        records = []
         for index, values in enumerate(reader):
             if index >= 20000: raise VerdugoError('CSV supera 20000 filas')
+            if not any(v.strip() for v in values): continue
+            # Google appends "Total: cuenta / campañas" rows; they are sums, not days.
+            if any(_header(v).startswith('total') for v in values[:3]): continue
             if len(values) != len(columns): raise VerdugoError('Fila CSV incompleta')
-            row = dict(zip(columns, (v.strip() for v in values)))
-            date_value = day(row['day']).isoformat()
-            if 'end' in row and row['end'] != date_value:
-                raise VerdugoError('Exporta por día; no se aceptan totales de varios días')
-            if row.get('currency', currency) != currency:
+            records.append({k: v.strip() for k, v in zip(columns, values) if k})
+        if not records: raise VerdugoError('CSV sin métricas')
+        dates = _days([r['day'] for r in records])
+        ends = _days([r['end'] for r in records]) if 'end' in columns else dates
+        groups, seen = {}, set()
+        for row, when, until in zip(records, dates, ends):
+            if until != when: raise VerdugoError('Exporta por día; no se aceptan totales de varios días')
+            date_value = when.isoformat()
+            if row.get('currency', currency) not in (currency, ''):
                 raise VerdugoError('No se pueden mezclar monedas')
             name = row['campaign']
             if not name or len(name) > 200 or any(ord(c) < 32 for c in name):
                 raise VerdugoError('Campaña inválida')
             campaign = 'campaign-' + hashlib.sha256((tenant+'\0'+platform+'\0'+name).encode()).hexdigest()[:24]
-            nums = {key: number(row[key]) for key in ('spend','clicks','impressions','conversions')}
-            if any(nums[key] != nums[key].to_integral_value() for key in ('clicks','impressions')):
-                raise VerdugoError('Clics e impresiones deben ser enteros')
+            nums = {key: number(row[key], key in ('clicks','impressions')) for key in ('spend','clicks','impressions','conversions')}
             key = date_value, campaign
             action_key = (*key, row.get('action', ''))
             if action_key in seen:
@@ -127,7 +229,6 @@ def parse(raw, tenant, platform, currency):
                     raise VerdugoError('Desglose por acción repite gasto o tráfico; exporta sin ese desglose')
                 groups[key] = [a+b for a,b in zip(groups[key], values)]
             else: groups[key] = values
-        if not groups: raise VerdugoError('CSV sin métricas')
         if len(groups) > 10000: raise VerdugoError('Demasiados agregados diarios')
         return [(d,c,*v[:3],float(v[3])) for (d,c),v in sorted(groups.items())]
     except (UnicodeError, csv.Error, StopIteration, ValueError):

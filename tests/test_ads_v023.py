@@ -108,3 +108,57 @@ class AdsTests(unittest.TestCase):
         tools={t['name']:t for t in mcp.tool_definitions()}
         self.assertTrue(tools['verdugo_ads_report']['annotations']['readOnlyHint']); self.assertNotIn('verdugo_ads_import',tools)
         self.assertEqual(mcp.invoke(self.e,'verdugo_ads_report',{'params':{'start_date':'2026-11-01','end_date':'2026-11-02'}})['totals']['spend'],150.25)
+
+
+class RealExportTests(unittest.TestCase):
+    """Files exactly as Google Ads and Meta download them, without hand cleaning."""
+    UI = (ROOT/'examples/ads/google.descarga-ui.synthetic.csv').read_text()
+
+    def parse(self, content, platform='google'):
+        data = content if isinstance(content, bytes) else content.encode()
+        return ads.parse(data, 'cliente-demo', platform, 'MXN')
+
+    def test_google_ui_download_with_title_totals_thousands_and_extra_columns(self):
+        rows = self.parse(self.UI)
+        self.assertEqual(['2026-11-01', '2026-11-02', '2026-11-03'], [r[0] for r in rows])
+        self.assertEqual(2720000000, sum(r[2] for r in rows))          # totals rows skipped
+        self.assertEqual((103, 3150, 5.0), (sum(r[3] for r in rows), sum(r[4] for r in rows), sum(r[5] for r in rows)))
+        self.assertEqual(0.0, rows[1][5])                               # "--" means no conversions
+        self.assertNotIn('búsqueda', json.dumps(rows))
+
+    def test_google_excel_utf16_tab_download(self):
+        lines = [next(__import__('csv').reader([l])) if l else [] for l in self.UI.splitlines()]
+        tsv = '\n'.join('\t'.join(cells) for cells in lines)
+        self.assertEqual(2720000000, sum(r[2] for r in self.parse(tsv.encode('utf-16'))))
+
+    def test_meta_link_clicks_reach_and_empty_results(self):
+        content = ('Inicio del informe,Fin del informe,Nombre de la campaña,Alcance,Impresiones,'
+                   'Clics en el enlace,Resultados,Indicador de resultado,Importe gastado (MXN)\n'
+                   '2026-11-01,2026-11-01,cliente-demo,900,1000,30,4,mensajes,350.50\n'
+                   '2026-11-02,2026-11-02,cliente-demo,800,950,25,,,300\n')
+        rows = self.parse(content, 'meta')
+        self.assertEqual([(30, 4.0), (25, 0.0)], [(r[3], r[5]) for r in rows])
+
+    def test_regional_dates(self):
+        base = 'Día,Campaña,Costo,Clics,Impresiones,Conversiones\n'
+        self.assertEqual('2026-11-13', self.parse(base + '13/11/2026,c,1,1,1,0\n')[0][0])
+        self.assertEqual('2026-11-01', self.parse(base + '"1 nov 2026",c,1,1,1,0\n')[0][0])
+        self.assertEqual('2026-11-01', self.parse(base + '"Nov 1, 2026",c,1,1,1,0\n')[0][0])
+        with self.assertRaisesRegex(VerdugoError, 'ambiguas'):
+            self.parse(base + '01/11/2026,c,1,1,1,0\n02/11/2026,c,1,1,1,0\n')
+
+    def test_numbers_as_exported(self):
+        cases = {'1,234.56': '1234.56', '1.234,56': '1234.56', '100,25': '100.25', '$1,234.00': '1234.00',
+                 'MX$980': '980', '--': '0', '': '0', '12.5': '12.5'}
+        for raw, expected in cases.items():
+            with self.subTest(raw=raw): self.assertEqual(ads.number(raw), __import__('decimal').Decimal(expected))
+        self.assertEqual(ads.number('1,234', integer=True), 1234)
+        self.assertEqual(ads.number('1.234', integer=True), 1234)
+        for bad in ('12.5%', '1,23,4', 'abc', '-5', '1.234.5'):
+            with self.subTest(bad=bad), self.assertRaises(VerdugoError): ads.number(bad)
+        with self.assertRaises(VerdugoError): ads.number('5.5', integer=True)
+
+    def test_personal_data_columns_still_rejected(self):
+        for column in ('Correo electrónico', 'Teléfono', 'Nombre completo', 'GCLID'):
+            with self.subTest(column=column), self.assertRaisesRegex(VerdugoError, 'datos personales'):
+                self.parse(self.UI.replace('Estado de la campaña', column))

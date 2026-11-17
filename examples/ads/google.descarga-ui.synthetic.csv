@@ -1,0 +1,8 @@
+Informe de campañas
+1 de noviembre de 2026 - 3 de noviembre de 2026
+Día,Campaña,Estado de la campaña,Código de moneda,Costo,Clics,Impr.,CTR,CPC prom.,Conversiones,Costo/conv.
+2026-11-01,cliente-demo búsqueda,Habilitada,MXN,"1,234.56",45,"1,200",3.75%,27.43,2.00,617.28
+2026-11-02,cliente-demo búsqueda,Habilitada,MXN,480.00,20,900,2.22%,24.00,--,--
+2026-11-03,cliente-demo búsqueda,Habilitada,MXN,"1,005.44",38,"1,050",3.62%,26.46,3.00,335.15
+Total: cuenta,,,MXN,"2,720.00",103,"3,150",3.27%,26.41,5.00,544.00
+Total: campañas,,,MXN,"2,720.00",103,"3,150",3.27%,26.41,5.00,544.00
