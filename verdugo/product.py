@@ -26,7 +26,9 @@ def read_operations():
 
 
 def overview(engine, dataset='real'):
-    business = commercial.report(engine, {'dataset': dataset})
+    current_subscription = subscriptions.state(engine)
+    business = (commercial.report(engine, {'dataset': dataset}) if current_subscription['active'] else
+                {'state': 'blocked', 'reason': current_subscription['reason'], 'tenant': engine.tenant})
     state = connections.summary()
     routes = read_operations()
     rows = []
@@ -42,7 +44,7 @@ def overview(engine, dataset='real'):
             'observed_at': time.time(), 'connection_states': state['states'],
             'registered': state['registered'], 'services': rows,
             'bounded_observation_routes': len(routes), 'local_analysis_routes': len(local_runtime.SPECS), 'business': business,
-            'subscription': subscriptions.state(engine),
+            'subscription': current_subscription,
             'reconciliation_required': len(pending['items']),
             'reconciliation_list_truncated': len(pending['items']) == pending['limit'],
             'external_calls_made': False, 'live_verified': 0,

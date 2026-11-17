@@ -4,6 +4,7 @@ import csv
 from datetime import date, datetime, time, timedelta
 from decimal import Decimal, InvalidOperation
 import hashlib
+import hmac
 import io
 import math
 import os
@@ -147,11 +148,31 @@ def import_file(engine, source, platform, execute=False, dataset='real', currenc
                 raise VerdugoError('CSV debe ser un archivo regular de máximo 5 MiB')
             raw = stream.read(MAX_BYTES + 1)
     except OSError: raise VerdugoError('No se puede leer el CSV local') from None
+    return import_bytes(engine, raw, platform, execute, dataset, currency)
+
+
+def import_bytes(engine, raw, platform, execute=False, dataset='real', currency='MXN', expected_fingerprint=None):
+    """Same importer for a private local file and a bounded panel upload.
+
+    The optional fingerprint binds an operator's confirmation to the exact
+    bytes, tenant and scope previewed. Raw content is never persisted.
+    """
+    _access(engine, write=True)
+    _scope(platform, dataset, currency)
+    if type(execute) is not bool: raise VerdugoError('execute debe ser booleano')
     rows = parse(raw, engine.tenant, platform, currency)
+    fingerprint = hashlib.sha256(('\0'.join((engine.tenant, platform, dataset, currency))+'\0').encode()+raw).hexdigest()
+    if expected_fingerprint is not None:
+        if not isinstance(expected_fingerprint, str) or not re.fullmatch('[a-f0-9]{64}', expected_fingerprint) or not hmac.compare_digest(expected_fingerprint, fingerprint):
+            raise VerdugoError('El archivo o su destino cambió: revisa una nueva vista previa')
     summary = {'operation': 'ads.import', 'tenant': engine.tenant, 'platform': platform,
                'dataset': dataset, 'currency': currency, 'daily_campaign_aggregates': len(rows),
                'start_date': rows[0][0], 'end_date': rows[-1][0], 'raw_retained': False,
-               'campaign_names_retained': False, 'external_calls_made': False}
+               'campaign_names_retained': False, 'external_calls_made': False,
+               'preview_fingerprint': fingerprint,
+               'totals': {'spend': sum(r[2] for r in rows)/1000000,
+                          'clicks': sum(r[3] for r in rows), 'impressions': sum(r[4] for r in rows),
+                          'platform_conversions': sum(r[5] for r in rows)}}
     if not execute: return summary | {'state': 'planned'}
     with engine.transaction():
         _access(engine, write=True)

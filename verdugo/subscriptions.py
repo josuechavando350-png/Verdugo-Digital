@@ -10,6 +10,7 @@ operator role and are written to the audit trail.
 """
 from datetime import date, datetime, timedelta, timezone
 import calendar
+import re
 import time
 
 from .common import VerdugoError, integer, text
@@ -36,7 +37,7 @@ def today():
 
 
 def _parse_day(value):
-    if not isinstance(value, str):
+    if not isinstance(value, str) or not re.fullmatch(r'\d{4}-\d{2}-\d{2}', value):
         raise VerdugoError('Date must be YYYY-MM-DD')
     try:
         return date.fromisoformat(value)
@@ -79,7 +80,12 @@ def _describe(tenant, row, now):
 
 
 def state(engine, now=None):
-    return _describe(engine.tenant, _row(engine), now or today())
+    row = _row(engine)
+    required = engine.config.get('tenants', {}).get(engine.tenant, {}).get('subscription_required', False)
+    if row is None and required:
+        return {'tenant': engine.tenant, 'managed': False, 'active': False,
+                'state': 'suspended', 'reason': 'registro_pendiente'}
+    return _describe(engine.tenant, row, now or today())
 
 
 def check(engine, now=None):

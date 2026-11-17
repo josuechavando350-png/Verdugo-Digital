@@ -2,10 +2,14 @@
 
 Núcleo comercial y de análisis para Nexus Bot Studio. Una sola entrada CLI/MCP,
 un motor de ejecución, flujos con dependencias, permisos locales, auditoría,
-idempotencia y estado SQLite. Versión de ingeniería **0.24.0**.
+idempotencia y estado SQLite. Versión de ingeniería **0.24.1**.
 
 **La integración operativa de los 300 proyectos NO está terminada.** Registrar
 fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
+
+La revisión operativa corrige el bloqueo por suscripción también en la mesa comercial,
+protege el alta de tenants y comparte la importación de anuncios con vista previa.
+[Alcance comprobable y límites del cierre](docs/CIERRE_OPERATIVO.md).
 
 ## Lote A: motor y anuncios
 
@@ -37,7 +41,7 @@ Por decisión del dueño (15 nov 2026), Verdugo Digital se queda en **300 piezas
 | Operaciones HTTP existentes | 108, limitadas por proveedor |
 | Operaciones locales implementadas | 159; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Flujo de 87 operaciones nuevas + métricas locales; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 763 núcleo + 8 API panel + 11 Vitest; navegador en job panel; comprobar CI por commit |
+| Pruebas unitarias y de contrato | 772 núcleo + 8 API panel + 11 Vitest; navegador en job panel; comprobar CI por commit |
 | Herramientas MCP | 27 (incluye `verdugo_client_status`, solo lectura); product-status/product-run reutilizan el mismo motor |
 | Servicios productivos certificados | 0 |
 
@@ -330,7 +334,7 @@ Engine. SQLite y roles de proceso no constituyen IAM multiempresa hostil. Datos
 personales requieren cifrado, retención y respaldos privados. Las escrituras HTTP
 siguen requiriendo aprobación separada; no se reintentan resultados inciertos.
 
-**88 entradas siguen pendientes de conector.** Los adaptadores HTTP necesitan
+**0 entradas pendientes de conector; 43 componentes sin uso justificado siguen fuera del panel.** Los adaptadores HTTP necesitan
 aceptación de versiones/ediciones/permisos por instancia; Las aceptaciones de Qdrant, Meilisearch y Caddy
 no validan los otros proveedores. No hay despliegue productivo, conexión automática de este
 chat al MCP, servicio 24/7, cobros reconciliados ni probabilidad comercial demostrada.
