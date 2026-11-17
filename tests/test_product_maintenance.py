@@ -50,7 +50,12 @@ class ProductMaintenance(unittest.TestCase):
         for _ in range(2):
             with closing(Engine(target/'estado.sqlite', restored, 'cliente-demo')) as e:
                 self.assertTrue(subscriptions.state(e)['active'])
-                self.assertEqual(commercial.report(e, {'dataset':'demo'}), expected)
+                actual = commercial.report(e, {'dataset':'demo'})
+                # Wall-clock window endpoints advance; every business field must be preserved.
+                query_times = {'window_start_utc', 'window_end_utc'}
+                self.assertEqual({k:v for k,v in actual.items() if k not in query_times},
+                                 {k:v for k,v in expected.items() if k not in query_times})
+                self.assertGreaterEqual(actual['window_end_utc'], expected['window_end_utc'])
                 self.assertEqual(ads.report(e, {'dataset':'demo','start_date':'2026-11-01','end_date':'2026-11-30'})['totals']['spend'], 250)
                 self.assertEqual(e.record('payment', 'payment-demo')['amount_minor'], 120025)
             with closing(Engine(target/'estado.sqlite', restored, 'otro-demo')) as e:

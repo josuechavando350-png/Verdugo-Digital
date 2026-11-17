@@ -73,7 +73,11 @@ def accept(archive):
         response = json.loads(command(python, '-m', 'verdugo', 'restore-product', '--from', saved['saved_directory'], '--to', str(restored), '--execute'))
         assert response['state'] == 'restored_offline' and not response['external_calls_made']
         with server(restored) as api:
-            assert api('/funnel?tenant=cliente-demo&dataset=demo')['sales'] == before
+            after = api('/funnel?tenant=cliente-demo&dataset=demo')['sales']
+            # These two fields describe the new query window, not persisted business data.
+            query_times = {'window_start_utc', 'window_end_utc'}
+            assert {k:v for k,v in after.items() if k not in query_times} == {k:v for k,v in before.items() if k not in query_times}
+            assert after['window_end_utc'] >= before['window_end_utc']
             assert api('/funnel?tenant=cliente-demo&dataset=real')['sales']['reported_paid_clients'] == 0
             assert next(c for c in api('/clients')['clients'] if c['tenant']=='cliente-demo')['active']
         return {'state':'passed', 'source_commit':verified['source_commit'], 'version':verified['version'],
