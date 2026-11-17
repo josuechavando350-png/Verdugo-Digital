@@ -46,6 +46,18 @@ Los dos recorridos de navegador verifican el ciclo de suscripción y una jornada
 completa con datos sintéticos, incluida una venta del canal paid y la separación
 demo/real. La aceptación de navegador y del instalador requiere el job del panel.
 
+Observado en `43995864028`, job `133747657233`, sobre el commit de trabajo
+`f820cb15d9cd633bc1c37158888a1c93bf3fd2ba`: instalador aprobado, 13 pruebas API,
+16 pruebas de interfaz y 2 recorridos móviles aprobados en Chrome 157.0.8103.50,
+390 × 844. El navegador local del entorno de desarrollo no pudo crear su socket
+Unix; esta evidencia procede del navegador real del runner, sobre loopback.
+Es aceptación con datos sintéticos, no Codespaces ni cuentas productivas.
+El instalador también terminó en Linux local; el arranque real en rol viewer
+sirvió HTML con 200, rechazó escritura con 403 y creó su token con modo 0600.
+Después de comprobarlo se detuvo el proceso; ningún servicio externo fue habilitado.
+
+![Jornada comercial con datos sintéticos](capturas-panel/operacion-movil.png)
+
 ## Qué significa terminar
 
 El catálogo sigue en 300 libres: 244 con operaciones de motor, 13 componentes con

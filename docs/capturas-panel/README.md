@@ -11,3 +11,10 @@ Solo cliente-demo y datos sintéticos. Los 7/159 runtimes disponibles que aparec
 en Producto corresponden al entorno del job panel, que no instala los perfiles
 pesados. La instalación completa del lote A obtuvo 127/159 en otro entorno.
 No hay despliegue público ni resultados de cuentas reales.
+
+`operacion-movil.png` corresponde a la revisión operativa del
+[CI 43995864028](https://github.com/josuechavando350-png/Verdugo-Digital/actions/runs/43995864028),
+head `f820cb15d9cd633bc1c37158888a1c93bf3fd2ba`, job `133747657233`.
+Usa `cliente-e2e` y datos sintéticos: un CSV de 250 MXN, un prospecto y una venta
+con pago declarado. Los dos recorridos pasaron, sin omisiones ni reintentos,
+en Chrome 157.0.8103.50, viewport 390 × 844. No son resultados comerciales reales.
