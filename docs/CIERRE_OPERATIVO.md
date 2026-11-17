@@ -26,6 +26,38 @@ Validación local: 772 pruebas del núcleo. Las nueve nuevas comprueban el bloqu
 real por CLI/MCP, replay, alta concurrente, roles, enlaces, estado inicial, huella
 de importación y privacidad. CI debe comprobar los tres workflows del commit final.
 
+## Panel y recorrido operativo
+
+- Alta de tenants desde Clientes, inicialmente apagados, con confirmación y rol operador.
+- CSV Google/Meta desde Anuncios: vista previa sin escritura, confirmación vinculada
+  al archivo y destino, moneda seleccionable, límite real de 5 MiB e idempotencia.
+  El archivo solo vive en memoria durante la operación; no se guarda su nombre.
+- Embudo con registro de prospectos, avances y seguimientos. El cierre de venta
+  declara pago y venta en una sola transacción SQLite; fallos o conflictos revierten
+  ambas partes. Una repetición idéntica no duplica la venta ni el pago.
+- Formularios descartados al cambiar cliente o demo/real. El rol viewer no muestra
+  controles de escritura y el servidor también los rechaza.
+- Instalación explícita con `scripts/activar.sh --panel --instalar`, que prepara
+  dependencias fijadas y abre solo loopback. `--solo-instalar` prepara sin arrancar.
+  No instala perfiles pesados ni activa servicios externos.
+
+La suite ampliada comprende 775 pruebas del núcleo, 13 de API y 16 de interfaz.
+Los dos recorridos de navegador verifican el ciclo de suscripción y una jornada
+completa con datos sintéticos, incluida una venta del canal paid y la separación
+demo/real. La aceptación de navegador y del instalador requiere el job del panel.
+
+Observado en `43995864028`, job `133747657233`, sobre el commit de trabajo
+`f820cb15d9cd633bc1c37158888a1c93bf3fd2ba`: instalador aprobado, 13 pruebas API,
+16 pruebas de interfaz y 2 recorridos móviles aprobados en Chrome 157.0.8103.50,
+390 × 844. El navegador local del entorno de desarrollo no pudo crear su socket
+Unix; esta evidencia procede del navegador real del runner, sobre loopback.
+Es aceptación con datos sintéticos, no Codespaces ni cuentas productivas.
+El instalador también terminó en Linux local; el arranque real en rol viewer
+sirvió HTML con 200, rechazó escritura con 403 y creó su token con modo 0600.
+Después de comprobarlo se detuvo el proceso; ningún servicio externo fue habilitado.
+
+![Jornada comercial con datos sintéticos](capturas-panel/operacion-movil.png)
+
 ## Qué significa terminar
 
 El catálogo sigue en 300 libres: 244 con operaciones de motor, 13 componentes con

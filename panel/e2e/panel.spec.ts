@@ -26,3 +26,60 @@ test('mobile operator lifecycle, reports, guide and viewer isolation',async({pag
  await page.goto('http://127.0.0.1:8766/es/operacion/');await expect(page.getByRole('heading',{name:'Operación local',exact:true})).toBeVisible();expect(errors).toEqual([]);expect(serverErrors).toEqual([]);expect(external).toEqual([]);
  console.log('Browser observed:',browser.version());
 });
+
+test('mobile workday creates a client, imports CSV and records a paid sale',async({page})=>{
+ await writeFile(join(process.env.PANEL_TEST_DIR!,'clock-next'),'2026-11-16');
+ await rename(join(process.env.PANEL_TEST_DIR!,'clock-next'),join(process.env.PANEL_TEST_DIR!,'clock'));
+ const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://127.0.0.1:8766');
+ await page.getByLabel('Token de acceso local').fill(token);await page.getByRole('button',{name:'Entrar al panel'}).click();
+ await page.getByText('Crear cliente',{exact:true}).click();
+ await page.getByLabel('Identificador del nuevo cliente').fill('cliente-e2e');
+ await page.getByLabel('Confirmo crear este cliente con todos los servicios apagados.').check();
+ await page.getByRole('button',{name:'Crear cliente apagado'}).click();
+ const row=page.locator('.client-row').filter({has:page.locator('code',{hasText:'cliente-e2e'})});
+ await expect(row.getByText('Apagado',{exact:true})).toBeVisible();
+ await row.getByRole('button',{name:'Registrar cliente'}).click();
+ await page.getByRole('dialog').getByRole('checkbox').check();await page.getByRole('button',{name:'Confirmar cambio'}).click();
+ await row.getByRole('button',{name:'Registrar pago'}).click();await page.getByLabel('Pagado hasta').fill('2026-11-20');
+ await page.getByRole('dialog').getByRole('checkbox').check();await page.getByRole('button',{name:'Confirmar cambio'}).click();
+ await expect(row.getByText('Prendido',{exact:true})).toBeVisible();
+ await page.getByLabel('Datos',{exact:true}).selectOption('demo');
+ await page.getByRole('button',{name:'Anuncios',exact:true}).click();await page.getByText('Importar reporte de anuncios',{exact:true}).click();
+ await page.getByLabel('Archivo CSV diario').setInputFiles({name:'synthetic.csv',mimeType:'text/csv',buffer:Buffer.from('Day,Campaign,Cost,Clicks,Impressions,Conversions\n2026-11-16,synthetic-e2e,250,20,100,4\n')});
+ await page.getByRole('button',{name:'Ver vista previa'}).click();await expect(page.getByText('1 agregados',{exact:true})).toBeVisible();
+ await page.getByLabel('Confirmo importar estos datos en cliente-e2e.').check();await page.getByRole('button',{name:'Confirmar importación'}).click();
+ await expect(page.getByText('Importación guardada: 1 agregados actualizados.')).toBeVisible();
+ await expect(page.locator('.chart svg')).toBeVisible();
+ await page.getByRole('button',{name:'Embudo',exact:true}).click();await page.getByText('Registrar prospecto',{exact:true}).click();
+ await page.getByLabel('Identificador del prospecto').fill('lead-e2e');await page.getByLabel('Nombre del prospecto').fill('Cliente demo');
+ await page.getByLabel('Correo del prospecto').fill('demo@example.invalid');await page.getByLabel('Canal de origen').selectOption('paid');await page.getByLabel('Referencia del registro').fill('synthetic-intake');
+ await page.getByLabel('Confirmo registrar este prospecto en cliente-e2e · demostración.').check();await page.getByRole('button',{name:'Guardar prospecto'}).click();
+ await expect(page.getByText('Prospecto identificado. No se enviaron mensajes.')).toBeVisible();
+ await page.getByText('Registrar avance o venta',{exact:true}).click();await page.getByLabel('Etapa del avance').selectOption('won');
+ await page.getByLabel('Importe recibido declarado').fill('1200.25');await page.getByLabel('Costos declarados').fill('200');await page.getByLabel('Referencia de evidencia').fill('synthetic-payment');
+ await page.getByLabel('Confirmo este avance para lead-e2e.').check();await page.getByRole('button',{name:'Guardar avance'}).click();
+ await expect(page.getByText('Venta y pago declarados juntos. No hay conciliación bancaria.')).toBeVisible();
+ await expect(page.locator('.metric').filter({hasText:'Ventas del canal pagado'})).toContainText('1');
+ await expect(page.locator('.metric').filter({hasText:'Costo por cliente pagado'})).toContainText('$250.00');
+ await page.screenshot({path:join(process.env.PANEL_SCREENSHOTS||join(import.meta.dirname,'../../docs/capturas-panel'),'operacion-movil.png'),fullPage:true});
+ await page.getByLabel('Datos',{exact:true}).selectOption('real');
+ await expect(page.locator('.metric').filter({hasText:'Ventas del canal pagado'})).toContainText('0');
+ expect(await page.evaluate(()=>localStorage.length+sessionStorage.length)).toBe(0);
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ expect(errors).toEqual([]);
+});
+
+
+test('mobile installation check and confirmed private backup',async({page,browser})=>{
+ await page.goto('http://127.0.0.1:8766');await page.getByLabel('Token de acceso local').fill(token);await page.getByRole('button',{name:'Entrar al panel'}).click();
+ await page.getByRole('button',{name:'Producto',exact:true}).click();await expect(page.getByRole('heading',{name:'Estado de tu instalación'})).toBeVisible();
+ const button=page.getByRole('button',{name:'Crear respaldo local'});await expect(button).toBeDisabled();
+ await page.getByLabel('Confirmo guardar el respaldo privado de todos los clientes.').check();await button.click();
+ await expect(page.getByRole('status')).toContainText('Respaldo guardado y verificado');await expect(page.getByText('Comprobaciones locales correctas',{exact:false})).toBeVisible();
+ await expect(button).toBeDisabled();expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ const shots=process.env.PANEL_SCREENSHOTS||join(import.meta.dirname,'../../docs/capturas-panel');await mkdir(shots,{recursive:true});
+ await page.getByRole('heading',{name:'Estado de tu instalación'}).scrollIntoViewIfNeeded();await page.screenshot({path:join(shots,'mantenimiento-movil.png')});
+ const viewer=await browser.newPage({viewport:{width:390,height:844}});await viewer.goto('http://127.0.0.1:8767');await viewer.getByLabel('Token de acceso local').fill(token);await viewer.getByRole('button',{name:'Entrar al panel'}).click();
+ await viewer.getByRole('button',{name:'Producto',exact:true}).click();await expect(viewer.getByRole('heading',{name:'Estado de tu instalación'})).toBeVisible();await expect(viewer.getByRole('button',{name:'Crear respaldo local'})).toHaveCount(0);await viewer.close();
+});

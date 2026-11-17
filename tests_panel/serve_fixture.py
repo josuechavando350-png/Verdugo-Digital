@@ -5,13 +5,17 @@ import os
 from pathlib import Path
 import sys
 import uvicorn
-from verdugo import ads,subscriptions
+from verdugo import ads,subscriptions,commercial
+from datetime import datetime
+from zoneinfo import ZoneInfo
+from types import SimpleNamespace
 from verdugo.engine import Engine
 from verdugo.panel_server import create_app
 
 role=sys.argv[1];port=int(sys.argv[2]);root=Path(os.environ['PANEL_TEST_DIR']);root.mkdir(mode=0o700,parents=True,exist_ok=True);root.chmod(0o700);os.umask(0o077)
 clock=root/'clock';clock.write_text('2026-11-16')
 subscriptions.today=lambda:date.fromisoformat(clock.read_text().strip())
+commercial.time=SimpleNamespace(time=lambda:datetime.combine(subscriptions.today(), datetime.min.time(), tzinfo=ZoneInfo('America/Mexico_City')).timestamp()+12*3600)
 config=root/'config.json';config.write_text(json.dumps({'tenants':{'cliente-demo':{'services':{}},'nexus':{'services':{}}}}))
 state=root/'state.sqlite'
 if role=='operator':

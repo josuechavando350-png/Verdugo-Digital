@@ -17,7 +17,8 @@ STATE="$VERDUGO_HOME/estado.sqlite"
 case "${1:-}" in
   ""|--pruebas) ;;
   --perfiles) shift; exec "$PY" scripts/instalar_perfiles.py "$@" ;;
-  *) echo "Uso: scripts/activar.sh [--pruebas|--perfiles [--perfil NOMBRE]]" >&2; exit 2 ;;
+  --panel) shift; exec bash scripts/panel.sh "$@" ;;
+  *) echo "Uso: scripts/activar.sh [--pruebas|--perfiles [--perfil NOMBRE]|--panel [--instalar|--solo-instalar] [--viewer]]" >&2; exit 2 ;;
 esac
 
 mkdir -p "$VERDUGO_HOME"

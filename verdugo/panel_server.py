@@ -1,6 +1,7 @@
 """Local panel API. Optional FastAPI dependencies; the only state store is Engine."""
 from contextlib import contextmanager
 import base64
+import binascii
 import hashlib
 import re
 import hmac
@@ -17,10 +18,11 @@ from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from .common import VerdugoError, fields, identifier, integer
 from .engine import Engine
-from . import ads, commercial, local_runtime, product, subscriptions
+from . import ads, commercial, local_runtime, product, subscriptions, tenants, office, maintenance
 from .diagnostics import doctor
 
 ROOT = Path(__file__).resolve().parents[1]
+UPLOAD_LIMIT = ((ads.MAX_BYTES + 2)//3)*4 + 4096
 
 
 def local_token(path):
@@ -63,6 +65,17 @@ def create_app(config_path, state_path, token, role='operator', host='127.0.0.1:
     app=FastAPI(docs_url=None,redoc_url=None,openapi_url=None)
     # Host must come only from trusted startup configuration, never a query parameter.
     allowed_hosts={host}
+    def body_limit(request):
+        return UPLOAD_LIMIT if request.url.path == '/api/ads/import' else 32768
+    async def body_json(request):
+        raw = bytearray()
+        async for chunk in request.stream():
+            if len(raw)+len(chunk)>body_limit(request):
+                from fastapi import HTTPException
+                raise HTTPException(status_code=413, detail='Solicitud demasiado grande')
+            raw.extend(chunk)
+        try: return json.loads(raw)
+        except (ValueError, UnicodeError): raise VerdugoError('JSON inválido') from None
     def configuration():
         try:
             cfg=json.loads(config_path.read_text())
@@ -95,7 +108,7 @@ def create_app(config_path, state_path, token, role='operator', host='127.0.0.1:
                 if request.headers.get('content-type','').split(';')[0]!='application/json': return rejected('Se requiere JSON',415)
                 try: length=int(request.headers.get('content-length','0'))
                 except ValueError: return rejected('Tamaño inválido',400)
-                if length<0 or length>32768: return rejected('Solicitud demasiado grande',413)
+                if length<0 or length>body_limit(request): return rejected('Solicitud demasiado grande',413)
         response=await call_next(request)
         response.headers['Cache-Control']='no-store'
         response.headers['X-Content-Type-Options']='nosniff'
@@ -112,14 +125,15 @@ def create_app(config_path, state_path, token, role='operator', host='127.0.0.1:
         for tenant in sorted(configuration()['tenants']):
             with engine(tenant) as e: rows.append(subscriptions.state(e))
         return {'clients':rows,'verification':'operator_declared','role':role}
+    @app.post('/api/tenants')
+    async def new_tenant(request:Request):
+        body = await body_json(request)
+        fields(body, ('tenant', 'confirm'))
+        if body['confirm'] is not True: raise VerdugoError('Confirma explícitamente el cambio')
+        with lock: return tenants.add(config_path, body['tenant'], role, True)
     @app.post('/api/clients/{tenant}/{action}')
     async def change(tenant:str, action:str, request:Request):
-        raw=bytearray()
-        async for chunk in request.stream():
-            raw.extend(chunk)
-            if len(raw)>32768: return JSONResponse({'error':'Solicitud demasiado grande'},status_code=413)
-        try: body=json.loads(raw)
-        except (ValueError,UnicodeError): raise VerdugoError('JSON inválido') from None
+        body=await body_json(request)
         fields(body,('confirm',),('label','grace_days','until','months','reason'))
         if body['confirm'] is not True: raise VerdugoError('Confirma explícitamente el cambio')
         allowed={'register':('label','grace_days'),'pay':('until','months'),'pause':('reason',),'resume':()}
@@ -137,17 +151,50 @@ def create_app(config_path, state_path, token, role='operator', host='127.0.0.1:
             try: p['budget_month']=float(p['budget_month'])
             except ValueError: raise VerdugoError('Presupuesto inválido') from None
         with engine(tenant) as e: return ads.report(e,p)
+    @app.post('/api/ads/import')
+    async def import_ads(request:Request):
+        body = await body_json(request)
+        fields(body, ('tenant', 'platform', 'dataset', 'currency', 'csv_base64', 'confirm'),
+               ('preview_fingerprint',), max_bytes=UPLOAD_LIMIT)
+        if type(body['confirm']) is not bool: raise VerdugoError('Confirmación inválida')
+        if body['confirm'] and not body.get('preview_fingerprint'):
+            raise VerdugoError('Revisa primero la vista previa')
+        try: raw = base64.b64decode(body['csv_base64'], validate=True)
+        except (ValueError, TypeError, binascii.Error): raise VerdugoError('CSV inválido') from None
+        with lock, engine(body['tenant']) as e:
+            return ads.import_bytes(e, raw, body['platform'], body['confirm'], body['dataset'],
+                                    body['currency'], body.get('preview_fingerprint'))
     @app.get('/api/funnel')
     def funnel(tenant:str='nexus',dataset:str='real'):
         with engine(tenant) as e:
             subscriptions.check(e)
-            return {'sales':commercial.report(e,{'dataset':dataset}),'ads':ads.report(e,{'dataset':dataset})}
+            return {'sales':commercial.report(e,{'dataset':dataset}),'ads':ads.report(e,{'dataset':dataset}),
+                    'followups':commercial.next_actions(e,{'dataset':dataset, 'limit':200})}
+    @app.post('/api/sales/{action}')
+    async def sales_action(action:str, request:Request):
+        body = await body_json(request)
+        fields(body, ('tenant', 'confirm', 'request'))
+        if body['confirm'] is not True: raise VerdugoError('Confirma explícitamente el cambio')
+        functions = {'intake': office.intake, 'event': commercial.record, 'win': office.win}
+        if action not in functions: raise VerdugoError('Acción no admitida')
+        with lock, engine(body['tenant']) as e: return functions[action](e, body['request'], True)
     @app.get('/api/product')
     def status(tenant:str='nexus'):
         with engine(tenant) as e:
             overview=product.overview(e)
             availability=local_runtime.inventory()
             return {'product':overview,'runtime':availability,'doctor':doctor(e)}
+    @app.get('/api/installation')
+    def installation():
+        with engine(sorted(configuration()['tenants'])[0]) as e:
+            return maintenance.readiness(e, config_path, folder)
+    @app.post('/api/maintenance/backup')
+    async def backup_product(request:Request):
+        body = await body_json(request)
+        fields(body, ('confirm',))
+        if body['confirm'] is not True: raise VerdugoError('Confirma explícitamente el respaldo de todos los clientes')
+        with lock, engine(sorted(configuration()['tenants'])[0]) as e:
+            return maintenance.create_set(e, config_path)
     @app.get('/api/events')
     def events(tenant:str='nexus'):
         with engine(tenant) as e:
