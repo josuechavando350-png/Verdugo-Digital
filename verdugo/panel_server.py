@@ -18,7 +18,7 @@ from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from .common import VerdugoError, fields, identifier, integer
 from .engine import Engine
-from . import ads, commercial, local_runtime, product, subscriptions, tenants, office, maintenance
+from . import ads, commercial, local_runtime, product, subscriptions, tenants, office, maintenance, closed_loop
 from .diagnostics import doctor
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -184,6 +184,9 @@ def create_app(config_path, state_path, token, role='operator', host='127.0.0.1:
             overview=product.overview(e)
             availability=local_runtime.inventory()
             return {'product':overview,'runtime':availability,'doctor':doctor(e)}
+    @app.get('/api/closed-loop')
+    def cycle_status(tenant:str='nexus',start_date:str|None=None,end_date:str|None=None):
+        with engine(tenant) as e: return closed_loop.report(e,start_date,end_date)
     @app.get('/api/installation')
     def installation():
         with engine(sorted(configuration()['tenants'])[0]) as e:

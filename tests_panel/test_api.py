@@ -167,3 +167,26 @@ class PanelAPI(unittest.TestCase):
         self.assertEqual(viewer.post(route,json={'confirm':True},headers=self.headers).status_code,403)
         self.assertEqual(self.client.post(route,json={'confirm':True},headers=self.headers|{'Origin':'https://evil.invalid'}).status_code,403)
         self.assertEqual(self.client.post('/api/maintenance/restore',json={},headers=self.headers).status_code,404)
+
+    def test_closed_loop_intake_phone_and_read_only_status(self):
+        lead={'lead_id':'cycle-demo','name':'cliente-demo','email':'demo@example.invalid','dataset':'real',
+              'channel':'paid','evidence_ref':'synthetic-intake','ref_code':'ABC234','phone':'+1 (555) 000-0000'}
+        def save(action,data):return self.client.post('/api/sales/'+action,json={'tenant':'nexus','confirm':True,'request':data},headers=self.headers)
+        self.assertEqual(save('intake',lead|{'ref_code':'bad'}).status_code,400)
+        self.assertEqual(save('intake',lead).status_code,200)
+        from datetime import datetime,timezone
+        paid=datetime.now(timezone.utc).isoformat(timespec='seconds')
+        win={'event_id':'cycle-won','lead_id':'cycle-demo','payment_id':'cycle-payment','dataset':'real','channel':'paid',
+             'evidence_ref':'synthetic-paid','amount_minor':10000,'cost_minor':0,'currency':'MXN','paid_at':paid}
+        self.assertEqual(save('win',win).status_code,200)
+        report=self.client.get('/api/closed-loop?tenant=nexus',headers=self.headers)
+        self.assertEqual(200,report.status_code);self.assertEqual(1,report.json()['leads_with_reference'])
+        self.assertEqual(1,report.json()['won_leads_with_reference']);self.assertIsNone(report.json()['whatsapp_clicks_with_reference'])
+        self.assertNotIn('+15550000000',report.text)
+        with closing(Engine(str(self.state),json.loads(self.cfg.read_text()),'nexus')) as e:
+            import hashlib
+            self.assertEqual(hashlib.sha256(b'+15550000000').hexdigest(),e.db.execute('SELECT phone_hash FROM cycle_leads').fetchone()[0])
+            for value in ('+15550000000','+1 (555) 000-0000'):self.assertNotIn(value,'\n'.join(e.db.iterdump()))
+        self.assertEqual(404,self.client.post('/api/closed-loop/run',json={},headers=self.headers).status_code)
+        self.post('register',{'confirm':True,'label':'cliente-demo'})
+        self.assertEqual(400,self.client.get('/api/closed-loop?tenant=cliente-demo',headers=self.headers).status_code)

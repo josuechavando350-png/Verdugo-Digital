@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 import tempfile
 from .adapters import SPECS
-from . import local_runtime, product, tenants
+from . import local_runtime, product, tenants, closed_loop
 from .catalog import catalog, graph
 from .common import VerdugoError, encode, identifier
 from .engine import Engine
@@ -147,6 +147,7 @@ def main(argv=None):
         p = sub.add_parser(name)
         p.add_argument('input', nargs='?', help='JSON or @file; report and next have safe defaults')
         if name == 'commercial-record': p.add_argument('--execute', action='store_true')
+    p = sub.add_parser('sales-win'); p.add_argument('input'); p.add_argument('--execute',action='store_true')
     p = sub.add_parser('sales-intake'); p.add_argument('input'); p.add_argument('--execute', action='store_true')
     p = sub.add_parser('ads-import'); p.add_argument('input'); p.add_argument('--platform', choices=['google','meta'], required=True)
     p.add_argument('--execute', action='store_true'); p.add_argument('--dataset', choices=['real','demo'], default='real'); p.add_argument('--currency', default='MXN')
@@ -155,6 +156,17 @@ def main(argv=None):
     p.add_argument('--budget-month', type=float)
     p = sub.add_parser('sales-desk'); p.add_argument('input', nargs='?')
     p = sub.add_parser('pilot'); p.add_argument('input'); p.add_argument('--execute', action='store_true')
+    for name in ('closed-loop-plan','closed-loop-run','closed-loop-export','closed-loop-match','closed-loop-report','closed-loop-reconcile'):
+        p = sub.add_parser(name)
+        p.add_argument('--tenant', default=argparse.SUPPRESS)
+        if name in ('closed-loop-plan','closed-loop-run'): p.add_argument('--key', required=name=='closed-loop-run')
+        if name in ('closed-loop-run','closed-loop-match','closed-loop-reconcile'): p.add_argument('--execute',action='store_true')
+        if name=='closed-loop-match': p.add_argument('--day',required=True)
+        if name=='closed-loop-export': p.add_argument('--to',required=True)
+        if name=='closed-loop-report':
+            p.add_argument('--start-date');p.add_argument('--end-date')
+        if name=='closed-loop-reconcile':
+            p.add_argument('--event-id',required=True);p.add_argument('--outcome',choices=['uploaded','not_uploaded'],required=True);p.add_argument('--evidence',required=True)
     p = sub.add_parser('backup-local'); p.add_argument('--to', required=True)
     p = sub.add_parser('verify-backup'); p.add_argument('--file', required=True)
     p = sub.add_parser('backup-product'); p.add_argument('--to')
@@ -251,9 +263,16 @@ def main(argv=None):
             result = jobs.resume(engine, args.job_id) if args.execute else {'state': 'planned', 'job': jobs.get(engine, args.job_id)}
         elif args.cmd == 'reconciliation-list': result = reconciliation.pending(engine)
         elif args.cmd == 'recover-running': result = recovery.recover_running(engine, read_json(args.input), args.execute)
+        elif args.cmd == 'sales-win': result = office.win(engine, read_json(args.input), args.execute)
         elif args.cmd == 'sales-intake': result = office.intake(engine, read_json(args.input), args.execute)
         elif args.cmd == 'sales-desk': result = office.desk(engine, read_json(args.input) if args.input else None)
         elif args.cmd == 'pilot': result = pilot.check(engine, read_json(args.input), args.execute)
+        elif args.cmd == 'closed-loop-plan': result = closed_loop.plan(engine,args.key)
+        elif args.cmd == 'closed-loop-run': result = closed_loop.run(engine,args.key,args.execute)
+        elif args.cmd == 'closed-loop-match': result = closed_loop.match(engine,args.day,args.execute)
+        elif args.cmd == 'closed-loop-export': result = closed_loop.export(engine,args.to)
+        elif args.cmd == 'closed-loop-report': result = closed_loop.report(engine,args.start_date,args.end_date)
+        elif args.cmd == 'closed-loop-reconcile': result = closed_loop.reconcile(engine,args.event_id,args.outcome,args.evidence,args.execute)
         elif args.cmd == 'backup-local': result = backups.create(engine, args.to)
         elif args.cmd == 'backup-product': result = maintenance.create_set(engine, args.config, args.to)
         elif args.cmd == 'installation-check':

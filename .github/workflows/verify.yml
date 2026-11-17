@@ -230,6 +230,7 @@ jobs:
       - name: Verify source manifest, types, UI and static guide
         run: |
           python -m unittest discover -s tests -p 'test_panel_components_v024.py' -v
+          node --test tests_snippets/*.test.cjs
           npm run check --prefix panel
           npm test --prefix panel
       - name: Package and accept extracted local distribution without development tools

@@ -1,0 +1,54 @@
+{
+  "source_repository": "googleads/google-ads-python",
+  "source_commit": "f253b400dc5924b731fcb42dbcd99e485200581e",
+  "api_version": "v26",
+  "sources": [
+    {
+      "url": "https://github.com/googleads/google-ads-python/blob/f253b400dc5924b731fcb42dbcd99e485200581e/google/ads/googleads/v26/services/types/conversion_upload_service.py",
+      "git_blob_sha": "5419d63734730c011d7234a3af5cf5a83876022b"
+    },
+    {
+      "url": "https://github.com/googleads/google-ads-python/blob/f253b400dc5924b731fcb42dbcd99e485200581e/google/ads/googleads/v26/resources/types/click_view.py",
+      "git_blob_sha": "cea1ec6223e9948bc03a52db7978aaaccb5ea7ca"
+    },
+    {
+      "url": "https://github.com/googleads/google-ads-python/blob/f253b400dc5924b731fcb42dbcd99e485200581e/google/ads/googleads/v26/services/types/google_ads_service.py",
+      "git_blob_sha": "a27a0adac224a39a08e4f0cb4e0b0e5667686aad"
+    },
+    {
+      "url": "https://github.com/googleads/google-ads-python/blob/f253b400dc5924b731fcb42dbcd99e485200581e/google/ads/googleads/interceptors/metadata_interceptor.py",
+      "git_blob_sha": "daef6e73208518cd692b5e1501166bdf33deee72"
+    },
+    {
+      "url": "https://github.com/googleads/google-ads-python/blob/f253b400dc5924b731fcb42dbcd99e485200581e/google/ads/googleads/v26/common/types/offline_user_data.py",
+      "git_blob_sha": "0a7ee9da035bb2637da139f81fd662858ebe8b6d"
+    }
+  ],
+  "verification": "Source inspected at the pinned commit. Offline synthetic REST JSON contract tests; SDK not executed, Google not called.",
+  "request": {
+    "rpc": "ConversionUploadService.UploadClickConversions",
+    "method": "POST",
+    "path": "/v26/customers/{customer_id}:uploadClickConversions",
+    "partial_failure": true,
+    "field_mapping": {
+      "customer_id": "URL path",
+      "conversions": "conversions",
+      "partial_failure": "partialFailure",
+      "gclid": "gclid",
+      "conversion_action": "conversionAction",
+      "conversion_date_time": "conversionDateTime",
+      "conversion_value": "conversionValue",
+      "currency_code": "currencyCode",
+      "order_id": "orderId",
+      "user_identifiers": "userIdentifiers",
+      "hashed_phone_number": "hashedPhoneNumber",
+      "user_identifier_source": "userIdentifierSource",
+      "ad_user_data": "adUserData"
+    }
+  },
+  "response": {
+    "partial_failure_error": "partialFailureError",
+    "results": "same positions as request; failed conversions have empty results",
+    "error_location": "details[].errors[].location.fieldPathElements with fieldName=conversions and index"
+  }
+}

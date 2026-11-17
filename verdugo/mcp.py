@@ -8,7 +8,7 @@ from .catalog import graph
 from .adapters import SPECS
 from . import source_evidence, license_policy, connections, product
 from . import workflow, jobs, reconciliation, readback, surface, commercial, pilot, office, subscriptions, ads
-from . import __version__
+from . import __version__, closed_loop
 from .bridge import contact_bridge
 from .diagnostics import doctor
 
@@ -17,6 +17,7 @@ SUPPORTED = (VERSION, '2025-06-18')
 OBJ = {'type': 'object'}
 BOOL = {'type': 'boolean', 'default': False}
 TOOLS = [
+ ('verdugo_closed_loop_status','Read-only closed-loop attribution, paid sales and reconciliation status. No uploads, exports or matching.', {'params': OBJ}, [], True),
  ('verdugo_ads_report', 'Read-only local advertising aggregates. Platform conversions are not paid clients; no imports or subscription changes.',
   {'params': OBJ}, [], True),
  ('verdugo_product_status', 'One local product overview: all connections, bounded observation routes and declared business state. No provider calls.',
@@ -86,6 +87,9 @@ def invoke(engine, name, args):
     fields(args, spec[3], set(spec[2])-set(spec[3]),
            max_bytes=workflow.MAX_MANIFEST_BYTES if name in ('verdugo_product_run', 'verdugo_workflow') else 32768)
     if name == 'verdugo_product_status': return product.overview(engine, args.get('dataset', 'real'))
+    if name == 'verdugo_closed_loop_status':
+        params=args.get('params',{});fields(params,(),('start_date','end_date'))
+        return closed_loop.report(engine,params.get('start_date'),params.get('end_date'))
     if name == 'verdugo_ads_report': return ads.report(engine, args.get('params'))
     if name == 'verdugo_client_status': return subscriptions.state(engine)
     if name == 'verdugo_product_run': return product.observe(engine, args['request'], args.get('execute', False))

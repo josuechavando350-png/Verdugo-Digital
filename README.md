@@ -47,7 +47,7 @@ Por decisión del dueño (15 nov 2026), Verdugo Digital se queda en **300 piezas
 | Operaciones locales implementadas | 159; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Flujo de 87 operaciones nuevas + métricas locales; persistencia y reanudación tras reiniciar Engine |
 | Pruebas unitarias y de contrato | 790 núcleo + 14 API panel + 18 Vitest; tres recorridos de navegador en job panel; comprobar CI por commit |
-| Herramientas MCP | 27 (incluye `verdugo_client_status`, solo lectura); product-status/product-run reutilizan el mismo motor |
+| Herramientas MCP | 28 (incluye `verdugo_client_status` y `verdugo_closed_loop_status`, solo lectura); product-status/product-run reutilizan el mismo motor |
 | Servicios productivos certificados | 0 |
 
 Los tres workflows de aceptación son **Verdugo verification**, **Verdugo runtime
@@ -350,3 +350,7 @@ Documentación: [v0.13](docs/MARKETING_READS_V013.md), [v0.12](docs/METADATA_PRO
 [control comercial](docs/COMERCIAL_30_DIAS.md), [eventos](docs/EVENTS.md),
 [piloto y respaldos](docs/PILOTO_Y_RESPALDOS_V06.md), [fuentes](docs/GITHUB_SOURCES_V08.md).
 El historial previo se conserva en [README v0.8](docs/HISTORICAL_README_V08.md).
+
+### Ciclo cerrado de Google Ads
+
+[Instalación, operación y límites del ciclo cerrado](docs/CICLO_CERRADO.md): referencia de WhatsApp, pago declarado, empate de GCLID, aprobación y carga o CSV. El conector fijado exige revisar el acceso vigente de Google antes de activar subidas; las pruebas sintéticas no certifican una cuenta. El fragmento no envía telemetría y no permite contar todos los clics a WhatsApp.
