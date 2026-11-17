@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 import tempfile
 from .adapters import SPECS
-from . import local_runtime, product
+from . import local_runtime, product, tenants
 from .catalog import catalog, graph
 from .common import VerdugoError, encode, identifier
 from .engine import Engine
@@ -198,16 +198,7 @@ def main(argv=None):
                 return 0 if result['state'] == 'succeeded' else 1
         if args.cmd == 'tenant-add':
             if not args.config: raise VerdugoError('tenant-add requires --config')
-            identifier(args.name)
-            path = Path(args.config); data = json.loads(path.read_text())
-            if args.name in data.get('tenants', {}): raise VerdugoError('Tenant already exists')
-            if not args.execute:
-                print(encode({'state': 'planned', 'tenant': args.name, 'services_enabled': 0,
-                              'note': 'Vista previa: agrega --execute para escribirlo en la configuración.'})); return 0
-            data['tenants'][args.name] = template(args.name)['tenants'][args.name]
-            tmp = path.with_name(path.name + '.tmp')
-            tmp.write_text(json.dumps(data, indent=2) + '\n'); os.chmod(tmp, 0o600); os.replace(tmp, path)
-            print(encode({'state': 'applied', 'tenant': args.name, 'services_enabled': 0})); return 0
+            print(encode(tenants.add(args.config, args.name, args.role, args.execute))); return 0
         if args.cmd == 'panel':
             try:
                 from .panel_server import run as panel_run

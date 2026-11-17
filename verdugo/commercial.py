@@ -9,6 +9,7 @@ import json
 import re
 import time
 from .common import VerdugoError, fields, identifier, integer
+from . import subscriptions
 
 SCHEMA = '''
 CREATE TABLE IF NOT EXISTS commercial_events (
@@ -65,6 +66,7 @@ def validate(engine, item):
 
 
 def record(engine, item, execute=False):
+    subscriptions.check(engine)
     if type(execute) is not bool: raise VerdugoError('execute must be boolean')
     normalized = validate(engine, item)
     if not execute:
@@ -78,6 +80,7 @@ def record(engine, item, execute=False):
 
 def persist_in_transaction(engine, normalized):
     """Internal: caller holds engine.transaction() after validate()."""
+    subscriptions.check(engine)
     old = engine.db.execute('SELECT * FROM commercial_events WHERE tenant=? AND event_id=?',
                             (engine.tenant, normalized['event_id'])).fetchone()
     if old:
@@ -139,6 +142,7 @@ def _stats(engine, dataset, window_days):
 
 
 def report(engine, params=None):
+    subscriptions.check(engine)
     params = {'dataset': 'real', 'window_days': 30, 'goal_min': 6, 'goal_target': 10} if params is None else params
     fields(params, ('dataset',), ('window_days', 'goal_min', 'goal_target'))
     goal_min = integer(params.get('goal_min', 6), 1, 10000)
@@ -162,6 +166,7 @@ def report(engine, params=None):
 
 
 def next_actions(engine, params=None):
+    subscriptions.check(engine)
     params = {'dataset': 'real', 'limit': 50} if params is None else params
     fields(params, ('dataset',), ('limit',))
     dataset, limit = params['dataset'], integer(params.get('limit', 50), 1, 200)

@@ -4,7 +4,7 @@ No provider calls, messages, ad purchases or bank reconciliation. The operator
 explicitly declares data; none of this demonstrates commercial success.
 """
 from datetime import date
-from . import commercial, jobs, reconciliation
+from . import commercial, jobs, reconciliation, subscriptions
 from .common import VerdugoError, digest, fields, identifier, text, encode
 
 SCHEMA = '''
@@ -46,6 +46,7 @@ def _prepare(engine, data):
 
 
 def intake(engine, data, execute=False):
+    subscriptions.check(engine)
     if type(execute) is not bool: raise VerdugoError('execute must be boolean')
     lead, entries, fingerprint = _prepare(engine, data)
     if not execute:
@@ -55,6 +56,7 @@ def intake(engine, data, execute=False):
                 'requires_operator':True, 'external_calls_made':False}
     if engine.role != 'operator': raise VerdugoError('Operator role required for local intake')
     with engine.transaction():
+        subscriptions.check(engine)
         row = engine.db.execute('SELECT fingerprint FROM sales_intakes WHERE tenant=? AND lead_id=?',
                                 (engine.tenant, lead['lead_id'])).fetchone()
         if row and row['fingerprint'] != fingerprint:
