@@ -6,24 +6,41 @@ title: Operación local
 
 ## Acceso
 
-Inicia `python -m verdugo --config ~/.verdugo/config.json --state ~/.verdugo/estado.sqlite panel`.
+La primera vez usa `bash scripts/activar.sh --panel --instalar` (Python 3.12 y Node 24.22.1).
+Después inicia `bash scripts/activar.sh --panel`. Para consulta, agrega `--viewer`.
 Copia el token del archivo privado que indica la terminal. No lo pongas en la URL.
 En Codespaces deja el puerto reenviado en **Private**. El proceso escucha solo en 127.0.0.1.
 
 ## Clientes
 
-Crea el tenant con `tenant-add cliente-demo --execute` desde la terminal.
+En Clientes abre «Crear cliente», escribe un identificador y confirma.
+También puedes usar `tenant-add cliente-demo --execute` desde la terminal.
 En Clientes, registra su interruptor: comienza apagado. Registrar pago, Pausar y Reanudar
 requieren operador y una confirmación. Un pago es una declaración, no una revisión bancaria.
 El rol viewer consulta; no tiene botones ni permisos para modificar clientes.
 
 ## Anuncios
 
-Usa `ads-import @reporte.csv --platform google` o `--platform meta` para revisar el archivo.
-Agrega `--execute` para guardarlo y `--dataset demo` si los datos son sintéticos.
+Selecciona el cliente y el conjunto de datos. En Anuncios abre «Importar reporte de anuncios»,
+elige Google o Meta, la moneda y un CSV de hasta 5 MiB. Revisa el periodo y los totales;
+marca la confirmación y guarda. La vista previa no modifica métricas. Cambiar cliente,
+datos, moneda o archivo exige una nueva vista previa. Una reimportación no duplica.
+La CLI `ads-import` sigue disponible con vista previa y `--execute` para guardar.
 Nunca agregues CSV reales al repositorio. El panel compara periodos, grafica métricas y
 exporta el reporte. Las conversiones no son clientes: el costo por cliente usa ventas
 pagadas declaradas del canal paid. Las proyecciones no garantizan ingresos.
+
+## Prospectos, seguimientos y ventas
+
+En Embudo, «Registrar prospecto» guarda su identificador, nombre y correo en tu
+base privada. Comienza identificado: no se marca como contactado ni se envía nada.
+Declara el canal y una referencia de evidencia sin URLs ni datos personales.
+
+En «Registrar avance o venta» elige una etapa. Un seguimiento usa una fecha UTC;
+la lista muestra los pendientes y vencidos. Para una venta, declara importe,
+costos, moneda y referencia. El pago y la venta se guardan juntos o se revierten
+juntos si algo falla. Las ventas de demostración nunca aparecen como reales.
+Al cambiar cliente o conjunto de datos, se descartan los formularios sin guardar.
 
 ## Producto
 

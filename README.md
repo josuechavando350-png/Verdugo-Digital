@@ -2,13 +2,14 @@
 
 Núcleo comercial y de análisis para Nexus Bot Studio. Una sola entrada CLI/MCP,
 un motor de ejecución, flujos con dependencias, permisos locales, auditoría,
-idempotencia y estado SQLite. Versión de ingeniería **0.24.1**.
+idempotencia y estado SQLite. Versión de ingeniería **0.25.0**.
 
 **La integración operativa de los 300 proyectos NO está terminada.** Registrar
 fuentes, implementar operaciones, probarlas y desplegarlas son etapas distintas.
 
-La revisión operativa corrige el bloqueo por suscripción también en la mesa comercial,
-protege el alta de tenants y comparte la importación de anuncios con vista previa.
+La revisión operativa corrige el bloqueo por suscripción en la mesa comercial y
+completa el panel con alta de clientes, importación CSV, prospectos, seguimientos
+y declaración de ventas con pago. Todo usa el mismo motor y SQLite.
 [Alcance comprobable y límites del cierre](docs/CIERRE_OPERATIVO.md).
 
 ## Lote A: motor y anuncios
@@ -41,7 +42,7 @@ Por decisión del dueño (15 nov 2026), Verdugo Digital se queda en **300 piezas
 | Operaciones HTTP existentes | 108, limitadas por proveedor |
 | Operaciones locales implementadas | 159; aceptación de ejecución real exigida por commit |
 | Flujos compuestos de aceptación | Flujo de 87 operaciones nuevas + métricas locales; persistencia y reanudación tras reiniciar Engine |
-| Pruebas unitarias y de contrato | 772 núcleo + 8 API panel + 11 Vitest; navegador en job panel; comprobar CI por commit |
+| Pruebas unitarias y de contrato | 775 núcleo + 13 API panel + 16 Vitest; dos recorridos de navegador en job panel; comprobar CI por commit |
 | Herramientas MCP | 27 (incluye `verdugo_client_status`, solo lectura); product-status/product-run reutilizan el mismo motor |
 | Servicios productivos certificados | 0 |
 

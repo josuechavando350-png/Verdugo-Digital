@@ -190,6 +190,18 @@ el token en el JSON. Consulta `docs/LOTE_A_300.md` para alcance y evidencia.
 Requiere Python 3.12 y Node 24.22.1. Desde la raíz del repositorio:
 
 ```bash
+bash scripts/activar.sh --panel --instalar  # instala dependencias fijadas, compila y abre
+bash scripts/activar.sh --panel            # siguientes veces; no instala nada
+bash scripts/activar.sh --panel --viewer   # consulta, puerto 8767
+```
+
+`--solo-instalar` prepara el panel sin dejar un servidor corriendo. Es el mismo
+recorrido que ejecuta el job del panel en CI. Si falta Node 24.22.1, prepara esa
+versión antes; el script lo comprueba y no instala un runtime distinto por su cuenta.
+Los perfiles de análisis siguen siendo opcionales y se cargan con `source ~/.verdugo/perfiles.env`.
+La instalación manual equivalente sigue disponible:
+
+```bash
 python3.12 -m venv ~/.verdugo/panel-venv
 ~/.verdugo/panel-venv/bin/python -m pip install --no-cache-dir -r panel/requirements.txt -c panel/constraints.txt
 npm ci --prefix panel
@@ -209,10 +221,12 @@ El proceso se enlaza únicamente a 127.0.0.1; no admite otro host de escucha.
 En Codespaces abre Ports, agrega 8766 y conserva la visibilidad **Private**.
 Solo tú debes poder abrir ese reenvío; no elijas Public. No se despliega nada.
 
-Las pantallas usan el mismo SQLite. Cliente nuevo: crea su tenant con la CLI,
-registra su interruptor en Clientes (queda apagado), registra el periodo pagado
-y confirma. El vencimiento se comprueba en el motor, aunque cierres el panel.
-Anuncios consume `ads-report`; importa los archivos por CLI con vista previa.
+Las pantallas usan el mismo SQLite. Cliente nuevo: usa «Crear cliente» en Clientes,
+registra su interruptor (queda apagado), registra el periodo pagado y confirma.
+El vencimiento se comprueba también en la mesa comercial y el MCP, aunque cierres el panel.
+En Anuncios puedes subir el CSV, revisar agregados y confirmar; la CLI sigue disponible.
+En Embudo registra prospectos, etapas y fechas de seguimiento. Para ganar una venta,
+declara su pago, costos y evidencia: pago y venta se guardan juntos, sin revisar el banco.
 Selecciona Demostración para los ejemplos sintéticos. Producto muestra las 300
 piezas libres; 43 componentes siguen sin integración por motivos documentados.
 

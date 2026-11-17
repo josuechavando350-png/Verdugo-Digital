@@ -222,17 +222,16 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '24.22.1'
-      - name: Install optional panel dependencies
+      - name: Exercise explicit operator panel installation
         run: |
-          python -m pip install --no-cache-dir -r panel/requirements.txt -c panel/constraints.txt
-          python -m pip check
-          npm ci --prefix panel
+          export VERDUGO_HOME="$(mktemp -d)"
+          bash scripts/activar.sh --panel --solo-instalar
+          echo "$VERDUGO_HOME/panel-venv/bin" >> "$GITHUB_PATH"
       - name: Verify source manifest, types, UI and static guide
         run: |
           python -m unittest discover -s tests -p 'test_panel_components_v024.py' -v
           npm run check --prefix panel
           npm test --prefix panel
-          npm run build --prefix panel
       - name: Same Engine API and browser lifecycle on loopback
         env:
           PANEL_CHROMIUM: /usr/bin/google-chrome

@@ -8,12 +8,13 @@ export class Api {
   token:string; csrf='';
   constructor(token:string){this.token=token;}
   async get<T>(path:string):Promise<T> {return this.request(path);}
+  async post<T>(path:string,body:Record<string,unknown>):Promise<T> {return this.request(path,body);}
   async change(tenant:string,action:string,body:Record<string,unknown>){return this.request('/clients/'+encodeURIComponent(tenant)+'/'+action,body);}
   private async request<T>(path:string,body?:Record<string,unknown>):Promise<T>{
     if(!path.startsWith('/')||path.startsWith('//'))throw new Error('Ruta inválida');
     const response=await fetch('/api'+path,{method:body?'POST':'GET',cache:'no-store',credentials:'omit',headers:{'X-Verdugo-Token':this.token,...(body?{'Content-Type':'application/json','X-Verdugo-CSRF':this.csrf}:{})},...(body?{body:JSON.stringify(body)}:{})});
     const data=await response.json();
-    if(!response.ok)throw new Error(data.error||'No se pudo completar la consulta');
+    if(!response.ok)throw new Error(data.error||(typeof data.detail==='string'?data.detail:'No se pudo completar la consulta'));
     return data;
   }
 }

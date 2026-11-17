@@ -105,3 +105,28 @@ def desk(engine, params=None):
             'outbound_actions_sent':0, 'external_calls_made':False,
             'payment_reconciliation_available':False,
             'note':'Operator-declared local data only. No provider, bank or commercial-success certification.'}
+
+
+def win(engine, data, execute=False):
+    """Declare a payment and its won event atomically, with existing core rules."""
+    subscriptions.check(engine)
+    if engine.role != 'operator': raise VerdugoError('Operator role required')
+    if type(execute) is not bool: raise VerdugoError('execute must be boolean')
+    fields(data, ('event_id', 'lead_id', 'payment_id', 'dataset', 'channel',
+                  'evidence_ref', 'amount_minor', 'cost_minor', 'currency'))
+    payment = {k: data[k] for k in ('lead_id', 'payment_id', 'dataset', 'evidence_ref',
+                                   'amount_minor', 'cost_minor', 'currency')}
+    engine.validate_core('payment.record', payment)
+    entry = {k: data[k] for k in ('event_id', 'lead_id', 'payment_id', 'channel', 'evidence_ref')}
+    entry['kind'] = 'won'
+    if not execute:
+        return {'state': 'planned', 'tenant': engine.tenant, 'bank_reconciled': False}
+    with engine.transaction():
+        subscriptions.check(engine)
+        engine.core('payment.record', payment)
+        validated = commercial.validate(engine, entry)
+        result = commercial.persist_in_transaction(engine, validated)
+        if not result['replayed']:
+            engine.event(data['payment_id'], 'sales.payment_declared', {
+                'lead_id': data['lead_id'], 'dataset': data['dataset'], 'bank_reconciled': False})
+    return result

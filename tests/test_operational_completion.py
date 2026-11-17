@@ -114,3 +114,44 @@ class CompletionTests(unittest.TestCase):
         subscriptions.register(self.e, 'Cliente demo', execute=True)
         for value in ('20261220', '2026-W50-5', '2026-02-30'):
             with self.assertRaises(VerdugoError): subscriptions.pay(self.e, until=value, execute=True)
+
+    def win_request(self):
+        return dict(event_id='win-demo', lead_id='lead-demo', payment_id='payment-demo',
+                    dataset='demo', channel='paid', evidence_ref='synthetic-win',
+                    amount_minor=120000, cost_minor=20000, currency='MXN')
+
+    def test_win_is_atomic_idempotent_and_scoped_to_supplied_payment(self):
+        office.intake(self.e, LEAD, True)
+        data = self.win_request()
+        self.assertEqual(office.win(self.e, data)['state'], 'planned')
+        self.assertIsNone(self.e.record('payment', 'payment-demo'))
+        self.assertFalse(office.win(self.e, data, True)['replayed'])
+        count = len(self.e.events())
+        self.assertTrue(office.win(self.e, data, True)['replayed'])
+        self.assertEqual(len(self.e.events()), count)
+        report = commercial.report(self.e, {'dataset':'demo'})
+        self.assertEqual(report['reported_paid_clients'], 1)
+        self.assertEqual(report['reported_receipts_by_currency_minor'], {'MXN':120000})
+        self.assertEqual(commercial.report(self.e)['reported_paid_clients'], 0)
+        with self.assertRaises(VerdugoError): office.win(self.e, data|{'amount_minor': 999}, True)
+        self.assertEqual(self.e.record('payment', 'payment-demo')['amount_minor'], 120000)
+
+    def test_rejected_win_rolls_back_payment_and_all_events(self):
+        from unittest.mock import patch
+        office.intake(self.e, LEAD, True)
+        data = self.win_request(); count = len(self.e.events())
+        for invalid in (data|{'channel':'organic'}, data|{'dataset':'real'}, data|{'lead_id':'missing'}):
+            with self.assertRaises(VerdugoError): office.win(self.e, invalid, True)
+            self.assertIsNone(self.e.record('payment', 'payment-demo'))
+        with patch.object(self.e, 'event', side_effect=RuntimeError('audit unavailable')):
+            with self.assertRaises(RuntimeError): office.win(self.e, data, True)
+        self.assertIsNone(self.e.record('payment', 'payment-demo'))
+        self.assertEqual(len(self.e.events()), count)
+        self.assertEqual(commercial.report(self.e, {'dataset':'demo'})['reported_paid_clients'], 0)
+
+    def test_win_rejects_suspended_client_and_viewer(self):
+        office.intake(self.e, LEAD, True)
+        self.e.role = 'viewer'
+        with self.assertRaisesRegex(VerdugoError, 'Operator'): office.win(self.e, self.win_request(), True)
+        self.e.role = 'operator'; subscriptions.register(self.e, 'Cliente demo', execute=True)
+        with self.assertRaisesRegex(VerdugoError, 'apagado'): office.win(self.e, self.win_request(), True)

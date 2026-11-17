@@ -62,7 +62,7 @@ La ejecución se verifica con Vitest, API y navegador en CI.
 | scalar | No | La API no se publica; la guía operativa cubre su uso. |
 | starlight | Sí · 0.43.1 | Compila la guía de operación en español. |
 | bullmq | No | No hay trabajos en cola ni Redis; las operaciones son locales y acotadas. |
-| uppy | No | La importación queda en la CLI con vista previa; no hay carga de archivos web. |
+| uppy | No | El cierre operativo añade CSV con un input nativo, límites y vista previa; no requiere otra biblioteca para subir archivos. |
 | sharp | No | No se procesan imágenes de clientes ni material creativo. |
 | surveyjs | No | No se crean encuestas. |
 | tiptap | No | No hay edición de texto enriquecido. |

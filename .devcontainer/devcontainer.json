@@ -2,6 +2,11 @@
   "name": "Verdugo Digital",
   "image": "mcr.microsoft.com/devcontainers/python:3.12",
   "postCreateCommand": "bash scripts/activar.sh --pruebas",
+  "forwardPorts": [8766, 8767],
+  "portsAttributes": {
+    "8766": {"label": "Verdugo operador", "onAutoForward": "notify"},
+    "8767": {"label": "Verdugo consulta", "onAutoForward": "notify"}
+  },
   "customizations": {
     "vscode": {
       "extensions": ["ms-python.python"]
