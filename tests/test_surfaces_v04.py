@@ -33,7 +33,7 @@ class SurfaceTests(Base):
         self.assertEqual(104,len(SPECS));self.assertEqual(108,sum(len(v) for v in SPECS.values()))
         for sid in surface.ROUTES:
             self.assertEqual(['GET'],[v[0] for v in SPECS[sid].values()])
-        self.assertEqual(27,len(tool_definitions()))
+        self.assertEqual(28,len(tool_definitions()))
 
     def test_bounded_endpoints_queries_and_auth(self):
         expectations={

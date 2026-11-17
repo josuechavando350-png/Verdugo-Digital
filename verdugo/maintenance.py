@@ -54,7 +54,11 @@ def _sync_dir(path):
 
 
 def pending(db):
+    conversions = 0
+    if db.execute("SELECT 1 FROM sqlite_master WHERE name='cycle_uploads'").fetchone():
+        conversions = db.execute("SELECT COUNT(*) FROM cycle_uploads WHERE state IN ('running','uncertain','exporting','exported')").fetchone()[0]
     return {
+        'unresolved_conversions': conversions,
         'unresolved_runs': db.execute("SELECT COUNT(*) FROM runs WHERE state IN ('running','uncertain')").fetchone()[0],
         'unfinished_jobs': db.execute("SELECT COUNT(*) FROM jobs WHERE state != 'succeeded'").fetchone()[0],
     }

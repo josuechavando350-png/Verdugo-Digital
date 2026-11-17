@@ -4,7 +4,8 @@ No provider calls, messages, ad purchases or bank reconciliation. The operator
 explicitly declares data; none of this demonstrates commercial success.
 """
 from datetime import date
-from . import commercial, jobs, reconciliation, subscriptions
+import time
+from . import commercial, jobs, reconciliation, subscriptions, closed_loop
 from .common import VerdugoError, digest, fields, identifier, text, encode
 
 SCHEMA = '''
@@ -16,7 +17,7 @@ CREATE TABLE IF NOT EXISTS sales_intakes (
 
 def _prepare(engine, data):
     fields(data, ('lead_id', 'name', 'email', 'dataset', 'channel', 'evidence_ref'),
-           ('followup_due',))
+           ('followup_due', 'ref_code', 'phone', 'ads_user_data_consent'))
     lid = identifier(data['lead_id'])
     lead = {k: data[k] for k in ('lead_id', 'name', 'email', 'dataset')}
     engine.validate_core('lead.capture', lead)
@@ -41,14 +42,17 @@ def _prepare(engine, data):
                         'lead_id': lid, 'channel': channel,
                         'kind': 'followup_due', 'followup_due': due,
                         'evidence_ref': ref})
-    fingerprint = digest({'tenant': engine.tenant, 'lead': lead, 'events': planned})
-    return lead, planned, fingerprint
+    tracking = closed_loop.attribution(data)
+    base = {'tenant': engine.tenant, 'lead': lead, 'events': planned}
+    if any(tracking.values()): base['attribution'] = tracking
+    fingerprint = digest(base)
+    return lead, planned, fingerprint, tracking
 
 
 def intake(engine, data, execute=False):
     subscriptions.check(engine)
     if type(execute) is not bool: raise VerdugoError('execute must be boolean')
-    lead, entries, fingerprint = _prepare(engine, data)
+    lead, entries, fingerprint, tracking = _prepare(engine, data)
     if not execute:
         return {'state':'planned', 'tenant':engine.tenant,
                 'lead_id':lead['lead_id'], 'dataset':lead['dataset'],
@@ -69,6 +73,8 @@ def intake(engine, data, execute=False):
         # All local operations are in one SQLite transaction. An invalid stage,
         # duplicate ID, audit failure or channel conflict rolls back capture too.
         engine.core('lead.capture', lead)
+        engine.db.execute('INSERT INTO cycle_leads VALUES(?,?,?,?,?,?)',
+            (engine.tenant, lead['lead_id'], tracking['ref_code'], tracking['phone_hash'], int(tracking['consent']), time.time()))
         for entry in entries:
             validated = commercial.validate(engine, entry)
             commercial.persist_in_transaction(engine, validated)
@@ -113,7 +119,8 @@ def win(engine, data, execute=False):
     if engine.role != 'operator': raise VerdugoError('Operator role required')
     if type(execute) is not bool: raise VerdugoError('execute must be boolean')
     fields(data, ('event_id', 'lead_id', 'payment_id', 'dataset', 'channel',
-                  'evidence_ref', 'amount_minor', 'cost_minor', 'currency'))
+                  'evidence_ref', 'amount_minor', 'cost_minor', 'currency'), ('paid_at',))
+    paid_at = closed_loop.payment_time(data['paid_at']) if data.get('paid_at') else None
     payment = {k: data[k] for k in ('lead_id', 'payment_id', 'dataset', 'evidence_ref',
                                    'amount_minor', 'cost_minor', 'currency')}
     engine.validate_core('payment.record', payment)
@@ -126,6 +133,10 @@ def win(engine, data, execute=False):
         engine.core('payment.record', payment)
         validated = commercial.validate(engine, entry)
         result = commercial.persist_in_transaction(engine, validated)
+        if paid_at:
+            old = engine.db.execute('SELECT paid_at FROM cycle_payments WHERE tenant=? AND event_id=?',(engine.tenant,data['event_id'])).fetchone()
+            if old and old['paid_at'] != paid_at: raise VerdugoError('Hora del pago ya registrada; no puede cambiar en replay')
+            engine.db.execute('INSERT OR IGNORE INTO cycle_payments VALUES(?,?,?)',(engine.tenant,data['event_id'],paid_at))
         if not result['replayed']:
             engine.event(data['payment_id'], 'sales.payment_declared', {
                 'lead_id': data['lead_id'], 'dataset': data['dataset'], 'bank_reconciled': False})
