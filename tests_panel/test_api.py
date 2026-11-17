@@ -146,3 +146,24 @@ class PanelAPI(unittest.TestCase):
         for path in ('/api/tenants','/api/ads/import','/api/sales/intake','/api/sales/event','/api/sales/win'):
             self.assertEqual(viewer.post(path,json={},headers=self.headers).status_code,403)
             self.assertEqual(self.client.post(path,json={},headers=self.headers|{'Origin':'https://evil.invalid'}).status_code,403)
+
+    def test_installation_and_complete_backup_require_private_config_and_confirmation(self):
+        self.cfg.chmod(0o600)
+        before=self.client.get('/api/installation',headers=self.headers)
+        self.assertEqual(before.status_code,200)
+        self.assertFalse(next(c for c in before.json()['checks'] if c['id']=='recent_backup')['ok'])
+        route='/api/maintenance/backup'
+        self.assertEqual(self.client.post(route,json={'confirm':False},headers=self.headers).status_code,400)
+        self.assertEqual(self.client.post(route,json={'confirm':True,'to':'/tmp/forbidden'},headers=self.headers).status_code,400)
+        saved=self.client.post(route,json={'confirm':True},headers=self.headers)
+        self.assertEqual(saved.status_code,200,saved.text)
+        from verdugo.maintenance import verify_set
+        self.assertTrue(verify_set(saved.json()['saved_directory'])['restore_allowed'])
+        after=self.client.get('/api/installation',headers=self.headers)
+        self.assertTrue(next(c for c in after.json()['checks'] if c['id']=='recent_backup')['ok'])
+        self.assertFalse(after.json()['commercial_results_verified'])
+        self.assertNotIn('demo@example.invalid',after.text)
+        viewer=TestClient(create_app(self.cfg,str(self.state),TOKEN,role='viewer'),base_url='http://127.0.0.1:8766');self.addCleanup(viewer.close)
+        self.assertEqual(viewer.post(route,json={'confirm':True},headers=self.headers).status_code,403)
+        self.assertEqual(self.client.post(route,json={'confirm':True},headers=self.headers|{'Origin':'https://evil.invalid'}).status_code,403)
+        self.assertEqual(self.client.post('/api/maintenance/restore',json={},headers=self.headers).status_code,404)

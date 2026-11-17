@@ -54,3 +54,36 @@ con el manifiesto y sus pruebas; no se suman importaciones vacías.
 No se envía telemetría ni se usan CDNs. La sesión y los datos consultados están en
 memoria del navegador. Al salir se vacían. El reporte exportado es privado: guárdalo
 fuera de Git. No hay un MCP remoto ni hosting público.
+
+## Revisar, respaldar y recuperar
+
+En **Producto → Estado de tu instalación** revisa configuración privada, integridad
+de la base, panel compilado, trabajos por conciliar y respaldo reciente. Un resultado
+correcto cubre esta instalación; las cuentas reales y las ventas se verifican aparte.
+
+El operador puede marcar la confirmación y pulsar **Crear respaldo local**. Incluye
+configuración y datos de todos los clientes, sin cifrar. El resultado indica dónde
+se guardó. No lo subas a Git. Conserva aparte las claves de variables de entorno y
+los perfiles; la copia no los incluye. Para protección ante pérdida del equipo,
+conserva también una copia cifrada fuera de él.
+
+La recuperación se hace fuera del panel. Detén panel, ingress y workers, verifica
+la copia y usa un destino nuevo dentro de una carpeta privada:
+
+```sh
+python3 -m verdugo verify-product-backup --directory ~/.verdugo/respaldos.local/ID
+python3 -m verdugo restore-product --from ~/.verdugo/respaldos.local/ID --to ~/.verdugo/recuperado
+python3 -m verdugo restore-product --from ~/.verdugo/respaldos.local/ID --to ~/.verdugo/recuperado --execute
+VERDUGO_HOME="$HOME/.verdugo/recuperado" bash scripts/activar.sh --panel --instalar
+```
+
+Sustituye `ID` por la carpeta indicada al guardar. La vista previa no cambia nada.
+La recuperación conserva pagos y ventas, apaga servicios y exige revisar trabajos
+inciertos. No sobrescribe la base original ni reanuda actividad externa. Comprueba
+los datos antes de encender servicios. No operes dos copias a la vez.
+
+Para actualizar, conserva el paquete anterior y un respaldo antes de detener la
+operación. Extrae la versión nueva en otra carpeta, instálala y revisa los datos.
+Si falla, recupera la copia en un directorio nuevo para usar la versión anterior;
+contrasta los cambios posteriores al respaldo antes de continuar. Las instrucciones
+completas están en `docs/ENTREGA_LOCAL.md` dentro del paquete.

@@ -233,3 +233,11 @@ piezas libres; 43 componentes siguen sin integración por motivos documentados.
 Las descargas JSON/RSS pueden contener datos privados: consérvalas fuera de Git.
 La guía integrada está en `/es/operacion/`. No hay llamadas a modelos, CDNs ni
 telemetría de navegador. No se ofrece funcionamiento desconectado del motor.
+
+## 8. Paquete instalable, respaldos y recuperación
+
+La entrega 0.26 añade un paquete con el panel ya compilado para Linux/Python 3.12:
+el operador no necesita Git, Node ni npm. En **Producto** hay una revisión local de
+la instalación y un respaldo completo con confirmación del operador. Consulta
+[ENTREGA_LOCAL.md](ENTREGA_LOCAL.md) para descargar el artefacto de CI, instalar,
+recuperar en un directorio nuevo y actualizar conservando la versión anterior.

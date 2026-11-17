@@ -232,6 +232,17 @@ jobs:
           python -m unittest discover -s tests -p 'test_panel_components_v024.py' -v
           npm run check --prefix panel
           npm test --prefix panel
+      - name: Package and accept extracted local distribution without development tools
+        run: |
+          python scripts/package_release.py --output dist-release
+          python scripts/accept_release.py dist-release/verdugo-digital-*.tar.gz > dist-release/acceptance.json
+      - name: Preserve tested local product bundle
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: verdugo-local-${{ github.sha }}
+          path: dist-release/
+          retention-days: 30
+          if-no-files-found: error
       - name: Same Engine API and browser lifecycle on loopback
         env:
           PANEL_CHROMIUM: /usr/bin/google-chrome

@@ -69,3 +69,17 @@ test('mobile workday creates a client, imports CSV and records a paid sale',asyn
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  expect(errors).toEqual([]);
 });
+
+
+test('mobile installation check and confirmed private backup',async({page,browser})=>{
+ await page.goto('http://127.0.0.1:8766');await page.getByLabel('Token de acceso local').fill(token);await page.getByRole('button',{name:'Entrar al panel'}).click();
+ await page.getByRole('button',{name:'Producto',exact:true}).click();await expect(page.getByRole('heading',{name:'Estado de tu instalación'})).toBeVisible();
+ const button=page.getByRole('button',{name:'Crear respaldo local'});await expect(button).toBeDisabled();
+ await page.getByLabel('Confirmo guardar el respaldo privado de todos los clientes.').check();await button.click();
+ await expect(page.getByRole('status')).toContainText('Respaldo guardado y verificado');await expect(page.getByText('Comprobaciones locales correctas',{exact:false})).toBeVisible();
+ await expect(button).toBeDisabled();expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ const shots=process.env.PANEL_SCREENSHOTS||join(import.meta.dirname,'../../docs/capturas-panel');await mkdir(shots,{recursive:true});
+ await page.getByRole('heading',{name:'Estado de tu instalación'}).scrollIntoViewIfNeeded();await page.screenshot({path:join(shots,'mantenimiento-movil.png')});
+ const viewer=await browser.newPage({viewport:{width:390,height:844}});await viewer.goto('http://127.0.0.1:8767');await viewer.getByLabel('Token de acceso local').fill(token);await viewer.getByRole('button',{name:'Entrar al panel'}).click();
+ await viewer.getByRole('button',{name:'Producto',exact:true}).click();await expect(viewer.getByRole('heading',{name:'Estado de tu instalación'})).toBeVisible();await expect(viewer.getByRole('button',{name:'Crear respaldo local'})).toHaveCount(0);await viewer.close();
+});

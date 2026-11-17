@@ -18,7 +18,7 @@ from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from .common import VerdugoError, fields, identifier, integer
 from .engine import Engine
-from . import ads, commercial, local_runtime, product, subscriptions, tenants, office
+from . import ads, commercial, local_runtime, product, subscriptions, tenants, office, maintenance
 from .diagnostics import doctor
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -184,6 +184,17 @@ def create_app(config_path, state_path, token, role='operator', host='127.0.0.1:
             overview=product.overview(e)
             availability=local_runtime.inventory()
             return {'product':overview,'runtime':availability,'doctor':doctor(e)}
+    @app.get('/api/installation')
+    def installation():
+        with engine(sorted(configuration()['tenants'])[0]) as e:
+            return maintenance.readiness(e, config_path, folder)
+    @app.post('/api/maintenance/backup')
+    async def backup_product(request:Request):
+        body = await body_json(request)
+        fields(body, ('confirm',))
+        if body['confirm'] is not True: raise VerdugoError('Confirma explícitamente el respaldo de todos los clientes')
+        with lock, engine(sorted(configuration()['tenants'])[0]) as e:
+            return maintenance.create_set(e, config_path)
     @app.get('/api/events')
     def events(tenant:str='nexus'):
         with engine(tenant) as e:

@@ -9,7 +9,7 @@ from . import local_runtime, product, tenants
 from .catalog import catalog, graph
 from .common import VerdugoError, encode, identifier
 from .engine import Engine
-from . import workflow, jobs, reconciliation, readback, surface, recovery, commercial, pilot, backups, office, source_evidence, license_policy, connections, subscriptions, ads
+from . import workflow, jobs, reconciliation, readback, surface, recovery, commercial, pilot, backups, office, source_evidence, license_policy, connections, subscriptions, ads, maintenance
 from .ingress import make_server
 from .bridge import contact_bridge
 from .diagnostics import doctor
@@ -157,6 +157,11 @@ def main(argv=None):
     p = sub.add_parser('pilot'); p.add_argument('input'); p.add_argument('--execute', action='store_true')
     p = sub.add_parser('backup-local'); p.add_argument('--to', required=True)
     p = sub.add_parser('verify-backup'); p.add_argument('--file', required=True)
+    p = sub.add_parser('backup-product'); p.add_argument('--to')
+    p = sub.add_parser('verify-product-backup'); p.add_argument('--directory', required=True)
+    p = sub.add_parser('restore-product'); p.add_argument('--from', dest='source', required=True)
+    p.add_argument('--to', required=True); p.add_argument('--execute', action='store_true')
+    sub.add_parser('installation-check')
     p = sub.add_parser('panel'); p.add_argument('--port', type=int, default=8766)
     p = sub.add_parser('ingress-local'); p.add_argument('--port', type=int, default=8765)
     p = sub.add_parser('tenant-add', help='Add a client tenant to --config with every service off')
@@ -176,7 +181,8 @@ def main(argv=None):
     engine = None
     try:
         if args.cmd == 'init':
-            with open(args.out, 'x') as f: f.write(json.dumps(template(args.tenant), indent=2)+'\n')
+            fd = os.open(Path(args.out).expanduser(), os.O_WRONLY | os.O_CREAT | os.O_EXCL | os.O_NOFOLLOW, 0o600)
+            with os.fdopen(fd, 'w') as f: f.write(json.dumps(template(args.tenant), indent=2)+'\n')
             print(encode({'created': args.out, 'registered': len(catalog()), 'enabled': 0})); return 0
         if args.cmd == 'catalog': print(encode(catalog())); return 0
         if args.cmd == 'sources': print(encode(source_evidence.report())); return 0
@@ -189,6 +195,10 @@ def main(argv=None):
         if args.cmd == 'source-inspect': print(encode(source_evidence.report(args.project_id))); return 0
         if args.cmd == 'graph': print(encode(graph(SPECS))); return 0
         if args.cmd == 'verify-backup': print(encode(backups.verify(args.file))); return 0
+        if args.cmd == 'verify-product-backup':
+            print(encode(maintenance.verify_set(args.directory))); return 0
+        if args.cmd == 'restore-product':
+            print(encode(maintenance.restore_set(args.source, args.to, args.role, args.execute))); return 0
         if args.cmd == 'demo':
             with tempfile.TemporaryDirectory(prefix='verdugo-demo-') as directory:
                 engine = Engine(Path(directory)/'demo.sqlite3')
@@ -206,6 +216,8 @@ def main(argv=None):
                 raise VerdugoError('Instala las dependencias del panel: python -m pip install -r panel/requirements.txt') from None
             panel_run(args.config, args.state, args.role, args.port)
             return 0
+        if args.cmd in ('backup-product', 'installation-check') and not args.config:
+            raise VerdugoError('Se requiere --config para comprobar o respaldar el producto')
         config = json.loads(Path(args.config).expanduser().read_text()) if args.config else None
         engine = Engine(str(Path(args.state).expanduser()) if args.state != ':memory:' else args.state, config, args.tenant, args.actor, args.role)
         if args.cmd == 'ingress-local':
@@ -243,6 +255,10 @@ def main(argv=None):
         elif args.cmd == 'sales-desk': result = office.desk(engine, read_json(args.input) if args.input else None)
         elif args.cmd == 'pilot': result = pilot.check(engine, read_json(args.input), args.execute)
         elif args.cmd == 'backup-local': result = backups.create(engine, args.to)
+        elif args.cmd == 'backup-product': result = maintenance.create_set(engine, args.config, args.to)
+        elif args.cmd == 'installation-check':
+            result = maintenance.readiness(engine, args.config, Path(__file__).resolve().parents[1]/'panel/dist')
+            print(encode(result)); return 0 if result['state'] == 'local_checks_passed' else 1
         elif args.cmd == 'commercial-record':
             if args.input is None: raise VerdugoError('commercial-record requires an event')
             result = commercial.record(engine, read_json(args.input), args.execute)
