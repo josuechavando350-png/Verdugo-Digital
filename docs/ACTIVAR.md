@@ -151,12 +151,18 @@ y extracción temporal. No hay una medición observada en Codespaces todavía.
 
 ## 7. Importar un reporte de anuncios y consultarlo
 
-Exporta **por día y campaña**, UTF-8, máximo 5 MiB, sin columnas de personas.
-Se reconocen encabezados en español e inglés: día, campaña, costo, clics,
-impresiones, conversiones y acción de conversión. Google: `Day,Campaign,Cost,Clicks,Impressions,Conversions`.
-Meta: `Día,Nombre de la campaña,Importe gastado (MXN),Clics (todos),Impresiones,Resultados`.
-Exporta sin separadores de miles; acepta punto o coma decimal y separador CSV coma,
-punto y coma o tabulador. Fechas ISO `YYYY-MM-DD`. No admite preámbulos ni filas de totales.
+Súbelo **tal como lo descargas**, segmentado **por día y campaña**, máximo 5 MiB.
+
+- **Google Ads:** en Campañas, agrega el segmento *Tiempo → Día* y descarga en CSV o "CSV para Excel".
+  Se ignoran solos el título, el rango de fechas, las filas "Total: …" y columnas extra
+  (CTR, CPC, estado, etc.). Los números con separador de miles (`1,234.56`) y los `--` se leen bien.
+- **Meta:** en el Administrador de anuncios, desglose *Por tiempo → Día* y exporta en CSV.
+  Si no hay "Clics (todos)", se usan "Clics en el enlace". "Resultados" vacíos cuentan como 0.
+- **Fechas:** `2026-11-01`, `1 nov 2026`, `Nov 1, 2026` o `13/11/2026`. Si todas las fechas
+  con diagonal pueden leerse como día/mes o mes/día (por ejemplo `01/11/2026`), se rechaza el archivo
+  para no adivinar: expórtalo con fechas AAAA-MM-DD.
+- **Se rechaza** cualquier columna que parezca dato personal (correo, teléfono, nombre completo,
+  dirección, GCLID). Nada del archivo se guarda: solo totales por día y campaña, sin nombres.
 
 ```bash
 python -m verdugo --config ~/.verdugo/config.json --state ~/.verdugo/estado.sqlite --tenant cliente-demo ads-import @reporte.csv --platform google --currency MXN
